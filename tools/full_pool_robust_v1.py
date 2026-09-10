@@ -42,4 +42,4 @@ def refine(initial, source, target, thresholds):
 
 
 def full_pool_refine(initial, source, target):
-    return refine(initial, source, target, (2.0, 1.2, 0.8, 0.6))
+    return refine(initial, source, target, (1.2, 0.6))

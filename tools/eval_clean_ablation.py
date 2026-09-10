@@ -12,7 +12,7 @@ from torch.utils.data import DataLoader, Dataset
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from full_pool_robust_v1 import refine
+from full_pool_robust_v1 import full_pool_refine
 from data.NCLTVelodyne_datagenerator_mink import NCLT_mink
 from models.model_mink import LEADER
 from models.sc2pcr import Matcher
@@ -100,8 +100,8 @@ def parse_args():
     parser.add_argument(
         "--methods",
         nargs="+",
-        choices=("baseline", "released_refine", "top_refine", "full_refine"),
-        default=("baseline", "released_refine", "top_refine", "full_refine"),
+        choices=("baseline", "full_refine"),
+        default=("baseline", "full_refine"),
     )
     return parser.parse_args()
 
@@ -158,22 +158,9 @@ def main():
                 keep = max(min(50, reliability.numel()), int(0.5 * reliability.numel()))
                 top = torch.topk(reliability, keep).indices
                 initial = matcher.estimator(source[top][None], target[top][None])[0]
-                top_budget = top[: min(3000, top.numel())]
                 poses = {"baseline": initial}
-                if "released_refine" in names:
-                    poses["released_refine"] = matcher.post_refinement(
-                        initial[None], source[top_budget][None], target[top_budget][None], 20
-                    )[0]
-                if "top_refine" in names:
-                    poses["top_refine"], _ = refine(
-                        initial, source[top_budget], target[top_budget],
-                        (1.2, 0.8, 0.6),
-                    )
                 if "full_refine" in names:
-                    poses["full_refine"], _ = refine(
-                        initial, source, target,
-                        (2.0, 1.2, 0.8, 0.6),
-                    )
+                    poses["full_refine"], _ = full_pool_refine(initial, source, target)
                 correction = batch["T_corr"][position].cuda().float()
                 ground_truth = batch["T"][position].cuda().float()
                 for name in names:
