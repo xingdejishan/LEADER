@@ -75,6 +75,8 @@ def get_args(is_main_process=True):
                         help='max range of points, default: Oxford 100, NCLT 100')
     parser.add_argument('--resume_model', type=str, default='',
                         help='If present, restore checkpoint and resume training')
+    parser.add_argument('--refine_head', action='store_true',
+                        help='Freeze the LEADER backbone and train only the coordinate refinement head')
 
     FLAGS = parser.parse_args()
     args = vars(FLAGS)
@@ -204,6 +206,25 @@ def load_checkpoint(path, accelerator, process_info):
     process_info['center_t'] = info['center_t']
 
 
+def load_frozen_backbone(model, path):
+    # Refinement-head training starts from a released LEADER checkpoint
+    # (accelerate save_state format, model.safetensors). Only backbone weights
+    # are restored: the refinement head keeps its zero-init (delta_c == 0), and
+    # optimizer/scheduler/epoch state is not resumed.
+    weights_file = os.path.join(path, 'model.safetensors')
+    print("Loading frozen backbone from", weights_file)
+    from safetensors.torch import load_file
+    state = load_file(weights_file)
+    missing, unexpected = model.load_state_dict(state, strict=False)
+    print("missing keys (refinement head, zero-init expected):", missing)
+    print("unexpected keys:", unexpected)
+    if unexpected:
+        raise RuntimeError("Unexpected keys when loading backbone: {}".format(unexpected))
+    if missing and not all(k.startswith('refinement_head.') for k in missing):
+        raise RuntimeError("Backbone keys missing from checkpoint: {}".format(
+            [k for k in missing if not k.startswith('refinement_head.')]))
+
+
 def save_checkpoint(path, accelerator, process_info):
     accelerator.save_state(path)
     with open(os.path.join(path, 'extra.json'), 'w') as f:
@@ -239,10 +260,17 @@ def train():
 
     train_writer = SummaryWriter(os.path.join(FLAGS.log_dir, 'train'))
     val_writer = SummaryWriter(os.path.join(FLAGS.log_dir, 'valid'))
-    model = LEADER(in_channels=3, 
-                   out_channels=4, 
-                   feat_channels=512, 
-                   width=FLAGS.horizontal_res)
+    model = LEADER(in_channels=3,
+                   out_channels=4,
+                   feat_channels=512,
+                   width=FLAGS.horizontal_res,
+                   use_refinement=FLAGS.refine_head)
+    if FLAGS.refine_head:
+        # freeze the pretrained LEADER; only the refinement head is trainable
+        for param in model.parameters():
+            param.requires_grad = False
+        for param in model.refinement_head.parameters():
+            param.requires_grad = True
     loss_fn = TRR(scale=10.0)
     ransac = Matcher(inlier_threshold=2.0,
                      d_thre=2,
@@ -254,8 +282,9 @@ def train():
 
     optimizer = torch.optim.Adam(
         [
-            {'params': model.parameters(), 'lr': FLAGS.init_learning_rate}
-        ], 
+            {'params': model.refinement_head.parameters() if FLAGS.refine_head else model.parameters(),
+             'lr': FLAGS.init_learning_rate}
+        ],
         FLAGS.init_learning_rate
     )
 
@@ -265,7 +294,10 @@ def train():
     process_info = {'epoch': -1, 'train_iter': 0, 'val_iter': 0, 'center_t': center_t.tolist()}
     resume_dir = FLAGS.resume_model
     if resume_dir:
-        load_checkpoint(resume_dir, accelerator, process_info)
+        if FLAGS.refine_head:
+            load_frozen_backbone(accelerator.unwrap_model(model), resume_dir)
+        else:
+            load_checkpoint(resume_dir, accelerator, process_info)
     
     starting_epoch = process_info['epoch'] + 1
     
@@ -326,7 +358,13 @@ def process_one_epoch(
     )
 
     if train:
-        model.train()
+        if FLAGS.refine_head:
+            # frozen LEADER must stay in eval (BN running stats untouched);
+            # only the refinement head enters train mode
+            model.eval()
+            model.refinement_head.train()
+        else:
+            model.train()
         context_manager = nullcontext()
     else:
         model.eval()
@@ -348,7 +386,7 @@ def process_one_epoch(
 
         batch_size = gt_T.shape[0]
 
-        with context_manager:   
+        with context_manager:
             enc = model.encoder(input)
             enc_C = enc.C
             enc_F = enc.F
@@ -361,7 +399,19 @@ def process_one_epoch(
             voxel_centers_l = polar_expansion_to_cartesian(voxel_centers, FLAGS.horizontal_res * voxel_size)    # local
             voxel_centers_w = (voxel_centers_l[:, None] @ gt_T_corr[batch_idx, :3, :3].permute(0, 2, 1))[:, 0] + gt_T_corr[batch_idx, :3, 3] - center_t
 
-            pred_f = model.decoder(enc_F)
+            if FLAGS.refine_head:
+                with torch.no_grad():
+                    h, coarse_out = model.decoder.forward_with_feature(enc_F)
+                    h = h.detach()
+                    coarse_out = coarse_out.detach()
+            else:
+                pred_f = model.decoder(enc_F)
+
+        if FLAGS.refine_head:
+            # gradient reaches only the refinement head through delta_c
+            with torch.set_grad_enabled(train):
+                delta_c = model.refinement_head(h)
+            pred_f = torch.cat([coarse_out[:, :3] + delta_c, coarse_out[:, 3:4]], dim=1)
 
         if train:
             loss_t_weighted, loss_t = loss_fn(voxel_centers_w,

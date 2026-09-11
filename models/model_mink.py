@@ -480,10 +480,50 @@ class MMRegressor(nn.Module):
             mlp_x = block["mlp"](input_x)
             mlp_max = mlp_x.view(*mlp_x.shape[:-1], self.head_channels, self.head_num).max(dim=-1)[0]
             input_x = self.relu(block["norm"](input_x + mlp_max))
-            
+
         pred_x = self.pred_out(input_x)
 
         return pred_x
+
+    def forward_with_feature(self, x: Tensor) -> Tuple[Tensor, Tensor]:
+        # h: 512-d feature immediately before the final Linear(head_channels, out_channels)
+        input_x = self.proj_in(x)
+
+        for block in self.blocks:
+            mlp_x = block["mlp"](input_x)
+            mlp_max = mlp_x.view(*mlp_x.shape[:-1], self.head_channels, self.head_num).max(dim=-1)[0]
+            input_x = self.relu(block["norm"](input_x + mlp_max))
+
+        feat = input_x
+        for layer in self.pred_out[:-1]:
+            feat = layer(feat)
+        pred_x = self.pred_out[-1](feat)
+
+        return feat, pred_x
+
+
+class RefinementHead(nn.Module):
+    # delta_c = W2 LeakyReLU(W1 h + b1) + b2, added to the coarse coordinate
+    def __init__(
+        self,
+        feat_channels: int = 512,
+        hidden_channels: int = 128,
+        out_channels: int = 3,
+    ) -> None:
+        super().__init__()
+        self.fc1 = nn.Linear(feat_channels, hidden_channels)
+        self.act = nn.LeakyReLU(inplace=False)
+        self.fc2 = nn.Linear(hidden_channels, out_channels)
+        self.init_weights()
+
+    def init_weights(self):
+        nn.init.kaiming_uniform_(self.fc1.weight, a=0.01, nonlinearity='leaky_relu')
+        nn.init.zeros_(self.fc1.bias)
+        nn.init.zeros_(self.fc2.weight)
+        nn.init.zeros_(self.fc2.bias)
+
+    def forward(self, h: Tensor) -> Tensor:
+        return self.fc2(self.act(self.fc1(h)))
 
 
 class LEADER(nn.Module):
@@ -492,6 +532,7 @@ class LEADER(nn.Module):
         out_channels: int = 3,
         feat_channels: int = 512,
         width: int = 1024,
+        use_refinement: bool = False,
     ) -> None:
         super().__init__()
         self.encoder = RPGE(
@@ -503,12 +544,13 @@ class LEADER(nn.Module):
             width=width,
         )
         self.decoder = MMRegressor(
-            feat_channels=feat_channels, 
-            head_channels=feat_channels, 
-            out_channels=out_channels, 
+            feat_channels=feat_channels,
+            head_channels=feat_channels,
+            out_channels=out_channels,
             head_num=4,
             layers=5,
         )
+        self.refinement_head = RefinementHead(feat_channels=feat_channels) if use_refinement else None
 
     def forward(self, input):
         raise NotImplementedError
