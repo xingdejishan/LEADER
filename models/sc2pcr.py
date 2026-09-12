@@ -70,7 +70,7 @@ class Matcher():
 
         return return_idx
 
-    def cal_seed_trans(self, seeds, SC2_measure, src_keypts, tgt_keypts):
+    def cal_seed_trans(self, seeds, SC2_measure, src_keypts, tgt_keypts, return_hypotheses=False):
         """
         Calculate the transformation for each seeding correspondences.
         Input:
@@ -80,6 +80,8 @@ class Matcher():
             - tgt_keypts:    [bs, num_corr, 3]
         Output: leading eigenvector
             - final_trans:       [bs, 4, 4]             best transformation matrix (after post refinement) for each batch.
+            - (optionally) seedwise_trans [bs, num_seeds, 4, 4] and seedwise_fitness [bs, num_seeds]
+              for the fusion fallback hypothesis pool.
         """
         bs, num_corr, num_channels = SC2_measure.shape[0], SC2_measure.shape[1], SC2_measure.shape[2]
         k1 = self.k1
@@ -175,6 +177,8 @@ class Matcher():
         best_guess_ratio = seedwise_fitness[0, batch_best_guess]
         final_trans = seedwise_trans.gather(dim=1,index=batch_best_guess[:, None, None, None].expand(-1, -1, 4, 4)).squeeze(1)
 
+        if return_hypotheses:
+            return final_trans, seedwise_trans, seedwise_fitness
         return final_trans
 
     def cal_leading_eigenvector(self, M, method='power'):
@@ -311,7 +315,7 @@ class Matcher():
 
         return src_keypts_corr, tgt_keypts_corr
 
-    def SC2_PCR(self, src_keypts, tgt_keypts):
+    def SC2_PCR(self, src_keypts, tgt_keypts, return_hypotheses=False):
         # print(src_keypts.shape)
         # print(tgt_keypts.shape)
         """
@@ -320,7 +324,7 @@ class Matcher():
             - tgt_keypts: [bs, num_corr, 3]
         Output:
             - pred_trans:   [bs, 4, 4], the predicted transformation matrix.
-            - pred_labels:  [bs, num_corr], the predicted inlier/outlier label (0,1), for classification loss calculation.
+            - (optionally) the seedwise hypothesis pool, see cal_seed_trans.
         """
         bs, num_corr = src_keypts.shape[0], tgt_keypts.shape[1]
 
@@ -366,18 +370,21 @@ class Matcher():
         #################################
         # compute the seed-wise transformations and select the best one
         #################################
-        final_trans = self.cal_seed_trans(seeds, SC2_measure, src_keypts, tgt_keypts)
+        final_trans = self.cal_seed_trans(seeds, SC2_measure, src_keypts, tgt_keypts,
+                                          return_hypotheses=return_hypotheses)
 
         return final_trans
 
-    def estimator(self, src_keypts_corr, tgt_keypts_corr):
+    def estimator(self, src_keypts_corr, tgt_keypts_corr, return_hypotheses=False):
         """
         Input:
             - src_keypts_corr: [bs, num_corr, 3]
             - tgt_keypts_corr: [bs, num_corr, 3]
         Output:
             - pred_trans:   [bs, 4, 4], the predicted transformation matrix
+            - (optionally) the seedwise hypothesis pool, see cal_seed_trans
         """
 
-        pred_trans = self.SC2_PCR(src_keypts_corr, tgt_keypts_corr)
+        pred_trans = self.SC2_PCR(src_keypts_corr, tgt_keypts_corr,
+                                  return_hypotheses=return_hypotheses)
         return pred_trans

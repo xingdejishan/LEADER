@@ -75,6 +75,10 @@ def get_args(is_main_process=True):
                         help='max range of points, default: Oxford 100, NCLT 100')
     parser.add_argument('--resume_model', type=str, default='',
                         help='If present, restore checkpoint and resume training')
+    parser.add_argument('--export_fusion_pool', type=str, default='',
+                        help='Directory for per-frame full correspondence pool exports (test mode, single-process NCLT)')
+    parser.add_argument('--export_seedwise', type=int, default=8,
+                        help='Number of pose-diverse SC2-PCR seedwise hypotheses stored with each export')
 
     FLAGS = parser.parse_args()
     args = vars(FLAGS)
@@ -386,21 +390,56 @@ def process_one_epoch(
             with autocast(enabled=False):
                 for i in range(batch_size):
                     batch_mask = batch_idx == i
-                    c_pred = pred_f[batch_mask, :3].float()
-                    u_pred = pred_f[batch_mask, 3].float()
-                    c_local = voxel_centers_l[batch_mask, :3].float()
-                    c_gt = voxel_centers_w[batch_mask, :3].float()
+                    c_pred_all = pred_f[batch_mask, :3].float()
+                    u_pred_all = pred_f[batch_mask, 3].float()
+                    c_local_all = voxel_centers_l[batch_mask, :3].float()
+                    c_gt_all = voxel_centers_w[batch_mask, :3].float()
 
-                    # select top-50%
-                    _, indices = u_pred.topk(k=max(min(50, u_pred.shape[0]), int(0.5*u_pred.shape[0])))
-                    c_pred = c_pred[indices]
-                    c_local = c_local[indices]
-                    c_gt = c_gt[indices]
+                    # select top-50% (the full pool above stays available for the fusion fallback)
+                    _, indices = u_pred_all.topk(k=max(min(50, u_pred_all.shape[0]), int(0.5*u_pred_all.shape[0])))
+                    c_pred = c_pred_all[indices]
+                    c_local = c_local_all[indices]
+                    c_gt = c_gt_all[indices]
 
-                    T = ransac.estimator(c_local[None], c_pred[None])[0]
+                    if FLAGS.export_fusion_pool:
+                        T_final, seedwise_trans, seedwise_fitness = ransac.estimator(
+                            c_local[None], c_pred[None], return_hypotheses=True)
+                    else:
+                        T_final = ransac.estimator(c_local[None], c_pred[None])
+                    T = T_final[0]
                     T[:3, 3] += center_t
                     T = T @ (T_corr[i])
-                    
+
+                    if FLAGS.export_fusion_pool:
+                        if accelerator.num_processes != 1 or FLAGS.dataset != 'NCLT':
+                            raise ValueError('fusion pool export requires single-process NCLT evaluation')
+                        from pathlib import Path as _Path
+                        from research.glace_fusion.packet import diverse_poses
+                        scan_path = _Path(data_loader.dataset.pcs[step * FLAGS.val_batch_size + i])
+                        out_dir = _Path(FLAGS.export_fusion_pool) / scan_path.parent.parent.name
+                        out_dir.mkdir(parents=True, exist_ok=True)
+                        payload = dict(
+                            c_local_all=c_local_all.cpu().numpy().astype(np.float32),
+                            c_pred_all=c_pred_all.cpu().numpy().astype(np.float32),
+                            u_pred_all=u_pred_all.cpu().numpy().astype(np.float32),
+                            T_corr=T_corr[i].cpu().numpy().astype(np.float64),
+                            center_t=center_t.cpu().numpy().astype(np.float64),
+                            T_WB=T.cpu().numpy().astype(np.float64),
+                            T_WB_gt=gt_T[i].cpu().numpy().astype(np.float64),
+                            top_indices=indices.cpu().numpy().astype(np.int64),
+                            scan_timestamp_us=np.int64(scan_path.stem),
+                        )
+                        if FLAGS.export_seedwise:
+                            seeds_wb = []
+                            for T_seed in seedwise_trans[0].cpu().numpy():
+                                T_seed = T_seed.copy()
+                                T_seed[:3, 3] += center_t.cpu().numpy()
+                                T_seed = T_seed @ T_corr[i].cpu().numpy()
+                                seeds_wb.append(T_seed)
+                            payload['seedwise_T_WB'] = np.stack(
+                                diverse_poses(seeds_wb, FLAGS.export_seedwise)).astype(np.float64)
+                        np.savez_compressed(out_dir / (scan_path.stem + '.npz'), **payload)
+
                     pred_T.append(T)
             end = time.time()
             process_info['val_iter'] += 1
