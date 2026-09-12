@@ -1,0 +1,43 @@
+{
+  "frames": 303,
+  "groups": {
+    "all": {
+      "frames": 303,
+      "total_points": 895971,
+      "mean_frame_q10": 0.14535738321887648,
+      "median_frame_angle_deg": 5.767622911334438
+    },
+    "sparse_supported": {
+      "frames": 301,
+      "total_points": 164188,
+      "mean_frame_q10": 0.31432315359723406,
+      "median_frame_angle_deg": 4.929601827107448
+    },
+    "high_texture": {
+      "frames": 303,
+      "total_points": 450427,
+      "mean_frame_q10": 0.1807953355554259,
+      "median_frame_angle_deg": 5.613962327624533
+    },
+    "low_texture": {
+      "frames": 303,
+      "total_points": 445544,
+      "mean_frame_q10": 0.10952620116296864,
+      "median_frame_angle_deg": 5.957916001448339
+    },
+    "far_prediction": {
+      "frames": 303,
+      "total_points": 448139,
+      "mean_frame_q10": 0.07688637923265051,
+      "median_frame_angle_deg": 5.966137923813475
+    },
+    "near_prediction": {
+      "frames": 303,
+      "total_points": 447832,
+      "mean_frame_q10": 0.21387498607721867,
+      "median_frame_angle_deg": 5.729579088537511
+    }
+  },
+  "median_frame_residual_direction_coherence": 0.2956200258926194,
+  "warning": "Texture/depth bins are descriptive; no semantic/static labels, no causal attribution or threshold fitting"
+}

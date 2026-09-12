@@ -1,0 +1,7 @@
+{
+  "frames": 148,
+  "identical_candidates_pixels_and_supervision_across_heads": true,
+  "source_pool_hashes_match": true,
+  "maximum_legacy_vs_boundary_penalty_score_difference": 0.0,
+  "oracle_matched_block_counts_verified": true
+}

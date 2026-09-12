@@ -35,12 +35,13 @@ def verify():
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['verify', 'summary', 'audit', 'joint', 'confidence', 'infer', 'train', 'rotation'])
+    parser.add_argument('command', choices=['verify', 'summary', 'audit', 'joint', 'confidence', 'infer', 'train', 'rotation', 'replay'])
     parser.add_argument('--variant', choices=['selected', 'previous', 'balanced', 'confidence'], default='selected')
     parser.add_argument('--limit', type=int, default=0)
     parser.add_argument('--out', type=Path)
     parser.add_argument('--iterations', type=int, default=10000)
     parser.add_argument('--model-dir', type=Path)
+    parser.add_argument('--reference', type=Path)
     args = parser.parse_args()
     if args.command == 'verify':
         verify()
@@ -73,7 +74,14 @@ def main():
         out.write_text(json.dumps(dict(records=records, summary=summarize(records)), indent=2), encoding='utf-8')
         print(str(out))
         return
-    if args.command == 'rotation':
+    if args.command == 'replay':
+        if args.variant == 'confidence':
+            raise ValueError('Choose a neural coordinate cache for controlled replay')
+        arguments = ['correspondence_replay', '--bundle', str(ROOT), '--variant', args.variant,
+            '--out', str(out), '--limit', str(args.limit)]
+        if args.reference:
+            arguments.extend(['--reference', str(args.reference.resolve())])
+    elif args.command == 'rotation':
         if args.variant == 'confidence':
             raise ValueError('Choose selected, balanced or previous for rotation diagnostics')
         arguments = ['rotation_complementarity', '--bundle', str(ROOT), '--variant', args.variant,

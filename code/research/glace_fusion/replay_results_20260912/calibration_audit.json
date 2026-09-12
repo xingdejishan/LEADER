@@ -1,0 +1,916 @@
+{
+  "official_source": "https://robots.engin.umich.edu/nclt/",
+  "raw_intrinsics_max_abs_difference": 0.0,
+  "camera_to_body_max_abs_difference": 0.0,
+  "cached_intrinsics_max_abs_difference": 0.0,
+  "pixel_centers_max_abs_difference": 0.0,
+  "exact_scan_count": 148,
+  "frames": 148,
+  "records": [
+    {
+      "image": "1329069247934369",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069248934466",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069249934565",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069250934671",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069251934750",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069252934879",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069253934960",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069254935036",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069255935134",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069256935232",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069257935326",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069258935419",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069259935526",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069260935613",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069261935738",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069262935798",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069263935898",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069264935993",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069265936142",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069266936186",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069267936284",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069268938839",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069269936473",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069270936571",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069271936728",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069272936767",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069273936858",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069274936948",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069275937051",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069276937155",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069277937244",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069278937334",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069279937436",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069280937529",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069281937627",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069282937723",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069283937817",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069284937904",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069285938029",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069286938104",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069287938199",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069288938293",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069289938425",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069290938489",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069291938585",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069292938682",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069293938779",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069294938873",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069295938968",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069296939107",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069297939246",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069298939253",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069299939343",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069300939447",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069301939545",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069302939638",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069303939739",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069304939831",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069305939929",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069306940024",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069307940125",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069308940223",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069309940315",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069310940411",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069311940511",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069312940603",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329069313940700",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072435043614",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072436043713",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072437043809",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072438043912",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072439044084",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072440044317",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072441044496",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072442044493",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072443044406",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072444044630",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072445044604",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072446044710",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072447044802",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072448044891",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072449045000",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072450045087",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072451045197",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072452045299",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072453045399",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072454045502",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072455045599",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072456045690",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072457046006",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072458046019",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072459045984",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072460046114",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072461046181",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072462046291",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072463046389",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072464046495",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072465046598",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072466046718",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072467046788",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072468046888",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072469046987",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072470047086",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072471047185",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072472047291",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072473047388",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072474047486",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072475047581",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072476047685",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072477047783",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072478047883",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072479047984",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072480048089",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072481048185",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072482048280",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072483048390",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072484048480",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072485048580",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072486048680",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072487048768",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072488048879",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072489049003",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072490049078",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072491049176",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072492049278",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072493049365",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072494049476",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072495049593",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072496049699",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072497049763",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072498049865",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072499049966",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072500050065",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072501050177",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072502050270",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072503050385",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072504050472",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072505050576",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072506050659",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072507050769",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072508050860",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072509050959",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072510051083",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072511051190",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072512051301",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072513051357",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072514051464",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    },
+    {
+      "image": "1329072515051556",
+      "intrinsics_max_abs_difference": 0.0,
+      "pixel_grid_center_max_abs_difference": 0.0,
+      "exact_scan_exists": true
+    }
+  ],
+  "official_hashes": {
+    "cam_params.zip": "86ed642eabaa82cdb46531a2168a9157b7210f4ba04232cb845c26e58c34bcaa",
+    "K_cam0.csv": "38e4f85bae26e5b4c9f06768182467e5836c0a840ba91b52c65f91cc18f4691e",
+    "K_cam1.csv": "e467b905cbf581d2d03ecedce3252b1e9868df455368fa3b167677b8f75e5bf6",
+    "K_cam2.csv": "9f33cd02041b4f0ac063c057813f83e0f5599d47f4e69a13642bb8a2290ac3ba",
+    "K_cam3.csv": "9471b5845bfff1984ef9943353acfdd83dde57548d5fc4f6ddc7c2554f7a5a6d",
+    "K_cam4.csv": "1e7e8481dfe3607041344f3b462b260a22603e52b50b8a7fef0e183384c5d2a3",
+    "K_cam5.csv": "5b2e5ad294560fb54e8c0f1648262314d79c95d7b270c163e2206ec09954a7d5",
+    "project_vel_to_cam.py": "e0b00152054366ee0e255cbaacd2f403a5fe96216dcc656c9e84113c6b331882",
+    "x_lb3_c0.csv": "dc830014e8ee218c6d49d6674807fb33cd1bcbf161b9c0e52d46023abd436237",
+    "x_lb3_c1.csv": "aae095d9a92fbba3198ee8051d44679540f6628d2437e7d80996aa2ce5fcf685",
+    "x_lb3_c2.csv": "9a90fb60d12e229fa2df59553d440035e2149fa6ada4a2991c821a785c0ccab2",
+    "x_lb3_c3.csv": "e4353322ceb2bdb80f1cac69b055046801da7e1c1d9cf7f8932cd8ed59e8da93",
+    "x_lb3_c4.csv": "4b9b4c96b5837bc7543b1d7225d190450a546a69d439a70cfb6943b3eac3d566",
+    "x_lb3_c5.csv": "faa6f6ae09cfee7dae2f7250c5513594eab0cdbce58b449a4e1f8a28998c6371"
+  },
+  "limitation": "Parameter-chain consistency only. No independently annotated physical features, raw undistortion-map verification, motion/velocity correlation or reference covariance available. Does not prove physical alignment or synchronization."
+}

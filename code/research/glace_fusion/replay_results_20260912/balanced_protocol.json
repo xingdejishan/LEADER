@@ -1,0 +1,35 @@
+{
+  "variant": "balanced",
+  "seed": 2089,
+  "pixel_budget": 256,
+  "grid": 4,
+  "candidates": "unchanged cached v1_two_stage + original leader + all cached SC2 hypotheses; no GT, no new candidates",
+  "baseline": "v1_two_stage; original leader reported separately",
+  "input_interface": "2D pixel reprojection of world-coordinate predictions at T_WC=T_WB@T_BC",
+  "supervision": "existing sparse LiDAR target constructor; same-time scan placed by camera GT; circular diagnostic, NOT independent reference",
+  "matched_arms": "supervision_common, prediction_common and shuffled_common share exact pixels/count/coverage",
+  "oracle": "prediction oracle q10 subset and same-block/count random control; both OFFLINE diagnostic",
+  "common_mask": "depends on GT-generated supervision support; common-mask arms are diagnostic, not deployable",
+  "inference_only_arm": "prediction_full; pixel sampling and spatial acceptance use no GT",
+  "scales": {
+    "lidar_m": 0.3,
+    "camera_px": 10
+  },
+  "visual_weight": 0.5,
+  "refinement": "existing JointProblem.refine, max_nfev=20, one selected candidate; report raw output even if worse",
+  "holdout": "4x4 checkerboard: even blocks select/refine, odd blocks verify; candidate-independent blocks",
+  "holdout_acceptance": ">=6 points in >=3 blocks; >=20% support in >=3 blocks; heldout visual score improves and LiDAR score does not worsen",
+  "calibration_status": "inherited fixed scales and uncalibrated conservative gates, no tuning on this test",
+  "invalid_points": "legacy keeps negative/nonfinite depth in denominator; strict also assigns full cost outside raster",
+  "best_candidate": "min max(translation/1m, rotation/2deg); signed per-axis regrets may be negative",
+  "split": "2012-02-12, already used for development; not final independent evaluation",
+  "reference_status": "unavailable; reference arm skipped",
+  "reference_manifest": null,
+  "source_hashes": {
+    "correspondence_replay.py": "300a8c113bf2f6d35b6e369223b94c4c84ee501563b40d70940d3d1a72dbc8fc",
+    "replay_geometry.py": "fcfb52e011cd4b13bfb4061a5ecc78be71e5d6e74827e84dc43bbba4eedf52ab",
+    "joint_solver.py": "285dce3f635498504ab3308dbcc5680d327752a91a3c47e2ed35fd5853c97552",
+    "lidar_supervision.py": "17a8adbe4e3f0d215d8ee94eb081f692102b7e1e0770ce12b2135a24b001b5d8"
+  },
+  "coordinate_manifest_sha256": "faf0d4c55ae62c57c16a2a3ef2b0291dafe88554f08c200589b2ae76dad22f9d"
+}
