@@ -1,78 +1,81 @@
-# GLACE 独立 Camera 分支 + LEADER 融合接线
+# GLACE 独立 Camera 分支 + LEADER 共享几何后端
 
-从 `v1-two-stage` (a90b142) 分出。实现的核心结构变更：
+从 `v1-two-stage` (a90b142) 分出。两版架构都在本分支上：
+
+- **v2（当前主架构）**：双 SCR 前端 + 共享几何后端 —— 每一帧都经过
+  `候选池 → 共同评分 → 联合细化 → 验收`，见 `joint_solver.py`。
+- **v1（保留作对照）**：置信度门控的 SELECT / LERP+SLERP / 冲突回退，
+  见 `lidar_camera_fusion.py`（原固定融合模块 + 可选 `extra_hypotheses`）。
 
 ```
-LEADER: 3D_local → 3D_world        (SC2-PCR, 不改动原定位路径)
-GLACE:  2D_pixel → 3D_world        (scene coordinates, 独立分支)
-                ↓ 两者在固定好的 pose + correspondence fusion 层汇合
-   (T_L, c_L, T_C, c_C) → SELECT / LERP+SLERP / FALLBACK
+LEADER: 3D_local → 3D_world        (SC2-PCR, 前端不改)
+GLACE:  2D_pixel → 3D_world        (scene coordinates, 前端不改)
+                ↓ 两路对应关系 + 两路位姿候选
+   共同评分 S(T) → 联合细化（单刚体 T_WB）→ 验收
+   JOINT / SINGLE_MODAL / AMBIGUOUS / DEGENERATE / REJECTED
 ```
 
-运行时仅需 `lidar_camera_fusion.py`（NumPy/SciPy/OpenCV），其余为数据接线与评测工具。
+运行时依赖：NumPy、SciPy、OpenCV（v2 后端）；`lidar_camera_fusion.py`（v1 对照）另需 SciPy。
 
-## 目录
+## 文件
 
 | 文件 | 作用 |
 | --- | --- |
-| `lidar_camera_fusion.py` | 固定融合模块（自 camera-reliability 复制），新增可选 `extra_hypotheses` 参数：外部候选（如 SC2-PCR seedwise 池）与内部采样候选一起进入统一的评分/聚类/联合优化/验收流程；默认 `None` 时行为与原版完全一致 |
-| `glace_adapter.py` | GLACE adapter。`infer()` 返回 `GLACEOutput(T_WC, T_WB, uv, xyz_world, K, inlier_count, inlier_mask, ...)`：**不丢弃** `scene_coordinates_B3HW`，每个 8×8 cell 中心即一个 camera correspondence（`u = OUTPUT_SUBSAMPLE*(x+0.5)`，与 vendor `get_pixel_grid` 一致）。位姿求解 v1 用 OpenCV PnP-RANSAC+LM（不改 DSAC* C++）；`T_WB = T_WC @ inv(T_BC)` |
-| `packet.py` | 融合 packet 构造。`lidar_pool_from_export` 恢复 `p_B = T_corr⁻¹·c_local`、`P_W = c_pred + center_t`；支持率 `q_L/q_C`（见下）；`IsotonicCalibrator`（PAVA，验证集标定 `P(success|q)`）；`make_fusion_evidence` 产出融合模块的 `FusionEvidence`；`diverse_poses` 做 pose-distance 互异候选挑选 |
-| `make_glace_scene.py` | 设计点 6：以 LEADER 世界系生成 GLACE 训练/测试场景。对每个同步对写 `T_WC_GT = T_WB_GT @ T_BC` 到 `poses/<ts>.txt`、缩放后的 K 到 `calibration/<ts>.txt`、图像到 `rgb/`（vendor CamLocDataset 布局），并保存 timestamp pair 与时间差 |
-| `run_fusion_eval.py` | 联合评测：LEADER 导出池 + GLACE adapter → `localize()` → LEADER/GLACE/融合三路误差报告 |
-| `test_glace_fusion.py` | 几何/接口单元测试（合成数据，无需 GPU；SC2 测试需 torch） |
+| `joint_solver.py` | **v2 共享位姿求解器**。`solve(problem, T_L, T_C, seedwise, mode=...)`：候选池 = {T_L, T_C} ∪ 全部有效 SC2-PCR seedwise（不按 fitness 预筛）∪ 区域多样性 P3P 候选（`cv2.solveP3P`，T_CW→`H=inv(T_CW)@inv(E)`，预算 256）；权重 `w^L_i`（TRR 有界变换）+ 均匀 `w^C_j=1/N_C`；`S(T)=½Σw·min(||r||²,1)`；支持集上加权 Cauchy 联合细化（SciPy LM 精确实现 Ceres 配方的分块目标，单刚体变量、无 T_L/T_C 先验、细化后回全池重评分并保留原候选）；验收含两路支持、歧义 margin、`JᵀWJ` 可观测性；输出 JOINT / SINGLE_MODAL（明确标记的降级）/ AMBIGUOUS / DEGENERATE / REJECTED。mode：`select`（分别评分后选择）/ `joint`（仅共同评分）/ `joint_refine`（完整） |
+| `glace_adapter.py` | GLACE adapter。`infer()` 返回 `GLACEOutput(T_WC, T_WB, uv, xyz_world, K, inlier_count, inlier_mask, ...)`：**不丢弃** `scene_coordinates_B3HW`，每个 8×8 cell 中心即一个 camera correspondence（`u = OUTPUT_SUBSAMPLE*(x+0.5)`，与 vendor `get_pixel_grid` 一致；uv 是预处理后输入图像的像素坐标）。v1 位姿求解用 OpenCV PnP-RANSAC+LM（不改 DSAC* C++）；`T_WB = T_WC @ inv(T_BC)` |
+| `packet.py` | 融合 packet。`lidar_pool_from_export` 恢复 `p_B = T_corr⁻¹·c_local`、`P_W = c_pred + center_t`；诊断用支持率 `q_L/q_C`；`IsotonicCalibrator`（PAVA）；`make_fusion_evidence`（v1 接口）；`diverse_poses` |
+| `lidar_camera_fusion.py` | v1 固定融合模块（自 camera-reliability 复制），可选 `extra_hypotheses` 注入外部候选；默认行为与原版一致 |
+| `make_glace_scene.py` | 以 LEADER 世界系生成 GLACE 训练/测试场景：`T_WC_GT = T_WB_GT @ T_BC` 写 `poses/<ts>.txt`，缩放 K 写 `calibration/`，图像 `rgb/`（vendor CamLocDataset 布局），保存 timestamp pair 与时间差 |
+| `run_fusion_eval.py` | 联合评测 runner。`--backend joint|compare|fallback`；`--backend compare` 逐帧同时跑 select / joint / joint_refine 三模式，用于归因收益来源（多模态证据 vs 多候选 vs 联合细化） |
+| `test_glace_fusion.py` / `test_joint_solver.py` | 几何/接口单元测试（合成数据；SC2 测试需 torch） |
 
-## LEADER 侧改动（核心路径不变）
+## LEADER 侧改动（前端定位路径不变）
 
-- `run_mink.py`：测试循环中 top-50% 筛选**之前**保留全量池（`c_pred_all/u_pred_all/c_local_all`），原 top-50% → SC2-PCR 路径一字未动。`--export_fusion_pool DIR` 导出每帧 npz：全量池、`T_corr`、`center_t`、最终 `T_WB`、GT `T_WB_gt`、scan 时间戳、top-50% 索引，以及 `--export_seedwise`（默认 8）个 pose-distance 互异的 seedwise 假设（已转换回 raw body→world：`T_WB_seed = T_seed·T_corr`，`t += center_t`）。
+- `run_mink.py`：测试循环中 top-50% 筛选**之前**保留全量池（`c_pred_all/u_pred_all/c_local_all`），原 top-50% → SC2-PCR 路径一字未动。`--export_fusion_pool DIR` 导出每帧 npz：全量池、`T_corr`、`center_t`（读自 checkpoint）、最终 `T_WB`、GT `T_WB_gt`、scan 时间戳、top-50% 索引，以及**全部**有效 seedwise 假设（`--export_seedwise 0` 默认；已恢复坐标 `H^L = A·H_raw·Q`，`A=[[I,center_t],[0,1]]`，`Q=T_corr`）。
 - `models/sc2pcr.py`：`cal_seed_trans/SC2_PCR/estimator` 增加 `return_hypotheses=False` 关键字参数，为 `True` 时额外返回 `(final_trans, seedwise_trans, seedwise_fitness)`。默认行为与之前完全一致（正常 LEADER 路径仍只用 `final_trans`）。
 
 ### 坐标系约定（易错点）
 
 - LEADER 训练目标是 `world - center_t`；`c_local` 位于 `T_corr`（地面水平化校正，raw body → leveled）之后的坐标系。
-- 因此 packet 侧恢复：`p_i^B = T_corr⁻¹ · c_local_i`，`P_i^W = c_pred_i + center_t`，与 `T_WB = T_est @ T_corr`（`t += center_t`）作用于同一刚体变量 B。
-- GLACE 位姿约定为 `T_WC`（camera→world，`sc = pose @ camera_point`）；折算 `T_WB = T_WC @ inv(T_BC)`，`T_BC` 为 camera→body 外参（融合模块约定；NCLT 标定链给出 body→camera，注意取逆）。
-
-## 置信度（设计点 10）
-
-`u_pred`（3D-3D 对应可靠性）与 `inlier_count`（相机 RANSAC 内点数）不可比。统一改为"最终 pose 在本模态完整 correspondence 池上的支持率"：
-
-```
-q_L = #{ ||T_L p_i − P_i||  < s_L } / N_L          (s_L 默认 0.3 m)
-q_C = #{ ||π((T_L·E)⁻¹ P_j) − u_j|| < s_C } / N_C   (s_C 默认 4 px，负深度计外点、保留分母)
-```
-
-再经验证集标定的 `f(q)=P(success|q)`（isotonic，`IsotonicCalibrator`）映射到 [0,1]。未标定时为恒等映射 —— 此时快速路径的门限判断（`conf_use/conf_gap`）**尚未校准**，结果解读需谨慎；先在验证 split 上用 `records.json` 的 `q_*`/成功标签拟合，再冻结配置用于独立测试。
+- packet 侧恢复：`p_i^B = T_corr⁻¹ · c_local_i`，`P_i^W = c_pred_i + center_t`，与 `T_WB = T_est @ T_corr`（`t += center_t`）作用于同一刚体变量 B；seedwise 同样恢复。
+- GLACE 位姿约定为 `T_WC`（camera→world，`sc = pose @ camera_point`）；折算 `T_WB = T_WC @ inv(T_BC)`，`T_BC` 为 camera→body 外参（NCLT 标定链给出 body→camera，注意取逆）。GLACE 内部已加回自己的坐标均值，**不能**再加 LEADER 的 `center_t`。
+- `c_L/c_C`（支持率标定）在 v2 中仅作诊断输出，不再参与决策。
 
 ## 运行
 
 ```bash
-# Stage A: LEADER 导出（不改变 LEADER 定位结果）
+# Stage A: LEADER 导出（不改变 LEADER 定位结果；center_t 来自 checkpoint）
 python run_mink.py --mode test --dataset NCLT --dataset_folder <NCLT> \
-    --resume_model <ckpt> --export_fusion_pool /path/pool --export_seedwise 8
+    --resume_model <ckpt> --export_fusion_pool /path/pool --export_seedwise 0
 
-# Stage B: GLACE + 融合评测
+# Stage B: GLACE + 共享求解器评测（默认 v2）
 python -m research.glace_fusion.run_fusion_eval \
     --pool_dir /path/pool --vendor_dir <ace-vendor> --glace_head <head.pt> \
     [--deit_checkpoint <CVPR23_DeitS_Rerank.pth>] \
     --camera_root /root/rivermind-data/datasets/NCLT_camera_v1 \
-    --out_dir /path/out [--use_extra_hypotheses] [--lidar_conf cal_L.json --camera_conf cal_C.json]
+    --out_dir /path/out --backend compare
 
-# 生成 LEADER 世界系的 GLACE 训练场景（设计点 6）
+# v1 置信度门控对照
+python -m research.glace_fusion.run_fusion_eval ... --backend fallback
+
+# 生成 LEADER 世界系的 GLACE 训练场景
 python -m research.glace_fusion.make_glace_scene --dataset_folder <NCLT> \
     --camera_root /root/rivermind-data/datasets/NCLT_camera_v1 --out /path/glace_scene
 
 # 单元测试
 python -m unittest research.glace_fusion.test_glace_fusion -v
+python -m unittest research.glace_fusion.test_joint_solver -v
 ```
+
+## 验证与注意事项
+
+- **归因对比**：`--backend compare` 固定前端、对应关系、候选池与预算，逐帧比较 `select`（分别评分后选择）、`joint`（共同评分）、`joint_refine`（共同评分+联合细化），用于分清收益来源。
+- **门限未经真实验证**：`JointSolverConfig` 的默认门限（支持数量/比例、max_score、single-modal 更严门限、歧义 margin、可观测性谱）是接线起始值。调参必须用独立验证 split，**不要用 LEADER 的 `val_loader`（实为测试序列）调门限**；调完后 `JointSolverConfig.save()` 冻结。
+- **SINGLE_MODAL** 是明确标记的降级输出（一路通过更严格的单路验收、另一路在全部候选上无支持），不得报告为两路共同确认；"候选池中无第二解"不等于全局唯一。
+- **f_x=f_y**：GLACE 官方 DSAC* 接口要求单一焦距；若日后接 DSAC*，预处理需重映射为无畸变、f_x=f_y 的虚拟针孔图像并同步 K（OpenCV 求解路径无此限制）。
+- 端到端计时必须包含 GLACE 全局特征提取，不能把缓存 `features.npy` 当免费输入。
 
 ## 数据平台说明
 
-设计文档以 Oxford 为例，但本服务器没有 Oxford velodyne/图像原始数据；全部已有相机基础设施（NCLT_camera_v1 六相机、标定链、训练过的 ACE/GLACE ROI heads、融合模块的测试数据）都在 NCLT 上，故接线与验证平台为 **NCLT**（`--camera Cam5`，2 Hz 分组同步）。代码对数据集保持通用：Oxford 只需按 `make_glace_scene.py` 的同步约定补一个数据适配器（stereo 左目 pinhole 流），架构零改动。
+设计文档以 Oxford 为例，但本服务器没有 Oxford velodyne/图像原始数据；全部已有相机基础设施（NCLT_camera_v1 六相机、标定链、训练过的 ACE/GLACE ROI heads）都在 NCLT 上，故接线与验证平台为 **NCLT**（Cam5，2 Hz 分组同步，超时差门限的帧对不进入联合求解）。代码对数据集保持通用：Oxford 只需按 `make_glace_scene.py` 的同步约定补一个数据适配器（stereo 左目 pinhole 流），架构零改动。
 
-## 回退候选（设计点 9）
-
-`H = {T_L, T_C} ∪ H_L^{SC2-PCR seedwise} ∪ H_C^{AP3P}`：
-
-- `H_C` 与部分 `H_L` 由融合模块内部生成（uniform 3 点 SVD / 4 点 AP3P，交替采样）；
-- SC2-PCR 内部本就为每个 seed 生成 `seedwise_trans` 并按 `seedwise_fitness` 评分，经 `--export_seedwise` 导出 pose-互异子集后，用 `--use_extra_hypotheses` 注入融合模块，与内部候选统一评分、联合优化（SciPy LM，分块 Cauchy 目标）、支持/歧义/可观测性验收。

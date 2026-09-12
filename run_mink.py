@@ -77,8 +77,8 @@ def get_args(is_main_process=True):
                         help='If present, restore checkpoint and resume training')
     parser.add_argument('--export_fusion_pool', type=str, default='',
                         help='Directory for per-frame full correspondence pool exports (test mode, single-process NCLT)')
-    parser.add_argument('--export_seedwise', type=int, default=8,
-                        help='Number of pose-diverse SC2-PCR seedwise hypotheses stored with each export')
+    parser.add_argument('--export_seedwise', type=int, default=0,
+                        help='Store all valid SC2-PCR seedwise hypotheses (0, default) or a pose-diverse subset of this size; -1 disables')
 
     FLAGS = parser.parse_args()
     args = vars(FLAGS)
@@ -429,15 +429,18 @@ def process_one_epoch(
                             top_indices=indices.cpu().numpy().astype(np.int64),
                             scan_timestamp_us=np.int64(scan_path.stem),
                         )
-                        if FLAGS.export_seedwise:
+                        if FLAGS.export_seedwise >= 0:
                             seeds_wb = []
                             for T_seed in seedwise_trans[0].cpu().numpy():
                                 T_seed = T_seed.copy()
                                 T_seed[:3, 3] += center_t.cpu().numpy()
                                 T_seed = T_seed @ T_corr[i].cpu().numpy()
                                 seeds_wb.append(T_seed)
-                            payload['seedwise_T_WB'] = np.stack(
-                                diverse_poses(seeds_wb, FLAGS.export_seedwise)).astype(np.float64)
+                            if FLAGS.export_seedwise > 0:
+                                payload['seedwise_T_WB'] = np.stack(
+                                    diverse_poses(seeds_wb, FLAGS.export_seedwise)).astype(np.float64)
+                            else:
+                                payload['seedwise_T_WB'] = np.stack(seeds_wb).astype(np.float64)
                         np.savez_compressed(out_dir / (scan_path.stem + '.npz'), **payload)
 
                     pred_T.append(T)

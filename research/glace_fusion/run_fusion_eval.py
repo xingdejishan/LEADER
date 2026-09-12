@@ -1,15 +1,19 @@
-"""Joint LiDAR (LEADER) + Camera (GLACE) fusion evaluation.
+"""Joint LiDAR (LEADER) + Camera (GLACE) evaluation.
 
 Stage A (LEADER side) is run separately and offline:
     python run_mink.py --mode test --dataset NCLT --export_fusion_pool <DIR> ...
 which stores, per query scan and WITHOUT changing LEADER's own pipeline:
     the full pre-top-50% correspondence pool (c_local_all, c_pred_all, u_pred_all),
     T_corr / center_t (frame bookkeeping), the final T_WB, GT T_WB, scan timestamp,
-    and (optionally) pose-diverse SC2-PCR seedwise hypotheses in T_WB form.
+    and (by default) ALL valid SC2-PCR seedwise hypotheses in T_WB form.
 
-Stage B (this script) attaches the GLACE camera branch and the fixed fusion
-module, then reports per-modality and fused accuracy:
-    python -m research.glace_fusion.run_fusion_eval --pool_dir <DIR> ...
+Stage B (this script) attaches the GLACE camera branch and the shared pose
+solver (v2): every frame goes through
+    candidates -> joint scoring -> joint refinement -> acceptance.
+--backend compare additionally reports the 'select' (per-modality scoring) and
+'joint' (no refinement) baselines per frame, so the source of any gain can be
+attributed to multimodal evidence vs. extra candidates vs. joint refinement.
+--backend fallback keeps the v1 confidence-gated fusion module for reference.
 """
 import argparse
 import json
@@ -19,17 +23,15 @@ from pathlib import Path
 import numpy as np
 
 try:
-    from .lidar_camera_fusion import FusionConfig, evaluate_results, localize, pose_distance
-    from .packet import (IsotonicCalibrator, camera_support_rate, diverse_poses,
-                         lidar_pool_from_export, lidar_support_rate, make_evidence_stamps,
-                         make_fusion_evidence)
-    from .glace_adapter import GLACEAdapter, deit_global_feature_fn
+    from .lidar_camera_fusion import FusionConfig, localize
+    from .packet import (IsotonicCalibrator, camera_support_rate, lidar_pool_from_export,
+                         lidar_support_rate, make_evidence_stamps, make_fusion_evidence)
+    from .joint_solver import JointProblem, JointSolverConfig, pose_distance, solve
 except ImportError:  # running with the package directory itself on sys.path
-    from lidar_camera_fusion import FusionConfig, evaluate_results, localize, pose_distance
-    from packet import (IsotonicCalibrator, camera_support_rate, diverse_poses,
-                        lidar_pool_from_export, lidar_support_rate, make_evidence_stamps,
-                        make_fusion_evidence)
-    from glace_adapter import GLACEAdapter, deit_global_feature_fn
+    from lidar_camera_fusion import FusionConfig, localize
+    from packet import (IsotonicCalibrator, camera_support_rate, lidar_pool_from_export,
+                        lidar_support_rate, make_evidence_stamps, make_fusion_evidence)
+    from joint_solver import JointProblem, JointSolverConfig, pose_distance, solve
 
 
 def parse_args():
@@ -44,15 +46,18 @@ def parse_args():
     parser.add_argument('--camera_number', type=int, default=5)
     parser.add_argument('--body_to_lb3_ssc_deg', default='0.035,0.002,-1.23,-179.93,-0.23,0.50')
     parser.add_argument('--image_size', type=int, nargs=2, default=(616, 808))
-    parser.add_argument('--lidar_threshold_m', type=float, default=0.3)
-    parser.add_argument('--camera_threshold_px', type=float, default=4.0)
-    parser.add_argument('--lidar_conf', default='', help='isotonic calibration json for q_L')
-    parser.add_argument('--camera_conf', default='', help='isotonic calibration json for q_C')
-    parser.add_argument('--fusion_config', default='', help='FusionConfig.save() json')
+    parser.add_argument('--lidar_threshold_m', type=float, default=0.3,
+                        help='s_L for the diagnostic support rate')
+    parser.add_argument('--camera_threshold_px', type=float, default=4.0,
+                        help='s_C for the diagnostic support rate')
+    parser.add_argument('--solver_config', default='', help='JointSolverConfig.save() json')
+    parser.add_argument('--backend', default='joint', choices=['joint', 'compare', 'fallback'],
+                        help='joint: v2 shared solver (default); compare: joint + select/joint '
+                             'baselines; fallback: v1 confidence-gated fusion module')
+    parser.add_argument('--mode', default='joint_refine',
+                        choices=['select', 'joint', 'joint_refine'],
+                        help='solver mode when --backend joint')
     parser.add_argument('--max_sync_delta_s', type=float, default=0.05)
-    parser.add_argument('--use_extra_hypotheses', action='store_true',
-                        help='feed pose-diverse SC2-PCR seedwise poses into the fallback')
-    parser.add_argument('--seedwise_max', type=int, default=8)
     parser.add_argument('--limit', type=int, default=0, help='evaluate only the first N frames')
     parser.add_argument('--out_dir', required=True)
     parser.add_argument('--eps_t_m', type=float, default=0.5)
@@ -87,26 +92,53 @@ def load_image(path, image_size_hw):
         return np.asarray(im.convert('L'), dtype=np.float32) / 255.0
 
 
+def pose_errors(T, gt):
+    if T is None:
+        return None, None
+    dt, dr = pose_distance(T, gt)
+    return float(dt), float(np.rad2deg(dr))
+
+
+def summarize(records, key, eps_t_m, eps_R_deg):
+    """coverage / failure rate among accepted / success rate / error stats."""
+    n = len(records)
+    with_pose = [r for r in records if r[key]['has_pose']]
+    errs = np.array([r[key]['err'] for r in with_pose], dtype=float)
+    failures = int(np.sum((errs[:, 0] >= eps_t_m) | (errs[:, 1] >= eps_R_deg))) if len(errs) else 0
+    agg = None
+    if len(errs):
+        agg = {'mean_t': float(errs[:, 0].mean()), 'median_t': float(np.median(errs[:, 0])),
+               'mean_r_deg': float(errs[:, 1].mean()), 'median_r_deg': float(np.median(errs[:, 1]))}
+    return {
+        'n_frames': n, 'n_accepted': len(with_pose),
+        'coverage': len(with_pose) / n if n else None,
+        'failure_rate_accepted': failures / len(with_pose) if len(with_pose) else None,
+        'localization_success_rate': (len(with_pose) - failures) / n if n else None,
+        'errors': agg,
+    }
+
+
 def main():
     args = parse_args()
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    config = FusionConfig.load(args.fusion_config) if args.fusion_config else FusionConfig()
-    config = replace(config, max_sync_delta_s=args.max_sync_delta_s)
-    lidar_conf = IsotonicCalibrator.load(args.lidar_conf) if args.lidar_conf else IsotonicCalibrator()
-    camera_conf = IsotonicCalibrator.load(args.camera_conf) if args.camera_conf else IsotonicCalibrator()
-
     image_size_hw = tuple(args.image_size)
     K, T_BC = calibration_chain(args.camera_root, args.camera_number,
                                 args.body_to_lb3_ssc_deg, image_size_hw)
 
+    from glace_adapter import GLACEAdapter, deit_global_feature_fn
     feature_fn = None
     if args.deit_checkpoint:
         feature_fn = deit_global_feature_fn(args.vendor_dir, args.deit_checkpoint, image_size_hw)
     adapter = GLACEAdapter(args.vendor_dir, args.glace_head,
                            encoder_path=args.glace_encoder or None, T_BC=T_BC,
                            global_feature_fn=feature_fn)
+
+    solver_cfg = JointSolverConfig.load(args.solver_config) if args.solver_config else JointSolverConfig()
+    fusion_cfg = replace(FusionConfig(), max_sync_delta_s=args.max_sync_delta_s)
+    fallback_lidar_conf = IsotonicCalibrator()
+    fallback_camera_conf = IsotonicCalibrator()
 
     cam_ts, cam_paths = camera_index(args.camera_root, args.camera_number)
     pool_files = sorted(Path(args.pool_dir).rglob('*.npz'))
@@ -115,9 +147,11 @@ def main():
     if not pool_files:
         raise SystemExit('No pool exports found under ' + str(args.pool_dir))
 
-    records = []
-    results, lidar_poses, camera_poses, gt_poses = [], [], [], []
+    modes = ['select', 'joint', 'joint_refine'] if args.backend == 'compare' else (
+        ['fallback'] if args.backend == 'fallback' else [args.mode])
+    records, gt_poses = [], []
     skipped_sync = 0
+
     for pool_file in pool_files:
         export = dict(np.load(pool_file, allow_pickle=False))
         scan_ts = int(export['scan_timestamp_us'])
@@ -129,8 +163,9 @@ def main():
 
         pool_l = lidar_pool_from_export(export)
         T_L = np.asarray(export['T_WB'], dtype=float)
+        gt = np.asarray(export['T_WB_gt'], dtype=float)
         q_L = lidar_support_rate(T_L, pool_l['p_body'], pool_l['p_world'], args.lidar_threshold_m)
-        c_L = float(np.asarray(lidar_conf(q_L)))
+        q_C = None
 
         image = load_image(Path(args.camera_root) / cam_paths[j], image_size_hw)
         glace = adapter.infer(image, K)
@@ -138,81 +173,99 @@ def main():
         if T_C is not None:
             q_C = camera_support_rate(T_C, T_BC, K, glace.uv, glace.xyz_world,
                                       args.camera_threshold_px)
-            c_C = float(camera_conf(np.array([q_C]))[0])
-        else:
-            q_C, c_C = None, None
 
         frame_id = pool_file.stem
-        lidar_stamp, camera_stamp = make_evidence_stamps(
-            frame_id, scan_ts / 1e6, int(cam_ts[j]) / 1e6)
-        camera_mask = glace.inlier_mask
-        evidence = make_fusion_evidence(
-            pool_l['p_body'], pool_l['p_world'], glace.uv, glace.xyz_world, K, T_BC,
-            lidar_stamp, camera_stamp, camera_inlier_mask=camera_mask)
-
-        extras = None
-        if args.use_extra_hypotheses and 'seedwise_T_WB' in export:
-            extras = diverse_poses(export['seedwise_T_WB'], args.seedwise_max)
-
-        result = localize(T_L, c_L, T_C, c_C, evidence=evidence, config=config,
-                          extra_hypotheses=extras)
-
-        gt = np.asarray(export['T_WB_gt'], dtype=float)
-        def err(T):
-            if T is None:
-                return None, None
-            dt, dr = pose_distance(T, gt)
-            return float(dt), float(np.rad2deg(dr))
-        e_L, r_L = err(T_L)
-        e_C, r_C = err(T_C)
-        e_F, r_F = err(result.pose)
-
-        records.append({
+        record = {
             'frame': frame_id, 'scan_ts': scan_ts, 'image_ts': int(cam_ts[j]),
             'sync_delta_s': sync_delta_s,
-            'q_L': q_L, 'c_L': c_L, 'q_C': q_C, 'c_C': c_C,
-            'glace_inliers': glace.inlier_count,
-            'lidar_err': [e_L, r_L], 'camera_err': [e_C, r_C], 'fusion_err': [e_F, r_F],
-            'fusion_status': result.status, 'fusion_source': result.source,
-            'fusion_reason': result.reason,
-            'e_t': e_F if e_F is not None else e_L, 'e_r': r_F if r_F is not None else r_L,
-            'has_pose': result.pose is not None,
-        })
-        results.append(result)
-        lidar_poses.append(T_L)
-        camera_poses.append(T_C if T_C is not None else np.eye(4))
+            'q_L': q_L, 'q_C': q_C, 'glace_inliers': glace.inlier_count,
+            'lidar_err': list(pose_errors(T_L, gt)),
+            'camera_err': list(pose_errors(T_C, gt)),
+        }
+
+        if args.backend == 'fallback':
+            lidar_stamp, camera_stamp = make_evidence_stamps(frame_id, scan_ts / 1e6,
+                                                             int(cam_ts[j]) / 1e6)
+            evidence = make_fusion_evidence(pool_l['p_body'], pool_l['p_world'], glace.uv,
+                                            glace.xyz_world, K, T_BC, lidar_stamp,
+                                            camera_stamp, camera_inlier_mask=glace.inlier_mask)
+            c_L = float(np.asarray(fallback_lidar_conf(q_L)))
+            c_C = None if q_C is None else float(np.asarray(fallback_camera_conf(q_C)))
+            result = localize(T_L, c_L, T_C, c_C, evidence=evidence, config=fusion_cfg)
+            e_F, r_F = pose_errors(result.pose, gt)
+            record['result'] = {'status': result.status, 'source': result.source,
+                                'reason': result.reason, 'has_pose': result.pose is not None,
+                                'err': [e_F, r_F]}
+        else:
+            problem = JointProblem(pool_l['p_body'], pool_l['p_world'], pool_l['u'],
+                                   glace.uv, glace.xyz_world, K, T_BC, solver_cfg)
+            seedwise = export.get('seedwise_T_WB')
+            per_mode = {}
+            for mode in modes:
+                result = solve(problem, T_L, T_C, seedwise, mode=mode)
+                e_F, r_F = pose_errors(result.pose, gt)
+                per_mode[mode] = {'status': result.status, 'source': result.source,
+                                  'modality': result.modality, 'reason': result.reason,
+                                  'has_pose': result.pose is not None, 'err': [e_F, r_F]}
+            record['modes'] = per_mode
+            if len(modes) == 1:
+                record['result'] = per_mode[modes[0]]
+
+        records.append(record)
         gt_poses.append(gt)
 
-    summary = evaluate_results(results, gt_poses, eps_t_m=args.eps_t_m,
-                               eps_R_rad=np.deg2rad(args.eps_R_deg))
-    lidar_errs = np.array([r['lidar_err'] for r in records if r['lidar_err'][0] is not None])
-    camera_errs = np.array([r['camera_err'] for r in records if r['camera_err'][0] is not None])
-    fusion_errs = np.array([r['fusion_err'] for r in records if r['fusion_err'][0] is not None])
-
-    def agg(a):
-        return None if not len(a) else {
-            'mean_t': float(a[:, 0].mean()), 'median_t': float(np.median(a[:, 0])),
-            'mean_r_deg': float(a[:, 1].mean()), 'median_r_deg': float(np.median(a[:, 1]))}
-
+    # ---- report ----------------------------------------------------------
     report = {
         'n_frames': len(records), 'n_skipped_sync': skipped_sync,
+        'backend': args.backend, 'modes': modes,
+        'success_eps': [args.eps_t_m, args.eps_R_deg],
         'lidar_threshold_m': args.lidar_threshold_m,
         'camera_threshold_px': args.camera_threshold_px,
-        'confidence_calibrated': {'lidar': lidar_conf.calibrated, 'camera': camera_conf.calibrated},
-        'success_eps': [args.eps_t_m, args.eps_R_deg],
-        'leader_baseline': agg(lidar_errs),
-        'glace_baseline': agg(camera_errs),
-        'fusion': agg(fusion_errs),
-        'fusion_evaluate_results': summary,
-        'status_counts': {},
+        'solver_config': {k: getattr(solver_cfg, k) for k in solver_cfg.__dataclass_fields__},
     }
-    for r in records:
-        report['status_counts'][r['fusion_status']] = report['status_counts'].get(r['fusion_status'], 0) + 1
+
+    def errors_agg(records, key):
+        errs = np.array([r[key]['err'] for r in records if r[key]['err'][0] is not None])
+        return None if not len(errs) else {
+            'mean_t': float(errs[:, 0].mean()), 'median_t': float(np.median(errs[:, 0])),
+            'mean_r_deg': float(errs[:, 1].mean()), 'median_r_deg': float(np.median(errs[:, 1]))}
+
+    def summarize_errors(records, key):
+        n = len(records)
+        accepted = [r for r in records if r[key]['err'][0] is not None]
+        errs = np.array([r[key]['err'] for r in accepted])
+        failures = int(np.sum((errs[:, 0] >= args.eps_t_m) | (errs[:, 1] >= args.eps_R_deg))) \
+            if len(errs) else 0
+        statuses = [r[key]['status'] for r in records]
+        return {
+            'n_frames': n, 'n_accepted': len(accepted),
+            'coverage': len(accepted) / n if n else None,
+            'failure_rate_accepted': failures / len(accepted) if len(accepted) else None,
+            'localization_success_rate': (len(accepted) - failures) / n if n else None,
+            'errors': errors_agg(records, key),
+            'status_counts': {s: statuses.count(s) for s in sorted(set(statuses))},
+        }
+
+    report['leader_baseline'] = summarize_errors(
+        [{'lidar_err': {'err': r['lidar_err'], 'status': 'BASELINE'}} for r in records],
+        'lidar_err')
+    report['glace_baseline'] = summarize_errors(
+        [{'camera_err': {'err': r['camera_err'], 'status': 'BASELINE'}} for r in records],
+        'camera_err')
+
+    if args.backend == 'compare':
+        for mode in modes:
+            report[mode] = summarize_errors(
+                [{'modes': {mode: {'err': r['modes'][mode]['err'],
+                                   'status': r['modes'][mode]['status']}}} for r in records],
+                'modes')
+    else:
+        report['solver'] = summarize_errors(
+            [{'result': {'err': r['result']['err'], 'status': r['result']['status']}}
+             for r in records],
+            'result')
 
     (out_dir / 'report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
-    np.savez_compressed(out_dir / 'records.npz',
-                        lidar=np.array(lidar_poses), camera=np.array(camera_poses),
-                        gt=np.array(gt_poses))
     (out_dir / 'records.json').write_text(json.dumps(records, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))
 
