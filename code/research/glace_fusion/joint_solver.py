@@ -162,7 +162,7 @@ class JointProblem:
     """Bundle of one frame's multimodal evidence with fixed per-frame weights."""
 
     def __init__(self, p_body, p_world, u_raw, uv, xyz_world, K, T_BC,
-                 config: JointSolverConfig):
+                 config: JointSolverConfig, camera_reliability=None):
         self.cfg = config
         self.p_body = np.asarray(p_body, dtype=float)
         self.p_world = np.asarray(p_world, dtype=float)
@@ -178,7 +178,16 @@ class JointProblem:
             raise ValueError("LiDAR reliability length mismatch")
         self.u_raw = np.asarray(u_raw, dtype=float).ravel().copy()
         self.w_L = lidar_reliability_weights(u_raw, config.trr_weight_scale)
-        self.w_C = np.full(len(self.xyz_world), 1.0 / max(len(self.xyz_world), 1))
+        self.camera_reliability = None
+        if camera_reliability is not None:
+            rel = np.asarray(camera_reliability, dtype=float).ravel()
+            if rel.shape != (len(self.xyz_world),) or not np.isfinite(rel).all():
+                raise ValueError("Camera reliability must be finite and match the pool")
+            self.camera_reliability = np.clip(rel, 0.0, 1.0)
+            weights = np.clip(self.camera_reliability, 0.05, 1.0)
+            self.w_C = weights / weights.sum()
+        else:
+            self.w_C = np.full(len(self.xyz_world), 1.0 / max(len(self.xyz_world), 1))
         self._depth_cache = {}
 
     # ---- residuals ------------------------------------------------------

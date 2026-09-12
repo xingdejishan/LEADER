@@ -40,3 +40,19 @@ def load_camera_targets(folder, image_path, uv, K, T_CW, height, width):
     if not path.exists():
         return np.zeros((len(uv), 3), np.float32), np.zeros(len(uv), np.float32)
     return camera_targets(np.load(path), uv, K, T_CW, height, width, 3 * height / 480)
+
+
+def load_camera_targets_rel(folder, image_path, uv, K, T_CW, height, width):
+    """Full-scene storage layout: <stem>.npy holds the voxel-downsampled cloud
+    in the NOMINAL camera frame (float16) and <stem>_twc.npy the nominal
+    camera->world pose. Reconstruct world coordinates, then project through
+    the (possibly augmented) T_CW exactly like load_camera_targets."""
+    folder = Path(folder)
+    cloud_path = folder / (Path(image_path).stem + '.npy')
+    pose_path = folder / (Path(image_path).stem + '_twc.npy')
+    if not cloud_path.exists() or not pose_path.exists():
+        return np.zeros((len(uv), 3), np.float32), np.zeros(len(uv), np.float32)
+    camera_rel = np.load(cloud_path).astype(np.float64)
+    T_WC = np.load(pose_path).astype(np.float64)
+    world = camera_rel @ T_WC[:3, :3].T + T_WC[:3, 3]
+    return camera_targets(world, uv, K, T_CW, height, width, 3 * height / 480)

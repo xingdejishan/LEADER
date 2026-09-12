@@ -32,6 +32,7 @@ class GLACEOutput:
     inlier_count: Optional[int]
     inlier_mask: Optional[np.ndarray]
     image_size_hw: Tuple[int, int]
+    reliability: Optional[np.ndarray] = None
     diagnostics: dict = field(default_factory=dict)
 
 
@@ -98,7 +99,8 @@ class GLACEAdapter:
 
     def __init__(self, vendor_dir, head_path, encoder_path=None, T_BC=None,
                  device="cuda", global_feature_fn: Optional[Callable] = None,
-                 pose_backend="opencv", pnp_threshold=4.0, hypotheses=1000, coordinate_precision=None):
+                 pose_backend="opencv", pnp_threshold=4.0, hypotheses=1000, coordinate_precision=None,
+                 reliability_head_path=None):
         import json
         import hashlib
         import io
@@ -137,6 +139,13 @@ class GLACEAdapter:
         self.use_global = self.regressor.feature_dim != self.regressor.decoder_dim
         self.global_feature_fn = global_feature_fn
         self.T_BC = None if T_BC is None else np.asarray(T_BC, dtype=float)
+        self.rel_head = None
+        if reliability_head_path is not None:
+            from .reliability_head import ReliabilityHead
+            payload = torch.load(reliability_head_path, map_location='cpu')
+            self.rel_head = ReliabilityHead(int(payload['in_dim']))
+            self.rel_head.load_state_dict(payload['state_dict'])
+            self.rel_head.to(device).eval()
         if self.use_global and self.global_feature_fn is None and self.protocol != 'official_rgb_r2former_480x640':
             raise ValueError(
                 "Head requires global features; provide global_feature_fn "
@@ -167,7 +176,13 @@ class GLACEAdapter:
         with torch.inference_mode():
             if self.coordinate_precision == 'amp':
                 with torch.cuda.amp.autocast():
-                    coords = self.regressor(image.to(self.device), feats.to(self.device))
+                    local = self.regressor.get_features(image.to(self.device))
+                combined = local.float()
+                if self.use_global:
+                    global_map = feats.to(self.device)[..., None, None].expand(-1, -1, *local.shape[2:])
+                    combined = torch.cat((global_map, combined), dim=1)
+                with torch.cuda.amp.autocast():
+                    coords = self.regressor.get_scene_coordinates(combined)
             else:
                 with torch.cuda.amp.autocast():
                     local = self.regressor.get_features(image.to(self.device))
@@ -186,10 +201,19 @@ class GLACEAdapter:
                     torch.backends.cuda.matmul.allow_tf32 = old_matmul
                     torch.backends.cudnn.allow_tf32 = old_cudnn
         coords = coords.float().cpu().numpy()[0]  # [3, Hc, Wc]
+        features_np = combined.float().cpu().numpy()[0]  # [C, Hc, Wc]
         hc, wc = coords.shape[1], coords.shape[2]
         uv = pixel_grid_uv(self.IMAGE_SUBSAMPLE, hc, wc)
         xyz_world = coords.reshape(3, -1).T.astype(np.float64)
         K = np.asarray(K, dtype=float)
+        reliability = None
+        if self.rel_head is not None:
+            flat_f = features_np.transpose(1, 2, 0).reshape(-1, features_np.shape[0])
+            with torch.inference_mode():
+                rel = self.rel_head.reliability(
+                    torch.from_numpy(flat_f).to(self.device),
+                    torch.from_numpy(xyz_world.astype(np.float32)).to(self.device))
+            reliability = rel.cpu().numpy().astype(np.float64)
         if self.pose_backend == 'none':
             T_WC, mask, inliers, diag = None, None, None, {'solved': False}
         elif self.pose_backend == 'dsacstar':
@@ -215,7 +239,8 @@ class GLACEAdapter:
         diag.update(cells=(hc, wc), image_hw=(int(h), int(w)))
         return GLACEOutput(T_WC=T_WC, T_WB=T_WB, uv=uv, xyz_world=xyz_world, K=K,
                            inlier_count=inliers, inlier_mask=mask,
-                           image_size_hw=(int(h), int(w)), diagnostics=diag)
+                           image_size_hw=(int(h), int(w)), reliability=reliability,
+                           diagnostics=diag)
 
 
 def deit_global_feature_fn(vendor_dir, checkpoint_path, image_size_hw=(480, 640)):
