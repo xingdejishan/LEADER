@@ -227,3 +227,11 @@ fusion runner 自动读取新权重的 480 配置，支持 `--feature_split <sce
 新训练入口可显式传入 `--valid-mask <stored-image-mask.npy>`，将官方 U2D 无效区域排除出监督采样；省略时保留旧输入配置用于对照。掩码来自几何映射，不能通过阈值筛选黑色 RGB 像素生成。`evaluate_scene --valid-mask ... --pose-backend none` 用相同掩码评估候选证据；旧报告的全格点评测仍可复现。
 
 局部 256 图像、双臂 5k 训练和掩码实现细节见 [STAGE2_DIAGNOSIS.md](STAGE2_DIAGNOSIS.md)。它用于诊断，不替代完整测试集或真实 LEADER 候选实验。
+
+## 冻结权重的区域完整现有测试
+
+已用冻结的 80k 与稀疏三维监督 head 完成该区域全部 148 张现有相机测试帧和真实 LEADER 候选的比较；109 帧在训练朝向范围内，其中 45 帧此前未评测。相机与扫描时间戳完全一致。当前缓存仍只有 2012-02-12，不能称为完整 NCLT 四序列测试。
+
+新增 45 帧的人工扰动平移排序保持约 75%–77%；真实候选经同样的 v1 精修后，@1m/2° 仍为 35/45，与 v1 相同。109 帧总体仅从 89/109 到 90/109，旧 80k head 也达到同样成功率。完整指标、朝向外结果、候选池上限和数值度量说明见 [STAGE3_VALIDATION.md](STAGE3_VALIDATION.md)。
+
+`full_region_validation.py` 冻结区域定义和权重，执行同帧相机证据及真实 LEADER 网络评测；`balanced_candidate_eval.py` 对固定池做预先声明的等权评分对照；`refined_candidate_eval.py` 将同一 v1 第二阶段用于相机选出的原始 seedwise 候选。所有姿态选择都不读取 GT 误差，GT 只用于区域覆盖选择、评测标签和明确标记的 oracle 上限。
