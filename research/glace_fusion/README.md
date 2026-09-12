@@ -235,3 +235,37 @@ fusion runner 自动读取新权重的 480 配置，支持 `--feature_split <sce
 新增 45 帧的人工扰动平移排序保持约 75%–77%；真实候选经同样的 v1 精修后，@1m/2° 仍为 35/45，与 v1 相同。109 帧总体仅从 89/109 到 90/109，旧 80k head 也达到同样成功率。完整指标、朝向外结果、候选池上限和数值度量说明见 [STAGE3_VALIDATION.md](STAGE3_VALIDATION.md)。
 
 `full_region_validation.py` 冻结区域定义和权重，执行同帧相机证据及真实 LEADER 网络评测；`balanced_candidate_eval.py` 对固定池做预先声明的等权评分对照；`refined_candidate_eval.py` 将同一 v1 第二阶段用于相机选出的原始 seedwise 候选。所有姿态选择都不读取 GT 误差，GT 只用于区域覆盖选择、评测标签和明确标记的 oracle 上限。
+
+## Stage 4：全场景 LiDAR 三维监督训练（v1-glace-lidar-supervised）
+
+从 v1-glace-independent (540a7e0) 分出。把 stage-2 在 40m 局部区域验证有效的配方
+（valid-FOV 掩码 + 稀疏训练期 LiDAR 射线目标辅助）放大到 stage-1 的完整训练场景
+（43012 帧、四训练日期、R2Former RGB 特征、480px、80k 迭代预算）。
+
+- `fullscene_lidar_targets.py`：为每个有精确时间戳扫描的训练图像生成紧凑 LiDAR 目标——
+  体素下采样（默认 0.1m、上限 6144 点）后的**名义相机系 float16 点云 + 名义 T_WC sidecar**。
+  float16 精度在 2-80m 深度段 ≤3cm@64m，远小于辅助损失 beta=1m 的尺度；buffer 期由
+  `load_camera_targets_rel` 重建世界系后经**增广位姿**投影（与 stage-2 语义一致），
+  同时把磁盘占用从 ~30GB 压到 ~1.6GB。
+- `patch_lidar_supervision(..., relative_storage=, log_depth=)`：新增相对存储加载分支与
+  可选 log-depth 残差（纯相对深度监督；默认仍是已验证的相机系 Smooth L1, beta=1m）。
+- `train_lidar_fullscene.py`：编排器（scene 符号链接 + valid_mask + vendor 补丁链
+  retrain→valid_region→lidar + 目标生成 + 训练 + train/test evaluate_scene 验收）。
+  状态机写 `state.json`/`lidar_targets.progress.json`；拒绝覆盖已有 run root；
+  测试图像的 LiDAR 绝不进入训练，评测保持 RGB-only。
+
+```bash
+python -m research.glace_fusion.train_lidar_fullscene \
+  --run-root /root/rivermind-data/glace_nclt_fullscene_lidar_20260912 \
+  --source-run /root/rivermind-data/glace_nclt_rgb_large_20260912 \
+  --eval-scene /root/rivermind-data/glace_nclt_rgb_eval_20260912/scene \
+  --dataset-root /root/rivermind-data/datasets/NCLT \
+  --valid-mask /root/rivermind-data/glace_nclt_stage2_local_mask_20260912/valid_mask.npy \
+  --deit-checkpoint /root/rivermind-data/LEADER-v1-visual-glace/research/visual_glace/CVPR23_DeitS_Rerank.pth \
+  --max-points 6144 --max-iterations 80000
+```
+
+训练完成后：`full_region_validation.py` / `real_candidate_eval.py` 按既有流程对冻结权重
+做区域完整与真实 LEADER 候选评测；`evaluate_scene` 产出可直接喂给融合 runner 的
+correspondence。运行 `python -m unittest research.glace_fusion.test_fullscene_targets` 覆盖
+存储布局、体素下采样、float16 精度、增广投影与补丁链（服务器上含真实 vendor 集成测试）。

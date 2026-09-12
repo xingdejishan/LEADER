@@ -4,11 +4,21 @@ import shutil
 from .retrain_rgb_baseline import replace_once
 
 
-def patch_lidar_supervision(vendor, weight=1.):
+def patch_lidar_supervision(vendor, weight=1., relative_storage=False, log_depth=False):
+    """Patch a vendor copy (already carrying the retrain/valid-region patches)
+    to add sparse training-only LiDAR supervision.
+
+    relative_storage: loader for the full-scene compact layout (nominal camera
+    frame float16 cloud + nominal T_WC sidecar, see fullscene_lidar_targets).
+    log_depth: replace the camera-frame Smooth L1 (beta=1m) auxiliary with a
+    log-depth Smooth L1 residual - purely relative-depth supervision; the
+    reprojection loss keeps covering the bearing component.
+    """
     vendor = Path(vendor)
+    loader = 'load_camera_targets_rel' if relative_storage else 'load_camera_targets'
     path = vendor / 'ace_trainer.py'
     text = path.read_text()
-    text = replace_once(text, 'import os\n', 'import os\nfrom lidar_supervision import load_camera_targets\n')
+    text = replace_once(text, 'import os\n', 'import os\nfrom lidar_supervision import ' + loader + '\n')
     text = replace_once(text, '        self.training_buffer = {',
         "        self.lidar_folder = self.options.scene / 'train/lidar_world'\n"
         "        if not self.lidar_folder.is_dir():\n"
@@ -21,7 +31,7 @@ def patch_lidar_supervision(vendor, weight=1.):
     text = replace_once(text, '                    batch_data = {',
         '                    if B != 1:\n'
         "                        raise ValueError('LiDAR supervision currently requires buffer image batch size one')\n"
-        '                    lidar_camera, lidar_valid = load_camera_targets(\n'
+        '                    lidar_camera, lidar_valid = ' + loader + '(\n'
         '                        self.lidar_folder, image_paths[0],\n'
         '                        normalize_shape(pixel_positions_B2HW).cpu().numpy(),\n'
         '                        intrinsics_B33[0].cpu().numpy(), gt_pose_inv_B44[0].cpu().numpy(),\n'
@@ -37,12 +47,21 @@ def patch_lidar_supervision(vendor, weight=1.):
     text = replace_once(text,
         '    def training_step(self, features_bC, target_px_b2, gt_inv_poses_b34, Ks_b33, invKs_b33):',
         '    def training_step(self, features_bC, target_px_b2, gt_inv_poses_b34, Ks_b33, invKs_b33, lidar_camera, lidar_valid):')
+    if log_depth:
+        residual = ('        pred_depth = pred_cam_coords_b31.squeeze(-1)[:, 2].clamp_min(1e-3)\n'
+                    '        target_depth = lidar_camera[:, 2].clamp_min(1e-3)\n'
+                    '        lidar_error = torch.nn.functional.smooth_l1_loss(\n'
+                    "            torch.log(pred_depth), torch.log(target_depth), reduction='none')\n")
+        label = 'log-depth Smooth L1 on camera-frame ray targets'
+    else:
+        residual = ('        lidar_error = torch.nn.functional.smooth_l1_loss(\n'
+                    "            pred_cam_coords_b31.squeeze(-1), lidar_camera, reduction='none').sum(1)\n")
+        label = 'Smooth L1 camera-frame 3D residual, beta=1m; sum / whole batch size'
     text = replace_once(text, '        loss /= batch_size',
-        '        lidar_error = torch.nn.functional.smooth_l1_loss(\n'
-        "            pred_cam_coords_b31.squeeze(-1), lidar_camera, reduction='none').sum(1)\n"
-        '        lidar_loss = (lidar_error * lidar_valid.reshape(-1)).sum()\n'
-        f'        loss = loss + {float(weight)!r} * lidar_loss\n'
-        '        loss /= batch_size')
+        residual
+        + '        lidar_loss = (lidar_error * lidar_valid.reshape(-1)).sum()\n'
+        + f'        loss = loss + {float(weight)!r} * lidar_loss\n'
+        + '        loss /= batch_size')
     text = replace_once(text,
         '                                valid_fraction=float(valid_mask_b1.float().mean()))',
         '                                valid_fraction=float(valid_mask_b1.float().mean()),\n'
