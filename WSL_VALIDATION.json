@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-12",
+  "distribution": "Ubuntu",
+  "python": "/home/zhang/.venvs/glace/bin/python",
+  "torch": "2.6.0+cu124",
+  "torchvision": "0.21.0",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "training": {
+    "exit_code": 0,
+    "images": 907,
+    "images_with_3d_supervision": 905,
+    "buffer_samples": 928768,
+    "iterations": 100,
+    "optimizer_steps": 94,
+    "total_seconds": 37.4,
+    "head": "outputs/wsl-training-ready/head.pt",
+    "log": "outputs/wsl-training-ready.log"
+  },
+  "fresh_head_inference": {
+    "exit_code": 0,
+    "frames": 1,
+    "output": "outputs/wsl-trained-inference",
+    "log": "outputs/wsl-trained-inference.log",
+    "windows_relative_backslash_paths_verified": true
+  },
+  "scope": "Environment smoke test only; not convergence or accuracy validation"
+}

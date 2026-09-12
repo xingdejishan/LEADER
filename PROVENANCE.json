@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-09-12T12:31:47Z",
+  "source_commit": "540a7e00b9aef35744fcba488db8ae590764df84",
+  "source_branch": "research/v1-glace-quality-20260912",
+  "includes_uncommitted_experiment_code": true,
+  "image_counts": {
+    "train": 907,
+    "validation": 303,
+    "test": 148
+  },
+  "missing_exact_scans": [
+    "2012-02-18/velodyne_sync/1329604620983067.bin",
+    "2012-02-18/velodyne_sync/1329604650583039.bin"
+  ],
+  "selected": {
+    "arm": "model",
+    "chosen": "weight5",
+    "time": 1789216003.9888332,
+    "head_sha256": "9cdf29bd6ad42a54b4da7303ab4b44076f62e95caddc055613fa0f97a0884be8",
+    "criterion": "mean validation q10 times mean sparse 3D precision at 1m",
+    "validation": {
+      "weight1": {
+        "q10": 0.14884968375092497,
+        "precision_3d_1m": 0.25426104137438404,
+        "selection_score": 0.037846675598757915
+      },
+      "weight5": {
+        "q10": 0.14535738321887648,
+        "precision_3d_1m": 0.3045868145458922,
+        "selection_score": 0.044273942325364114
+      }
+    }
+  },
+  "scope": "One 40m region; validation 2012-02-18, previously inspected test 2012-02-12; not full NCLT",
+  "images_and_symlinks": "All files materialized; no server symlinks required",
+  "source_paths_in_historical_configs": "Provenance only; local entrypoint supplies portable paths"
+}

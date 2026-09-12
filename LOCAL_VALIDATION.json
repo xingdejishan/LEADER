@@ -1,0 +1,64 @@
+[
+  {
+    "command": [
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\.venv\\Scripts\\python.exe",
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\local.py",
+      "verify"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\.venv\\Scripts\\python.exe",
+      "-m",
+      "unittest",
+      "research.glace_fusion.test_depth_sampling",
+      "research.glace_fusion.test_correspondence_confidence",
+      "research.glace_fusion.test_correspondence_filter",
+      "research.glace_fusion.test_correspondence_audit"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\.venv\\Scripts\\python.exe",
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\local.py",
+      "audit",
+      "--variant",
+      "selected",
+      "--out",
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\outputs\\local-audit.json"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\.venv\\Scripts\\python.exe",
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\local.py",
+      "joint",
+      "--limit",
+      "2",
+      "--out",
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\outputs\\local-joint-smoke"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\.venv\\Scripts\\python.exe",
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\local.py",
+      "infer",
+      "--limit",
+      "1",
+      "--out",
+      "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\glace-local\\outputs\\local-inference-smoke"
+    ],
+    "exit_code": 0
+  },
+  {
+    "check": "saved_confidence_model_replay",
+    "frames": 2,
+    "exact_match": true,
+    "exit_code": 0
+  }
+]

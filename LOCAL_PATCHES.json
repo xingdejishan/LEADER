@@ -1,0 +1,58 @@
+{
+  "code/research/glace_fusion/cached_joint_eval.py": {
+    "size": 4778,
+    "sha256": "8ff27bad7c47bf9efd5aac702fcb65c01f271fe03d359183a5c5d57315b12dc0"
+  },
+  "code/research/glace_fusion/correspondence_confidence.py": {
+    "size": 9323,
+    "sha256": "c8e52c9b69b090c686cf1cafe18e4f60d42c0ca24c18b14d4d56c72cad246482"
+  },
+  "reports/depth/filtered_joint/protocol.json": {
+    "size": 1306,
+    "sha256": "f613c8b9ef91a42138ac8235a4127a601d81a648116eea39f3c2bd86929cc39b"
+  },
+  "reports/depth/filtered_joint/records.jsonl": {
+    "size": 182902,
+    "sha256": "800b21bb45fa3a143b2fb7f76d35f5cff55306eae9f5a343f97f23d84d8131fc"
+  },
+  "reports/depth/filtered_joint/summary.json": {
+    "size": 2234,
+    "sha256": "cab1fc95b819bf2788a0cb4ac07d9a8c2fe48dc2d7b4078e0811a9546ce9bb7d"
+  },
+  "reports/depth/raw_joint/protocol.json": {
+    "size": 1306,
+    "sha256": "f613c8b9ef91a42138ac8235a4127a601d81a648116eea39f3c2bd86929cc39b"
+  },
+  "reports/depth/raw_joint/records.jsonl": {
+    "size": 175761,
+    "sha256": "dc5ff21433d4c686a4e1f73b5b602e657f7f4b46fe4edb33a5634daa4afd118d"
+  },
+  "reports/depth/raw_joint/summary.json": {
+    "size": 2232,
+    "sha256": "e6af51a7f76b24e382aaa3b48abe3496a1f6050c720debf718d120a3c98c1a40"
+  },
+  "reports/sampling/filtered_joint/protocol.json": {
+    "size": 1306,
+    "sha256": "f613c8b9ef91a42138ac8235a4127a601d81a648116eea39f3c2bd86929cc39b"
+  },
+  "reports/sampling/filtered_joint/records.jsonl": {
+    "size": 183312,
+    "sha256": "dbcb56423934fb92bf2e7eb64b58ec6f0e7f30ef880db98deddb2b4107c08140"
+  },
+  "reports/sampling/filtered_joint/summary.json": {
+    "size": 2235,
+    "sha256": "a2f9d6466889e3e7ef9e9f503d6cdad8f927d149e05e97758566b567c8ca1960"
+  },
+  "reports/sampling/raw_joint/protocol.json": {
+    "size": 1306,
+    "sha256": "f613c8b9ef91a42138ac8235a4127a601d81a648116eea39f3c2bd86929cc39b"
+  },
+  "reports/sampling/raw_joint/records.jsonl": {
+    "size": 176046,
+    "sha256": "e17fe53571c57af5fe6751b2cd766259625bdd41a15a544efc3ebc33fee4c73d"
+  },
+  "reports/sampling/raw_joint/summary.json": {
+    "size": 2233,
+    "sha256": "a3be9037c41014d74758574ccd64188034fbb60a10f6ab1dbf730ad6f1d4cc14"
+  }
+}

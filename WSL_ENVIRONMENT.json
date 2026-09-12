@@ -1,0 +1,6 @@
+{
+  "distribution": "Ubuntu",
+  "python": "/home/zhang/.venvs/glace/bin/python",
+  "base_python": "/home/zhang/miniconda3/envs/bufferx/bin/python",
+  "isolated_additional_packages": true
+}
