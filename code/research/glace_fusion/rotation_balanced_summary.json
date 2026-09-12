@@ -1,0 +1,185 @@
+{
+  "all": {
+    "frames": 148,
+    "methods": {
+      "baseline": {
+        "success_1m_2deg": 117,
+        "success_05m_1deg": 42,
+        "median_rotation_deg": 1.4152312626864616,
+        "mean_rotation_deg": 1.555090385928318,
+        "rescued": 0,
+        "harmed": 0
+      },
+      "lidar": {
+        "success_1m_2deg": 114,
+        "success_05m_1deg": 42,
+        "median_rotation_deg": 1.3993045824121366,
+        "mean_rotation_deg": 1.5875213850612295,
+        "rescued": 1,
+        "harmed": 4
+      },
+      "camera": {
+        "success_1m_2deg": 75,
+        "success_05m_1deg": 19,
+        "median_rotation_deg": 1.9119236263271984,
+        "mean_rotation_deg": 2.144764916649173,
+        "rescued": 12,
+        "harmed": 54
+      },
+      "joint": {
+        "success_1m_2deg": 115,
+        "success_05m_1deg": 42,
+        "median_rotation_deg": 1.3993045824121366,
+        "mean_rotation_deg": 1.5793873719864333,
+        "rescued": 2,
+        "harmed": 4
+      },
+      "far_camera": {
+        "success_1m_2deg": 35,
+        "success_05m_1deg": 8,
+        "median_rotation_deg": 2.654950364742716,
+        "mean_rotation_deg": 2.7628539548517046,
+        "rescued": 5,
+        "harmed": 87
+      },
+      "far_joint": {
+        "success_1m_2deg": 112,
+        "success_05m_1deg": 41,
+        "median_rotation_deg": 1.3993045824121366,
+        "mean_rotation_deg": 1.611812861400189,
+        "rescued": 1,
+        "harmed": 6
+      },
+      "oracle_rotation_only": {
+        "success_1m_2deg": 148,
+        "success_05m_1deg": 140,
+        "median_rotation_deg": 0.5191058500011061,
+        "mean_rotation_deg": 0.5380958316407877,
+        "rescued": 31,
+        "harmed": 0
+      }
+    }
+  },
+  "supported": {
+    "frames": 109,
+    "methods": {
+      "baseline": {
+        "success_1m_2deg": 89,
+        "success_05m_1deg": 32,
+        "median_rotation_deg": 1.3858681419366554,
+        "mean_rotation_deg": 1.5215383071888626,
+        "rescued": 0,
+        "harmed": 0
+      },
+      "lidar": {
+        "success_1m_2deg": 87,
+        "success_05m_1deg": 32,
+        "median_rotation_deg": 1.3858681419366554,
+        "mean_rotation_deg": 1.5545252631355397,
+        "rescued": 0,
+        "harmed": 2
+      },
+      "camera": {
+        "success_1m_2deg": 59,
+        "success_05m_1deg": 14,
+        "median_rotation_deg": 1.7931353309717133,
+        "mean_rotation_deg": 1.984286821270485,
+        "rescued": 8,
+        "harmed": 38
+      },
+      "joint": {
+        "success_1m_2deg": 88,
+        "success_05m_1deg": 32,
+        "median_rotation_deg": 1.3876570844805187,
+        "mean_rotation_deg": 1.5356044024574178,
+        "rescued": 1,
+        "harmed": 2
+      },
+      "far_camera": {
+        "success_1m_2deg": 29,
+        "success_05m_1deg": 8,
+        "median_rotation_deg": 2.500698427598418,
+        "mean_rotation_deg": 2.607245940680676,
+        "rescued": 4,
+        "harmed": 64
+      },
+      "far_joint": {
+        "success_1m_2deg": 85,
+        "success_05m_1deg": 31,
+        "median_rotation_deg": 1.3858681419366554,
+        "mean_rotation_deg": 1.5606398301192395,
+        "rescued": 0,
+        "harmed": 4
+      },
+      "oracle_rotation_only": {
+        "success_1m_2deg": 109,
+        "success_05m_1deg": 101,
+        "median_rotation_deg": 0.5230113111322438,
+        "mean_rotation_deg": 0.5456479455551347,
+        "rescued": 20,
+        "harmed": 0
+      }
+    }
+  },
+  "outside": {
+    "frames": 39,
+    "methods": {
+      "baseline": {
+        "success_1m_2deg": 28,
+        "success_05m_1deg": 10,
+        "median_rotation_deg": 1.5128167030798318,
+        "mean_rotation_deg": 1.64886414445654,
+        "rescued": 0,
+        "harmed": 0
+      },
+      "lidar": {
+        "success_1m_2deg": 27,
+        "success_05m_1deg": 10,
+        "median_rotation_deg": 1.5875680354230757,
+        "mean_rotation_deg": 1.6797413155714913,
+        "rescued": 1,
+        "harmed": 2
+      },
+      "camera": {
+        "success_1m_2deg": 16,
+        "success_05m_1deg": 5,
+        "median_rotation_deg": 2.419054245393537,
+        "mean_rotation_deg": 2.5932806191178144,
+        "rescued": 4,
+        "harmed": 16
+      },
+      "joint": {
+        "success_1m_2deg": 27,
+        "success_05m_1deg": 10,
+        "median_rotation_deg": 1.5875680354230757,
+        "mean_rotation_deg": 1.7017551586188107,
+        "rescued": 1,
+        "harmed": 2
+      },
+      "far_camera": {
+        "success_1m_2deg": 6,
+        "success_05m_1deg": 0,
+        "median_rotation_deg": 3.230300413309678,
+        "mean_rotation_deg": 3.19775840471432,
+        "rescued": 1,
+        "harmed": 23
+      },
+      "far_joint": {
+        "success_1m_2deg": 27,
+        "success_05m_1deg": 10,
+        "median_rotation_deg": 1.5875680354230757,
+        "mean_rotation_deg": 1.7548349231854075,
+        "rescued": 1,
+        "harmed": 2
+      },
+      "oracle_rotation_only": {
+        "success_1m_2deg": 39,
+        "success_05m_1deg": 39,
+        "median_rotation_deg": 0.5155633340278678,
+        "mean_rotation_deg": 0.51698864146992,
+        "rescued": 11,
+        "harmed": 0
+      }
+    }
+  }
+}

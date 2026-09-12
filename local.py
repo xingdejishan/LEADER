@@ -35,7 +35,7 @@ def verify():
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['verify', 'summary', 'audit', 'joint', 'confidence', 'infer', 'train'])
+    parser.add_argument('command', choices=['verify', 'summary', 'audit', 'joint', 'confidence', 'infer', 'train', 'rotation'])
     parser.add_argument('--variant', choices=['selected', 'previous', 'balanced', 'confidence'], default='selected')
     parser.add_argument('--limit', type=int, default=0)
     parser.add_argument('--out', type=Path)
@@ -73,7 +73,12 @@ def main():
         out.write_text(json.dumps(dict(records=records, summary=summarize(records)), indent=2), encoding='utf-8')
         print(str(out))
         return
-    if args.command == 'joint':
+    if args.command == 'rotation':
+        if args.variant == 'confidence':
+            raise ValueError('Choose selected, balanced or previous for rotation diagnostics')
+        arguments = ['rotation_complementarity', '--bundle', str(ROOT), '--variant', args.variant,
+            '--out', str(out), '--limit', str(args.limit)]
+    elif args.command == 'joint':
         arguments = ['cached_joint_eval', '--coordinates', str(ROOT / 'cache' / args.variant / 'coordinates'),
             '--out', str(out), '--bundle', str(ROOT), '--limit', str(args.limit)]
     elif args.command == 'confidence':
