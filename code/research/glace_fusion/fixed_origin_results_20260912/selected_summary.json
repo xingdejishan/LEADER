@@ -1,0 +1,535 @@
+{
+  "all": {
+    "frames": 148,
+    "methods": {
+      "baseline": {
+        "success_1m_2deg": 117,
+        "success_05m_1deg": 42,
+        "rescued_vs_v1": 0,
+        "harmed_vs_v1": 0,
+        "new_harm_vs_lidar_only": 1,
+        "rescue_vs_lidar_only": 3,
+        "shared_v1_harm_with_lidar": 0,
+        "new_v1_harm_where_lidar_stable": 0,
+        "recovered_backend_harm": 3,
+        "median_t_m": 0.15113198570382388,
+        "median_r_deg": 1.4152312626864616,
+        "p95_t_m": 0.3585354488910437,
+        "p95_r_deg": 2.9535875643594314,
+        "transition_counts_v1_lidar_visual": {
+          "000": 30,
+          "001": 0,
+          "010": 1,
+          "011": 0,
+          "100": 0,
+          "101": 3,
+          "110": 0,
+          "111": 114
+        },
+        "harmed_frame_ids": [],
+        "added_harm_frame_ids": [
+          "1329069274936948"
+        ],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": -0.018867924528301886,
+          "22151155": 0.0,
+          "22151207": 0.06666666666666667,
+          "22151208": 0.0
+        }
+      },
+      "lidar_only": {
+        "success_1m_2deg": 115,
+        "success_05m_1deg": 36,
+        "rescued_vs_v1": 1,
+        "harmed_vs_v1": 3,
+        "new_harm_vs_lidar_only": 0,
+        "rescue_vs_lidar_only": 0,
+        "shared_v1_harm_with_lidar": 3,
+        "new_v1_harm_where_lidar_stable": 0,
+        "recovered_backend_harm": 0,
+        "median_t_m": 0.1488943446033485,
+        "median_r_deg": 1.418288958568471,
+        "p95_t_m": 0.3558417574625241,
+        "p95_r_deg": 3.0624596418237835,
+        "transition_counts_v1_lidar_visual": {
+          "000": 30,
+          "001": 0,
+          "010": 0,
+          "011": 1,
+          "100": 3,
+          "101": 0,
+          "110": 0,
+          "111": 114
+        },
+        "harmed_frame_ids": [
+          "1329072438043912",
+          "1329072440044317",
+          "1329072446044710"
+        ],
+        "added_harm_frame_ids": [],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": 0.0,
+          "22151155": 0.0,
+          "22151207": 0.0,
+          "22151208": 0.0
+        },
+        "solver_called": 148,
+        "solver_converged": 148,
+        "total_residual_calls": 7819,
+        "skipped_frame_ids": [],
+        "median_pose_difference_vs_lidar": [
+          0.0,
+          0.0
+        ]
+      },
+      "prediction_full": {
+        "success_1m_2deg": 117,
+        "success_05m_1deg": 36,
+        "rescued_vs_v1": 1,
+        "harmed_vs_v1": 1,
+        "new_harm_vs_lidar_only": 0,
+        "rescue_vs_lidar_only": 2,
+        "shared_v1_harm_with_lidar": 1,
+        "new_v1_harm_where_lidar_stable": 0,
+        "recovered_backend_harm": 2,
+        "median_t_m": 0.1426200181085236,
+        "median_r_deg": 1.4395261167883295,
+        "p95_t_m": 0.34936031557110164,
+        "p95_r_deg": 3.0550956787316386,
+        "transition_counts_v1_lidar_visual": {
+          "000": 30,
+          "001": 0,
+          "010": 0,
+          "011": 1,
+          "100": 1,
+          "101": 2,
+          "110": 0,
+          "111": 114
+        },
+        "harmed_frame_ids": [
+          "1329072440044317"
+        ],
+        "added_harm_frame_ids": [],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": 0.0,
+          "22151155": 0.0,
+          "22151207": 0.044444444444444446,
+          "22151208": 0.0
+        },
+        "solver_called": 148,
+        "solver_converged": 148,
+        "total_residual_calls": 7861,
+        "skipped_frame_ids": [],
+        "median_pose_difference_vs_lidar": [
+          0.007276167744360721,
+          0.06800684099336378
+        ]
+      },
+      "prediction_common": {
+        "success_1m_2deg": 113,
+        "success_05m_1deg": 35,
+        "rescued_vs_v1": 0,
+        "harmed_vs_v1": 4,
+        "new_harm_vs_lidar_only": 2,
+        "rescue_vs_lidar_only": 0,
+        "shared_v1_harm_with_lidar": 3,
+        "new_v1_harm_where_lidar_stable": 1,
+        "recovered_backend_harm": 0,
+        "median_t_m": 0.1458319179038337,
+        "median_r_deg": 1.4276920296459719,
+        "p95_t_m": 0.3368298186546954,
+        "p95_r_deg": 2.9963787507210795,
+        "transition_counts_v1_lidar_visual": {
+          "000": 30,
+          "001": 0,
+          "010": 1,
+          "011": 0,
+          "100": 3,
+          "101": 0,
+          "110": 1,
+          "111": 113
+        },
+        "harmed_frame_ids": [
+          "1329072438043912",
+          "1329072439044084",
+          "1329072440044317",
+          "1329072446044710"
+        ],
+        "added_harm_frame_ids": [
+          "1329069274936948",
+          "1329072439044084"
+        ],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": -0.018867924528301886,
+          "22151155": 0.0,
+          "22151207": -0.022222222222222223,
+          "22151208": 0.0
+        },
+        "solver_called": 148,
+        "solver_converged": 148,
+        "total_residual_calls": 7826,
+        "skipped_frame_ids": [],
+        "median_pose_difference_vs_lidar": [
+          0.010711699968755442,
+          0.062282044284895866
+        ]
+      },
+      "oracle_prediction": {
+        "success_1m_2deg": 122,
+        "success_05m_1deg": 43,
+        "rescued_vs_v1": 7,
+        "harmed_vs_v1": 2,
+        "new_harm_vs_lidar_only": 0,
+        "rescue_vs_lidar_only": 7,
+        "shared_v1_harm_with_lidar": 2,
+        "new_v1_harm_where_lidar_stable": 0,
+        "recovered_backend_harm": 1,
+        "median_t_m": 0.14409291893455795,
+        "median_r_deg": 1.3057959965529427,
+        "p95_t_m": 0.3328503516783095,
+        "p95_r_deg": 2.7681199579787057,
+        "transition_counts_v1_lidar_visual": {
+          "000": 24,
+          "001": 6,
+          "010": 0,
+          "011": 1,
+          "100": 2,
+          "101": 1,
+          "110": 0,
+          "111": 114
+        },
+        "harmed_frame_ids": [
+          "1329072438043912",
+          "1329072440044317"
+        ],
+        "added_harm_frame_ids": [],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": 0.07547169811320754,
+          "22151155": 0.0,
+          "22151207": 0.06666666666666667,
+          "22151208": 0.0
+        },
+        "solver_called": 148,
+        "solver_converged": 148,
+        "total_residual_calls": 8330,
+        "skipped_frame_ids": [],
+        "median_pose_difference_vs_lidar": [
+          0.04255712675545979,
+          0.2733675047670831
+        ]
+      },
+      "oracle_matched_random": {
+        "success_1m_2deg": 116,
+        "success_05m_1deg": 37,
+        "rescued_vs_v1": 2,
+        "harmed_vs_v1": 3,
+        "new_harm_vs_lidar_only": 1,
+        "rescue_vs_lidar_only": 2,
+        "shared_v1_harm_with_lidar": 2,
+        "new_v1_harm_where_lidar_stable": 1,
+        "recovered_backend_harm": 1,
+        "median_t_m": 0.14480063288845507,
+        "median_r_deg": 1.4130481353114401,
+        "p95_t_m": 0.3320421361735378,
+        "p95_r_deg": 3.048464103651645,
+        "transition_counts_v1_lidar_visual": {
+          "000": 29,
+          "001": 1,
+          "010": 0,
+          "011": 1,
+          "100": 2,
+          "101": 1,
+          "110": 1,
+          "111": 113
+        },
+        "harmed_frame_ids": [
+          "1329072438043912",
+          "1329072440044317",
+          "1329072502050270"
+        ],
+        "added_harm_frame_ids": [
+          "1329072502050270"
+        ],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": 0.0,
+          "22151155": 0.0,
+          "22151207": 0.044444444444444446,
+          "22151208": -0.027777777777777776
+        },
+        "solver_called": 148,
+        "solver_converged": 148,
+        "total_residual_calls": 7924,
+        "skipped_frame_ids": [],
+        "median_pose_difference_vs_lidar": [
+          0.023330029769147696,
+          0.14474419100308178
+        ]
+      }
+    }
+  },
+  "supported": {
+    "frames": 109,
+    "methods": {
+      "baseline": {
+        "success_1m_2deg": 89,
+        "success_05m_1deg": 32,
+        "rescued_vs_v1": 0,
+        "harmed_vs_v1": 0,
+        "new_harm_vs_lidar_only": 0,
+        "rescue_vs_lidar_only": 3,
+        "shared_v1_harm_with_lidar": 0,
+        "new_v1_harm_where_lidar_stable": 0,
+        "recovered_backend_harm": 3,
+        "median_t_m": 0.13840436813116744,
+        "median_r_deg": 1.3858681419366554,
+        "p95_t_m": 0.3836806403813848,
+        "p95_r_deg": 3.0310973324767128,
+        "transition_counts_v1_lidar_visual": {
+          "000": 20,
+          "001": 0,
+          "010": 0,
+          "011": 0,
+          "100": 0,
+          "101": 3,
+          "110": 0,
+          "111": 86
+        },
+        "harmed_frame_ids": [],
+        "added_harm_frame_ids": [],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": 0.0,
+          "22151155": 0.0,
+          "22151207": 0.06666666666666667,
+          "22151208": 0.0
+        }
+      },
+      "lidar_only": {
+        "success_1m_2deg": 86,
+        "success_05m_1deg": 26,
+        "rescued_vs_v1": 0,
+        "harmed_vs_v1": 3,
+        "new_harm_vs_lidar_only": 0,
+        "rescue_vs_lidar_only": 0,
+        "shared_v1_harm_with_lidar": 3,
+        "new_v1_harm_where_lidar_stable": 0,
+        "recovered_backend_harm": 0,
+        "median_t_m": 0.1382083875188176,
+        "median_r_deg": 1.4030405406799944,
+        "p95_t_m": 0.3638089959611751,
+        "p95_r_deg": 3.1660544404259223,
+        "transition_counts_v1_lidar_visual": {
+          "000": 20,
+          "001": 0,
+          "010": 0,
+          "011": 0,
+          "100": 3,
+          "101": 0,
+          "110": 0,
+          "111": 86
+        },
+        "harmed_frame_ids": [
+          "1329072438043912",
+          "1329072440044317",
+          "1329072446044710"
+        ],
+        "added_harm_frame_ids": [],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": 0.0,
+          "22151155": 0.0,
+          "22151207": 0.0,
+          "22151208": 0.0
+        },
+        "solver_called": 109,
+        "solver_converged": 109,
+        "total_residual_calls": 5684,
+        "skipped_frame_ids": [],
+        "median_pose_difference_vs_lidar": [
+          0.0,
+          0.0
+        ]
+      },
+      "prediction_full": {
+        "success_1m_2deg": 88,
+        "success_05m_1deg": 27,
+        "rescued_vs_v1": 0,
+        "harmed_vs_v1": 1,
+        "new_harm_vs_lidar_only": 0,
+        "rescue_vs_lidar_only": 2,
+        "shared_v1_harm_with_lidar": 1,
+        "new_v1_harm_where_lidar_stable": 0,
+        "recovered_backend_harm": 2,
+        "median_t_m": 0.13703485846896934,
+        "median_r_deg": 1.43180903744701,
+        "p95_t_m": 0.36499922642846383,
+        "p95_r_deg": 3.0540547212016196,
+        "transition_counts_v1_lidar_visual": {
+          "000": 20,
+          "001": 0,
+          "010": 0,
+          "011": 0,
+          "100": 1,
+          "101": 2,
+          "110": 0,
+          "111": 86
+        },
+        "harmed_frame_ids": [
+          "1329072440044317"
+        ],
+        "added_harm_frame_ids": [],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": 0.0,
+          "22151155": 0.0,
+          "22151207": 0.044444444444444446,
+          "22151208": 0.0
+        },
+        "solver_called": 109,
+        "solver_converged": 109,
+        "total_residual_calls": 5726,
+        "skipped_frame_ids": [],
+        "median_pose_difference_vs_lidar": [
+          0.008160669521076424,
+          0.06970821122059552
+        ]
+      },
+      "prediction_common": {
+        "success_1m_2deg": 85,
+        "success_05m_1deg": 27,
+        "rescued_vs_v1": 0,
+        "harmed_vs_v1": 4,
+        "new_harm_vs_lidar_only": 1,
+        "rescue_vs_lidar_only": 0,
+        "shared_v1_harm_with_lidar": 3,
+        "new_v1_harm_where_lidar_stable": 1,
+        "recovered_backend_harm": 0,
+        "median_t_m": 0.12854858190309176,
+        "median_r_deg": 1.3810785770091245,
+        "p95_t_m": 0.36826087913991423,
+        "p95_r_deg": 3.0507972368075205,
+        "transition_counts_v1_lidar_visual": {
+          "000": 20,
+          "001": 0,
+          "010": 0,
+          "011": 0,
+          "100": 3,
+          "101": 0,
+          "110": 1,
+          "111": 85
+        },
+        "harmed_frame_ids": [
+          "1329072438043912",
+          "1329072439044084",
+          "1329072440044317",
+          "1329072446044710"
+        ],
+        "added_harm_frame_ids": [
+          "1329072439044084"
+        ],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": 0.0,
+          "22151155": 0.0,
+          "22151207": -0.022222222222222223,
+          "22151208": 0.0
+        },
+        "solver_called": 109,
+        "solver_converged": 109,
+        "total_residual_calls": 5705,
+        "skipped_frame_ids": [],
+        "median_pose_difference_vs_lidar": [
+          0.013786196886296459,
+          0.06294874446552082
+        ]
+      },
+      "oracle_prediction": {
+        "success_1m_2deg": 91,
+        "success_05m_1deg": 34,
+        "rescued_vs_v1": 4,
+        "harmed_vs_v1": 2,
+        "new_harm_vs_lidar_only": 0,
+        "rescue_vs_lidar_only": 5,
+        "shared_v1_harm_with_lidar": 2,
+        "new_v1_harm_where_lidar_stable": 0,
+        "recovered_backend_harm": 1,
+        "median_t_m": 0.1312525909622703,
+        "median_r_deg": 1.2960173513476443,
+        "p95_t_m": 0.36059172973894366,
+        "p95_r_deg": 2.970057775893948,
+        "transition_counts_v1_lidar_visual": {
+          "000": 16,
+          "001": 4,
+          "010": 0,
+          "011": 0,
+          "100": 2,
+          "101": 1,
+          "110": 0,
+          "111": 86
+        },
+        "harmed_frame_ids": [
+          "1329072438043912",
+          "1329072440044317"
+        ],
+        "added_harm_frame_ids": [],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": 0.13333333333333333,
+          "22151155": 0.0,
+          "22151207": 0.06666666666666667,
+          "22151208": 0.0
+        },
+        "solver_called": 109,
+        "solver_converged": 109,
+        "total_residual_calls": 6055,
+        "skipped_frame_ids": [],
+        "median_pose_difference_vs_lidar": [
+          0.042930833428496296,
+          0.2683395825524312
+        ]
+      },
+      "oracle_matched_random": {
+        "success_1m_2deg": 87,
+        "success_05m_1deg": 26,
+        "rescued_vs_v1": 1,
+        "harmed_vs_v1": 3,
+        "new_harm_vs_lidar_only": 1,
+        "rescue_vs_lidar_only": 2,
+        "shared_v1_harm_with_lidar": 2,
+        "new_v1_harm_where_lidar_stable": 1,
+        "recovered_backend_harm": 1,
+        "median_t_m": 0.13551194883561937,
+        "median_r_deg": 1.3752446894767012,
+        "p95_t_m": 0.3686591175391301,
+        "p95_r_deg": 3.0813194584859316,
+        "transition_counts_v1_lidar_visual": {
+          "000": 19,
+          "001": 1,
+          "010": 0,
+          "011": 0,
+          "100": 2,
+          "101": 1,
+          "110": 1,
+          "111": 85
+        },
+        "harmed_frame_ids": [
+          "1329072438043912",
+          "1329072440044317",
+          "1329072502050270"
+        ],
+        "added_harm_frame_ids": [
+          "1329072502050270"
+        ],
+        "net_change_vs_lidar_by_60s_block": {
+          "22151154": 0.0,
+          "22151155": 0.0,
+          "22151207": 0.044444444444444446,
+          "22151208": -0.027777777777777776
+        },
+        "solver_called": 109,
+        "solver_converged": 109,
+        "total_residual_calls": 5761,
+        "skipped_frame_ids": [],
+        "median_pose_difference_vs_lidar": [
+          0.02766480533069072,
+          0.15533180737681335
+        ]
+      }
+    }
+  }
+}

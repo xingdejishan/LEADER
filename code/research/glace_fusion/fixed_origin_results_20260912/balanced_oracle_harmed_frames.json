@@ -1,0 +1,293 @@
+[
+  {
+    "image": "1329072440044317",
+    "time_block": "22151207",
+    "in_orientation_support": true,
+    "errors": {
+      "baseline": [
+        0.09951906313483745,
+        1.7562277480102508
+      ],
+      "lidar_only": [
+        0.08611526062565306,
+        2.354789209106152
+      ],
+      "prediction_full": [
+        0.060429595963868286,
+        2.1886029017498565
+      ],
+      "prediction_common": [
+        0.08710973127431137,
+        2.430042184520668
+      ],
+      "oracle_prediction": [
+        0.08929592344532204,
+        2.3041123046571297
+      ],
+      "oracle_matched_random": [
+        0.09344894818149227,
+        2.4219136951726816
+      ]
+    },
+    "camera_reference_errors": {
+      "baseline": [
+        0.09959478817860463,
+        1.751828051486802
+      ],
+      "lidar_only": [
+        0.08643457505081482,
+        2.3421048144311714
+      ],
+      "prediction_full": [
+        0.06051287754578594,
+        2.181709262774668
+      ],
+      "prediction_common": [
+        0.08722412711582612,
+        2.4210728397490806
+      ],
+      "oracle_prediction": [
+        0.08931575990886288,
+        2.295197008756497
+      ],
+      "oracle_matched_random": [
+        0.09358616646531769,
+        2.4125318885517877
+      ]
+    },
+    "camera_scan_gt_difference": [
+      0.001024301469162285,
+      0.024044087428816915
+    ],
+    "solver": {
+      "lidar_only": {
+        "success": true,
+        "solver_called": true,
+        "nfev": 8,
+        "residual_calls": 56,
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied.",
+        "final_cost": 0.07222279988258479,
+        "optimality": 1.6949617917410205e-05,
+        "lidar_support": 111,
+        "camera_support": 0,
+        "camera_weight": 0.0,
+        "elapsed_seconds": 0.0030222999994293787,
+        "input_camera_points": 0,
+        "fixed_objective_before": {
+          "lidar": 0.1805410298361352,
+          "camera": 0.0
+        },
+        "fixed_objective_after": {
+          "lidar": 0.14444559976516982,
+          "camera": 0.0
+        },
+        "pose_update": [
+          0.16073079540950697,
+          0.9672955238707747
+        ],
+        "truncated_score_before": {
+          "score": 0.28147297508218583,
+          "lidar_score": 0.5629459501643717,
+          "camera_score": 0.0
+        },
+        "truncated_score_after": {
+          "score": 0.2474958118171784,
+          "lidar_score": 0.4949916236343568,
+          "camera_score": 0.0
+        }
+      },
+      "prediction_full": {
+        "success": true,
+        "solver_called": true,
+        "nfev": 8,
+        "residual_calls": 56,
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied.",
+        "final_cost": 0.14240395880914297,
+        "optimality": 7.310809106281235e-05,
+        "lidar_support": 111,
+        "camera_support": 89,
+        "camera_weight": 1.0,
+        "elapsed_seconds": 0.0046999999995023245,
+        "input_camera_points": 256,
+        "fixed_objective_before": {
+          "lidar": 0.1805410298361352,
+          "camera": 0.1299969488982161
+        },
+        "fixed_objective_after": {
+          "lidar": 0.15906351105224292,
+          "camera": 0.12574440656604194
+        },
+        "pose_update": [
+          0.10918265594691484,
+          0.4792222078151594
+        ],
+        "truncated_score_before": {
+          "score": 0.6902891740074573,
+          "lidar_score": 0.5629459501643717,
+          "camera_score": 0.8176323978505429
+        },
+        "truncated_score_after": {
+          "score": 0.6637360301727402,
+          "lidar_score": 0.529361589597901,
+          "camera_score": 0.7981104707475795
+        }
+      },
+      "prediction_common": {
+        "success": true,
+        "solver_called": true,
+        "nfev": 7,
+        "residual_calls": 49,
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied.",
+        "final_cost": 0.13214047133766774,
+        "optimality": 3.722057714544702e-05,
+        "lidar_support": 111,
+        "camera_support": 107,
+        "camera_weight": 1.0,
+        "elapsed_seconds": 0.0036395999995875172,
+        "input_camera_points": 256,
+        "fixed_objective_before": {
+          "lidar": 0.1805410298361352,
+          "camera": 0.13166740873739233
+        },
+        "fixed_objective_after": {
+          "lidar": 0.1549368929742529,
+          "camera": 0.10934404970108103
+        },
+        "pose_update": [
+          0.17110657602237972,
+          0.8014127708664263
+        ],
+        "truncated_score_before": {
+          "score": 0.6553131413449721,
+          "lidar_score": 0.5629459501643717,
+          "camera_score": 0.7476803325255725
+        },
+        "truncated_score_after": {
+          "score": 0.608213081124143,
+          "lidar_score": 0.5157535641656076,
+          "camera_score": 0.7006725980826783
+        }
+      },
+      "oracle_prediction": {
+        "success": true,
+        "solver_called": true,
+        "nfev": 7,
+        "residual_calls": 49,
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied.",
+        "final_cost": 0.1482654326089309,
+        "optimality": 2.3521626570020698e-05,
+        "lidar_support": 111,
+        "camera_support": 88,
+        "camera_weight": 1.0,
+        "elapsed_seconds": 0.003860899998471723,
+        "input_camera_points": 138,
+        "fixed_objective_before": {
+          "lidar": 0.1805410298361352,
+          "camera": 0.1859105275238524
+        },
+        "fixed_objective_after": {
+          "lidar": 0.16526467227195718,
+          "camera": 0.13126619294590572
+        },
+        "pose_update": [
+          0.17570532601404704,
+          0.6876110428837825
+        ],
+        "truncated_score_before": {
+          "score": 0.5782179556779725,
+          "lidar_score": 0.5629459501643717,
+          "camera_score": 0.5934899611915734
+        },
+        "truncated_score_after": {
+          "score": 0.503578743140981,
+          "lidar_score": 0.530139158628195,
+          "camera_score": 0.47701832765376695
+        }
+      },
+      "oracle_matched_random": {
+        "success": true,
+        "solver_called": true,
+        "nfev": 7,
+        "residual_calls": 49,
+        "status": 2,
+        "message": "`ftol` termination condition is satisfied.",
+        "final_cost": 0.1382259238445674,
+        "optimality": 3.599277488406705e-05,
+        "lidar_support": 111,
+        "camera_support": 62,
+        "camera_weight": 1.0,
+        "elapsed_seconds": 0.003501299999697949,
+        "input_camera_points": 138,
+        "fixed_objective_before": {
+          "lidar": 0.1805410298361352,
+          "camera": 0.1470488550293379
+        },
+        "fixed_objective_after": {
+          "lidar": 0.15569769276386755,
+          "camera": 0.12075415492526703
+        },
+        "pose_update": [
+          0.17894281162791345,
+          0.8157280557211909
+        ],
+        "truncated_score_before": {
+          "score": 0.6502101609595197,
+          "lidar_score": 0.5629459501643717,
+          "camera_score": 0.7374743717546676
+        },
+        "truncated_score_after": {
+          "score": 0.5999433694984937,
+          "lidar_score": 0.5155526809949063,
+          "camera_score": 0.6843340580020811
+        }
+      }
+    },
+    "difference_vs_lidar": {
+      "lidar_only": [
+        0.0,
+        0.0
+      ],
+      "prediction_full": [
+        0.05773543638628897,
+        0.6364572907598163
+      ],
+      "prediction_common": [
+        0.023812032928043594,
+        0.420582368830488
+      ],
+      "oracle_prediction": [
+        0.0336460349991398,
+        0.41101898861315356
+      ],
+      "oracle_matched_random": [
+        0.028216332416512682,
+        0.3753455777885444
+      ]
+    },
+    "input_hashes": {
+      "pool": "09d263121c3a39dadb630d9112dc5dc589b157ef87542027959c9c926e599a76",
+      "coordinates": "374f066f73a8e6d83abeed2834ad6795ec78d5753daf51c89532a6f05cd17ae2",
+      "scan": "8e9aed836a12b303106161e3acfd5fb1dc06b0bb1c7431ea02240db0138f3d7a",
+      "reference": null
+    },
+    "lidar_support_count": 111,
+    "oracle_harm_reference_check": {
+      "harmed_under_scan_reference": true,
+      "harmed_under_camera_reference": true,
+      "oracle_passes_camera_reference": false
+    },
+    "oracle_geometry": {
+      "points": 138,
+      "median_signed_px": [
+        -0.5389031040766099,
+        0.04940369959177815
+      ],
+      "median_abs_along_error_m": 0.43152159228095144,
+      "median_perpendicular_m": 0.20539764975212862
+    }
+  }
+]

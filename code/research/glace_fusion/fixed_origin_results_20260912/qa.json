@@ -1,0 +1,6 @@
+{
+  "identical_lidar_controls_across_heads_frames": 148,
+  "legacy_default_regression_frames": 10,
+  "legacy_max_absolute_pose_difference": 0.0,
+  "baseline_commit": "91ccbb8"
+}

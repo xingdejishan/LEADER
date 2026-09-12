@@ -217,28 +217,45 @@ class JointProblem:
         mL = np.einsum('ij,ij->i', rL, rL) <= 1.0
         mC = (np.einsum('ij,ij->i', rC, rC) <= 1.0) & valid
         return dict(n_lidar=int(mL.sum()), n_camera=int(mC.sum()),
-                    lidar_ratio=float(mL.mean()), camera_ratio=float(mC.mean()),
+                    lidar_ratio=float(mL.mean()) if len(mL) else 0.,
+                    camera_ratio=float(mC.mean()) if len(mC) else 0.,
                     lidar_inlier_mask=mL, camera_inlier_mask=mC)
 
     # ---- joint refinement on the support set ----------------------------
-    def refine(self, T0):
+    def refine(self, T0, *, camera_weight=1.0, lidar_support=None, require_camera_support=True):
         cfg = self.cfg
+        if not np.isfinite(camera_weight) or camera_weight < 0:
+            raise ValueError("Expected a finite nonnegative camera weight")
         sup = self.support(T0)
         mL, mC = sup["lidar_inlier_mask"], sup["camera_inlier_mask"]
-        if mL.sum() < 3 or mC.sum() < 3:
-            return T0, dict(success=False, reason="insufficient_support")
+        if lidar_support is not None:
+            supplied = np.asarray(lidar_support)
+            if supplied.dtype != bool or supplied.shape != mL.shape:
+                raise ValueError("Expected a boolean LiDAR support mask")
+            mL = supplied.copy()
+        if camera_weight == 0:
+            mC = np.zeros_like(mC)
+        if mL.sum() < 3 or (camera_weight > 0 and require_camera_support and mC.sum() < 3):
+            return T0, dict(success=False, solver_called=False, nfev=0,
+                residual_calls=0, reason="insufficient_support",
+                lidar_support=int(mL.sum()), camera_support=int(mC.sum()))
 
         p, P = self.p_body[mL], self.p_world[mL]
         wL = self.w_L[mL]
         uv, X = self.uv[mC], self.xyz_world[mC]
         wC = self.w_C[mC]
         K, E = self.K, self.T_BC
+        residual_calls = 0
 
         def fun(x):
+            nonlocal residual_calls
+            residual_calls += 1
             T = _increment(np.asarray(T0, dtype=float), x, cfg)
             rL = (p @ T[:3, :3].T + T[:3, 3] - P) / cfg.lidar_scale_m
             sL = np.einsum('ij,ij->i', rL, rL)
             fL = rL * np.sqrt((wL * np.log1p(sL) / np.maximum(sL, 1e-18)))[:, None]
+            if camera_weight == 0:
+                return fL.ravel()
             T_WC = T @ E
             q = (X - T_WC[:3, 3]) @ T_WC[:3, :3]
             proj = q @ K.T
@@ -246,14 +263,17 @@ class JointProblem:
             rC = (uv_proj - uv) / cfg.camera_scale_px
             sC = np.einsum('ij,ij->i', rC, rC)
             fC = rC * np.sqrt((wC * np.log1p(sC) / np.maximum(sC, 1e-18)))[:, None]
-            return np.concatenate((fL.ravel(), fC.ravel()))
+            return np.concatenate((fL.ravel(), np.sqrt(camera_weight) * fC.ravel()))
 
         fit = least_squares(fun, np.zeros(6), method="lm", x_scale=1.0,
                             max_nfev=cfg.refine_max_nfev,
                             ftol=cfg.refine_tolerance, xtol=cfg.refine_tolerance,
                             gtol=cfg.refine_tolerance)
         return _increment(np.asarray(T0, dtype=float), fit.x, cfg), \
-            dict(success=bool(fit.success), nfev=int(fit.nfev))
+            dict(success=bool(fit.success), solver_called=True, nfev=int(fit.nfev),
+                 residual_calls=residual_calls, status=int(fit.status), message=str(fit.message),
+                 final_cost=float(fit.cost), optimality=float(fit.optimality),
+                 lidar_support=int(mL.sum()), camera_support=int(mC.sum()), camera_weight=float(camera_weight))
 
     # ---- observability ---------------------------------------------------
     def observability(self, T):

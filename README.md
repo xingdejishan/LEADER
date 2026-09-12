@@ -6,6 +6,8 @@
 
 研究目标、方案实施状态和下一阶段数据要求见 [RESEARCH_GOAL.md](RESEARCH_GOAL.md)；固定候选对应点替换实验见 [回放报告](code/research/glace_fusion/replay_results_20260912/REPORT.md)。
 
+最新的同一 v1 起点视觉开关实验见 [后端与视觉损害归因](code/research/glace_fusion/fixed_origin_results_20260912/REPORT.md)。
+
 ## 内容
 
 - `code/`：服务器分支的源码快照，含本轮未提交改进；本地路径适配记录在 LOCAL_PATCHES.json。
@@ -28,6 +30,7 @@
 .\.venv\Scripts\python.exe local.py confidence --out outputs\my-confidence
 .\.venv\Scripts\python.exe local.py infer --variant selected --limit 2 --out outputs\my-inference
 .\.venv\Scripts\python.exe local.py replay --variant selected --out outputs\my-replay
+.\.venv\Scripts\python.exe local.py refine-ablation --variant selected --out outputs\my-refine-ablation
 ```
 
 audit、joint 和 confidence 可在 CPU 上运行；infer 使用已有 CUDA PyTorch 和本地 GPU。输出路径必须不存在；省略 limit 表示全部测试帧。

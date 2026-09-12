@@ -35,7 +35,7 @@ def verify():
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['verify', 'summary', 'audit', 'joint', 'confidence', 'infer', 'train', 'rotation', 'replay'])
+    parser.add_argument('command', choices=['verify', 'summary', 'audit', 'joint', 'confidence', 'infer', 'train', 'rotation', 'replay', 'refine-ablation'])
     parser.add_argument('--variant', choices=['selected', 'previous', 'balanced', 'confidence'], default='selected')
     parser.add_argument('--limit', type=int, default=0)
     parser.add_argument('--out', type=Path)
@@ -74,7 +74,12 @@ def main():
         out.write_text(json.dumps(dict(records=records, summary=summarize(records)), indent=2), encoding='utf-8')
         print(str(out))
         return
-    if args.command == 'replay':
+    if args.command == 'refine-ablation':
+        if args.variant not in ('selected', 'balanced'):
+            raise ValueError('Fixed replay inputs are available for selected and balanced')
+        arguments = ['fixed_origin_refine', '--bundle', str(ROOT), '--variant', args.variant,
+            '--out', str(out), '--limit', str(args.limit)]
+    elif args.command == 'replay':
         if args.variant == 'confidence':
             raise ValueError('Choose a neural coordinate cache for controlled replay')
         arguments = ['correspondence_replay', '--bundle', str(ROOT), '--variant', args.variant,
