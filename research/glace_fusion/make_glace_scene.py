@@ -1,25 +1,16 @@
-"""Build a GLACE scene layout in the LEADER world frame (design point 6).
-
-GLACE training data must live in the SAME world W as LEADER's scene
-coordinates. For every synchronized (LiDAR scan, camera image) pair:
-
-    T_WC_GT = T_WB_GT @ T_BC
-
-is written to poses/<ts>.txt (GLACE/DSAC* camera->world convention), the
-scaled pinhole K to calibration/<ts>.txt, and the image to rgb/<ts>.jpg.
-Output layout matches the vendor CamLocDataset:
-
-    <out>/
-        train/ rgb poses calibration [features.npy]
-        test/  rgb poses calibration [features.npy]
-        scene_meta.json
-"""
 import argparse
 import json
 import shutil
 from pathlib import Path
 
 import numpy as np
+
+try:
+    from .nclt_camera import (TRAIN_DATES, TEST_DATES, camera_rows, validate_dates,
+                              stored_intrinsics, NCLTTrajectory, trajectory_path)
+except ImportError:
+    from nclt_camera import (TRAIN_DATES, TEST_DATES, camera_rows, validate_dates,
+                             stored_intrinsics, NCLTTrajectory, trajectory_path)
 
 
 def parse_args():
@@ -31,12 +22,10 @@ def parse_args():
     parser.add_argument('--out', required=True)
     parser.add_argument('--camera_number', type=int, default=5)
     parser.add_argument('--body_to_lb3_ssc_deg', default='0.035,0.002,-1.23,-179.93,-0.23,0.50',
-                        help='body->lb3 SSC extrinsic (NCLT calibration chain)')
-    parser.add_argument('--image_size', type=int, nargs=2, default=(616, 808),
-                        help='(H, W) of the stored images; K is scaled to match')
-    parser.add_argument('--max_sync_delta_s', type=float, default=0.05)
-    parser.add_argument('--train_dates', nargs='*', default=['2012-01-22', '2012-02-12'])
-    parser.add_argument('--test_dates', nargs='*', default=['2012-02-18', '2012-03-31'])
+                        help='LB3 pose in body coordinates, SSC degrees (NCLT convention)')
+    parser.add_argument('--allow_partial', action='store_true')
+    parser.add_argument('--train_dates', nargs='*', default=list(TRAIN_DATES))
+    parser.add_argument('--test_dates', nargs='*', default=list(TEST_DATES))
     parser.add_argument('--copy_images', action='store_true',
                         help='copy images instead of symlinking')
     return parser.parse_args()
@@ -44,7 +33,6 @@ def parse_args():
 
 def calibration_chain(calibration_root, camera_number, body_to_lb3_ssc_deg, image_size_hw):
     """NCLT calibration chain: returns (K_scaled, T_BC camera->body)."""
-    import sys
     from scipy.spatial.transform import Rotation
 
     def ssc_pose(values):
@@ -54,101 +42,76 @@ def calibration_chain(calibration_root, camera_number, body_to_lb3_ssc_deg, imag
         T[:3, 3] = values[:3]
         return T
 
-    root = Path(calibration_root) / 'cam_params'
+    root = Path(calibration_root) / 'calibration' / 'cam_params'
+    if not root.is_dir():
+        root = Path(calibration_root) / 'cam_params'
+    metadata = Path(calibration_root) / 'calibration' / 'processing_metadata.json'
+    if not root.is_dir() and metadata.is_file():
+        original = json.loads(metadata.read_text())['original_calibration_dir']
+        root = Path(original) / 'cam_params'
     K = np.loadtxt(root / ('K_cam%d.csv' % camera_number), delimiter=',')
     T_LB3_C = ssc_pose(np.loadtxt(root / ('x_lb3_c%d.csv' % camera_number), delimiter=','))
     T_B_LB3 = ssc_pose(np.asarray(body_to_lb3_ssc_deg.split(','), dtype=float))
-    K[0] *= image_size_hw[1] / 1616  # original width
-    K[1] *= image_size_hw[0] / 1232  # original height
-    return K, np.linalg.inv(T_B_LB3 @ T_LB3_C)
-
-
-def leader_gt_poses(dataset_folder, train):
-    """Per-scan GT T_WB from the exact LEADER NCLT dataloader (train split only
-    selects sequences; scan images are not loaded)."""
-    sys_path = None
-    try:
-        import MinkowskiEngine  # noqa: F401  (datagenerator import side effect)
-    except ImportError:
-        raise SystemExit('Run inside the LEADER environment (MinkowskiEngine required)')
-    from data.NCLTVelodyne_datagenerator_mink import NCLT_mink
-
-    dataset = NCLT_mink(data_path=dataset_folder, train=train)
-    poses = dataset.poses
-    rots = dataset.rots
-    by_ts = {}
-    for i, path in enumerate(dataset.pcs):
-        ts = int(Path(path).stem)
-        T = np.eye(4)
-        T[:3, :3] = rots[i]
-        T[:3, 3] = poses[i, :3]
-        by_ts[ts] = T
-    return by_ts
+    if image_size_hw is not None:
+        K[0] *= image_size_hw[1] / 1616
+        K[1] *= image_size_hw[0] / 1232
+    return K, T_B_LB3 @ T_LB3_C
 
 
 def main():
     args = parse_args()
-    image_size_hw = tuple(args.image_size)
-    K0, T_BC = calibration_chain(args.camera_root, args.camera_number,
-                                 args.body_to_lb3_ssc_deg, image_size_hw)
+    validate_dates(args.train_dates, args.test_dates)
+    rows = camera_rows(args.camera_root, args.camera_number)
+    available = {r['sequence'] for r in rows}
+    missing = (set(args.train_dates) | set(args.test_dates)) - available
+    if missing and not args.allow_partial:
+        raise SystemExit('Missing camera sequences: ' + ', '.join(sorted(missing))
+                         + '; use --allow_partial only for an explicitly partial experiment')
+    K_raw, T_BC = calibration_chain(args.camera_root, args.camera_number,
+                                   args.body_to_lb3_ssc_deg, None)
     out = Path(args.out)
+    if out.exists() and any(out.iterdir()):
+        raise SystemExit('Output scene must be empty to prevent stale split/image leakage')
     out.mkdir(parents=True, exist_ok=True)
-    meta = {'T_BC_camera_to_body': T_BC.tolist(), 'K_full_resolution': K0.tolist(),
-            'image_size_hw': list(image_size_hw), 'camera_number': args.camera_number,
-            'max_sync_delta_s': args.max_sync_delta_s, 'splits': {}}
-
-    import csv
-    rows = []
-    with open(Path(args.camera_root) / 'all_images.csv') as handle:
-        for row in csv.DictReader(handle):
-            if row['camera'] != 'Cam%d' % args.camera_number:
-                continue
-            rows.append(row)
-    rows.sort(key=lambda r: int(r['group_target_timestamp']))
-
+    meta = {'T_BC_camera_to_body': T_BC.tolist(), 'K_raw': K_raw.tolist(),
+            'intrinsics_convention': 'K matches the stored raster; loader alone resizes it',
+            'pose_convention': 'T_WC at original_image_timestamp, linear translation + SLERP',
+            'camera_number': args.camera_number, 'missing_sequences': sorted(missing), 'splits': {}}
     for split, dates in (('train', args.train_dates), ('test', args.test_dates)):
-        if not dates:
-            continue
-        scan_gt = leader_gt_poses(args.dataset_folder, train=(split == 'train'))
         split_dir = out / split
         for name in ('rgb', 'poses', 'calibration'):
             (split_dir / name).mkdir(parents=True, exist_ok=True)
-        scan_ts_sorted = np.array(sorted(scan_gt))
-        kept, skipped = 0, 0
-        deltas = []
-        for row in rows:
-            if row['sequence'] not in dates:
+        pairs, skipped = [], 0
+        for date in dates:
+            selected = [r for r in rows if r['sequence'] == date]
+            if not selected:
                 continue
-            image_ts = int(row['group_target_timestamp'])
-            j = int(np.argmin(np.abs(scan_ts_sorted - image_ts)))
-            delta_s = (image_ts - int(scan_ts_sorted[j])) / 1e6
-            if abs(delta_s) > args.max_sync_delta_s:
-                skipped += 1
-                continue
-            T_WB = scan_gt[int(scan_ts_sorted[j])]
-            T_WC = T_WB @ T_BC
-            stem = str(image_ts)
-            src = Path(args.camera_root) / row['saved_path']
-            dst = split_dir / 'rgb' / (stem + '.jpg')
-            if not dst.exists():
+            trajectory = NCLTTrajectory(trajectory_path(args.dataset_folder, date))
+            for row in selected:
+                ts = row['timestamp_us']
+                if not trajectory.timestamps[0] <= ts <= trajectory.timestamps[-1]:
+                    skipped += 1
+                    continue
+                src = Path(args.camera_root) / row['saved_path']
+                K, size = stored_intrinsics(K_raw, row, src)
+                stem = str(ts)
+                dst = split_dir / 'rgb' / (stem + src.suffix)
+                if dst.exists():
+                    raise ValueError(f'Duplicate exposure timestamp: {ts}')
                 if args.copy_images:
                     shutil.copyfile(src, dst)
                 else:
-                    try:
-                        dst.symlink_to(src.resolve())
-                    except OSError:
-                        shutil.copyfile(src, dst)
-            np.savetxt(split_dir / 'poses' / (stem + '.txt'), T_WC, fmt='%.9f')
-            np.savetxt(split_dir / 'calibration' / (stem + '.txt'), K0, fmt='%.9f')
-            deltas.append({'image': stem, 'scan_ts': int(scan_ts_sorted[j]),
-                           'delta_s': delta_s})
-            kept += 1
-        meta['splits'][split] = {'dates': dates, 'frames': kept, 'skipped_sync': skipped,
-                                 'pairs': deltas}
-        print(f'{split}: {kept} frames written, {skipped} skipped by sync gate')
-
+                    dst.symlink_to(src.resolve())
+                T_WC = trajectory.at([ts])[0] @ T_BC
+                np.savetxt(split_dir / 'poses' / (stem + '.txt'), T_WC, fmt='%.9f')
+                np.savetxt(split_dir / 'calibration' / (stem + '.txt'), K, fmt='%.9f')
+                pairs.append({'image': stem, 'sequence': date, 'image_timestamp_us': ts,
+                              'group_target_timestamp': int(row['group_target_timestamp']),
+                              'stored_size_hw': list(size)})
+        meta['splits'][split] = {'dates': dates, 'frames': len(pairs),
+                                 'skipped_gt_range': skipped, 'pairs': pairs}
+        print(f'{split}: {len(pairs)} frames written; {skipped} outside GT range')
     (out / 'scene_meta.json').write_text(json.dumps(meta, indent=2), encoding='utf-8')
-    print('scene written to', out)
 
 
 if __name__ == '__main__':

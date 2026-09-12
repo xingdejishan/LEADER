@@ -506,6 +506,8 @@ def solve(problem: JointProblem, T_L=None, T_C=None, seedwise_T_WB=None, *,
                 if _passes_single_modal(c[2], sup_of(c), "LIDAR", cfg)]
     camera_ok = [c for c in clusters
                  if _passes_single_modal(c[2], sup_of(c), "CAMERA", cfg)]
+    lidar_ok.sort(key=lambda c: c[2]["lidar_score"])
+    camera_ok.sort(key=lambda c: c[2]["camera_score"])
     diagnostics["single_modal_lidar_supported"] = len(lidar_ok)
     diagnostics["single_modal_camera_supported"] = len(camera_ok)
     unique_lidar = len(lidar_ok) == 1 or (

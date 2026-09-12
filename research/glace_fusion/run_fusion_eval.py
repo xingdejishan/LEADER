@@ -26,11 +26,17 @@ try:
     from .lidar_camera_fusion import FusionConfig, localize
     from .packet import (IsotonicCalibrator, camera_support_rate, lidar_pool_from_export,
                          lidar_support_rate, make_evidence_stamps, make_fusion_evidence)
+    from .glace_adapter import GLACEAdapter, deit_global_feature_fn
+    from .nclt_camera import (TEST_DATES, camera_rows, stored_intrinsics, preprocess_image,
+                              NCLTTrajectory, trajectory_path)
     from .joint_solver import JointProblem, JointSolverConfig, pose_distance, solve
 except ImportError:  # running with the package directory itself on sys.path
     from lidar_camera_fusion import FusionConfig, localize
     from packet import (IsotonicCalibrator, camera_support_rate, lidar_pool_from_export,
                         lidar_support_rate, make_evidence_stamps, make_fusion_evidence)
+    from glace_adapter import GLACEAdapter, deit_global_feature_fn
+    from nclt_camera import (TEST_DATES, camera_rows, stored_intrinsics, preprocess_image,
+                             NCLTTrajectory, trajectory_path)
     from joint_solver import JointProblem, JointSolverConfig, pose_distance, solve
 
 
@@ -45,7 +51,9 @@ def parse_args():
     parser.add_argument('--camera_root', required=True, help='NCLT_camera_v1 root')
     parser.add_argument('--camera_number', type=int, default=5)
     parser.add_argument('--body_to_lb3_ssc_deg', default='0.035,0.002,-1.23,-179.93,-0.23,0.50')
-    parser.add_argument('--image_size', type=int, nargs=2, default=(616, 808))
+    parser.add_argument('--image_resolution', type=int, default=616)
+    parser.add_argument('--dataset_folder', required=True, help='Root containing NCLT/ GT trajectories')
+    parser.add_argument('--allow_partial', action='store_true', help='Allow missing test camera sequences')
     parser.add_argument('--lidar_threshold_m', type=float, default=0.3,
                         help='s_L for the diagnostic support rate')
     parser.add_argument('--camera_threshold_px', type=float, default=4.0,
@@ -65,31 +73,12 @@ def parse_args():
     return parser.parse_args()
 
 
-def camera_index(camera_root, camera_number):
-    import csv
-    rows = []
-    with open(Path(camera_root) / 'all_images.csv') as handle:
-        for row in csv.DictReader(handle):
-            if row['camera'] == 'Cam%d' % camera_number:
-                rows.append((int(row['group_target_timestamp']), row['saved_path']))
-    rows.sort()
-    return np.array([r[0] for r in rows]), [r[1] for r in rows]
-
-
 def calibration_chain(calibration_root, camera_number, body_to_lb3_ssc_deg, image_size_hw):
     try:
         from .make_glace_scene import calibration_chain as _chain
     except ImportError:
         from make_glace_scene import calibration_chain as _chain
     return _chain(calibration_root, camera_number, body_to_lb3_ssc_deg, image_size_hw)
-
-
-def load_image(path, image_size_hw):
-    from PIL import Image
-    with Image.open(path) as im:
-        if im.size != (image_size_hw[1], image_size_hw[0]):
-            im = im.resize((image_size_hw[1], image_size_hw[0]), Image.BILINEAR)
-        return np.asarray(im.convert('L'), dtype=np.float32) / 255.0
 
 
 def pose_errors(T, gt):
@@ -123,14 +112,28 @@ def main():
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    image_size_hw = tuple(args.image_size)
-    K, T_BC = calibration_chain(args.camera_root, args.camera_number,
-                                args.body_to_lb3_ssc_deg, image_size_hw)
+    K_raw, T_BC = calibration_chain(args.camera_root, args.camera_number,
+                                    args.body_to_lb3_ssc_deg, None)
+    rows = [r for r in camera_rows(args.camera_root, args.camera_number)
+            if r['sequence'] in TEST_DATES]
+    missing = set(TEST_DATES) - {r['sequence'] for r in rows}
+    if missing and not args.allow_partial:
+        raise SystemExit('Missing test camera sequences: ' + ', '.join(sorted(missing))
+                         + '; use --allow_partial to report a partial experiment')
+    if not rows:
+        raise SystemExit('No test camera images available')
+    cam_ts = np.array([r['timestamp_us'] for r in rows], dtype=np.int64)
+    trajectories = {date: NCLTTrajectory(trajectory_path(args.dataset_folder, date))
+                    for date in {r['sequence'] for r in rows}}
+    pool_files = sorted(Path(args.pool_dir).rglob('*.npz'))
+    if args.limit:
+        pool_files = pool_files[:args.limit]
+    if not pool_files:
+        raise SystemExit('No pool exports found under ' + str(args.pool_dir))
 
-    from glace_adapter import GLACEAdapter, deit_global_feature_fn
     feature_fn = None
     if args.deit_checkpoint:
-        feature_fn = deit_global_feature_fn(args.vendor_dir, args.deit_checkpoint, image_size_hw)
+        feature_fn = deit_global_feature_fn(args.vendor_dir, args.deit_checkpoint)
     adapter = GLACEAdapter(args.vendor_dir, args.glace_head,
                            encoder_path=args.glace_encoder or None, T_BC=T_BC,
                            global_feature_fn=feature_fn)
@@ -140,34 +143,39 @@ def main():
     fallback_lidar_conf = IsotonicCalibrator()
     fallback_camera_conf = IsotonicCalibrator()
 
-    cam_ts, cam_paths = camera_index(args.camera_root, args.camera_number)
-    pool_files = sorted(Path(args.pool_dir).rglob('*.npz'))
-    if args.limit:
-        pool_files = pool_files[:args.limit]
-    if not pool_files:
-        raise SystemExit('No pool exports found under ' + str(args.pool_dir))
-
     modes = ['select', 'joint', 'joint_refine'] if args.backend == 'compare' else (
         ['fallback'] if args.backend == 'fallback' else [args.mode])
-    records, gt_poses = [], []
+    records = []
     skipped_sync = 0
+    skipped_gt = 0
+    all_lidar_records = []
 
     for pool_file in pool_files:
         export = dict(np.load(pool_file, allow_pickle=False))
         scan_ts = int(export['scan_timestamp_us'])
+        all_lidar_records.append({'result': {'has_pose': True, 'status': 'BASELINE',
+            'err': list(pose_errors(export['T_WB'], export['T_WB_gt']))}})
         j = int(np.argmin(np.abs(cam_ts - scan_ts)))
         sync_delta_s = (int(cam_ts[j]) - scan_ts) / 1e6
         if abs(sync_delta_s) > args.max_sync_delta_s:
             skipped_sync += 1
             continue
 
+        row = rows[j]
+        trajectory = trajectories[row['sequence']]
+        try:
+            gt, camera_gt = trajectory.at([scan_ts, int(cam_ts[j])])
+        except ValueError:
+            skipped_gt += 1
+            continue
         pool_l = lidar_pool_from_export(export)
         T_L = np.asarray(export['T_WB'], dtype=float)
-        gt = np.asarray(export['T_WB_gt'], dtype=float)
         q_L = lidar_support_rate(T_L, pool_l['p_body'], pool_l['p_world'], args.lidar_threshold_m)
         q_C = None
 
-        image = load_image(Path(args.camera_root) / cam_paths[j], image_size_hw)
+        image_path = Path(args.camera_root) / row['saved_path']
+        K_stored, _ = stored_intrinsics(K_raw, row, image_path)
+        image, K = preprocess_image(image_path, K_stored, args.image_resolution)
         glace = adapter.infer(image, K)
         T_C = glace.T_WB
         if T_C is not None:
@@ -180,7 +188,9 @@ def main():
             'sync_delta_s': sync_delta_s,
             'q_L': q_L, 'q_C': q_C, 'glace_inliers': glace.inlier_count,
             'lidar_err': list(pose_errors(T_L, gt)),
-            'camera_err': list(pose_errors(T_C, gt)),
+            'camera_err': list(pose_errors(T_C, camera_gt)),
+            'sequence': row['sequence'],
+            'evaluation_gt': 'linear_translation_slerp_at_each_sensor_timestamp',
         }
 
         if args.backend == 'fallback':
@@ -212,11 +222,17 @@ def main():
                 record['result'] = per_mode[modes[0]]
 
         records.append(record)
-        gt_poses.append(gt)
 
     # ---- report ----------------------------------------------------------
     report = {
         'n_frames': len(records), 'n_skipped_sync': skipped_sync,
+        'n_input_lidar_frames': len(pool_files), 'n_skipped_gt_range': skipped_gt,
+        'synchronized_fraction': len(records) / len(pool_files),
+        'missing_camera_sequences': sorted(missing),
+        'evaluation_scope': 'synchronized_camera_subset',
+        'max_sync_delta_s': args.max_sync_delta_s,
+        'motion_model': 'simultaneous_within_gate; no GT motion compensation in solver',
+        'image_resolution': args.image_resolution,
         'backend': args.backend, 'modes': modes,
         'success_eps': [args.eps_t_m, args.eps_R_deg],
         'lidar_threshold_m': args.lidar_threshold_m,
@@ -246,6 +262,8 @@ def main():
             'status_counts': {s: statuses.count(s) for s in sorted(set(statuses))},
         }
 
+    report['leader_all_input_export_gt'] = summarize(
+        all_lidar_records, 'result', args.eps_t_m, args.eps_R_deg)
     report['leader_baseline'] = summarize_errors(
         [{'lidar_err': {'err': r['lidar_err'], 'status': 'BASELINE'}} for r in records],
         'lidar_err')
@@ -256,9 +274,8 @@ def main():
     if args.backend == 'compare':
         for mode in modes:
             report[mode] = summarize_errors(
-                [{'modes': {mode: {'err': r['modes'][mode]['err'],
-                                   'status': r['modes'][mode]['status']}}} for r in records],
-                'modes')
+                [{'result': r['modes'][mode]} for r in records],
+                'result')
     else:
         report['solver'] = summarize_errors(
             [{'result': {'err': r['result']['err'], 'status': r['result']['status']}}

@@ -126,7 +126,7 @@ class GLACEAdapter:
         if image_gray01.ndim != 2:
             raise ValueError("Expected a single-channel HxW image")
         h, w = image_gray01.shape
-        image = ((image_gray01.astype(np.float32) - 0.4) / 0.25)[None, None]
+        image = torch.from_numpy(((image_gray01.astype(np.float32) - 0.4) / 0.25)[None, None])
         if self.use_global:
             feats = torch.from_numpy(np.asarray(self.global_feature_fn(image_gray01), dtype=np.float32))[None]
         else:
@@ -148,7 +148,7 @@ class GLACEAdapter:
                            image_size_hw=(int(h), int(w)), diagnostics=diag)
 
 
-def deit_global_feature_fn(vendor_dir, checkpoint_path, image_size_hw=(256, 320)):
+def deit_global_feature_fn(vendor_dir, checkpoint_path, image_size_hw=(480, 640)):
     """Build the DeiT rerank global-feature extractor used by GLACE-style heads."""
     from functools import partial
     import torch
@@ -173,13 +173,19 @@ def deit_global_feature_fn(vendor_dir, checkpoint_path, image_size_hw=(256, 320)
         transforms.Resize([image_size_hw[0], image_size_hw[1]], antialias=False),
     ])
 
-    def fn(image_gray01):
+    def batch_fn(images_gray01):
         from PIL import Image
         import numpy as np
-        rgb = np.stack([image_gray01] * 3, axis=-1)
-        rgb = (np.clip(rgb, 0, 1) * 255).astype(np.uint8)
+        tensors = []
+        for gray in images_gray01:
+            rgb = np.stack([gray] * 3, axis=-1)
+            rgb = (np.clip(rgb, 0, 1) * 255).astype(np.uint8)
+            tensors.append(transform(Image.fromarray(rgb)))
         with torch.inference_mode():
-            tensor = transform(Image.fromarray(rgb)).unsqueeze(0).cuda()
-            return model(tensor).squeeze(0).cpu().numpy()
+            return model(torch.stack(tensors).cuda()).cpu().numpy()
 
+    def fn(image_gray01):
+        return batch_fn([image_gray01])[0]
+
+    fn.batch = batch_fn
     return fn

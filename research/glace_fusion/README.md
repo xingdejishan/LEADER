@@ -25,7 +25,7 @@ GLACE:  2D_pixel → 3D_world        (scene coordinates, 前端不改)
 | `glace_adapter.py` | GLACE adapter。`infer()` 返回 `GLACEOutput(T_WC, T_WB, uv, xyz_world, K, inlier_count, inlier_mask, ...)`：**不丢弃** `scene_coordinates_B3HW`，每个 8×8 cell 中心即一个 camera correspondence（`u = OUTPUT_SUBSAMPLE*(x+0.5)`，与 vendor `get_pixel_grid` 一致；uv 是预处理后输入图像的像素坐标）。v1 位姿求解用 OpenCV PnP-RANSAC+LM（不改 DSAC* C++）；`T_WB = T_WC @ inv(T_BC)` |
 | `packet.py` | 融合 packet。`lidar_pool_from_export` 恢复 `p_B = T_corr⁻¹·c_local`、`P_W = c_pred + center_t`；诊断用支持率 `q_L/q_C`；`IsotonicCalibrator`（PAVA）；`make_fusion_evidence`（v1 接口）；`diverse_poses` |
 | `lidar_camera_fusion.py` | v1 固定融合模块（自 camera-reliability 复制），可选 `extra_hypotheses` 注入外部候选；默认行为与原版一致 |
-| `make_glace_scene.py` | 以 LEADER 世界系生成 GLACE 训练/测试场景：`T_WC_GT = T_WB_GT @ T_BC` 写 `poses/<ts>.txt`，缩放 K 写 `calibration/`，图像 `rgb/`（vendor CamLocDataset 布局），保存 timestamp pair 与时间差 |
+| `make_glace_scene.py` | 以 LEADER 世界系生成 GLACE 训练/测试场景：`T_WC_GT = T_WB(t_camera) @ T_BC`（真实曝光时间，平移线性插值、旋转 SLERP）写 `poses/<ts>.txt`，与实际保存图像尺寸匹配的 K 写 `calibration/`，由 vendor loader 唯一负责后续 resize，图像 `rgb/`（vendor CamLocDataset 布局），保存 timestamp pair 与时间差 |
 | `run_fusion_eval.py` | 联合评测 runner。`--backend joint|compare|fallback`；`--backend compare` 逐帧同时跑 select / joint / joint_refine 三模式，用于归因收益来源（多模态证据 vs 多候选 vs 联合细化） |
 | `test_glace_fusion.py` / `test_joint_solver.py` | 几何/接口单元测试（合成数据；SC2 测试需 torch） |
 
@@ -38,7 +38,7 @@ GLACE:  2D_pixel → 3D_world        (scene coordinates, 前端不改)
 
 - LEADER 训练目标是 `world - center_t`；`c_local` 位于 `T_corr`（地面水平化校正，raw body → leveled）之后的坐标系。
 - packet 侧恢复：`p_i^B = T_corr⁻¹ · c_local_i`，`P_i^W = c_pred_i + center_t`，与 `T_WB = T_est @ T_corr`（`t += center_t`）作用于同一刚体变量 B；seedwise 同样恢复。
-- GLACE 位姿约定为 `T_WC`（camera→world，`sc = pose @ camera_point`）；折算 `T_WB = T_WC @ inv(T_BC)`，`T_BC` 为 camera→body 外参（NCLT 标定链给出 body→camera，注意取逆）。GLACE 内部已加回自己的坐标均值，**不能**再加 LEADER 的 `center_t`。
+- GLACE 位姿约定为 `T_WC`（camera→world，`sc = pose @ camera_point`）；折算 `T_WB = T_WC @ inv(T_BC)`，`T_BC` 为 camera→body 外参（NCLT 链为 `T_BC = T_B_LB3 @ T_LB3_C`，此处不取逆）。GLACE 内部已加回自己的坐标均值，**不能**再加 LEADER 的 `center_t`。
 - `c_L/c_C`（支持率标定）在 v2 中仅作诊断输出，不再参与决策。
 
 ## 运行
@@ -53,6 +53,7 @@ python -m research.glace_fusion.run_fusion_eval \
     --pool_dir /path/pool --vendor_dir <ace-vendor> --glace_head <head.pt> \
     [--deit_checkpoint <CVPR23_DeitS_Rerank.pth>] \
     --camera_root /root/rivermind-data/datasets/NCLT_camera_v1 \
+    --dataset_folder <NCLT-parent> --image_resolution 616 \
     --out_dir /path/out --backend compare
 
 # v1 置信度门控对照
@@ -64,7 +65,7 @@ python -m research.glace_fusion.make_glace_scene --dataset_folder <NCLT> \
 
 # 单元测试
 python -m unittest research.glace_fusion.test_glace_fusion -v
-python -m unittest research.glace_fusion.test_joint_solver -v
+python -m unittest research.glace_fusion.test_joint_solver research.glace_fusion.test_runner -v
 ```
 
 ## 验证与注意事项
@@ -79,3 +80,50 @@ python -m unittest research.glace_fusion.test_joint_solver -v
 
 设计文档以 Oxford 为例，但本服务器没有 Oxford velodyne/图像原始数据；全部已有相机基础设施（NCLT_camera_v1 六相机、标定链、训练过的 ACE/GLACE ROI heads）都在 NCLT 上，故接线与验证平台为 **NCLT**（Cam5，2 Hz 分组同步，超时差门限的帧对不进入联合求解）。代码对数据集保持通用：Oxford 只需按 `make_glace_scene.py` 的同步约定补一个数据适配器（stereo 左目 pinhole 流），架构零改动。
 
+
+## 正式 NCLT 实验的数据契约
+
+- 固定 LEADER 划分：训练 `2012-01-22 / 2012-02-02 / 2012-02-18 / 2012-05-11`，测试 `2012-02-12 / 2012-02-19 / 2012-03-31 / 2012-05-26`。scene 生成器拒绝跨划分日期、训练/测试重叠和非空输出目录，防止旧文件混入；验证数据需从允许的训练序列中独立留出，不能在测试序列调门限。
+- 默认要求请求的相机序列齐全；缺数据时直接报错。只有明确的局部实验才使用 `--allow_partial`，报告会列出缺失序列。该选项不会补齐数据。
+- `rgb/` 保留源图像实际尺寸，`calibration/` 的 K 对应该尺寸：原始 1616×1232 图像写原始 K，已经保存为 808×616 的图像写半尺寸 K。不能给半尺寸图像写原始 K。scene 不再接受预设 `--image_size`；它读取文件尺寸和 metadata 原始尺寸。
+- GLACE 训练设置 `--image_resolution 616`，runner 同样使用 `--image_resolution 616`，等比例缩放并使用与 CamLocDataset 一致的插值、灰度和标准化。DeiT 全局特征使用其独立的 480×640 输入尺寸；训练特征提取必须使用同一预处理，旧 head 不可未经验证直接混用。
+- scene 标签由 NCLT 原始 GT trajectory 在 `original_image_timestamp` 插值；不再依赖 LiDAR loader 或最近 scan。runner 也使用真实曝光时间匹配，按相机时刻评估相机位姿、按 scan 时刻评估 LiDAR 和联合位姿；不外推 GT。
+- `--dataset_folder` 指包含 `NCLT/` 的父目录。GT 仅用于标签和误差评估，不参与候选生成、评分、细化和验收。两路非同时采样的运动误差并不会因为插值 GT 自动消失：当前求解仍使用 `--max_sync_delta_s` 内近似同时观测，报告明确记录该近似；若需要消除它，必须引入独立于 GT 的运动估计或严格同步采集。
+- 报告的 `leader_baseline / glace_baseline / select / joint / joint_refine` 使用同一有图像子集；`leader_all_input_export_gt` 单独保留全部输入 LiDAR 的原导出 GT 口径，不与插值 GT 子集混称同一指标。报告包含输入数、同步跳过数、GT 越界数、共同子集占比，拒绝帧计入定位成功率分母。
+- 新增 runner 回归测试使用替代视觉输出，真实执行数据读取、几何求解和 JSON 汇总，覆盖 joint/compare/fallback；它不等于真实 LEADER+GLACE 网络端到端能力验证。
+
+
+## 全训练集 GLACE head
+
+`train_nclt_head.py` 仅使用四个训练日期的 Cam5 图像，保存源码快照、权重哈希、参数与阶段状态；不读取测试图像用于训练。ACE encoder 和 DeiT 固定，仅训练回归头。全局特征严格使用 adapter 的同一灰度三通道路径，480×640 与现有 DeiT checkpoint 的 1202 个位置 token 对应。
+
+```bash
+python -m research.glace_fusion.train_nclt_head \
+  --out /path/new_run --vendor /path/glace_vendor \
+  --deit_checkpoint /path/CVPR23_DeitS_Rerank.pth \
+  --dataset_folder /root/rivermind-data/datasets \
+  --camera_root /root/rivermind-data/datasets/NCLT_camera_v1
+```
+
+训练为 30000 次更新、batch 8192、每张图像 128 个局部特征样本、616 图像高度；特征缓冲覆盖一次全部有效训练图像。`state.json` 的 `complete` 表示权重已保存且训练图像推理检查通过，不表示 NCLT 测试集指标已验证。
+
+
+## 2026-09-12 当前实验状态
+
+当前 GLACE 权重未通过定位验收，不能将这些脚本称为已验证有效的多模态定位系统，也不应直接启动新的全量训练。原训练入口的 `complete` 只表示训练和有限值检查结束；定位验收由 `validate_training_head.py` 单独执行。
+
+- 当前训练缓存和推理均使用灰度复制三通道的全局特征，**偏离官方 GLACE/R2Former 的 RGB 全局输入流程**。直接读取现有 `features.npy` 不会将其变成官方 RGB 特征；不得不经评估就把已有 head 的输入切换为 RGB。
+- 修正外参后的 60000 次恢复实验配置在 `experiments/retrain_corrected.py`。这轮同时改变了多个参数，是失败恢复实验的记录，不是单因素归因或推荐训练配方。
+- `camera_separability.py`：原验收的 64 张训练图像，固定对应点，比较 GT、原始 LEADER 和 GT+2m/5°。GT 在 64/64 张上胜过该固定扰动，不代表测试集排序有效。
+- `camera_separability_cached.py`：直接按图像排序读取训练缓存，并复用上一轮的三个候选矩阵。平均评分基本不变；坐标逐点并非完全相同，仍有未定位的数值敏感性。
+- `diagnostic_comparison.py`：2012-02-12 的固定 64 帧同帧比较。64 帧融合均拒绝并回退到 v1-two-stage，没有观察到相机增益。
+- `pairwise_camera_ranking.py`：同一组未训练测试帧，分开构造平移/旋转、六个方向的候选。严格两两排序准确率为平移 45.77%、旋转 52.99%；平局半分对照为 50.69%、57.55%。细粒度排序接近随机，目前不支持把该 head 用于 LEADER 候选精排。
+- 上述测试结果仅覆盖一个测试序列的 64 帧，**没有完成完整 NCLT 测试集评测**。`full_comparison.py` 是尚待完整端到端验证的入口，要求 head 先通过定位验收并要求测试图像齐全。
+
+所有诊断脚本保留产生当前结果时的服务器绝对路径和非覆盖输出检查，需要现有工程、数据、依赖和权重，不能在空目录直接运行。它们不会在导入时启动训练或评测。`experiments/` 的历史训练/监控脚本是独立可执行记录，不应作为模块导入。
+
+`experiments/summarize_*.py` 汇总对应运行目录中的记录，生成 JSON/CSV/图表；不重新生成候选或训练模型。数据、权重、凭据、日志及 Python 缓存不属于此次源码提交。
+
+```bash
+python -m unittest research.glace_fusion.test_glace_fusion research.glace_fusion.test_joint_solver research.glace_fusion.test_runner research.glace_fusion.test_pose_boundary research.glace_fusion.test_camera_separability research.glace_fusion.test_pairwise_camera_ranking
+```
