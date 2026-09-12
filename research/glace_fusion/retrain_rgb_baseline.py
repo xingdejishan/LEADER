@@ -129,6 +129,17 @@ def prepare(args):
     shutil.copytree(source_vendor / 'datasets', vendor / 'datasets', ignore=shutil.ignore_patterns('__pycache__'))
     (vendor / 'ace_encoder_pretrained.pt').symlink_to(source_vendor / 'ace_encoder_pretrained.pt')
     patch_vendor(vendor)
+    valid_mask = getattr(args, 'valid_mask', None)
+    if valid_mask is not None:
+        from PIL import Image
+        from .valid_region import validate_mask
+        from .patch_valid_region import patch_valid_region
+        mask = validate_mask(np.load(valid_mask))
+        with Image.open(paths[0]) as image:
+            if mask.shape != (image.height, image.width):
+                raise ValueError('Valid mask and stored RGB dimensions differ')
+        shutil.copyfile(valid_mask, split / 'valid_mask.npy')
+        patch_valid_region(vendor)
     train_args = ['--training_buffer_size', str(len(paths) * 1024), '--samples_per_image', '1024',
                   '--batch_size', '40960', '--max_iterations', '100000', '--image_resolution', '480',
                   '--use_aug', 'True', '--aug_rotation', '15', '--aug_scale', '1.5',
@@ -141,6 +152,7 @@ def prepare(args):
                   encoder_sha256=digest(vendor / 'ace_encoder_pretrained.pt'),
                   global_backbone_sha256=digest(args.deit_checkpoint),
                   backbone_training=False, training_from_scratch=True,
+                  valid_mask_sha256=digest(split / 'valid_mask.npy') if valid_mask is not None else None,
                   deviations_from_aachen=['one GPU, effective batch 40960 instead of 8 x 40960',
                       'CPU buffer with 43012 x 1024 samples, instead of 16M per GPU',
                       'rotate around calibrated principal point for NCLT',
@@ -178,6 +190,7 @@ def main():
     parser.add_argument('--source-run', type=Path, required=True)
     parser.add_argument('--deit-checkpoint', type=Path, required=True)
     parser.add_argument('--seed', type=int, default=2089)
+    parser.add_argument('--valid-mask', type=Path)
     args = parser.parse_args()
     created = False
     try:

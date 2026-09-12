@@ -219,3 +219,11 @@ python -m research.glace_fusion.pairwise_camera_ranking \
 fusion runner 自动读取新权重的 480 配置，支持 `--feature_split <scene/test>`，省略则在线 RGB 提特征；显式指定不匹配的 `--image_resolution 616` 会报错。可用 `--pose_backend none` 在不依赖相机独立 PnP 的情况下运行候选证据流程。融合求解公式没有修改。
 
 本次检查包含：47 个回归测试、真实中间权重的两图缓存／在线对照、64 张训练图的验收 runner、两张 held-out 图像的缓存 → scene coordinates → OpenCV / GT residual / pairwise report。中间权重的结果不代表 100k 最终模型质量，不用于选择检查点或提前停止训练。
+
+## Stage 1 结束与有效视野修复
+
+用户已决定结束第一阶段，保留完成复测的 80k head；原训练在约 84.2k 步停止。归档目录为 `/root/rivermind-data/glace_nclt_rgb_large_20260912/stage1_80k`，包含 `head.pt`、相邻配置和可核验的 manifest。原运行的 vendor 和已归档 head 均未修改。
+
+新训练入口可显式传入 `--valid-mask <stored-image-mask.npy>`，将官方 U2D 无效区域排除出监督采样；省略时保留旧输入配置用于对照。掩码来自几何映射，不能通过阈值筛选黑色 RGB 像素生成。`evaluate_scene --valid-mask ... --pose-backend none` 用相同掩码评估候选证据；旧报告的全格点评测仍可复现。
+
+局部 256 图像、双臂 5k 训练和掩码实现细节见 [STAGE2_DIAGNOSIS.md](STAGE2_DIAGNOSIS.md)。它用于诊断，不替代完整测试集或真实 LEADER 候选实验。
