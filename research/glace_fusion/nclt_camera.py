@@ -45,7 +45,7 @@ def preprocess_image(path, K_stored, image_resolution):
         if width < height:
             raise ValueError('Expected landscape NCLT images for CamLocDataset short-edge resize')
         scale = image_resolution / height
-        im = im.convert('RGB').resize((int(width * scale), image_resolution), Image.BILINEAR)
+        im = im.convert('RGB').resize((round(width * scale), image_resolution), Image.BILINEAR)
         gray = np.asarray(im.convert('L'), dtype=np.float32) / 255.0
     K = np.asarray(K_stored, dtype=float).copy()
     K[:2] *= scale

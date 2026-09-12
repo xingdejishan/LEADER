@@ -98,6 +98,13 @@ class GLACEAdapter:
 
     def __init__(self, vendor_dir, head_path, encoder_path=None, T_BC=None,
                  device="cuda", global_feature_fn: Optional[Callable] = None):
+        import json
+        config_path = Path(head_path).parent / 'config.json'
+        if config_path.exists():
+            protocol = json.loads(config_path.read_text()).get('global_feature_protocol')
+            if protocol == 'official_rgb_r2former_480x640':
+                if getattr(global_feature_fn, 'protocol', None) != protocol:
+                    raise ValueError('This head requires RGB global features; the legacy grayscale extractor is incompatible')
         vendor_dir = Path(vendor_dir)
         sys.path.insert(0, str(vendor_dir))
         import torch

@@ -110,7 +110,7 @@ python -m research.glace_fusion.train_nclt_head \
 
 ## 2026-09-12 当前实验状态
 
-当前 GLACE 权重未通过定位验收，不能将这些脚本称为已验证有效的多模态定位系统，也不应直接启动新的全量训练。原训练入口的 `complete` 只表示训练和有限值检查结束；定位验收由 `validate_training_head.py` 单独执行。
+以下是既有 K64 / 60k 灰度全局特征权重的诊断记录；该权重未通过定位验收。原训练入口的 `complete` 只表示训练和有限值检查结束；定位验收由 `validate_training_head.py` 单独执行。新 RGB 实验见下节，不能沿用旧灰度推理入口。
 
 - 当前训练缓存和推理均使用灰度复制三通道的全局特征，**偏离官方 GLACE/R2Former 的 RGB 全局输入流程**。直接读取现有 `features.npy` 不会将其变成官方 RGB 特征；不得不经评估就把已有 head 的输入切换为 RGB。
 - 修正外参后的 60000 次恢复实验配置在 `experiments/retrain_corrected.py`。这轮同时改变了多个参数，是失败恢复实验的记录，不是单因素归因或推荐训练配方。
@@ -127,3 +127,44 @@ python -m research.glace_fusion.train_nclt_head \
 ```bash
 python -m unittest research.glace_fusion.test_glace_fusion research.glace_fusion.test_joint_solver research.glace_fusion.test_runner research.glace_fusion.test_pose_boundary research.glace_fusion.test_camera_separability research.glace_fusion.test_pairwise_camera_ranking
 ```
+
+## NCLT RGB large-scale baseline（2026-09-12）
+
+`retrain_rgb_baseline.py` 从头训练新 head，保留旧 K64 / 60k 权重及诊断结果。该实验同时恢复多项配置，是新基线，不是 Feature Diffusion 的单因素消融。
+
+| 项目 | 新配置 |
+| --- | --- |
+| 全局输入 | 原始存储 RGB → 官方 R2Former 480×640 → 按文件名排序缓存 |
+| 局部输入 | 官方灰度归一化，高度 480；resize 宽度使用官方 round |
+| Feature Diffusion | 0.1 |
+| 增强 | 旋转 ±15°、缩放 1/1.5–1.5，保留亮度／对比度增强 |
+| Head | blocks=3、mlp_ratio=2、channels=768、decoder clusters=50 |
+| 训练 | 100000 iterations，batch=40960，soft clamp=50 |
+| 样本 | 四个原训练日期，共 43012 张，每张 1024 个样本 |
+| 缓存 | CPU 内存中 44044288 个样本，约 47.58 GiB；逐图数量强制校验 |
+| Seed | 2089，显式传入实际 Trainer；KMeans seed=0 |
+
+这是单张 RTX 3090 上的适配版本，**不等同于官方 Aachen 八卡训练计算预算**：有效 batch 是 40960，而非 8×40960；缓存也从每 GPU 16M 改为 CPU 保存所有训练帧的样本。ACE encoder 和 R2Former 都冻结，只有 head 训练。
+
+NCLT 标定主点不是严格的图像中心。恢复旋转增强时，图像与 mask 绕标定主点旋转，pose 保持官方右乘旋转规则；若 fx/fy 不相等则拒绝该训练路径。场景 K 对应存储图像尺寸，只有 loader 对 K 随缩放调整。所有几何更改及 CPU 缓存适配都保存在本轮 vendor 快照中，哈希记录于 config.json。
+
+启动顺序为：标签与 split 检查 → RGB 全量特征 → loader/缓存/旋转一致性预检 → 完整 batch 的 20 轮 GPU 冒烟训练 → 正式训练。预检通过不表示定位或测试泛化通过；`state.json` 的 `ready_for_fusion` 不会自动置为 true。
+
+```bash
+python -m research.glace_fusion.retrain_rgb_baseline \
+  --run-root /root/rivermind-data/glace_nclt_rgb_large_20260912 \
+  --source-run /root/rivermind-data/glace_nclt_corrected_20260912 \
+  --deit-checkpoint /root/rivermind-data/LEADER-v1-visual-glace/research/visual_glace/CVPR23_DeitS_Rerank.pth
+```
+
+入口拒绝覆盖已有目录；上述目录已用于本轮训练。检查当前运行：
+
+```bash
+cat /root/rivermind-data/glace_nclt_rgb_large_20260912/state.json
+cat /root/rivermind-data/glace_nclt_rgb_large_20260912/glace_head.pt.progress.json
+tail -f /root/rivermind-data/glace_nclt_rgb_large_20260912/train.log
+```
+
+本轮预检结果：RGB 缓存与在线路径差值 0；局部图像与官方 loader 差值 0；K 最大绝对差 4.08e-6；旋转投影检查通过；batch=40960 冒烟训练产生有效优化更新。46 个回归测试通过，其中新增缓存顺序/完整性、480 分辨率取整和 RGB head 拒绝旧灰度输入测试。
+
+训练后的定位、细粒度两两排序、跨四个测试序列、真实 LEADER 候选、空间可见性以及数值敏感性仍需独立验收。DSAC* 尚未在本环境编译，不能把旧 OpenCV 4px 的定位结果表述为官方 DSAC* 结果。新 head 的 config 会使旧灰度 adapter 明确报错，避免静默使用错误的全局输入。
