@@ -58,7 +58,7 @@ def pair_counts(scored, same_direction=False, levels=None, direction=None):
             'half_credit_accuracy':(correct+.5*ties)/total if total else None}
 
 
-def main():
+def legacy_main():
     root = Path('/root/rivermind-data/glace_nclt_corrected_20260912')
     out = root/'pairwise_ranking_test64'
     out.mkdir(exist_ok=False)
@@ -133,6 +133,16 @@ def main():
     manifest['features_sha256'] = hashlib.sha256((out/'features.npy').read_bytes()).hexdigest()
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
     (out/'complete.json').write_text(json.dumps({'frames':len(results),'complete':len(results)==64}))
+
+
+def main():
+    import sys
+    if '--legacy' in sys.argv:
+        sys.argv.remove('--legacy')
+        legacy_main()
+    else:
+        from .evaluate_scene import main as evaluate
+        evaluate()
 
 
 if __name__ == '__main__':

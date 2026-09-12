@@ -97,14 +97,29 @@ class GLACEAdapter:
     IMAGE_SUBSAMPLE = 8
 
     def __init__(self, vendor_dir, head_path, encoder_path=None, T_BC=None,
-                 device="cuda", global_feature_fn: Optional[Callable] = None):
+                 device="cuda", global_feature_fn: Optional[Callable] = None,
+                 pose_backend="opencv", pnp_threshold=4.0, hypotheses=1000, coordinate_precision=None):
         import json
+        import hashlib
+        import io
         config_path = Path(head_path).parent / 'config.json'
+        self.protocol = None
+        self.expected_height = None
         if config_path.exists():
-            protocol = json.loads(config_path.read_text()).get('global_feature_protocol')
-            if protocol == 'official_rgb_r2former_480x640':
-                if getattr(global_feature_fn, 'protocol', None) != protocol:
-                    raise ValueError('This head requires RGB global features; the legacy grayscale extractor is incompatible')
+            config = json.loads(config_path.read_text())
+            self.protocol = config.get('global_feature_protocol')
+            if self.protocol == 'official_rgb_r2former_480x640':
+                self.expected_height = int(config['local_image_resolution'])
+        if self.protocol == 'official_rgb_r2former_480x640' and global_feature_fn is not None:
+            raise ValueError('RGB heads require explicit global_feature; grayscale callbacks are forbidden')
+        if pose_backend not in ('opencv', 'dsacstar', 'none'):
+            raise ValueError('Unknown pose backend')
+        self.coordinate_precision = coordinate_precision or ("fp32_head" if self.protocol == "official_rgb_r2former_480x640" else "amp")
+        if self.coordinate_precision not in ("amp", "fp32_head"):
+            raise ValueError("Unknown coordinate precision")
+        self.pose_backend = pose_backend
+        self.pnp_threshold = pnp_threshold
+        self.hypotheses = hypotheses
         vendor_dir = Path(vendor_dir)
         sys.path.insert(0, str(vendor_dir))
         import torch
@@ -113,19 +128,21 @@ class GLACEAdapter:
         self.torch = torch
         encoder = Path(encoder_path) if encoder_path else vendor_dir / "ace_encoder_pretrained.pt"
         encoder_state = torch.load(encoder, map_location="cpu")
-        head_state = torch.load(head_path, map_location="cpu")
+        head_bytes = Path(head_path).read_bytes()
+        self.head_sha256 = hashlib.sha256(head_bytes).hexdigest()
+        head_state = torch.load(io.BytesIO(head_bytes), map_location="cpu")
         self.regressor = Regressor.create_from_split_state_dict(encoder_state, head_state)
         self.regressor.to(device).eval()
         self.device = device
         self.use_global = self.regressor.feature_dim != self.regressor.decoder_dim
         self.global_feature_fn = global_feature_fn
         self.T_BC = None if T_BC is None else np.asarray(T_BC, dtype=float)
-        if self.use_global and self.global_feature_fn is None:
+        if self.use_global and self.global_feature_fn is None and self.protocol != 'official_rgb_r2former_480x640':
             raise ValueError(
                 "Head requires global features; provide global_feature_fn "
                 "(DeiT rerank backbone, see run_fusion_eval._deit_feature_fn)")
 
-    def infer(self, image_gray01: np.ndarray, K: np.ndarray) -> GLACEOutput:
+    def infer(self, image_gray01: np.ndarray, K: np.ndarray, *, global_feature=None) -> GLACEOutput:
         """image_gray01: HxW float array in [0, 1]. Returns the full correspondence
         set (uv, xyz_world) plus the PnP pose in both camera and body frames."""
         import torch
@@ -133,19 +150,65 @@ class GLACEAdapter:
         if image_gray01.ndim != 2:
             raise ValueError("Expected a single-channel HxW image")
         h, w = image_gray01.shape
+        if self.expected_height is not None and h != self.expected_height:
+            raise ValueError(f'Head requires local image height {self.expected_height}, received {h}')
         image = torch.from_numpy(((image_gray01.astype(np.float32) - 0.4) / 0.25)[None, None])
         if self.use_global:
-            feats = torch.from_numpy(np.asarray(self.global_feature_fn(image_gray01), dtype=np.float32))[None]
+            if global_feature is None:
+                if self.global_feature_fn is None:
+                    raise ValueError('RGB inference requires explicit global_feature[256]')
+                global_feature = self.global_feature_fn(image_gray01)
+            feature = np.asarray(global_feature, dtype=np.float32)
+            if feature.shape != (256,) or not np.isfinite(feature).all():
+                raise ValueError('Expected finite global_feature[256]')
+            feats = torch.from_numpy(feature.copy())[None]
         else:
             feats = torch.zeros((1, 0), dtype=torch.float32)
-        with torch.inference_mode(), torch.cuda.amp.autocast():
-            coords = self.regressor(image.to(self.device), feats.to(self.device))
+        with torch.inference_mode():
+            if self.coordinate_precision == 'amp':
+                with torch.cuda.amp.autocast():
+                    coords = self.regressor(image.to(self.device), feats.to(self.device))
+            else:
+                with torch.cuda.amp.autocast():
+                    local = self.regressor.get_features(image.to(self.device))
+                combined = local.float()
+                if self.use_global:
+                    global_map = feats.to(self.device)[..., None, None].expand(-1, -1, *local.shape[2:])
+                    combined = torch.cat((global_map, combined), dim=1)
+                old_matmul = torch.backends.cuda.matmul.allow_tf32
+                old_cudnn = torch.backends.cudnn.allow_tf32
+                try:
+                    torch.backends.cuda.matmul.allow_tf32 = False
+                    torch.backends.cudnn.allow_tf32 = False
+                    with torch.cuda.amp.autocast(enabled=False):
+                        coords = self.regressor.get_scene_coordinates(combined)
+                finally:
+                    torch.backends.cuda.matmul.allow_tf32 = old_matmul
+                    torch.backends.cudnn.allow_tf32 = old_cudnn
         coords = coords.float().cpu().numpy()[0]  # [3, Hc, Wc]
         hc, wc = coords.shape[1], coords.shape[2]
         uv = pixel_grid_uv(self.IMAGE_SUBSAMPLE, hc, wc)
         xyz_world = coords.reshape(3, -1).T.astype(np.float64)
         K = np.asarray(K, dtype=float)
-        T_WC, mask, inliers, diag = solve_pose_pnp(uv, xyz_world, K)
+        if self.pose_backend == 'none':
+            T_WC, mask, inliers, diag = None, None, None, {'solved': False}
+        elif self.pose_backend == 'dsacstar':
+            import dsacstar
+            if not np.isclose(K[0, 0], K[1, 1], rtol=0, atol=1e-6):
+                raise ValueError('DSAC* requires fx == fy')
+            pose = torch.zeros((4, 4), dtype=torch.float32)
+            inliers = dsacstar.forward_rgb(torch.from_numpy(coords.copy())[None], pose,
+                self.hypotheses, self.pnp_threshold, float(K[0, 0]), float(K[0, 2]),
+                float(K[1, 2]), 100., 100., self.IMAGE_SUBSAMPLE)
+            T_WC = pose.numpy().astype(float)
+            if not np.isfinite(T_WC).all() or not np.allclose(T_WC[3], [0, 0, 0, 1]):
+                T_WC = None
+            mask, diag = None, {'solved': T_WC is not None}
+        else:
+            T_WC, mask, inliers, diag = solve_pose_pnp(uv, xyz_world, K,
+                reproj_error_px=self.pnp_threshold, iterations=self.hypotheses)
+        diag.update(pose_backend=self.pose_backend, coordinate_precision=self.coordinate_precision, threshold_px=self.pnp_threshold,
+                    hypotheses=self.hypotheses)
         T_WB = None
         if T_WC is not None and self.T_BC is not None:
             T_WB = glace_to_leader_frame(T_WC, self.T_BC)

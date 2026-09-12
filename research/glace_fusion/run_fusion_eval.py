@@ -26,6 +26,7 @@ try:
     from .lidar_camera_fusion import FusionConfig, localize
     from .packet import (IsotonicCalibrator, camera_support_rate, lidar_pool_from_export,
                          lidar_support_rate, make_evidence_stamps, make_fusion_evidence)
+    from .inference_contract import InferenceSession, resolve_contract, RGB_PROTOCOL
     from .glace_adapter import GLACEAdapter, deit_global_feature_fn
     from .nclt_camera import (TEST_DATES, camera_rows, stored_intrinsics, preprocess_image,
                               NCLTTrajectory, trajectory_path)
@@ -34,6 +35,7 @@ except ImportError:  # running with the package directory itself on sys.path
     from lidar_camera_fusion import FusionConfig, localize
     from packet import (IsotonicCalibrator, camera_support_rate, lidar_pool_from_export,
                         lidar_support_rate, make_evidence_stamps, make_fusion_evidence)
+    from inference_contract import InferenceSession, resolve_contract, RGB_PROTOCOL
     from glace_adapter import GLACEAdapter, deit_global_feature_fn
     from nclt_camera import (TEST_DATES, camera_rows, stored_intrinsics, preprocess_image,
                              NCLTTrajectory, trajectory_path)
@@ -51,7 +53,9 @@ def parse_args():
     parser.add_argument('--camera_root', required=True, help='NCLT_camera_v1 root')
     parser.add_argument('--camera_number', type=int, default=5)
     parser.add_argument('--body_to_lb3_ssc_deg', default='0.035,0.002,-1.23,-179.93,-0.23,0.50')
-    parser.add_argument('--image_resolution', type=int, default=616)
+    parser.add_argument('--image_resolution', type=int, default=None)
+    parser.add_argument('--feature_split', default=None, help='RGB scene/test cache; otherwise extract from RGB paths online')
+    parser.add_argument('--pose_backend', choices=['opencv', 'dsacstar', 'none'], default='opencv')
     parser.add_argument('--dataset_folder', required=True, help='Root containing NCLT/ GT trajectories')
     parser.add_argument('--allow_partial', action='store_true', help='Allow missing test camera sequences')
     parser.add_argument('--lidar_threshold_m', type=float, default=0.3,
@@ -70,6 +74,7 @@ def parse_args():
     parser.add_argument('--out_dir', required=True)
     parser.add_argument('--eps_t_m', type=float, default=0.5)
     parser.add_argument('--eps_R_deg', type=float, default=2.0)
+    parser.add_argument('--coordinate_precision', choices=['amp', 'fp32_head'], default=None)
     return parser.parse_args()
 
 
@@ -131,12 +136,21 @@ def main():
     if not pool_files:
         raise SystemExit('No pool exports found under ' + str(args.pool_dir))
 
-    feature_fn = None
-    if args.deit_checkpoint:
-        feature_fn = deit_global_feature_fn(args.vendor_dir, args.deit_checkpoint)
-    adapter = GLACEAdapter(args.vendor_dir, args.glace_head,
-                           encoder_path=args.glace_encoder or None, T_BC=T_BC,
-                           global_feature_fn=feature_fn)
+    contract = resolve_contract(args.glace_head, args.image_resolution)
+    args.image_resolution = contract['image_resolution']
+    rgb_session = None
+    if contract['global_feature_protocol'] == RGB_PROTOCOL or args.pose_backend != 'opencv' or args.coordinate_precision is not None:
+        rgb_session = InferenceSession(args.vendor_dir, args.glace_head, args.deit_checkpoint,
+            split=args.feature_split, encoder=args.glace_encoder or None, T_BC=T_BC,
+            resolution=args.image_resolution, pose_backend=args.pose_backend, coordinate_precision=args.coordinate_precision)
+        contract = rgb_session.contract
+    else:
+        feature_fn = None
+        if args.deit_checkpoint:
+            feature_fn = deit_global_feature_fn(args.vendor_dir, args.deit_checkpoint)
+        adapter = GLACEAdapter(args.vendor_dir, args.glace_head,
+                               encoder_path=args.glace_encoder or None, T_BC=T_BC,
+                               global_feature_fn=feature_fn)
 
     solver_cfg = JointSolverConfig.load(args.solver_config) if args.solver_config else JointSolverConfig()
     fusion_cfg = replace(FusionConfig(), max_sync_delta_s=args.max_sync_delta_s)
@@ -175,8 +189,12 @@ def main():
 
         image_path = Path(args.camera_root) / row['saved_path']
         K_stored, _ = stored_intrinsics(K_raw, row, image_path)
-        image, K = preprocess_image(image_path, K_stored, args.image_resolution)
-        glace = adapter.infer(image, K)
+        if rgb_session is not None:
+            glace = rgb_session.infer(image_path, K_stored)
+            K = glace.K
+        else:
+            image, K = preprocess_image(image_path, K_stored, args.image_resolution)
+            glace = adapter.infer(image, K)
         T_C = glace.T_WB
         if T_C is not None:
             q_C = camera_support_rate(T_C, T_BC, K, glace.uv, glace.xyz_world,
@@ -225,6 +243,7 @@ def main():
 
     # ---- report ----------------------------------------------------------
     report = {
+        'inference_contract': contract,
         'n_frames': len(records), 'n_skipped_sync': skipped_sync,
         'n_input_lidar_frames': len(pool_files), 'n_skipped_gt_range': skipped_gt,
         'synchronized_fraction': len(records) / len(pool_files),

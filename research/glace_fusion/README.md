@@ -168,3 +168,54 @@ tail -f /root/rivermind-data/glace_nclt_rgb_large_20260912/train.log
 本轮预检结果：RGB 缓存与在线路径差值 0；局部图像与官方 loader 差值 0；K 最大绝对差 4.08e-6；旋转投影检查通过；batch=40960 冒烟训练产生有效优化更新。46 个回归测试通过，其中新增缓存顺序/完整性、480 分辨率取整和 RGB head 拒绝旧灰度输入测试。
 
 训练后的定位、细粒度两两排序、跨四个测试序列、真实 LEADER 候选、空间可见性以及数值敏感性仍需独立验收。DSAC* 尚未在本环境编译，不能把旧 OpenCV 4px 的定位结果表述为官方 DSAC* 结果。新 head 的 config 会使旧灰度 adapter 明确报错，避免静默使用错误的全局输入。
+
+## RGB inference / evaluation contract
+
+`GLACEAdapter.infer(gray480, K480, global_feature=feature256)` 显式接收全局特征，新 RGB head 禁止灰度 callback。上层 `InferenceSession.infer(rgb_path, K_stored)` 统一负责按训练配置缩放局部图像及 K，并从已校验的缓存或原始 RGB 路径取全局特征。不要将已经缩放过的 K 再传给 session。
+
+`InferenceSession` 校验全局 backbone 和局部 encoder 的训练哈希、缓存哈希、文件顺序与实际图像路径。报告中的 head 哈希来自真正加载的同一份字节，避免训练期间检查点更新造成标识错配。权重需与本轮 `config.json` 放在同一目录；复制中间检查点时也要复制配置。
+
+新 RGB head 默认采用 `fp32_head`：ACE encoder 仍使用 AMP，head 使用 FP32 且关闭 TF32；不会改变训练。`--coordinate-precision amp` 可显式恢复官方 AMP 对照，fusion 入口对应 `--coordinate_precision amp`。所有报告记录精度模式，不能混用两种模式比较。两张真实训练图、中间权重的缓存／在线一致性检查中，AMP 最大坐标差为 5.85m；FP32 head 降为 0.0652m，重复同一缓存的坐标、K 与 pixel grid 完全一致。这只是数值检查，不是整个数据集的误差上界或定位验收。
+
+准备独立 test scene，不向训练场景加入测试图像：
+
+```bash
+python -m research.glace_fusion.make_glace_scene \
+  --dataset_folder /root/rivermind-data/datasets \
+  --camera_root /root/rivermind-data/datasets/NCLT_camera_v1 \
+  --out /root/rivermind-data/glace_nclt_rgb_eval_20260912/scene \
+  --train_dates --allow_partial
+
+python -m research.glace_fusion.rgb_features \
+  --scene /root/rivermind-data/glace_nclt_rgb_eval_20260912/scene \
+  --vendor /root/rivermind-data/glace_nclt_rgb_large_20260912/vendor \
+  --checkpoint /root/rivermind-data/LEADER-v1-visual-glace/research/visual_glace/CVPR23_DeitS_Rerank.pth
+```
+
+本次已准备 5117 张 test 图像的 RGB 缓存；现有 camera root 仅提供一个测试日期，meta 会明确记录其余缺失日期，不能称为完整四序列测试集。场景和特征输出拒绝覆盖，上述目录已存在。
+
+新旧 head 共用验收入口：
+
+```bash
+python -m research.glace_fusion.validate_training_head \
+  --run-root /root/rivermind-data/glace_nclt_rgb_large_20260912 \
+  --head /root/rivermind-data/glace_nclt_rgb_large_20260912/glace_head.pt \
+  --vendor /root/rivermind-data/glace_nclt_rgb_large_20260912/vendor \
+  --deit-checkpoint /root/rivermind-data/LEADER-v1-visual-glace/research/visual_glace/CVPR23_DeitS_Rerank.pth \
+  --output /root/rivermind-data/glace_nclt_rgb_eval_20260912/final_train64.json
+
+python -m research.glace_fusion.pairwise_camera_ranking \
+  --scene /root/rivermind-data/glace_nclt_rgb_eval_20260912/scene \
+  --head /root/rivermind-data/glace_nclt_rgb_large_20260912/glace_head.pt \
+  --vendor /root/rivermind-data/glace_nclt_rgb_large_20260912/vendor \
+  --deit-checkpoint /root/rivermind-data/LEADER-v1-visual-glace/research/visual_glace/CVPR23_DeitS_Rerank.pth \
+  --out /root/rivermind-data/glace_nclt_rgb_eval_20260912/final_test64 --limit 64
+```
+
+`pairwise_camera_ranking` 默认使用新通用 scene 入口；`--legacy` 才运行原硬编码灰度实验。`--image-stems stems.json` 可固定与旧报告完全相同的帧，文件内容是 stem 字符串数组。默认 `--pose-backend none` 只计算固定 correspondence 的 GT residual、10px inlier rate 和原截断平方分数的候选排序，不把 PnP 成功作为排序前提；`--online` 改从 RGB 路径提取全局特征。records 包含相邻误差区间计数、严格排序准确率、平局数量和半分对照。
+
+`--pose-backend opencv` 使用新 RGB 默认 10px / 1000 iterations EPNP + LM；`--pose-backend dsacstar` 使用 DSAC* 10px / 3200 hypotheses，要求已安装官方扩展且 fx=fy；缺失扩展时直接报错，不回退伪装成 DSAC*。独立 pose backend 和坐标精度都写入报告。当前环境未安装 DSAC*，真实验证覆盖的是 OpenCV 和 correspondence 路径。
+
+fusion runner 自动读取新权重的 480 配置，支持 `--feature_split <scene/test>`，省略则在线 RGB 提特征；显式指定不匹配的 `--image_resolution 616` 会报错。可用 `--pose_backend none` 在不依赖相机独立 PnP 的情况下运行候选证据流程。融合求解公式没有修改。
+
+本次检查包含：47 个回归测试、真实中间权重的两图缓存／在线对照、64 张训练图的验收 runner、两张 held-out 图像的缓存 → scene coordinates → OpenCV / GT residual / pairwise report。中间权重的结果不代表 100k 最终模型质量，不用于选择检查点或提前停止训练。

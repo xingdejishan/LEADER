@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 
-from .glace_adapter import GLACEAdapter, deit_global_feature_fn
+from .inference_contract import InferenceSession, resolve_contract, RGB_PROTOCOL
 from .joint_solver import pose_distance
 from .nclt_camera import preprocess_image
 
@@ -17,6 +17,8 @@ def main():
     parser.add_argument('--vendor', required=True)
     parser.add_argument('--deit-checkpoint', required=True)
     parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--pose-backend', choices=['opencv', 'dsacstar', 'none'], default='opencv')
+    parser.add_argument('--coordinate-precision', choices=['amp', 'fp32_head'], default=None)
     args = parser.parse_args()
     scene = args.run_root / 'scene'
     meta = json.loads((scene / 'scene_meta.json').read_text())
@@ -26,9 +28,10 @@ def main():
     selected = [(date, images[index]) for date, images in sorted(grouped.items())
                 for index in np.linspace(0, len(images) - 1, 16, dtype=int)]
     paths = {p.stem: p for p in (scene / 'train/rgb').iterdir()}
-    feature_fn = deit_global_feature_fn(args.vendor, args.deit_checkpoint)
-    adapter = GLACEAdapter(args.vendor, args.head, global_feature_fn=feature_fn,
-                           T_BC=np.asarray(meta['T_BC_camera_to_body']))
+    rgb = resolve_contract(args.head)['global_feature_protocol'] == RGB_PROTOCOL
+    session = InferenceSession(args.vendor, args.head, args.deit_checkpoint,
+        split=scene / 'train' if rgb else None,
+        T_BC=np.asarray(meta['T_BC_camera_to_body']), pose_backend=args.pose_backend, coordinate_precision=args.coordinate_precision)
     criteria = {'minimum_pose_success_fraction': .8, 'success_translation_m': 2.,
                 'success_rotation_deg': 5., 'maximum_median_reprojection_px': 20.,
                 'minimum_mean_fraction_4px': .05}
@@ -36,8 +39,8 @@ def main():
     for date, stem in selected:
         gt = np.loadtxt(scene / 'train/poses' / (stem + '.txt'))
         K = np.loadtxt(scene / 'train/calibration' / (stem + '.txt'))
-        image, K = preprocess_image(paths[stem], K, 616)
-        result = adapter.infer(image, K)
+        result = session.infer(paths[stem], K)
+        K = result.K
         camera = (result.xyz_world - gt[:3, 3]) @ gt[:3, :3]
         projected = camera @ K.T
         with np.errstate(divide='ignore', invalid='ignore'):
@@ -45,7 +48,8 @@ def main():
         reprojection[(camera[:, 2] <= 0) | ~np.isfinite(reprojection)] = np.inf
         row = {'sequence': date, 'image': stem, 'inliers': result.inlier_count,
                'median_reprojection_px': float(np.median(reprojection)),
-               'fraction_4px': float(np.mean(reprojection < 4)), 't_m': None, 'r_deg': None}
+               'fraction_4px': float(np.mean(reprojection < 4)),
+               'fraction_10px': float(np.mean(reprojection < 10)), 't_m': None, 'r_deg': None}
         if result.T_WC is not None:
             translation, rotation = pose_distance(result.T_WC, gt)
             row.update(t_m=float(translation), r_deg=float(np.rad2deg(rotation)))
@@ -55,7 +59,7 @@ def main():
     reprojection = float(np.median([r['median_reprojection_px'] for r in records]))
     fraction = float(np.mean([r['fraction_4px'] for r in records]))
     ready = float(np.mean(success)) >= .8 and reprojection < 20 and fraction >= .05
-    report = {'ready_for_test': ready, 'head_sha256': hashlib.sha256(args.head.read_bytes()).hexdigest(),
+    report = {'inference_contract': session.contract, 'ready_for_test': ready, 'head_sha256': session.contract['head_sha256'],
               'scope': '64 deterministic training images, 16 per sequence; no test frames',
               'criteria': criteria, 'n_images': len(records), 'pose_successes': int(sum(success)),
               'pose_success_fraction': float(np.mean(success)), 'median_reprojection_px': reprojection,

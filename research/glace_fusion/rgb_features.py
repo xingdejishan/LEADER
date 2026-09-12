@@ -36,6 +36,7 @@ def rgb_feature_extractor(vendor, checkpoint, device='cuda'):
         with torch.inference_mode():
             return model(torch.stack(images).to(device)).float().cpu().numpy()
 
+    extract.protocol = 'official_rgb_r2former_480x640'
     return extract
 
 
@@ -61,8 +62,56 @@ class CachedRGBFeatures:
         if self.features.shape != (len(paths), 256):
             raise ValueError('Unexpected global feature shape')
         self.indices = {p.stem: i for i, p in enumerate(paths)}
+        self.names = [p.name for p in paths]
         if len(self.indices) != len(paths):
             raise ValueError('Duplicate image stems')
 
     def __getitem__(self, stem):
         return np.array(self.features[self.indices[stem]], dtype=np.float32, copy=True)
+
+
+def main():
+    import argparse
+    import hashlib
+    import json
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--scene', type=Path, required=True)
+    parser.add_argument('--split', choices=['train', 'test'], default='test')
+    parser.add_argument('--vendor', required=True)
+    parser.add_argument('--checkpoint', required=True)
+    args = parser.parse_args()
+    split = args.scene / args.split
+    if (split / 'features.npy').exists() or (split / 'features_manifest.json').exists():
+        raise FileExistsError('Feature cache already exists; refusing to overwrite')
+    paths = sorted(p for p in (split / 'rgb').iterdir() if p.suffix.lower() in ('.jpg', '.png'))
+    if not paths or len({p.stem for p in paths}) != len(paths):
+        raise ValueError('Empty split or duplicate stems')
+    meta = json.loads((args.scene / 'scene_meta.json').read_text())
+    try:
+        from .nclt_camera import validate_dates
+    except ImportError:
+        from nclt_camera import validate_dates
+    validate_dates(meta['splits'].get('train', {}).get('dates', []),
+                   meta['splits'].get('test', {}).get('dates', []))
+    if {p.stem for p in paths} != {r['image'] for r in meta['splits'][args.split]['pairs']}:
+        raise ValueError('Scene manifest and image list differ')
+    extract = rgb_feature_extractor(args.vendor, args.checkpoint)
+    features = np.empty((len(paths), 256), dtype=np.float32)
+    for start in range(0, len(paths), 16):
+        result = extract(paths[start:start + 16])
+        if not np.isfinite(result).all() or not np.allclose(np.linalg.norm(result, axis=1), 1, atol=1e-5):
+            raise ValueError('Invalid global features')
+        features[start:start + len(result)] = result
+        if start % 160 == 0:
+            print(f'RGB {start + len(result)}/{len(paths)}', flush=True)
+    temporary = split / 'features.tmp.npy'
+    np.save(temporary, features)
+    temporary.replace(split / 'features.npy')
+    manifest = dict(protocol=extract.protocol, images=[p.name for p in paths],
+                    sha256=hashlib.sha256((split / 'features.npy').read_bytes()).hexdigest(),
+                    checkpoint_sha256=hashlib.sha256(Path(args.checkpoint).read_bytes()).hexdigest())
+    (split / 'features_manifest.json').write_text(json.dumps(manifest, indent=2))
+
+
+if __name__ == '__main__':
+    main()
