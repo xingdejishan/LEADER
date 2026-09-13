@@ -62,10 +62,12 @@ def make_config(data, output, variant, iterations=10000, exclude_session=''):
     config.pipeline.datamanager = GeometryBufferConfig(data=data, batch_size=4096,
         graph='lidar_overlap.npz' if variant.startswith('lidar') else 'pose_overlap.npz',
         encoding='lidar_n2c.pt' if variant.startswith('lidar') else 'pose_n2c.pt', exclude_session=exclude_session)
+    if variant == 'lidar-multiframe':
+        config.pipeline.datamanager.geometry_folder = 'multiframe_training_features'
     config.pipeline.model.max_num_iterations = iterations
     config.pipeline.model.losses = [finite_reprojection(loss) for loss in config.pipeline.model.losses]
     config.optimizers['head']['scheduler'].max_steps = iterations
-    if variant in ('geometry', 'lidar') or variant.startswith('lidar-fold'):
+    if variant in ('geometry', 'lidar', 'lidar-multiframe') or variant.startswith('lidar-fold'):
         config.pipeline.model.losses = [PersistentGeometryLossConfig(
             final_reprojection=finite_reprojection(method_configs['scrfacto'].pipeline.model.losses[0]),
             coarse_reprojection=finite_reprojection(method_configs['scrfacto'].pipeline.model.losses[1]))]

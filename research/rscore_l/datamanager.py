@@ -26,6 +26,7 @@ class GeometryBufferConfig(DataManagerConfig):
     encoding: str = 'pose_n2c.pt'
     batch_size: int = 4096
     exclude_session: str = ''
+    geometry_folder: str = 'geometry_training_features'
 
 
 class GeometryBuffer(DataManager):
@@ -50,7 +51,7 @@ class GeometryBuffer(DataManager):
         for i in training:
             name = rows[i]['frame_id'] + '.npz'
             feature = dict(np.load(config.data / 'proc/training_features' / name))
-            geometry = dict(np.load(config.data / 'proc/geometry_training_features' / name))
+            geometry = dict(np.load(config.data / 'proc' / config.geometry_folder / name))
             if config.exclude_session and any(rows[int(j)]['session_id'] == config.exclude_session for j in geometry.get('support_train_indices', [])):
                 geometry['geometry_valid'][:] = False
                 geometry['xyz_target_world'][:] = 0

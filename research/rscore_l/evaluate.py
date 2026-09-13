@@ -46,7 +46,7 @@ def export(root, variant, split):
     data = root / 'data'
     rows = json.loads((data / 'manifest.json').read_text())
     model, checkpoint = load_model(root, variant)
-    encoding = 'lidar_n2c.pt' if variant in ('lidar', 'reliable') or variant.startswith('lidar-fold') else 'pose_n2c.pt'
+    encoding = 'lidar_n2c.pt' if variant == 'reliable' or variant.startswith('lidar') else 'pose_n2c.pt'
     global_features = torch.load(data / 'train' / encoding, weights_only=True)['model.embedding.weight'].cuda().float()
     queries = np.load(data / split / 'netvlad_feats.npy').astype(np.float32)
     with (data / 'train/netvlad_feats_pq.pkl').open('rb') as file:
@@ -147,6 +147,7 @@ def evaluate(root, bundle, variant, split):
     destination = root / 'evaluation' / variant / split
     destination.mkdir(parents=True, exist_ok=True)
     records = []
+    test_metadata = {row['image']: row for row in json.loads((bundle / 'data/test_rows.json').read_text())} if split == 'test' else {}
     for i, row in enumerate(tqdm(rows, desc='Evaluate ' + variant + ' ' + split)):
         if variant == 'glace':
             cache = bundle / 'cache' / ('validation_selected' if split == 'val' else 'selected') / 'coordinates'
@@ -177,6 +178,7 @@ def evaluate(root, bundle, variant, split):
             direction.append(dict(inliers_10px=int(((error < 10) & valid).sum()), total=len(points)))
         record['direction_by_hypothesis'] = direction
         if split == 'test':
+            record.update({key: test_metadata[row['frame_id']][key] for key in ('in_orientation_support', 'previous_probe')})
             pool = dict(np.load(bundle / 'cache/lidar_pools' / (row['frame_id'] + '.npz')))
             inference_pool = {k: v for k, v in pool.items() if k != 'GT'}
             pose, diagnostic = fuse(inference_pool, camera, E)
@@ -207,4 +209,10 @@ def evaluate(root, bundle, variant, split):
             damage=int((before & ~after).sum()), accepted=sum(r['fusion']['accepted'] for r in records),
             lidar_only_refined=summary([r['lidar_only_refined_error'] for r in records]),
             candidate_pool_success_available=sum(r['candidate_pool_has_1m_2deg'] for r in records))
+        report['orientation_groups'] = {}
+        for name, supported in [('supported', True), ('outside', False)]:
+            subset = [r for r in records if r['in_orientation_support'] == supported]
+            if subset:
+                report['orientation_groups'][name] = dict(camera=summary([r['camera_error'] for r in subset]),
+                    baseline=summary([r['baseline_error'] for r in subset]), fused=summary([r['fused_error'] for r in subset]))
     save_json(destination / 'summary.json', report)

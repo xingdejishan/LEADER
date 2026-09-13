@@ -13,7 +13,7 @@ sys.path.insert(0, str(WORKSPACE / 'rscore-assets/hloc'))
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('stage', choices=['prepare', 'features', 'geometry', 'diagnose-geometry', 'overlap', 'node2vec', 'train', 'retrieval', 'export', 'evaluate', 'reliability', 'benchmark', 'freeze', 'check', 'smoke', 'status', 'all'])
+    parser.add_argument('stage', choices=['prepare', 'features', 'geometry', 'multiframe', 'multiframe-report', 'diagnose-geometry', 'overlap', 'node2vec', 'train', 'retrieval', 'export', 'evaluate', 'reliability', 'benchmark', 'freeze', 'check', 'smoke', 'status', 'all'])
     parser.add_argument('--root', type=Path, default=Path('/home/zhang/rscore-l-local'))
     parser.add_argument('--bundle', type=Path, default=WORKSPACE / 'glace-local')
     parser.add_argument('--variant', default='depth')
@@ -29,7 +29,14 @@ def main():
     data = args.root / 'data'
     output = args.root / 'outputs'
     args.root.mkdir(parents=True, exist_ok=True)
-    if args.stage == 'freeze':
+    if args.stage == 'multiframe-report':
+        from rscore_l.multiframe import compare_multiframe
+        compare_multiframe(args.root)
+    elif args.stage == 'multiframe':
+        from rscore_l.multiframe import prepare_multiframe, audit_multiframe
+        prepare_multiframe(data)
+        audit_multiframe(data)
+    elif args.stage == 'freeze':
         from rscore_l.audit import freeze_inputs
         freeze_inputs(args.root)
     elif args.stage == 'diagnose-geometry':

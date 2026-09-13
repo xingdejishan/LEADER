@@ -25,7 +25,7 @@ def benchmark(root, bundle, variant):
     images = NCLTDatasetConfig(data=data, split='test').setup(preprocess=encoder.preprocess)
     retrieval_images = HLocDatasetConfig(root=data / 'test', conf={'resize_max': 1024}).setup()
     netvlad = dynamic_load(extractors, 'netvlad')({'name': 'netvlad'}).cuda().eval()
-    encoding = 'lidar_n2c.pt' if variant in ('lidar', 'reliable') else 'pose_n2c.pt'
+    encoding = 'lidar_n2c.pt' if variant == 'reliable' or variant.startswith('lidar') else 'pose_n2c.pt'
     global_features = torch.load(data / 'train' / encoding, weights_only=True)['model.embedding.weight'].cuda().float()
     with (data / 'train/netvlad_feats_pq.pkl').open('rb') as file:
         pq, codes = pickle.load(file)
