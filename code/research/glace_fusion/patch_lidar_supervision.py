@@ -89,13 +89,13 @@ def patch_lidar_supervision(vendor, weight=1., relative_storage=False, log_depth
                     "            pred_cam_coords_b31.squeeze(-1), lidar_camera, reduction='none').sum(1)\n")
         label = 'Smooth L1 camera-frame 3D residual, beta=1m; sum / whole batch size'
     elif aux_mode == 'log_depth':
-        residual = ('        pred_depth = pred_cam_coords_b31[:, 0, 2].clamp_min(1e-3)\n'
+        residual = ('        pred_depth = pred_cam_coords_b31[:, 2, 0].clamp_min(1e-3)\n'
                     '        target_depth = lidar_camera[:, 2].clamp_min(1e-3)\n'
                     '        lidar_error = torch.nn.functional.smooth_l1_loss(\n'
                     "            torch.log(pred_depth), torch.log(target_depth), reduction='none')\n")
         label = 'log-depth Smooth L1 on camera-frame ray targets'
     else:
-        residual = ('        pred_depth = pred_cam_coords_b31[:, 0, 2].clamp_min(1e-3)\n'
+        residual = ('        pred_depth = pred_cam_coords_b31[:, 2, 0].clamp_min(1e-3)\n'
                     '        target_depth = lidar_camera[:, 2].clamp_min(1e-3)\n'
                     '        depth_error = torch.nn.functional.smooth_l1_loss(\n'
                     "            torch.log(pred_depth), torch.log(target_depth), reduction='none')\n"
@@ -117,11 +117,11 @@ def patch_lidar_supervision(vendor, weight=1., relative_storage=False, log_depth
             '        if rel_supported.any():\n'
             '            with torch.no_grad():\n'
             '                rel_label = ReliabilityHead.consistency_labels(\n'
-            '                    pred_cam_coords_b31[:, 0, :].detach(), lidar_camera.detach(),\n'
+            '                    pred_cam_coords_b31[:, :, 0].detach(), lidar_camera.detach(),\n'
             '                    rel_supported.float(), depth_ratio_tol='
             f'{float(depth_ratio_tol)!r})\n'
             '            rel_logit = self.rel_head(features_bC.detach(),\n'
-            '                                      pred_cam_coords_b31[:, 0, :].detach())\n'
+            '                                      pred_cam_coords_b31[:, :, 0].detach())\n'
             '            rel_loss = torch.nn.functional.binary_cross_entropy_with_logits(\n'
             '                rel_logit[rel_supported], rel_label[rel_supported])\n'
             '            self.rel_optimizer.zero_grad()\n'
