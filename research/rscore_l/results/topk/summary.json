@@ -1,0 +1,530 @@
+{
+  "uniform_10": {
+    "camera": {
+      "frames": 148,
+      "mean": [
+        3.1771876980767577,
+        5.987101126805434
+      ],
+      "median": [
+        0.827732448501556,
+        2.947608245810529
+      ],
+      "p95": [
+        5.318637688987045,
+        9.034535195472712
+      ],
+      "p99": [
+        46.60001106341946,
+        90.57691942120073
+      ],
+      "success_0.25m_2deg": 10,
+      "success_0.5m_1deg": 8,
+      "success_1m_2deg": 24,
+      "success_1m_5deg": 76,
+      "success_5m_10deg": 138
+    },
+    "correspondence_fraction": 0.1288891891891892,
+    "mean_occupied_cells": 15.574324324324325,
+    "mean_maximum_cell_fraction": 0.06797297297297297,
+    "candidates": {
+      "lidar": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.0325738610677197,
+        "median_margin": 0.031435347230980404
+      },
+      "camera_fit": {
+        "top1_correct": 111,
+        "evaluable": 43,
+        "positive_margin": 30,
+        "mean_margin": 0.06722168285424436,
+        "median_margin": 0.0191493527949671
+      },
+      "camera_holdout": {
+        "top1_correct": 107,
+        "evaluable": 43,
+        "positive_margin": 26,
+        "mean_margin": 0.049301241547168646,
+        "median_margin": 0.0229412929346946
+      },
+      "joint_fit": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.018859866389540732,
+        "median_margin": 0.016187899556494467
+      },
+      "joint_holdout": {
+        "top1_correct": 113,
+        "evaluable": 43,
+        "positive_margin": 32,
+        "mean_margin": 0.018775028675888292,
+        "median_margin": 0.017682037383617955
+      }
+    }
+  },
+  "top_grid_10": {
+    "camera": {
+      "frames": 148,
+      "mean": [
+        1.989932671104011,
+        6.224235782504233
+      ],
+      "median": [
+        0.8360927049661921,
+        3.369303520709254
+      ],
+      "p95": [
+        6.155531800731784,
+        10.63249232310513
+      ],
+      "p99": [
+        15.213904303752036,
+        94.25460436534816
+      ],
+      "success_0.25m_2deg": 7,
+      "success_0.5m_1deg": 8,
+      "success_1m_2deg": 34,
+      "success_1m_5deg": 73,
+      "success_5m_10deg": 135
+    },
+    "correspondence_fraction": 0.20607837837837836,
+    "mean_occupied_cells": 14.514189189189189,
+    "mean_maximum_cell_fraction": 0.12599999999999997,
+    "candidates": {
+      "lidar": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.0325738610677197,
+        "median_margin": 0.031435347230980404
+      },
+      "camera_fit": {
+        "top1_correct": 102,
+        "evaluable": 43,
+        "positive_margin": 20,
+        "mean_margin": 0.10530595803994013,
+        "median_margin": -0.0008487762752853456
+      },
+      "camera_holdout": {
+        "top1_correct": 104,
+        "evaluable": 43,
+        "positive_margin": 23,
+        "mean_margin": 0.08839399969205175,
+        "median_margin": 0.03676963300975267
+      },
+      "joint_fit": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.020400150550780212,
+        "median_margin": 0.016761356665525362
+      },
+      "joint_holdout": {
+        "top1_correct": 113,
+        "evaluable": 43,
+        "positive_margin": 32,
+        "mean_margin": 0.019234647745728223,
+        "median_margin": 0.016282730386294908
+      }
+    }
+  },
+  "uniform_20": {
+    "camera": {
+      "frames": 148,
+      "mean": [
+        3.0612802608314844,
+        5.390834092004306
+      ],
+      "median": [
+        0.6972137963528854,
+        2.6504969621890178
+      ],
+      "p95": [
+        7.498491645771569,
+        7.706328238252413
+      ],
+      "p99": [
+        30.799470597480124,
+        80.52982794852988
+      ],
+      "success_0.25m_2deg": 10,
+      "success_0.5m_1deg": 4,
+      "success_1m_2deg": 37,
+      "success_1m_5deg": 85,
+      "success_5m_10deg": 140
+    },
+    "correspondence_fraction": 0.13200675675675674,
+    "mean_occupied_cells": 15.574324324324325,
+    "mean_maximum_cell_fraction": 0.06999324324324324,
+    "candidates": {
+      "lidar": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.0325738610677197,
+        "median_margin": 0.031435347230980404
+      },
+      "camera_fit": {
+        "top1_correct": 107,
+        "evaluable": 43,
+        "positive_margin": 26,
+        "mean_margin": 0.05410689440933044,
+        "median_margin": 0.01626489073856341
+      },
+      "camera_holdout": {
+        "top1_correct": 109,
+        "evaluable": 43,
+        "positive_margin": 28,
+        "mean_margin": 0.05202871591765715,
+        "median_margin": 0.024481514421193395
+      },
+      "joint_fit": {
+        "top1_correct": 113,
+        "evaluable": 43,
+        "positive_margin": 32,
+        "mean_margin": 0.01858548024522943,
+        "median_margin": 0.01616759665675449
+      },
+      "joint_holdout": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.01891106388535825,
+        "median_margin": 0.018222854673589195
+      }
+    }
+  },
+  "top_grid_20": {
+    "camera": {
+      "frames": 148,
+      "mean": [
+        1.8175574943270982,
+        5.917474258044351
+      ],
+      "median": [
+        0.72641829699608,
+        2.93100310877764
+      ],
+      "p95": [
+        5.352258607272588,
+        10.095617615692142
+      ],
+      "p99": [
+        10.996127603225228,
+        100.81242543765018
+      ],
+      "success_0.25m_2deg": 10,
+      "success_0.5m_1deg": 7,
+      "success_1m_2deg": 36,
+      "success_1m_5deg": 89,
+      "success_5m_10deg": 137
+    },
+    "correspondence_fraction": 0.18662027027027026,
+    "mean_occupied_cells": 15.156081081081082,
+    "mean_maximum_cell_fraction": 0.12498445945945946,
+    "candidates": {
+      "lidar": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.0325738610677197,
+        "median_margin": 0.031435347230980404
+      },
+      "camera_fit": {
+        "top1_correct": 101,
+        "evaluable": 43,
+        "positive_margin": 20,
+        "mean_margin": 0.0842900344167879,
+        "median_margin": -0.00016402148087735213
+      },
+      "camera_holdout": {
+        "top1_correct": 108,
+        "evaluable": 43,
+        "positive_margin": 27,
+        "mean_margin": 0.10418585152217892,
+        "median_margin": 0.059081035167649176
+      },
+      "joint_fit": {
+        "top1_correct": 113,
+        "evaluable": 43,
+        "positive_margin": 32,
+        "mean_margin": 0.019857607673049595,
+        "median_margin": 0.016908501114565766
+      },
+      "joint_holdout": {
+        "top1_correct": 115,
+        "evaluable": 43,
+        "positive_margin": 34,
+        "mean_margin": 0.02016540366878346,
+        "median_margin": 0.016130431519777888
+      }
+    }
+  },
+  "uniform_50": {
+    "camera": {
+      "frames": 148,
+      "mean": [
+        1.7575104492549225,
+        4.92922109466977
+      ],
+      "median": [
+        0.6846603392793837,
+        2.3186826060322483
+      ],
+      "p95": [
+        2.929441165032875,
+        7.3212949021789155
+      ],
+      "p99": [
+        29.8924177233899,
+        89.26931405747608
+      ],
+      "success_0.25m_2deg": 13,
+      "success_0.5m_1deg": 6,
+      "success_1m_2deg": 43,
+      "success_1m_5deg": 100,
+      "success_5m_10deg": 143
+    },
+    "correspondence_fraction": 0.1433527027027027,
+    "mean_occupied_cells": 15.574324324324325,
+    "mean_maximum_cell_fraction": 0.08145675675675676,
+    "candidates": {
+      "lidar": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.0325738610677197,
+        "median_margin": 0.031435347230980404
+      },
+      "camera_fit": {
+        "top1_correct": 107,
+        "evaluable": 43,
+        "positive_margin": 26,
+        "mean_margin": 0.0505528293748351,
+        "median_margin": 0.010177811442245499
+      },
+      "camera_holdout": {
+        "top1_correct": 109,
+        "evaluable": 43,
+        "positive_margin": 28,
+        "mean_margin": 0.05137202805853445,
+        "median_margin": 0.021017571440532734
+      },
+      "joint_fit": {
+        "top1_correct": 113,
+        "evaluable": 43,
+        "positive_margin": 32,
+        "mean_margin": 0.018420504541375518,
+        "median_margin": 0.015692812121360422
+      },
+      "joint_holdout": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.01862968407200243,
+        "median_margin": 0.016449077077694496
+      }
+    }
+  },
+  "top_grid_50": {
+    "camera": {
+      "frames": 148,
+      "mean": [
+        1.1895001919042962,
+        5.673705754027104
+      ],
+      "median": [
+        0.663883471201301,
+        2.3950536790632344
+      ],
+      "p95": [
+        2.9145294832998974,
+        8.67509770629509
+      ],
+      "p99": [
+        13.169564053393348,
+        99.25229967565522
+      ],
+      "success_0.25m_2deg": 11,
+      "success_0.5m_1deg": 9,
+      "success_1m_2deg": 43,
+      "success_1m_5deg": 99,
+      "success_5m_10deg": 141
+    },
+    "correspondence_fraction": 0.16744702702702702,
+    "mean_occupied_cells": 15.514864864864865,
+    "mean_maximum_cell_fraction": 0.12513054054054054,
+    "candidates": {
+      "lidar": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.0325738610677197,
+        "median_margin": 0.031435347230980404
+      },
+      "camera_fit": {
+        "top1_correct": 107,
+        "evaluable": 43,
+        "positive_margin": 26,
+        "mean_margin": 0.06593440630578795,
+        "median_margin": 0.02107741938399421
+      },
+      "camera_holdout": {
+        "top1_correct": 107,
+        "evaluable": 43,
+        "positive_margin": 26,
+        "mean_margin": 0.07221846142563984,
+        "median_margin": 0.041403091601475595
+      },
+      "joint_fit": {
+        "top1_correct": 113,
+        "evaluable": 43,
+        "positive_margin": 32,
+        "mean_margin": 0.019069954279550105,
+        "median_margin": 0.01687722951757431
+      },
+      "joint_holdout": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.019296686216739568,
+        "median_margin": 0.015872181939171615
+      }
+    }
+  },
+  "uniform_100": {
+    "camera": {
+      "frames": 148,
+      "mean": [
+        0.9625488779990927,
+        5.176568008039672
+      ],
+      "median": [
+        0.5415072649500399,
+        2.1172207935389125
+      ],
+      "p95": [
+        2.224194424795595,
+        7.126013383235062
+      ],
+      "p99": [
+        10.390125376651667,
+        101.669606614528
+      ],
+      "success_0.25m_2deg": 14,
+      "success_0.5m_1deg": 11,
+      "success_1m_2deg": 55,
+      "success_1m_5deg": 110,
+      "success_5m_10deg": 143
+    },
+    "correspondence_fraction": 0.17626743243243242,
+    "mean_occupied_cells": 15.574324324324325,
+    "mean_maximum_cell_fraction": 0.18590270270270268,
+    "candidates": {
+      "lidar": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.0325738610677197,
+        "median_margin": 0.031435347230980404
+      },
+      "camera_fit": {
+        "top1_correct": 109,
+        "evaluable": 43,
+        "positive_margin": 28,
+        "mean_margin": 0.0513388043451398,
+        "median_margin": 0.013294168283252361
+      },
+      "camera_holdout": {
+        "top1_correct": 107,
+        "evaluable": 43,
+        "positive_margin": 26,
+        "mean_margin": 0.050208314592888215,
+        "median_margin": 0.02716476518996913
+      },
+      "joint_fit": {
+        "top1_correct": 113,
+        "evaluable": 43,
+        "positive_margin": 32,
+        "mean_margin": 0.018414024864735434,
+        "median_margin": 0.015792041381809563
+      },
+      "joint_holdout": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.018649958836710983,
+        "median_margin": 0.016623054061941644
+      }
+    }
+  },
+  "top_grid_100": {
+    "camera": {
+      "frames": 148,
+      "mean": [
+        0.9625488779990927,
+        5.176568008039672
+      ],
+      "median": [
+        0.5415072649500399,
+        2.1172207935389125
+      ],
+      "p95": [
+        2.224194424795595,
+        7.126013383235062
+      ],
+      "p99": [
+        10.390125376651667,
+        101.669606614528
+      ],
+      "success_0.25m_2deg": 14,
+      "success_0.5m_1deg": 11,
+      "success_1m_2deg": 55,
+      "success_1m_5deg": 110,
+      "success_5m_10deg": 143
+    },
+    "correspondence_fraction": 0.17626743243243242,
+    "mean_occupied_cells": 15.574324324324325,
+    "mean_maximum_cell_fraction": 0.18590270270270268,
+    "candidates": {
+      "lidar": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.0325738610677197,
+        "median_margin": 0.031435347230980404
+      },
+      "camera_fit": {
+        "top1_correct": 109,
+        "evaluable": 43,
+        "positive_margin": 28,
+        "mean_margin": 0.0513388043451398,
+        "median_margin": 0.013294168283252361
+      },
+      "camera_holdout": {
+        "top1_correct": 107,
+        "evaluable": 43,
+        "positive_margin": 26,
+        "mean_margin": 0.050208314592888215,
+        "median_margin": 0.02716476518996913
+      },
+      "joint_fit": {
+        "top1_correct": 113,
+        "evaluable": 43,
+        "positive_margin": 32,
+        "mean_margin": 0.018414024864735434,
+        "median_margin": 0.015792041381809563
+      },
+      "joint_holdout": {
+        "top1_correct": 112,
+        "evaluable": 43,
+        "positive_margin": 31,
+        "mean_margin": 0.018649958836710983,
+        "median_margin": 0.016623054061941644
+      }
+    }
+  }
+}

@@ -13,7 +13,7 @@ sys.path.insert(0, str(WORKSPACE / 'rscore-assets/hloc'))
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('stage', choices=['prepare', 'features', 'geometry', 'multiframe', 'multiframe-report', 'diagnose-geometry', 'overlap', 'node2vec', 'train', 'retrieval', 'export', 'evaluate', 'reliability', 'benchmark', 'freeze', 'check', 'smoke', 'status', 'all'])
+    parser.add_argument('stage', choices=['prepare', 'features', 'geometry', 'multiframe', 'multiframe-report', 'topk', 'topk-report', 'diagnose-geometry', 'overlap', 'node2vec', 'train', 'retrieval', 'export', 'evaluate', 'reliability', 'benchmark', 'freeze', 'check', 'smoke', 'status', 'all'])
     parser.add_argument('--root', type=Path, default=Path('/home/zhang/rscore-l-local'))
     parser.add_argument('--bundle', type=Path, default=WORKSPACE / 'glace-local')
     parser.add_argument('--variant', default='depth')
@@ -29,7 +29,13 @@ def main():
     data = args.root / 'data'
     output = args.root / 'outputs'
     args.root.mkdir(parents=True, exist_ok=True)
-    if args.stage == 'multiframe-report':
+    if args.stage == 'topk-report':
+        from rscore_l.topk_report import report_topk
+        report_topk(args.root)
+    elif args.stage == 'topk':
+        from rscore_l.topk import run_topk
+        run_topk(args.root, args.bundle, args.split)
+    elif args.stage == 'multiframe-report':
         from rscore_l.multiframe import compare_multiframe
         compare_multiframe(args.root)
     elif args.stage == 'multiframe':

@@ -14,6 +14,39 @@ from rscore_l.losses import geometry_loss
 
 
 class Contracts(unittest.TestCase):
+    def test_topk_full_budget_preserves_original_pnp_order(self):
+        from rscore_l.topk import select_points
+        uv = np.random.default_rng(1).uniform(0, 100, (100, 2))
+        for mode in ('uniform', 'top_grid'):
+            indices, _ = select_points(uv, np.arange(100), np.array([100, 100]), 100, mode, 2089)
+            np.testing.assert_array_equal(indices, np.arange(100))
+
+    def test_topk_cap_prevents_single_cell_collapse(self):
+        from rscore_l.topk import select_points
+        uv = np.repeat(np.array([[10+25*x, 10+25*y] for y in range(4) for x in range(4)]), 100, axis=0)
+        p = np.r_[np.ones(100), np.zeros(1500)]
+        indices, cap = select_points(uv, p, np.array([100, 100]), 160, 'top_grid', 2089)
+        self.assertEqual(len(np.unique(indices)), 160)
+        self.assertEqual(int((indices < 100).sum()), cap)
+        self.assertLess(cap, 100)
+        other, _ = select_points(uv, 1-p, np.array([100, 100]), 160, 'uniform', 2089)
+        expected, _ = select_points(uv, p, np.array([100, 100]), 160, 'uniform', 2089)
+        np.testing.assert_array_equal(other, expected)
+
+    def test_topk_sparse_coverage_still_fills_exact_budget(self):
+        from rscore_l.topk import select_points
+        uv = np.ones((100, 2))
+        indices, cap = select_points(uv, np.arange(100), np.array([100, 100]), 50, 'top_grid', 2089)
+        np.testing.assert_array_equal(indices, np.arange(50, 100))
+        self.assertEqual(cap, 50)
+
+    def test_candidate_margin_sign_and_missing_classes(self):
+        from rscore_l.topk import margins
+        result = margins(np.array([2., 1., 3.]), np.array([False, True, False]))
+        self.assertEqual(result['margin'], 1.)
+        self.assertTrue(result['top1_correct'])
+        self.assertIsNone(margins(np.ones(3), np.zeros(3, bool))['margin'])
+
     def test_metric_surface_with_zero_world_components(self):
         K = np.array([[100., 0, 50], [0, 100, 50], [0, 0, 1]])
         x, y = np.meshgrid(np.linspace(-.5, .5, 31), np.linspace(-.5, .5, 31))

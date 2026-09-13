@@ -1,0 +1,33 @@
+{
+  "ratios": [
+    0.1,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "methods": [
+    "top_grid",
+    "uniform"
+  ],
+  "grid": [
+    4,
+    4
+  ],
+  "cap": "ceil(2*K/16), minimally relaxed only if insufficient capacity",
+  "uniform": "Seeded random within cells; round-robin across cells",
+  "selection_order": "Original index order after subset selection",
+  "pnp": {
+    "max_reproj_error": 10,
+    "max_iterations": 10000,
+    "seed": 2089,
+    "hypotheses": 10
+  },
+  "candidate_success": "translation <1m AND rotation <2deg",
+  "margin": "min wrong cost minus min correct cost; positive favors correct",
+  "scoring": "Original probability-weighted Gaussian/uniform mixture and LiDAR score; whole hypotheses only; fit and checkerboard holdout separately",
+  "candidate_scope": "Fixed candidates including original LEADER; ranking diagnostic only, no refinement or acceptance gate",
+  "reference_usage": "Evaluation only, never selection or score computation",
+  "split": "test",
+  "reference_sha256": "80fe4471e656736748c28679012395a2fc3f55baa2d40638b9276f166891d8e3",
+  "source_sha256": "2492f5c7ec79cfab515dd1d4ec38eaa50b73a03aac1007110beac6814e630d6e"
+}

@@ -1,0 +1,102 @@
+{
+  "10": {
+    "pnp_new_success": 20,
+    "pnp_new_failure": 10,
+    "correspondence_fraction_delta": 0.07718918918918918,
+    "camera_fit": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.038084275185695765,
+      "margin_improved": 20
+    },
+    "camera_holdout": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.039092758144883104,
+      "margin_improved": 23
+    },
+    "joint_fit": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.0015402841612394808,
+      "margin_improved": 24
+    },
+    "joint_holdout": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.0004596190698399287,
+      "margin_improved": 22
+    }
+  },
+  "20": {
+    "pnp_new_success": 20,
+    "pnp_new_failure": 21,
+    "correspondence_fraction_delta": 0.054613513513513505,
+    "camera_fit": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.030183140007457462,
+      "margin_improved": 23
+    },
+    "camera_holdout": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.052157135604521766,
+      "margin_improved": 27
+    },
+    "joint_fit": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.0012721274278201659,
+      "margin_improved": 24
+    },
+    "joint_holdout": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.001254339783425208,
+      "margin_improved": 29
+    }
+  },
+  "50": {
+    "pnp_new_success": 15,
+    "pnp_new_failure": 15,
+    "correspondence_fraction_delta": 0.024094324324324328,
+    "camera_fit": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.015381576930952847,
+      "margin_improved": 23
+    },
+    "camera_holdout": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.020846433367105392,
+      "margin_improved": 27
+    },
+    "joint_fit": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.0006494497381745857,
+      "margin_improved": 26
+    },
+    "joint_holdout": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.0006670021447371388,
+      "margin_improved": 29
+    }
+  },
+  "100": {
+    "pnp_new_success": 0,
+    "pnp_new_failure": 0,
+    "correspondence_fraction_delta": 0.0,
+    "camera_fit": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.0,
+      "margin_improved": 0
+    },
+    "camera_holdout": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.0,
+      "margin_improved": 0
+    },
+    "joint_fit": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.0,
+      "margin_improved": 0
+    },
+    "joint_holdout": {
+      "evaluable": 43,
+      "mean_margin_delta": 0.0,
+      "margin_improved": 0
+    }
+  }
+}

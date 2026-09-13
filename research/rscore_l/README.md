@@ -51,6 +51,8 @@ bash launch.sh train --variant depth
 bash launch.sh all
 bash launch.sh status
 bash launch.sh check
+bash launch.sh topk --split test
+bash launch.sh topk-report
 ```
 
 完整队列在 `state.json` 和 `logs/` 记录状态，失败后停止；完成标记只在相应子进程成功返回后写入。训练保存可恢复检查点。对比汇总只有全部评价完成后才会生成 `comparison.json`。
