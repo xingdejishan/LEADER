@@ -1,0 +1,88 @@
+{
+  "samples": 85480,
+  "training_samples": 48720,
+  "calibration_samples": 36760,
+  "positive_fraction": 0.10477304458618164,
+  "brier": 0.09665287286043167,
+  "ece": 0.09759167139221768,
+  "calibration": [
+    {
+      "low": 0.0,
+      "high": 0.10000000149011612,
+      "count": 19208,
+      "probability": 0.03945746272802353,
+      "frequency": 0.047324031591415405
+    },
+    {
+      "low": 0.10000000149011612,
+      "high": 0.20000000298023224,
+      "count": 7038,
+      "probability": 0.14464737474918365,
+      "frequency": 0.0697641372680664
+    },
+    {
+      "low": 0.20000000298023224,
+      "high": 0.30000001192092896,
+      "count": 3826,
+      "probability": 0.2446601688861847,
+      "frequency": 0.09121797978878021
+    },
+    {
+      "low": 0.30000001192092896,
+      "high": 0.4000000059604645,
+      "count": 2254,
+      "probability": 0.3469257950782776,
+      "frequency": 0.11224489659070969
+    },
+    {
+      "low": 0.4000000059604645,
+      "high": 0.5,
+      "count": 1519,
+      "probability": 0.4471779763698578,
+      "frequency": 0.13298222422599792
+    },
+    {
+      "low": 0.5,
+      "high": 0.6000000238418579,
+      "count": 975,
+      "probability": 0.5461394190788269,
+      "frequency": 0.14461538195610046
+    },
+    {
+      "low": 0.6000000238418579,
+      "high": 0.699999988079071,
+      "count": 838,
+      "probability": 0.6473583579063416,
+      "frequency": 0.21957039833068848
+    },
+    {
+      "low": 0.699999988079071,
+      "high": 0.800000011920929,
+      "count": 502,
+      "probability": 0.7498102784156799,
+      "frequency": 0.20119522511959076
+    },
+    {
+      "low": 0.800000011920929,
+      "high": 0.8999999761581421,
+      "count": 394,
+      "probability": 0.8487662672996521,
+      "frequency": 0.3527918756008148
+    },
+    {
+      "low": 0.8999999761581421,
+      "high": 1.0,
+      "count": 206,
+      "probability": 0.9429405927658081,
+      "frequency": 0.4805825352668762
+    }
+  ],
+  "queries": "Leave-one-training-session-out coordinate models; retrieved codes only from other sessions",
+  "calibration_session": "2012-05-11",
+  "labels": "Weak checked surface reference, <10px and <1m along ray",
+  "temperature": 7.943282127380371,
+  "candidate_ranking_trained": false,
+  "candidate_ranking_pairs": 0,
+  "candidate_ranking_reason": "No real LEADER candidate pools for training-side heldout queries are present in the local bundle",
+  "validation_or_test_used_for_fitting": false
+}

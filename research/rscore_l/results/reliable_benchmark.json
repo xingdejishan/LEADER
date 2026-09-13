@@ -1,0 +1,127 @@
+{
+  "records": [
+    {
+      "frame_id": "1329069247934369",
+      "frontend_seconds": 0.3058315099988249,
+      "standalone_pnp_seconds": 2.0905469880017336,
+      "cached_leader_fusion_seconds": 0.0602895769989118,
+      "image_to_fused_pose_seconds": 0.3661210869977367
+    },
+    {
+      "frame_id": "1329069256935232",
+      "frontend_seconds": 0.3009172959973512,
+      "standalone_pnp_seconds": 0.6768286370024725,
+      "cached_leader_fusion_seconds": 0.05202434899911168,
+      "image_to_fused_pose_seconds": 0.35294164499646286
+    },
+    {
+      "frame_id": "1329069266936186",
+      "frontend_seconds": 0.28742290399895865,
+      "standalone_pnp_seconds": 2.0256501570002,
+      "cached_leader_fusion_seconds": 0.10824804300136748,
+      "image_to_fused_pose_seconds": 0.3956709470003261
+    },
+    {
+      "frame_id": "1329069276937155",
+      "frontend_seconds": 0.30716149299769313,
+      "standalone_pnp_seconds": 0.8294170900007884,
+      "cached_leader_fusion_seconds": 0.12166511900068144,
+      "image_to_fused_pose_seconds": 0.4288266119983746
+    },
+    {
+      "frame_id": "1329069286938104",
+      "frontend_seconds": 0.322291270000278,
+      "standalone_pnp_seconds": 0.66118662900044,
+      "cached_leader_fusion_seconds": 0.04087136100133648,
+      "image_to_fused_pose_seconds": 0.3631626310016145
+    },
+    {
+      "frame_id": "1329069296939107",
+      "frontend_seconds": 0.2918958339978417,
+      "standalone_pnp_seconds": 0.6782425599994895,
+      "cached_leader_fusion_seconds": 0.04949316900092526,
+      "image_to_fused_pose_seconds": 0.34138900299876695
+    },
+    {
+      "frame_id": "1329069305939929",
+      "frontend_seconds": 0.28934325599766453,
+      "standalone_pnp_seconds": 1.1493498620002356,
+      "cached_leader_fusion_seconds": 0.03953092800293234,
+      "image_to_fused_pose_seconds": 0.32887418400059687
+    },
+    {
+      "frame_id": "1329072436043713",
+      "frontend_seconds": 0.2886248530012381,
+      "standalone_pnp_seconds": 0.6382367719998001,
+      "cached_leader_fusion_seconds": 0.04345815499982564,
+      "image_to_fused_pose_seconds": 0.3320830080010637
+    },
+    {
+      "frame_id": "1329072446044710",
+      "frontend_seconds": 0.2881661040009931,
+      "standalone_pnp_seconds": 1.310776080998039,
+      "cached_leader_fusion_seconds": 0.04625022300024284,
+      "image_to_fused_pose_seconds": 0.3344163270012359
+    },
+    {
+      "frame_id": "1329072456045690",
+      "frontend_seconds": 0.29341252199810697,
+      "standalone_pnp_seconds": 0.7603128170012496,
+      "cached_leader_fusion_seconds": 0.04651934700086713,
+      "image_to_fused_pose_seconds": 0.3399318689989741
+    },
+    {
+      "frame_id": "1329072466046718",
+      "frontend_seconds": 0.2881986370011873,
+      "standalone_pnp_seconds": 0.822723268000118,
+      "cached_leader_fusion_seconds": 0.04279071699784254,
+      "image_to_fused_pose_seconds": 0.33098935399902984
+    },
+    {
+      "frame_id": "1329072475047581",
+      "frontend_seconds": 0.2862830349986325,
+      "standalone_pnp_seconds": 1.0593874330006656,
+      "cached_leader_fusion_seconds": 0.043329558000550605,
+      "image_to_fused_pose_seconds": 0.3296125929991831
+    },
+    {
+      "frame_id": "1329072485048580",
+      "frontend_seconds": 0.2964250119985081,
+      "standalone_pnp_seconds": 1.428507078999246,
+      "cached_leader_fusion_seconds": 0.05296947500028182,
+      "image_to_fused_pose_seconds": 0.34939448699878994
+    },
+    {
+      "frame_id": "1329072495049593",
+      "frontend_seconds": 0.29244471399942995,
+      "standalone_pnp_seconds": 1.1807469550003589,
+      "cached_leader_fusion_seconds": 0.04393946399795823,
+      "image_to_fused_pose_seconds": 0.3363841779973882
+    },
+    {
+      "frame_id": "1329072505050576",
+      "frontend_seconds": 0.28676259399799164,
+      "standalone_pnp_seconds": 0.9481604450011218,
+      "cached_leader_fusion_seconds": 0.048941966000711545,
+      "image_to_fused_pose_seconds": 0.3357045599987032
+    },
+    {
+      "frame_id": "1329072515051556",
+      "frontend_seconds": 0.29030065600090893,
+      "standalone_pnp_seconds": 0.420145265001338,
+      "cached_leader_fusion_seconds": 0.05402285899981507,
+      "image_to_fused_pose_seconds": 0.344323515000724
+    }
+  ],
+  "mean": {
+    "frontend_seconds": 0.29471760562410054,
+    "standalone_pnp_seconds": 1.042513627375456,
+    "cached_leader_fusion_seconds": 0.05589651937521012,
+    "image_to_fused_pose_seconds": 0.35061412499931066
+  },
+  "peak_memory_mb": 6185.88671875,
+  "head_parameters": 21050938,
+  "scope": "Image reading and preprocessing, frozen DeDoDe/PCA, frozen NetVLAD, retrieval, head, optional reliability, fusion with cached LEADER inputs",
+  "excludes": "LEADER LiDAR frontend runtime; amortized model load",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+}
