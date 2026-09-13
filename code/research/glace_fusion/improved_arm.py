@@ -32,6 +32,8 @@ def parse_args():
     parser.add_argument('--no-reliability-head', action='store_true')
     parser.add_argument('--reliability-lr', type=float, default=1e-3)
     parser.add_argument('--depth-ratio-tol', type=float, default=1.25)
+    parser.add_argument('--use-half', default=None, choices=['True', 'False'],
+                        help='override the vendor fp16 autocast flag for this arm')
     return parser.parse_args()
 
 
@@ -84,6 +86,11 @@ def main():
     train_args = list(base_config['train_args'])
     train_args[train_args.index('--max_iterations') + 1] = str(args.iterations)
     train_args[train_args.index('--training_buffer_size') + 1] = str(907 * 1024)
+    if args.use_half is not None:
+        if '--use_half' in train_args:
+            train_args[train_args.index('--use_half') + 1] = args.use_half
+        else:
+            train_args += ['--use_half', args.use_half]
     config = dict(base_config)
     config.update(train_args=train_args, train_images=907, local_run=True,
                   training_from_scratch=True,

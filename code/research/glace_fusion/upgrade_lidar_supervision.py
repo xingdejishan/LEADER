@@ -9,7 +9,7 @@ Smooth L1 with a fixed weight literal, buffer lidar keys, progress metrics):
 
 and replaces that single metric residual with the decomposed objective
 
-    depth:   Smooth L1(log pred_z, log target_z)            * depth_weight
+    depth:   Smooth L1(pred_z/target_z - 1, beta=0.25, clamped)            * depth_weight
     bearing: Smooth L1(pred_px, target_px, beta=bearing_beta_px) * bearing_weight
 
 plus the optional per-cell ReliabilityHead (depth-agreement BCE on supported
@@ -24,6 +24,7 @@ from .retrain_rgb_baseline import replace_once
 
 def upgrade_lidar_supervision(vendor, overall_weight=5.0, depth_weight=5.0,
                               bearing_weight=1.0, bearing_beta_px=1.0,
+                              bearing_clamp_px=50.0,
                               reliability_head=True, reliability_lr=1e-3,
                               depth_ratio_tol=1.25):
     vendor = Path(vendor)
@@ -36,12 +37,15 @@ def upgrade_lidar_supervision(vendor, overall_weight=5.0, depth_weight=5.0,
                     "        lidar_loss = (lidar_error * lidar_valid.reshape(-1)).sum()\n"
                     f"        loss = loss + {weight_literal} * lidar_loss\n")
     new_residual = (
-        "        pred_depth = pred_cam_coords_b31[:, 2, 0].clamp_min(1e-3)\n"
         "        target_depth = lidar_camera[:, 2].clamp_min(1e-3)\n"
+        "        rel_err = torch.clamp(pred_cam_coords_b31[:, 2, 0] / target_depth - 1.0,\n"
+        "                              -1.0, 9.0)\n"
         "        depth_error = torch.nn.functional.smooth_l1_loss(\n"
-        "            torch.log(pred_depth), torch.log(target_depth), reduction='none')\n"
+        "            rel_err, torch.zeros_like(rel_err), beta=0.25, reduction='none')\n"
+        "        bearing_delta = torch.clamp(pred_px_b21.squeeze(2) - target_px_b2,\n"
+        f"                                    -{float(bearing_clamp_px)!r}, {float(bearing_clamp_px)!r})\n"
         "        bearing_error = torch.nn.functional.smooth_l1_loss(\n"
-        "            pred_px_b21.squeeze(2), target_px_b2,\n"
+        "            bearing_delta, torch.zeros_like(bearing_delta),\n"
         f"            beta={float(bearing_beta_px)!r}, reduction='none').sum(1)\n"
         "        lidar_error = "
         f"{float(depth_weight)!r} * depth_error + {float(bearing_weight)!r} * bearing_error\n"
@@ -105,5 +109,6 @@ def upgrade_lidar_supervision(vendor, overall_weight=5.0, depth_weight=5.0,
     return dict(upgraded=True, aux_mode='decomposed', overall_weight=float(overall_weight),
                 depth_weight=float(depth_weight), bearing_weight=float(bearing_weight),
                 bearing_beta_px=float(bearing_beta_px),
+                bearing_clamp_px=float(bearing_clamp_px),
                 reliability_head=bool(reliability_head),
                 depth_ratio_tol=float(depth_ratio_tol))

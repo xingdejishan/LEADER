@@ -6,7 +6,8 @@ from .retrain_rgb_baseline import replace_once
 
 def patch_lidar_supervision(vendor, weight=1., relative_storage=False, log_depth=False,
                             aux_mode=None, bearing_weight=1., depth_weight=1.,
-                            bearing_beta_px=1.0, reliability_head=False,
+                            bearing_beta_px=1.0, bearing_clamp_px=50.0,
+                            reliability_head=False,
                             reliability_lr=1e-3, depth_ratio_tol=1.25):
     """Patch a vendor copy (already carrying the retrain/valid-region patches)
     to add sparse training-only LiDAR supervision.
@@ -17,9 +18,9 @@ def patch_lidar_supervision(vendor, weight=1., relative_storage=False, log_depth
     aux_mode='decomposed', kept for reproducibility).
     aux_mode:
       'l1'         - legacy camera-frame Smooth L1 (beta=1m, weight);
-      'log_depth'  - single log-depth Smooth L1 term;
+      'log_depth'  - single relative-depth Smooth L1 term;
       'decomposed' - pixel-space bearing Smooth L1 (beta=bearing_beta_px,
-                     weight=bearing_weight) + log-depth Smooth L1
+                     weight=bearing_weight) + relative-depth Smooth L1
                      (weight=depth_weight). Bearing is depth-scale free, so
                      angular supervision is uniform across the FOV, unlike
                      the metric L1 whose bearing gradient shrinks for near
@@ -89,23 +90,29 @@ def patch_lidar_supervision(vendor, weight=1., relative_storage=False, log_depth
                     "            pred_cam_coords_b31.squeeze(-1), lidar_camera, reduction='none').sum(1)\n")
         label = 'Smooth L1 camera-frame 3D residual, beta=1m; sum / whole batch size'
     elif aux_mode == 'log_depth':
-        residual = ('        pred_depth = pred_cam_coords_b31[:, 2, 0].clamp_min(1e-3)\n'
+        residual = ('        pred_depth = pred_cam_coords_b31[:, 2, 0].clamp(1e-3, 1e5)\n'
                     '        target_depth = lidar_camera[:, 2].clamp_min(1e-3)\n'
+                    '        log_ratio = torch.clamp(torch.log(pred_depth) - torch.log(target_depth),\n'
+                    '                                -4.0, 4.0)\n'
                     '        lidar_error = torch.nn.functional.smooth_l1_loss(\n'
-                    "            torch.log(pred_depth), torch.log(target_depth), reduction='none')\n")
-        label = 'log-depth Smooth L1 on camera-frame ray targets'
+                    "            log_ratio, torch.zeros_like(log_ratio), reduction='none')\n")
+        label = 'relative-depth Smooth L1 on camera-frame ray targets (clamped log-ratio)'
     else:
-        residual = ('        pred_depth = pred_cam_coords_b31[:, 2, 0].clamp_min(1e-3)\n'
-                    '        target_depth = lidar_camera[:, 2].clamp_min(1e-3)\n'
+        residual = ('        target_depth = lidar_camera[:, 2].clamp_min(1e-3)\n'
+                    '        rel_err = torch.clamp(pred_cam_coords_b31[:, 2, 0] / target_depth - 1.0,\n'
+                    '                              -1.0, 9.0)\n'
                     '        depth_error = torch.nn.functional.smooth_l1_loss(\n'
-                    "            torch.log(pred_depth), torch.log(target_depth), reduction='none')\n"
+                    "            rel_err, torch.zeros_like(rel_err), beta=0.25, reduction='none')\n"
+                    '        bearing_delta = torch.clamp(pred_px_b21.squeeze(2) - target_px_b2,\n'
+                    f'                                    -{float(bearing_clamp_px)!r}, '
+                    f'{float(bearing_clamp_px)!r})\n'
                     '        bearing_error = torch.nn.functional.smooth_l1_loss(\n'
-                    '            pred_px_b21.squeeze(2), target_px_b2,\n'
+                    '            bearing_delta, torch.zeros_like(bearing_delta),\n'
                     f"            beta={float(bearing_beta_px)!r}, reduction='none').sum(1)\n"
                     '        lidar_error = '
                     f'{float(depth_weight)!r} * depth_error + {float(bearing_weight)!r} * bearing_error\n')
         label = (f'decomposed: pixel bearing Smooth L1 (beta={bearing_beta_px}px, w='
-                 f'{bearing_weight}) + log-depth Smooth L1 (w={depth_weight}); sum / batch size')
+                 f'{bearing_weight}) + relative-depth Smooth L1 (w={depth_weight}); sum / batch size')
 
     progress_call = (
         '                                valid_fraction=float(valid_mask_b1.float().mean()),\n'
