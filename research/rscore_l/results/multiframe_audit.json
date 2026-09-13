@@ -1,0 +1,8 @@
+{
+  "frames": 907,
+  "added_across_both_caches": 40940,
+  "original_targets_preserved": true,
+  "finite_labels": true,
+  "same_training_session_only": true,
+  "maximum_neighbor_distance_m": 5
+}

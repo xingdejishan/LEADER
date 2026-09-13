@@ -90,17 +90,41 @@ def compare_multiframe(root):
     for variant in ('glace', 'lidar', 'lidar-multiframe'):
         results[variant] = {split: json.loads((root / 'evaluation' / variant / split / 'summary.json').read_text())
             for split in ('val', 'test')}
-    save_json(root / 'multiframe_comparison.json', dict(coverage=report, results=results))
+    paired = {}
+    for split in ('val', 'test'):
+        records = {variant: json.loads((root / 'evaluation' / variant / split / 'records.json').read_text())
+            for variant in ('lidar', 'lidar-multiframe')}
+        assert [r['frame_id'] for r in records['lidar']] == [r['frame_id'] for r in records['lidar-multiframe']]
+        paired[split] = {}
+        for key in ('camera_error', 'camera_error_256', 'fused_error'):
+            if key not in records['lidar'][0]:
+                continue
+            single = np.array([r[key] for r in records['lidar']])
+            multi = np.array([r[key] for r in records['lidar-multiframe']])
+            before = (single[:, 0] < 1) & (single[:, 1] < 2)
+            after = (multi[:, 0] < 1) & (multi[:, 1] < 2)
+            paired[split][key] = dict(mean_delta_multi_minus_single=(multi-single).mean(0).tolist(),
+                translation_improved=int((multi[:, 0] < single[:, 0]).sum()), rotation_improved=int((multi[:, 1] < single[:, 1]).sum()),
+                newly_successful=int((~before & after).sum()), newly_failed=int((before & ~after).sum()))
+    training = {variant: json.loads((root / 'outputs/nclt-local' / variant / 'fixed-2089/training_progress.json').read_text())
+        for variant in ('lidar', 'lidar-multiframe')}
+    assert all(progress['step'] == 9999 and progress['total'] == 10000 for progress in training.values())
+    save_json(root / 'multiframe_comparison.json', dict(coverage=report, results=results, paired=paired, training=training))
     lines = ['# 单帧与多帧坐标监督对比', '', '固定训练 907 张、验证 303 张、开发测试 148 张；单帧与多帧使用相同 LiDAR 共视图、Node2Vec、特征缓存和 10,000 次迭代预算。', '',
         '| 特征集 | 单帧有效标签 | 多帧有效标签 | 总点数 |', '|---|---:|---:|---:|']
     for kind, value in report['totals'].items():
         lines.append(f"| {kind} | {value['single']} ({value['single_fraction']:.2%}) | {value['multi']} ({value['multi_fraction']:.2%}) | {value['total']} |")
+    lines.extend(['', '两组均完成 10,000 次迭代；混合精度缩放器可能跳过少量非有限梯度更新：', ''])
+    for variant, progress in training.items():
+        lines.append(f"- {variant}：本次运行有效更新 {progress['successful_optimizer_updates_this_run']} 次。")
     for split in ('val', 'test'):
         lines.extend(['', f'## {split}', '', '| 方法 | 视觉均值 m / ° | 视觉中位数 m / ° | 视觉成功数 <1m、2° |', '|---|---:|---:|---:|'])
         for variant, values in results.items():
             camera = values[split]['camera']
             lines.append(f"| {variant} | {camera['mean'][0]:.3f} / {camera['mean'][1]:.3f} | {camera['median'][0]:.3f} / {camera['median'][1]:.3f} | {camera['success_1m_2deg']} / {camera['frames']} |")
     lines.extend(['', '## 测试集融合', '', '| 方法 | 均值 m / ° | 成功数 <1m、2° | 挽救 / 损害 |', '|---|---:|---:|---:|'])
+    baseline = results['lidar']['test']['baseline']
+    lines.append(f"| 原 LEADER 缓存 | {baseline['mean'][0]:.3f} / {baseline['mean'][1]:.3f} | {baseline['success_1m_2deg']} / 148 | — |")
     for variant, values in results.items():
         test = values['test']
         fused = test['fused']

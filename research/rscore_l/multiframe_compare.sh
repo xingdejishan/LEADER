@@ -7,7 +7,7 @@ for split in val test; do
     bash "$runner" evaluate --variant lidar-multiframe --split "$split" > "$task_root/logs/evaluate-lidar-multiframe-$split.log" 2>&1
 done
 while [ ! -f "$task_root/evaluation/lidar/test/summary.json" ]; do
-    if rg -q '"status": "FAILED"' "$task_root/state.json"; then
+    if grep -q '"status": "FAILED"' "$task_root/state.json"; then
         exit 1
     fi
     sleep 30
