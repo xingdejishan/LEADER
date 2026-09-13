@@ -2,11 +2,17 @@ import unittest
 
 import numpy as np
 
-from .fixed_origin_refine import run_refinement, summarize
+from .fixed_origin_refine import oracle_mask, run_refinement, summarize
 from .joint_solver import JointProblem, JointSolverConfig
 
 
 class FixedOriginRefineTests(unittest.TestCase):
+    def test_joint_oracle_rejects_wrong_depth_and_wrong_direction(self):
+        target = np.array([[0., 0, 10]] * 4)
+        prediction = np.array([[0., 0, 10.5], [0, 0, 30], [0, 0, 10], [np.nan, 0, 10]])
+        mask = np.array([True, True, False, True])
+        np.testing.assert_array_equal(oracle_mask(mask, prediction, target, 'joint3d'), [True, False, False, False])
+
     def setUp(self):
         self.points = np.random.default_rng(4).uniform([-2, -2, 8], [2, 2, 12], (40, 3))
         self.target = self.points + [.08, -.03, .02]

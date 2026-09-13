@@ -42,6 +42,7 @@ def main():
     parser.add_argument('--iterations', type=int, default=10000)
     parser.add_argument('--model-dir', type=Path)
     parser.add_argument('--reference', type=Path)
+    parser.add_argument('--oracle-quality', choices=['reprojection', 'joint3d'], default='reprojection')
     args = parser.parse_args()
     if args.command == 'verify':
         verify()
@@ -78,7 +79,7 @@ def main():
         if args.variant not in ('selected', 'balanced'):
             raise ValueError('Fixed replay inputs are available for selected and balanced')
         arguments = ['fixed_origin_refine', '--bundle', str(ROOT), '--variant', args.variant,
-            '--out', str(out), '--limit', str(args.limit)]
+            '--out', str(out), '--limit', str(args.limit), '--oracle-quality', args.oracle_quality]
     elif args.command == 'replay':
         if args.variant == 'confidence':
             raise ValueError('Choose a neural coordinate cache for controlled replay')

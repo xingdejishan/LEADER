@@ -10,7 +10,16 @@ from .correspondence_replay import digest
 from .joint_solver import JointProblem, JointSolverConfig
 from .pose_boundary import solver_pose
 from .real_candidate_eval import pose_errors
-from .replay_geometry import lidar_arrays
+from .replay_geometry import lidar_arrays, matched_subset
+
+
+def oracle_mask(reprojection_mask, prediction, target, quality):
+    if quality == 'reprojection':
+        return reprojection_mask.copy()
+    if quality != 'joint3d':
+        raise ValueError('Unknown oracle criterion')
+    distance = np.linalg.norm(prediction - target, axis=1)
+    return reprojection_mask & np.isfinite(distance) & (distance < 1.)
 
 
 def write_json(path, value):
@@ -105,6 +114,7 @@ def main():
     parser.add_argument('--variant', choices=['selected', 'balanced'], default='selected')
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--limit', type=int, default=0)
+    parser.add_argument('--oracle-quality', choices=['reprojection', 'joint3d'], default='reprojection')
     args = parser.parse_args()
     root, out = args.bundle.resolve(), args.out.resolve()
     previous = root / 'outputs' / ('correspondence-replay-final-' + args.variant)
@@ -119,7 +129,9 @@ def main():
         optimizer='same JointProblem.refine LM and Cauchy residuals, max_nfev=20; actual calls and convergence logged',
         visual='coefficient 0 for lidar_only, 1 otherwise; LiDAR coefficient never rescaled',
         controls='prediction_full is no-GT deployment input; prediction_common included only to pair existing oracle with its existing matched random subset',
-        oracle='existing camera-GT q10/positive-depth subset; no 3D-accuracy guarantee; diagnostic only',
+        oracle='existing camera-GT q10/positive-depth subset' + (' intersect sparse-supervision 3D distance <1m' if args.oracle_quality == 'joint3d' else ''),
+        oracle_quality=args.oracle_quality,
+        oracle_limitation='offline diagnostic only; sparse supervision is not independently verified 3D truth',
         support='visual support computed once at v1 separately per arm; diagnostic mode still optimizes with 0-2 camera inliers when LiDAR has >=3, avoiding a hidden no-op; production default guard unchanged',
         ground_truth='camera cache reference for existing oracle; scan pool reference for main errors; both reported on harmed frames',
         scope='already-used development dates; no new training, threshold tuning or independent-reference prerequisite',
@@ -143,6 +155,9 @@ def main():
                 reliable, matched = saved['reliable_mask'], saved['matched_random_indices']
                 K, E = saved['K'], saved['T_BC']
                 xyz, uv = camera['xyz'][common], camera['uv'][common]
+                reliable = oracle_mask(reliable, xyz, saved['supervision_xyz'], args.oracle_quality)
+                if args.oracle_quality == 'joint3d':
+                    matched = matched_subset(uv, reliable, saved['shape_hw'], 2090)
                 arms = dict(lidar_only=(np.empty((0, 3)), np.empty((0, 2))),
                     prediction_full=(camera['xyz'][full], camera['uv'][full]), prediction_common=(xyz, uv),
                     oracle_prediction=(xyz[reliable], uv[reliable]), oracle_matched_random=(xyz[matched], uv[matched]))
