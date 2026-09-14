@@ -1,0 +1,15 @@
+{
+  "frames": 148,
+  "source_sha256": {
+    "cached_joint_eval.py": "8ff27bad7c47bf9efd5aac702fcb65c01f271fe03d359183a5c5d57315b12dc0",
+    "joint_solver.py": "526ca7b7bf651f671158005efa88e93d7fc4b025eb9c7f7324eb36cac31a184b",
+    "pose_boundary.py": "9223bebcac285e02c50ccf41c6b4edba3887ea4069b56054b9bcca22ef693a59",
+    "real_candidate_eval.py": "6c47cdb107f3a7dc3d5b2918fcf5cc59a029c909a6931d4f4b3b823870dae411"
+  },
+  "hypothesis_selection": "Maximum official PnP inliers over 10 whole hypotheses, ties resolved by original order; all 5000 points retained",
+  "reliability": "Not injected: the original cached_joint_eval uses uniform camera weights",
+  "backend": "Unmodified original cached_joint_eval / JointSolverConfig(camera_scale_px=10.0) / joint_refine",
+  "baseline": "Exactly the same per-frame cached v1_two_stage used for initialization and rejection fallback",
+  "ground_truth": "Not used by adapter or solver; original runner reads pool GT for both error measurements",
+  "scope": "Rerun original fusion backend on frozen frontend outputs, not raw-sensor end-to-end runtime"
+}

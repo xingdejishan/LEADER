@@ -1,0 +1,55 @@
+{
+  "frames": 148,
+  "comparison_tolerance_m_and_deg": 1e-09,
+  "baseline_MPE_MOE": [
+    0.1709235351442432,
+    1.5550903859283183
+  ],
+  "multimodal_MPE_MOE": [
+    0.1709235351442432,
+    1.555090385928319
+  ],
+  "delta_multimodal_minus_baseline": [
+    0.0,
+    0.0
+  ],
+  "paired_bootstrap_95ci": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "baseline_median": [
+    0.15113198570382388,
+    1.4152312626864616
+  ],
+  "multimodal_median": [
+    0.15113198570382388,
+    1.4152312626864616
+  ],
+  "baseline_p95": [
+    0.3585354488910437,
+    2.9535875643594314
+  ],
+  "multimodal_p95": [
+    0.3585354488910437,
+    2.9535875643594314
+  ],
+  "improved": [
+    0,
+    0
+  ],
+  "degraded": [
+    0,
+    0
+  ],
+  "unchanged": [
+    148,
+    148
+  ],
+  "accepted": 21
+}

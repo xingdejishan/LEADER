@@ -1,0 +1,90 @@
+{
+  "all": {
+    "frames": 148,
+    "accepted": 21,
+    "baseline_error": {
+      "median_t": 0.15113198570382388,
+      "median_r": 1.4152312626864616,
+      "mean_t": 0.17092353514424322,
+      "mean_r": 1.5550903859283183,
+      "success_1m_2deg": 117,
+      "success_05m_1deg": 42
+    },
+    "error": {
+      "median_t": 0.15113198570382388,
+      "median_r": 1.4152312626864616,
+      "mean_t": 0.17092353514424322,
+      "mean_r": 1.5550903859283185,
+      "success_1m_2deg": 117,
+      "success_05m_1deg": 42
+    },
+    "rescued": 0,
+    "harmed": 0
+  },
+  "supported": {
+    "frames": 109,
+    "accepted": 21,
+    "baseline_error": {
+      "median_t": 0.13840436813116744,
+      "median_r": 1.3858681419366554,
+      "mean_t": 0.1684407556111347,
+      "mean_r": 1.5215383071888633,
+      "success_1m_2deg": 89,
+      "success_05m_1deg": 32
+    },
+    "error": {
+      "median_t": 0.13840436813116744,
+      "median_r": 1.3858681419366554,
+      "mean_t": 0.1684407556111347,
+      "mean_r": 1.5215383071888637,
+      "success_1m_2deg": 89,
+      "success_05m_1deg": 32
+    },
+    "rescued": 0,
+    "harmed": 0
+  },
+  "outside": {
+    "frames": 39,
+    "accepted": 0,
+    "baseline_error": {
+      "median_t": 0.17044080036921913,
+      "median_r": 1.5128167030798318,
+      "mean_t": 0.17786258563421303,
+      "mean_r": 1.6488641444565388,
+      "success_1m_2deg": 28,
+      "success_05m_1deg": 10
+    },
+    "error": {
+      "median_t": 0.17044080036921913,
+      "median_r": 1.5128167030798318,
+      "mean_t": 0.17786258563421303,
+      "mean_r": 1.6488641444565388,
+      "success_1m_2deg": 28,
+      "success_05m_1deg": 10
+    },
+    "rescued": 0,
+    "harmed": 0
+  },
+  "new_supported": {
+    "frames": 45,
+    "accepted": 9,
+    "baseline_error": {
+      "median_t": 0.1511525592216,
+      "median_r": 1.4992863652626653,
+      "mean_t": 0.15950950695033178,
+      "mean_r": 1.6838607582754779,
+      "success_1m_2deg": 35,
+      "success_05m_1deg": 9
+    },
+    "error": {
+      "median_t": 0.1511525592216,
+      "median_r": 1.4992863652626702,
+      "mean_t": 0.15950950695033178,
+      "mean_r": 1.6838607582754779,
+      "success_1m_2deg": 35,
+      "success_05m_1deg": 9
+    },
+    "rescued": 0,
+    "harmed": 0
+  }
+}
