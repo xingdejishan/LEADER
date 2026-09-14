@@ -1,0 +1,60 @@
+{
+  "seed": 2089,
+  "steps": 600,
+  "points_per_step": 1024,
+  "learning_rate_fusion": 0.0001,
+  "learning_rate_decoder": 0.0001,
+  "modality_dropout": 0.1,
+  "training_frames": 64,
+  "validation_frames": 32,
+  "source_protocol_sha256": "232d4340b9ec648017b56a9f81b6179f5bf89fc8e137ca5872fc2da25a3a1530",
+  "pca_sha256": "348a1a982936ca5008ce4960bee324fd40fd5427973f41da9657cfe6da397ad3",
+  "checkpoint_sha256": "a78d5114bb908717676f7851399bdbb78943fd9e0170b1dd8eb592e0558fa028",
+  "refinement_source_sha256": "d03432adaf4f24f8a04ac1e06840caee376f1652b2de15d98b109bf4ec2b4034",
+  "matcher_source_sha256": "36ac2860984d3eb8b4f223d099d1b08f6fac561f4307129fadd5eebbba4e17ee",
+  "frozen": [
+    "DINOv2 ViT-B/14",
+    "PCA",
+    "LEADER encoder",
+    "LEADER decoder except pred_out"
+  ],
+  "trainable": [
+    "decoder.pred_out in every trained arm",
+    "query attention and residual gate in visual arms"
+  ],
+  "arms": [
+    "lidar_finetune",
+    "query",
+    "gaussian"
+  ],
+  "visual_grid": {
+    "size": [
+      5,
+      5
+    ],
+    "spacing_pixels": 14,
+    "query_dim": 64,
+    "gaussian_sigma_pixels": 14
+  },
+  "query": "512D LEADER voxel feature; no GT/world pose as input; 25 nearby image descriptors as keys/values",
+  "gaussian": "Fixed isotropic image-plane log prior -0.5*(dx^2+dy^2) in patch units; not a 3D Gaussian map",
+  "coordinates": "Original voxel centers preserved; original LEADER head predicts world coordinates, no new points.",
+  "visibility": "Audited raw representative center visibility; neighbor raster bounds and undistortion mask; no invented depth at neighbor pixels",
+  "pose_solver": "Same upstream SC2 top50% followed by original full_pool_refine thresholds [1.2,0.6] for all arms",
+  "sampling": "Frame schedule numpy seed2089; each step point schedule independent seed2089+step shared by all arms",
+  "evaluation": [
+    "baseline",
+    "lidar_finetune",
+    "query",
+    "gaussian",
+    "gaussian_wrong",
+    "gaussian_missing",
+    "query_missing"
+  ],
+  "scope": "Existing 64/32 development split, not original907/303/148. 2012-02-18 participated in LEADER pretraining.",
+  "success_thresholds": [
+    "1m/2deg",
+    "1m/5deg"
+  ],
+  "pass_rule": "Visual arm must improve both MPE and MOE over original two-stage AND same-budget lidar_finetune; no loss of 1m/2deg successes; no validation tuning."
+}
