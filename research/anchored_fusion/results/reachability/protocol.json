@@ -1,0 +1,13 @@
+{
+  "rho": 0.05,
+  "tau": 1e-07,
+  "bound_padding": 1e-10,
+  "precision": "float64; unit vectors reconstructed from cached features",
+  "labels": "P<=0.5m,N>=2m,G otherwise; existing masks unchanged",
+  "population": "All original ambiguous development queries retained; solve visual-P and LiDAR-N or LiDAR-G separately",
+  "ties": "Scores within tau of maximum: earliest fixed candidate index; original unchanged query retains candidate zero; margin within tau recorded separately",
+  "solver": "Independent primal and dual SLSQP, ftol1e-12 maxiter500; repaired feasible witnesses determine classification, never status",
+  "correction": "Strict positive-vs-all-nonpositive margin >tau required for certified actual correction; gray and ties separate",
+  "references": "Existing 578 fit anchors and fixed16 candidate indices, no retrieval",
+  "source_protocol_sha256": "f898dae6264b8b19254005ceae8e66da23f4e7a0d06d65a460faea85670a5744"
+}
