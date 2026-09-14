@@ -1,0 +1,778 @@
+{
+  "totals": {
+    "total": 67710,
+    "cam5": 14728,
+    "union": 45133,
+    "overlap": 10125
+  },
+  "records": [
+    {
+      "frame_id": "1329601360002721",
+      "total": 915,
+      "cam5": 153,
+      "union": 581,
+      "overlap": 123,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601361402708",
+      "total": 1010,
+      "cam5": 221,
+      "union": 664,
+      "overlap": 151,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601363002701",
+      "total": 971,
+      "cam5": 208,
+      "union": 643,
+      "overlap": 132,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601365002688",
+      "total": 953,
+      "cam5": 193,
+      "union": 623,
+      "overlap": 140,
+      "old_mean_max_difference": 5.960464477539063e-08
+    },
+    {
+      "frame_id": "1329601366402682",
+      "total": 946,
+      "cam5": 177,
+      "union": 644,
+      "overlap": 151,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601368002667",
+      "total": 833,
+      "cam5": 181,
+      "union": 555,
+      "overlap": 97,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329601369402661",
+      "total": 835,
+      "cam5": 171,
+      "union": 543,
+      "overlap": 103,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329601371002903",
+      "total": 797,
+      "cam5": 176,
+      "union": 533,
+      "overlap": 89,
+      "old_mean_max_difference": 5.960464477539063e-08
+    },
+    {
+      "frame_id": "1329601372402637",
+      "total": 759,
+      "cam5": 153,
+      "union": 478,
+      "overlap": 75,
+      "old_mean_max_difference": 5.960464477539063e-08
+    },
+    {
+      "frame_id": "1329601374402652",
+      "total": 706,
+      "cam5": 157,
+      "union": 458,
+      "overlap": 86,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601376002616",
+      "total": 710,
+      "cam5": 172,
+      "union": 469,
+      "overlap": 103,
+      "old_mean_max_difference": 5.960464477539063e-08
+    },
+    {
+      "frame_id": "1329601377402601",
+      "total": 653,
+      "cam5": 168,
+      "union": 454,
+      "overlap": 92,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329601379002599",
+      "total": 683,
+      "cam5": 166,
+      "union": 450,
+      "overlap": 81,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601380402595",
+      "total": 676,
+      "cam5": 178,
+      "union": 444,
+      "overlap": 100,
+      "old_mean_max_difference": 5.960464477539063e-08
+    },
+    {
+      "frame_id": "1329601382002578",
+      "total": 703,
+      "cam5": 193,
+      "union": 480,
+      "overlap": 104,
+      "old_mean_max_difference": 5.960464477539063e-08
+    },
+    {
+      "frame_id": "1329601384002580",
+      "total": 706,
+      "cam5": 177,
+      "union": 468,
+      "overlap": 83,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601385402767",
+      "total": 693,
+      "cam5": 190,
+      "union": 459,
+      "overlap": 105,
+      "old_mean_max_difference": 5.960464477539063e-08
+    },
+    {
+      "frame_id": "1329601387002543",
+      "total": 692,
+      "cam5": 181,
+      "union": 450,
+      "overlap": 116,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601388402532",
+      "total": 757,
+      "cam5": 179,
+      "union": 500,
+      "overlap": 131,
+      "old_mean_max_difference": 8.940696716308594e-08
+    },
+    {
+      "frame_id": "1329601390002526",
+      "total": 822,
+      "cam5": 180,
+      "union": 523,
+      "overlap": 119,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601391402635",
+      "total": 866,
+      "cam5": 181,
+      "union": 545,
+      "overlap": 110,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601393402503",
+      "total": 741,
+      "cam5": 113,
+      "union": 462,
+      "overlap": 136,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601395002495",
+      "total": 850,
+      "cam5": 102,
+      "union": 548,
+      "overlap": 121,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601396402539",
+      "total": 841,
+      "cam5": 72,
+      "union": 530,
+      "overlap": 126,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601398002477",
+      "total": 770,
+      "cam5": 94,
+      "union": 516,
+      "overlap": 115,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601399402470",
+      "total": 817,
+      "cam5": 178,
+      "union": 503,
+      "overlap": 142,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601401402448",
+      "total": 795,
+      "cam5": 190,
+      "union": 523,
+      "overlap": 115,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601403002483",
+      "total": 815,
+      "cam5": 181,
+      "union": 530,
+      "overlap": 132,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601404402427",
+      "total": 752,
+      "cam5": 185,
+      "union": 523,
+      "overlap": 127,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601406002426",
+      "total": 784,
+      "cam5": 181,
+      "union": 497,
+      "overlap": 104,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601407402467",
+      "total": 743,
+      "cam5": 172,
+      "union": 494,
+      "overlap": 98,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601409002400",
+      "total": 743,
+      "cam5": 182,
+      "union": 496,
+      "overlap": 107,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329601411002392",
+      "total": 738,
+      "cam5": 176,
+      "union": 494,
+      "overlap": 107,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601412402370",
+      "total": 692,
+      "cam5": 174,
+      "union": 481,
+      "overlap": 101,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601414002369",
+      "total": 732,
+      "cam5": 187,
+      "union": 469,
+      "overlap": 116,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601415402388",
+      "total": 695,
+      "cam5": 181,
+      "union": 470,
+      "overlap": 105,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601417002348",
+      "total": 733,
+      "cam5": 209,
+      "union": 529,
+      "overlap": 114,
+      "old_mean_max_difference": 4.76837158203125e-07
+    },
+    {
+      "frame_id": "1329601418402716",
+      "total": 710,
+      "cam5": 183,
+      "union": 498,
+      "overlap": 102,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601420402318",
+      "total": 779,
+      "cam5": 212,
+      "union": 548,
+      "overlap": 136,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601422002318",
+      "total": 844,
+      "cam5": 206,
+      "union": 600,
+      "overlap": 154,
+      "old_mean_max_difference": 4.76837158203125e-07
+    },
+    {
+      "frame_id": "1329601423402298",
+      "total": 842,
+      "cam5": 182,
+      "union": 588,
+      "overlap": 137,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329601425002298",
+      "total": 906,
+      "cam5": 175,
+      "union": 621,
+      "overlap": 124,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329601426402279",
+      "total": 894,
+      "cam5": 185,
+      "union": 608,
+      "overlap": 131,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329601428402277",
+      "total": 882,
+      "cam5": 156,
+      "union": 569,
+      "overlap": 130,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329601430002267",
+      "total": 953,
+      "cam5": 144,
+      "union": 595,
+      "overlap": 131,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601431402252",
+      "total": 935,
+      "cam5": 134,
+      "union": 568,
+      "overlap": 127,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329601433002245",
+      "total": 914,
+      "cam5": 147,
+      "union": 549,
+      "overlap": 139,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604598983232",
+      "total": 384,
+      "cam5": 92,
+      "union": 265,
+      "overlap": 36,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604600583214",
+      "total": 350,
+      "cam5": 103,
+      "union": 265,
+      "overlap": 61,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604602583193",
+      "total": 320,
+      "cam5": 79,
+      "union": 235,
+      "overlap": 57,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604603983211",
+      "total": 281,
+      "cam5": 70,
+      "union": 194,
+      "overlap": 44,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604605583164",
+      "total": 281,
+      "cam5": 78,
+      "union": 221,
+      "overlap": 48,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604606983155",
+      "total": 252,
+      "cam5": 67,
+      "union": 198,
+      "overlap": 47,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604608583140",
+      "total": 246,
+      "cam5": 60,
+      "union": 186,
+      "overlap": 47,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604609983135",
+      "total": 276,
+      "cam5": 57,
+      "union": 200,
+      "overlap": 41,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329604611983122",
+      "total": 209,
+      "cam5": 39,
+      "union": 161,
+      "overlap": 35,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604613583755",
+      "total": 248,
+      "cam5": 50,
+      "union": 182,
+      "overlap": 45,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604614983101",
+      "total": 272,
+      "cam5": 50,
+      "union": 198,
+      "overlap": 36,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604616583112",
+      "total": 262,
+      "cam5": 46,
+      "union": 192,
+      "overlap": 39,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329604617983823",
+      "total": 262,
+      "cam5": 50,
+      "union": 199,
+      "overlap": 44,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604619583096",
+      "total": 266,
+      "cam5": 44,
+      "union": 196,
+      "overlap": 31,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604621983066",
+      "total": 254,
+      "cam5": 53,
+      "union": 178,
+      "overlap": 39,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604623583040",
+      "total": 237,
+      "cam5": 48,
+      "union": 165,
+      "overlap": 31,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604624983040",
+      "total": 253,
+      "cam5": 57,
+      "union": 175,
+      "overlap": 36,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604635582975",
+      "total": 414,
+      "cam5": 115,
+      "union": 263,
+      "overlap": 28,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604636982984",
+      "total": 416,
+      "cam5": 167,
+      "union": 284,
+      "overlap": 68,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604637982961",
+      "total": 620,
+      "cam5": 178,
+      "union": 384,
+      "overlap": 109,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604639582940",
+      "total": 734,
+      "cam5": 175,
+      "union": 395,
+      "overlap": 99,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604640582945",
+      "total": 777,
+      "cam5": 180,
+      "union": 473,
+      "overlap": 132,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604641982945",
+      "total": 801,
+      "cam5": 170,
+      "union": 486,
+      "overlap": 129,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604642982934",
+      "total": 826,
+      "cam5": 175,
+      "union": 525,
+      "overlap": 132,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604644582931",
+      "total": 823,
+      "cam5": 175,
+      "union": 515,
+      "overlap": 135,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604645582910",
+      "total": 809,
+      "cam5": 178,
+      "union": 533,
+      "overlap": 128,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604646982902",
+      "total": 905,
+      "cam5": 181,
+      "union": 587,
+      "overlap": 140,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604647983097",
+      "total": 880,
+      "cam5": 191,
+      "union": 574,
+      "overlap": 153,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604649582929",
+      "total": 826,
+      "cam5": 170,
+      "union": 535,
+      "overlap": 121,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604651582866",
+      "total": 782,
+      "cam5": 170,
+      "union": 517,
+      "overlap": 118,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604652583020",
+      "total": 791,
+      "cam5": 161,
+      "union": 498,
+      "overlap": 110,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604653982864",
+      "total": 757,
+      "cam5": 195,
+      "union": 536,
+      "overlap": 122,
+      "old_mean_max_difference": 4.76837158203125e-07
+    },
+    {
+      "frame_id": "1329604654982854",
+      "total": 761,
+      "cam5": 183,
+      "union": 533,
+      "overlap": 119,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604656582868",
+      "total": 749,
+      "cam5": 179,
+      "union": 530,
+      "overlap": 118,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604657582841",
+      "total": 759,
+      "cam5": 179,
+      "union": 520,
+      "overlap": 118,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604658983490",
+      "total": 742,
+      "cam5": 181,
+      "union": 522,
+      "overlap": 133,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604659982823",
+      "total": 785,
+      "cam5": 212,
+      "union": 590,
+      "overlap": 130,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604661582864",
+      "total": 775,
+      "cam5": 186,
+      "union": 553,
+      "overlap": 132,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604662982805",
+      "total": 779,
+      "cam5": 194,
+      "union": 554,
+      "overlap": 130,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604663982801",
+      "total": 791,
+      "cam5": 205,
+      "union": 592,
+      "overlap": 128,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604665582834",
+      "total": 835,
+      "cam5": 183,
+      "union": 601,
+      "overlap": 126,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329604666582815",
+      "total": 903,
+      "cam5": 204,
+      "union": 637,
+      "overlap": 141,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329604667982805",
+      "total": 918,
+      "cam5": 188,
+      "union": 641,
+      "overlap": 124,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329604668983281",
+      "total": 909,
+      "cam5": 176,
+      "union": 609,
+      "overlap": 130,
+      "old_mean_max_difference": 0.0
+    },
+    {
+      "frame_id": "1329604670582822",
+      "total": 888,
+      "cam5": 159,
+      "union": 588,
+      "overlap": 134,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604671582933",
+      "total": 913,
+      "cam5": 151,
+      "union": 598,
+      "overlap": 130,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604672982737",
+      "total": 976,
+      "cam5": 160,
+      "union": 627,
+      "overlap": 125,
+      "old_mean_max_difference": 2.384185791015625e-07
+    },
+    {
+      "frame_id": "1329604673982743",
+      "total": 914,
+      "cam5": 152,
+      "union": 585,
+      "overlap": 148,
+      "old_mean_max_difference": 1.1920928955078125e-07
+    },
+    {
+      "frame_id": "1329604675582729",
+      "total": 913,
+      "cam5": 156,
+      "union": 565,
+      "overlap": 150,
+      "old_mean_max_difference": 2.384185791015625e-07
+    }
+  ]
+}
