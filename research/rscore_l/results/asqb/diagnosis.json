@@ -1,0 +1,253 @@
+{
+  "baseline_groups": {
+    "rotation_at_most_5deg": {
+      "frames": 135,
+      "diagnostic_eligible": 135,
+      "fewer_than_20_good": 0,
+      "median_good_points": 1061.0,
+      "median_largest_cell_fraction": 0.3222641509433962,
+      "median_occupied_cells": 12.0,
+      "median_angular_rms_deg": 29.05498607779559,
+      "median_rotation_condition": 4.8386321251086395,
+      "median_rotation_schur_condition": 2.926790914030909,
+      "majority_in_one_cell": 6
+    },
+    "rotation_over_5deg": {
+      "frames": 13,
+      "diagnostic_eligible": 10,
+      "fewer_than_20_good": 3,
+      "median_good_points": 508.0,
+      "median_largest_cell_fraction": 0.45096964586846544,
+      "median_occupied_cells": 10.5,
+      "median_angular_rms_deg": 24.129656214322402,
+      "median_rotation_condition": 6.515507865117813,
+      "median_rotation_schur_condition": 3.230175495047717,
+      "majority_in_one_cell": 2
+    }
+  },
+  "tail": {
+    "over_10deg": 4,
+    "over_30deg": 4,
+    "over_10deg_share_of_rotation_error_sum": 0.5558095008431171
+  },
+  "per_arm": {
+    "uniform_10": {
+      "frames": 148,
+      "diagnostic_eligible": 143,
+      "fewer_than_20_good": 5,
+      "median_good_points": 77.0,
+      "median_largest_cell_fraction": 0.27102803738317754,
+      "median_occupied_cells": 10.0,
+      "median_angular_rms_deg": 34.539275215163826,
+      "median_rotation_condition": 4.655902972929494,
+      "median_rotation_schur_condition": 4.358733671313245,
+      "majority_in_one_cell": 1
+    },
+    "top_grid_10": {
+      "frames": 148,
+      "diagnostic_eligible": 144,
+      "fewer_than_20_good": 4,
+      "median_good_points": 115.0,
+      "median_largest_cell_fraction": 0.3470231067633665,
+      "median_occupied_cells": 8.0,
+      "median_angular_rms_deg": 27.115199653801547,
+      "median_rotation_condition": 5.673272710560495,
+      "median_rotation_schur_condition": 5.00815194613922,
+      "majority_in_one_cell": 11
+    },
+    "asqb_10": {
+      "frames": 148,
+      "diagnostic_eligible": 143,
+      "fewer_than_20_good": 5,
+      "median_good_points": 103.0,
+      "median_largest_cell_fraction": 0.33695652173913043,
+      "median_occupied_cells": 9.0,
+      "median_angular_rms_deg": 28.99224266914396,
+      "median_rotation_condition": 4.9096521919249,
+      "median_rotation_schur_condition": 3.514761613742633,
+      "majority_in_one_cell": 16
+    },
+    "uniform_20": {
+      "frames": 148,
+      "diagnostic_eligible": 144,
+      "fewer_than_20_good": 4,
+      "median_good_points": 156.5,
+      "median_largest_cell_fraction": 0.26896506777893636,
+      "median_occupied_cells": 11.0,
+      "median_angular_rms_deg": 34.13408740721016,
+      "median_rotation_condition": 4.5882351468635445,
+      "median_rotation_schur_condition": 3.9405299753689818,
+      "majority_in_one_cell": 1
+    },
+    "top_grid_20": {
+      "frames": 148,
+      "diagnostic_eligible": 144,
+      "fewer_than_20_good": 4,
+      "median_good_points": 213.0,
+      "median_largest_cell_fraction": 0.31998855418552624,
+      "median_occupied_cells": 10.0,
+      "median_angular_rms_deg": 28.67062424018201,
+      "median_rotation_condition": 5.317548840120552,
+      "median_rotation_schur_condition": 4.374321522592901,
+      "majority_in_one_cell": 7
+    },
+    "asqb_20": {
+      "frames": 148,
+      "diagnostic_eligible": 144,
+      "fewer_than_20_good": 4,
+      "median_good_points": 206.0,
+      "median_largest_cell_fraction": 0.32580637379074084,
+      "median_occupied_cells": 10.0,
+      "median_angular_rms_deg": 29.14819381016555,
+      "median_rotation_condition": 4.8468714094775285,
+      "median_rotation_schur_condition": 3.378701583072698,
+      "majority_in_one_cell": 10
+    },
+    "uniform_50": {
+      "frames": 148,
+      "diagnostic_eligible": 144,
+      "fewer_than_20_good": 4,
+      "median_good_points": 407.5,
+      "median_largest_cell_fraction": 0.2772857363861386,
+      "median_occupied_cells": 12.0,
+      "median_angular_rms_deg": 32.97378715201474,
+      "median_rotation_condition": 4.487027672468088,
+      "median_rotation_schur_condition": 3.2458398913188202,
+      "majority_in_one_cell": 1
+    },
+    "top_grid_50": {
+      "frames": 148,
+      "diagnostic_eligible": 144,
+      "fewer_than_20_good": 4,
+      "median_good_points": 489.0,
+      "median_largest_cell_fraction": 0.31684330908029856,
+      "median_occupied_cells": 11.0,
+      "median_angular_rms_deg": 30.327580870889168,
+      "median_rotation_condition": 4.785077409665923,
+      "median_rotation_schur_condition": 3.4657151083350657,
+      "majority_in_one_cell": 4
+    },
+    "asqb_50": {
+      "frames": 148,
+      "diagnostic_eligible": 144,
+      "fewer_than_20_good": 4,
+      "median_good_points": 521.5,
+      "median_largest_cell_fraction": 0.31806815890300466,
+      "median_occupied_cells": 12.0,
+      "median_angular_rms_deg": 28.68741991906292,
+      "median_rotation_condition": 4.842198329874737,
+      "median_rotation_schur_condition": 3.2842996124190873,
+      "majority_in_one_cell": 9
+    },
+    "uniform_100": {
+      "frames": 148,
+      "diagnostic_eligible": 145,
+      "fewer_than_20_good": 3,
+      "median_good_points": 1026.0,
+      "median_largest_cell_fraction": 0.3231197771587744,
+      "median_occupied_cells": 12.0,
+      "median_angular_rms_deg": 28.865998285298662,
+      "median_rotation_condition": 4.862251411602965,
+      "median_rotation_schur_condition": 2.9307866227933643,
+      "majority_in_one_cell": 8
+    },
+    "top_grid_100": {
+      "frames": 148,
+      "diagnostic_eligible": 145,
+      "fewer_than_20_good": 3,
+      "median_good_points": 1026.0,
+      "median_largest_cell_fraction": 0.3231197771587744,
+      "median_occupied_cells": 12.0,
+      "median_angular_rms_deg": 28.865998285298662,
+      "median_rotation_condition": 4.862251411602965,
+      "median_rotation_schur_condition": 2.9307866227933643,
+      "majority_in_one_cell": 8
+    },
+    "asqb_100": {
+      "frames": 148,
+      "diagnostic_eligible": 145,
+      "fewer_than_20_good": 3,
+      "median_good_points": 1026.0,
+      "median_largest_cell_fraction": 0.3231197771587744,
+      "median_occupied_cells": 12.0,
+      "median_angular_rms_deg": 28.865998285298662,
+      "median_rotation_condition": 4.862251411602965,
+      "median_rotation_schur_condition": 2.9307866227933643,
+      "majority_in_one_cell": 8
+    }
+  },
+  "spearman_with_rotation_error": {
+    "largest_cell_fraction": 0.12156746968981262,
+    "angular_rms_deg": -0.06659581168319949,
+    "log10_schur_condition": 0.0829239489844119,
+    "good_fraction": -0.2272743823558372
+  },
+  "paired": {
+    "10_vs_uniform": {
+      "mean_error_delta": [
+        -2.102068093081794,
+        -0.27947118973896345
+      ],
+      "rotation_improved": 94,
+      "rotation_degraded": 54,
+      "eligible_pairs": 143,
+      "schur_condition_improved": 101,
+      "condition_and_rotation_improved": 67
+    },
+    "10_vs_top_grid": {
+      "mean_error_delta": [
+        -0.9148130661090488,
+        -0.5166058454377586
+      ],
+      "rotation_improved": 93,
+      "rotation_degraded": 55,
+      "eligible_pairs": 143,
+      "schur_condition_improved": 115,
+      "condition_and_rotation_improved": 75
+    },
+    "20_vs_uniform": {
+      "mean_error_delta": [
+        -1.9784242154074738,
+        0.17403565063492132
+      ],
+      "rotation_improved": 89,
+      "rotation_degraded": 59,
+      "eligible_pairs": 144,
+      "schur_condition_improved": 100,
+      "condition_and_rotation_improved": 61
+    },
+    "20_vs_top_grid": {
+      "mean_error_delta": [
+        -0.7347014489030874,
+        -0.3526045154051244
+      ],
+      "rotation_improved": 93,
+      "rotation_degraded": 55,
+      "eligible_pairs": 144,
+      "schur_condition_improved": 116,
+      "condition_and_rotation_improved": 72
+    },
+    "50_vs_uniform": {
+      "mean_error_delta": [
+        -0.783984096296229,
+        0.3480514502932237
+      ],
+      "rotation_improved": 78,
+      "rotation_degraded": 70,
+      "eligible_pairs": 144,
+      "schur_condition_improved": 87,
+      "condition_and_rotation_improved": 48
+    },
+    "50_vs_top_grid": {
+      "mean_error_delta": [
+        -0.21597383894560246,
+        -0.3964332090641073
+      ],
+      "rotation_improved": 91,
+      "rotation_degraded": 57,
+      "eligible_pairs": 144,
+      "schur_condition_improved": 101,
+      "condition_and_rotation_improved": 58
+    }
+  }
+}

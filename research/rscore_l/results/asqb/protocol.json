@@ -1,0 +1,25 @@
+{
+  "method": "Local ASQB prototype, no new correspondences",
+  "mode_count": 64,
+  "geometry": "Normalized symmetric J_rotation.T @ J_rotation signature from observed bearings and K; Frobenius metric",
+  "clustering": "MiniBatchKMeans, seed 2089, n_init 3, batch 1024, max_iter 50",
+  "representatives": "Reliability-descending within each mode, round-robin across modes, exact original-point budget",
+  "budgets_percent": [
+    10,
+    20,
+    50,
+    100
+  ],
+  "hypotheses": 10,
+  "pnp": {
+    "max_reproj_error": 10,
+    "max_iterations": 10000,
+    "seed": 2089
+  },
+  "diagnostics": "Reference-pose <10px positive-depth directional inliers, selected PnP hypothesis only; 4x4 coverage, angular spread, per-point rotation Fisher and translation-marginalized Schur complement",
+  "reference_usage": "Post-selection diagnostics and evaluation only; not read by mode generation or sampling",
+  "diagnostic_warning": "Directional consistency does not establish 3D correctness; Fisher/Schur uses predicted depths and is not calibrated uncertainty",
+  "controls": "Reuse identical frozen Top-K diagnostic records with per-frame input hash checks",
+  "source_sha256": "6efbecdd1df694836047e72acf01bf77397b127bd687331b7cd7ed4a7e1c2614",
+  "controls_sha256": "8a7817e478316063cc516c75d1f8192ea27beaca723aabf431efb30e0a95eb52"
+}

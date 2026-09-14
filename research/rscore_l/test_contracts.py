@@ -14,6 +14,43 @@ from rscore_l.losses import geometry_loss
 
 
 class Contracts(unittest.TestCase):
+    def test_rotation_jacobian_matches_finite_difference(self):
+        from rscore_l.asqb import rotation_jacobian
+        from scipy.spatial.transform import Rotation
+        K = np.array([[120., 0, 50], [0, 100., 50], [0, 0, 1.]])
+        q = np.array([[1., 2., 10.], [-2., .3, 5.]])
+        projected = q @ K.T
+        uv = projected[:, :2]/projected[:, 2:]
+        actual = rotation_jacobian(uv, K)
+        for axis in range(3):
+            delta = np.eye(3)[axis]*1e-6
+            upper, lower = Rotation.from_rotvec(delta).apply(q) @ K.T, Rotation.from_rotvec(-delta).apply(q) @ K.T
+            expected = (upper[:, :2]/upper[:, 2:] - lower[:, :2]/lower[:, 2:])/2e-6
+            np.testing.assert_allclose(actual[:, :, axis], expected, rtol=1e-7, atol=1e-7)
+
+    def test_asqb_selects_existing_unique_mode_representatives(self):
+        from rscore_l.asqb import select_modes
+        modes = np.r_[np.zeros(90, int), np.ones(10, int)]
+        indices = select_modes(modes, np.arange(100), 20)
+        self.assertEqual(len(np.unique(indices)), 20)
+        self.assertEqual(int(modes[indices].sum()), 10)
+        self.assertTrue((indices >= 0).all() and (indices < 100).all())
+        np.testing.assert_array_equal(select_modes(modes, np.arange(100), 100), np.arange(100))
+
+    def test_constraint_diagnostic_detects_narrow_bearing_geometry(self):
+        from rscore_l.asqb import constraint_diagnostic
+        K = np.array([[100., 0, 50], [0, 100., 50], [0, 0, 1.]])
+        diagnostics = []
+        for extent in (.4, .02):
+            x, y = np.meshgrid(np.linspace(-extent, extent, 10), np.linspace(-extent, extent, 10))
+            xyz = np.c_[x.ravel(), y.ravel(), np.ones(x.size)]*10
+            pixel = xyz @ K.T
+            uv = pixel[:, :2]/pixel[:, 2:]
+            diagnostics.append(constraint_diagnostic(uv, xyz, K, np.array([100, 100]), np.eye(4)))
+        self.assertEqual(diagnostics[0]['good_points'], 100)
+        self.assertGreater(diagnostics[1]['rotation']['condition'], diagnostics[0]['rotation']['condition'])
+        self.assertGreater(diagnostics[0]['angular_rms_deg'], diagnostics[1]['angular_rms_deg'])
+
     def test_topk_full_budget_preserves_original_pnp_order(self):
         from rscore_l.topk import select_points
         uv = np.random.default_rng(1).uniform(0, 100, (100, 2))
