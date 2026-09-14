@@ -1,0 +1,25 @@
+{
+  "frames": 905,
+  "missing": [
+    "1327251814000992",
+    "1336763674005996"
+  ],
+  "split": "Chronological first floor(80%) per date reference; remaining query. Only original train907; no old val/test.",
+  "candidates": 16,
+  "similarity": "L2-normalized cosine; reference contains image-valid voxels only; candidate selection by LiDAR only",
+  "positive_m": 0.5,
+  "negative_m": 2.0,
+  "ambiguity": "Top two LiDAR cosine gap <= 0.02 AND candidate set has a <=0.5m positive and >=2m negative",
+  "exclusions": "Same frame; same date within 10 seconds; camera centers within 5m AND camera orientation difference below 15 degrees, including cross-date",
+  "labels": "Raw Cartesian representative transformed by GT body pose; no GT candidate insertion",
+  "shuffles": [
+    2089,
+    2090,
+    2091
+  ],
+  "shuffle": "Independent fixed per-frame valid-descriptor permutation in reference and query; same candidate set",
+  "masks": "Existing Cam5 calibration, 480-pixel resizing, 4px depth buffer, 0.5m depth tolerance, valid undistortion mask unchanged",
+  "viability": "At least 200 ambiguous-positive queries across at least 20 query frames and two dates; otherwise inconclusive",
+  "success": "Aligned top1 accuracy beats LiDAR and each shuffled seed on ambiguous-positive subset overall and per date with >=50 such points; paired frame bootstrap lower bound >0 versus LiDAR and mean shuffled",
+  "scope": "Necessary-condition descriptor diagnostic, no training and no final pose improvement claim; existing PCA fitted on these training dates"
+}
