@@ -1,0 +1,37 @@
+{
+  "hypothesis": "Global context and coarse/refined scene representations can disambiguate locally similar descriptors and reduce final LEADER pose error.",
+  "limitation": "Wrong retrieval or reprojection depth ambiguity can inject incorrect scene context; no theoretical guarantee of improvement.",
+  "mechanism": "Conditional scene-coordinate MLP: local128 + retrieved Node2Vec256 -> hidden768 + sc0/sc6; train adapter774->128, add local128, original gate.",
+  "retrieval": "Frozen NetVLAD PQ top1 from 907 other-date training images; no query GT or pose used.",
+  "scene_head": "geometry",
+  "supervision": "persistent coarse/final LiDAR geometry supervision",
+  "extraction": "Apply pointwise scene head to the same bilinearly sampled PCA descriptors as line 1; coordinates are context only, never a separate pose.",
+  "frozen": [
+    "LEADER encoder",
+    "LEADER decoder",
+    "DeDoDe/PCA",
+    "NetVLAD",
+    "Node2Vec",
+    "coarse/refinement"
+  ],
+  "train_frames": 64,
+  "validation_frames": 32,
+  "seed": 2089,
+  "steps_per_arm": 600,
+  "learning_rate": 0.0001,
+  "arms": [
+    "aligned",
+    "shuffled",
+    "aligned_wrong",
+    "aligned_missing"
+  ],
+  "pass_rule": "mean translation >=5% better than line1 AND LEADER; mean rotation and p95 translation <=105% of each; no damage; aligned beats shuffled.",
+  "scope": "Previously touched local development data, one seed; not blind/full NCLT.",
+  "head_sha256": "c7a9b8ad71306bd872527b5aad306073146b72b352e9acff4eab82410999e348",
+  "embedding_sha256": "933bab126099c9ffb22c68215d096ac4fb337d6cf36596e648276d87007e57dd",
+  "baseline_protocol_sha256": "918869b496334b77871664e8cb792a2247b8aa709a4f06ce4af1f81437cfe854",
+  "query_sha256": "05f035f61432430957153712aab2ea9c657e8a9377d5e2c78aa9651eaba7802b",
+  "retrieval_sha256": "b1d948b20e7a37633b6f9453f4bdd431ee84af5eda63b1869d2cff24fc692d8d",
+  "trainable_parameters": 184141,
+  "frozen_scene_parameters": 21050938
+}

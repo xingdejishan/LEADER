@@ -1,0 +1,9 @@
+{
+  "official_loader_input_parity_frames": 3,
+  "all_inputs_exact": true,
+  "missing_voxels_exact_after_training": true,
+  "gate_seconds_per_frame": 0.0002689058499998964,
+  "benchmark_voxels": 913,
+  "valid_residual_relative_norm": 0.017347803339362144,
+  "parameters": 83393
+}

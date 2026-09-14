@@ -1,0 +1,45 @@
+{
+  "extrinsic_max_abs_error": 4.440892098500626e-16,
+  "intrinsics_max_abs_error": 0.0,
+  "official_projection_pixel_max_abs_error": 0.0001413872096236446,
+  "official_undistortion_mask_max_abs_error": 0.013397216796875,
+  "official_undistortion_mask_exact": false,
+  "official_undistortion_mask_mean_abs_error": 1.7643878891249187e-05,
+  "official_undistortion_mask_full_valid_disagreement_pixels": 24,
+  "image_black_border_checks": [
+    {
+      "frame_id": "1329601360002721",
+      "black_region_mean_rgb": 0.024025073835211862,
+      "black_region_nonblack_fraction": 0.0
+    },
+    {
+      "frame_id": "1329601411002392",
+      "black_region_mean_rgb": 0.025594197657364433,
+      "black_region_nonblack_fraction": 0.0
+    },
+    {
+      "frame_id": "1329604635582975",
+      "black_region_mean_rgb": 0.012309886886464548,
+      "black_region_nonblack_fraction": 0.0
+    }
+  ],
+  "source_hashes": {
+    "cam_params.zip": "86ed642eabaa82cdb46531a2168a9157b7210f4ba04232cb845c26e58c34bcaa",
+    "K_cam0.csv": "38e4f85bae26e5b4c9f06768182467e5836c0a840ba91b52c65f91cc18f4691e",
+    "K_cam1.csv": "e467b905cbf581d2d03ecedce3252b1e9868df455368fa3b167677b8f75e5bf6",
+    "K_cam2.csv": "9f33cd02041b4f0ac063c057813f83e0f5599d47f4e69a13642bb8a2290ac3ba",
+    "K_cam3.csv": "9471b5845bfff1984ef9943353acfdd83dde57548d5fc4f6ddc7c2554f7a5a6d",
+    "K_cam4.csv": "1e7e8481dfe3607041344f3b462b260a22603e52b50b8a7fef0e183384c5d2a3",
+    "K_cam5.csv": "5b2e5ad294560fb54e8c0f1648262314d79c95d7b270c163e2206ec09954a7d5",
+    "project_vel_to_cam.py": "e0b00152054366ee0e255cbaacd2f403a5fe96216dcc656c9e84113c6b331882",
+    "U2D_Cam5_1616X1232.txt": "b2513d35a70b7d430186105b169f1556f80c06479691bb598bda6ec7dc15de4d",
+    "undistort.py": "320b637a11311b234206f190382b5897554f0e68b2ac1b4b88d7646eb58a110c",
+    "x_lb3_c0.csv": "dc830014e8ee218c6d49d6674807fb33cd1bcbf161b9c0e52d46023abd436237",
+    "x_lb3_c1.csv": "aae095d9a92fbba3198ee8051d44679540f6628d2437e7d80996aa2ce5fcf685",
+    "x_lb3_c2.csv": "9a90fb60d12e229fa2df59553d440035e2149fa6ada4a2991c821a785c0ccab2",
+    "x_lb3_c3.csv": "e4353322ceb2bdb80f1cac69b055046801da7e1c1d9cf7f8932cd8ed59e8da93",
+    "x_lb3_c4.csv": "4b9b4c96b5837bc7543b1d7225d190450a546a69d439a70cfb6943b3eac3d566",
+    "x_lb3_c5.csv": "faa6f6ae09cfee7dae2f7250c5513594eab0cdbce58b449a4e1f8a28998c6371"
+  },
+  "limitation": "Matches official parameter chain and undistortion support; local raw TIFFs absent, so original-image-to-JPEG remapping and independent physical landmark residuals are not verified."
+}

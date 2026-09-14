@@ -1,0 +1,29 @@
+{
+  "train": {
+    "frames": 64,
+    "geometric": 13941,
+    "final": 9099,
+    "total": 42239,
+    "retain": 0.6526791478373144,
+    "rejected": 4842,
+    "definition": "positive depth, inside raster, valid undistortion region; before occlusion filtering"
+  },
+  "val": {
+    "frames": 32,
+    "geometric": 9010,
+    "final": 5629,
+    "total": 25471,
+    "retain": 0.6247502774694783,
+    "rejected": 3381,
+    "definition": "positive depth, inside raster, valid undistortion region; before occlusion filtering"
+  },
+  "all": {
+    "frames": 96,
+    "geometric": 22951,
+    "final": 14728,
+    "total": 67710,
+    "retain": 0.6417149579539018,
+    "rejected": 8223,
+    "definition": "positive depth, inside raster, valid undistortion region; before occlusion filtering"
+  }
+}

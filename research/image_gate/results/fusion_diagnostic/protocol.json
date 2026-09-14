@@ -1,0 +1,15 @@
+{
+  "scope": "Frozen-weight diagnostic, same 64 train/32 development frames; no training or threshold search",
+  "questions": [
+    "Does broader coverage expose harmful residuals?",
+    "Do gates discriminate useful from harmful corrections?",
+    "Do confidence changes affect selection?",
+    "Does image content matter beyond constant residuals?"
+  ],
+  "threshold_m": 0.01,
+  "selected_inlier_threshold_m": 2.0,
+  "seed": 2089,
+  "constant": "Per-method mean of all valid training descriptors; for line2 computed with its finetuned image block",
+  "reference": "Original frozen decoder for old/1/3/4; same finetuned decoder with no image for line2",
+  "oracle": "GT selects per-voxel better coordinate prediction; diagnostic only, never deployable or a method result"
+}

@@ -1,0 +1,2761 @@
+{
+  "summary": {
+    "train": {
+      "frames": 64,
+      "total_voxels": 42239,
+      "missing_raw": 0,
+      "center": {
+        "fov": 0.3852127181041218,
+        "black_mask": 0.3311394682639267,
+        "depth_support": 0.23554061412438743,
+        "depth_consistent": 0.013944458912379554
+      },
+      "representative": {
+        "fov": 0.38634910864367056,
+        "black_mask": 0.33005042733019246,
+        "depth_support": 0.33005042733019246,
+        "depth_consistent": 0.2154170316532115
+      },
+      "center_frame_mean": 0.014004118881686439,
+      "raw_frame_mean": 0.21840412398766904,
+      "document_voxel_zbuffer": 0.19392031061341414
+    },
+    "val": {
+      "frames": 32,
+      "total_voxels": 25471,
+      "missing_raw": 0,
+      "center": {
+        "fov": 0.4116838757802992,
+        "black_mask": 0.354403046602018,
+        "depth_support": 0.25106984413646893,
+        "depth_consistent": 0.013309253661026265
+      },
+      "representative": {
+        "fov": 0.4117623964508657,
+        "black_mask": 0.3537356209022025,
+        "depth_support": 0.3537356209022025,
+        "depth_consistent": 0.22099642730948924
+      },
+      "center_frame_mean": 0.013964325318488997,
+      "raw_frame_mean": 0.2269084320394219,
+      "document_voxel_zbuffer": 0.18389541046680538
+    },
+    "all": {
+      "frames": 96,
+      "total_voxels": 67710,
+      "missing_raw": 0,
+      "center": {
+        "fov": 0.39517058041648206,
+        "black_mask": 0.33989071038251367,
+        "depth_support": 0.2413823659725299,
+        "depth_consistent": 0.013705508787476001
+      },
+      "representative": {
+        "fov": 0.39590902377787623,
+        "black_mask": 0.338960271747157,
+        "depth_support": 0.338960271747157,
+        "depth_consistent": 0.21751587653226997
+      },
+      "center_frame_mean": 0.013990854360620626,
+      "raw_frame_mean": 0.22123889333825333,
+      "document_voxel_zbuffer": 0.19014916555900163
+    }
+  },
+  "roundtrip_max_m": 3.5835826565744355e-05,
+  "center_to_raw_distance_percentiles": [
+    1.6947962045669556,
+    2.3032991409301755,
+    4.401055812835693
+  ],
+  "records": [
+    {
+      "frame_id": "1329601360002721",
+      "split": "train",
+      "voxels": 915,
+      "input_voxels": 33686,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 2.6518759727478027,
+      "center": {
+        "fov": 328,
+        "black_mask": 276,
+        "depth_support": 197,
+        "depth_consistent": 17,
+        "supported_depth_error_median": 3.1564159393310547
+      },
+      "representative": {
+        "fov": 331,
+        "black_mask": 275,
+        "depth_support": 275,
+        "depth_consistent": 153,
+        "supported_depth_error_median": 0.3245887756347656
+      },
+      "document_voxel_zbuffer": 157
+    },
+    {
+      "frame_id": "1329601361402708",
+      "split": "train",
+      "voxels": 1010,
+      "input_voxels": 33876,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.9116554260253906,
+      "center": {
+        "fov": 387,
+        "black_mask": 343,
+        "depth_support": 255,
+        "depth_consistent": 12,
+        "supported_depth_error_median": 6.188846588134766
+      },
+      "representative": {
+        "fov": 391,
+        "black_mask": 344,
+        "depth_support": 344,
+        "depth_consistent": 221,
+        "supported_depth_error_median": 0.16857671737670898
+      },
+      "document_voxel_zbuffer": 203
+    },
+    {
+      "frame_id": "1329601363002701",
+      "split": "train",
+      "voxels": 971,
+      "input_voxels": 33956,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.4990777969360352,
+      "center": {
+        "fov": 374,
+        "black_mask": 332,
+        "depth_support": 228,
+        "depth_consistent": 14,
+        "supported_depth_error_median": 5.142336845397949
+      },
+      "representative": {
+        "fov": 377,
+        "black_mask": 330,
+        "depth_support": 330,
+        "depth_consistent": 208,
+        "supported_depth_error_median": 0.21152639389038086
+      },
+      "document_voxel_zbuffer": 199
+    },
+    {
+      "frame_id": "1329601365002688",
+      "split": "train",
+      "voxels": 953,
+      "input_voxels": 34038,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.53181791305542,
+      "center": {
+        "fov": 376,
+        "black_mask": 322,
+        "depth_support": 234,
+        "depth_consistent": 14,
+        "supported_depth_error_median": 6.089049339294434
+      },
+      "representative": {
+        "fov": 377,
+        "black_mask": 321,
+        "depth_support": 321,
+        "depth_consistent": 193,
+        "supported_depth_error_median": 0.2839517593383789
+      },
+      "document_voxel_zbuffer": 197
+    },
+    {
+      "frame_id": "1329601366402682",
+      "split": "train",
+      "voxels": 946,
+      "input_voxels": 33732,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.3170881271362305,
+      "center": {
+        "fov": 334,
+        "black_mask": 263,
+        "depth_support": 192,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 5.023498058319092
+      },
+      "representative": {
+        "fov": 338,
+        "black_mask": 260,
+        "depth_support": 260,
+        "depth_consistent": 177,
+        "supported_depth_error_median": 0.09626317024230957
+      },
+      "document_voxel_zbuffer": 150
+    },
+    {
+      "frame_id": "1329601368002667",
+      "split": "train",
+      "voxels": 833,
+      "input_voxels": 31534,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.8026127815246582,
+      "center": {
+        "fov": 322,
+        "black_mask": 296,
+        "depth_support": 232,
+        "depth_consistent": 10,
+        "supported_depth_error_median": 6.523525714874268
+      },
+      "representative": {
+        "fov": 322,
+        "black_mask": 292,
+        "depth_support": 292,
+        "depth_consistent": 181,
+        "supported_depth_error_median": 0.09102535247802734
+      },
+      "document_voxel_zbuffer": 152
+    },
+    {
+      "frame_id": "1329601369402661",
+      "split": "train",
+      "voxels": 835,
+      "input_voxels": 33431,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.5448319911956787,
+      "center": {
+        "fov": 316,
+        "black_mask": 292,
+        "depth_support": 242,
+        "depth_consistent": 16,
+        "supported_depth_error_median": 6.306034564971924
+      },
+      "representative": {
+        "fov": 316,
+        "black_mask": 290,
+        "depth_support": 290,
+        "depth_consistent": 171,
+        "supported_depth_error_median": 0.1770627498626709
+      },
+      "document_voxel_zbuffer": 151
+    },
+    {
+      "frame_id": "1329601371002903",
+      "split": "train",
+      "voxels": 797,
+      "input_voxels": 33524,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.5103116035461426,
+      "center": {
+        "fov": 319,
+        "black_mask": 298,
+        "depth_support": 231,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 7.430751800537109
+      },
+      "representative": {
+        "fov": 319,
+        "black_mask": 298,
+        "depth_support": 298,
+        "depth_consistent": 176,
+        "supported_depth_error_median": 0.23053455352783203
+      },
+      "document_voxel_zbuffer": 155
+    },
+    {
+      "frame_id": "1329601372402637",
+      "split": "train",
+      "voxels": 759,
+      "input_voxels": 33049,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.7023189663887024,
+      "center": {
+        "fov": 317,
+        "black_mask": 295,
+        "depth_support": 242,
+        "depth_consistent": 10,
+        "supported_depth_error_median": 6.732053279876709
+      },
+      "representative": {
+        "fov": 317,
+        "black_mask": 293,
+        "depth_support": 293,
+        "depth_consistent": 153,
+        "supported_depth_error_median": 0.31409358978271484
+      },
+      "document_voxel_zbuffer": 150
+    },
+    {
+      "frame_id": "1329601374402652",
+      "split": "train",
+      "voxels": 706,
+      "input_voxels": 32643,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.0948561429977417,
+      "center": {
+        "fov": 312,
+        "black_mask": 292,
+        "depth_support": 226,
+        "depth_consistent": 12,
+        "supported_depth_error_median": 6.89560604095459
+      },
+      "representative": {
+        "fov": 312,
+        "black_mask": 291,
+        "depth_support": 291,
+        "depth_consistent": 157,
+        "supported_depth_error_median": 0.3152961730957031
+      },
+      "document_voxel_zbuffer": 157
+    },
+    {
+      "frame_id": "1329601376002616",
+      "split": "train",
+      "voxels": 710,
+      "input_voxels": 32791,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.0079271793365479,
+      "center": {
+        "fov": 325,
+        "black_mask": 306,
+        "depth_support": 221,
+        "depth_consistent": 15,
+        "supported_depth_error_median": 7.282722473144531
+      },
+      "representative": {
+        "fov": 325,
+        "black_mask": 304,
+        "depth_support": 304,
+        "depth_consistent": 172,
+        "supported_depth_error_median": 0.16655230522155762
+      },
+      "document_voxel_zbuffer": 170
+    },
+    {
+      "frame_id": "1329601377402601",
+      "split": "train",
+      "voxels": 653,
+      "input_voxels": 32721,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.942434549331665,
+      "center": {
+        "fov": 311,
+        "black_mask": 288,
+        "depth_support": 242,
+        "depth_consistent": 8,
+        "supported_depth_error_median": 7.254994869232178
+      },
+      "representative": {
+        "fov": 311,
+        "black_mask": 288,
+        "depth_support": 288,
+        "depth_consistent": 168,
+        "supported_depth_error_median": 0.11763787269592285
+      },
+      "document_voxel_zbuffer": 152
+    },
+    {
+      "frame_id": "1329601379002599",
+      "split": "train",
+      "voxels": 683,
+      "input_voxels": 33203,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.7545183897018433,
+      "center": {
+        "fov": 331,
+        "black_mask": 307,
+        "depth_support": 242,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 7.324455261230469
+      },
+      "representative": {
+        "fov": 331,
+        "black_mask": 305,
+        "depth_support": 305,
+        "depth_consistent": 166,
+        "supported_depth_error_median": 0.21573734283447266
+      },
+      "document_voxel_zbuffer": 170
+    },
+    {
+      "frame_id": "1329601380402595",
+      "split": "train",
+      "voxels": 676,
+      "input_voxels": 34203,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.9754674434661865,
+      "center": {
+        "fov": 330,
+        "black_mask": 310,
+        "depth_support": 253,
+        "depth_consistent": 21,
+        "supported_depth_error_median": 6.224170684814453
+      },
+      "representative": {
+        "fov": 333,
+        "black_mask": 308,
+        "depth_support": 308,
+        "depth_consistent": 178,
+        "supported_depth_error_median": 0.1459364891052246
+      },
+      "document_voxel_zbuffer": 173
+    },
+    {
+      "frame_id": "1329601382002578",
+      "split": "train",
+      "voxels": 703,
+      "input_voxels": 34411,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.9110429286956787,
+      "center": {
+        "fov": 344,
+        "black_mask": 308,
+        "depth_support": 242,
+        "depth_consistent": 7,
+        "supported_depth_error_median": 6.193357467651367
+      },
+      "representative": {
+        "fov": 345,
+        "black_mask": 309,
+        "depth_support": 309,
+        "depth_consistent": 193,
+        "supported_depth_error_median": 0.09491252899169922
+      },
+      "document_voxel_zbuffer": 173
+    },
+    {
+      "frame_id": "1329601384002580",
+      "split": "train",
+      "voxels": 706,
+      "input_voxels": 35199,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.1312886476516724,
+      "center": {
+        "fov": 358,
+        "black_mask": 291,
+        "depth_support": 221,
+        "depth_consistent": 6,
+        "supported_depth_error_median": 7.235227584838867
+      },
+      "representative": {
+        "fov": 360,
+        "black_mask": 287,
+        "depth_support": 287,
+        "depth_consistent": 177,
+        "supported_depth_error_median": 0.09501171112060547
+      },
+      "document_voxel_zbuffer": 181
+    },
+    {
+      "frame_id": "1329601385402767",
+      "split": "train",
+      "voxels": 693,
+      "input_voxels": 35165,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.8684307336807251,
+      "center": {
+        "fov": 349,
+        "black_mask": 286,
+        "depth_support": 205,
+        "depth_consistent": 19,
+        "supported_depth_error_median": 6.408332824707031
+      },
+      "representative": {
+        "fov": 357,
+        "black_mask": 290,
+        "depth_support": 290,
+        "depth_consistent": 190,
+        "supported_depth_error_median": 0.07236051559448242
+      },
+      "document_voxel_zbuffer": 208
+    },
+    {
+      "frame_id": "1329601387002543",
+      "split": "train",
+      "voxels": 692,
+      "input_voxels": 35882,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.647294282913208,
+      "center": {
+        "fov": 290,
+        "black_mask": 228,
+        "depth_support": 186,
+        "depth_consistent": 6,
+        "supported_depth_error_median": 4.344682693481445
+      },
+      "representative": {
+        "fov": 290,
+        "black_mask": 227,
+        "depth_support": 227,
+        "depth_consistent": 181,
+        "supported_depth_error_median": 0.03507661819458008
+      },
+      "document_voxel_zbuffer": 143
+    },
+    {
+      "frame_id": "1329601388402532",
+      "split": "train",
+      "voxels": 757,
+      "input_voxels": 35655,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.8668224811553955,
+      "center": {
+        "fov": 306,
+        "black_mask": 241,
+        "depth_support": 154,
+        "depth_consistent": 20,
+        "supported_depth_error_median": 3.058701515197754
+      },
+      "representative": {
+        "fov": 308,
+        "black_mask": 235,
+        "depth_support": 235,
+        "depth_consistent": 179,
+        "supported_depth_error_median": 0.05934619903564453
+      },
+      "document_voxel_zbuffer": 188
+    },
+    {
+      "frame_id": "1329601390002526",
+      "split": "train",
+      "voxels": 822,
+      "input_voxels": 36450,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.8325798511505127,
+      "center": {
+        "fov": 360,
+        "black_mask": 283,
+        "depth_support": 201,
+        "depth_consistent": 28,
+        "supported_depth_error_median": 4.511404991149902
+      },
+      "representative": {
+        "fov": 361,
+        "black_mask": 280,
+        "depth_support": 280,
+        "depth_consistent": 180,
+        "supported_depth_error_median": 0.14885234832763672
+      },
+      "document_voxel_zbuffer": 195
+    },
+    {
+      "frame_id": "1329601391402635",
+      "split": "train",
+      "voxels": 866,
+      "input_voxels": 37649,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.507888674736023,
+      "center": {
+        "fov": 372,
+        "black_mask": 300,
+        "depth_support": 225,
+        "depth_consistent": 10,
+        "supported_depth_error_median": 5.513226509094238
+      },
+      "representative": {
+        "fov": 372,
+        "black_mask": 299,
+        "depth_support": 299,
+        "depth_consistent": 181,
+        "supported_depth_error_median": 0.2192840576171875
+      },
+      "document_voxel_zbuffer": 185
+    },
+    {
+      "frame_id": "1329601393402503",
+      "split": "train",
+      "voxels": 741,
+      "input_voxels": 36866,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.9004175662994385,
+      "center": {
+        "fov": 198,
+        "black_mask": 138,
+        "depth_support": 97,
+        "depth_consistent": 19,
+        "supported_depth_error_median": 1.7777271270751953
+      },
+      "representative": {
+        "fov": 203,
+        "black_mask": 137,
+        "depth_support": 137,
+        "depth_consistent": 113,
+        "supported_depth_error_median": 0.013964653015136719
+      },
+      "document_voxel_zbuffer": 108
+    },
+    {
+      "frame_id": "1329601395002495",
+      "split": "train",
+      "voxels": 850,
+      "input_voxels": 36937,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.1783415079116821,
+      "center": {
+        "fov": 137,
+        "black_mask": 119,
+        "depth_support": 76,
+        "depth_consistent": 14,
+        "supported_depth_error_median": 2.0013742446899414
+      },
+      "representative": {
+        "fov": 137,
+        "black_mask": 119,
+        "depth_support": 119,
+        "depth_consistent": 102,
+        "supported_depth_error_median": 0.044956207275390625
+      },
+      "document_voxel_zbuffer": 98
+    },
+    {
+      "frame_id": "1329601396402539",
+      "split": "train",
+      "voxels": 841,
+      "input_voxels": 36931,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.5925062894821167,
+      "center": {
+        "fov": 111,
+        "black_mask": 78,
+        "depth_support": 59,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 1.5874419212341309
+      },
+      "representative": {
+        "fov": 112,
+        "black_mask": 75,
+        "depth_support": 75,
+        "depth_consistent": 72,
+        "supported_depth_error_median": 0.015869140625
+      },
+      "document_voxel_zbuffer": 71
+    },
+    {
+      "frame_id": "1329601398002477",
+      "split": "train",
+      "voxels": 770,
+      "input_voxels": 35897,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6429150104522705,
+      "center": {
+        "fov": 150,
+        "black_mask": 109,
+        "depth_support": 73,
+        "depth_consistent": 4,
+        "supported_depth_error_median": 2.8527684211730957
+      },
+      "representative": {
+        "fov": 148,
+        "black_mask": 111,
+        "depth_support": 111,
+        "depth_consistent": 94,
+        "supported_depth_error_median": 0.028820037841796875
+      },
+      "document_voxel_zbuffer": 85
+    },
+    {
+      "frame_id": "1329601399402470",
+      "split": "train",
+      "voxels": 817,
+      "input_voxels": 36002,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.0629061460494995,
+      "center": {
+        "fov": 290,
+        "black_mask": 224,
+        "depth_support": 147,
+        "depth_consistent": 15,
+        "supported_depth_error_median": 3.4748706817626953
+      },
+      "representative": {
+        "fov": 288,
+        "black_mask": 228,
+        "depth_support": 228,
+        "depth_consistent": 178,
+        "supported_depth_error_median": 0.05086803436279297
+      },
+      "document_voxel_zbuffer": 130
+    },
+    {
+      "frame_id": "1329601401402448",
+      "split": "train",
+      "voxels": 795,
+      "input_voxels": 35273,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.948735237121582,
+      "center": {
+        "fov": 308,
+        "black_mask": 278,
+        "depth_support": 199,
+        "depth_consistent": 8,
+        "supported_depth_error_median": 4.727719306945801
+      },
+      "representative": {
+        "fov": 308,
+        "black_mask": 278,
+        "depth_support": 278,
+        "depth_consistent": 190,
+        "supported_depth_error_median": 0.09516334533691406
+      },
+      "document_voxel_zbuffer": 154
+    },
+    {
+      "frame_id": "1329601403002483",
+      "split": "train",
+      "voxels": 815,
+      "input_voxels": 36502,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.7752749919891357,
+      "center": {
+        "fov": 333,
+        "black_mask": 304,
+        "depth_support": 217,
+        "depth_consistent": 12,
+        "supported_depth_error_median": 8.525177955627441
+      },
+      "representative": {
+        "fov": 333,
+        "black_mask": 304,
+        "depth_support": 304,
+        "depth_consistent": 181,
+        "supported_depth_error_median": 0.1646740436553955
+      },
+      "document_voxel_zbuffer": 158
+    },
+    {
+      "frame_id": "1329601404402427",
+      "split": "train",
+      "voxels": 752,
+      "input_voxels": 34194,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.0723462104797363,
+      "center": {
+        "fov": 292,
+        "black_mask": 265,
+        "depth_support": 157,
+        "depth_consistent": 8,
+        "supported_depth_error_median": 6.588346004486084
+      },
+      "representative": {
+        "fov": 293,
+        "black_mask": 266,
+        "depth_support": 266,
+        "depth_consistent": 185,
+        "supported_depth_error_median": 0.10947513580322266
+      },
+      "document_voxel_zbuffer": 167
+    },
+    {
+      "frame_id": "1329601406002426",
+      "split": "train",
+      "voxels": 784,
+      "input_voxels": 36501,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.8589582443237305,
+      "center": {
+        "fov": 313,
+        "black_mask": 291,
+        "depth_support": 211,
+        "depth_consistent": 13,
+        "supported_depth_error_median": 5.761773109436035
+      },
+      "representative": {
+        "fov": 313,
+        "black_mask": 292,
+        "depth_support": 292,
+        "depth_consistent": 181,
+        "supported_depth_error_median": 0.1733856201171875
+      },
+      "document_voxel_zbuffer": 160
+    },
+    {
+      "frame_id": "1329601407402467",
+      "split": "train",
+      "voxels": 743,
+      "input_voxels": 36351,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.9862401485443115,
+      "center": {
+        "fov": 307,
+        "black_mask": 287,
+        "depth_support": 214,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 6.2542924880981445
+      },
+      "representative": {
+        "fov": 307,
+        "black_mask": 287,
+        "depth_support": 287,
+        "depth_consistent": 172,
+        "supported_depth_error_median": 0.22451400756835938
+      },
+      "document_voxel_zbuffer": 151
+    },
+    {
+      "frame_id": "1329601409002400",
+      "split": "train",
+      "voxels": 743,
+      "input_voxels": 35799,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6999070048332214,
+      "center": {
+        "fov": 330,
+        "black_mask": 308,
+        "depth_support": 211,
+        "depth_consistent": 11,
+        "supported_depth_error_median": 6.395358085632324
+      },
+      "representative": {
+        "fov": 330,
+        "black_mask": 307,
+        "depth_support": 307,
+        "depth_consistent": 182,
+        "supported_depth_error_median": 0.2512168884277344
+      },
+      "document_voxel_zbuffer": 173
+    },
+    {
+      "frame_id": "1329601411002392",
+      "split": "train",
+      "voxels": 738,
+      "input_voxels": 35121,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.7645391225814819,
+      "center": {
+        "fov": 312,
+        "black_mask": 282,
+        "depth_support": 189,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 7.22343635559082
+      },
+      "representative": {
+        "fov": 312,
+        "black_mask": 283,
+        "depth_support": 283,
+        "depth_consistent": 176,
+        "supported_depth_error_median": 0.17253875732421875
+      },
+      "document_voxel_zbuffer": 136
+    },
+    {
+      "frame_id": "1329601412402370",
+      "split": "train",
+      "voxels": 692,
+      "input_voxels": 34072,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.374166488647461,
+      "center": {
+        "fov": 311,
+        "black_mask": 282,
+        "depth_support": 182,
+        "depth_consistent": 8,
+        "supported_depth_error_median": 7.809093475341797
+      },
+      "representative": {
+        "fov": 311,
+        "black_mask": 283,
+        "depth_support": 283,
+        "depth_consistent": 174,
+        "supported_depth_error_median": 0.1483135223388672
+      },
+      "document_voxel_zbuffer": 144
+    },
+    {
+      "frame_id": "1329601414002369",
+      "split": "train",
+      "voxels": 732,
+      "input_voxels": 33791,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.79073566198349,
+      "center": {
+        "fov": 319,
+        "black_mask": 286,
+        "depth_support": 216,
+        "depth_consistent": 8,
+        "supported_depth_error_median": 6.686593055725098
+      },
+      "representative": {
+        "fov": 320,
+        "black_mask": 286,
+        "depth_support": 286,
+        "depth_consistent": 187,
+        "supported_depth_error_median": 0.11912918090820312
+      },
+      "document_voxel_zbuffer": 138
+    },
+    {
+      "frame_id": "1329601415402388",
+      "split": "train",
+      "voxels": 695,
+      "input_voxels": 33460,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.7968955039978027,
+      "center": {
+        "fov": 300,
+        "black_mask": 261,
+        "depth_support": 184,
+        "depth_consistent": 7,
+        "supported_depth_error_median": 4.810835361480713
+      },
+      "representative": {
+        "fov": 301,
+        "black_mask": 261,
+        "depth_support": 261,
+        "depth_consistent": 181,
+        "supported_depth_error_median": 0.08082771301269531
+      },
+      "document_voxel_zbuffer": 136
+    },
+    {
+      "frame_id": "1329601417002348",
+      "split": "train",
+      "voxels": 733,
+      "input_voxels": 32852,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.9748218059539795,
+      "center": {
+        "fov": 342,
+        "black_mask": 294,
+        "depth_support": 201,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 7.535223007202148
+      },
+      "representative": {
+        "fov": 343,
+        "black_mask": 297,
+        "depth_support": 297,
+        "depth_consistent": 209,
+        "supported_depth_error_median": 0.09950637817382812
+      },
+      "document_voxel_zbuffer": 169
+    },
+    {
+      "frame_id": "1329601418402716",
+      "split": "train",
+      "voxels": 710,
+      "input_voxels": 33507,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.232651948928833,
+      "center": {
+        "fov": 311,
+        "black_mask": 263,
+        "depth_support": 184,
+        "depth_consistent": 7,
+        "supported_depth_error_median": 5.662039279937744
+      },
+      "representative": {
+        "fov": 312,
+        "black_mask": 262,
+        "depth_support": 262,
+        "depth_consistent": 183,
+        "supported_depth_error_median": 0.08983707427978516
+      },
+      "document_voxel_zbuffer": 130
+    },
+    {
+      "frame_id": "1329601420402318",
+      "split": "train",
+      "voxels": 779,
+      "input_voxels": 33648,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.649531364440918,
+      "center": {
+        "fov": 341,
+        "black_mask": 291,
+        "depth_support": 184,
+        "depth_consistent": 8,
+        "supported_depth_error_median": 7.02020263671875
+      },
+      "representative": {
+        "fov": 342,
+        "black_mask": 289,
+        "depth_support": 289,
+        "depth_consistent": 212,
+        "supported_depth_error_median": 0.11472177505493164
+      },
+      "document_voxel_zbuffer": 137
+    },
+    {
+      "frame_id": "1329601422002318",
+      "split": "train",
+      "voxels": 844,
+      "input_voxels": 33556,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.2520852088928223,
+      "center": {
+        "fov": 354,
+        "black_mask": 281,
+        "depth_support": 172,
+        "depth_consistent": 10,
+        "supported_depth_error_median": 6.1579389572143555
+      },
+      "representative": {
+        "fov": 356,
+        "black_mask": 281,
+        "depth_support": 281,
+        "depth_consistent": 206,
+        "supported_depth_error_median": 0.0813140869140625
+      },
+      "document_voxel_zbuffer": 130
+    },
+    {
+      "frame_id": "1329601423402298",
+      "split": "train",
+      "voxels": 842,
+      "input_voxels": 33726,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.470461368560791,
+      "center": {
+        "fov": 332,
+        "black_mask": 256,
+        "depth_support": 172,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 5.467717170715332
+      },
+      "representative": {
+        "fov": 332,
+        "black_mask": 255,
+        "depth_support": 255,
+        "depth_consistent": 182,
+        "supported_depth_error_median": 0.07999801635742188
+      },
+      "document_voxel_zbuffer": 111
+    },
+    {
+      "frame_id": "1329601425002298",
+      "split": "train",
+      "voxels": 906,
+      "input_voxels": 33217,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6988129615783691,
+      "center": {
+        "fov": 315,
+        "black_mask": 246,
+        "depth_support": 159,
+        "depth_consistent": 6,
+        "supported_depth_error_median": 5.290337562561035
+      },
+      "representative": {
+        "fov": 316,
+        "black_mask": 239,
+        "depth_support": 239,
+        "depth_consistent": 175,
+        "supported_depth_error_median": 0.09514999389648438
+      },
+      "document_voxel_zbuffer": 103
+    },
+    {
+      "frame_id": "1329601426402279",
+      "split": "train",
+      "voxels": 894,
+      "input_voxels": 32745,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.3571321964263916,
+      "center": {
+        "fov": 327,
+        "black_mask": 263,
+        "depth_support": 185,
+        "depth_consistent": 12,
+        "supported_depth_error_median": 5.201465129852295
+      },
+      "representative": {
+        "fov": 328,
+        "black_mask": 258,
+        "depth_support": 258,
+        "depth_consistent": 185,
+        "supported_depth_error_median": 0.06735801696777344
+      },
+      "document_voxel_zbuffer": 115
+    },
+    {
+      "frame_id": "1329601428402277",
+      "split": "train",
+      "voxels": 882,
+      "input_voxels": 33015,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.005448341369629,
+      "center": {
+        "fov": 297,
+        "black_mask": 238,
+        "depth_support": 157,
+        "depth_consistent": 8,
+        "supported_depth_error_median": 4.952838897705078
+      },
+      "representative": {
+        "fov": 296,
+        "black_mask": 236,
+        "depth_support": 236,
+        "depth_consistent": 156,
+        "supported_depth_error_median": 0.07169008255004883
+      },
+      "document_voxel_zbuffer": 103
+    },
+    {
+      "frame_id": "1329601430002267",
+      "split": "train",
+      "voxels": 953,
+      "input_voxels": 32879,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.044358491897583,
+      "center": {
+        "fov": 301,
+        "black_mask": 224,
+        "depth_support": 142,
+        "depth_consistent": 5,
+        "supported_depth_error_median": 4.986507892608643
+      },
+      "representative": {
+        "fov": 303,
+        "black_mask": 225,
+        "depth_support": 225,
+        "depth_consistent": 144,
+        "supported_depth_error_median": 0.11197185516357422
+      },
+      "document_voxel_zbuffer": 107
+    },
+    {
+      "frame_id": "1329601431402252",
+      "split": "train",
+      "voxels": 935,
+      "input_voxels": 32954,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.1661338806152344,
+      "center": {
+        "fov": 290,
+        "black_mask": 233,
+        "depth_support": 162,
+        "depth_consistent": 10,
+        "supported_depth_error_median": 5.930100917816162
+      },
+      "representative": {
+        "fov": 290,
+        "black_mask": 234,
+        "depth_support": 234,
+        "depth_consistent": 134,
+        "supported_depth_error_median": 0.29689788818359375
+      },
+      "document_voxel_zbuffer": 122
+    },
+    {
+      "frame_id": "1329601433002245",
+      "split": "train",
+      "voxels": 914,
+      "input_voxels": 32386,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.1275324821472168,
+      "center": {
+        "fov": 280,
+        "black_mask": 210,
+        "depth_support": 153,
+        "depth_consistent": 11,
+        "supported_depth_error_median": 4.204811096191406
+      },
+      "representative": {
+        "fov": 284,
+        "black_mask": 213,
+        "depth_support": 213,
+        "depth_consistent": 147,
+        "supported_depth_error_median": 0.07686233520507812
+      },
+      "document_voxel_zbuffer": 118
+    },
+    {
+      "frame_id": "1329604598983232",
+      "split": "train",
+      "voxels": 384,
+      "input_voxels": 29079,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.2806253135204315,
+      "center": {
+        "fov": 160,
+        "black_mask": 152,
+        "depth_support": 124,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 3.3489904403686523
+      },
+      "representative": {
+        "fov": 160,
+        "black_mask": 151,
+        "depth_support": 151,
+        "depth_consistent": 92,
+        "supported_depth_error_median": 0.1601734161376953
+      },
+      "document_voxel_zbuffer": 113
+    },
+    {
+      "frame_id": "1329604600583214",
+      "split": "train",
+      "voxels": 350,
+      "input_voxels": 28304,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.41173744201660156,
+      "center": {
+        "fov": 150,
+        "black_mask": 140,
+        "depth_support": 105,
+        "depth_consistent": 7,
+        "supported_depth_error_median": 3.2096920013427734
+      },
+      "representative": {
+        "fov": 150,
+        "black_mask": 139,
+        "depth_support": 139,
+        "depth_consistent": 103,
+        "supported_depth_error_median": 0.04687166213989258
+      },
+      "document_voxel_zbuffer": 110
+    },
+    {
+      "frame_id": "1329604602583193",
+      "split": "train",
+      "voxels": 320,
+      "input_voxels": 28489,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.45601558685302734,
+      "center": {
+        "fov": 126,
+        "black_mask": 119,
+        "depth_support": 78,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 3.349919557571411
+      },
+      "representative": {
+        "fov": 126,
+        "black_mask": 117,
+        "depth_support": 117,
+        "depth_consistent": 79,
+        "supported_depth_error_median": 0.0902562141418457
+      },
+      "document_voxel_zbuffer": 95
+    },
+    {
+      "frame_id": "1329604603983211",
+      "split": "train",
+      "voxels": 281,
+      "input_voxels": 28405,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.4274801015853882,
+      "center": {
+        "fov": 116,
+        "black_mask": 109,
+        "depth_support": 75,
+        "depth_consistent": 2,
+        "supported_depth_error_median": 3.2152581214904785
+      },
+      "representative": {
+        "fov": 116,
+        "black_mask": 107,
+        "depth_support": 107,
+        "depth_consistent": 70,
+        "supported_depth_error_median": 0.10094165802001953
+      },
+      "document_voxel_zbuffer": 88
+    },
+    {
+      "frame_id": "1329604605583164",
+      "split": "train",
+      "voxels": 281,
+      "input_voxels": 26912,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.37717944383621216,
+      "center": {
+        "fov": 114,
+        "black_mask": 104,
+        "depth_support": 84,
+        "depth_consistent": 4,
+        "supported_depth_error_median": 3.624335765838623
+      },
+      "representative": {
+        "fov": 114,
+        "black_mask": 103,
+        "depth_support": 103,
+        "depth_consistent": 78,
+        "supported_depth_error_median": 0.040650367736816406
+      },
+      "document_voxel_zbuffer": 83
+    },
+    {
+      "frame_id": "1329604606983155",
+      "split": "train",
+      "voxels": 252,
+      "input_voxels": 26729,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.342573881149292,
+      "center": {
+        "fov": 91,
+        "black_mask": 81,
+        "depth_support": 50,
+        "depth_consistent": 6,
+        "supported_depth_error_median": 2.70269775390625
+      },
+      "representative": {
+        "fov": 91,
+        "black_mask": 79,
+        "depth_support": 79,
+        "depth_consistent": 67,
+        "supported_depth_error_median": 0.016658782958984375
+      },
+      "document_voxel_zbuffer": 67
+    },
+    {
+      "frame_id": "1329604608583140",
+      "split": "train",
+      "voxels": 246,
+      "input_voxels": 26336,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.482887864112854,
+      "center": {
+        "fov": 80,
+        "black_mask": 67,
+        "depth_support": 42,
+        "depth_consistent": 0,
+        "supported_depth_error_median": 1.74110746383667
+      },
+      "representative": {
+        "fov": 80,
+        "black_mask": 66,
+        "depth_support": 66,
+        "depth_consistent": 60,
+        "supported_depth_error_median": 0.019495010375976562
+      },
+      "document_voxel_zbuffer": 55
+    },
+    {
+      "frame_id": "1329604609983135",
+      "split": "train",
+      "voxels": 276,
+      "input_voxels": 25212,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.7449698448181152,
+      "center": {
+        "fov": 88,
+        "black_mask": 77,
+        "depth_support": 30,
+        "depth_consistent": 7,
+        "supported_depth_error_median": 2.615401268005371
+      },
+      "representative": {
+        "fov": 87,
+        "black_mask": 76,
+        "depth_support": 76,
+        "depth_consistent": 57,
+        "supported_depth_error_median": 0.026076555252075195
+      },
+      "document_voxel_zbuffer": 68
+    },
+    {
+      "frame_id": "1329604611983122",
+      "split": "train",
+      "voxels": 209,
+      "input_voxels": 22215,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.7885754108428955,
+      "center": {
+        "fov": 69,
+        "black_mask": 59,
+        "depth_support": 43,
+        "depth_consistent": 5,
+        "supported_depth_error_median": 1.2284870147705078
+      },
+      "representative": {
+        "fov": 69,
+        "black_mask": 59,
+        "depth_support": 59,
+        "depth_consistent": 39,
+        "supported_depth_error_median": 0.04514288902282715
+      },
+      "document_voxel_zbuffer": 52
+    },
+    {
+      "frame_id": "1329604613583755",
+      "split": "train",
+      "voxels": 248,
+      "input_voxels": 21851,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.40758800506591797,
+      "center": {
+        "fov": 84,
+        "black_mask": 77,
+        "depth_support": 47,
+        "depth_consistent": 0,
+        "supported_depth_error_median": 2.5035362243652344
+      },
+      "representative": {
+        "fov": 84,
+        "black_mask": 78,
+        "depth_support": 78,
+        "depth_consistent": 50,
+        "supported_depth_error_median": 0.04939389228820801
+      },
+      "document_voxel_zbuffer": 48
+    },
+    {
+      "frame_id": "1329604614983101",
+      "split": "train",
+      "voxels": 272,
+      "input_voxels": 23558,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6014852523803711,
+      "center": {
+        "fov": 97,
+        "black_mask": 77,
+        "depth_support": 39,
+        "depth_consistent": 2,
+        "supported_depth_error_median": 2.0998482704162598
+      },
+      "representative": {
+        "fov": 97,
+        "black_mask": 77,
+        "depth_support": 77,
+        "depth_consistent": 50,
+        "supported_depth_error_median": 0.029086947441101074
+      },
+      "document_voxel_zbuffer": 66
+    },
+    {
+      "frame_id": "1329604616583112",
+      "split": "train",
+      "voxels": 262,
+      "input_voxels": 23695,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.40488243103027344,
+      "center": {
+        "fov": 86,
+        "black_mask": 68,
+        "depth_support": 48,
+        "depth_consistent": 8,
+        "supported_depth_error_median": 2.1897387504577637
+      },
+      "representative": {
+        "fov": 86,
+        "black_mask": 68,
+        "depth_support": 68,
+        "depth_consistent": 46,
+        "supported_depth_error_median": 0.0292661190032959
+      },
+      "document_voxel_zbuffer": 56
+    },
+    {
+      "frame_id": "1329604617983823",
+      "split": "train",
+      "voxels": 262,
+      "input_voxels": 22658,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.49619483947753906,
+      "center": {
+        "fov": 88,
+        "black_mask": 74,
+        "depth_support": 47,
+        "depth_consistent": 6,
+        "supported_depth_error_median": 3.3405447006225586
+      },
+      "representative": {
+        "fov": 87,
+        "black_mask": 74,
+        "depth_support": 74,
+        "depth_consistent": 50,
+        "supported_depth_error_median": 0.04239058494567871
+      },
+      "document_voxel_zbuffer": 48
+    },
+    {
+      "frame_id": "1329604619583096",
+      "split": "train",
+      "voxels": 266,
+      "input_voxels": 21053,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6949512958526611,
+      "center": {
+        "fov": 88,
+        "black_mask": 65,
+        "depth_support": 35,
+        "depth_consistent": 2,
+        "supported_depth_error_median": 2.5415942668914795
+      },
+      "representative": {
+        "fov": 88,
+        "black_mask": 65,
+        "depth_support": 65,
+        "depth_consistent": 44,
+        "supported_depth_error_median": 0.024982929229736328
+      },
+      "document_voxel_zbuffer": 63
+    },
+    {
+      "frame_id": "1329604621983066",
+      "split": "train",
+      "voxels": 254,
+      "input_voxels": 19356,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.35480499267578125,
+      "center": {
+        "fov": 89,
+        "black_mask": 80,
+        "depth_support": 36,
+        "depth_consistent": 0,
+        "supported_depth_error_median": 2.6613903045654297
+      },
+      "representative": {
+        "fov": 91,
+        "black_mask": 80,
+        "depth_support": 80,
+        "depth_consistent": 53,
+        "supported_depth_error_median": 0.0348019003868103
+      },
+      "document_voxel_zbuffer": 72
+    },
+    {
+      "frame_id": "1329604623583040",
+      "split": "train",
+      "voxels": 237,
+      "input_voxels": 16794,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.4208059310913086,
+      "center": {
+        "fov": 85,
+        "black_mask": 78,
+        "depth_support": 40,
+        "depth_consistent": 0,
+        "supported_depth_error_median": 4.1456708908081055
+      },
+      "representative": {
+        "fov": 84,
+        "black_mask": 78,
+        "depth_support": 78,
+        "depth_consistent": 48,
+        "supported_depth_error_median": 0.04906177520751953
+      },
+      "document_voxel_zbuffer": 64
+    },
+    {
+      "frame_id": "1329604624983040",
+      "split": "train",
+      "voxels": 253,
+      "input_voxels": 16386,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6552941799163818,
+      "center": {
+        "fov": 98,
+        "black_mask": 92,
+        "depth_support": 52,
+        "depth_consistent": 1,
+        "supported_depth_error_median": 5.849869251251221
+      },
+      "representative": {
+        "fov": 98,
+        "black_mask": 92,
+        "depth_support": 92,
+        "depth_consistent": 57,
+        "supported_depth_error_median": 0.08678674697875977
+      },
+      "document_voxel_zbuffer": 80
+    },
+    {
+      "frame_id": "1329604635582975",
+      "split": "val",
+      "voxels": 414,
+      "input_voxels": 18368,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6090210676193237,
+      "center": {
+        "fov": 227,
+        "black_mask": 208,
+        "depth_support": 137,
+        "depth_consistent": 7,
+        "supported_depth_error_median": 7.52039909362793
+      },
+      "representative": {
+        "fov": 227,
+        "black_mask": 208,
+        "depth_support": 208,
+        "depth_consistent": 115,
+        "supported_depth_error_median": 0.17418861389160156
+      },
+      "document_voxel_zbuffer": 103
+    },
+    {
+      "frame_id": "1329604636982984",
+      "split": "val",
+      "voxels": 416,
+      "input_voxels": 19329,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.5778121948242188,
+      "center": {
+        "fov": 305,
+        "black_mask": 274,
+        "depth_support": 203,
+        "depth_consistent": 19,
+        "supported_depth_error_median": 5.313504219055176
+      },
+      "representative": {
+        "fov": 303,
+        "black_mask": 275,
+        "depth_support": 275,
+        "depth_consistent": 167,
+        "supported_depth_error_median": 0.14430904388427734
+      },
+      "document_voxel_zbuffer": 142
+    },
+    {
+      "frame_id": "1329604637982961",
+      "split": "val",
+      "voxels": 620,
+      "input_voxels": 27712,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.5949530601501465,
+      "center": {
+        "fov": 345,
+        "black_mask": 306,
+        "depth_support": 226,
+        "depth_consistent": 16,
+        "supported_depth_error_median": 7.148979187011719
+      },
+      "representative": {
+        "fov": 343,
+        "black_mask": 305,
+        "depth_support": 305,
+        "depth_consistent": 178,
+        "supported_depth_error_median": 0.1773548126220703
+      },
+      "document_voxel_zbuffer": 168
+    },
+    {
+      "frame_id": "1329604639582940",
+      "split": "val",
+      "voxels": 734,
+      "input_voxels": 32666,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.9936494827270508,
+      "center": {
+        "fov": 372,
+        "black_mask": 329,
+        "depth_support": 228,
+        "depth_consistent": 11,
+        "supported_depth_error_median": 7.166647434234619
+      },
+      "representative": {
+        "fov": 369,
+        "black_mask": 330,
+        "depth_support": 330,
+        "depth_consistent": 175,
+        "supported_depth_error_median": 0.37697935104370117
+      },
+      "document_voxel_zbuffer": 202
+    },
+    {
+      "frame_id": "1329604640582945",
+      "split": "val",
+      "voxels": 777,
+      "input_voxels": 34056,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.5397635698318481,
+      "center": {
+        "fov": 346,
+        "black_mask": 317,
+        "depth_support": 240,
+        "depth_consistent": 13,
+        "supported_depth_error_median": 6.79228401184082
+      },
+      "representative": {
+        "fov": 343,
+        "black_mask": 317,
+        "depth_support": 317,
+        "depth_consistent": 180,
+        "supported_depth_error_median": 0.20924854278564453
+      },
+      "document_voxel_zbuffer": 163
+    },
+    {
+      "frame_id": "1329604641982945",
+      "split": "val",
+      "voxels": 801,
+      "input_voxels": 35321,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.9152197241783142,
+      "center": {
+        "fov": 357,
+        "black_mask": 325,
+        "depth_support": 229,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 6.522066116333008
+      },
+      "representative": {
+        "fov": 357,
+        "black_mask": 323,
+        "depth_support": 323,
+        "depth_consistent": 170,
+        "supported_depth_error_median": 0.3466663360595703
+      },
+      "document_voxel_zbuffer": 174
+    },
+    {
+      "frame_id": "1329604642982934",
+      "split": "val",
+      "voxels": 826,
+      "input_voxels": 36276,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.800500750541687,
+      "center": {
+        "fov": 345,
+        "black_mask": 314,
+        "depth_support": 230,
+        "depth_consistent": 10,
+        "supported_depth_error_median": 6.601125717163086
+      },
+      "representative": {
+        "fov": 345,
+        "black_mask": 315,
+        "depth_support": 315,
+        "depth_consistent": 175,
+        "supported_depth_error_median": 0.1799325942993164
+      },
+      "document_voxel_zbuffer": 179
+    },
+    {
+      "frame_id": "1329604644582931",
+      "split": "val",
+      "voxels": 823,
+      "input_voxels": 36577,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6672608852386475,
+      "center": {
+        "fov": 333,
+        "black_mask": 306,
+        "depth_support": 235,
+        "depth_consistent": 11,
+        "supported_depth_error_median": 6.337963581085205
+      },
+      "representative": {
+        "fov": 333,
+        "black_mask": 305,
+        "depth_support": 305,
+        "depth_consistent": 175,
+        "supported_depth_error_median": 0.2041463851928711
+      },
+      "document_voxel_zbuffer": 169
+    },
+    {
+      "frame_id": "1329604645582910",
+      "split": "val",
+      "voxels": 809,
+      "input_voxels": 37103,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.8569622039794922,
+      "center": {
+        "fov": 332,
+        "black_mask": 301,
+        "depth_support": 226,
+        "depth_consistent": 11,
+        "supported_depth_error_median": 7.106462001800537
+      },
+      "representative": {
+        "fov": 332,
+        "black_mask": 303,
+        "depth_support": 303,
+        "depth_consistent": 178,
+        "supported_depth_error_median": 0.14511823654174805
+      },
+      "document_voxel_zbuffer": 163
+    },
+    {
+      "frame_id": "1329604646982902",
+      "split": "val",
+      "voxels": 905,
+      "input_voxels": 37054,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.369436502456665,
+      "center": {
+        "fov": 369,
+        "black_mask": 333,
+        "depth_support": 257,
+        "depth_consistent": 13,
+        "supported_depth_error_median": 5.834207534790039
+      },
+      "representative": {
+        "fov": 370,
+        "black_mask": 326,
+        "depth_support": 326,
+        "depth_consistent": 181,
+        "supported_depth_error_median": 0.2510538101196289
+      },
+      "document_voxel_zbuffer": 187
+    },
+    {
+      "frame_id": "1329604647983097",
+      "split": "val",
+      "voxels": 880,
+      "input_voxels": 37237,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.0866082906723022,
+      "center": {
+        "fov": 370,
+        "black_mask": 341,
+        "depth_support": 227,
+        "depth_consistent": 20,
+        "supported_depth_error_median": 7.112555980682373
+      },
+      "representative": {
+        "fov": 372,
+        "black_mask": 339,
+        "depth_support": 339,
+        "depth_consistent": 191,
+        "supported_depth_error_median": 0.2448863983154297
+      },
+      "document_voxel_zbuffer": 221
+    },
+    {
+      "frame_id": "1329604649582929",
+      "split": "val",
+      "voxels": 826,
+      "input_voxels": 36844,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.2630506753921509,
+      "center": {
+        "fov": 317,
+        "black_mask": 294,
+        "depth_support": 224,
+        "depth_consistent": 12,
+        "supported_depth_error_median": 6.315777778625488
+      },
+      "representative": {
+        "fov": 316,
+        "black_mask": 292,
+        "depth_support": 292,
+        "depth_consistent": 170,
+        "supported_depth_error_median": 0.2906832695007324
+      },
+      "document_voxel_zbuffer": 165
+    },
+    {
+      "frame_id": "1329604651582866",
+      "split": "val",
+      "voxels": 782,
+      "input_voxels": 36204,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.5458499193191528,
+      "center": {
+        "fov": 323,
+        "black_mask": 300,
+        "depth_support": 229,
+        "depth_consistent": 12,
+        "supported_depth_error_median": 6.507795810699463
+      },
+      "representative": {
+        "fov": 323,
+        "black_mask": 297,
+        "depth_support": 297,
+        "depth_consistent": 170,
+        "supported_depth_error_median": 0.2982959747314453
+      },
+      "document_voxel_zbuffer": 161
+    },
+    {
+      "frame_id": "1329604652583020",
+      "split": "val",
+      "voxels": 791,
+      "input_voxels": 35573,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.9109796285629272,
+      "center": {
+        "fov": 321,
+        "black_mask": 300,
+        "depth_support": 231,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 6.995899200439453
+      },
+      "representative": {
+        "fov": 321,
+        "black_mask": 297,
+        "depth_support": 297,
+        "depth_consistent": 161,
+        "supported_depth_error_median": 0.2201862335205078
+      },
+      "document_voxel_zbuffer": 159
+    },
+    {
+      "frame_id": "1329604653982864",
+      "split": "val",
+      "voxels": 757,
+      "input_voxels": 35021,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6283762454986572,
+      "center": {
+        "fov": 326,
+        "black_mask": 302,
+        "depth_support": 218,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 6.429048538208008
+      },
+      "representative": {
+        "fov": 326,
+        "black_mask": 300,
+        "depth_support": 300,
+        "depth_consistent": 195,
+        "supported_depth_error_median": 0.15846920013427734
+      },
+      "document_voxel_zbuffer": 167
+    },
+    {
+      "frame_id": "1329604654982854",
+      "split": "val",
+      "voxels": 761,
+      "input_voxels": 34401,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.560620129108429,
+      "center": {
+        "fov": 334,
+        "black_mask": 312,
+        "depth_support": 242,
+        "depth_consistent": 7,
+        "supported_depth_error_median": 6.631532192230225
+      },
+      "representative": {
+        "fov": 334,
+        "black_mask": 309,
+        "depth_support": 309,
+        "depth_consistent": 183,
+        "supported_depth_error_median": 0.2592811584472656
+      },
+      "document_voxel_zbuffer": 166
+    },
+    {
+      "frame_id": "1329604656582868",
+      "split": "val",
+      "voxels": 749,
+      "input_voxels": 31659,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.8678164482116699,
+      "center": {
+        "fov": 316,
+        "black_mask": 293,
+        "depth_support": 201,
+        "depth_consistent": 5,
+        "supported_depth_error_median": 8.07345962524414
+      },
+      "representative": {
+        "fov": 323,
+        "black_mask": 290,
+        "depth_support": 290,
+        "depth_consistent": 179,
+        "supported_depth_error_median": 0.14408373832702637
+      },
+      "document_voxel_zbuffer": 155
+    },
+    {
+      "frame_id": "1329604657582841",
+      "split": "val",
+      "voxels": 759,
+      "input_voxels": 32423,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.8161437511444092,
+      "center": {
+        "fov": 335,
+        "black_mask": 292,
+        "depth_support": 207,
+        "depth_consistent": 7,
+        "supported_depth_error_median": 6.102960586547852
+      },
+      "representative": {
+        "fov": 336,
+        "black_mask": 288,
+        "depth_support": 288,
+        "depth_consistent": 179,
+        "supported_depth_error_median": 0.16669273376464844
+      },
+      "document_voxel_zbuffer": 153
+    },
+    {
+      "frame_id": "1329604658983490",
+      "split": "val",
+      "voxels": 742,
+      "input_voxels": 32518,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6010775566101074,
+      "center": {
+        "fov": 321,
+        "black_mask": 282,
+        "depth_support": 192,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 6.456360340118408
+      },
+      "representative": {
+        "fov": 323,
+        "black_mask": 283,
+        "depth_support": 283,
+        "depth_consistent": 181,
+        "supported_depth_error_median": 0.16490554809570312
+      },
+      "document_voxel_zbuffer": 144
+    },
+    {
+      "frame_id": "1329604659982823",
+      "split": "val",
+      "voxels": 785,
+      "input_voxels": 32815,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.7529153823852539,
+      "center": {
+        "fov": 330,
+        "black_mask": 297,
+        "depth_support": 201,
+        "depth_consistent": 16,
+        "supported_depth_error_median": 6.796881675720215
+      },
+      "representative": {
+        "fov": 330,
+        "black_mask": 295,
+        "depth_support": 295,
+        "depth_consistent": 212,
+        "supported_depth_error_median": 0.08002758026123047
+      },
+      "document_voxel_zbuffer": 151
+    },
+    {
+      "frame_id": "1329604661582864",
+      "split": "val",
+      "voxels": 775,
+      "input_voxels": 33496,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.0426583290100098,
+      "center": {
+        "fov": 336,
+        "black_mask": 281,
+        "depth_support": 191,
+        "depth_consistent": 6,
+        "supported_depth_error_median": 6.1370849609375
+      },
+      "representative": {
+        "fov": 336,
+        "black_mask": 280,
+        "depth_support": 280,
+        "depth_consistent": 186,
+        "supported_depth_error_median": 0.11937475204467773
+      },
+      "document_voxel_zbuffer": 135
+    },
+    {
+      "frame_id": "1329604662982805",
+      "split": "val",
+      "voxels": 779,
+      "input_voxels": 33583,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.1532635688781738,
+      "center": {
+        "fov": 332,
+        "black_mask": 281,
+        "depth_support": 182,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 6.5898847579956055
+      },
+      "representative": {
+        "fov": 333,
+        "black_mask": 283,
+        "depth_support": 283,
+        "depth_consistent": 194,
+        "supported_depth_error_median": 0.11553668975830078
+      },
+      "document_voxel_zbuffer": 133
+    },
+    {
+      "frame_id": "1329604663982801",
+      "split": "val",
+      "voxels": 791,
+      "input_voxels": 33397,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.5731611251831055,
+      "center": {
+        "fov": 345,
+        "black_mask": 274,
+        "depth_support": 166,
+        "depth_consistent": 7,
+        "supported_depth_error_median": 6.240099906921387
+      },
+      "representative": {
+        "fov": 345,
+        "black_mask": 276,
+        "depth_support": 276,
+        "depth_consistent": 205,
+        "supported_depth_error_median": 0.0735011100769043
+      },
+      "document_voxel_zbuffer": 132
+    },
+    {
+      "frame_id": "1329604665582834",
+      "split": "val",
+      "voxels": 835,
+      "input_voxels": 32914,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.3732833862304688,
+      "center": {
+        "fov": 311,
+        "black_mask": 246,
+        "depth_support": 170,
+        "depth_consistent": 9,
+        "supported_depth_error_median": 6.178055286407471
+      },
+      "representative": {
+        "fov": 310,
+        "black_mask": 240,
+        "depth_support": 240,
+        "depth_consistent": 183,
+        "supported_depth_error_median": 0.07701587677001953
+      },
+      "document_voxel_zbuffer": 114
+    },
+    {
+      "frame_id": "1329604666582815",
+      "split": "val",
+      "voxels": 903,
+      "input_voxels": 33038,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.406825065612793,
+      "center": {
+        "fov": 326,
+        "black_mask": 263,
+        "depth_support": 180,
+        "depth_consistent": 13,
+        "supported_depth_error_median": 6.442241668701172
+      },
+      "representative": {
+        "fov": 326,
+        "black_mask": 269,
+        "depth_support": 269,
+        "depth_consistent": 204,
+        "supported_depth_error_median": 0.09500312805175781
+      },
+      "document_voxel_zbuffer": 114
+    },
+    {
+      "frame_id": "1329604667982805",
+      "split": "val",
+      "voxels": 918,
+      "input_voxels": 33248,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.9689875841140747,
+      "center": {
+        "fov": 321,
+        "black_mask": 252,
+        "depth_support": 163,
+        "depth_consistent": 6,
+        "supported_depth_error_median": 5.032357215881348
+      },
+      "representative": {
+        "fov": 321,
+        "black_mask": 249,
+        "depth_support": 249,
+        "depth_consistent": 188,
+        "supported_depth_error_median": 0.07822227478027344
+      },
+      "document_voxel_zbuffer": 108
+    },
+    {
+      "frame_id": "1329604668983281",
+      "split": "val",
+      "voxels": 909,
+      "input_voxels": 33468,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.7512578964233398,
+      "center": {
+        "fov": 318,
+        "black_mask": 250,
+        "depth_support": 171,
+        "depth_consistent": 7,
+        "supported_depth_error_median": 5.771537780761719
+      },
+      "representative": {
+        "fov": 319,
+        "black_mask": 247,
+        "depth_support": 247,
+        "depth_consistent": 176,
+        "supported_depth_error_median": 0.09169387817382812
+      },
+      "document_voxel_zbuffer": 105
+    },
+    {
+      "frame_id": "1329604670582822",
+      "split": "val",
+      "voxels": 888,
+      "input_voxels": 33668,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.3004450798034668,
+      "center": {
+        "fov": 315,
+        "black_mask": 234,
+        "depth_support": 167,
+        "depth_consistent": 14,
+        "supported_depth_error_median": 4.608119964599609
+      },
+      "representative": {
+        "fov": 313,
+        "black_mask": 233,
+        "depth_support": 233,
+        "depth_consistent": 159,
+        "supported_depth_error_median": 0.0961761474609375
+      },
+      "document_voxel_zbuffer": 109
+    },
+    {
+      "frame_id": "1329604671582933",
+      "split": "val",
+      "voxels": 913,
+      "input_voxels": 33955,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 0.6573749780654907,
+      "center": {
+        "fov": 319,
+        "black_mask": 233,
+        "depth_support": 180,
+        "depth_consistent": 11,
+        "supported_depth_error_median": 5.168907642364502
+      },
+      "representative": {
+        "fov": 319,
+        "black_mask": 241,
+        "depth_support": 241,
+        "depth_consistent": 151,
+        "supported_depth_error_median": 0.17957592010498047
+      },
+      "document_voxel_zbuffer": 106
+    },
+    {
+      "frame_id": "1329604672982737",
+      "split": "val",
+      "voxels": 976,
+      "input_voxels": 33208,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.0983660221099854,
+      "center": {
+        "fov": 343,
+        "black_mask": 252,
+        "depth_support": 171,
+        "depth_consistent": 10,
+        "supported_depth_error_median": 5.877324104309082
+      },
+      "representative": {
+        "fov": 344,
+        "black_mask": 256,
+        "depth_support": 256,
+        "depth_consistent": 160,
+        "supported_depth_error_median": 0.11156272888183594
+      },
+      "document_voxel_zbuffer": 121
+    },
+    {
+      "frame_id": "1329604673982743",
+      "split": "val",
+      "voxels": 914,
+      "input_voxels": 33429,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 2.645674705505371,
+      "center": {
+        "fov": 313,
+        "black_mask": 226,
+        "depth_support": 140,
+        "depth_consistent": 8,
+        "supported_depth_error_median": 4.55755615234375
+      },
+      "representative": {
+        "fov": 313,
+        "black_mask": 227,
+        "depth_support": 227,
+        "depth_consistent": 152,
+        "supported_depth_error_median": 0.0632781982421875
+      },
+      "document_voxel_zbuffer": 108
+    },
+    {
+      "frame_id": "1329604675582729",
+      "split": "val",
+      "voxels": 913,
+      "input_voxels": 32945,
+      "stride": [
+        16,
+        16,
+        16
+      ],
+      "no_raw_support": 0,
+      "reencoding_feature_max_error": 1.6238288879394531,
+      "center": {
+        "fov": 283,
+        "black_mask": 209,
+        "depth_support": 131,
+        "depth_consistent": 13,
+        "supported_depth_error_median": 3.978710174560547
+      },
+      "representative": {
+        "fov": 283,
+        "black_mask": 212,
+        "depth_support": 212,
+        "depth_consistent": 156,
+        "supported_depth_error_median": 0.09359931945800781
+      },
+      "document_voxel_zbuffer": 107
+    }
+  ],
+  "claim": "Projection-only audit; raw points are not substituted for LEADER localization coordinates or targets"
+}

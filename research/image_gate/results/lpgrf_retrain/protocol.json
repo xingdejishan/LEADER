@@ -1,0 +1,45 @@
+{
+  "method": "\u2461 LP-GRF with LoFTR layer3/PCA128 and differentiable final image block",
+  "hypothesis": "LiDAR teacher feature alignment can adapt image representation to localization while bounded residual protects geometric features.",
+  "falsification": "Correct-image fusion must improve final pose beyond both original LEADER and decoder-only finetuning; intermediate loss reduction alone is insufficient.",
+  "stages": [
+    {
+      "steps": 320,
+      "epochs": 5,
+      "train": [
+        "fusion",
+        "two projectors"
+      ],
+      "lr": 0.001
+    },
+    {
+      "steps": 600,
+      "lr_fusion": 0.001,
+      "lr_projectors": 0.001,
+      "lr_decoder": 0.0001,
+      "lr_image_layer3": 1e-05
+    }
+  ],
+  "distillation_weight": 0.05,
+  "modality_dropout": 0.1,
+  "alpha_initial": 0.1,
+  "seed": 2089,
+  "train_frames": 64,
+  "val_frames": 32,
+  "points_per_step": 1024,
+  "arms": [
+    "aligned",
+    "no_distill",
+    "shuffled",
+    "lidar_only"
+  ],
+  "teacher": "Frozen original LEADER predictions, confidence top50% intersect image valid mask; stopgrad LiDAR features",
+  "image": "LoFTR outdoor grayscale at 632x480; frozen stem through layer2 cached float16, train layer3 online; BatchNorm running statistics frozen",
+  "pca": "Fit only on the 64 training images, 512 valid dense cells each; fixed centered linear PCA256->128",
+  "visibility": "Keep audited representative raw Cartesian mapping, 4px raw-scan zbuffer and 0.5m tolerance; override obsolete document voxel centers/8px zbuffer",
+  "missing": "Exact feature fallback; finetuned decoder changes pose fallback relative to original checkpoint. Evaluate both explicitly.",
+  "pass_rule": "aligned mean translation <=95% of original and decoder-only; mean rotation and p95 translation <=105% of both; zero damage and aligned better than shuffled.",
+  "scope": "Local previously touched development, single seed. Not full NCLT.",
+  "checkpoint_sha256": "21f5bec5968178e8bc8b7633441836fe5de4f47d861dd2cd7dc38e271b0479ec",
+  "lidar_protocol_sha256": "918869b496334b77871664e8cb792a2247b8aa709a4f06ce4af1f81437cfe854"
+}

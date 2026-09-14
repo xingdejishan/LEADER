@@ -1,0 +1,14 @@
+{
+  "aligned.pt": "e4b40edc2e6cf907b42298681ea59b8fc4e67f383a7f98eba1ef909828d051b7",
+  "aligned_training.json": "b6349269fb1cc736534cdd104beaa860d1598ab7e3754f15120a7618ca39d3ae",
+  "checks.json": "0e66ce78cea24ea6b019d3e9a2d66670d86f1e999ac66f48fb76794b4cc9127e",
+  "extraction.json": "e3c64b247c668541eeddcea090c7dc0a97e02ea21182870774a81bab57c3f8c6",
+  "geometry_diagnostic.json": "eaebfe55b4d96012fc0802f3f23618f5b7bfd91da4aa8ad90004a69bc7c36b01",
+  "manifest.json": "69d8d29bae445202cf63428ce0625c4e75d62f17d17245c08790e5d06a7ddcdb",
+  "protocol.json": "009e032c098c620ba00fb8302bf14d27d0114f70a835941d68d0a5811a89f031",
+  "REPORT.md": "f95bb6721977d9af0c639c88906dff3b0d5f3f4b421c7db70f1658978ac46e14",
+  "result.json": "e1691ef5355be1c2f2066e0b39e54366654e021e4c896c45c6c66847a8b488bc",
+  "shuffled.pt": "95dcf15a78b82dbb462b92fabbc843dca63b2c0b73fb239a5b8b0155f7431394",
+  "shuffled_training.json": "3becd75f59cb300e271b41bcb92829c73b2ce6aaafd144b8a3bcee84de01fe74",
+  "validation_frames.json": "b723f8b900f94c1301513a61d902a24b9939099c19190fd17575415711165c94"
+}

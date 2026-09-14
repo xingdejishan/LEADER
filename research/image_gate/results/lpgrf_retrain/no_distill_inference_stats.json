@@ -1,0 +1,6 @@
+{
+  "mean_seconds": 0.008950819843749791,
+  "peak_memory_mb": 390.0966796875,
+  "includes": "cached stem loading, image layer3/PCA/sampling, fusion and decoder",
+  "excludes": "LiDAR encoder, image stem, matcher; lidar_only timing also includes unnecessary image feature computation"
+}

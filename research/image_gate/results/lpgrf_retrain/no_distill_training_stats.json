@@ -1,0 +1,12 @@
+{
+  "seconds": 18.72602986700001,
+  "peak_memory_mb": 646.7373046875,
+  "image_gradients": {
+    "trr_image": 0.0,
+    "distillation_image": 0.0
+  },
+  "fusion_parameters": 116354,
+  "distill_parameters": 41088,
+  "decoder_parameters": 6862852,
+  "image_trainable_parameters": 2273792
+}

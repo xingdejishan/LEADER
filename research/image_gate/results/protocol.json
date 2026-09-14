@@ -1,0 +1,36 @@
+{
+  "seed": 2089,
+  "steps": 600,
+  "learning_rate": 0.0001,
+  "points_per_step": 1024,
+  "train_frames": 64,
+  "val_frames": 32,
+  "embargo_frames": 20,
+  "train_pool": 201,
+  "val_pool": 80,
+  "local_pairs": 301,
+  "frozen": [
+    "LEADER.encoder",
+    "LEADER.decoder",
+    "DeDoDe-B",
+    "PCA"
+  ],
+  "arms": [
+    "baseline",
+    "aligned",
+    "shuffled"
+  ],
+  "image_smaller_side": 480,
+  "visibility": {
+    "cell_px": 4,
+    "depth_tolerance_m": 0.5
+  },
+  "pass_rule": "aligned rescues > damages at 1m/5deg; mean translation improves >=5%; mean rotation and p95 translation do not worsen >5%; aligned beats shuffled mean translation",
+  "stop_rule": "Stop after fixed 600 steps if validation pass rule fails; no test-based tuning",
+  "status": "local development kill-test; not independent blind test or full NCLT evaluation",
+  "gt_usage": "camera pose converted to body pose for training targets/evaluation only; never for image projection",
+  "pca": "Reuse PCA fit on 907 images from other training dates, no refit",
+  "checkpoint_sha256": "a78d5114bb908717676f7851399bdbb78943fd9e0170b1dd8eb592e0558fa028",
+  "source_commit": "f84b5f1",
+  "baseline": "upstream/main 4a1bde8, no v1 residual head"
+}

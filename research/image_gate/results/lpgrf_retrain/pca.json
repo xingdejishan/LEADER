@@ -1,0 +1,5 @@
+{
+  "samples": 32768,
+  "training_only": true,
+  "retained_variance": 0.9289071630500619
+}

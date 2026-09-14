@@ -1,0 +1,8 @@
+{
+  "official_loftr_layer3_max_error": 0.0,
+  "invalid_nonfinite_feature_fallback": true,
+  "distillation_teacher_stopgrad": true,
+  "distillation_visual_gradient": true,
+  "fusion_parameters": 116354,
+  "distillation_parameters": 41088
+}

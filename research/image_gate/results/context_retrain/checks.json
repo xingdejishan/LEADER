@@ -1,0 +1,9 @@
+{
+  "gate_ms": 0.36344549500000767,
+  "voxels": 915,
+  "peak_memory_mb": 36.76708984375,
+  "adapter_gradient_norm": 0.004267704673111439,
+  "zero_initialization_identity": true,
+  "missing_nonfinite_identity": true,
+  "baseline_pose_parity": true
+}

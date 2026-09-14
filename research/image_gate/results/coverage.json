@@ -1,0 +1,984 @@
+{
+  "summary": {
+    "train": {
+      "frames": 64,
+      "visible_fraction_mean": 0.014004118881686439,
+      "visible_count_mean": 9.203125,
+      "fov_fraction": 0.3852127181041218,
+      "zero_visible_frames": 4,
+      "lidar_seconds_mean": 0.145396290734374,
+      "visual_seconds_mean": 0.08994161354687424
+    },
+    "val": {
+      "frames": 32,
+      "visible_fraction_mean": 0.013964325318488997,
+      "visible_count_mean": 10.59375,
+      "fov_fraction": 0.4116838757802992,
+      "zero_visible_frames": 0,
+      "lidar_seconds_mean": 0.13788347218750108,
+      "visual_seconds_mean": 0.07224617584375137
+    }
+  },
+  "frames": [
+    {
+      "frame_id": "1329601360002721",
+      "split": "train",
+      "voxels": 915,
+      "in_fov": 328,
+      "visible": 17,
+      "visible_fraction": 0.018579234972677595,
+      "lidar_seconds": 0.5086539480000027,
+      "visual_seconds": 1.125316601999998
+    },
+    {
+      "frame_id": "1329601361402708",
+      "split": "train",
+      "voxels": 1010,
+      "in_fov": 387,
+      "visible": 12,
+      "visible_fraction": 0.011881188118811881,
+      "lidar_seconds": 0.1680840660000058,
+      "visual_seconds": 0.0793515350000007
+    },
+    {
+      "frame_id": "1329601363002701",
+      "split": "train",
+      "voxels": 971,
+      "in_fov": 374,
+      "visible": 14,
+      "visible_fraction": 0.014418125643666324,
+      "lidar_seconds": 0.16576528400000257,
+      "visual_seconds": 0.07374294100000611
+    },
+    {
+      "frame_id": "1329601365002688",
+      "split": "train",
+      "voxels": 953,
+      "in_fov": 376,
+      "visible": 14,
+      "visible_fraction": 0.014690451206715634,
+      "lidar_seconds": 0.15770376600001157,
+      "visual_seconds": 0.07490486599999713
+    },
+    {
+      "frame_id": "1329601366402682",
+      "split": "train",
+      "voxels": 946,
+      "in_fov": 334,
+      "visible": 9,
+      "visible_fraction": 0.009513742071881607,
+      "lidar_seconds": 0.13949759599999823,
+      "visual_seconds": 0.07677379300000098
+    },
+    {
+      "frame_id": "1329601368002667",
+      "split": "train",
+      "voxels": 833,
+      "in_fov": 322,
+      "visible": 10,
+      "visible_fraction": 0.012004801920768308,
+      "lidar_seconds": 0.13920085799999526,
+      "visual_seconds": 0.07363096599999608
+    },
+    {
+      "frame_id": "1329601369402661",
+      "split": "train",
+      "voxels": 835,
+      "in_fov": 316,
+      "visible": 16,
+      "visible_fraction": 0.019161676646706587,
+      "lidar_seconds": 0.14180466599999875,
+      "visual_seconds": 0.07162504299999739
+    },
+    {
+      "frame_id": "1329601371002903",
+      "split": "train",
+      "voxels": 797,
+      "in_fov": 319,
+      "visible": 9,
+      "visible_fraction": 0.011292346298619825,
+      "lidar_seconds": 0.14243207899998822,
+      "visual_seconds": 0.0711308909999957
+    },
+    {
+      "frame_id": "1329601372402637",
+      "split": "train",
+      "voxels": 759,
+      "in_fov": 317,
+      "visible": 10,
+      "visible_fraction": 0.013175230566534914,
+      "lidar_seconds": 0.1368180820000049,
+      "visual_seconds": 0.07133275000001049
+    },
+    {
+      "frame_id": "1329601374402652",
+      "split": "train",
+      "voxels": 706,
+      "in_fov": 312,
+      "visible": 12,
+      "visible_fraction": 0.0169971671388102,
+      "lidar_seconds": 0.13635451599999726,
+      "visual_seconds": 0.07099901200000147
+    },
+    {
+      "frame_id": "1329601376002616",
+      "split": "train",
+      "voxels": 710,
+      "in_fov": 325,
+      "visible": 15,
+      "visible_fraction": 0.02112676056338028,
+      "lidar_seconds": 0.1367726870000041,
+      "visual_seconds": 0.0709016360000021
+    },
+    {
+      "frame_id": "1329601377402601",
+      "split": "train",
+      "voxels": 653,
+      "in_fov": 311,
+      "visible": 8,
+      "visible_fraction": 0.01225114854517611,
+      "lidar_seconds": 0.13720769900000107,
+      "visual_seconds": 0.07355561200000693
+    },
+    {
+      "frame_id": "1329601379002599",
+      "split": "train",
+      "voxels": 683,
+      "in_fov": 331,
+      "visible": 9,
+      "visible_fraction": 0.013177159590043924,
+      "lidar_seconds": 0.13408817299999498,
+      "visual_seconds": 0.0768210899999957
+    },
+    {
+      "frame_id": "1329601380402595",
+      "split": "train",
+      "voxels": 676,
+      "in_fov": 330,
+      "visible": 21,
+      "visible_fraction": 0.03106508875739645,
+      "lidar_seconds": 0.13268073599999752,
+      "visual_seconds": 0.07783136899999477
+    },
+    {
+      "frame_id": "1329601382002578",
+      "split": "train",
+      "voxels": 703,
+      "in_fov": 344,
+      "visible": 7,
+      "visible_fraction": 0.00995732574679943,
+      "lidar_seconds": 0.13584347999999125,
+      "visual_seconds": 0.07460182500000201
+    },
+    {
+      "frame_id": "1329601384002580",
+      "split": "train",
+      "voxels": 706,
+      "in_fov": 358,
+      "visible": 6,
+      "visible_fraction": 0.0084985835694051,
+      "lidar_seconds": 0.14156670100000213,
+      "visual_seconds": 0.07230151800000328
+    },
+    {
+      "frame_id": "1329601385402767",
+      "split": "train",
+      "voxels": 693,
+      "in_fov": 349,
+      "visible": 19,
+      "visible_fraction": 0.027417027417027416,
+      "lidar_seconds": 0.13846252300000117,
+      "visual_seconds": 0.07247962799999641
+    },
+    {
+      "frame_id": "1329601387002543",
+      "split": "train",
+      "voxels": 692,
+      "in_fov": 290,
+      "visible": 6,
+      "visible_fraction": 0.008670520231213872,
+      "lidar_seconds": 0.13676289299999667,
+      "visual_seconds": 0.07093380999999965
+    },
+    {
+      "frame_id": "1329601388402532",
+      "split": "train",
+      "voxels": 757,
+      "in_fov": 306,
+      "visible": 20,
+      "visible_fraction": 0.026420079260237782,
+      "lidar_seconds": 0.13553091100000358,
+      "visual_seconds": 0.07336881300000186
+    },
+    {
+      "frame_id": "1329601390002526",
+      "split": "train",
+      "voxels": 822,
+      "in_fov": 360,
+      "visible": 28,
+      "visible_fraction": 0.0340632603406326,
+      "lidar_seconds": 0.13564096199999653,
+      "visual_seconds": 0.06979495000000213
+    },
+    {
+      "frame_id": "1329601391402635",
+      "split": "train",
+      "voxels": 866,
+      "in_fov": 372,
+      "visible": 10,
+      "visible_fraction": 0.011547344110854504,
+      "lidar_seconds": 0.13795288000000028,
+      "visual_seconds": 0.07298873199999889
+    },
+    {
+      "frame_id": "1329601393402503",
+      "split": "train",
+      "voxels": 741,
+      "in_fov": 198,
+      "visible": 19,
+      "visible_fraction": 0.02564102564102564,
+      "lidar_seconds": 0.13996941299998866,
+      "visual_seconds": 0.07113014899999826
+    },
+    {
+      "frame_id": "1329601395002495",
+      "split": "train",
+      "voxels": 850,
+      "in_fov": 137,
+      "visible": 14,
+      "visible_fraction": 0.01647058823529412,
+      "lidar_seconds": 0.16608092200000613,
+      "visual_seconds": 0.07241624799999613
+    },
+    {
+      "frame_id": "1329601396402539",
+      "split": "train",
+      "voxels": 841,
+      "in_fov": 111,
+      "visible": 9,
+      "visible_fraction": 0.01070154577883472,
+      "lidar_seconds": 0.13981326700000807,
+      "visual_seconds": 0.0745216830000004
+    },
+    {
+      "frame_id": "1329601398002477",
+      "split": "train",
+      "voxels": 770,
+      "in_fov": 150,
+      "visible": 4,
+      "visible_fraction": 0.005194805194805195,
+      "lidar_seconds": 0.14080604299999777,
+      "visual_seconds": 0.07372017499999117
+    },
+    {
+      "frame_id": "1329601399402470",
+      "split": "train",
+      "voxels": 817,
+      "in_fov": 290,
+      "visible": 15,
+      "visible_fraction": 0.01835985312117503,
+      "lidar_seconds": 0.1398356779999972,
+      "visual_seconds": 0.07124583499999915
+    },
+    {
+      "frame_id": "1329601401402448",
+      "split": "train",
+      "voxels": 795,
+      "in_fov": 308,
+      "visible": 8,
+      "visible_fraction": 0.010062893081761006,
+      "lidar_seconds": 0.1399766699999958,
+      "visual_seconds": 0.0744282940000005
+    },
+    {
+      "frame_id": "1329601403002483",
+      "split": "train",
+      "voxels": 815,
+      "in_fov": 333,
+      "visible": 12,
+      "visible_fraction": 0.014723926380368098,
+      "lidar_seconds": 0.13580008799999632,
+      "visual_seconds": 0.07615871499999116
+    },
+    {
+      "frame_id": "1329601404402427",
+      "split": "train",
+      "voxels": 752,
+      "in_fov": 292,
+      "visible": 8,
+      "visible_fraction": 0.010638297872340425,
+      "lidar_seconds": 0.13435425400000156,
+      "visual_seconds": 0.07124759799999936
+    },
+    {
+      "frame_id": "1329601406002426",
+      "split": "train",
+      "voxels": 784,
+      "in_fov": 313,
+      "visible": 13,
+      "visible_fraction": 0.016581632653061226,
+      "lidar_seconds": 0.1404486569999932,
+      "visual_seconds": 0.07076311400000179
+    },
+    {
+      "frame_id": "1329601407402467",
+      "split": "train",
+      "voxels": 743,
+      "in_fov": 307,
+      "visible": 9,
+      "visible_fraction": 0.012113055181695828,
+      "lidar_seconds": 0.13996104599999626,
+      "visual_seconds": 0.07430277899999282
+    },
+    {
+      "frame_id": "1329601409002400",
+      "split": "train",
+      "voxels": 743,
+      "in_fov": 330,
+      "visible": 11,
+      "visible_fraction": 0.014804845222072678,
+      "lidar_seconds": 0.1488798299999985,
+      "visual_seconds": 0.07560229499999593
+    },
+    {
+      "frame_id": "1329601411002392",
+      "split": "train",
+      "voxels": 738,
+      "in_fov": 312,
+      "visible": 9,
+      "visible_fraction": 0.012195121951219513,
+      "lidar_seconds": 0.1541863759999984,
+      "visual_seconds": 0.07327602400000899
+    },
+    {
+      "frame_id": "1329601412402370",
+      "split": "train",
+      "voxels": 692,
+      "in_fov": 311,
+      "visible": 8,
+      "visible_fraction": 0.011560693641618497,
+      "lidar_seconds": 0.15124707500000056,
+      "visual_seconds": 0.07223125600000913
+    },
+    {
+      "frame_id": "1329601414002369",
+      "split": "train",
+      "voxels": 732,
+      "in_fov": 319,
+      "visible": 8,
+      "visible_fraction": 0.01092896174863388,
+      "lidar_seconds": 0.1501570060000006,
+      "visual_seconds": 0.07048703399999567
+    },
+    {
+      "frame_id": "1329601415402388",
+      "split": "train",
+      "voxels": 695,
+      "in_fov": 300,
+      "visible": 7,
+      "visible_fraction": 0.010071942446043165,
+      "lidar_seconds": 0.13953519099999312,
+      "visual_seconds": 0.07577403400000549
+    },
+    {
+      "frame_id": "1329601417002348",
+      "split": "train",
+      "voxels": 733,
+      "in_fov": 342,
+      "visible": 9,
+      "visible_fraction": 0.01227830832196453,
+      "lidar_seconds": 0.13486681700000247,
+      "visual_seconds": 0.07328869999999199
+    },
+    {
+      "frame_id": "1329601418402716",
+      "split": "train",
+      "voxels": 710,
+      "in_fov": 311,
+      "visible": 7,
+      "visible_fraction": 0.009859154929577466,
+      "lidar_seconds": 0.14059935699999926,
+      "visual_seconds": 0.07093531299999256
+    },
+    {
+      "frame_id": "1329601420402318",
+      "split": "train",
+      "voxels": 779,
+      "in_fov": 341,
+      "visible": 8,
+      "visible_fraction": 0.010269576379974325,
+      "lidar_seconds": 0.13919698700000538,
+      "visual_seconds": 0.0705226559999943
+    },
+    {
+      "frame_id": "1329601422002318",
+      "split": "train",
+      "voxels": 844,
+      "in_fov": 354,
+      "visible": 10,
+      "visible_fraction": 0.011848341232227487,
+      "lidar_seconds": 0.13593483500000048,
+      "visual_seconds": 0.07667196600000636
+    },
+    {
+      "frame_id": "1329601423402298",
+      "split": "train",
+      "voxels": 842,
+      "in_fov": 332,
+      "visible": 9,
+      "visible_fraction": 0.010688836104513063,
+      "lidar_seconds": 0.1354662520000005,
+      "visual_seconds": 0.07494888000000799
+    },
+    {
+      "frame_id": "1329601425002298",
+      "split": "train",
+      "voxels": 906,
+      "in_fov": 315,
+      "visible": 6,
+      "visible_fraction": 0.006622516556291391,
+      "lidar_seconds": 0.13628641599999014,
+      "visual_seconds": 0.07357274700000005
+    },
+    {
+      "frame_id": "1329601426402279",
+      "split": "train",
+      "voxels": 894,
+      "in_fov": 327,
+      "visible": 12,
+      "visible_fraction": 0.013422818791946308,
+      "lidar_seconds": 0.13710979200000395,
+      "visual_seconds": 0.07316059999999425
+    },
+    {
+      "frame_id": "1329601428402277",
+      "split": "train",
+      "voxels": 882,
+      "in_fov": 297,
+      "visible": 8,
+      "visible_fraction": 0.009070294784580499,
+      "lidar_seconds": 0.13697557099999358,
+      "visual_seconds": 0.07517219300000022
+    },
+    {
+      "frame_id": "1329601430002267",
+      "split": "train",
+      "voxels": 953,
+      "in_fov": 301,
+      "visible": 5,
+      "visible_fraction": 0.005246589716684155,
+      "lidar_seconds": 0.1515741519999949,
+      "visual_seconds": 0.0748271319999958
+    },
+    {
+      "frame_id": "1329601431402252",
+      "split": "train",
+      "voxels": 935,
+      "in_fov": 290,
+      "visible": 10,
+      "visible_fraction": 0.0106951871657754,
+      "lidar_seconds": 0.13985960899999839,
+      "visual_seconds": 0.07293548299999486
+    },
+    {
+      "frame_id": "1329601433002245",
+      "split": "train",
+      "voxels": 914,
+      "in_fov": 280,
+      "visible": 11,
+      "visible_fraction": 0.012035010940919038,
+      "lidar_seconds": 0.15225773500000628,
+      "visual_seconds": 0.07130419099999585
+    },
+    {
+      "frame_id": "1329604598983232",
+      "split": "train",
+      "voxels": 384,
+      "in_fov": 160,
+      "visible": 9,
+      "visible_fraction": 0.0234375,
+      "lidar_seconds": 0.18017222899999297,
+      "visual_seconds": 0.07360022299999969
+    },
+    {
+      "frame_id": "1329604600583214",
+      "split": "train",
+      "voxels": 350,
+      "in_fov": 150,
+      "visible": 7,
+      "visible_fraction": 0.02,
+      "lidar_seconds": 0.16897658399999216,
+      "visual_seconds": 0.07562741599998901
+    },
+    {
+      "frame_id": "1329604602583193",
+      "split": "train",
+      "voxels": 320,
+      "in_fov": 126,
+      "visible": 9,
+      "visible_fraction": 0.028125,
+      "lidar_seconds": 0.1340434909999999,
+      "visual_seconds": 0.0742408849999947
+    },
+    {
+      "frame_id": "1329604603983211",
+      "split": "train",
+      "voxels": 281,
+      "in_fov": 116,
+      "visible": 2,
+      "visible_fraction": 0.0071174377224199285,
+      "lidar_seconds": 0.13773397900000361,
+      "visual_seconds": 0.07440370300000154
+    },
+    {
+      "frame_id": "1329604605583164",
+      "split": "train",
+      "voxels": 281,
+      "in_fov": 114,
+      "visible": 4,
+      "visible_fraction": 0.014234875444839857,
+      "lidar_seconds": 0.12759027199999196,
+      "visual_seconds": 0.07490325599999892
+    },
+    {
+      "frame_id": "1329604606983155",
+      "split": "train",
+      "voxels": 252,
+      "in_fov": 91,
+      "visible": 6,
+      "visible_fraction": 0.023809523809523808,
+      "lidar_seconds": 0.1255808949999988,
+      "visual_seconds": 0.07954430600000251
+    },
+    {
+      "frame_id": "1329604608583140",
+      "split": "train",
+      "voxels": 246,
+      "in_fov": 80,
+      "visible": 0,
+      "visible_fraction": 0.0,
+      "lidar_seconds": 0.1254591000000005,
+      "visual_seconds": 0.07377264199999445
+    },
+    {
+      "frame_id": "1329604609983135",
+      "split": "train",
+      "voxels": 276,
+      "in_fov": 88,
+      "visible": 7,
+      "visible_fraction": 0.025362318840579712,
+      "lidar_seconds": 0.13641240399999788,
+      "visual_seconds": 0.07476400400000216
+    },
+    {
+      "frame_id": "1329604611983122",
+      "split": "train",
+      "voxels": 209,
+      "in_fov": 69,
+      "visible": 5,
+      "visible_fraction": 0.023923444976076555,
+      "lidar_seconds": 0.1261565960000013,
+      "visual_seconds": 0.0734930140000074
+    },
+    {
+      "frame_id": "1329604613583755",
+      "split": "train",
+      "voxels": 248,
+      "in_fov": 84,
+      "visible": 0,
+      "visible_fraction": 0.0,
+      "lidar_seconds": 0.12778711299999657,
+      "visual_seconds": 0.07321532100000638
+    },
+    {
+      "frame_id": "1329604614983101",
+      "split": "train",
+      "voxels": 272,
+      "in_fov": 97,
+      "visible": 2,
+      "visible_fraction": 0.007352941176470588,
+      "lidar_seconds": 0.12518331100000069,
+      "visual_seconds": 0.07326657499999101
+    },
+    {
+      "frame_id": "1329604616583112",
+      "split": "train",
+      "voxels": 262,
+      "in_fov": 86,
+      "visible": 8,
+      "visible_fraction": 0.030534351145038167,
+      "lidar_seconds": 0.12377535099999193,
+      "visual_seconds": 0.07508370200000059
+    },
+    {
+      "frame_id": "1329604617983823",
+      "split": "train",
+      "voxels": 262,
+      "in_fov": 88,
+      "visible": 6,
+      "visible_fraction": 0.022900763358778626,
+      "lidar_seconds": 0.12042836999999906,
+      "visual_seconds": 0.07354374899999527
+    },
+    {
+      "frame_id": "1329604619583096",
+      "split": "train",
+      "voxels": 266,
+      "in_fov": 88,
+      "visible": 2,
+      "visible_fraction": 0.007518796992481203,
+      "lidar_seconds": 0.13250563800001203,
+      "visual_seconds": 0.07309130000000152
+    },
+    {
+      "frame_id": "1329604621983066",
+      "split": "train",
+      "voxels": 254,
+      "in_fov": 89,
+      "visible": 0,
+      "visible_fraction": 0.0,
+      "lidar_seconds": 0.12662965500000212,
+      "visual_seconds": 0.07243023699999185
+    },
+    {
+      "frame_id": "1329604623583040",
+      "split": "train",
+      "voxels": 237,
+      "in_fov": 85,
+      "visible": 0,
+      "visible_fraction": 0.0,
+      "lidar_seconds": 0.12365236299999083,
+      "visual_seconds": 0.07153562199999897
+    },
+    {
+      "frame_id": "1329604624983040",
+      "split": "train",
+      "voxels": 253,
+      "in_fov": 98,
+      "visible": 1,
+      "visible_fraction": 0.003952569169960474,
+      "lidar_seconds": 0.123271711000001,
+      "visual_seconds": 0.07071483600000761
+    },
+    {
+      "frame_id": "1329604635582975",
+      "split": "val",
+      "voxels": 414,
+      "in_fov": 227,
+      "visible": 7,
+      "visible_fraction": 0.016908212560386472,
+      "lidar_seconds": 0.12401748899999632,
+      "visual_seconds": 0.07255194500000073
+    },
+    {
+      "frame_id": "1329604636982984",
+      "split": "val",
+      "voxels": 416,
+      "in_fov": 305,
+      "visible": 19,
+      "visible_fraction": 0.04567307692307692,
+      "lidar_seconds": 0.12251049099999989,
+      "visual_seconds": 0.07195029400000408
+    },
+    {
+      "frame_id": "1329604637982961",
+      "split": "val",
+      "voxels": 620,
+      "in_fov": 345,
+      "visible": 16,
+      "visible_fraction": 0.025806451612903226,
+      "lidar_seconds": 0.13321525300000303,
+      "visual_seconds": 0.0725368540000062
+    },
+    {
+      "frame_id": "1329604639582940",
+      "split": "val",
+      "voxels": 734,
+      "in_fov": 372,
+      "visible": 11,
+      "visible_fraction": 0.014986376021798364,
+      "lidar_seconds": 0.13644781899999714,
+      "visual_seconds": 0.0746026970000031
+    },
+    {
+      "frame_id": "1329604640582945",
+      "split": "val",
+      "voxels": 777,
+      "in_fov": 346,
+      "visible": 13,
+      "visible_fraction": 0.01673101673101673,
+      "lidar_seconds": 0.1393273969999882,
+      "visual_seconds": 0.07435176799999965
+    },
+    {
+      "frame_id": "1329604641982945",
+      "split": "val",
+      "voxels": 801,
+      "in_fov": 357,
+      "visible": 9,
+      "visible_fraction": 0.011235955056179775,
+      "lidar_seconds": 0.1382840600000037,
+      "visual_seconds": 0.07318474900000638
+    },
+    {
+      "frame_id": "1329604642982934",
+      "split": "val",
+      "voxels": 826,
+      "in_fov": 345,
+      "visible": 10,
+      "visible_fraction": 0.012106537530266344,
+      "lidar_seconds": 0.1387098339999966,
+      "visual_seconds": 0.07405439500000455
+    },
+    {
+      "frame_id": "1329604644582931",
+      "split": "val",
+      "voxels": 823,
+      "in_fov": 333,
+      "visible": 11,
+      "visible_fraction": 0.013365735115431349,
+      "lidar_seconds": 0.13809312300000443,
+      "visual_seconds": 0.07369050399999821
+    },
+    {
+      "frame_id": "1329604645582910",
+      "split": "val",
+      "voxels": 809,
+      "in_fov": 332,
+      "visible": 11,
+      "visible_fraction": 0.013597033374536464,
+      "lidar_seconds": 0.138768847999998,
+      "visual_seconds": 0.07140889599999412
+    },
+    {
+      "frame_id": "1329604646982902",
+      "split": "val",
+      "voxels": 905,
+      "in_fov": 369,
+      "visible": 13,
+      "visible_fraction": 0.014364640883977901,
+      "lidar_seconds": 0.13914627399999802,
+      "visual_seconds": 0.07327565399999969
+    },
+    {
+      "frame_id": "1329604647983097",
+      "split": "val",
+      "voxels": 880,
+      "in_fov": 370,
+      "visible": 20,
+      "visible_fraction": 0.022727272727272728,
+      "lidar_seconds": 0.13995144199999743,
+      "visual_seconds": 0.07092266700000494
+    },
+    {
+      "frame_id": "1329604649582929",
+      "split": "val",
+      "voxels": 826,
+      "in_fov": 317,
+      "visible": 12,
+      "visible_fraction": 0.014527845036319613,
+      "lidar_seconds": 0.13574896099999023,
+      "visual_seconds": 0.07070233000000314
+    },
+    {
+      "frame_id": "1329604651582866",
+      "split": "val",
+      "voxels": 782,
+      "in_fov": 323,
+      "visible": 12,
+      "visible_fraction": 0.015345268542199489,
+      "lidar_seconds": 0.13757400500000472,
+      "visual_seconds": 0.07363100700000302
+    },
+    {
+      "frame_id": "1329604652583020",
+      "split": "val",
+      "voxels": 791,
+      "in_fov": 321,
+      "visible": 9,
+      "visible_fraction": 0.011378002528445006,
+      "lidar_seconds": 0.1340185809999923,
+      "visual_seconds": 0.0729464150000041
+    },
+    {
+      "frame_id": "1329604653982864",
+      "split": "val",
+      "voxels": 757,
+      "in_fov": 326,
+      "visible": 9,
+      "visible_fraction": 0.011889035667107,
+      "lidar_seconds": 0.14208651700000985,
+      "visual_seconds": 0.07306751099999076
+    },
+    {
+      "frame_id": "1329604654982854",
+      "split": "val",
+      "voxels": 761,
+      "in_fov": 334,
+      "visible": 7,
+      "visible_fraction": 0.009198423127463863,
+      "lidar_seconds": 0.13315814599999953,
+      "visual_seconds": 0.07329523300001028
+    },
+    {
+      "frame_id": "1329604656582868",
+      "split": "val",
+      "voxels": 749,
+      "in_fov": 316,
+      "visible": 5,
+      "visible_fraction": 0.006675567423230975,
+      "lidar_seconds": 0.15046062400000437,
+      "visual_seconds": 0.07176295200000027
+    },
+    {
+      "frame_id": "1329604657582841",
+      "split": "val",
+      "voxels": 759,
+      "in_fov": 335,
+      "visible": 7,
+      "visible_fraction": 0.00922266139657444,
+      "lidar_seconds": 0.15235377799999128,
+      "visual_seconds": 0.07193408100000909
+    },
+    {
+      "frame_id": "1329604658983490",
+      "split": "val",
+      "voxels": 742,
+      "in_fov": 321,
+      "visible": 9,
+      "visible_fraction": 0.012129380053908356,
+      "lidar_seconds": 0.13880031500001166,
+      "visual_seconds": 0.07320551099999761
+    },
+    {
+      "frame_id": "1329604659982823",
+      "split": "val",
+      "voxels": 785,
+      "in_fov": 330,
+      "visible": 16,
+      "visible_fraction": 0.02038216560509554,
+      "lidar_seconds": 0.1355273799999992,
+      "visual_seconds": 0.0728945410000108
+    },
+    {
+      "frame_id": "1329604661582864",
+      "split": "val",
+      "voxels": 775,
+      "in_fov": 336,
+      "visible": 6,
+      "visible_fraction": 0.007741935483870968,
+      "lidar_seconds": 0.13938215600001058,
+      "visual_seconds": 0.07280147199999476
+    },
+    {
+      "frame_id": "1329604662982805",
+      "split": "val",
+      "voxels": 779,
+      "in_fov": 332,
+      "visible": 9,
+      "visible_fraction": 0.011553273427471117,
+      "lidar_seconds": 0.13548251900000707,
+      "visual_seconds": 0.0709920080000046
+    },
+    {
+      "frame_id": "1329604663982801",
+      "split": "val",
+      "voxels": 791,
+      "in_fov": 345,
+      "visible": 7,
+      "visible_fraction": 0.008849557522123894,
+      "lidar_seconds": 0.13854379900000424,
+      "visual_seconds": 0.07057613299998877
+    },
+    {
+      "frame_id": "1329604665582834",
+      "split": "val",
+      "voxels": 835,
+      "in_fov": 311,
+      "visible": 9,
+      "visible_fraction": 0.010778443113772455,
+      "lidar_seconds": 0.1377569980000004,
+      "visual_seconds": 0.07111624200000222
+    },
+    {
+      "frame_id": "1329604666582815",
+      "split": "val",
+      "voxels": 903,
+      "in_fov": 326,
+      "visible": 13,
+      "visible_fraction": 0.014396456256921373,
+      "lidar_seconds": 0.132755108000012,
+      "visual_seconds": 0.07092623600000536
+    },
+    {
+      "frame_id": "1329604667982805",
+      "split": "val",
+      "voxels": 918,
+      "in_fov": 321,
+      "visible": 6,
+      "visible_fraction": 0.006535947712418301,
+      "lidar_seconds": 0.13588834200000122,
+      "visual_seconds": 0.0728636569999992
+    },
+    {
+      "frame_id": "1329604668983281",
+      "split": "val",
+      "voxels": 909,
+      "in_fov": 318,
+      "visible": 7,
+      "visible_fraction": 0.007700770077007701,
+      "lidar_seconds": 0.15296882900000242,
+      "visual_seconds": 0.0700927530000115
+    },
+    {
+      "frame_id": "1329604670582822",
+      "split": "val",
+      "voxels": 888,
+      "in_fov": 315,
+      "visible": 14,
+      "visible_fraction": 0.015765765765765764,
+      "lidar_seconds": 0.13760566499999527,
+      "visual_seconds": 0.07084509099999536
+    },
+    {
+      "frame_id": "1329604671582933",
+      "split": "val",
+      "voxels": 913,
+      "in_fov": 319,
+      "visible": 11,
+      "visible_fraction": 0.012048192771084338,
+      "lidar_seconds": 0.13751305400001002,
+      "visual_seconds": 0.07369445499999472
+    },
+    {
+      "frame_id": "1329604672982737",
+      "split": "val",
+      "voxels": 976,
+      "in_fov": 343,
+      "visible": 10,
+      "visible_fraction": 0.010245901639344262,
+      "lidar_seconds": 0.1343956360000078,
+      "visual_seconds": 0.07075316499999929
+    },
+    {
+      "frame_id": "1329604673982743",
+      "split": "val",
+      "voxels": 914,
+      "in_fov": 313,
+      "visible": 8,
+      "visible_fraction": 0.0087527352297593,
+      "lidar_seconds": 0.14376758699999925,
+      "visual_seconds": 0.07023703699999828
+    },
+    {
+      "frame_id": "1329604675582729",
+      "split": "val",
+      "voxels": 913,
+      "in_fov": 283,
+      "visible": 13,
+      "visible_fraction": 0.014238773274917854,
+      "lidar_seconds": 0.1380110799999983,
+      "visual_seconds": 0.07100937399999907
+    }
+  ]
+}
