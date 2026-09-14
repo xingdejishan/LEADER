@@ -22,5 +22,6 @@ for row in rows:
     result['frames'].append(dict(frame_id=row['frame_id'], **{kind: digest(CACHE / kind / (row['frame_id'] + '.npz')) for kind in ['lidar', 'visual']}))
 result['original_checkpoint'] = digest(HERE.parents[3] / 'research/image_gate_checkpoint/model.safetensors')
 result['line1_checkpoint'] = digest(CACHE / 'aligned.pt')
+result['trained_heads'] = {str(p.relative_to(OUT)): digest(p) for p in sorted(OUT.glob('*/*.pt'))}
 (OUT / 'provenance.json').write_text(json.dumps(result, indent=2))
 print('Recorded source, checkpoint and 96 paired cache hashes')
