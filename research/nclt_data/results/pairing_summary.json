@@ -1,0 +1,25 @@
+{
+  "train": {
+    "original_frames": 907,
+    "fully_paired": 905,
+    "missing_scans": [
+      "1327251814000992",
+      "1336763674005996"
+    ]
+  },
+  "val": {
+    "original_frames": 303,
+    "fully_paired": 301,
+    "missing_scans": [
+      "1329604620983067",
+      "1329604650583039"
+    ]
+  },
+  "test": {
+    "original_frames": 148,
+    "fully_paired": 148,
+    "missing_scans": []
+  },
+  "original_split_unchanged": true,
+  "timestamp_policy": "Exact image/frame ID; no neighboring scan substituted"
+}
