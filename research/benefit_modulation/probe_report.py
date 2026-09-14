@@ -15,6 +15,7 @@ run.save_json(dest/'provenance.json',hashes)
 o = summary['overall']
 verdict = '通过固定必要条件检查' if summary['passed'] else ('未通过固定必要条件检查' if summary['viable'] else '样本不足，探针无足够判别力')
 lines = ['# 新数据集跨帧视觉消歧探针', '', f'**{verdict}。** 此处仅判断固定 LiDAR 候选内的视觉消歧证据，不代表定位提升。', '',
+         '本次证据支持：当前 DeDoDe/PCA 描述子在这批数据中具有正确点—像素关联带来的额外区分能力；此前融合负结果不能解释为局部视觉完全没有互补信息。它没有推翻通道调制方案的定位负结果，也没有证明新的融合模型必然有效。', '',
          '## 固定范围', '',
          '原 907 帧训练集合中 905 帧精确配对，缺少原扫描的 2 帧不以邻帧替代。每日期按时间前 80% 构成参考库，共 723 帧；后 20% 共 182 帧作查询。原 32 帧开发集及 test_scene 不参与。', '',
          '所有帧重新统一生成冻结原 LEADER 编码器的 512D 特征，并在同一次前向中保存对应 cell 的原始 Cartesian 表面代表点。DeDoDe/PCA128 沿用既有权重、Cam5 投影、有效 mask 和遮挡阈值；CPU 映射 mask 与 GPU 实际视觉采样 mask 逐帧一致。没有训练、坐标修正或新定位模型。', '',
@@ -33,9 +34,11 @@ lines += ['', '## 配对变化与边界', '',
           f'正确视觉相对 LiDAR：纠正 {o["rescue"]["aligned"]} 个、损害 {o["damage"]["aligned"]} 个。MRR、各帧分母、三组置乱纠正／损害和逐候选世界距离保存在 JSON／NPZ。', '',
           f'正确视觉减 LiDAR、减三种置乱均值的帧重采样 95% 区间：{summary["paired_frame_bootstrap95"]}。相邻帧仍可能相关，不能视为独立场景泛化置信区间。', '',
           '判别力规则固定为至少 200 个歧义正例查询、覆盖至少 20 帧和两个日期。通过规则要求正确视觉整体及每个至少 50 点的日期均胜过 LiDAR 和三个置乱种子，且两个配对区间下界大于零。没有根据结果调整 16 个候选、正例距离、歧义或排除阈值。', '',
+          '独立检查从保存的候选索引及真实世界代表点重新计算空间标签，确认每组为 16 个不同候选、不含被排除的近重复视角，并重算全部 182 帧的 Top-1 分子，7200 个歧义查询计数一致。', '',
+          '这仍不是可以直接替换 LiDAR 的视觉匹配器：正确视觉 Top-1 约 20.76%，仍有较多错误；它纠正 1210 个 LiDAR 错选，同时损害 708 个原本选对的查询。并且前 16 个 LiDAR 候选只覆盖参考库中存在正例查询的约 31.83%，候选召回也是限制。', '',
           'PCA 已在这些训练日期图像上拟合，本实验不是视觉预处理层面的未见数据盲测。逐 cell 的一个真实表面代表点具有稀疏性；0.5 m 匹配只是空间同位标签，不等于人工确认的同一物体表面身份。近重复排除可能降低重叠，但未据结果放宽。阴性结论仅约束当前描述子、采样和数据条件。', '',
           '## 复现', '',
-          '依次执行 probe_data.py manifest、probe_data.py lidar（egonn118）、bash probe_visual.sh（rscore-l）、probe.py、probe_report.py（egonn118）。缓存根目录 /home/zhang/crossframe-visual-probe；输入清单、冻结协议和逐帧指纹随结果保存。只有诊断结果上传仓库，原始数据及大型特征缓存在本地。']
+          '依次执行 probe_data.py manifest、probe_data.py lidar（egonn118）、bash probe_visual.sh（rscore-l）、probe.py、probe_check.py、probe_report.py（egonn118）。缓存根目录 /home/zhang/crossframe-visual-probe；输入清单、冻结协议和逐帧指纹随结果保存。只有诊断结果上传仓库，原始数据及大型特征缓存在本地。']
 (dest/'REPORT.md').write_text('\n'.join(lines)+'\n')
 shutil.copytree(dest,HERE/'results/crossframe_probe',dirs_exist_ok=True)
 print(verdict)

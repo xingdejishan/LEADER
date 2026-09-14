@@ -21,3 +21,5 @@ python report.py
 本轮不采用上一轮可靠度残差头的“第 0 轮可获选”规则，也不更改投影来追求覆盖率；13 帧内部留出仅用于选模，不参加参数更新。所有数据仍是小规模本地开发数据，不能代表完整 NCLT。
 
 追加的无需训练 GT 辅助诊断由 `python oracle.py` 执行，结果见 [results/oracle/REPORT.md](results/oracle/REPORT.md)。它复用六组 best.pt，在原预测、正常门控和有界全开尝试之间按逐点 GT 坐标误差选择，并固定原候选索引与顺序；不是可部署方法或定位性能上限。
+
+新的研究问题位于 `research/crossframe-visual-probe` 分支：使用补齐的 905 帧训练数据做无需训练的跨帧视觉消歧，见 [results/crossframe_probe/REPORT.md](results/crossframe_probe/REPORT.md)。它不延续通道调制调参，不使用旧 32 帧开发集，复现入口是 probe_data.py / probe_visual.sh / probe.py / probe_check.py / probe_report.py。

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "frames": 182,
+  "ambiguous": 7200,
+  "checks": [
+    "16 distinct fixed candidates",
+    "recomputed Cartesian world-distance labels",
+    "no excluded near-repeat candidates",
+    "independent top1 numerator reconstruction"
+  ]
+}

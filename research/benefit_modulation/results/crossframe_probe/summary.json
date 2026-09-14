@@ -1,0 +1,156 @@
+{
+  "overall": {
+    "frames": 182,
+    "query_points": 30160,
+    "geometric_positive_any": 24055,
+    "candidate_positive": 7656,
+    "ambiguous": 7200,
+    "ambiguous_fraction": 0.23872679045092837,
+    "contributing_frames": 182,
+    "accuracy": {
+      "lidar": 0.13791666666666666,
+      "aligned": 0.2076388888888889,
+      "shuffle2089": 0.09166666666666666,
+      "shuffle2090": 0.08819444444444445,
+      "shuffle2091": 0.09111111111111111
+    },
+    "mrr": {
+      "lidar": 0.3118933897892231,
+      "aligned": 0.3863202464973297,
+      "shuffle2089": 0.25528425895092566,
+      "shuffle2090": 0.25346322466114146,
+      "shuffle2091": 0.25671824992137504
+    },
+    "rescue": {
+      "aligned": 1210,
+      "shuffle2089": 542,
+      "shuffle2090": 523,
+      "shuffle2091": 533
+    },
+    "damage": {
+      "aligned": 708,
+      "shuffle2089": 875,
+      "shuffle2090": 881,
+      "shuffle2091": 870
+    }
+  },
+  "dates": {
+    "2012-01-22": {
+      "frames": 64,
+      "query_points": 11295,
+      "geometric_positive_any": 9354,
+      "candidate_positive": 3100,
+      "ambiguous": 2914,
+      "ambiguous_fraction": 0.25799026117751217,
+      "contributing_frames": 64,
+      "accuracy": {
+        "lidar": 0.14207275223061083,
+        "aligned": 0.19080301990391216,
+        "shuffle2089": 0.0936856554564173,
+        "shuffle2090": 0.0936856554564173,
+        "shuffle2091": 0.09437199725463281
+      },
+      "mrr": {
+        "lidar": 0.31669403577433786,
+        "aligned": 0.3791793065471858,
+        "shuffle2089": 0.258583196430657,
+        "shuffle2090": 0.2604960575533672,
+        "shuffle2091": 0.2638814314260437
+      },
+      "rescue": {
+        "aligned": 448,
+        "shuffle2089": 214,
+        "shuffle2090": 226,
+        "shuffle2091": 231
+      },
+      "damage": {
+        "aligned": 306,
+        "shuffle2089": 355,
+        "shuffle2090": 367,
+        "shuffle2091": 370
+      }
+    },
+    "2012-02-02": {
+      "frames": 55,
+      "query_points": 8623,
+      "geometric_positive_any": 5810,
+      "candidate_positive": 1851,
+      "ambiguous": 1748,
+      "ambiguous_fraction": 0.20271367273570684,
+      "contributing_frames": 55,
+      "accuracy": {
+        "lidar": 0.10640732265446225,
+        "aligned": 0.20194508009153317,
+        "shuffle2089": 0.09153318077803203,
+        "shuffle2090": 0.07437070938215103,
+        "shuffle2091": 0.08409610983981694
+      },
+      "mrr": {
+        "lidar": 0.2761476208129527,
+        "aligned": 0.37587923772134296,
+        "shuffle2089": 0.247435562467027,
+        "shuffle2090": 0.23604993563517587,
+        "shuffle2091": 0.24287499542791302
+      },
+      "rescue": {
+        "aligned": 299,
+        "shuffle2089": 137,
+        "shuffle2090": 106,
+        "shuffle2091": 123
+      },
+      "damage": {
+        "aligned": 132,
+        "shuffle2089": 163,
+        "shuffle2090": 162,
+        "shuffle2091": 162
+      }
+    },
+    "2012-05-11": {
+      "frames": 63,
+      "query_points": 10242,
+      "geometric_positive_any": 8891,
+      "candidate_positive": 2705,
+      "ambiguous": 2538,
+      "ambiguous_fraction": 0.2478031634446397,
+      "contributing_frames": 63,
+      "accuracy": {
+        "lidar": 0.15484633569739953,
+        "aligned": 0.23089046493301812,
+        "shuffle2089": 0.08944050433412136,
+        "shuffle2090": 0.09141055949566587,
+        "shuffle2091": 0.09219858156028368
+      },
+      "mrr": {
+        "lidar": 0.3310007663731068,
+        "aligned": 0.4017101528626351,
+        "shuffle2089": 0.2569022328035331,
+        "shuffle2090": 0.25738156751750135,
+        "shuffle2091": 0.2580281387905501
+      },
+      "rescue": {
+        "aligned": 463,
+        "shuffle2089": 191,
+        "shuffle2090": 191,
+        "shuffle2091": 179
+      },
+      "damage": {
+        "aligned": 270,
+        "shuffle2089": 357,
+        "shuffle2090": 352,
+        "shuffle2091": 338
+      }
+    }
+  },
+  "paired_frame_bootstrap95": {
+    "lidar": [
+      0.05451274175894831,
+      0.08501004586480239
+    ],
+    "shuffled": [
+      0.10459752767867085,
+      0.13071285350695752
+    ]
+  },
+  "viable": true,
+  "passed": true
+}
