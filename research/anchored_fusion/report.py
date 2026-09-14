@@ -74,7 +74,15 @@ def main():
             selection = read(folder/'selection.json')
             assert selection['epoch']==min(choices,key=lambda x:x[1])[0]
             result = aggregate(records)
+            result['checkpoint_sha256'] = run.digest(folder/'best.pt')
+            result['last_checkpoint_sha256'] = run.digest(folder/'last.pt')
             result['selection'] = selection
+            current_errors = np.asarray([r['standard'] for r in records])
+            baseline_errors = np.asarray([r['standard'] for r in baseline])
+            current_success = (current_errors[:,0]<1)&(current_errors[:,1]<5)
+            baseline_success = (baseline_errors[:,0]<1)&(baseline_errors[:,1]<5)
+            result['pose_rescue'] = int((current_success&~baseline_success).sum())
+            result['pose_damage'] = int((~current_success&baseline_success).sum())
             result['dates'] = {d:aggregate([r for r in records if r['date']==d]) for d in dates}
             if selection['epoch']==0:
                 assert [r['standard'] for r in records]==[r['standard'] for r in baseline]
@@ -100,12 +108,37 @@ def main():
     passed &= all(x['ci95'][1]<0 for x in summary['paired_translation'].values())
     summary['passed'] = bool(passed)
     run.save_json(OUT/'summary.json',summary)
+    run.save_json(OUT/'source_provenance.json',dict(source={p.name:run.digest(p) for p in HERE.glob('*.py')},
+                                                  protocol_sha256=run.digest(OUT/'protocol.json'),audit_sha256=run.digest(OUT/'audit.json')))
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    fig, axes = plt.subplots(1,2,figsize=(12,4.5))
+    base_internal = np.mean([r['standard'][0] for r in read(OUT/'baseline_internal.json')])
+    axes[0].axhline(base_internal,color='black',linestyle=':',label='Original LEADER')
+    for color,seed in zip(['tab:blue','tab:orange','tab:green'],SEEDS):
+        for arm,style in [('aligned','-'),('shuffled','--')]:
+            logs = read(OUT/f'{arm}_{seed}'/'training.json')
+            checkpoints = [(0,base_internal)]+[(r['epoch'],r['internal']['mean'][0]) for r in logs if 'internal' in r]
+            axes[0].plot(*zip(*checkpoints),color=color,linestyle=style,label=f'{arm} {seed}',linewidth=1.2)
+            selected = summary['runs'][f'{arm}_{seed}']['selection']
+            axes[0].scatter([selected['epoch']],[selected['mean_translation']],color=color,marker='*',s=65)
+            axes[1].plot([r['epoch'] for r in logs],[r['loss'][2] for r in logs],color=color,linestyle=style,linewidth=1.2)
+    axes[0].set(ylabel='Internal mean translation error (m)',xlabel='Epoch',title='Internal pose selection (* = selected)')
+    axes[1].set(ylabel='Training contrastive loss',xlabel='Epoch',title='Full 100-epoch training')
+    axes[0].legend(fontsize=7,ncol=2)
+    for ax in axes:
+        ax.grid(alpha=.2)
+    fig.tight_layout()
+    fig.savefig(OUT/'learning.png',dpi=160)
+    plt.close(fig)
     lines = ['# 跨帧对比监督的锚定残差融合', '',
              f'**固定联合判据：{"通过" if passed else "未通过"}。** 排序读数与最终定位分别报告，不把匹配改善当作定位提升。', '',
              '## 协议与核验', '',
              '使用统一版本 905 帧缓存：578 帧训练，145 帧内部选模，182 帧固定开发评估；对比参考库仅来自训练部分。三个种子 × 正确／置乱两组，每组完整 100 epoch、7300 次更新。检查点只在内部最终平均位置误差上从 0、10、…、100 轮选择；零初始化可以获选，没有挑最佳种子。', '',
              '37,408 参数的 640→32→512 小 MLP，只加范数不超过原特征 5% 的残差。原 top-K 最高可靠的一半及缺图点保持特征与回归输出严格不变；其他点可能改变可靠度排序，所以另记保护点最终保留率。没有收益门控、额外匹配头或回归头解冻。', '',
              '训练目标为原 TRR + 0.01 倍温度 0.1 的多正例对比损失。查询是融合特征，参考是冻结原 LiDAR 特征；模糊距离不作负例。训练既含原排序正确点，也含错误点。原 coarse voxel 监督目标与真实代表点空间标签分开。结构、梯度、距离模糊标签忽略及 905 帧零初始化恒等性检查通过。', '',
+             '![内部选模与完整训练曲线](learning.png)', '',
              '## 182 帧最终定位', '',
              '| 方法 | 内部选中 epoch | 平均位置 m | 平均旋转 ° | 位置 P95 m | 固定原候选位置 m | 成功帧 1m/5° |',
              '|---|---:|---:|---:|---:|---:|---:|']
@@ -122,6 +155,7 @@ def main():
         lines.append(f'| {name} | {m["accuracy"]:.2%} | {m["rescue"]} | {m["damage"]} | {r["protected_retention"]:.2%} | {r["selected_visible"]["mean_error_delta"]:+.6f} |')
     b = summary['baseline']
     lines += ['', f'歧义点共 {b["mechanism"]["count"]} 个，其中 {b["groups"]["matcher"]["count"]} 个属于原 Matcher 候选、{b["groups"]["protected"]["count"]} 个属于保护集合。原 Matcher 候选总数 {b["matcher_count"]}，故歧义点占其 {b["groups"]["matcher"]["count"]/b["matcher_count"]:.2%}。分组排序结果详见 summary.json。', '',
+              f'允许改变的原 Matcher 歧义点为 {b["groups"]["matcher"]["count"]-b["groups"]["protected"]["count"]} 个，占原 Matcher 候选 {(b["groups"]["matcher"]["count"]-b["groups"]["protected"]["count"])/b["matcher_count"]:.2%}；这个交集不能等同于全部图像有效点上的歧义比例。', '',
               '这里参考库从探针的 723 帧缩为仅训练的 578 帧，因此重新固定 LiDAR 前 16 候选及排序基线，不能直接沿用上一轮 7200 点的正确率。特征完全不变的查询保留原候选顺序，避免矩阵乘法与逐项乘加的舍入差异造成假纠正。', '',
               '## 各日期平均位置误差 m', '', '| 方法 | '+ ' | '.join(dates)+' |', '|---|'+'---:|'*len(dates)]
     for name,by_date in [('纯 LEADER',summary['baseline_dates'])]+[(n,r['dates']) for n,r in summary['runs'].items()]:
@@ -130,6 +164,12 @@ def main():
               '三个种子取逐帧均值，在每日期内对连续最多 10 帧的轨迹块重采样，超过 10 秒断开；10000 次、种子271828。负的位置差表示正确视觉更好。', '',
               '```json',json.dumps(summary['paired_translation'],indent=2),'```', '',
               '判据要求三个正确视觉种子均优于纯 LEADER 与配对置乱，并在每日期同向；配对区间上界低于零；旋转均值和位置 P95 不出现三个种子一致退化；排序也须胜过原 LiDAR 与置乱。', '',
+              '## 本轮解读', '',
+              '正确视觉只有种子2089的平均位置误差优于纯 LEADER，另两个种子略差；三种子均值相对 baseline 只低约 0.10 mm，轨迹块区间包含零。相对置乱，正确视觉三种子均值反而高约 1.24 mm，也未建立稳定优势。三个正确视觉模型的平均旋转误差均略高于 baseline。', '',
+              '匹配排序净纠正分别只有 +4、+11、+9，置乱为 +4、+15、+6；因此不能把这次小幅排序变化归因于正确的逐点视觉关联。前一轮直接视觉排序的阳性证据仍然成立，但当前锚定残差未将其转成稳定的融合定位收益。', '',
+              '35,502 个保护点在六组评估中均保持特征、回归输出不变，且最终候选保留率实际均为 100%；该结构性质成立，但不等于其余对应或整个定位流程不退化。', '',
+              '历史①在新182帧上平均位置为 0.119545 m，确实低于纯 LEADER 的 0.122615 m；不能把旧32帧的负结果直接外推到这个集合。但本轮没有为①补齐同预算三种子置乱对照，这个历史参考结果不构成稳健视觉贡献的证明。', '',
+              '本轮保留纯 LEADER 作为基线，不继续调整当前方案的幅度、温度或损失系数来追逐这182帧。', '',
               '## 边界', '',
               '182 帧已参与前一轮消歧探针和设计选择，不是盲测。PCA 复用训练日期图像拟合的版本。本实验不使用检索库做推理定位，参考库只用于训练监督及事后机制评价。即使排序改善，也不能据此宣布定位提升或完整 NCLT 改善。']
     (OUT/'REPORT.md').write_text('\n'.join(lines)+'\n')
