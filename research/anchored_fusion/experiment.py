@@ -161,16 +161,24 @@ def evaluate(head,decoder,data,anchors,matcher,arm,seed,detail=False):
             final = torch.zeros_like(d['valid'])
             final[top(pred)] = True
             r['protected_count'] = int(d['protected'].sum())
+            r['matcher_count'] = len(d['indices'])
             r['protected_retained'] = int((final&d['protected']).sum())
             mask = d['ambiguous']
             sim = (F.normalize(fused[d['query']],dim=-1)[:,None]*anchors[d['candidates']]).sum(-1)
             choice = sim.argmax(1)
+            unchanged = (fused[d['query']]==d['f'][d['query']]).all(-1)
+            choice = torch.where(unchanged,torch.zeros_like(choice),choice)
             hits = d['positive'].gather(1,choice[:,None])[:,0]
             original = d['positive'][:,0]
             r['mechanism'] = dict(count=int(mask.sum()),correct=int((hits&mask).sum()),
                                  rescue=int((hits&~original&mask).sum()),damage=int((~hits&original&mask).sum()))
             selected = torch.zeros_like(d['valid'])
             selected[d['indices']] = True
+            r['mechanism_groups'] = {}
+            for label, group in [('matcher',selected[d['query']]),('protected',d['protected'][d['query']]),('editable',d['editable'][d['query']])]:
+                use = mask&group
+                r['mechanism_groups'][label] = dict(count=int(use.sum()),correct=int((hits&use).sum()),
+                    rescue=int((hits&~original&use).sum()),damage=int((~hits&original&use).sum()))
             visible_selected = selected&d['valid']
             error_delta = (pred[:,:3]-d['target']).norm(dim=-1)-(d['base'][:,:3]-d['target']).norm(dim=-1)
             r['selected_visible'] = dict(count=int(visible_selected.sum()),delta_sum=float(error_delta[visible_selected].sum()),
