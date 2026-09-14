@@ -1,0 +1,36 @@
+{
+  "fit48": {
+    "frames": 48,
+    "changed_frames": 48,
+    "replacements": 165,
+    "entered_mean_error": 0.30241974197102317,
+    "left_mean_error": 0.43540865248351385,
+    "editable_count": 6283,
+    "saturated_fraction": 0.813783224574248,
+    "positive_fraction": 0.5769536845455993,
+    "normalized_delta_quantiles": [
+      -1.0,
+      -0.9992018938064575,
+      0.8601728081703186,
+      0.9999083280563354,
+      1.0
+    ]
+  },
+  "internal16": {
+    "frames": 16,
+    "changed_frames": 9,
+    "replacements": 14,
+    "entered_mean_error": 0.5994857608207634,
+    "left_mean_error": 0.40551553799637724,
+    "editable_count": 444,
+    "saturated_fraction": 0.9346846846846847,
+    "positive_fraction": 0.9774774774774775,
+    "normalized_delta_quantiles": [
+      -0.9960988759994507,
+      0.9994558990001678,
+      0.9999541640281677,
+      0.9999966472387314,
+      1.0
+    ]
+  }
+}

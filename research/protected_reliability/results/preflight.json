@@ -1,0 +1,871 @@
+{
+  "parameters": 20577,
+  "baseline_prediction_max_error": 0.0,
+  "matcher_repeat_error": 0.0,
+  "records": [
+    {
+      "frame_id": "1329601360002721",
+      "split": "train",
+      "points": 915,
+      "valid": 153,
+      "editable": 119,
+      "gap": 6.692249298095703,
+      "potential_outside_points": 12
+    },
+    {
+      "frame_id": "1329601361402708",
+      "split": "train",
+      "points": 1010,
+      "valid": 221,
+      "editable": 177,
+      "gap": 6.3564605712890625,
+      "potential_outside_points": 12
+    },
+    {
+      "frame_id": "1329601363002701",
+      "split": "train",
+      "points": 971,
+      "valid": 208,
+      "editable": 167,
+      "gap": 4.883453369140625,
+      "potential_outside_points": 13
+    },
+    {
+      "frame_id": "1329601365002688",
+      "split": "train",
+      "points": 953,
+      "valid": 193,
+      "editable": 164,
+      "gap": 4.986198425292969,
+      "potential_outside_points": 16
+    },
+    {
+      "frame_id": "1329601366402682",
+      "split": "train",
+      "points": 946,
+      "valid": 177,
+      "editable": 158,
+      "gap": 7.544445037841797,
+      "potential_outside_points": 8
+    },
+    {
+      "frame_id": "1329601368002667",
+      "split": "train",
+      "points": 833,
+      "valid": 181,
+      "editable": 118,
+      "gap": 29.374658584594727,
+      "potential_outside_points": 15
+    },
+    {
+      "frame_id": "1329601369402661",
+      "split": "train",
+      "points": 835,
+      "valid": 171,
+      "editable": 124,
+      "gap": 21.47962188720703,
+      "potential_outside_points": 11
+    },
+    {
+      "frame_id": "1329601371002903",
+      "split": "train",
+      "points": 797,
+      "valid": 176,
+      "editable": 127,
+      "gap": 31.647092819213867,
+      "potential_outside_points": 17
+    },
+    {
+      "frame_id": "1329601372402637",
+      "split": "train",
+      "points": 759,
+      "valid": 153,
+      "editable": 115,
+      "gap": 32.42267608642578,
+      "potential_outside_points": 16
+    },
+    {
+      "frame_id": "1329601374402652",
+      "split": "train",
+      "points": 706,
+      "valid": 157,
+      "editable": 112,
+      "gap": 21.162078857421875,
+      "potential_outside_points": 6
+    },
+    {
+      "frame_id": "1329601376002616",
+      "split": "train",
+      "points": 710,
+      "valid": 172,
+      "editable": 123,
+      "gap": 20.44959259033203,
+      "potential_outside_points": 7
+    },
+    {
+      "frame_id": "1329601377402601",
+      "split": "train",
+      "points": 653,
+      "valid": 168,
+      "editable": 124,
+      "gap": 10.279172897338867,
+      "potential_outside_points": 2
+    },
+    {
+      "frame_id": "1329601379002599",
+      "split": "train",
+      "points": 683,
+      "valid": 166,
+      "editable": 112,
+      "gap": 7.23046875,
+      "potential_outside_points": 4
+    },
+    {
+      "frame_id": "1329601380402595",
+      "split": "train",
+      "points": 676,
+      "valid": 178,
+      "editable": 128,
+      "gap": 10.728225708007812,
+      "potential_outside_points": 9
+    },
+    {
+      "frame_id": "1329601382002578",
+      "split": "train",
+      "points": 703,
+      "valid": 193,
+      "editable": 148,
+      "gap": 12.95718002319336,
+      "potential_outside_points": 10
+    },
+    {
+      "frame_id": "1329601384002580",
+      "split": "train",
+      "points": 706,
+      "valid": 177,
+      "editable": 145,
+      "gap": 16.210914611816406,
+      "potential_outside_points": 12
+    },
+    {
+      "frame_id": "1329601385402767",
+      "split": "train",
+      "points": 693,
+      "valid": 190,
+      "editable": 155,
+      "gap": 9.898353576660156,
+      "potential_outside_points": 12
+    },
+    {
+      "frame_id": "1329601387002543",
+      "split": "train",
+      "points": 692,
+      "valid": 181,
+      "editable": 146,
+      "gap": 7.978954315185547,
+      "potential_outside_points": 16
+    },
+    {
+      "frame_id": "1329601388402532",
+      "split": "train",
+      "points": 757,
+      "valid": 179,
+      "editable": 151,
+      "gap": 3.9706573486328125,
+      "potential_outside_points": 8
+    },
+    {
+      "frame_id": "1329601390002526",
+      "split": "train",
+      "points": 822,
+      "valid": 180,
+      "editable": 143,
+      "gap": 5.129451751708984,
+      "potential_outside_points": 14
+    },
+    {
+      "frame_id": "1329601391402635",
+      "split": "train",
+      "points": 866,
+      "valid": 181,
+      "editable": 139,
+      "gap": 7.206935882568359,
+      "potential_outside_points": 13
+    },
+    {
+      "frame_id": "1329601393402503",
+      "split": "train",
+      "points": 741,
+      "valid": 113,
+      "editable": 104,
+      "gap": 13.293445587158203,
+      "potential_outside_points": 5
+    },
+    {
+      "frame_id": "1329601395002495",
+      "split": "train",
+      "points": 850,
+      "valid": 102,
+      "editable": 101,
+      "gap": 8.346027374267578,
+      "potential_outside_points": 4
+    },
+    {
+      "frame_id": "1329601396402539",
+      "split": "train",
+      "points": 841,
+      "valid": 72,
+      "editable": 72,
+      "gap": 6.385646820068359,
+      "potential_outside_points": 3
+    },
+    {
+      "frame_id": "1329601398002477",
+      "split": "train",
+      "points": 770,
+      "valid": 94,
+      "editable": 94,
+      "gap": 10.477157592773438,
+      "potential_outside_points": 7
+    },
+    {
+      "frame_id": "1329601399402470",
+      "split": "train",
+      "points": 817,
+      "valid": 178,
+      "editable": 146,
+      "gap": 7.161548614501953,
+      "potential_outside_points": 14
+    },
+    {
+      "frame_id": "1329601401402448",
+      "split": "train",
+      "points": 795,
+      "valid": 190,
+      "editable": 144,
+      "gap": 7.425914764404297,
+      "potential_outside_points": 6
+    },
+    {
+      "frame_id": "1329601403002483",
+      "split": "train",
+      "points": 815,
+      "valid": 181,
+      "editable": 126,
+      "gap": 7.784065246582031,
+      "potential_outside_points": 2
+    },
+    {
+      "frame_id": "1329601404402427",
+      "split": "train",
+      "points": 752,
+      "valid": 185,
+      "editable": 162,
+      "gap": 23.054590225219727,
+      "potential_outside_points": 19
+    },
+    {
+      "frame_id": "1329601406002426",
+      "split": "train",
+      "points": 784,
+      "valid": 181,
+      "editable": 141,
+      "gap": 15.41653823852539,
+      "potential_outside_points": 10
+    },
+    {
+      "frame_id": "1329601407402467",
+      "split": "train",
+      "points": 743,
+      "valid": 172,
+      "editable": 128,
+      "gap": 14.169269561767578,
+      "potential_outside_points": 10
+    },
+    {
+      "frame_id": "1329601409002400",
+      "split": "train",
+      "points": 743,
+      "valid": 182,
+      "editable": 141,
+      "gap": 21.71893310546875,
+      "potential_outside_points": 14
+    },
+    {
+      "frame_id": "1329601411002392",
+      "split": "train",
+      "points": 738,
+      "valid": 176,
+      "editable": 142,
+      "gap": 25.726032257080078,
+      "potential_outside_points": 12
+    },
+    {
+      "frame_id": "1329601412402370",
+      "split": "train",
+      "points": 692,
+      "valid": 174,
+      "editable": 129,
+      "gap": 28.991943359375,
+      "potential_outside_points": 12
+    },
+    {
+      "frame_id": "1329601414002369",
+      "split": "train",
+      "points": 732,
+      "valid": 187,
+      "editable": 151,
+      "gap": 11.350006103515625,
+      "potential_outside_points": 12
+    },
+    {
+      "frame_id": "1329601415402388",
+      "split": "train",
+      "points": 695,
+      "valid": 181,
+      "editable": 150,
+      "gap": 17.70238494873047,
+      "potential_outside_points": 18
+    },
+    {
+      "frame_id": "1329601417002348",
+      "split": "train",
+      "points": 733,
+      "valid": 209,
+      "editable": 161,
+      "gap": 20.49394989013672,
+      "potential_outside_points": 14
+    },
+    {
+      "frame_id": "1329601418402716",
+      "split": "train",
+      "points": 710,
+      "valid": 183,
+      "editable": 142,
+      "gap": 14.3887939453125,
+      "potential_outside_points": 11
+    },
+    {
+      "frame_id": "1329601420402318",
+      "split": "train",
+      "points": 779,
+      "valid": 212,
+      "editable": 160,
+      "gap": 7.918567657470703,
+      "potential_outside_points": 2
+    },
+    {
+      "frame_id": "1329601422002318",
+      "split": "train",
+      "points": 844,
+      "valid": 206,
+      "editable": 146,
+      "gap": 5.370361328125,
+      "potential_outside_points": 3
+    },
+    {
+      "frame_id": "1329601423402298",
+      "split": "train",
+      "points": 842,
+      "valid": 182,
+      "editable": 123,
+      "gap": 6.166126251220703,
+      "potential_outside_points": 4
+    },
+    {
+      "frame_id": "1329601425002298",
+      "split": "train",
+      "points": 906,
+      "valid": 175,
+      "editable": 112,
+      "gap": 5.110797882080078,
+      "potential_outside_points": 8
+    },
+    {
+      "frame_id": "1329601426402279",
+      "split": "train",
+      "points": 894,
+      "valid": 185,
+      "editable": 130,
+      "gap": 6.053043365478516,
+      "potential_outside_points": 4
+    },
+    {
+      "frame_id": "1329601428402277",
+      "split": "train",
+      "points": 882,
+      "valid": 156,
+      "editable": 113,
+      "gap": 3.71527099609375,
+      "potential_outside_points": 5
+    },
+    {
+      "frame_id": "1329601430002267",
+      "split": "train",
+      "points": 953,
+      "valid": 144,
+      "editable": 114,
+      "gap": 4.552852630615234,
+      "potential_outside_points": 9
+    },
+    {
+      "frame_id": "1329601431402252",
+      "split": "train",
+      "points": 935,
+      "valid": 134,
+      "editable": 112,
+      "gap": 6.934364318847656,
+      "potential_outside_points": 2
+    },
+    {
+      "frame_id": "1329601433002245",
+      "split": "train",
+      "points": 914,
+      "valid": 147,
+      "editable": 119,
+      "gap": 5.959133148193359,
+      "potential_outside_points": 7
+    },
+    {
+      "frame_id": "1329604598983232",
+      "split": "train",
+      "points": 384,
+      "valid": 92,
+      "editable": 25,
+      "gap": 61.229061126708984,
+      "potential_outside_points": 1
+    },
+    {
+      "frame_id": "1329604600583214",
+      "split": "train",
+      "points": 350,
+      "valid": 103,
+      "editable": 38,
+      "gap": 61.33234405517578,
+      "potential_outside_points": 3
+    },
+    {
+      "frame_id": "1329604602583193",
+      "split": "train",
+      "points": 320,
+      "valid": 79,
+      "editable": 24,
+      "gap": 62.24882125854492,
+      "potential_outside_points": 0
+    },
+    {
+      "frame_id": "1329604603983211",
+      "split": "train",
+      "points": 281,
+      "valid": 70,
+      "editable": 24,
+      "gap": 40.31018829345703,
+      "potential_outside_points": 0
+    },
+    {
+      "frame_id": "1329604605583164",
+      "split": "train",
+      "points": 281,
+      "valid": 78,
+      "editable": 22,
+      "gap": 15.561882972717285,
+      "potential_outside_points": 0
+    },
+    {
+      "frame_id": "1329604606983155",
+      "split": "train",
+      "points": 252,
+      "valid": 67,
+      "editable": 16,
+      "gap": 14.254965782165527,
+      "potential_outside_points": 2
+    },
+    {
+      "frame_id": "1329604608583140",
+      "split": "train",
+      "points": 246,
+      "valid": 60,
+      "editable": 26,
+      "gap": 4.582592010498047,
+      "potential_outside_points": 1
+    },
+    {
+      "frame_id": "1329604609983135",
+      "split": "train",
+      "points": 276,
+      "valid": 57,
+      "editable": 36,
+      "gap": 2.836935043334961,
+      "potential_outside_points": 5
+    },
+    {
+      "frame_id": "1329604611983122",
+      "split": "train",
+      "points": 209,
+      "valid": 39,
+      "editable": 18,
+      "gap": 3.9791259765625,
+      "potential_outside_points": 0
+    },
+    {
+      "frame_id": "1329604613583755",
+      "split": "train",
+      "points": 248,
+      "valid": 50,
+      "editable": 46,
+      "gap": 2.9065475463867188,
+      "potential_outside_points": 1
+    },
+    {
+      "frame_id": "1329604614983101",
+      "split": "train",
+      "points": 272,
+      "valid": 50,
+      "editable": 34,
+      "gap": 2.806304931640625,
+      "potential_outside_points": 3
+    },
+    {
+      "frame_id": "1329604616583112",
+      "split": "train",
+      "points": 262,
+      "valid": 46,
+      "editable": 26,
+      "gap": 2.4188919067382812,
+      "potential_outside_points": 1
+    },
+    {
+      "frame_id": "1329604617983823",
+      "split": "train",
+      "points": 262,
+      "valid": 50,
+      "editable": 25,
+      "gap": 2.234375,
+      "potential_outside_points": 0
+    },
+    {
+      "frame_id": "1329604619583096",
+      "split": "train",
+      "points": 266,
+      "valid": 44,
+      "editable": 24,
+      "gap": 2.8278121948242188,
+      "potential_outside_points": 3
+    },
+    {
+      "frame_id": "1329604621983066",
+      "split": "train",
+      "points": 254,
+      "valid": 53,
+      "editable": 25,
+      "gap": 2.6638870239257812,
+      "potential_outside_points": 2
+    },
+    {
+      "frame_id": "1329604623583040",
+      "split": "train",
+      "points": 237,
+      "valid": 48,
+      "editable": 28,
+      "gap": 1.9235763549804688,
+      "potential_outside_points": 1
+    },
+    {
+      "frame_id": "1329604624983040",
+      "split": "train",
+      "points": 253,
+      "valid": 57,
+      "editable": 32,
+      "gap": 1.7547149658203125,
+      "potential_outside_points": 2
+    },
+    {
+      "frame_id": "1329604635582975",
+      "split": "val",
+      "points": 414,
+      "valid": 115,
+      "editable": 51,
+      "gap": 9.674280166625977,
+      "potential_outside_points": 4
+    },
+    {
+      "frame_id": "1329604636982984",
+      "split": "val",
+      "points": 416,
+      "valid": 167,
+      "editable": 97,
+      "gap": 2.974994659423828,
+      "potential_outside_points": 5
+    },
+    {
+      "frame_id": "1329604637982961",
+      "split": "val",
+      "points": 620,
+      "valid": 178,
+      "editable": 88,
+      "gap": 3.233633041381836,
+      "potential_outside_points": 8
+    },
+    {
+      "frame_id": "1329604639582940",
+      "split": "val",
+      "points": 734,
+      "valid": 175,
+      "editable": 110,
+      "gap": 2.497020721435547,
+      "potential_outside_points": 16
+    },
+    {
+      "frame_id": "1329604640582945",
+      "split": "val",
+      "points": 777,
+      "valid": 180,
+      "editable": 108,
+      "gap": 3.3852157592773438,
+      "potential_outside_points": 7
+    },
+    {
+      "frame_id": "1329604641982945",
+      "split": "val",
+      "points": 801,
+      "valid": 170,
+      "editable": 107,
+      "gap": 3.3777236938476562,
+      "potential_outside_points": 9
+    },
+    {
+      "frame_id": "1329604642982934",
+      "split": "val",
+      "points": 826,
+      "valid": 175,
+      "editable": 103,
+      "gap": 3.965229034423828,
+      "potential_outside_points": 9
+    },
+    {
+      "frame_id": "1329604644582931",
+      "split": "val",
+      "points": 823,
+      "valid": 175,
+      "editable": 112,
+      "gap": 6.219318389892578,
+      "potential_outside_points": 8
+    },
+    {
+      "frame_id": "1329604645582910",
+      "split": "val",
+      "points": 809,
+      "valid": 178,
+      "editable": 114,
+      "gap": 6.016181945800781,
+      "potential_outside_points": 5
+    },
+    {
+      "frame_id": "1329604646982902",
+      "split": "val",
+      "points": 905,
+      "valid": 181,
+      "editable": 116,
+      "gap": 7.721309661865234,
+      "potential_outside_points": 7
+    },
+    {
+      "frame_id": "1329604647983097",
+      "split": "val",
+      "points": 880,
+      "valid": 191,
+      "editable": 141,
+      "gap": 8.973716735839844,
+      "potential_outside_points": 7
+    },
+    {
+      "frame_id": "1329604649582929",
+      "split": "val",
+      "points": 826,
+      "valid": 170,
+      "editable": 120,
+      "gap": 18.300870895385742,
+      "potential_outside_points": 11
+    },
+    {
+      "frame_id": "1329604651582866",
+      "split": "val",
+      "points": 782,
+      "valid": 170,
+      "editable": 124,
+      "gap": 22.984516143798828,
+      "potential_outside_points": 6
+    },
+    {
+      "frame_id": "1329604652583020",
+      "split": "val",
+      "points": 791,
+      "valid": 161,
+      "editable": 121,
+      "gap": 23.822402954101562,
+      "potential_outside_points": 11
+    },
+    {
+      "frame_id": "1329604653982864",
+      "split": "val",
+      "points": 757,
+      "valid": 195,
+      "editable": 132,
+      "gap": 23.318195343017578,
+      "potential_outside_points": 10
+    },
+    {
+      "frame_id": "1329604654982854",
+      "split": "val",
+      "points": 761,
+      "valid": 183,
+      "editable": 132,
+      "gap": 21.2933349609375,
+      "potential_outside_points": 14
+    },
+    {
+      "frame_id": "1329604656582868",
+      "split": "val",
+      "points": 749,
+      "valid": 179,
+      "editable": 116,
+      "gap": 23.43732261657715,
+      "potential_outside_points": 7
+    },
+    {
+      "frame_id": "1329604657582841",
+      "split": "val",
+      "points": 759,
+      "valid": 179,
+      "editable": 110,
+      "gap": 14.559901237487793,
+      "potential_outside_points": 14
+    },
+    {
+      "frame_id": "1329604658983490",
+      "split": "val",
+      "points": 742,
+      "valid": 181,
+      "editable": 91,
+      "gap": 15.727980613708496,
+      "potential_outside_points": 5
+    },
+    {
+      "frame_id": "1329604659982823",
+      "split": "val",
+      "points": 785,
+      "valid": 212,
+      "editable": 115,
+      "gap": 16.08910369873047,
+      "potential_outside_points": 3
+    },
+    {
+      "frame_id": "1329604661582864",
+      "split": "val",
+      "points": 775,
+      "valid": 186,
+      "editable": 111,
+      "gap": 10.640861511230469,
+      "potential_outside_points": 7
+    },
+    {
+      "frame_id": "1329604662982805",
+      "split": "val",
+      "points": 779,
+      "valid": 194,
+      "editable": 108,
+      "gap": 13.029499053955078,
+      "potential_outside_points": 1
+    },
+    {
+      "frame_id": "1329604663982801",
+      "split": "val",
+      "points": 791,
+      "valid": 205,
+      "editable": 124,
+      "gap": 11.66778564453125,
+      "potential_outside_points": 4
+    },
+    {
+      "frame_id": "1329604665582834",
+      "split": "val",
+      "points": 835,
+      "valid": 183,
+      "editable": 116,
+      "gap": 8.62979507446289,
+      "potential_outside_points": 4
+    },
+    {
+      "frame_id": "1329604666582815",
+      "split": "val",
+      "points": 903,
+      "valid": 204,
+      "editable": 130,
+      "gap": 9.666118621826172,
+      "potential_outside_points": 3
+    },
+    {
+      "frame_id": "1329604667982805",
+      "split": "val",
+      "points": 918,
+      "valid": 188,
+      "editable": 128,
+      "gap": 6.457588195800781,
+      "potential_outside_points": 4
+    },
+    {
+      "frame_id": "1329604668983281",
+      "split": "val",
+      "points": 909,
+      "valid": 176,
+      "editable": 120,
+      "gap": 4.566196441650391,
+      "potential_outside_points": 3
+    },
+    {
+      "frame_id": "1329604670582822",
+      "split": "val",
+      "points": 888,
+      "valid": 159,
+      "editable": 123,
+      "gap": 3.81878662109375,
+      "potential_outside_points": 6
+    },
+    {
+      "frame_id": "1329604671582933",
+      "split": "val",
+      "points": 913,
+      "valid": 151,
+      "editable": 117,
+      "gap": 4.259052276611328,
+      "potential_outside_points": 7
+    },
+    {
+      "frame_id": "1329604672982737",
+      "split": "val",
+      "points": 976,
+      "valid": 160,
+      "editable": 130,
+      "gap": 5.946491241455078,
+      "potential_outside_points": 4
+    },
+    {
+      "frame_id": "1329604673982743",
+      "split": "val",
+      "points": 914,
+      "valid": 152,
+      "editable": 124,
+      "gap": 4.501674652099609,
+      "potential_outside_points": 7
+    },
+    {
+      "frame_id": "1329604675582729",
+      "split": "val",
+      "points": 913,
+      "valid": 156,
+      "editable": 135,
+      "gap": 5.486888885498047,
+      "potential_outside_points": 6
+    }
+  ]
+}

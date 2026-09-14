@@ -1,0 +1,23 @@
+{
+  "epoch": 0,
+  "mean": 0.13890276104211807,
+  "criterion": "internal16 final mean translation only",
+  "epoch0": {
+    "mean": [
+      0.13890276104211807,
+      0.9760670941323042
+    ],
+    "median": [
+      0.10875024273991585,
+      0.7707532048225403
+    ],
+    "p95": [
+      0.25415103137493134,
+      1.919383943080902
+    ],
+    "successes": 16,
+    "count": 16
+  },
+  "model_selection_finished_before_development": true,
+  "matcher_cache_hits": 151
+}
