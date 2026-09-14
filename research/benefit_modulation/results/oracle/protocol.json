@@ -1,0 +1,21 @@
+{
+  "checkpoints": "Previously selected best.pt; no retraining or reselection",
+  "candidates": [
+    "gate=0",
+    "learned gate",
+    "gate=1 with original amplitude bound"
+  ],
+  "gt": "Existing coarse voxel localization target, not Cartesian projection representative",
+  "selection": "Minimum pointwise Euclidean coordinate error; exact ties prefer baseline then normal then open",
+  "matcher": "Original baseline candidate indices AND order, local source coordinates; paired seed 2089",
+  "invalid": "Keep original prediction",
+  "scope": "32 touched development frames; GT-assisted diagnostic, not deployable or pose upper bound",
+  "weights": {
+    "aligned_2089": "ebcdb6d5f5fe1244bd07d5197d294d2d5cebae32623c4cee058f2df59ade9b69",
+    "shuffled_2089": "5ac7706058483e2b9f75128ec365401715cb5b5ff9e5ce3eef995e9bb3ee016d",
+    "aligned_2090": "780a4a9528379ed3c90a2c41565ebdf9c7905b0130badb725f2d27d1764a7b6f",
+    "shuffled_2090": "057a9e3f01925b3ef618134f84914f78f399cdcbef96f68c98c338333a9870cd",
+    "aligned_2091": "ced85e0725ae4e0d4a4c15e33be09133ec521408be1a7a0739501546e84d70c9",
+    "shuffled_2091": "5c856d044c0896a4111312cae74d6af99ad463a8b2573fde4a5228eec25cc033"
+  }
+}
