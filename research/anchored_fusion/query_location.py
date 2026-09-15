@@ -88,7 +88,7 @@ def infer(head,x):
 
 def train(p,data):
     fit=[d for d in data if d['row']['role']=='fit']; val=[d for d in data if d['row']['role']=='internal']
-    y=torch.tensor(np.concatenate([d['target'] for d in fit]),device='cuda')
+    y=torch.tensor(np.concatenate([d['target'] for d in fit]),device='cuda',dtype=torch.long)
     target=np.concatenate([d['target'] for d in val]); selected={}; audits={}
     frames=len(fit); assert frames==578 and len(val)==145
     for arm in ['L','V','S']:
@@ -160,7 +160,14 @@ def evaluate(p,data,heads):
 
 def report():
     s=json.loads((OUT/'summary.json').read_text()); stats=json.loads((OUT/'data_stats.json').read_text())
+    with np.load(OUT/'development.npz') as a:
+        mask=a['ambiguous']; y=a['target']; lc=a['L'].argmax(1)==y
+        complementary={arm:dict(correction=int((mask&~lc&(a[arm].argmax(1)==y)).sum()),damage=int((mask&lc&(a[arm].argmax(1)!=y)).sum())) for arm in ['V','S']}
+        complementary['lidar_errors']=int((mask&~lc).sum())
+    e.run.save_json(OUT/'complementary.json',complementary)
     lines=['# Query-only粗地点分类探针','',
+        '**结果：当前局部视觉描述子确实包含无需reference bank即可学习的粗地点信号；尚未建立可部署的LiDAR增量判别或定位收益。** 固定歧义子集上正确视觉55.6148%，置乱18.3941%，且三日期方向一致；LiDAR分类器已有95.6898%。不能将历史细粒度候选歧义等同于K25粗类别歧义。','',
+        '在LiDAR分类错误的299个歧义点中，正确视觉选对92个、置乱选对45个，说明存在一部分可供进一步验证的互补判断。但若直接采用视觉Top1，会同时把2872个LiDAR原本正确的判断改错（置乱5407个）；没有证明推理时能识别并选择那92个有帮助的点，也没有测试SCR或姿态收益。','',
         '固定K=25，578帧训练、145帧内部选模、182帧已接触开发评估，种子2089。只训练三个分类器，各100epoch，不修改LEADER，不运行Matcher。','',
         '输入是单个图像有效voxel的缓存局部特征；推理无需reference feature bank。训练得到的模型权重保留场景先验，因此“无显式地图”不等于“未学习场景”。本探针不代表完整图像或所有视觉表征。','',
         '类别由训练部分图像有效点的原coarse voxel世界坐标进行KMeans生成，训练之外不更新中心。它与SCR目标一致；未使用图像投影代表点替代定位坐标。','',
@@ -169,7 +176,8 @@ def report():
         for arm in ['frequency','L','V','S']:
             r=s['models'][arm][group]
             if r['count']: lines.append(f"| {group} | {arm} | {r['count']} | {100*r['accuracy']:.4f} | {100*r['macro']:.4f} | {r['nll']:.5f} |")
-    lines+=['','Macro recall只对该集合出现的类别平均，类别列表及逐类分母见summary.json。frequency为训练类别频率先验的多数类决策，不是均匀随机猜测。','',
+    lines+=['','Macro recall只对该集合出现的类别平均，类别列表及逐类分母见summary.json。frequency为训练类别频率先验的多数类决策，不是均匀随机猜测。',
+        '开发集合只出现训练25类中的16类，其中一类仅1个点；训练多数类22恰好未出现在开发集合，故多数类基准accuracy=0，不能将它作为视觉有效性的唯一依据。25类均匀随机决策的理论期望准确率为4%；视觉证据主要来自与置乱模型、逐日期及NLL的对照。没有据此重分区或改K。','',
         '## 互补与配对比较','', '| 集合 | 比较 | V纠正对照错误 | V破坏对照正确 | 净变化 | 帧均值差 pp | 轨迹块95%区间 pp |','|---|---|---:|---:|---:|---:|---|']
     for group in ['all','ambiguous','ambiguous_supported','ambiguous_unsupported']:
         for other in ['L','S','frequency']:

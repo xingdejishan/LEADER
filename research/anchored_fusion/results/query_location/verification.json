@@ -1,0 +1,27 @@
+{
+  "training_only_clustering_reproduced": true,
+  "max_center_error_m": 7.105427357601002e-15,
+  "development_labels_reproduced": true,
+  "coverage_reproduced": true,
+  "normalized_posteriors": true,
+  "fit_points": 79597,
+  "development_points": 30160,
+  "models": {
+    "L": {
+      "epoch": 100,
+      "parameters": 41451,
+      "checkpoint_sha256": "08d2f28392206a2a0fbe3c01f874d053e981abbae7d3bd14a5fc0b4e234c3ab9"
+    },
+    "V": {
+      "epoch": 35,
+      "parameters": 41451,
+      "checkpoint_sha256": "be491802737b69dd6e59611203ce0e65ab75e4ccefe7fde62518d367a07dff29"
+    },
+    "S": {
+      "epoch": 30,
+      "parameters": 41451,
+      "checkpoint_sha256": "5124d3d5479d27b05d943f68eb7ba44be1c85b3a66bdc78e68be0416925583f7"
+    }
+  },
+  "initial_launch": "Class-index dtype fixed before first optimizer step; restarted with same fixed seed/configuration; no training or evaluation-driven changes."
+}

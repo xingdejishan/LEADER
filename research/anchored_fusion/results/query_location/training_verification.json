@@ -1,0 +1,53 @@
+{
+  "L": {
+    "epochs": 100,
+    "updates": 2000,
+    "point_exposures": 7959700,
+    "parameters": 41451,
+    "rng": {
+      "bit_generator": "PCG64",
+      "state": {
+        "state": 107762640701109880156087222533464940496,
+        "inc": 297922653560843277476133046735663620111
+      },
+      "has_uint32": 1,
+      "uinteger": 1535973468
+    },
+    "initial_sha256": "639e2581c4349a0cf29fe24a3d17f386dd50d066e928d9b7032bb35fd2ade236",
+    "best_sha256": "08d2f28392206a2a0fbe3c01f874d053e981abbae7d3bd14a5fc0b4e234c3ab9"
+  },
+  "V": {
+    "epochs": 100,
+    "updates": 2000,
+    "point_exposures": 7959700,
+    "parameters": 41451,
+    "rng": {
+      "bit_generator": "PCG64",
+      "state": {
+        "state": 107762640701109880156087222533464940496,
+        "inc": 297922653560843277476133046735663620111
+      },
+      "has_uint32": 1,
+      "uinteger": 1535973468
+    },
+    "initial_sha256": "1bc95829388ae36d68da086aeb9bdaa9a8fa20d32fe357c42c91b269806aac2e",
+    "best_sha256": "be491802737b69dd6e59611203ce0e65ab75e4ccefe7fde62518d367a07dff29"
+  },
+  "S": {
+    "epochs": 100,
+    "updates": 2000,
+    "point_exposures": 7959700,
+    "parameters": 41451,
+    "rng": {
+      "bit_generator": "PCG64",
+      "state": {
+        "state": 107762640701109880156087222533464940496,
+        "inc": 297922653560843277476133046735663620111
+      },
+      "has_uint32": 1,
+      "uinteger": 1535973468
+    },
+    "initial_sha256": "1bc95829388ae36d68da086aeb9bdaa9a8fa20d32fe357c42c91b269806aac2e",
+    "best_sha256": "5124d3d5479d27b05d943f68eb7ba44be1c85b3a66bdc78e68be0416925583f7"
+  }
+}
