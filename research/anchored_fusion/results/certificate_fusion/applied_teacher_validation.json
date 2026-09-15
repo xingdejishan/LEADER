@@ -1,0 +1,7 @@
+{
+  "count": 1500,
+  "minimum_margin": 0.00010000537333398896,
+  "below_gamma": 0,
+  "maximum_norm": 0.04999024911446629,
+  "all_strict_top1": true
+}

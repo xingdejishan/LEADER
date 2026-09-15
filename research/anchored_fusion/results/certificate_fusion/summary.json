@@ -1,0 +1,2254 @@
+{
+  "baseline": {
+    "standard": {
+      "mean": [
+        0.1226152763036745,
+        1.175877033517911
+      ],
+      "median": [
+        0.1181614100933075,
+        1.0844421982765198
+      ],
+      "p95": [
+        0.2500707820057868,
+        2.56061669588089
+      ],
+      "successes": 182,
+      "count": 182
+    },
+    "fixed": {
+      "mean": [
+        0.1226152763036745,
+        1.175877033517911
+      ],
+      "median": [
+        0.1181614100933075,
+        1.0844421982765198
+      ],
+      "p95": [
+        0.2500707820057868,
+        2.56061669588089
+      ],
+      "successes": 182,
+      "count": 182
+    },
+    "mechanism": {
+      "count": 6937,
+      "correct": 968,
+      "rescue": 0,
+      "damage": 0,
+      "accuracy": 0.13954158858296092
+    },
+    "groups": {
+      "matcher": {
+        "count": 4571,
+        "correct": 660,
+        "rescue": 0,
+        "damage": 0,
+        "accuracy": 0.14438853642528987
+      },
+      "protected": {
+        "count": 2197,
+        "correct": 330,
+        "rescue": 0,
+        "damage": 0,
+        "accuracy": 0.15020482476103778
+      },
+      "editable": {
+        "count": 4740,
+        "correct": 638,
+        "rescue": 0,
+        "damage": 0,
+        "accuracy": 0.13459915611814346
+      }
+    },
+    "protected_retention": 1.0,
+    "matcher_count": 71093,
+    "protected_count": 35502,
+    "selected_visible": {
+      "count": 15956,
+      "mean_error_delta": 0.0,
+      "harm_rate": 0.0
+    }
+  },
+  "runs": {
+    "aligned_2089": {
+      "standard": {
+        "mean": [
+          0.1242076223102081,
+          1.1668237053103498
+        ],
+        "median": [
+          0.11962834373116493,
+          1.0844421982765198
+        ],
+        "p95": [
+          0.24450928047299383,
+          2.3835867762565615
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "fixed": {
+        "mean": [
+          0.12479897718467228,
+          1.1720314240390128
+        ],
+        "median": [
+          0.12063536420464516,
+          1.0844421982765198
+        ],
+        "p95": [
+          0.24450928047299383,
+          2.3835867762565615
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "mechanism": {
+        "count": 6937,
+        "correct": 972,
+        "rescue": 16,
+        "damage": 12,
+        "accuracy": 0.14011820671760128
+      },
+      "groups": {
+        "matcher": {
+          "count": 4571,
+          "correct": 656,
+          "rescue": 3,
+          "damage": 7,
+          "accuracy": 0.14351345438634872
+        },
+        "protected": {
+          "count": 2197,
+          "correct": 330,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.15020482476103778
+        },
+        "editable": {
+          "count": 4740,
+          "correct": 642,
+          "rescue": 16,
+          "damage": 12,
+          "accuracy": 0.13544303797468354
+        }
+      },
+      "protected_retention": 1.0,
+      "matcher_count": 71093,
+      "protected_count": 35502,
+      "selected_visible": {
+        "count": 15956,
+        "mean_error_delta": 0.0214111751636995,
+        "harm_rate": 0.30007520681875155
+      },
+      "pose_rescue": 0,
+      "pose_damage": 0,
+      "selection": {
+        "epoch": 80,
+        "mean_translation": 0.17344482891775412
+      },
+      "dates": {
+        "2012-01-22": {
+          "standard": {
+            "mean": [
+              0.1260271935898345,
+              1.2877637320198119
+            ],
+            "median": [
+              0.1215599961578846,
+              1.189912497997284
+            ],
+            "p95": [
+              0.24447101578116417,
+              2.6364821434020995
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "fixed": {
+            "mean": [
+              0.1281033655104693,
+              1.294259734917432
+            ],
+            "median": [
+              0.12406687438488007,
+              1.1973950266838074
+            ],
+            "p95": [
+              0.24447101578116417,
+              2.6364821434020995
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "mechanism": {
+            "count": 2817,
+            "correct": 407,
+            "rescue": 7,
+            "damage": 2,
+            "accuracy": 0.14447994320198793
+          },
+          "groups": {
+            "matcher": {
+              "count": 1955,
+              "correct": 299,
+              "rescue": 3,
+              "damage": 2,
+              "accuracy": 0.15294117647058825
+            },
+            "protected": {
+              "count": 1078,
+              "correct": 166,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.15398886827458255
+            },
+            "editable": {
+              "count": 1739,
+              "correct": 241,
+              "rescue": 7,
+              "damage": 2,
+              "accuracy": 0.13858539390454283
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 26649,
+          "protected_count": 13309,
+          "selected_visible": {
+            "count": 6839,
+            "mean_error_delta": 0.027759614820402952,
+            "harm_rate": 0.3013598479309841
+          }
+        },
+        "2012-02-02": {
+          "standard": {
+            "mean": [
+              0.115823906050487,
+              0.793360527808016
+            ],
+            "median": [
+              0.1049027070403099,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.2245830193161964,
+              1.538636469841003
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "fixed": {
+            "mean": [
+              0.1151926378634843,
+              0.7997901632027192
+            ],
+            "median": [
+              0.1049027070403099,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.2245830193161964,
+              1.5468830108642575
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "mechanism": {
+            "count": 1607,
+            "correct": 174,
+            "rescue": 4,
+            "damage": 7,
+            "accuracy": 0.10827629122588675
+          },
+          "groups": {
+            "matcher": {
+              "count": 1081,
+              "correct": 110,
+              "rescue": 0,
+              "damage": 4,
+              "accuracy": 0.10175763182238667
+            },
+            "protected": {
+              "count": 438,
+              "correct": 45,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.10273972602739725
+            },
+            "editable": {
+              "count": 1169,
+              "correct": 129,
+              "rescue": 4,
+              "damage": 7,
+              "accuracy": 0.11035072711719418
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 21698,
+          "protected_count": 10836,
+          "selected_visible": {
+            "count": 3865,
+            "mean_error_delta": 0.013378520095949802,
+            "harm_rate": 0.2708926261319534
+          }
+        },
+        "2012-05-11": {
+          "standard": {
+            "mean": [
+              0.12967828631637587,
+              1.3700032775837279
+            ],
+            "median": [
+              0.126065194606781,
+              1.3164095878601074
+            ],
+            "p95": [
+              0.2464181020855903,
+              2.383578562736511
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "fixed": {
+            "mean": [
+              0.1298286249595029,
+              1.3728355105434145
+            ],
+            "median": [
+              0.126065194606781,
+              1.344939112663269
+            ],
+            "p95": [
+              0.2464181020855903,
+              2.383578562736511
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "mechanism": {
+            "count": 2513,
+            "correct": 391,
+            "rescue": 5,
+            "damage": 3,
+            "accuracy": 0.1555909271786709
+          },
+          "groups": {
+            "matcher": {
+              "count": 1535,
+              "correct": 247,
+              "rescue": 0,
+              "damage": 1,
+              "accuracy": 0.16091205211726384
+            },
+            "protected": {
+              "count": 681,
+              "correct": 119,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.17474302496328928
+            },
+            "editable": {
+              "count": 1832,
+              "correct": 272,
+              "rescue": 5,
+              "damage": 3,
+              "accuracy": 0.14847161572052403
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 22746,
+          "protected_count": 11357,
+          "selected_visible": {
+            "count": 5252,
+            "mean_error_delta": 0.01905573590716059,
+            "harm_rate": 0.31987814166031986
+          }
+        }
+      },
+      "full_ranking": {
+        "PP": 1061,
+        "PN": 5,
+        "PG": 9,
+        "NP": 7,
+        "NN": 17451,
+        "NG": 121,
+        "GP": 9,
+        "GN": 131,
+        "GG": 11366
+      },
+      "coverage": {
+        "total": 161,
+        "reachable": 53,
+        "actual_correct": 2,
+        "rank": 33
+      }
+    },
+    "shuffled_2089": {
+      "standard": {
+        "mean": [
+          0.12457189953548241,
+          1.1845147465611552
+        ],
+        "median": [
+          0.11988675221800804,
+          1.0855240225791931
+        ],
+        "p95": [
+          0.2500707820057868,
+          2.3904415011405944
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "fixed": {
+        "mean": [
+          0.12455539318354247,
+          1.185108637908003
+        ],
+        "median": [
+          0.11988675221800804,
+          1.0855240225791931
+        ],
+        "p95": [
+          0.2500707820057868,
+          2.3904415011405944
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "mechanism": {
+        "count": 6937,
+        "correct": 973,
+        "rescue": 14,
+        "damage": 9,
+        "accuracy": 0.14026236125126135
+      },
+      "groups": {
+        "matcher": {
+          "count": 4571,
+          "correct": 661,
+          "rescue": 6,
+          "damage": 5,
+          "accuracy": 0.14460730693502516
+        },
+        "protected": {
+          "count": 2197,
+          "correct": 330,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.15020482476103778
+        },
+        "editable": {
+          "count": 4740,
+          "correct": 643,
+          "rescue": 14,
+          "damage": 9,
+          "accuracy": 0.13565400843881856
+        }
+      },
+      "protected_retention": 1.0,
+      "matcher_count": 71093,
+      "protected_count": 35502,
+      "selected_visible": {
+        "count": 15956,
+        "mean_error_delta": 0.014716529109725141,
+        "harm_rate": 0.26134369516169464
+      },
+      "pose_rescue": 0,
+      "pose_damage": 0,
+      "selection": {
+        "epoch": 50,
+        "mean_translation": 0.18008865067928
+      },
+      "dates": {
+        "2012-01-22": {
+          "standard": {
+            "mean": [
+              0.129778948641615,
+              1.2871710192412138
+            ],
+            "median": [
+              0.12286281958222389,
+              1.1973950266838074
+            ],
+            "p95": [
+              0.24447101578116417,
+              2.6391061902046187
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "fixed": {
+            "mean": [
+              0.12973200870328583,
+              1.2888598977588117
+            ],
+            "median": [
+              0.12286281958222389,
+              1.1973950266838074
+            ],
+            "p95": [
+              0.24447101578116417,
+              2.6391061902046187
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "mechanism": {
+            "count": 2817,
+            "correct": 407,
+            "rescue": 6,
+            "damage": 1,
+            "accuracy": 0.14447994320198793
+          },
+          "groups": {
+            "matcher": {
+              "count": 1955,
+              "correct": 299,
+              "rescue": 2,
+              "damage": 1,
+              "accuracy": 0.15294117647058825
+            },
+            "protected": {
+              "count": 1078,
+              "correct": 166,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.15398886827458255
+            },
+            "editable": {
+              "count": 1739,
+              "correct": 241,
+              "rescue": 6,
+              "damage": 1,
+              "accuracy": 0.13858539390454283
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 26649,
+          "protected_count": 13309,
+          "selected_visible": {
+            "count": 6839,
+            "mean_error_delta": 0.015454395677301162,
+            "harm_rate": 0.2591022079251353
+          }
+        },
+        "2012-02-02": {
+          "standard": {
+            "mean": [
+              0.11576948660341176,
+              0.8306235440752723
+            ],
+            "median": [
+              0.1049027070403099,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.2618057698011398,
+              1.834827852249145
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "fixed": {
+            "mean": [
+              0.11576948660341176,
+              0.8306235440752723
+            ],
+            "median": [
+              0.1049027070403099,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.2618057698011398,
+              1.834827852249145
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "mechanism": {
+            "count": 1607,
+            "correct": 173,
+            "rescue": 4,
+            "damage": 8,
+            "accuracy": 0.10765401369010578
+          },
+          "groups": {
+            "matcher": {
+              "count": 1081,
+              "correct": 112,
+              "rescue": 2,
+              "damage": 4,
+              "accuracy": 0.1036077705827937
+            },
+            "protected": {
+              "count": 438,
+              "correct": 45,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.10273972602739725
+            },
+            "editable": {
+              "count": 1169,
+              "correct": 128,
+              "rescue": 4,
+              "damage": 8,
+              "accuracy": 0.10949529512403763
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 21698,
+          "protected_count": 10836,
+          "selected_visible": {
+            "count": 3865,
+            "mean_error_delta": 0.010556531457512376,
+            "harm_rate": 0.23234152652005174
+          }
+        },
+        "2012-05-11": {
+          "standard": {
+            "mean": [
+              0.12696684506677447,
+              1.3891816463262316
+            ],
+            "median": [
+              0.12128806114196777,
+              1.3504568338394165
+            ],
+            "p95": [
+              0.21085920184850693,
+              2.478018069267273
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "fixed": {
+            "mean": [
+              0.12696684506677447,
+              1.3891816463262316
+            ],
+            "median": [
+              0.12128806114196777,
+              1.3504568338394165
+            ],
+            "p95": [
+              0.21085920184850693,
+              2.478018069267273
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "mechanism": {
+            "count": 2513,
+            "correct": 393,
+            "rescue": 4,
+            "damage": 0,
+            "accuracy": 0.1563867886987664
+          },
+          "groups": {
+            "matcher": {
+              "count": 1535,
+              "correct": 250,
+              "rescue": 2,
+              "damage": 0,
+              "accuracy": 0.16286644951140064
+            },
+            "protected": {
+              "count": 681,
+              "correct": 119,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.17474302496328928
+            },
+            "editable": {
+              "count": 1832,
+              "correct": 274,
+              "rescue": 4,
+              "damage": 0,
+              "accuracy": 0.14956331877729256
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 22746,
+          "protected_count": 11357,
+          "selected_visible": {
+            "count": 5252,
+            "mean_error_delta": 0.016817085368321855,
+            "harm_rate": 0.2856054836252856
+          }
+        }
+      },
+      "full_ranking": {
+        "PP": 1064,
+        "PN": 4,
+        "PG": 7,
+        "NP": 8,
+        "NN": 17476,
+        "NG": 95,
+        "GP": 6,
+        "GN": 119,
+        "GG": 11381
+      },
+      "coverage": {
+        "total": 161,
+        "reachable": 51,
+        "actual_correct": 3,
+        "rank": 33
+      }
+    },
+    "aligned_2090": {
+      "standard": {
+        "mean": [
+          0.12249918925770364,
+          1.1838415364970218
+        ],
+        "median": [
+          0.1184580847620964,
+          1.0844421982765198
+        ],
+        "p95": [
+          0.24450928047299383,
+          2.548908495903015
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "fixed": {
+        "mean": [
+          0.12215545966934699,
+          1.1847186836895052
+        ],
+        "median": [
+          0.1184580847620964,
+          1.0844421982765198
+        ],
+        "p95": [
+          0.24450928047299383,
+          2.548931622505188
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "mechanism": {
+        "count": 6937,
+        "correct": 978,
+        "rescue": 16,
+        "damage": 6,
+        "accuracy": 0.14098313391956177
+      },
+      "groups": {
+        "matcher": {
+          "count": 4571,
+          "correct": 662,
+          "rescue": 7,
+          "damage": 5,
+          "accuracy": 0.14482607744476045
+        },
+        "protected": {
+          "count": 2197,
+          "correct": 330,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.15020482476103778
+        },
+        "editable": {
+          "count": 4740,
+          "correct": 648,
+          "rescue": 16,
+          "damage": 6,
+          "accuracy": 0.13670886075949368
+        }
+      },
+      "protected_retention": 1.0,
+      "matcher_count": 71093,
+      "protected_count": 35502,
+      "selected_visible": {
+        "count": 15956,
+        "mean_error_delta": 0.019590966312429993,
+        "harm_rate": 0.2882928052143394
+      },
+      "pose_rescue": 0,
+      "pose_damage": 0,
+      "selection": {
+        "epoch": 50,
+        "mean_translation": 0.17684715069059667
+      },
+      "dates": {
+        "2012-01-22": {
+          "standard": {
+            "mean": [
+              0.12834749746252783,
+              1.3027690700255334
+            ],
+            "median": [
+              0.12183063477277756,
+              1.1973950266838074
+            ],
+            "p95": [
+              0.2630307093262671,
+              2.6746298670768733
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "fixed": {
+            "mean": [
+              0.12844635618967004,
+              1.302609523292631
+            ],
+            "median": [
+              0.12183063477277756,
+              1.1973950266838074
+            ],
+            "p95": [
+              0.26344932019710526,
+              2.6746298670768733
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "mechanism": {
+            "count": 2817,
+            "correct": 406,
+            "rescue": 6,
+            "damage": 2,
+            "accuracy": 0.14412495562655306
+          },
+          "groups": {
+            "matcher": {
+              "count": 1955,
+              "correct": 299,
+              "rescue": 3,
+              "damage": 2,
+              "accuracy": 0.15294117647058825
+            },
+            "protected": {
+              "count": 1078,
+              "correct": 166,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.15398886827458255
+            },
+            "editable": {
+              "count": 1739,
+              "correct": 240,
+              "rescue": 6,
+              "damage": 2,
+              "accuracy": 0.13801035077630822
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 26649,
+          "protected_count": 13309,
+          "selected_visible": {
+            "count": 6839,
+            "mean_error_delta": 0.020813611951169257,
+            "harm_rate": 0.2797192572013452
+          }
+        },
+        "2012-02-02": {
+          "standard": {
+            "mean": [
+              0.10918521197004752,
+              0.8100023310292851
+            ],
+            "median": [
+              0.09654714167118073,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.2020013526082038,
+              1.7205310940742484
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "fixed": {
+            "mean": [
+              0.10918521197004752,
+              0.8100023310292851
+            ],
+            "median": [
+              0.09654714167118073,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.2020013526082038,
+              1.7205310940742484
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "mechanism": {
+            "count": 1607,
+            "correct": 179,
+            "rescue": 5,
+            "damage": 3,
+            "accuracy": 0.11138767890479154
+          },
+          "groups": {
+            "matcher": {
+              "count": 1081,
+              "correct": 115,
+              "rescue": 3,
+              "damage": 2,
+              "accuracy": 0.10638297872340426
+            },
+            "protected": {
+              "count": 438,
+              "correct": 45,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.10273972602739725
+            },
+            "editable": {
+              "count": 1169,
+              "correct": 134,
+              "rescue": 5,
+              "damage": 3,
+              "accuracy": 0.1146278870829769
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 21698,
+          "protected_count": 10836,
+          "selected_visible": {
+            "count": 3865,
+            "mean_error_delta": 0.01780176793850409,
+            "harm_rate": 0.2747736093143596
+          }
+        },
+        "2012-05-11": {
+          "standard": {
+            "mean": [
+              0.1281813642690106,
+              1.38939382467005
+            ],
+            "median": [
+              0.12391064316034317,
+              1.366589903831482
+            ],
+            "p95": [
+              0.22911657989025114,
+              2.542911863327026
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "fixed": {
+            "mean": [
+              0.12708793976713742,
+              1.3920898846690617
+            ],
+            "median": [
+              0.12391064316034317,
+              1.366589903831482
+            ],
+            "p95": [
+              0.21085920184850693,
+              2.542911863327026
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "mechanism": {
+            "count": 2513,
+            "correct": 393,
+            "rescue": 5,
+            "damage": 1,
+            "accuracy": 0.1563867886987664
+          },
+          "groups": {
+            "matcher": {
+              "count": 1535,
+              "correct": 248,
+              "rescue": 1,
+              "damage": 1,
+              "accuracy": 0.16156351791530946
+            },
+            "protected": {
+              "count": 681,
+              "correct": 119,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.17474302496328928
+            },
+            "editable": {
+              "count": 1832,
+              "correct": 274,
+              "rescue": 5,
+              "damage": 1,
+              "accuracy": 0.14956331877729256
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 22746,
+          "protected_count": 11357,
+          "selected_visible": {
+            "count": 5252,
+            "mean_error_delta": 0.01931556231240825,
+            "harm_rate": 0.3094059405940594
+          }
+        }
+      },
+      "full_ranking": {
+        "PP": 1067,
+        "PN": 0,
+        "PG": 8,
+        "NP": 7,
+        "NN": 17469,
+        "NG": 103,
+        "GP": 9,
+        "GN": 101,
+        "GG": 11396
+      },
+      "coverage": {
+        "total": 161,
+        "reachable": 55,
+        "actual_correct": 1,
+        "rank": 33
+      }
+    },
+    "shuffled_2090": {
+      "standard": {
+        "mean": [
+          0.12412973325494882,
+          1.1823000546012605
+        ],
+        "median": [
+          0.11857238411903381,
+          1.0855240225791931
+        ],
+        "p95": [
+          0.24450928047299383,
+          2.5396840453147886
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "fixed": {
+        "mean": [
+          0.12428991398313544,
+          1.1833670224462236
+        ],
+        "median": [
+          0.11912189796566963,
+          1.0894787311553955
+        ],
+        "p95": [
+          0.2500707820057868,
+          2.5179086685180643
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "mechanism": {
+        "count": 6937,
+        "correct": 970,
+        "rescue": 14,
+        "damage": 12,
+        "accuracy": 0.1398298976502811
+      },
+      "groups": {
+        "matcher": {
+          "count": 4571,
+          "correct": 655,
+          "rescue": 5,
+          "damage": 10,
+          "accuracy": 0.14329468387661343
+        },
+        "protected": {
+          "count": 2197,
+          "correct": 330,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.15020482476103778
+        },
+        "editable": {
+          "count": 4740,
+          "correct": 640,
+          "rescue": 14,
+          "damage": 12,
+          "accuracy": 0.1350210970464135
+        }
+      },
+      "protected_retention": 1.0,
+      "matcher_count": 71093,
+      "protected_count": 35502,
+      "selected_visible": {
+        "count": 15956,
+        "mean_error_delta": 0.01840873091000906,
+        "harm_rate": 0.26823765354725493
+      },
+      "pose_rescue": 0,
+      "pose_damage": 0,
+      "selection": {
+        "epoch": 80,
+        "mean_translation": 0.17651569392403652
+      },
+      "dates": {
+        "2012-01-22": {
+          "standard": {
+            "mean": [
+              0.12658118567196652,
+              1.3129459819756448
+            ],
+            "median": [
+              0.12092138826847076,
+              1.1796808242797852
+            ],
+            "p95": [
+              0.24447101578116417,
+              2.6746298670768733
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "fixed": {
+            "mean": [
+              0.12670907709980384,
+              1.302327680401504
+            ],
+            "median": [
+              0.12294776365160942,
+              1.1796808242797852
+            ],
+            "p95": [
+              0.24447101578116417,
+              2.6746298670768733
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "mechanism": {
+            "count": 2817,
+            "correct": 407,
+            "rescue": 6,
+            "damage": 1,
+            "accuracy": 0.14447994320198793
+          },
+          "groups": {
+            "matcher": {
+              "count": 1955,
+              "correct": 299,
+              "rescue": 2,
+              "damage": 1,
+              "accuracy": 0.15294117647058825
+            },
+            "protected": {
+              "count": 1078,
+              "correct": 166,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.15398886827458255
+            },
+            "editable": {
+              "count": 1739,
+              "correct": 241,
+              "rescue": 6,
+              "damage": 1,
+              "accuracy": 0.13858539390454283
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 26649,
+          "protected_count": 13309,
+          "selected_visible": {
+            "count": 6839,
+            "mean_error_delta": 0.019520843267824273,
+            "harm_rate": 0.2621728322854218
+          }
+        },
+        "2012-02-02": {
+          "standard": {
+            "mean": [
+              0.11158670938827775,
+              0.7866394126957114
+            ],
+            "median": [
+              0.09654714167118073,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.23797665685415262,
+              1.5468830108642575
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "fixed": {
+            "mean": [
+              0.1132934062995694,
+              0.7925866351886229
+            ],
+            "median": [
+              0.09654714167118073,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.25891219377517694,
+              1.5468830108642575
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "mechanism": {
+            "count": 1607,
+            "correct": 172,
+            "rescue": 3,
+            "damage": 8,
+            "accuracy": 0.10703173615432483
+          },
+          "groups": {
+            "matcher": {
+              "count": 1081,
+              "correct": 110,
+              "rescue": 2,
+              "damage": 6,
+              "accuracy": 0.10175763182238667
+            },
+            "protected": {
+              "count": 438,
+              "correct": 45,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.10273972602739725
+            },
+            "editable": {
+              "count": 1169,
+              "correct": 127,
+              "rescue": 3,
+              "damage": 8,
+              "accuracy": 0.1086398631308811
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 21698,
+          "protected_count": 10836,
+          "selected_visible": {
+            "count": 3865,
+            "mean_error_delta": 0.017478530369168882,
+            "harm_rate": 0.2538163001293661
+          }
+        },
+        "2012-05-11": {
+          "standard": {
+            "mean": [
+              0.13258962782602463,
+              1.3949984030591116
+            ],
+            "median": [
+              0.1296405792236328,
+              1.366589903831482
+            ],
+            "p95": [
+              0.230638188123703,
+              2.337747836112976
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "fixed": {
+            "mean": [
+              0.1314324772074109,
+              1.40367558101813
+            ],
+            "median": [
+              0.1296405792236328,
+              1.366589903831482
+            ],
+            "p95": [
+              0.22464915812015532,
+              2.337747836112976
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "mechanism": {
+            "count": 2513,
+            "correct": 391,
+            "rescue": 5,
+            "damage": 3,
+            "accuracy": 0.1555909271786709
+          },
+          "groups": {
+            "matcher": {
+              "count": 1535,
+              "correct": 246,
+              "rescue": 1,
+              "damage": 3,
+              "accuracy": 0.16026058631921825
+            },
+            "protected": {
+              "count": 681,
+              "correct": 119,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.17474302496328928
+            },
+            "editable": {
+              "count": 1832,
+              "correct": 272,
+              "rescue": 5,
+              "damage": 3,
+              "accuracy": 0.14847161572052403
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 22746,
+          "protected_count": 11357,
+          "selected_visible": {
+            "count": 5252,
+            "mean_error_delta": 0.01764511489234893,
+            "harm_rate": 0.28674790555978674
+          }
+        }
+      },
+      "full_ranking": {
+        "PP": 1062,
+        "PN": 5,
+        "PG": 8,
+        "NP": 7,
+        "NN": 17462,
+        "NG": 110,
+        "GP": 7,
+        "GN": 124,
+        "GG": 11375
+      },
+      "coverage": {
+        "total": 161,
+        "reachable": 51,
+        "actual_correct": 3,
+        "rank": 33
+      }
+    },
+    "aligned_2091": {
+      "standard": {
+        "mean": [
+          0.1219490717093532,
+          1.1694695530356942
+        ],
+        "median": [
+          0.11785581335425377,
+          1.0374428033828735
+        ],
+        "p95": [
+          0.2436368793249129,
+          2.5034741282463058
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "fixed": {
+        "mean": [
+          0.1210925582038996,
+          1.169245454799998
+        ],
+        "median": [
+          0.11785581335425377,
+          1.0374428033828735
+        ],
+        "p95": [
+          0.2436368793249129,
+          2.503918290138243
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "mechanism": {
+        "count": 6937,
+        "correct": 978,
+        "rescue": 19,
+        "damage": 9,
+        "accuracy": 0.14098313391956177
+      },
+      "groups": {
+        "matcher": {
+          "count": 4571,
+          "correct": 662,
+          "rescue": 10,
+          "damage": 8,
+          "accuracy": 0.14482607744476045
+        },
+        "protected": {
+          "count": 2197,
+          "correct": 330,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.15020482476103778
+        },
+        "editable": {
+          "count": 4740,
+          "correct": 648,
+          "rescue": 19,
+          "damage": 9,
+          "accuracy": 0.13670886075949368
+        }
+      },
+      "protected_retention": 1.0,
+      "matcher_count": 71093,
+      "protected_count": 35502,
+      "selected_visible": {
+        "count": 15956,
+        "mean_error_delta": 0.016887108969748932,
+        "harm_rate": 0.2919904738029581
+      },
+      "pose_rescue": 0,
+      "pose_damage": 0,
+      "selection": {
+        "epoch": 40,
+        "mean_translation": 0.17701331017346217
+      },
+      "dates": {
+        "2012-01-22": {
+          "standard": {
+            "mean": [
+              0.12790090226917528,
+              1.2846831353381276
+            ],
+            "median": [
+              0.1251918151974678,
+              1.1836596727371216
+            ],
+            "p95": [
+              0.24447101578116417,
+              2.6746298670768733
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "fixed": {
+            "mean": [
+              0.12546519198804162,
+              1.2840458559803665
+            ],
+            "median": [
+              0.12294776365160942,
+              1.1836596727371216
+            ],
+            "p95": [
+              0.24447101578116417,
+              2.6746298670768733
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "mechanism": {
+            "count": 2817,
+            "correct": 406,
+            "rescue": 7,
+            "damage": 3,
+            "accuracy": 0.14412495562655306
+          },
+          "groups": {
+            "matcher": {
+              "count": 1955,
+              "correct": 298,
+              "rescue": 3,
+              "damage": 3,
+              "accuracy": 0.15242966751918158
+            },
+            "protected": {
+              "count": 1078,
+              "correct": 166,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.15398886827458255
+            },
+            "editable": {
+              "count": 1739,
+              "correct": 240,
+              "rescue": 7,
+              "damage": 3,
+              "accuracy": 0.13801035077630822
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 26649,
+          "protected_count": 13309,
+          "selected_visible": {
+            "count": 6839,
+            "mean_error_delta": 0.02027879819210762,
+            "harm_rate": 0.29273285568065505
+          }
+        },
+        "2012-02-02": {
+          "standard": {
+            "mean": [
+              0.11051136275584048,
+              0.7829252457076853
+            ],
+            "median": [
+              0.10470475256443024,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.20464849472045896,
+              1.5215978145599365
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "fixed": {
+            "mean": [
+              0.11051136275584048,
+              0.7829252457076853
+            ],
+            "median": [
+              0.10470475256443024,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.20464849472045896,
+              1.5215978145599365
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "mechanism": {
+            "count": 1607,
+            "correct": 177,
+            "rescue": 5,
+            "damage": 5,
+            "accuracy": 0.11014312383322962
+          },
+          "groups": {
+            "matcher": {
+              "count": 1081,
+              "correct": 114,
+              "rescue": 4,
+              "damage": 4,
+              "accuracy": 0.10545790934320073
+            },
+            "protected": {
+              "count": 438,
+              "correct": 45,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.10273972602739725
+            },
+            "editable": {
+              "count": 1169,
+              "correct": 132,
+              "rescue": 5,
+              "damage": 5,
+              "accuracy": 0.11291702309666382
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 21698,
+          "protected_count": 10836,
+          "selected_visible": {
+            "count": 3865,
+            "mean_error_delta": 0.01217232775063595,
+            "harm_rate": 0.2724450194049159
+          }
+        },
+        "2012-05-11": {
+          "standard": {
+            "mean": [
+              0.12588806911593392,
+              1.3898864996338647
+            ],
+            "median": [
+              0.12144336104393005,
+              1.3504568338394165
+            ],
+            "p95": [
+              0.21085920184850693,
+              2.540468621253967
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "fixed": {
+            "mean": [
+              0.12588806911593392,
+              1.3898864996338647
+            ],
+            "median": [
+              0.12144336104393005,
+              1.3504568338394165
+            ],
+            "p95": [
+              0.21085920184850693,
+              2.540468621253967
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "mechanism": {
+            "count": 2513,
+            "correct": 395,
+            "rescue": 7,
+            "damage": 1,
+            "accuracy": 0.1571826502188619
+          },
+          "groups": {
+            "matcher": {
+              "count": 1535,
+              "correct": 250,
+              "rescue": 3,
+              "damage": 1,
+              "accuracy": 0.16286644951140064
+            },
+            "protected": {
+              "count": 681,
+              "correct": 119,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.17474302496328928
+            },
+            "editable": {
+              "count": 1832,
+              "correct": 276,
+              "rescue": 7,
+              "damage": 1,
+              "accuracy": 0.15065502183406113
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 22746,
+          "protected_count": 11357,
+          "selected_visible": {
+            "count": 5252,
+            "mean_error_delta": 0.01594020623177494,
+            "harm_rate": 0.3054074638233054
+          }
+        }
+      },
+      "full_ranking": {
+        "PP": 1065,
+        "PN": 3,
+        "PG": 7,
+        "NP": 10,
+        "NN": 17468,
+        "NG": 101,
+        "GP": 9,
+        "GN": 120,
+        "GG": 11377
+      },
+      "coverage": {
+        "total": 161,
+        "reachable": 55,
+        "actual_correct": 3,
+        "rank": 33
+      }
+    },
+    "shuffled_2091": {
+      "standard": {
+        "mean": [
+          0.12592413437112673,
+          1.1684227582517561
+        ],
+        "median": [
+          0.12105796113610268,
+          1.0855240225791931
+        ],
+        "p95": [
+          0.25537434071302406,
+          2.410971307754515
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "fixed": {
+        "mean": [
+          0.1257323779595586,
+          1.1710513528886732
+        ],
+        "median": [
+          0.12136571109294891,
+          1.0855240225791931
+        ],
+        "p95": [
+          0.25537434071302406,
+          2.410971307754515
+        ],
+        "successes": 182,
+        "count": 182
+      },
+      "mechanism": {
+        "count": 6937,
+        "correct": 973,
+        "rescue": 16,
+        "damage": 11,
+        "accuracy": 0.14026236125126135
+      },
+      "groups": {
+        "matcher": {
+          "count": 4571,
+          "correct": 659,
+          "rescue": 7,
+          "damage": 8,
+          "accuracy": 0.14416976591555458
+        },
+        "protected": {
+          "count": 2197,
+          "correct": 330,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.15020482476103778
+        },
+        "editable": {
+          "count": 4740,
+          "correct": 643,
+          "rescue": 16,
+          "damage": 11,
+          "accuracy": 0.13565400843881856
+        }
+      },
+      "protected_retention": 1.0,
+      "matcher_count": 71093,
+      "protected_count": 35502,
+      "selected_visible": {
+        "count": 15956,
+        "mean_error_delta": 0.01627907782697788,
+        "harm_rate": 0.27444221609425923
+      },
+      "pose_rescue": 0,
+      "pose_damage": 0,
+      "selection": {
+        "epoch": 40,
+        "mean_translation": 0.17919368452296175
+      },
+      "dates": {
+        "2012-01-22": {
+          "standard": {
+            "mean": [
+              0.12978899778681807,
+              1.2767735915258527
+            ],
+            "median": [
+              0.12863776087760925,
+              1.1973950266838074
+            ],
+            "p95": [
+              0.24447101578116417,
+              2.6364821434020995
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "fixed": {
+            "mean": [
+              0.13047565167653374,
+              1.280802745372057
+            ],
+            "median": [
+              0.12863776087760925,
+              1.1973950266838074
+            ],
+            "p95": [
+              0.24447101578116417,
+              2.6364821434020995
+            ],
+            "successes": 64,
+            "count": 64
+          },
+          "mechanism": {
+            "count": 2817,
+            "correct": 406,
+            "rescue": 6,
+            "damage": 2,
+            "accuracy": 0.14412495562655306
+          },
+          "groups": {
+            "matcher": {
+              "count": 1955,
+              "correct": 299,
+              "rescue": 3,
+              "damage": 2,
+              "accuracy": 0.15294117647058825
+            },
+            "protected": {
+              "count": 1078,
+              "correct": 166,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.15398886827458255
+            },
+            "editable": {
+              "count": 1739,
+              "correct": 240,
+              "rescue": 6,
+              "damage": 2,
+              "accuracy": 0.13801035077630822
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 26649,
+          "protected_count": 13309,
+          "selected_visible": {
+            "count": 6839,
+            "mean_error_delta": 0.018424322112625603,
+            "harm_rate": 0.2719695861968124
+          }
+        },
+        "2012-02-02": {
+          "standard": {
+            "mean": [
+              0.11381624740633098,
+              0.79566489322619
+            ],
+            "median": [
+              0.1049027070403099,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.25661103129386903,
+              1.6034467220306396
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "fixed": {
+            "mean": [
+              0.11363516063852744,
+              0.7965864677320827
+            ],
+            "median": [
+              0.1049027070403099,
+              0.6679324507713318
+            ],
+            "p95": [
+              0.25661103129386903,
+              1.6590993523597715
+            ],
+            "successes": 55,
+            "count": 55
+          },
+          "mechanism": {
+            "count": 1607,
+            "correct": 172,
+            "rescue": 3,
+            "damage": 8,
+            "accuracy": 0.10703173615432483
+          },
+          "groups": {
+            "matcher": {
+              "count": 1081,
+              "correct": 111,
+              "rescue": 2,
+              "damage": 5,
+              "accuracy": 0.1026827012025902
+            },
+            "protected": {
+              "count": 438,
+              "correct": 45,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.10273972602739725
+            },
+            "editable": {
+              "count": 1169,
+              "correct": 127,
+              "rescue": 3,
+              "damage": 8,
+              "accuracy": 0.1086398631308811
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 21698,
+          "protected_count": 10836,
+          "selected_visible": {
+            "count": 3865,
+            "mean_error_delta": 0.013727536026441419,
+            "harm_rate": 0.2690815006468305
+          }
+        },
+        "2012-05-11": {
+          "standard": {
+            "mean": [
+              0.13256830142603981,
+              1.3837756034400728
+            ],
+            "median": [
+              0.126065194606781,
+              1.366589903831482
+            ],
+            "p95": [
+              0.24844009429216382,
+              2.5299631595611567
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "fixed": {
+            "mean": [
+              0.1314748769241666,
+              1.3864716634390846
+            ],
+            "median": [
+              0.126065194606781,
+              1.366589903831482
+            ],
+            "p95": [
+              0.2464181020855903,
+              2.5299631595611567
+            ],
+            "successes": 63,
+            "count": 63
+          },
+          "mechanism": {
+            "count": 2513,
+            "correct": 395,
+            "rescue": 7,
+            "damage": 1,
+            "accuracy": 0.1571826502188619
+          },
+          "groups": {
+            "matcher": {
+              "count": 1535,
+              "correct": 249,
+              "rescue": 2,
+              "damage": 1,
+              "accuracy": 0.16221498371335505
+            },
+            "protected": {
+              "count": 681,
+              "correct": 119,
+              "rescue": 0,
+              "damage": 0,
+              "accuracy": 0.17474302496328928
+            },
+            "editable": {
+              "count": 1832,
+              "correct": 276,
+              "rescue": 7,
+              "damage": 1,
+              "accuracy": 0.15065502183406113
+            }
+          },
+          "protected_retention": 1.0,
+          "matcher_count": 22746,
+          "protected_count": 11357,
+          "selected_visible": {
+            "count": 5252,
+            "mean_error_delta": 0.0153633092415873,
+            "harm_rate": 0.2816070068545316
+          }
+        }
+      },
+      "full_ranking": {
+        "PP": 1063,
+        "PN": 4,
+        "PG": 8,
+        "NP": 6,
+        "NN": 17469,
+        "NG": 104,
+        "GP": 10,
+        "GN": 114,
+        "GG": 11382
+      },
+      "coverage": {
+        "total": 161,
+        "reachable": 51,
+        "actual_correct": 2,
+        "rank": 33
+      }
+    }
+  },
+  "teacher": {
+    "frames": 578,
+    "totals": {
+      "zero": 2255,
+      "attempted": 4874,
+      "certified": 1945,
+      "kept": 1500,
+      "coordinate_rejected": 445,
+      "radius_blocked": 2927,
+      "uncertain": 2,
+      "gray_skipped": 20361,
+      "no_positive": 31328,
+      "protected_skipped": 20779
+    },
+    "frames_with_correction": 434,
+    "frames_with_zero": 458,
+    "dates": {
+      "2012-01-22": {
+        "zero": 795,
+        "attempted": 1650,
+        "certified": 619,
+        "kept": 475,
+        "coordinate_rejected": 144,
+        "radius_blocked": 1030,
+        "uncertain": 1,
+        "gray_skipped": 7460,
+        "no_positive": 12630,
+        "protected_skipped": 7612
+      },
+      "2012-02-02": {
+        "zero": 726,
+        "attempted": 1460,
+        "certified": 636,
+        "kept": 495,
+        "coordinate_rejected": 141,
+        "radius_blocked": 824,
+        "uncertain": 0,
+        "gray_skipped": 5665,
+        "no_positive": 8189,
+        "protected_skipped": 5424
+      },
+      "2012-05-11": {
+        "zero": 734,
+        "attempted": 1764,
+        "certified": 690,
+        "kept": 530,
+        "coordinate_rejected": 160,
+        "radius_blocked": 1073,
+        "uncertain": 1,
+        "gray_skipped": 7236,
+        "no_positive": 10509,
+        "protected_skipped": 7743
+      }
+    }
+  },
+  "baseline_dates": {
+    "2012-01-22": {
+      "standard": {
+        "mean": [
+          0.12564699977519922,
+          1.2847644672729075
+        ],
+        "median": [
+          0.11822371929883957,
+          1.1836596727371216
+        ],
+        "p95": [
+          0.24447101578116417,
+          2.6746298670768733
+        ],
+        "successes": 64,
+        "count": 64
+      },
+      "fixed": {
+        "mean": [
+          0.12564699977519922,
+          1.2847644672729075
+        ],
+        "median": [
+          0.11822371929883957,
+          1.1836596727371216
+        ],
+        "p95": [
+          0.24447101578116417,
+          2.6746298670768733
+        ],
+        "successes": 64,
+        "count": 64
+      },
+      "mechanism": {
+        "count": 2817,
+        "correct": 402,
+        "rescue": 0,
+        "damage": 0,
+        "accuracy": 0.14270500532481364
+      },
+      "groups": {
+        "matcher": {
+          "count": 1955,
+          "correct": 298,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.15242966751918158
+        },
+        "protected": {
+          "count": 1078,
+          "correct": 166,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.15398886827458255
+        },
+        "editable": {
+          "count": 1739,
+          "correct": 236,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.13571017826336976
+        }
+      },
+      "protected_retention": 1.0,
+      "matcher_count": 26649,
+      "protected_count": 13309,
+      "selected_visible": {
+        "count": 6839,
+        "mean_error_delta": 0.0,
+        "harm_rate": 0.0
+      }
+    },
+    "2012-02-02": {
+      "standard": {
+        "mean": [
+          0.11383535015312109,
+          0.8003789248791608
+        ],
+        "median": [
+          0.09922152757644653,
+          0.6679324507713318
+        ],
+        "p95": [
+          0.26381781101226803,
+          1.6993603110313409
+        ],
+        "successes": 55,
+        "count": 55
+      },
+      "fixed": {
+        "mean": [
+          0.11383535015312109,
+          0.8003789248791608
+        ],
+        "median": [
+          0.09922152757644653,
+          0.6679324507713318
+        ],
+        "p95": [
+          0.26381781101226803,
+          1.6993603110313409
+        ],
+        "successes": 55,
+        "count": 55
+      },
+      "mechanism": {
+        "count": 1607,
+        "correct": 177,
+        "rescue": 0,
+        "damage": 0,
+        "accuracy": 0.11014312383322962
+      },
+      "groups": {
+        "matcher": {
+          "count": 1081,
+          "correct": 114,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.10545790934320073
+        },
+        "protected": {
+          "count": 438,
+          "correct": 45,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.10273972602739725
+        },
+        "editable": {
+          "count": 1169,
+          "correct": 132,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.11291702309666382
+        }
+      },
+      "protected_retention": 1.0,
+      "matcher_count": 21698,
+      "protected_count": 10836,
+      "selected_visible": {
+        "count": 3865,
+        "mean_error_delta": 0.0,
+        "harm_rate": 0.0
+      }
+    },
+    "2012-05-11": {
+      "standard": {
+        "mean": [
+          0.12720044513070394,
+          1.3930770369276169
+        ],
+        "median": [
+          0.12391064316034317,
+          1.365157127380371
+        ],
+        "p95": [
+          0.21085920184850693,
+          2.542911863327026
+        ],
+        "successes": 63,
+        "count": 63
+      },
+      "fixed": {
+        "mean": [
+          0.12720044513070394,
+          1.3930770369276169
+        ],
+        "median": [
+          0.12391064316034317,
+          1.365157127380371
+        ],
+        "p95": [
+          0.21085920184850693,
+          2.542911863327026
+        ],
+        "successes": 63,
+        "count": 63
+      },
+      "mechanism": {
+        "count": 2513,
+        "correct": 389,
+        "rescue": 0,
+        "damage": 0,
+        "accuracy": 0.1547950656585754
+      },
+      "groups": {
+        "matcher": {
+          "count": 1535,
+          "correct": 248,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.16156351791530946
+        },
+        "protected": {
+          "count": 681,
+          "correct": 119,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.17474302496328928
+        },
+        "editable": {
+          "count": 1832,
+          "correct": 270,
+          "rescue": 0,
+          "damage": 0,
+          "accuracy": 0.14737991266375547
+        }
+      },
+      "protected_retention": 1.0,
+      "matcher_count": 22746,
+      "protected_count": 11357,
+      "selected_visible": {
+        "count": 5252,
+        "mean_error_delta": 0.0,
+        "harm_rate": 0.0
+      }
+    }
+  },
+  "paired_translation": {
+    "baseline": {
+      "mean": 0.00027001812208048154,
+      "ci95": [
+        -0.0015477497138932958,
+        0.0021466756977325846
+      ],
+      "blocks": {
+        "2012-01-22": 7,
+        "2012-02-02": 6,
+        "2012-05-11": 7
+      }
+    },
+    "shuffled": {
+      "mean": -0.001989961294764346,
+      "ci95": [
+        -0.0034624174200612264,
+        -0.0005426241898868982
+      ],
+      "blocks": {
+        "2012-01-22": 7,
+        "2012-02-02": 6,
+        "2012-05-11": 7
+      }
+    }
+  },
+  "passed": false
+}

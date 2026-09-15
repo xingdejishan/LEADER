@@ -163,7 +163,7 @@ def train(p):
     internal=[d for d in data if d['row']['role']=='internal']
     for d in fit:
         with np.load(OUT/'teacher'/(d['row']['frame_id']+'.npz')) as f:
-            d['direction']=torch.tensor(f['targets'],device='cuda')
+            d['direction']=torch.tensor(f['targets'])
             d['kind']=torch.tensor(f['kind'],device='cuda')
             assert not ((d['kind']>0)&~d['editable']).any()
     matcher=e.Matcher(inlier_threshold=2.,d_thre=2,num_iterations=10,ratio=.15,nms_radius=.1,max_points=3000,k1=30)
@@ -202,7 +202,7 @@ def train(p):
                     fused=head(features,images,editable); pred=decoder(fused)
                     batch_idx=torch.cat([torch.full((len(d['f']),),i,device='cuda',dtype=torch.long) for i,d in enumerate(batch)])
                     regression=trr(torch.cat([d['target'] for d in batch]),pred[:,:3],pred[:,3],batch_idx)[0].mean()
-                    auxiliary=direction(fused,features,torch.cat([d['direction'] for d in batch]),torch.cat([d['kind'] for d in batch]))
+                    auxiliary=direction(fused,features,torch.cat([d['direction'] for d in batch]).to(features.device),torch.cat([d['kind'] for d in batch]))
                     loss=regression+.01*auxiliary
                     assert torch.isfinite(loss)
                     loss.backward()

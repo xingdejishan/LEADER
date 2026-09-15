@@ -1,0 +1,8374 @@
+[
+  {
+    "frame_id": "1327254940958698",
+    "date": "2012-01-22",
+    "standard": [
+      0.14289209246635437,
+      0.3966355323791504
+    ],
+    "fixed": [
+      0.14289209246635437,
+      0.3966355323791504
+    ],
+    "protected_count": 213,
+    "matcher_count": 427,
+    "protected_retained": 213,
+    "mechanism": {
+      "count": 81,
+      "correct": 11,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 50,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 26,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 55,
+        "correct": 8,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 108,
+      "delta_sum": 2.6406407356262207,
+      "harmed": 28
+    }
+  },
+  {
+    "frame_id": "1327254941558769",
+    "date": "2012-01-22",
+    "standard": [
+      0.07293668389320374,
+      0.47969770431518555
+    ],
+    "fixed": [
+      0.07293668389320374,
+      0.47969770431518555
+    ],
+    "protected_count": 212,
+    "matcher_count": 425,
+    "protected_retained": 212,
+    "mechanism": {
+      "count": 69,
+      "correct": 13,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 50,
+        "correct": 11,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 29,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 40,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 110,
+      "delta_sum": 2.4894814491271973,
+      "harmed": 28
+    }
+  },
+  {
+    "frame_id": "1327254941958814",
+    "date": "2012-01-22",
+    "standard": [
+      0.13653431832790375,
+      1.4196863174438477
+    ],
+    "fixed": [
+      0.13653431832790375,
+      1.4196863174438477
+    ],
+    "protected_count": 209,
+    "matcher_count": 419,
+    "protected_retained": 209,
+    "mechanism": {
+      "count": 90,
+      "correct": 16,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 64,
+        "correct": 12,
+        "rescue": 1,
+        "damage": 0
+      },
+      "protected": {
+        "count": 33,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 57,
+        "correct": 9,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 110,
+      "delta_sum": -1.2253434658050537,
+      "harmed": 21
+    }
+  },
+  {
+    "frame_id": "1327254942558901",
+    "date": "2012-01-22",
+    "standard": [
+      0.15587745606899261,
+      0.7225343585014343
+    ],
+    "fixed": [
+      0.15587745606899261,
+      0.7225343585014343
+    ],
+    "protected_count": 209,
+    "matcher_count": 418,
+    "protected_retained": 209,
+    "mechanism": {
+      "count": 91,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 59,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 34,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 57,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 114,
+      "delta_sum": 4.904050827026367,
+      "harmed": 39
+    }
+  },
+  {
+    "frame_id": "1327254942958928",
+    "date": "2012-01-22",
+    "standard": [
+      0.1631929725408554,
+      1.1843209266662598
+    ],
+    "fixed": [
+      0.1631929725408554,
+      1.1843209266662598
+    ],
+    "protected_count": 216,
+    "matcher_count": 433,
+    "protected_retained": 216,
+    "mechanism": {
+      "count": 62,
+      "correct": 9,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 49,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 26,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 36,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 123,
+      "delta_sum": 6.507444858551025,
+      "harmed": 46
+    }
+  },
+  {
+    "frame_id": "1327254943559002",
+    "date": "2012-01-22",
+    "standard": [
+      0.12321840226650238,
+      0.6714387536048889
+    ],
+    "fixed": [
+      0.12321840226650238,
+      0.6714387536048889
+    ],
+    "protected_count": 216,
+    "matcher_count": 433,
+    "protected_retained": 216,
+    "mechanism": {
+      "count": 70,
+      "correct": 16,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 49,
+        "correct": 8,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 26,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 44,
+        "correct": 13,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 104,
+      "delta_sum": 2.65181303024292,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1327254943959047",
+    "date": "2012-01-22",
+    "standard": [
+      0.09045340120792389,
+      2.2221109867095947
+    ],
+    "fixed": [
+      0.09045340120792389,
+      2.2221109867095947
+    ],
+    "protected_count": 214,
+    "matcher_count": 428,
+    "protected_retained": 214,
+    "mechanism": {
+      "count": 68,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 50,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 26,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 42,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 110,
+      "delta_sum": -2.0532209873199463,
+      "harmed": 16
+    }
+  },
+  {
+    "frame_id": "1327254944559119",
+    "date": "2012-01-22",
+    "standard": [
+      0.12725357711315155,
+      2.6276350021362305
+    ],
+    "fixed": [
+      0.12725357711315155,
+      2.6276350021362305
+    ],
+    "protected_count": 217,
+    "matcher_count": 435,
+    "protected_retained": 217,
+    "mechanism": {
+      "count": 65,
+      "correct": 10,
+      "rescue": 0,
+      "damage": 1
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 52,
+        "correct": 9,
+        "rescue": 0,
+        "damage": 1
+      },
+      "protected": {
+        "count": 30,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 35,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 1
+      }
+    },
+    "selected_visible": {
+      "count": 112,
+      "delta_sum": 1.743492841720581,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1327254944959160",
+    "date": "2012-01-22",
+    "standard": [
+      0.09784745424985886,
+      1.705938696861267
+    ],
+    "fixed": [
+      0.09784745424985886,
+      1.705938696861267
+    ],
+    "protected_count": 219,
+    "matcher_count": 438,
+    "protected_retained": 219,
+    "mechanism": {
+      "count": 74,
+      "correct": 9,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 51,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 22,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 52,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 111,
+      "delta_sum": 4.141534328460693,
+      "harmed": 43
+    }
+  },
+  {
+    "frame_id": "1327254945559229",
+    "date": "2012-01-22",
+    "standard": [
+      0.19299010932445526,
+      1.7835572957992554
+    ],
+    "fixed": [
+      0.19299010932445526,
+      1.7835572957992554
+    ],
+    "protected_count": 217,
+    "matcher_count": 434,
+    "protected_retained": 217,
+    "mechanism": {
+      "count": 55,
+      "correct": 13,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 44,
+        "correct": 11,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 23,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 32,
+        "correct": 10,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 107,
+      "delta_sum": 3.1287314891815186,
+      "harmed": 35
+    }
+  },
+  {
+    "frame_id": "1327254945959277",
+    "date": "2012-01-22",
+    "standard": [
+      0.18689215183258057,
+      1.210469126701355
+    ],
+    "fixed": [
+      0.18689215183258057,
+      1.210469126701355
+    ],
+    "protected_count": 206,
+    "matcher_count": 412,
+    "protected_retained": 206,
+    "mechanism": {
+      "count": 50,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 33,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 23,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 117,
+      "delta_sum": -0.4164692163467407,
+      "harmed": 24
+    }
+  },
+  {
+    "frame_id": "1327254946559344",
+    "date": "2012-01-22",
+    "standard": [
+      0.10096869617700577,
+      1.3116440773010254
+    ],
+    "fixed": [
+      0.10096869617700577,
+      1.3116440773010254
+    ],
+    "protected_count": 206,
+    "matcher_count": 412,
+    "protected_retained": 206,
+    "mechanism": {
+      "count": 42,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 33,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 20,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 22,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 118,
+      "delta_sum": 2.883841037750244,
+      "harmed": 35
+    }
+  },
+  {
+    "frame_id": "1327254946959389",
+    "date": "2012-01-22",
+    "standard": [
+      0.13398762047290802,
+      1.0426770448684692
+    ],
+    "fixed": [
+      0.13398762047290802,
+      1.0426770448684692
+    ],
+    "protected_count": 203,
+    "matcher_count": 407,
+    "protected_retained": 203,
+    "mechanism": {
+      "count": 45,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 37,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 24,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 120,
+      "delta_sum": 1.8480238914489746,
+      "harmed": 34
+    }
+  },
+  {
+    "frame_id": "1327254947559458",
+    "date": "2012-01-22",
+    "standard": [
+      0.11720984429121017,
+      0.49967706203460693
+    ],
+    "fixed": [
+      0.11720984429121017,
+      0.49967706203460693
+    ],
+    "protected_count": 196,
+    "matcher_count": 393,
+    "protected_retained": 196,
+    "mechanism": {
+      "count": 39,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 27,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 14,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 25,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 110,
+      "delta_sum": 2.5253405570983887,
+      "harmed": 36
+    }
+  },
+  {
+    "frame_id": "1327254947959504",
+    "date": "2012-01-22",
+    "standard": [
+      0.2445284128189087,
+      3.007521390914917
+    ],
+    "fixed": [
+      0.2445284128189087,
+      3.007521390914917
+    ],
+    "protected_count": 195,
+    "matcher_count": 391,
+    "protected_retained": 195,
+    "mechanism": {
+      "count": 25,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 15,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 22,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 112,
+      "delta_sum": -0.31212010979652405,
+      "harmed": 27
+    }
+  },
+  {
+    "frame_id": "1327254948559585",
+    "date": "2012-01-22",
+    "standard": [
+      0.13448162376880646,
+      1.3326610326766968
+    ],
+    "fixed": [
+      0.13448162376880646,
+      1.3326610326766968
+    ],
+    "protected_count": 191,
+    "matcher_count": 382,
+    "protected_retained": 191,
+    "mechanism": {
+      "count": 33,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 12,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 116,
+      "delta_sum": 0.9544610977172852,
+      "harmed": 35
+    }
+  },
+  {
+    "frame_id": "1327254948959620",
+    "date": "2012-01-22",
+    "standard": [
+      0.23396803438663483,
+      1.6909598112106323
+    ],
+    "fixed": [
+      0.23396803438663483,
+      1.6909598112106323
+    ],
+    "protected_count": 192,
+    "matcher_count": 384,
+    "protected_retained": 192,
+    "mechanism": {
+      "count": 23,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 13,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 5,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 18,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 111,
+      "delta_sum": -1.5316293239593506,
+      "harmed": 20
+    }
+  },
+  {
+    "frame_id": "1327254949559686",
+    "date": "2012-01-22",
+    "standard": [
+      0.26629582047462463,
+      0.5553190112113953
+    ],
+    "fixed": [
+      0.2726121246814728,
+      0.5446454882621765
+    ],
+    "protected_count": 192,
+    "matcher_count": 385,
+    "protected_retained": 192,
+    "mechanism": {
+      "count": 28,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 21,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 11,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 17,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 107,
+      "delta_sum": 3.6585817337036133,
+      "harmed": 42
+    }
+  },
+  {
+    "frame_id": "1327254949959735",
+    "date": "2012-01-22",
+    "standard": [
+      0.11396601796150208,
+      2.014408588409424
+    ],
+    "fixed": [
+      0.11396601796150208,
+      2.014408588409424
+    ],
+    "protected_count": 204,
+    "matcher_count": 408,
+    "protected_retained": 204,
+    "mechanism": {
+      "count": 5,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 5,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 0,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 5,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 135,
+      "delta_sum": 1.5866683721542358,
+      "harmed": 46
+    }
+  },
+  {
+    "frame_id": "1327254950559795",
+    "date": "2012-01-22",
+    "standard": [
+      0.1468660533428192,
+      2.5386757850646973
+    ],
+    "fixed": [
+      0.14687670767307281,
+      2.5391383171081543
+    ],
+    "protected_count": 191,
+    "matcher_count": 383,
+    "protected_retained": 191,
+    "mechanism": {
+      "count": 16,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 12,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 8,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 154,
+      "delta_sum": 2.275631904602051,
+      "harmed": 44
+    }
+  },
+  {
+    "frame_id": "1327254950959851",
+    "date": "2012-01-22",
+    "standard": [
+      0.21865442395210266,
+      0.8970025777816772
+    ],
+    "fixed": [
+      0.21865442395210266,
+      0.8970025777816772
+    ],
+    "protected_count": 186,
+    "matcher_count": 373,
+    "protected_retained": 186,
+    "mechanism": {
+      "count": 19,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 16,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 10,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 154,
+      "delta_sum": 7.7760162353515625,
+      "harmed": 63
+    }
+  },
+  {
+    "frame_id": "1327254951559908",
+    "date": "2012-01-22",
+    "standard": [
+      0.3142840564250946,
+      1.7330262660980225
+    ],
+    "fixed": [
+      0.3142840564250946,
+      1.7330262660980225
+    ],
+    "protected_count": 191,
+    "matcher_count": 382,
+    "protected_retained": 191,
+    "mechanism": {
+      "count": 24,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 16,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 11,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 13,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 131,
+      "delta_sum": 1.7831273078918457,
+      "harmed": 40
+    }
+  },
+  {
+    "frame_id": "1327254951959955",
+    "date": "2012-01-22",
+    "standard": [
+      0.24414576590061188,
+      0.9164255857467651
+    ],
+    "fixed": [
+      0.24414576590061188,
+      0.9164255857467651
+    ],
+    "protected_count": 186,
+    "matcher_count": 373,
+    "protected_retained": 186,
+    "mechanism": {
+      "count": 17,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 13,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 7,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 118,
+      "delta_sum": 3.502565860748291,
+      "harmed": 46
+    }
+  },
+  {
+    "frame_id": "1327254952560032",
+    "date": "2012-01-22",
+    "standard": [
+      0.2943415939807892,
+      1.5272624492645264
+    ],
+    "fixed": [
+      0.2943415939807892,
+      1.5272624492645264
+    ],
+    "protected_count": 184,
+    "matcher_count": 369,
+    "protected_retained": 184,
+    "mechanism": {
+      "count": 13,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 5,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 8,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 133,
+      "delta_sum": 2.398362398147583,
+      "harmed": 46
+    }
+  },
+  {
+    "frame_id": "1327254952960069",
+    "date": "2012-01-22",
+    "standard": [
+      0.12732677161693573,
+      0.9512103796005249
+    ],
+    "fixed": [
+      0.12732677161693573,
+      0.9512103796005249
+    ],
+    "protected_count": 177,
+    "matcher_count": 355,
+    "protected_retained": 177,
+    "mechanism": {
+      "count": 27,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 17,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 6,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 119,
+      "delta_sum": 3.906104326248169,
+      "harmed": 40
+    }
+  },
+  {
+    "frame_id": "1327254953560137",
+    "date": "2012-01-22",
+    "standard": [
+      0.14431478083133698,
+      1.527518630027771
+    ],
+    "fixed": [
+      0.14431478083133698,
+      1.527518630027771
+    ],
+    "protected_count": 188,
+    "matcher_count": 376,
+    "protected_retained": 188,
+    "mechanism": {
+      "count": 20,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 13,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 11,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 133,
+      "delta_sum": 0.4319005012512207,
+      "harmed": 31
+    }
+  },
+  {
+    "frame_id": "1327254953960197",
+    "date": "2012-01-22",
+    "standard": [
+      0.11761993169784546,
+      2.9122848510742188
+    ],
+    "fixed": [
+      0.11761993169784546,
+      2.9122848510742188
+    ],
+    "protected_count": 189,
+    "matcher_count": 378,
+    "protected_retained": 189,
+    "mechanism": {
+      "count": 17,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 12,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 8,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 132,
+      "delta_sum": 2.0626368522644043,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1327254954560251",
+    "date": "2012-01-22",
+    "standard": [
+      0.1525878608226776,
+      1.7916585206985474
+    ],
+    "fixed": [
+      0.1525878608226776,
+      1.7916585206985474
+    ],
+    "protected_count": 186,
+    "matcher_count": 373,
+    "protected_retained": 186,
+    "mechanism": {
+      "count": 38,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 22,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 12,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 26,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 122,
+      "delta_sum": 3.027404546737671,
+      "harmed": 37
+    }
+  },
+  {
+    "frame_id": "1327254954960352",
+    "date": "2012-01-22",
+    "standard": [
+      0.21229110658168793,
+      1.3481361865997314
+    ],
+    "fixed": [
+      0.21229110658168793,
+      1.3481361865997314
+    ],
+    "protected_count": 196,
+    "matcher_count": 392,
+    "protected_retained": 196,
+    "mechanism": {
+      "count": 43,
+      "correct": 6,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 29,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 12,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 31,
+        "correct": 6,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 135,
+      "delta_sum": 1.9840553998947144,
+      "harmed": 38
+    }
+  },
+  {
+    "frame_id": "1327254955560377",
+    "date": "2012-01-22",
+    "standard": [
+      0.12502945959568024,
+      1.994490385055542
+    ],
+    "fixed": [
+      0.12502945959568024,
+      1.994490385055542
+    ],
+    "protected_count": 177,
+    "matcher_count": 354,
+    "protected_retained": 177,
+    "mechanism": {
+      "count": 48,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 34,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 12,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 36,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 140,
+      "delta_sum": 3.3350744247436523,
+      "harmed": 40
+    }
+  },
+  {
+    "frame_id": "1327254955960416",
+    "date": "2012-01-22",
+    "standard": [
+      0.15143464505672455,
+      0.5460806488990784
+    ],
+    "fixed": [
+      0.15143464505672455,
+      0.5460806488990784
+    ],
+    "protected_count": 188,
+    "matcher_count": 376,
+    "protected_retained": 188,
+    "mechanism": {
+      "count": 39,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 28,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 14,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 25,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 143,
+      "delta_sum": 1.263357162475586,
+      "harmed": 20
+    }
+  },
+  {
+    "frame_id": "1327254956560491",
+    "date": "2012-01-22",
+    "standard": [
+      0.08701629936695099,
+      0.9270402193069458
+    ],
+    "fixed": [
+      0.08701629936695099,
+      0.9270402193069458
+    ],
+    "protected_count": 187,
+    "matcher_count": 374,
+    "protected_retained": 187,
+    "mechanism": {
+      "count": 42,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 33,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 19,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 23,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 145,
+      "delta_sum": 2.2592272758483887,
+      "harmed": 28
+    }
+  },
+  {
+    "frame_id": "1327254956960539",
+    "date": "2012-01-22",
+    "standard": [
+      0.1561935842037201,
+      0.5637122392654419
+    ],
+    "fixed": [
+      0.1561935842037201,
+      0.5637122392654419
+    ],
+    "protected_count": 195,
+    "matcher_count": 390,
+    "protected_retained": 195,
+    "mechanism": {
+      "count": 52,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 37,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 21,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 31,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 139,
+      "delta_sum": 2.3105876445770264,
+      "harmed": 29
+    }
+  },
+  {
+    "frame_id": "1327254957560606",
+    "date": "2012-01-22",
+    "standard": [
+      0.11852039396762848,
+      1.0864254236221313
+    ],
+    "fixed": [
+      0.11852039396762848,
+      1.0864254236221313
+    ],
+    "protected_count": 193,
+    "matcher_count": 386,
+    "protected_retained": 193,
+    "mechanism": {
+      "count": 56,
+      "correct": 8,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 46,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 31,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 25,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 133,
+      "delta_sum": 1.9508335590362549,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1327254957960641",
+    "date": "2012-01-22",
+    "standard": [
+      0.12415023893117905,
+      1.364009976387024
+    ],
+    "fixed": [
+      0.12415023893117905,
+      1.364009976387024
+    ],
+    "protected_count": 196,
+    "matcher_count": 392,
+    "protected_retained": 196,
+    "mechanism": {
+      "count": 35,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 30,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 20,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 15,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 136,
+      "delta_sum": 3.041534900665283,
+      "harmed": 31
+    }
+  },
+  {
+    "frame_id": "1327254958560828",
+    "date": "2012-01-22",
+    "standard": [
+      0.09388583153486252,
+      0.46140074729919434
+    ],
+    "fixed": [
+      0.09388583153486252,
+      0.46140074729919434
+    ],
+    "protected_count": 194,
+    "matcher_count": 388,
+    "protected_retained": 194,
+    "mechanism": {
+      "count": 45,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 32,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 18,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 120,
+      "delta_sum": -1.0273406505584717,
+      "harmed": 15
+    }
+  },
+  {
+    "frame_id": "1327254958960792",
+    "date": "2012-01-22",
+    "standard": [
+      0.08317290246486664,
+      2.5494470596313477
+    ],
+    "fixed": [
+      0.08317290246486664,
+      2.5494470596313477
+    ],
+    "protected_count": 189,
+    "matcher_count": 378,
+    "protected_retained": 189,
+    "mechanism": {
+      "count": 11,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 6,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 5,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 123,
+      "delta_sum": 2.945305347442627,
+      "harmed": 39
+    }
+  },
+  {
+    "frame_id": "1327254959560827",
+    "date": "2012-01-22",
+    "standard": [
+      0.0496293269097805,
+      1.1042900085449219
+    ],
+    "fixed": [
+      0.0496293269097805,
+      1.1042900085449219
+    ],
+    "protected_count": 200,
+    "matcher_count": 401,
+    "protected_retained": 200,
+    "mechanism": {
+      "count": 54,
+      "correct": 12,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 44,
+        "correct": 10,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 32,
+        "correct": 9,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 22,
+        "correct": 3,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 135,
+      "delta_sum": 1.2046951055526733,
+      "harmed": 22
+    }
+  },
+  {
+    "frame_id": "1327254959960901",
+    "date": "2012-01-22",
+    "standard": [
+      0.10744991898536682,
+      0.9520329833030701
+    ],
+    "fixed": [
+      0.10744991898536682,
+      0.9520329833030701
+    ],
+    "protected_count": 191,
+    "matcher_count": 383,
+    "protected_retained": 191,
+    "mechanism": {
+      "count": 59,
+      "correct": 12,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 49,
+        "correct": 11,
+        "rescue": 1,
+        "damage": 0
+      },
+      "protected": {
+        "count": 28,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 31,
+        "correct": 6,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 138,
+      "delta_sum": 2.418170213699341,
+      "harmed": 39
+    }
+  },
+  {
+    "frame_id": "1327254960560942",
+    "date": "2012-01-22",
+    "standard": [
+      0.03214309364557266,
+      0.567862331867218
+    ],
+    "fixed": [
+      0.03214309364557266,
+      0.567862331867218
+    ],
+    "protected_count": 199,
+    "matcher_count": 398,
+    "protected_retained": 199,
+    "mechanism": {
+      "count": 62,
+      "correct": 9,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 44,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 25,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 37,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 131,
+      "delta_sum": 2.594677448272705,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1327254960960986",
+    "date": "2012-01-22",
+    "standard": [
+      0.13002194464206696,
+      1.3155174255371094
+    ],
+    "fixed": [
+      0.13002194464206696,
+      1.3155174255371094
+    ],
+    "protected_count": 195,
+    "matcher_count": 391,
+    "protected_retained": 195,
+    "mechanism": {
+      "count": 47,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 33,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 20,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 126,
+      "delta_sum": 1.50654137134552,
+      "harmed": 35
+    }
+  },
+  {
+    "frame_id": "1327254961561059",
+    "date": "2012-01-22",
+    "standard": [
+      0.030611811205744743,
+      1.8730438947677612
+    ],
+    "fixed": [
+      0.030611811205744743,
+      1.8730438947677612
+    ],
+    "protected_count": 206,
+    "matcher_count": 412,
+    "protected_retained": 206,
+    "mechanism": {
+      "count": 52,
+      "correct": 8,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 34,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 20,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 32,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 118,
+      "delta_sum": -3.0621981620788574,
+      "harmed": 15
+    }
+  },
+  {
+    "frame_id": "1327254961961102",
+    "date": "2012-01-22",
+    "standard": [
+      0.05811125412583351,
+      0.5337586998939514
+    ],
+    "fixed": [
+      0.05811125412583351,
+      0.5337586998939514
+    ],
+    "protected_count": 210,
+    "matcher_count": 420,
+    "protected_retained": 210,
+    "mechanism": {
+      "count": 60,
+      "correct": 10,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 48,
+        "correct": 8,
+        "rescue": 1,
+        "damage": 0
+      },
+      "protected": {
+        "count": 28,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 32,
+        "correct": 4,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 119,
+      "delta_sum": 4.806283950805664,
+      "harmed": 39
+    }
+  },
+  {
+    "frame_id": "1327254962561174",
+    "date": "2012-01-22",
+    "standard": [
+      0.17393749952316284,
+      0.44587242603302
+    ],
+    "fixed": [
+      0.17393749952316284,
+      0.44587242603302
+    ],
+    "protected_count": 218,
+    "matcher_count": 436,
+    "protected_retained": 218,
+    "mechanism": {
+      "count": 58,
+      "correct": 10,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 42,
+        "correct": 10,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 28,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 30,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 111,
+      "delta_sum": 7.928107261657715,
+      "harmed": 44
+    }
+  },
+  {
+    "frame_id": "1327254962961216",
+    "date": "2012-01-22",
+    "standard": [
+      0.11460178345441818,
+      0.2639295756816864
+    ],
+    "fixed": [
+      0.11460178345441818,
+      0.2639295756816864
+    ],
+    "protected_count": 214,
+    "matcher_count": 429,
+    "protected_retained": 214,
+    "mechanism": {
+      "count": 45,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 29,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 21,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 24,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 107,
+      "delta_sum": 5.432003021240234,
+      "harmed": 35
+    }
+  },
+  {
+    "frame_id": "1327254963561315",
+    "date": "2012-01-22",
+    "standard": [
+      0.11719123274087906,
+      1.5216140747070312
+    ],
+    "fixed": [
+      0.11719123274087906,
+      1.5216140747070312
+    ],
+    "protected_count": 226,
+    "matcher_count": 452,
+    "protected_retained": 226,
+    "mechanism": {
+      "count": 52,
+      "correct": 10,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 36,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 23,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 29,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 97,
+      "delta_sum": 1.3494341373443604,
+      "harmed": 22
+    }
+  },
+  {
+    "frame_id": "1327254963961340",
+    "date": "2012-01-22",
+    "standard": [
+      0.1364045888185501,
+      0.900051474571228
+    ],
+    "fixed": [
+      0.1364045888185501,
+      0.900051474571228
+    ],
+    "protected_count": 228,
+    "matcher_count": 456,
+    "protected_retained": 228,
+    "mechanism": {
+      "count": 63,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 44,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 27,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 36,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 105,
+      "delta_sum": 4.518309593200684,
+      "harmed": 34
+    }
+  },
+  {
+    "frame_id": "1327254964561410",
+    "date": "2012-01-22",
+    "standard": [
+      0.12044286727905273,
+      0.6513203978538513
+    ],
+    "fixed": [
+      0.12044286727905273,
+      0.6513203978538513
+    ],
+    "protected_count": 229,
+    "matcher_count": 459,
+    "protected_retained": 229,
+    "mechanism": {
+      "count": 69,
+      "correct": 8,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 52,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 30,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 39,
+        "correct": 8,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 106,
+      "delta_sum": 7.9872026443481445,
+      "harmed": 42
+    }
+  },
+  {
+    "frame_id": "1327254964961457",
+    "date": "2012-01-22",
+    "standard": [
+      0.05293765291571617,
+      0.6224399209022522
+    ],
+    "fixed": [
+      0.05293765291571617,
+      0.6224399209022522
+    ],
+    "protected_count": 228,
+    "matcher_count": 457,
+    "protected_retained": 228,
+    "mechanism": {
+      "count": 72,
+      "correct": 10,
+      "rescue": 0,
+      "damage": 1
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 48,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 1
+      },
+      "protected": {
+        "count": 32,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 40,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 1
+      }
+    },
+    "selected_visible": {
+      "count": 95,
+      "delta_sum": 6.334118366241455,
+      "harmed": 33
+    }
+  },
+  {
+    "frame_id": "1327254965561525",
+    "date": "2012-01-22",
+    "standard": [
+      0.10408467054367065,
+      1.5143948793411255
+    ],
+    "fixed": [
+      0.10408467054367065,
+      1.5143948793411255
+    ],
+    "protected_count": 224,
+    "matcher_count": 449,
+    "protected_retained": 224,
+    "mechanism": {
+      "count": 71,
+      "correct": 24,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 48,
+        "correct": 23,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 32,
+        "correct": 18,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 39,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 88,
+      "delta_sum": 3.944194793701172,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1327254965961561",
+    "date": "2012-01-22",
+    "standard": [
+      0.12716522812843323,
+      0.8332173824310303
+    ],
+    "fixed": [
+      0.12716522812843323,
+      0.8332173824310303
+    ],
+    "protected_count": 223,
+    "matcher_count": 446,
+    "protected_retained": 223,
+    "mechanism": {
+      "count": 64,
+      "correct": 22,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 39,
+        "correct": 18,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 25,
+        "correct": 15,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 39,
+        "correct": 7,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 82,
+      "delta_sum": 2.51515793800354,
+      "harmed": 23
+    }
+  },
+  {
+    "frame_id": "1327254966561631",
+    "date": "2012-01-22",
+    "standard": [
+      0.0584772527217865,
+      0.9707583785057068
+    ],
+    "fixed": [
+      0.0584772527217865,
+      0.9707583785057068
+    ],
+    "protected_count": 224,
+    "matcher_count": 448,
+    "protected_retained": 224,
+    "mechanism": {
+      "count": 42,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 30,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 19,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 23,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 72,
+      "delta_sum": 1.7007585763931274,
+      "harmed": 20
+    }
+  },
+  {
+    "frame_id": "1327254966961718",
+    "date": "2012-01-22",
+    "standard": [
+      0.11862437427043915,
+      1.766357183456421
+    ],
+    "fixed": [
+      0.11862437427043915,
+      1.766357183456421
+    ],
+    "protected_count": 224,
+    "matcher_count": 448,
+    "protected_retained": 224,
+    "mechanism": {
+      "count": 34,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 24,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 66,
+      "delta_sum": 2.7403323650360107,
+      "harmed": 26
+    }
+  },
+  {
+    "frame_id": "1327254967561746",
+    "date": "2012-01-22",
+    "standard": [
+      0.06838401407003403,
+      1.561976671218872
+    ],
+    "fixed": [
+      0.06838401407003403,
+      1.561976671218872
+    ],
+    "protected_count": 227,
+    "matcher_count": 455,
+    "protected_retained": 227,
+    "mechanism": {
+      "count": 31,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 16,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 23,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 60,
+      "delta_sum": 1.3197729587554932,
+      "harmed": 17
+    }
+  },
+  {
+    "frame_id": "1327254967961792",
+    "date": "2012-01-22",
+    "standard": [
+      0.2667883038520813,
+      2.6829230785369873
+    ],
+    "fixed": [
+      0.2667883038520813,
+      2.6829230785369873
+    ],
+    "protected_count": 225,
+    "matcher_count": 450,
+    "protected_retained": 225,
+    "mechanism": {
+      "count": 14,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 6,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 11,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 55,
+      "delta_sum": 2.238847494125366,
+      "harmed": 21
+    }
+  },
+  {
+    "frame_id": "1327254968561871",
+    "date": "2012-01-22",
+    "standard": [
+      0.059343043714761734,
+      0.6525209546089172
+    ],
+    "fixed": [
+      0.059343043714761734,
+      0.6525209546089172
+    ],
+    "protected_count": 227,
+    "matcher_count": 454,
+    "protected_retained": 227,
+    "mechanism": {
+      "count": 40,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 24,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 13,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 58,
+      "delta_sum": 0.40783342719078064,
+      "harmed": 18
+    }
+  },
+  {
+    "frame_id": "1327254968961918",
+    "date": "2012-01-22",
+    "standard": [
+      0.03455191105604172,
+      1.3101513385772705
+    ],
+    "fixed": [
+      0.03455191105604172,
+      1.3101513385772705
+    ],
+    "protected_count": 226,
+    "matcher_count": 453,
+    "protected_retained": 226,
+    "mechanism": {
+      "count": 36,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 19,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 7,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 29,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 51,
+      "delta_sum": -0.5895997881889343,
+      "harmed": 5
+    }
+  },
+  {
+    "frame_id": "1327254969561974",
+    "date": "2012-01-22",
+    "standard": [
+      0.018327467143535614,
+      0.7022078037261963
+    ],
+    "fixed": [
+      0.018327467143535614,
+      0.7022078037261963
+    ],
+    "protected_count": 230,
+    "matcher_count": 461,
+    "protected_retained": 230,
+    "mechanism": {
+      "count": 41,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 16,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 6,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 35,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 46,
+      "delta_sum": 1.1880093812942505,
+      "harmed": 16
+    }
+  },
+  {
+    "frame_id": "1327254969962070",
+    "date": "2012-01-22",
+    "standard": [
+      0.04480619728565216,
+      0.8448780179023743
+    ],
+    "fixed": [
+      0.04480619728565216,
+      0.8448780179023743
+    ],
+    "protected_count": 237,
+    "matcher_count": 474,
+    "protected_retained": 237,
+    "mechanism": {
+      "count": 36,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 10,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 33,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 40,
+      "delta_sum": 0.9925214052200317,
+      "harmed": 17
+    }
+  },
+  {
+    "frame_id": "1327254970562090",
+    "date": "2012-01-22",
+    "standard": [
+      0.09177698940038681,
+      0.9823801517486572
+    ],
+    "fixed": [
+      0.09177698940038681,
+      0.9823801517486572
+    ],
+    "protected_count": 235,
+    "matcher_count": 471,
+    "protected_retained": 235,
+    "mechanism": {
+      "count": 33,
+      "correct": 8,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 21,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 4,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 29,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 46,
+      "delta_sum": 0.008547276258468628,
+      "harmed": 8
+    }
+  },
+  {
+    "frame_id": "1327254970962158",
+    "date": "2012-01-22",
+    "standard": [
+      0.0965014398097992,
+      2.83752179145813
+    ],
+    "fixed": [
+      0.0965014398097992,
+      2.83752179145813
+    ],
+    "protected_count": 233,
+    "matcher_count": 467,
+    "protected_retained": 233,
+    "mechanism": {
+      "count": 18,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 13,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 4,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 14,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 54,
+      "delta_sum": 0.8085780143737793,
+      "harmed": 21
+    }
+  },
+  {
+    "frame_id": "1327254971562222",
+    "date": "2012-01-22",
+    "standard": [
+      0.05049222707748413,
+      2.15104079246521
+    ],
+    "fixed": [
+      0.05049222707748413,
+      2.15104079246521
+    ],
+    "protected_count": 232,
+    "matcher_count": 465,
+    "protected_retained": 232,
+    "mechanism": {
+      "count": 28,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 18,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 25,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 47,
+      "delta_sum": 0.8173875212669373,
+      "harmed": 17
+    }
+  },
+  {
+    "frame_id": "1327254971962259",
+    "date": "2012-01-22",
+    "standard": [
+      0.05460621789097786,
+      1.5993658304214478
+    ],
+    "fixed": [
+      0.05460621789097786,
+      1.5993658304214478
+    ],
+    "protected_count": 236,
+    "matcher_count": 473,
+    "protected_retained": 236,
+    "mechanism": {
+      "count": 31,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 28,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 59,
+      "delta_sum": -0.7811487317085266,
+      "harmed": 8
+    }
+  },
+  {
+    "frame_id": "1327254972562321",
+    "date": "2012-01-22",
+    "standard": [
+      0.1494971364736557,
+      0.7010923624038696
+    ],
+    "fixed": [
+      0.1494971364736557,
+      0.7010923624038696
+    ],
+    "protected_count": 242,
+    "matcher_count": 485,
+    "protected_retained": 242,
+    "mechanism": {
+      "count": 28,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 20,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 62,
+      "delta_sum": 0.6640464067459106,
+      "harmed": 14
+    }
+  },
+  {
+    "frame_id": "1328211990077645",
+    "date": "2012-02-02",
+    "standard": [
+      0.1083049401640892,
+      0.31027427315711975
+    ],
+    "fixed": [
+      0.1083049401640892,
+      0.31027427315711975
+    ],
+    "protected_count": 219,
+    "matcher_count": 438,
+    "protected_retained": 219,
+    "mechanism": {
+      "count": 35,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 23,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 11,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 24,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 101,
+      "delta_sum": 2.1880743503570557,
+      "harmed": 31
+    }
+  },
+  {
+    "frame_id": "1328211990477618",
+    "date": "2012-02-02",
+    "standard": [
+      0.11207399517297745,
+      0.4647810459136963
+    ],
+    "fixed": [
+      0.11207399517297745,
+      0.4647810459136963
+    ],
+    "protected_count": 218,
+    "matcher_count": 436,
+    "protected_retained": 218,
+    "mechanism": {
+      "count": 35,
+      "correct": 6,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 27,
+        "correct": 5,
+        "rescue": 1,
+        "damage": 0
+      },
+      "protected": {
+        "count": 14,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 3,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 108,
+      "delta_sum": -0.2253008782863617,
+      "harmed": 19
+    }
+  },
+  {
+    "frame_id": "1328211991077613",
+    "date": "2012-02-02",
+    "standard": [
+      0.18692301213741302,
+      0.9946531653404236
+    ],
+    "fixed": [
+      0.18692301213741302,
+      0.9946531653404236
+    ],
+    "protected_count": 157,
+    "matcher_count": 315,
+    "protected_retained": 157,
+    "mechanism": {
+      "count": 20,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 1,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 19,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 26,
+      "delta_sum": -0.4721736013889313,
+      "harmed": 5
+    }
+  },
+  {
+    "frame_id": "1328211991477632",
+    "date": "2012-02-02",
+    "standard": [
+      0.06695204973220825,
+      0.627449631690979
+    ],
+    "fixed": [
+      0.06695204973220825,
+      0.627449631690979
+    ],
+    "protected_count": 173,
+    "matcher_count": 347,
+    "protected_retained": 173,
+    "mechanism": {
+      "count": 19,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 15,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 5,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 14,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 53,
+      "delta_sum": -0.14805544912815094,
+      "harmed": 11
+    }
+  },
+  {
+    "frame_id": "1328211992077598",
+    "date": "2012-02-02",
+    "standard": [
+      0.08634325861930847,
+      0.26979541778564453
+    ],
+    "fixed": [
+      0.08634325861930847,
+      0.26979541778564453
+    ],
+    "protected_count": 168,
+    "matcher_count": 336,
+    "protected_retained": 168,
+    "mechanism": {
+      "count": 23,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 15,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 4,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 19,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 45,
+      "delta_sum": -0.6427255272865295,
+      "harmed": 5
+    }
+  },
+  {
+    "frame_id": "1328211992477596",
+    "date": "2012-02-02",
+    "standard": [
+      0.08921495079994202,
+      0.44849780201911926
+    ],
+    "fixed": [
+      0.08921495079994202,
+      0.44849780201911926
+    ],
+    "protected_count": 171,
+    "matcher_count": 342,
+    "protected_retained": 171,
+    "mechanism": {
+      "count": 18,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 8,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 15,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 49,
+      "delta_sum": 0.6813215613365173,
+      "harmed": 13
+    }
+  },
+  {
+    "frame_id": "1328211993077591",
+    "date": "2012-02-02",
+    "standard": [
+      0.07917752861976624,
+      0.40348300337791443
+    ],
+    "fixed": [
+      0.07917752861976624,
+      0.40348300337791443
+    ],
+    "protected_count": 172,
+    "matcher_count": 344,
+    "protected_retained": 172,
+    "mechanism": {
+      "count": 19,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 15,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 6,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 13,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 58,
+      "delta_sum": 1.633819818496704,
+      "harmed": 17
+    }
+  },
+  {
+    "frame_id": "1328211993477580",
+    "date": "2012-02-02",
+    "standard": [
+      0.01779298484325409,
+      0.4788811504840851
+    ],
+    "fixed": [
+      0.01779298484325409,
+      0.4788811504840851
+    ],
+    "protected_count": 177,
+    "matcher_count": 354,
+    "protected_retained": 177,
+    "mechanism": {
+      "count": 21,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 4,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 17,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 52,
+      "delta_sum": 0.7797671556472778,
+      "harmed": 14
+    }
+  },
+  {
+    "frame_id": "1328211994077587",
+    "date": "2012-02-02",
+    "standard": [
+      0.036477744579315186,
+      0.23406797647476196
+    ],
+    "fixed": [
+      0.036477744579315186,
+      0.23406797647476196
+    ],
+    "protected_count": 162,
+    "matcher_count": 324,
+    "protected_retained": 162,
+    "mechanism": {
+      "count": 13,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 6,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 2,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 11,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 36,
+      "delta_sum": 1.8247050046920776,
+      "harmed": 16
+    }
+  },
+  {
+    "frame_id": "1328211994477560",
+    "date": "2012-02-02",
+    "standard": [
+      0.06939738988876343,
+      0.3956475853919983
+    ],
+    "fixed": [
+      0.06939738988876343,
+      0.3956475853919983
+    ],
+    "protected_count": 160,
+    "matcher_count": 320,
+    "protected_retained": 160,
+    "mechanism": {
+      "count": 13,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 7,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 38,
+      "delta_sum": 1.5700476169586182,
+      "harmed": 15
+    }
+  },
+  {
+    "frame_id": "1328211995077554",
+    "date": "2012-02-02",
+    "standard": [
+      0.039867088198661804,
+      0.32264062762260437
+    ],
+    "fixed": [
+      0.039867088198661804,
+      0.32264062762260437
+    ],
+    "protected_count": 168,
+    "matcher_count": 336,
+    "protected_retained": 168,
+    "mechanism": {
+      "count": 18,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 9,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 4,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 14,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 41,
+      "delta_sum": -0.5169451236724854,
+      "harmed": 6
+    }
+  },
+  {
+    "frame_id": "1328211995477558",
+    "date": "2012-02-02",
+    "standard": [
+      0.10617878288030624,
+      0.5066768527030945
+    ],
+    "fixed": [
+      0.10617878288030624,
+      0.5066768527030945
+    ],
+    "protected_count": 169,
+    "matcher_count": 339,
+    "protected_retained": 169,
+    "mechanism": {
+      "count": 21,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 11,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 4,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 17,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 44,
+      "delta_sum": -0.640487551689148,
+      "harmed": 9
+    }
+  },
+  {
+    "frame_id": "1328211996077540",
+    "date": "2012-02-02",
+    "standard": [
+      0.050517067313194275,
+      0.5004596710205078
+    ],
+    "fixed": [
+      0.050517067313194275,
+      0.5004596710205078
+    ],
+    "protected_count": 178,
+    "matcher_count": 356,
+    "protected_retained": 178,
+    "mechanism": {
+      "count": 20,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 14,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 2,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 18,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 50,
+      "delta_sum": -0.05871610343456268,
+      "harmed": 8
+    }
+  },
+  {
+    "frame_id": "1328211996477544",
+    "date": "2012-02-02",
+    "standard": [
+      0.035266052931547165,
+      0.20174118876457214
+    ],
+    "fixed": [
+      0.035266052931547165,
+      0.20174118876457214
+    ],
+    "protected_count": 186,
+    "matcher_count": 373,
+    "protected_retained": 186,
+    "mechanism": {
+      "count": 12,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 2,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 51,
+      "delta_sum": 3.013350486755371,
+      "harmed": 27
+    }
+  },
+  {
+    "frame_id": "1328211997077539",
+    "date": "2012-02-02",
+    "standard": [
+      0.17851805686950684,
+      0.6679324507713318
+    ],
+    "fixed": [
+      0.17851805686950684,
+      0.6679324507713318
+    ],
+    "protected_count": 173,
+    "matcher_count": 346,
+    "protected_retained": 173,
+    "mechanism": {
+      "count": 9,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 7,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 2,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 7,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 42,
+      "delta_sum": 2.8655104637145996,
+      "harmed": 21
+    }
+  },
+  {
+    "frame_id": "1328211997477531",
+    "date": "2012-02-02",
+    "standard": [
+      0.11402294039726257,
+      0.5181329846382141
+    ],
+    "fixed": [
+      0.11402294039726257,
+      0.5181329846382141
+    ],
+    "protected_count": 184,
+    "matcher_count": 369,
+    "protected_retained": 184,
+    "mechanism": {
+      "count": 13,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 11,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 10,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 51,
+      "delta_sum": 1.1955134868621826,
+      "harmed": 18
+    }
+  },
+  {
+    "frame_id": "1328211998077535",
+    "date": "2012-02-02",
+    "standard": [
+      0.05987779051065445,
+      0.419647753238678
+    ],
+    "fixed": [
+      0.05987779051065445,
+      0.419647753238678
+    ],
+    "protected_count": 194,
+    "matcher_count": 389,
+    "protected_retained": 194,
+    "mechanism": {
+      "count": 16,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 11,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 13,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 58,
+      "delta_sum": 0.9481711387634277,
+      "harmed": 19
+    }
+  },
+  {
+    "frame_id": "1328211998477510",
+    "date": "2012-02-02",
+    "standard": [
+      0.06691595166921616,
+      0.33102235198020935
+    ],
+    "fixed": [
+      0.06691595166921616,
+      0.33102235198020935
+    ],
+    "protected_count": 194,
+    "matcher_count": 389,
+    "protected_retained": 194,
+    "mechanism": {
+      "count": 22,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 15,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 7,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 15,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 63,
+      "delta_sum": 1.1468579769134521,
+      "harmed": 17
+    }
+  },
+  {
+    "frame_id": "1328211999077514",
+    "date": "2012-02-02",
+    "standard": [
+      0.16079452633857727,
+      0.9859589338302612
+    ],
+    "fixed": [
+      0.16079452633857727,
+      0.9859589338302612
+    ],
+    "protected_count": 163,
+    "matcher_count": 327,
+    "protected_retained": 163,
+    "mechanism": {
+      "count": 9,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 7,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 6,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 36,
+      "delta_sum": 1.5237395763397217,
+      "harmed": 16
+    }
+  },
+  {
+    "frame_id": "1328211999477508",
+    "date": "2012-02-02",
+    "standard": [
+      0.04514146223664284,
+      0.6006827354431152
+    ],
+    "fixed": [
+      0.04514146223664284,
+      0.6006827354431152
+    ],
+    "protected_count": 165,
+    "matcher_count": 330,
+    "protected_retained": 165,
+    "mechanism": {
+      "count": 20,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 7,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 2,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 18,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 37,
+      "delta_sum": -1.0377614498138428,
+      "harmed": 2
+    }
+  },
+  {
+    "frame_id": "1328212000077498",
+    "date": "2012-02-02",
+    "standard": [
+      0.1603250801563263,
+      0.8613921999931335
+    ],
+    "fixed": [
+      0.1603250801563263,
+      0.8613921999931335
+    ],
+    "protected_count": 192,
+    "matcher_count": 385,
+    "protected_retained": 192,
+    "mechanism": {
+      "count": 26,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 15,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 18,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 73,
+      "delta_sum": 1.1630353927612305,
+      "harmed": 20
+    }
+  },
+  {
+    "frame_id": "1328212000477496",
+    "date": "2012-02-02",
+    "standard": [
+      0.1383155733346939,
+      0.9454329013824463
+    ],
+    "fixed": [
+      0.1383155733346939,
+      0.9454329013824463
+    ],
+    "protected_count": 199,
+    "matcher_count": 398,
+    "protected_retained": 199,
+    "mechanism": {
+      "count": 33,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 19,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 12,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 87,
+      "delta_sum": 3.126217842102051,
+      "harmed": 29
+    }
+  },
+  {
+    "frame_id": "1328212001077481",
+    "date": "2012-02-02",
+    "standard": [
+      0.09654714167118073,
+      0.8425588011741638
+    ],
+    "fixed": [
+      0.09654714167118073,
+      0.8425588011741638
+    ],
+    "protected_count": 204,
+    "matcher_count": 409,
+    "protected_retained": 204,
+    "mechanism": {
+      "count": 31,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 21,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 11,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 20,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 93,
+      "delta_sum": 2.2190968990325928,
+      "harmed": 23
+    }
+  },
+  {
+    "frame_id": "1328212001477482",
+    "date": "2012-02-02",
+    "standard": [
+      0.05191690847277641,
+      0.41495877504348755
+    ],
+    "fixed": [
+      0.05191690847277641,
+      0.41495877504348755
+    ],
+    "protected_count": 205,
+    "matcher_count": 410,
+    "protected_retained": 205,
+    "mechanism": {
+      "count": 20,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 17,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 11,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 101,
+      "delta_sum": 3.0467824935913086,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1328212002077466",
+    "date": "2012-02-02",
+    "standard": [
+      0.08645307272672653,
+      0.5821548700332642
+    ],
+    "fixed": [
+      0.08645307272672653,
+      0.5821548700332642
+    ],
+    "protected_count": 207,
+    "matcher_count": 414,
+    "protected_retained": 207,
+    "mechanism": {
+      "count": 29,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 22,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 14,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 15,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 92,
+      "delta_sum": 2.6670994758605957,
+      "harmed": 27
+    }
+  },
+  {
+    "frame_id": "1328212002477490",
+    "date": "2012-02-02",
+    "standard": [
+      0.09606454521417618,
+      0.20747904479503632
+    ],
+    "fixed": [
+      0.09606454521417618,
+      0.20747904479503632
+    ],
+    "protected_count": 209,
+    "matcher_count": 418,
+    "protected_retained": 209,
+    "mechanism": {
+      "count": 27,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 10,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 17,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 94,
+      "delta_sum": 0.6368046998977661,
+      "harmed": 21
+    }
+  },
+  {
+    "frame_id": "1328212003077480",
+    "date": "2012-02-02",
+    "standard": [
+      0.04839876666665077,
+      0.5158621072769165
+    ],
+    "fixed": [
+      0.04839876666665077,
+      0.5158621072769165
+    ],
+    "protected_count": 209,
+    "matcher_count": 418,
+    "protected_retained": 209,
+    "mechanism": {
+      "count": 35,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 22,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 11,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 24,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 91,
+      "delta_sum": 1.3581469058990479,
+      "harmed": 21
+    }
+  },
+  {
+    "frame_id": "1328212003477459",
+    "date": "2012-02-02",
+    "standard": [
+      0.1356387734413147,
+      0.5300800204277039
+    ],
+    "fixed": [
+      0.1356387734413147,
+      0.5300800204277039
+    ],
+    "protected_count": 208,
+    "matcher_count": 417,
+    "protected_retained": 208,
+    "mechanism": {
+      "count": 24,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 19,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 15,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 95,
+      "delta_sum": 1.249249815940857,
+      "harmed": 18
+    }
+  },
+  {
+    "frame_id": "1328212004077451",
+    "date": "2012-02-02",
+    "standard": [
+      0.11182306706905365,
+      0.16312941908836365
+    ],
+    "fixed": [
+      0.11182306706905365,
+      0.16312941908836365
+    ],
+    "protected_count": 206,
+    "matcher_count": 413,
+    "protected_retained": 206,
+    "mechanism": {
+      "count": 28,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 19,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 94,
+      "delta_sum": 2.0601885318756104,
+      "harmed": 24
+    }
+  },
+  {
+    "frame_id": "1328212004477444",
+    "date": "2012-02-02",
+    "standard": [
+      0.0605696476995945,
+      0.3966355323791504
+    ],
+    "fixed": [
+      0.0605696476995945,
+      0.3966355323791504
+    ],
+    "protected_count": 209,
+    "matcher_count": 418,
+    "protected_retained": 209,
+    "mechanism": {
+      "count": 31,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 23,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 10,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 102,
+      "delta_sum": 2.2779650688171387,
+      "harmed": 28
+    }
+  },
+  {
+    "frame_id": "1328212005077438",
+    "date": "2012-02-02",
+    "standard": [
+      0.12622331082820892,
+      0.5300800204277039
+    ],
+    "fixed": [
+      0.12622331082820892,
+      0.5300800204277039
+    ],
+    "protected_count": 197,
+    "matcher_count": 394,
+    "protected_retained": 197,
+    "mechanism": {
+      "count": 27,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 21,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 10,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 17,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 88,
+      "delta_sum": 1.4521119594573975,
+      "harmed": 24
+    }
+  },
+  {
+    "frame_id": "1328212005477434",
+    "date": "2012-02-02",
+    "standard": [
+      0.17539578676223755,
+      0.8970025777816772
+    ],
+    "fixed": [
+      0.17539578676223755,
+      0.8970025777816772
+    ],
+    "protected_count": 206,
+    "matcher_count": 413,
+    "protected_retained": 206,
+    "mechanism": {
+      "count": 26,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 1
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 17,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 1
+      }
+    },
+    "selected_visible": {
+      "count": 70,
+      "delta_sum": 1.336324691772461,
+      "harmed": 18
+    }
+  },
+  {
+    "frame_id": "1328212006077425",
+    "date": "2012-02-02",
+    "standard": [
+      0.03500227630138397,
+      0.22728195786476135
+    ],
+    "fixed": [
+      0.03500227630138397,
+      0.22728195786476135
+    ],
+    "protected_count": 196,
+    "matcher_count": 393,
+    "protected_retained": 196,
+    "mechanism": {
+      "count": 23,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 15,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 6,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 17,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 65,
+      "delta_sum": 2.0859811305999756,
+      "harmed": 21
+    }
+  },
+  {
+    "frame_id": "1328212006477417",
+    "date": "2012-02-02",
+    "standard": [
+      0.03423285111784935,
+      0.32625916600227356
+    ],
+    "fixed": [
+      0.03423285111784935,
+      0.32625916600227356
+    ],
+    "protected_count": 205,
+    "matcher_count": 410,
+    "protected_retained": 205,
+    "mechanism": {
+      "count": 27,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 19,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 18,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 77,
+      "delta_sum": 2.124638795852661,
+      "harmed": 20
+    }
+  },
+  {
+    "frame_id": "1328212007077425",
+    "date": "2012-02-02",
+    "standard": [
+      0.07973915338516235,
+      1.0195239782333374
+    ],
+    "fixed": [
+      0.07973915338516235,
+      1.0195239782333374
+    ],
+    "protected_count": 208,
+    "matcher_count": 417,
+    "protected_retained": 208,
+    "mechanism": {
+      "count": 26,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 22,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 10,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 16,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 99,
+      "delta_sum": 2.088500499725342,
+      "harmed": 31
+    }
+  },
+  {
+    "frame_id": "1328212007477407",
+    "date": "2012-02-02",
+    "standard": [
+      0.17758508026599884,
+      1.1501203775405884
+    ],
+    "fixed": [
+      0.17758508026599884,
+      1.1501203775405884
+    ],
+    "protected_count": 205,
+    "matcher_count": 410,
+    "protected_retained": 205,
+    "mechanism": {
+      "count": 39,
+      "correct": 5,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 31,
+        "correct": 4,
+        "rescue": 1,
+        "damage": 0
+      },
+      "protected": {
+        "count": 12,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 4,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 103,
+      "delta_sum": 1.384476661682129,
+      "harmed": 33
+    }
+  },
+  {
+    "frame_id": "1328212008077401",
+    "date": "2012-02-02",
+    "standard": [
+      0.1776827871799469,
+      0.7083117961883545
+    ],
+    "fixed": [
+      0.1776827871799469,
+      0.7083117961883545
+    ],
+    "protected_count": 204,
+    "matcher_count": 408,
+    "protected_retained": 204,
+    "mechanism": {
+      "count": 22,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 17,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 1,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 104,
+      "delta_sum": 4.637587547302246,
+      "harmed": 45
+    }
+  },
+  {
+    "frame_id": "1328212008477395",
+    "date": "2012-02-02",
+    "standard": [
+      0.2662583291530609,
+      2.017514944076538
+    ],
+    "fixed": [
+      0.2662583291530609,
+      2.017514944076538
+    ],
+    "protected_count": 185,
+    "matcher_count": 371,
+    "protected_retained": 185,
+    "mechanism": {
+      "count": 19,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 17,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 1,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 18,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 90,
+      "delta_sum": 1.3046903610229492,
+      "harmed": 31
+    }
+  },
+  {
+    "frame_id": "1328212009077400",
+    "date": "2012-02-02",
+    "standard": [
+      0.07534808665513992,
+      2.372896432876587
+    ],
+    "fixed": [
+      0.07534808665513992,
+      2.372896432876587
+    ],
+    "protected_count": 190,
+    "matcher_count": 380,
+    "protected_retained": 190,
+    "mechanism": {
+      "count": 44,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 28,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 5,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 39,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 100,
+      "delta_sum": 6.425715446472168,
+      "harmed": 55
+    }
+  },
+  {
+    "frame_id": "1328212009477373",
+    "date": "2012-02-02",
+    "standard": [
+      0.058719150722026825,
+      1.6226886510849
+    ],
+    "fixed": [
+      0.058719150722026825,
+      1.6226886510849
+    ],
+    "protected_count": 203,
+    "matcher_count": 407,
+    "protected_retained": 203,
+    "mechanism": {
+      "count": 33,
+      "correct": 13,
+      "rescue": 0,
+      "damage": 1
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 31,
+        "correct": 12,
+        "rescue": 0,
+        "damage": 1
+      },
+      "protected": {
+        "count": 13,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 20,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 1
+      }
+    },
+    "selected_visible": {
+      "count": 100,
+      "delta_sum": 3.5378708839416504,
+      "harmed": 36
+    }
+  },
+  {
+    "frame_id": "1328212010077369",
+    "date": "2012-02-02",
+    "standard": [
+      0.10787354409694672,
+      1.393250584602356
+    ],
+    "fixed": [
+      0.10787354409694672,
+      1.393250584602356
+    ],
+    "protected_count": 216,
+    "matcher_count": 433,
+    "protected_retained": 216,
+    "mechanism": {
+      "count": 37,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 1
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 25,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 1
+      },
+      "protected": {
+        "count": 12,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 25,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 1
+      }
+    },
+    "selected_visible": {
+      "count": 91,
+      "delta_sum": 2.0994935035705566,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1328212010477394",
+    "date": "2012-02-02",
+    "standard": [
+      0.12862689793109894,
+      1.9488301277160645
+    ],
+    "fixed": [
+      0.12862689793109894,
+      1.9488301277160645
+    ],
+    "protected_count": 211,
+    "matcher_count": 423,
+    "protected_retained": 211,
+    "mechanism": {
+      "count": 40,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 29,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 13,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 92,
+      "delta_sum": 2.298013210296631,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1328212011077363",
+    "date": "2012-02-02",
+    "standard": [
+      0.2529852092266083,
+      1.3634358644485474
+    ],
+    "fixed": [
+      0.2529852092266083,
+      1.3634358644485474
+    ],
+    "protected_count": 218,
+    "matcher_count": 436,
+    "protected_retained": 218,
+    "mechanism": {
+      "count": 54,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 33,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 46,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 88,
+      "delta_sum": 2.9547524452209473,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1328212011477358",
+    "date": "2012-02-02",
+    "standard": [
+      0.1925504058599472,
+      1.448884129524231
+    ],
+    "fixed": [
+      0.1925504058599472,
+      1.448884129524231
+    ],
+    "protected_count": 220,
+    "matcher_count": 440,
+    "protected_retained": 220,
+    "mechanism": {
+      "count": 35,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 24,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 26,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 84,
+      "delta_sum": 2.0395684242248535,
+      "harmed": 30
+    }
+  },
+  {
+    "frame_id": "1328212012077348",
+    "date": "2012-02-02",
+    "standard": [
+      0.1049027070403099,
+      1.4740574359893799
+    ],
+    "fixed": [
+      0.1049027070403099,
+      1.4740574359893799
+    ],
+    "protected_count": 205,
+    "matcher_count": 411,
+    "protected_retained": 205,
+    "mechanism": {
+      "count": 43,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 31,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 16,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 80,
+      "delta_sum": 0.13741165399551392,
+      "harmed": 14
+    }
+  },
+  {
+    "frame_id": "1328212012477359",
+    "date": "2012-02-02",
+    "standard": [
+      0.08736193180084229,
+      0.817570686340332
+    ],
+    "fixed": [
+      0.08736193180084229,
+      0.817570686340332
+    ],
+    "protected_count": 206,
+    "matcher_count": 413,
+    "protected_retained": 206,
+    "mechanism": {
+      "count": 54,
+      "correct": 10,
+      "rescue": 2,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 39,
+        "correct": 9,
+        "rescue": 1,
+        "damage": 0
+      },
+      "protected": {
+        "count": 21,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 33,
+        "correct": 8,
+        "rescue": 2,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 80,
+      "delta_sum": -0.32100817561149597,
+      "harmed": 11
+    }
+  },
+  {
+    "frame_id": "1328212013077328",
+    "date": "2012-02-02",
+    "standard": [
+      0.07088354229927063,
+      1.4827935695648193
+    ],
+    "fixed": [
+      0.07088354229927063,
+      1.4827935695648193
+    ],
+    "protected_count": 189,
+    "matcher_count": 379,
+    "protected_retained": 189,
+    "mechanism": {
+      "count": 35,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 17,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 32,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 40,
+      "delta_sum": 0.7318511009216309,
+      "harmed": 11
+    }
+  },
+  {
+    "frame_id": "1328212013477330",
+    "date": "2012-02-02",
+    "standard": [
+      0.0732906386256218,
+      1.4022109508514404
+    ],
+    "fixed": [
+      0.0732906386256218,
+      1.4022109508514404
+    ],
+    "protected_count": 212,
+    "matcher_count": 424,
+    "protected_retained": 212,
+    "mechanism": {
+      "count": 35,
+      "correct": 8,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 21,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 11,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 24,
+        "correct": 7,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 66,
+      "delta_sum": 0.40325623750686646,
+      "harmed": 16
+    }
+  },
+  {
+    "frame_id": "1328212014077317",
+    "date": "2012-02-02",
+    "standard": [
+      0.15975600481033325,
+      0.8434873223304749
+    ],
+    "fixed": [
+      0.15975600481033325,
+      0.8434873223304749
+    ],
+    "protected_count": 217,
+    "matcher_count": 434,
+    "protected_retained": 217,
+    "mechanism": {
+      "count": 53,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 27,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 13,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 40,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 58,
+      "delta_sum": 0.17986328899860382,
+      "harmed": 10
+    }
+  },
+  {
+    "frame_id": "1328212014477320",
+    "date": "2012-02-02",
+    "standard": [
+      0.17665009200572968,
+      1.214342713356018
+    ],
+    "fixed": [
+      0.17665009200572968,
+      1.214342713356018
+    ],
+    "protected_count": 230,
+    "matcher_count": 461,
+    "protected_retained": 230,
+    "mechanism": {
+      "count": 55,
+      "correct": 9,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 34,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 13,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 42,
+        "correct": 9,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 60,
+      "delta_sum": -0.28922033309936523,
+      "harmed": 10
+    }
+  },
+  {
+    "frame_id": "1328212015077313",
+    "date": "2012-02-02",
+    "standard": [
+      0.12864172458648682,
+      0.7132670879364014
+    ],
+    "fixed": [
+      0.12864172458648682,
+      0.7132670879364014
+    ],
+    "protected_count": 235,
+    "matcher_count": 470,
+    "protected_retained": 235,
+    "mechanism": {
+      "count": 56,
+      "correct": 9,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 36,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 11,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 45,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 57,
+      "delta_sum": -1.5080304145812988,
+      "harmed": 4
+    }
+  },
+  {
+    "frame_id": "1328212015477310",
+    "date": "2012-02-02",
+    "standard": [
+      0.0568053163588047,
+      1.0553616285324097
+    ],
+    "fixed": [
+      0.0568053163588047,
+      1.0553616285324097
+    ],
+    "protected_count": 224,
+    "matcher_count": 449,
+    "protected_retained": 224,
+    "mechanism": {
+      "count": 42,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 31,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 14,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 28,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 58,
+      "delta_sum": -0.4919072389602661,
+      "harmed": 4
+    }
+  },
+  {
+    "frame_id": "1328212016077299",
+    "date": "2012-02-02",
+    "standard": [
+      0.1651386022567749,
+      1.5143948793411255
+    ],
+    "fixed": [
+      0.1651386022567749,
+      1.5143948793411255
+    ],
+    "protected_count": 217,
+    "matcher_count": 434,
+    "protected_retained": 217,
+    "mechanism": {
+      "count": 37,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 27,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 29,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 56,
+      "delta_sum": -0.707599401473999,
+      "harmed": 4
+    }
+  },
+  {
+    "frame_id": "1328212016477294",
+    "date": "2012-02-02",
+    "standard": [
+      0.22405356168746948,
+      0.9441900849342346
+    ],
+    "fixed": [
+      0.22405356168746948,
+      0.9441900849342346
+    ],
+    "protected_count": 221,
+    "matcher_count": 443,
+    "protected_retained": 221,
+    "mechanism": {
+      "count": 46,
+      "correct": 8,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 28,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 10,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 36,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 51,
+      "delta_sum": -0.223067969083786,
+      "harmed": 6
+    }
+  },
+  {
+    "frame_id": "1328212017077287",
+    "date": "2012-02-02",
+    "standard": [
+      0.17366951704025269,
+      0.9202609658241272
+    ],
+    "fixed": [
+      0.17366951704025269,
+      0.9202609658241272
+    ],
+    "protected_count": 217,
+    "matcher_count": 435,
+    "protected_retained": 217,
+    "mechanism": {
+      "count": 39,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 22,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 12,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 47,
+      "delta_sum": -0.3107413053512573,
+      "harmed": 8
+    }
+  },
+  {
+    "frame_id": "1336763689405905",
+    "date": "2012-05-11",
+    "standard": [
+      0.07996297627687454,
+      0.14536996185779572
+    ],
+    "fixed": [
+      0.07996297627687454,
+      0.14536996185779572
+    ],
+    "protected_count": 177,
+    "matcher_count": 354,
+    "protected_retained": 177,
+    "mechanism": {
+      "count": 96,
+      "correct": 16,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 57,
+        "correct": 9,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 32,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 64,
+        "correct": 9,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 96,
+      "delta_sum": 0.7169796228408813,
+      "harmed": 20
+    }
+  },
+  {
+    "frame_id": "1336763690005860",
+    "date": "2012-05-11",
+    "standard": [
+      0.1384674459695816,
+      0.6608641743659973
+    ],
+    "fixed": [
+      0.1384674459695816,
+      0.6608641743659973
+    ],
+    "protected_count": 180,
+    "matcher_count": 361,
+    "protected_retained": 180,
+    "mechanism": {
+      "count": 88,
+      "correct": 22,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 59,
+        "correct": 16,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 35,
+        "correct": 9,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 53,
+        "correct": 13,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 91,
+      "delta_sum": 0.9255350828170776,
+      "harmed": 22
+    }
+  },
+  {
+    "frame_id": "1336763690405867",
+    "date": "2012-05-11",
+    "standard": [
+      0.06838969886302948,
+      0.567862331867218
+    ],
+    "fixed": [
+      0.06838969886302948,
+      0.567862331867218
+    ],
+    "protected_count": 176,
+    "matcher_count": 352,
+    "protected_retained": 176,
+    "mechanism": {
+      "count": 81,
+      "correct": 27,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 48,
+        "correct": 11,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 25,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 56,
+        "correct": 20,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 85,
+      "delta_sum": 0.5169599056243896,
+      "harmed": 13
+    }
+  },
+  {
+    "frame_id": "1336763691005869",
+    "date": "2012-05-11",
+    "standard": [
+      0.17388305068016052,
+      1.3164095878601074
+    ],
+    "fixed": [
+      0.17388305068016052,
+      1.3164095878601074
+    ],
+    "protected_count": 176,
+    "matcher_count": 353,
+    "protected_retained": 176,
+    "mechanism": {
+      "count": 62,
+      "correct": 8,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 34,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 17,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 45,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 94,
+      "delta_sum": 0.9347259998321533,
+      "harmed": 21
+    }
+  },
+  {
+    "frame_id": "1336763691405860",
+    "date": "2012-05-11",
+    "standard": [
+      0.17895404994487762,
+      0.6218108534812927
+    ],
+    "fixed": [
+      0.17895404994487762,
+      0.6218108534812927
+    ],
+    "protected_count": 175,
+    "matcher_count": 350,
+    "protected_retained": 175,
+    "mechanism": {
+      "count": 59,
+      "correct": 12,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 30,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 17,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 42,
+        "correct": 10,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 81,
+      "delta_sum": 0.037486620247364044,
+      "harmed": 15
+    }
+  },
+  {
+    "frame_id": "1336763692005850",
+    "date": "2012-05-11",
+    "standard": [
+      0.21032416820526123,
+      0.6602716445922852
+    ],
+    "fixed": [
+      0.21032416820526123,
+      0.6602716445922852
+    ],
+    "protected_count": 178,
+    "matcher_count": 356,
+    "protected_retained": 178,
+    "mechanism": {
+      "count": 61,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 41,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 21,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 40,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 90,
+      "delta_sum": 1.5043022632598877,
+      "harmed": 31
+    }
+  },
+  {
+    "frame_id": "1336763692405849",
+    "date": "2012-05-11",
+    "standard": [
+      0.08676336705684662,
+      0.7022078037261963
+    ],
+    "fixed": [
+      0.08676336705684662,
+      0.7022078037261963
+    ],
+    "protected_count": 179,
+    "matcher_count": 358,
+    "protected_retained": 179,
+    "mechanism": {
+      "count": 59,
+      "correct": 11,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 33,
+        "correct": 9,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 15,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 44,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 97,
+      "delta_sum": 1.7768834829330444,
+      "harmed": 34
+    }
+  },
+  {
+    "frame_id": "1336763693005863",
+    "date": "2012-05-11",
+    "standard": [
+      0.21091865003108978,
+      1.0846226215362549
+    ],
+    "fixed": [
+      0.21091865003108978,
+      1.0846226215362549
+    ],
+    "protected_count": 178,
+    "matcher_count": 356,
+    "protected_retained": 178,
+    "mechanism": {
+      "count": 69,
+      "correct": 19,
+      "rescue": 0,
+      "damage": 1
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 40,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 1
+      },
+      "protected": {
+        "count": 18,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 51,
+        "correct": 14,
+        "rescue": 0,
+        "damage": 1
+      }
+    },
+    "selected_visible": {
+      "count": 99,
+      "delta_sum": 1.1534297466278076,
+      "harmed": 28
+    }
+  },
+  {
+    "frame_id": "1336763693405834",
+    "date": "2012-05-11",
+    "standard": [
+      0.07185827940702438,
+      1.503501057624817
+    ],
+    "fixed": [
+      0.07185827940702438,
+      1.503501057624817
+    ],
+    "protected_count": 173,
+    "matcher_count": 347,
+    "protected_retained": 173,
+    "mechanism": {
+      "count": 53,
+      "correct": 11,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 29,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 14,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 39,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 88,
+      "delta_sum": 0.710139274597168,
+      "harmed": 21
+    }
+  },
+  {
+    "frame_id": "1336763694005857",
+    "date": "2012-05-11",
+    "standard": [
+      0.12082786113023758,
+      1.8138047456741333
+    ],
+    "fixed": [
+      0.12082786113023758,
+      1.8138047456741333
+    ],
+    "protected_count": 175,
+    "matcher_count": 350,
+    "protected_retained": 175,
+    "mechanism": {
+      "count": 32,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 19,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 24,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 96,
+      "delta_sum": 0.6804985404014587,
+      "harmed": 16
+    }
+  },
+  {
+    "frame_id": "1336763694405842",
+    "date": "2012-05-11",
+    "standard": [
+      0.20991329848766327,
+      2.253943681716919
+    ],
+    "fixed": [
+      0.20991329848766327,
+      2.253943681716919
+    ],
+    "protected_count": 170,
+    "matcher_count": 341,
+    "protected_retained": 170,
+    "mechanism": {
+      "count": 39,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 26,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 12,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 96,
+      "delta_sum": 0.5435788631439209,
+      "harmed": 27
+    }
+  },
+  {
+    "frame_id": "1336763695005831",
+    "date": "2012-05-11",
+    "standard": [
+      0.15926997363567352,
+      1.3994170427322388
+    ],
+    "fixed": [
+      0.15926997363567352,
+      1.3994170427322388
+    ],
+    "protected_count": 172,
+    "matcher_count": 344,
+    "protected_retained": 172,
+    "mechanism": {
+      "count": 29,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 19,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 90,
+      "delta_sum": 0.5240458250045776,
+      "harmed": 21
+    }
+  },
+  {
+    "frame_id": "1336763695405829",
+    "date": "2012-05-11",
+    "standard": [
+      0.19624561071395874,
+      0.8327475786209106
+    ],
+    "fixed": [
+      0.19624561071395874,
+      0.8327475786209106
+    ],
+    "protected_count": 169,
+    "matcher_count": 339,
+    "protected_retained": 169,
+    "mechanism": {
+      "count": 29,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 17,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 85,
+      "delta_sum": 0.5599524974822998,
+      "harmed": 24
+    }
+  },
+  {
+    "frame_id": "1336763696005819",
+    "date": "2012-05-11",
+    "standard": [
+      0.13589510321617126,
+      1.2043102979660034
+    ],
+    "fixed": [
+      0.13589510321617126,
+      1.2043102979660034
+    ],
+    "protected_count": 173,
+    "matcher_count": 347,
+    "protected_retained": 173,
+    "mechanism": {
+      "count": 29,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 17,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 90,
+      "delta_sum": 0.25988107919692993,
+      "harmed": 24
+    }
+  },
+  {
+    "frame_id": "1336763696405862",
+    "date": "2012-05-11",
+    "standard": [
+      0.13835401833057404,
+      1.6294282674789429
+    ],
+    "fixed": [
+      0.13835401833057404,
+      1.6294282674789429
+    ],
+    "protected_count": 171,
+    "matcher_count": 342,
+    "protected_retained": 171,
+    "mechanism": {
+      "count": 33,
+      "correct": 8,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 17,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 24,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 82,
+      "delta_sum": 0.1690172702074051,
+      "harmed": 17
+    }
+  },
+  {
+    "frame_id": "1336763697005818",
+    "date": "2012-05-11",
+    "standard": [
+      0.1342322677373886,
+      1.366589903831482
+    ],
+    "fixed": [
+      0.1342322677373886,
+      1.366589903831482
+    ],
+    "protected_count": 172,
+    "matcher_count": 345,
+    "protected_retained": 172,
+    "mechanism": {
+      "count": 25,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 16,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 5,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 20,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 100,
+      "delta_sum": 0.24264124035835266,
+      "harmed": 32
+    }
+  },
+  {
+    "frame_id": "1336763697405817",
+    "date": "2012-05-11",
+    "standard": [
+      0.03770342096686363,
+      0.5934728980064392
+    ],
+    "fixed": [
+      0.03770342096686363,
+      0.5934728980064392
+    ],
+    "protected_count": 170,
+    "matcher_count": 340,
+    "protected_retained": 170,
+    "mechanism": {
+      "count": 32,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 23,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 7,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 25,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 105,
+      "delta_sum": 0.4885953664779663,
+      "harmed": 26
+    }
+  },
+  {
+    "frame_id": "1336763698005810",
+    "date": "2012-05-11",
+    "standard": [
+      0.12128806114196777,
+      1.4695366621017456
+    ],
+    "fixed": [
+      0.12128806114196777,
+      1.4695366621017456
+    ],
+    "protected_count": 169,
+    "matcher_count": 338,
+    "protected_retained": 169,
+    "mechanism": {
+      "count": 20,
+      "correct": 4,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 16,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 7,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 13,
+        "correct": 3,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 102,
+      "delta_sum": 3.948824882507324,
+      "harmed": 47
+    }
+  },
+  {
+    "frame_id": "1336763698405878",
+    "date": "2012-05-11",
+    "standard": [
+      0.1657896190881729,
+      1.2319411039352417
+    ],
+    "fixed": [
+      0.1657896190881729,
+      1.2319411039352417
+    ],
+    "protected_count": 166,
+    "matcher_count": 333,
+    "protected_retained": 166,
+    "mechanism": {
+      "count": 21,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 12,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 4,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 17,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 84,
+      "delta_sum": 1.391617774963379,
+      "harmed": 32
+    }
+  },
+  {
+    "frame_id": "1336763699005794",
+    "date": "2012-05-11",
+    "standard": [
+      0.1990039199590683,
+      3.346674919128418
+    ],
+    "fixed": [
+      0.1990039199590683,
+      3.346674919128418
+    ],
+    "protected_count": 171,
+    "matcher_count": 342,
+    "protected_retained": 171,
+    "mechanism": {
+      "count": 19,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 8,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 2,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 17,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 103,
+      "delta_sum": 6.023890495300293,
+      "harmed": 51
+    }
+  },
+  {
+    "frame_id": "1336763699405800",
+    "date": "2012-05-11",
+    "standard": [
+      0.1480492353439331,
+      1.1239614486694336
+    ],
+    "fixed": [
+      0.1480492353439331,
+      1.1239614486694336
+    ],
+    "protected_count": 165,
+    "matcher_count": 330,
+    "protected_retained": 165,
+    "mechanism": {
+      "count": 21,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 7,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 1,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 20,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 88,
+      "delta_sum": 2.6068265438079834,
+      "harmed": 35
+    }
+  },
+  {
+    "frame_id": "1336763700005796",
+    "date": "2012-05-11",
+    "standard": [
+      0.19998131692409515,
+      2.9745352268218994
+    ],
+    "fixed": [
+      0.19998131692409515,
+      2.9745352268218994
+    ],
+    "protected_count": 161,
+    "matcher_count": 323,
+    "protected_retained": 161,
+    "mechanism": {
+      "count": 18,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 2,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 16,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 98,
+      "delta_sum": 5.095686912536621,
+      "harmed": 39
+    }
+  },
+  {
+    "frame_id": "1336763700405786",
+    "date": "2012-05-11",
+    "standard": [
+      0.23113857209682465,
+      1.4612571001052856
+    ],
+    "fixed": [
+      0.16225282847881317,
+      1.6311088800430298
+    ],
+    "protected_count": 163,
+    "matcher_count": 326,
+    "protected_retained": 163,
+    "mechanism": {
+      "count": 15,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 9,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 1,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 14,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 97,
+      "delta_sum": 2.4934120178222656,
+      "harmed": 32
+    }
+  },
+  {
+    "frame_id": "1336763701005779",
+    "date": "2012-05-11",
+    "standard": [
+      0.0842910036444664,
+      1.7096056938171387
+    ],
+    "fixed": [
+      0.0842910036444664,
+      1.7096056938171387
+    ],
+    "protected_count": 159,
+    "matcher_count": 319,
+    "protected_retained": 159,
+    "mechanism": {
+      "count": 17,
+      "correct": 1,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 11,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 14,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 95,
+      "delta_sum": 7.239163398742676,
+      "harmed": 45
+    }
+  },
+  {
+    "frame_id": "1336763701405791",
+    "date": "2012-05-11",
+    "standard": [
+      0.019642844796180725,
+      0.8146935701370239
+    ],
+    "fixed": [
+      0.019642844796180725,
+      0.8146935701370239
+    ],
+    "protected_count": 166,
+    "matcher_count": 332,
+    "protected_retained": 166,
+    "mechanism": {
+      "count": 27,
+      "correct": 0,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 16,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 19,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 93,
+      "delta_sum": 0.4445565342903137,
+      "harmed": 27
+    }
+  },
+  {
+    "frame_id": "1336763702005773",
+    "date": "2012-05-11",
+    "standard": [
+      0.19817709922790527,
+      2.2321293354034424
+    ],
+    "fixed": [
+      0.19817709922790527,
+      2.2321293354034424
+    ],
+    "protected_count": 166,
+    "matcher_count": 333,
+    "protected_retained": 166,
+    "mechanism": {
+      "count": 32,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 24,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 107,
+      "delta_sum": 6.135861396789551,
+      "harmed": 45
+    }
+  },
+  {
+    "frame_id": "1336763702405778",
+    "date": "2012-05-11",
+    "standard": [
+      0.11177656054496765,
+      0.8190054893493652
+    ],
+    "fixed": [
+      0.11177656054496765,
+      0.8190054893493652
+    ],
+    "protected_count": 167,
+    "matcher_count": 335,
+    "protected_retained": 167,
+    "mechanism": {
+      "count": 35,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 21,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 6,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 29,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 101,
+      "delta_sum": 1.6611950397491455,
+      "harmed": 32
+    }
+  },
+  {
+    "frame_id": "1336763703005778",
+    "date": "2012-05-11",
+    "standard": [
+      0.0732075497508049,
+      1.1081815958023071
+    ],
+    "fixed": [
+      0.0732075497508049,
+      1.1081815958023071
+    ],
+    "protected_count": 166,
+    "matcher_count": 332,
+    "protected_retained": 166,
+    "mechanism": {
+      "count": 29,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 18,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 108,
+      "delta_sum": 3.5069830417633057,
+      "harmed": 36
+    }
+  },
+  {
+    "frame_id": "1336763703405773",
+    "date": "2012-05-11",
+    "standard": [
+      0.1312224268913269,
+      0.5074486136436462
+    ],
+    "fixed": [
+      0.1312224268913269,
+      0.5074486136436462
+    ],
+    "protected_count": 165,
+    "matcher_count": 331,
+    "protected_retained": 165,
+    "mechanism": {
+      "count": 26,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 17,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 23,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 103,
+      "delta_sum": 0.9602131843566895,
+      "harmed": 28
+    }
+  },
+  {
+    "frame_id": "1336763704005769",
+    "date": "2012-05-11",
+    "standard": [
+      0.09871241450309753,
+      0.3250574469566345
+    ],
+    "fixed": [
+      0.09871241450309753,
+      0.3250574469566345
+    ],
+    "protected_count": 170,
+    "matcher_count": 341,
+    "protected_retained": 170,
+    "mechanism": {
+      "count": 31,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 7,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 24,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 94,
+      "delta_sum": 1.9472813606262207,
+      "harmed": 29
+    }
+  },
+  {
+    "frame_id": "1336763704405783",
+    "date": "2012-05-11",
+    "standard": [
+      0.07630980759859085,
+      1.4849035739898682
+    ],
+    "fixed": [
+      0.07630980759859085,
+      1.4849035739898682
+    ],
+    "protected_count": 163,
+    "matcher_count": 327,
+    "protected_retained": 163,
+    "mechanism": {
+      "count": 47,
+      "correct": 10,
+      "rescue": 1,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 34,
+        "correct": 8,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 19,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 28,
+        "correct": 6,
+        "rescue": 1,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 102,
+      "delta_sum": 0.393393874168396,
+      "harmed": 27
+    }
+  },
+  {
+    "frame_id": "1336763705005757",
+    "date": "2012-05-11",
+    "standard": [
+      0.06090974435210228,
+      1.3164095878601074
+    ],
+    "fixed": [
+      0.06090974435210228,
+      1.3164095878601074
+    ],
+    "protected_count": 161,
+    "matcher_count": 322,
+    "protected_retained": 161,
+    "mechanism": {
+      "count": 38,
+      "correct": 9,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 26,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 10,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 28,
+        "correct": 8,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 99,
+      "delta_sum": 0.6106681823730469,
+      "harmed": 29
+    }
+  },
+  {
+    "frame_id": "1336763705405758",
+    "date": "2012-05-11",
+    "standard": [
+      0.15441106259822845,
+      1.5551964044570923
+    ],
+    "fixed": [
+      0.15441106259822845,
+      1.5551964044570923
+    ],
+    "protected_count": 166,
+    "matcher_count": 332,
+    "protected_retained": 166,
+    "mechanism": {
+      "count": 41,
+      "correct": 8,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 33,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 16,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 25,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 99,
+      "delta_sum": 2.6285243034362793,
+      "harmed": 37
+    }
+  },
+  {
+    "frame_id": "1336763706005758",
+    "date": "2012-05-11",
+    "standard": [
+      0.12144336104393005,
+      1.743833303451538
+    ],
+    "fixed": [
+      0.12144336104393005,
+      1.743833303451538
+    ],
+    "protected_count": 165,
+    "matcher_count": 330,
+    "protected_retained": 165,
+    "mechanism": {
+      "count": 39,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 30,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 14,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 25,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 100,
+      "delta_sum": 2.238435745239258,
+      "harmed": 29
+    }
+  },
+  {
+    "frame_id": "1336763706405748",
+    "date": "2012-05-11",
+    "standard": [
+      0.11839577555656433,
+      1.0842617750167847
+    ],
+    "fixed": [
+      0.11839577555656433,
+      1.0842617750167847
+    ],
+    "protected_count": 165,
+    "matcher_count": 330,
+    "protected_retained": 165,
+    "mechanism": {
+      "count": 27,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 13,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 14,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 95,
+      "delta_sum": 2.2258100509643555,
+      "harmed": 25
+    }
+  },
+  {
+    "frame_id": "1336763707005739",
+    "date": "2012-05-11",
+    "standard": [
+      0.07554773986339569,
+      1.4483436346054077
+    ],
+    "fixed": [
+      0.07554773986339569,
+      1.4483436346054077
+    ],
+    "protected_count": 164,
+    "matcher_count": 328,
+    "protected_retained": 164,
+    "mechanism": {
+      "count": 37,
+      "correct": 15,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 28,
+        "correct": 15,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 29,
+        "correct": 10,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 98,
+      "delta_sum": 2.023876428604126,
+      "harmed": 42
+    }
+  },
+  {
+    "frame_id": "1336763707405747",
+    "date": "2012-05-11",
+    "standard": [
+      0.1329350769519806,
+      1.468204379081726
+    ],
+    "fixed": [
+      0.1329350769519806,
+      1.468204379081726
+    ],
+    "protected_count": 166,
+    "matcher_count": 333,
+    "protected_retained": 166,
+    "mechanism": {
+      "count": 33,
+      "correct": 8,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 23,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 24,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 86,
+      "delta_sum": 4.086592674255371,
+      "harmed": 44
+    }
+  },
+  {
+    "frame_id": "1336763708005734",
+    "date": "2012-05-11",
+    "standard": [
+      0.12391064316034317,
+      2.5606319904327393
+    ],
+    "fixed": [
+      0.12391064316034317,
+      2.5606319904327393
+    ],
+    "protected_count": 169,
+    "matcher_count": 338,
+    "protected_retained": 169,
+    "mechanism": {
+      "count": 40,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 29,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 10,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 30,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 96,
+      "delta_sum": -0.4890034794807434,
+      "harmed": 24
+    }
+  },
+  {
+    "frame_id": "1336763708405749",
+    "date": "2012-05-11",
+    "standard": [
+      0.03664058819413185,
+      1.4510434865951538
+    ],
+    "fixed": [
+      0.03664058819413185,
+      1.4510434865951538
+    ],
+    "protected_count": 167,
+    "matcher_count": 335,
+    "protected_retained": 167,
+    "mechanism": {
+      "count": 39,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 23,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 30,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 90,
+      "delta_sum": 3.667973041534424,
+      "harmed": 40
+    }
+  },
+  {
+    "frame_id": "1336763709005751",
+    "date": "2012-05-11",
+    "standard": [
+      0.03261702507734299,
+      2.3834307193756104
+    ],
+    "fixed": [
+      0.03261702507734299,
+      2.3834307193756104
+    ],
+    "protected_count": 178,
+    "matcher_count": 357,
+    "protected_retained": 178,
+    "mechanism": {
+      "count": 27,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 20,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 7,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 20,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 86,
+      "delta_sum": 1.5083551406860352,
+      "harmed": 34
+    }
+  },
+  {
+    "frame_id": "1336763709405733",
+    "date": "2012-05-11",
+    "standard": [
+      0.08477901667356491,
+      1.2072315216064453
+    ],
+    "fixed": [
+      0.08477901667356491,
+      1.2072315216064453
+    ],
+    "protected_count": 175,
+    "matcher_count": 350,
+    "protected_retained": 175,
+    "mechanism": {
+      "count": 34,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 24,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 13,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 21,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 86,
+      "delta_sum": 3.6123239994049072,
+      "harmed": 34
+    }
+  },
+  {
+    "frame_id": "1336763710005721",
+    "date": "2012-05-11",
+    "standard": [
+      0.2679222524166107,
+      1.7305400371551514
+    ],
+    "fixed": [
+      0.2679222524166107,
+      1.7305400371551514
+    ],
+    "protected_count": 179,
+    "matcher_count": 359,
+    "protected_retained": 179,
+    "mechanism": {
+      "count": 28,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 21,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 20,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 100,
+      "delta_sum": 4.14721155166626,
+      "harmed": 55
+    }
+  },
+  {
+    "frame_id": "1336763710405735",
+    "date": "2012-05-11",
+    "standard": [
+      0.296582967042923,
+      2.7651290893554688
+    ],
+    "fixed": [
+      0.296582967042923,
+      2.7651290893554688
+    ],
+    "protected_count": 193,
+    "matcher_count": 387,
+    "protected_retained": 193,
+    "mechanism": {
+      "count": 41,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 32,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 15,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 26,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 94,
+      "delta_sum": 3.580141305923462,
+      "harmed": 41
+    }
+  },
+  {
+    "frame_id": "1336763711005725",
+    "date": "2012-05-11",
+    "standard": [
+      0.093320332467556,
+      2.194458484649658
+    ],
+    "fixed": [
+      0.093320332467556,
+      2.194458484649658
+    ],
+    "protected_count": 194,
+    "matcher_count": 388,
+    "protected_retained": 194,
+    "mechanism": {
+      "count": 49,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 31,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 16,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 33,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 93,
+      "delta_sum": 4.287262916564941,
+      "harmed": 44
+    }
+  },
+  {
+    "frame_id": "1336763711405719",
+    "date": "2012-05-11",
+    "standard": [
+      0.126065194606781,
+      1.5954455137252808
+    ],
+    "fixed": [
+      0.126065194606781,
+      1.5954455137252808
+    ],
+    "protected_count": 198,
+    "matcher_count": 397,
+    "protected_retained": 198,
+    "mechanism": {
+      "count": 62,
+      "correct": 13,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 41,
+        "correct": 10,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 17,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 45,
+        "correct": 9,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 95,
+      "delta_sum": 3.74150013923645,
+      "harmed": 43
+    }
+  },
+  {
+    "frame_id": "1336763712005712",
+    "date": "2012-05-11",
+    "standard": [
+      0.16753645241260529,
+      2.2090368270874023
+    ],
+    "fixed": [
+      0.16753645241260529,
+      2.2090368270874023
+    ],
+    "protected_count": 208,
+    "matcher_count": 417,
+    "protected_retained": 208,
+    "mechanism": {
+      "count": 58,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 42,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 23,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 35,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 79,
+      "delta_sum": 3.838212728500366,
+      "harmed": 26
+    }
+  },
+  {
+    "frame_id": "1336763712405714",
+    "date": "2012-05-11",
+    "standard": [
+      0.14627866446971893,
+      1.7036428451538086
+    ],
+    "fixed": [
+      0.14627866446971893,
+      1.7036428451538086
+    ],
+    "protected_count": 207,
+    "matcher_count": 414,
+    "protected_retained": 207,
+    "mechanism": {
+      "count": 55,
+      "correct": 11,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 40,
+        "correct": 8,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 22,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 33,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 84,
+      "delta_sum": 3.699756383895874,
+      "harmed": 38
+    }
+  },
+  {
+    "frame_id": "1336763713005710",
+    "date": "2012-05-11",
+    "standard": [
+      0.17917916178703308,
+      0.5581307411193848
+    ],
+    "fixed": [
+      0.17917916178703308,
+      0.5581307411193848
+    ],
+    "protected_count": 205,
+    "matcher_count": 411,
+    "protected_retained": 205,
+    "mechanism": {
+      "count": 38,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 25,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 11,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 83,
+      "delta_sum": 4.60360860824585,
+      "harmed": 37
+    }
+  },
+  {
+    "frame_id": "1336763713405710",
+    "date": "2012-05-11",
+    "standard": [
+      0.14334529638290405,
+      1.8963041305541992
+    ],
+    "fixed": [
+      0.14334529638290405,
+      1.8963041305541992
+    ],
+    "protected_count": 205,
+    "matcher_count": 411,
+    "protected_retained": 205,
+    "mechanism": {
+      "count": 60,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 35,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 19,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 41,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 78,
+      "delta_sum": -0.47739818692207336,
+      "harmed": 9
+    }
+  },
+  {
+    "frame_id": "1336763714005696",
+    "date": "2012-05-11",
+    "standard": [
+      0.17394214868545532,
+      0.7401925921440125
+    ],
+    "fixed": [
+      0.17394214868545532,
+      0.7401925921440125
+    ],
+    "protected_count": 217,
+    "matcher_count": 435,
+    "protected_retained": 217,
+    "mechanism": {
+      "count": 30,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 22,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 13,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 17,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 69,
+      "delta_sum": -0.799406886100769,
+      "harmed": 8
+    }
+  },
+  {
+    "frame_id": "1336763714405701",
+    "date": "2012-05-11",
+    "standard": [
+      0.11963726580142975,
+      1.8797191381454468
+    ],
+    "fixed": [
+      0.11963726580142975,
+      1.8797191381454468
+    ],
+    "protected_count": 218,
+    "matcher_count": 436,
+    "protected_retained": 218,
+    "mechanism": {
+      "count": 42,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 22,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 13,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 29,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 49,
+      "delta_sum": -1.052331805229187,
+      "harmed": 4
+    }
+  },
+  {
+    "frame_id": "1336763715005695",
+    "date": "2012-05-11",
+    "standard": [
+      0.041828472167253494,
+      0.6892704367637634
+    ],
+    "fixed": [
+      0.041828472167253494,
+      0.6892704367637634
+    ],
+    "protected_count": 203,
+    "matcher_count": 406,
+    "protected_retained": 203,
+    "mechanism": {
+      "count": 48,
+      "correct": 9,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 30,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 12,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 36,
+        "correct": 6,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 54,
+      "delta_sum": 0.44644755125045776,
+      "harmed": 11
+    }
+  },
+  {
+    "frame_id": "1336763715405693",
+    "date": "2012-05-11",
+    "standard": [
+      0.15566447377204895,
+      2.1668148040771484
+    ],
+    "fixed": [
+      0.15566447377204895,
+      2.1668148040771484
+    ],
+    "protected_count": 203,
+    "matcher_count": 407,
+    "protected_retained": 203,
+    "mechanism": {
+      "count": 31,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 19,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 23,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 56,
+      "delta_sum": 0.17873597145080566,
+      "harmed": 10
+    }
+  },
+  {
+    "frame_id": "1336763716005682",
+    "date": "2012-05-11",
+    "standard": [
+      0.09835159033536911,
+      0.9851648211479187
+    ],
+    "fixed": [
+      0.09835159033536911,
+      0.9851648211479187
+    ],
+    "protected_count": 191,
+    "matcher_count": 383,
+    "protected_retained": 191,
+    "mechanism": {
+      "count": 37,
+      "correct": 4,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 9,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 4,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 33,
+        "correct": 4,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 38,
+      "delta_sum": 1.4805879592895508,
+      "harmed": 14
+    }
+  },
+  {
+    "frame_id": "1336763716405686",
+    "date": "2012-05-11",
+    "standard": [
+      0.04485397785902023,
+      1.815961241722107
+    ],
+    "fixed": [
+      0.04485397785902023,
+      1.815961241722107
+    ],
+    "protected_count": 199,
+    "matcher_count": 399,
+    "protected_retained": 199,
+    "mechanism": {
+      "count": 40,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 21,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 32,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 51,
+      "delta_sum": 0.5908814072608948,
+      "harmed": 11
+    }
+  },
+  {
+    "frame_id": "1336763717005680",
+    "date": "2012-05-11",
+    "standard": [
+      0.10699684172868729,
+      1.6907283067703247
+    ],
+    "fixed": [
+      0.10699684172868729,
+      1.6907283067703247
+    ],
+    "protected_count": 200,
+    "matcher_count": 400,
+    "protected_retained": 200,
+    "mechanism": {
+      "count": 37,
+      "correct": 9,
+      "rescue": 2,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 22,
+        "correct": 5,
+        "rescue": 1,
+        "damage": 0
+      },
+      "protected": {
+        "count": 10,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 7,
+        "rescue": 2,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 49,
+      "delta_sum": -0.47361844778060913,
+      "harmed": 6
+    }
+  },
+  {
+    "frame_id": "1336763717405681",
+    "date": "2012-05-11",
+    "standard": [
+      0.09908614307641983,
+      1.9160168170928955
+    ],
+    "fixed": [
+      0.09908614307641983,
+      1.9160168170928955
+    ],
+    "protected_count": 199,
+    "matcher_count": 399,
+    "protected_retained": 199,
+    "mechanism": {
+      "count": 43,
+      "correct": 6,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 25,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 9,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 34,
+        "correct": 5,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 56,
+      "delta_sum": -0.6916089057922363,
+      "harmed": 2
+    }
+  },
+  {
+    "frame_id": "1336763718005669",
+    "date": "2012-05-11",
+    "standard": [
+      0.08926837891340256,
+      1.2268476486206055
+    ],
+    "fixed": [
+      0.08926837891340256,
+      1.2268476486206055
+    ],
+    "protected_count": 198,
+    "matcher_count": 397,
+    "protected_retained": 198,
+    "mechanism": {
+      "count": 46,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 26,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 7,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 39,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 53,
+      "delta_sum": -0.7898271083831787,
+      "harmed": 7
+    }
+  },
+  {
+    "frame_id": "1336763718405669",
+    "date": "2012-05-11",
+    "standard": [
+      0.05757245421409607,
+      0.4343124032020569
+    ],
+    "fixed": [
+      0.05757245421409607,
+      0.4343124032020569
+    ],
+    "protected_count": 196,
+    "matcher_count": 392,
+    "protected_retained": 196,
+    "mechanism": {
+      "count": 36,
+      "correct": 7,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 16,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 1,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 35,
+        "correct": 7,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 45,
+      "delta_sum": -0.732177734375,
+      "harmed": 5
+    }
+  },
+  {
+    "frame_id": "1336763719005662",
+    "date": "2012-05-11",
+    "standard": [
+      0.1051437184214592,
+      1.1381481885910034
+    ],
+    "fixed": [
+      0.1051437184214592,
+      1.1381481885910034
+    ],
+    "protected_count": 199,
+    "matcher_count": 399,
+    "protected_retained": 199,
+    "mechanism": {
+      "count": 45,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 17,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 8,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 37,
+        "correct": 0,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 40,
+      "delta_sum": -0.5977755784988403,
+      "harmed": 6
+    }
+  },
+  {
+    "frame_id": "1336763719405668",
+    "date": "2012-05-11",
+    "standard": [
+      0.13098737597465515,
+      1.0168333053588867
+    ],
+    "fixed": [
+      0.13098737597465515,
+      1.0168333053588867
+    ],
+    "protected_count": 195,
+    "matcher_count": 391,
+    "protected_retained": 195,
+    "mechanism": {
+      "count": 35,
+      "correct": 2,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 18,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 2,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 33,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 42,
+      "delta_sum": -0.6553471088409424,
+      "harmed": 4
+    }
+  },
+  {
+    "frame_id": "1336763720005666",
+    "date": "2012-05-11",
+    "standard": [
+      0.029356595128774643,
+      1.261139988899231
+    ],
+    "fixed": [
+      0.029356595128774643,
+      1.261139988899231
+    ],
+    "protected_count": 197,
+    "matcher_count": 394,
+    "protected_retained": 197,
+    "mechanism": {
+      "count": 32,
+      "correct": 3,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 13,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 5,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 27,
+        "correct": 1,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 38,
+      "delta_sum": -0.5527483224868774,
+      "harmed": 3
+    }
+  },
+  {
+    "frame_id": "1336763720405653",
+    "date": "2012-05-11",
+    "standard": [
+      0.25036248564720154,
+      0.7338205575942993
+    ],
+    "fixed": [
+      0.25036248564720154,
+      0.7338205575942993
+    ],
+    "protected_count": 196,
+    "matcher_count": 392,
+    "protected_retained": 196,
+    "mechanism": {
+      "count": 31,
+      "correct": 5,
+      "rescue": 0,
+      "damage": 0
+    },
+    "mechanism_groups": {
+      "matcher": {
+        "count": 8,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "protected": {
+        "count": 3,
+        "correct": 2,
+        "rescue": 0,
+        "damage": 0
+      },
+      "editable": {
+        "count": 28,
+        "correct": 3,
+        "rescue": 0,
+        "damage": 0
+      }
+    },
+    "selected_visible": {
+      "count": 31,
+      "delta_sum": -0.033888399600982666,
+      "harmed": 6
+    }
+  }
+]

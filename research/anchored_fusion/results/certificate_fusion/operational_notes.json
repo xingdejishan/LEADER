@@ -1,0 +1,5 @@
+{
+  "teacher_staging": "CPU-resident fixed targets copied per batch after first four completed runs; tensors are bitwise equal to GPU concatenation; loss and sample order unchanged",
+  "resume": "Last completed epoch optimizer and NumPy RNG state; any unfinished epoch discarded and replayed",
+  "wsl": "Transient instance failure before effective training; teacher files retained"
+}

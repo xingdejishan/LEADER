@@ -16,6 +16,27 @@ def main():
         for arm in ['aligned','shuffled']:
             assert json.loads((OUT/f'{arm}_{seed}'/'complete.json').read_text())==dict(epochs=100,updates=7300)
     decoder,data,anchors=load(p['rows'])
+    applied_margins=[]; applied_norms=[]
+    for d in data:
+        if d['row']['role']!='fit':
+            continue
+        with np.load(OUT/'teacher'/(d['row']['frame_id']+'.npz')) as t:
+            ids=np.flatnonzero(t['kind']==2)
+            if not len(ids):
+                continue
+            f=d['f'][torch.tensor(ids,device='cuda')]
+            proposed=f+torch.tensor(t['targets'][ids],device='cuda')*f.norm(dim=-1,keepdim=True)
+            old=f.cpu().numpy().astype(float); new=proposed.cpu().numpy().astype(float)
+            lengths=np.linalg.norm(old,axis=1,keepdims=True)
+            applied_norms.extend(np.linalg.norm((new-old)/lengths,axis=1).tolist())
+            indices=t['indices']; positive=t['positive']
+            for j,voxel in enumerate(ids):
+                row=int(np.flatnonzero(indices==voxel)[0]); k=t['k'+str(voxel)]
+                scores=k@(new[j]/lengths[j,0])
+                applied_margins.append(float(scores[positive[row]].max()-scores[~positive[row]].max()))
+    assert len(applied_margins)==1500 and min(applied_margins)>TAU and max(applied_norms)<.05
+    e.run.save_json(OUT/'applied_teacher_validation.json',dict(count=1500,minimum_margin=min(applied_margins),
+        below_gamma=sum(v<p['gamma'] for v in applied_margins),maximum_norm=max(applied_norms),all_strict_top1=True))
     dev=[d for d in data if d['row']['role']=='development']
     matcher=e.Matcher(inlier_threshold=2.,d_thre=2,num_iterations=10,ratio=.15,nms_radius=.1,max_points=3000,k1=30)
     baseline=e.evaluate(None,decoder,dev,anchors,matcher,'aligned',2089,True)
@@ -29,7 +50,8 @@ def main():
     assert len(primary)==161
     with np.load(source/'witnesses.npz') as f:
         vectors={i:(f['x'+str(i)],f['k'+str(i)]) for i,r in primary}
-    anchor64=anchors.cpu().numpy().astype(float)
+    anchor64=np.concatenate([d['f'][d['valid']].cpu().numpy() for d in data if d['row']['role']=='fit']).astype(float)
+    anchor64/=np.linalg.norm(anchor64,axis=1,keepdims=True)
     summary=dict(baseline=aggregate(baseline),runs={},teacher=json.loads((OUT/'teacher_summary.json').read_text()))
     dates=sorted({r['date'] for r in baseline})
     summary['baseline_dates']={date:aggregate([r for r in baseline if r['date']==date]) for date in dates}
@@ -83,6 +105,9 @@ def main():
             e.run.save_json(folder/'coverage_certificates.json',certs)
             e.run.save_json(folder/'coverage.json',coverage)
             result=aggregate(measured)
+            current=np.asarray([r['standard'] for r in measured]); base=np.asarray([r['standard'] for r in baseline])
+            ok=(current[:,0]<1)&(current[:,1]<5); base_ok=(base[:,0]<1)&(base[:,1]<5)
+            result['pose_rescue']=int((ok&~base_ok).sum()); result['pose_damage']=int((~ok&base_ok).sum())
             result['selection']=json.loads((folder/'selection.json').read_text())
             result['dates']={date:aggregate([r for r in measured if r['date']==date]) for date in dates}
             result['full_ranking']={key:sum(r['transitions'][key] for r in full) for key in full[0]['transitions']}

@@ -1,0 +1,2417 @@
+[
+  {
+    "record": 77,
+    "bounds": {
+      "N": [
+        -0.006095363293853042,
+        -0.006095363092291961
+      ],
+      "NG": [
+        -0.006095363292750058,
+        -0.006095363092448112
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 120,
+    "bounds": {
+      "N": [
+        0.004476261011280262,
+        0.004476261211285072
+      ],
+      "NG": [
+        0.00447626101128026,
+        0.004476261211285083
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 262,
+    "bounds": {
+      "N": [
+        -0.005793299245397303,
+        -0.005793299045391021
+      ],
+      "NG": [
+        -0.006875853275844246,
+        -0.006875853074587699
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 433,
+    "bounds": {
+      "N": [
+        0.0016260856474824017,
+        0.001626085847488534
+      ],
+      "NG": [
+        0.0009470513851495342,
+        0.000947051585154839
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 471,
+    "bounds": {
+      "N": [
+        -0.007194709196544826,
+        -0.00719470899653795
+      ],
+      "NG": [
+        -0.007906548155166176,
+        -0.007906547942747975
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 600,
+    "bounds": {
+      "N": [
+        -0.0017438725468028938,
+        -0.0017438723467854858
+      ],
+      "NG": [
+        -0.0018733950932831992,
+        -0.0018733948932534244
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 626,
+    "bounds": {
+      "N": [
+        0.008176034186431787,
+        0.008176034386447794
+      ],
+      "NG": [
+        0.008176034186433636,
+        0.0081760343864478
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 689,
+    "bounds": {
+      "N": [
+        0.0009259617299234003,
+        0.0009259619299327262
+      ],
+      "NG": [
+        0.0009259617299234003,
+        0.000925961929932688
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 722,
+    "bounds": {
+      "N": [
+        0.0018420526705128395,
+        0.0018420528705178365
+      ],
+      "NG": [
+        0.0018420526705128395,
+        0.0018420528705178373
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 872,
+    "bounds": {
+      "N": [
+        -0.0014286564390982933,
+        -0.001428656239089061
+      ],
+      "NG": [
+        -0.0014286564390982933,
+        -0.0014286562390890506
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 880,
+    "bounds": {
+      "N": [
+        -0.015376291508263121,
+        -0.015376291308250049
+      ],
+      "NG": [
+        -0.015376291508263121,
+        -0.015376291308250042
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 986,
+    "bounds": {
+      "N": [
+        -0.009017338975232365,
+        -0.009017338775225483
+      ],
+      "NG": [
+        -0.0090173389752324,
+        -0.00901733877522549
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1013,
+    "bounds": {
+      "N": [
+        -0.0023946083788658388,
+        -0.002394608178860023
+      ],
+      "NG": [
+        -0.0023946083788658388,
+        -0.0023946081788600387
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1025,
+    "bounds": {
+      "N": [
+        -0.0014387793174590623,
+        -0.001438779117443245
+      ],
+      "NG": [
+        -0.001438779317462237,
+        -0.0014387791174432243
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1123,
+    "bounds": {
+      "N": [
+        -0.00023858884936954524,
+        -0.00023858864936377293
+      ],
+      "NG": [
+        -0.00023858884936954264,
+        -0.00023858864936374778
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1140,
+    "bounds": {
+      "N": [
+        0.0013724912818268652,
+        0.0013724914818377177
+      ],
+      "NG": [
+        0.0013724912818260464,
+        0.0013724914818377108
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 1167,
+    "bounds": {
+      "N": [
+        -0.009366182675010248,
+        -0.009366182475002423
+      ],
+      "NG": [
+        -0.009366182675010248,
+        -0.00936618247500242
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1330,
+    "bounds": {
+      "N": [
+        -0.006641134667371032,
+        -0.006641134467363872
+      ],
+      "NG": [
+        -0.006641134667371032,
+        -0.006641134467363872
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1333,
+    "bounds": {
+      "N": [
+        -0.0033348415802961066,
+        -0.003334841380277198
+      ],
+      "NG": [
+        -0.0033348415802961066,
+        -0.003334841380277198
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1350,
+    "bounds": {
+      "N": [
+        -0.01015238695094576,
+        -0.010152386750939551
+      ],
+      "NG": [
+        -0.01015238695094576,
+        -0.010152386750939553
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1369,
+    "bounds": {
+      "N": [
+        6.5668006381667e-05,
+        6.56682063902157e-05
+      ],
+      "NG": [
+        6.5668006381667e-05,
+        6.56682063902157e-05
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 1370,
+    "bounds": {
+      "N": [
+        -0.0030641407375216674,
+        -0.0030641405375115053
+      ],
+      "NG": [
+        -0.004803786947225644,
+        -0.004803786747171041
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1385,
+    "bounds": {
+      "N": [
+        -0.002009969424930125,
+        -0.002009969224924926
+      ],
+      "NG": [
+        -0.002078958073914445,
+        -0.0020789578731532214
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1411,
+    "bounds": {
+      "N": [
+        -0.008811740854313006,
+        -0.00881174064928165
+      ],
+      "NG": [
+        -0.00881174085563821,
+        -0.008811740649281937
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1450,
+    "bounds": {
+      "N": [
+        -0.005404278914921101,
+        -0.005404278714908773
+      ],
+      "NG": [
+        -0.0054042789149232485,
+        -0.005404278714910856
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1487,
+    "bounds": {
+      "N": [
+        -0.005646114632885507,
+        -0.00564611443288039
+      ],
+      "NG": [
+        -0.005646114632885517,
+        -0.0056461144328803815
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1530,
+    "bounds": {
+      "N": [
+        -0.006107659537766168,
+        -0.006107659337759174
+      ],
+      "NG": [
+        -0.00610765955755929,
+        -0.006107659337759173
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1549,
+    "bounds": {
+      "N": [
+        0.004570928758709021,
+        0.004570928958719278
+      ],
+      "NG": [
+        0.004570928758709021,
+        0.004570928958819094
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 1637,
+    "bounds": {
+      "N": [
+        0.005067882999820189,
+        0.005067883199825594
+      ],
+      "NG": [
+        0.005067882999820179,
+        0.0050678831998256235
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": true
+  },
+  {
+    "record": 1736,
+    "bounds": {
+      "N": [
+        -0.00200589468318331,
+        -0.002005894483150818
+      ],
+      "NG": [
+        -0.002005894683183296,
+        -0.002005894483150921
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1747,
+    "bounds": {
+      "N": [
+        -0.00514766128874731,
+        -0.005147661088738853
+      ],
+      "NG": [
+        -0.005147661288747307,
+        -0.005147661088738839
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 1956,
+    "bounds": {
+      "N": [
+        -0.002429673264888898,
+        -0.0024296730648844926
+      ],
+      "NG": [
+        -0.0024296732648888997,
+        -0.002429673064884495
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2035,
+    "bounds": {
+      "N": [
+        -0.0012227914004563816,
+        -0.0012227912004539898
+      ],
+      "NG": [
+        -0.0012227914004563816,
+        -0.0012227912004539824
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2107,
+    "bounds": {
+      "N": [
+        -0.005466811353716948,
+        -0.00546681115371421
+      ],
+      "NG": [
+        -0.005466811353716949,
+        -0.005466811153714204
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2112,
+    "bounds": {
+      "N": [
+        -0.008965864284616811,
+        -0.008965864084610009
+      ],
+      "NG": [
+        -0.008965864284616806,
+        -0.008965864084610005
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2411,
+    "bounds": {
+      "N": [
+        0.007477562212205963,
+        0.007477562412214613
+      ],
+      "NG": [
+        0.007477562212205963,
+        0.0074775624122146184
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 2484,
+    "bounds": {
+      "N": [
+        -0.007968645045679467,
+        -0.007968644845673105
+      ],
+      "NG": [
+        -0.007968645045679467,
+        -0.007968644845673126
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2544,
+    "bounds": {
+      "N": [
+        0.00041282801836486357,
+        0.00041282821837262295
+      ],
+      "NG": [
+        -0.0021114175905225956,
+        -0.002111417390515051
+      ]
+    },
+    "classification": "gray_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2592,
+    "bounds": {
+      "N": [
+        -0.0013359215959949365,
+        -0.0013359213959884277
+      ],
+      "NG": [
+        -0.001754664272985504,
+        -0.0017546640729793422
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2638,
+    "bounds": {
+      "N": [
+        0.0018825800414222315,
+        0.0018825802414289927
+      ],
+      "NG": [
+        0.0018825800414222107,
+        0.0018825802414290291
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 2653,
+    "bounds": {
+      "N": [
+        0.005764214709531168,
+        0.005764214909543701
+      ],
+      "NG": [
+        0.005764214709531168,
+        0.005764214909543821
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 2660,
+    "bounds": {
+      "N": [
+        -0.00025326248410599935,
+        -0.0002532622841041727
+      ],
+      "NG": [
+        -0.0002532624841060011,
+        -0.0002532622841041723
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2661,
+    "bounds": {
+      "N": [
+        0.0016420012031869223,
+        0.0016420014031964373
+      ],
+      "NG": [
+        0.0016420012031869258,
+        0.0016420014031964685
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 2703,
+    "bounds": {
+      "N": [
+        0.005782810430580479,
+        0.005782810630588747
+      ],
+      "NG": [
+        0.005782810430580494,
+        0.005782810630588741
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 2750,
+    "bounds": {
+      "N": [
+        -0.0020626315610800462,
+        -0.002062631361072988
+      ],
+      "NG": [
+        -0.0020626315610800462,
+        -0.002062631361077752
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2755,
+    "bounds": {
+      "N": [
+        0.0010214227115440014,
+        0.0010214229115506793
+      ],
+      "NG": [
+        0.00099855806268642,
+        0.0009985582627312808
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 2774,
+    "bounds": {
+      "N": [
+        -0.002531785292290633,
+        -0.0025317850922882447
+      ],
+      "NG": [
+        -0.002531785292290633,
+        -0.0025317850922882486
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2893,
+    "bounds": {
+      "N": [
+        0.004960621654266591,
+        0.004960621854272764
+      ],
+      "NG": [
+        0.004931817945476958,
+        0.0049318181454841604
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 2969,
+    "bounds": {
+      "N": [
+        -0.009823812065461934,
+        -0.009823811865454158
+      ],
+      "NG": [
+        -0.009823812065461927,
+        -0.00982381186545417
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2972,
+    "bounds": {
+      "N": [
+        -0.008561990886317934,
+        -0.00856199068631027
+      ],
+      "NG": [
+        -0.008561990886317936,
+        -0.008561990686310268
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 2974,
+    "bounds": {
+      "N": [
+        -0.007133516007084449,
+        -0.0071335158070782445
+      ],
+      "NG": [
+        -0.007133516007084463,
+        -0.007133515807078246
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3035,
+    "bounds": {
+      "N": [
+        -0.0045220327301892915,
+        -0.004522032530120956
+      ],
+      "NG": [
+        -0.004522032730265536,
+        -0.004522032530138756
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3039,
+    "bounds": {
+      "N": [
+        0.0026078737283876208,
+        0.002607873928393334
+      ],
+      "NG": [
+        0.0023974408829908526,
+        0.00239744108301929
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 3040,
+    "bounds": {
+      "N": [
+        0.004127784856782555,
+        0.004127785056793187
+      ],
+      "NG": [
+        0.004127784856779998,
+        0.004127785056793213
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 3103,
+    "bounds": {
+      "N": [
+        -0.003776890935986667,
+        -0.003776890735976413
+      ],
+      "NG": [
+        -0.0037768909359866946,
+        -0.003776890735976413
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3146,
+    "bounds": {
+      "N": [
+        -0.004613069629465505,
+        -0.0046130694294574896
+      ],
+      "NG": [
+        -0.004613069629465488,
+        -0.004613069429457483
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3176,
+    "bounds": {
+      "N": [
+        0.005798901803910917,
+        0.0057989020039181
+      ],
+      "NG": [
+        0.005781537463391967,
+        0.005781537663795781
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 3271,
+    "bounds": {
+      "N": [
+        -0.01185019985595834,
+        -0.01185019965594628
+      ],
+      "NG": [
+        -0.01185019985595834,
+        -0.01185019965594628
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3342,
+    "bounds": {
+      "N": [
+        -0.002518193972969598,
+        -0.002518193772965556
+      ],
+      "NG": [
+        -0.0025181939729696013,
+        -0.0025181937729655576
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3368,
+    "bounds": {
+      "N": [
+        0.0026024708786883508,
+        0.002602471078695307
+      ],
+      "NG": [
+        0.0026024708786883508,
+        0.0026024710786953123
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 3492,
+    "bounds": {
+      "N": [
+        -0.0035484871080645216,
+        -0.0035484869080592116
+      ],
+      "NG": [
+        -0.003548487108064512,
+        -0.00354848690805921
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3541,
+    "bounds": {
+      "N": [
+        -0.0011808196564593765,
+        -0.001180819456454063
+      ],
+      "NG": [
+        -0.0014020210053261686,
+        -0.0014020208052319917
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3571,
+    "bounds": {
+      "N": [
+        -0.008864031192586757,
+        -0.00886403099258142
+      ],
+      "NG": [
+        -0.008864031192586748,
+        -0.00886403099258142
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3622,
+    "bounds": {
+      "N": [
+        -0.003021142575556622,
+        -0.0030211423755513267
+      ],
+      "NG": [
+        -0.0030211425755566437,
+        -0.003021142375551313
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3635,
+    "bounds": {
+      "N": [
+        -0.0015727715922465618,
+        -0.0015727713922426027
+      ],
+      "NG": [
+        -0.0015727715922464022,
+        -0.0015727713922426266
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3646,
+    "bounds": {
+      "N": [
+        -0.007418737047177023,
+        -0.007418736847172072
+      ],
+      "NG": [
+        -0.007418737047177023,
+        -0.0074187368471720794
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3647,
+    "bounds": {
+      "N": [
+        -0.002980932663709078,
+        -0.002980932463704404
+      ],
+      "NG": [
+        -0.002980932663709085,
+        -0.0029809324637044055
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3679,
+    "bounds": {
+      "N": [
+        -0.005590195205988866,
+        -0.005590195005882811
+      ],
+      "NG": [
+        -0.005644842734151978,
+        -0.005644842533807558
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3697,
+    "bounds": {
+      "N": [
+        -0.010992518186165022,
+        -0.010992517986156473
+      ],
+      "NG": [
+        -0.010992518186165026,
+        -0.01099251798615647
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3787,
+    "bounds": {
+      "N": [
+        0.005125358024172544,
+        0.0051253582247367205
+      ],
+      "NG": [
+        -0.004674743082752694,
+        -0.004674742882736971
+      ]
+    },
+    "classification": "gray_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3819,
+    "bounds": {
+      "N": [
+        -0.009669779818038763,
+        -0.009669779618031829
+      ],
+      "NG": [
+        -0.009669779818038769,
+        -0.009669779618031836
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3846,
+    "bounds": {
+      "N": [
+        -0.0022220550539920154,
+        -0.00222205485398564
+      ],
+      "NG": [
+        -0.0022220550540263248,
+        -0.0022220548539856797
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3875,
+    "bounds": {
+      "N": [
+        -0.0006828995633093604,
+        -0.000682899363306894
+      ],
+      "NG": [
+        -0.0006828995633093604,
+        -0.0006828993633068974
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3881,
+    "bounds": {
+      "N": [
+        -0.005591576569419126,
+        -0.00559157636941556
+      ],
+      "NG": [
+        -0.005591576569419126,
+        -0.005591576369415554
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3882,
+    "bounds": {
+      "N": [
+        -0.002448588879630055,
+        -0.002448588679605675
+      ],
+      "NG": [
+        -0.002448588879630055,
+        -0.002448588679605675
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 3984,
+    "bounds": {
+      "N": [
+        0.0015098467886112544,
+        0.0015098469886617965
+      ],
+      "NG": [
+        0.0010855323373735646,
+        0.001085532537537431
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4059,
+    "bounds": {
+      "N": [
+        -0.005831936180314355,
+        -0.005831935980280064
+      ],
+      "NG": [
+        -0.005831936180314355,
+        -0.005831935980280039
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 4173,
+    "bounds": {
+      "N": [
+        -0.004648565571592567,
+        -0.004648565371586537
+      ],
+      "NG": [
+        -0.004649613030599568,
+        -0.004649612830437787
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 4230,
+    "bounds": {
+      "N": [
+        -0.004737837996923642,
+        -0.004737837796865904
+      ],
+      "NG": [
+        -0.0047378379969237935,
+        -0.004737837796878085
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 4250,
+    "bounds": {
+      "N": [
+        0.0029604489060677057,
+        0.0029604491173403345
+      ],
+      "NG": [
+        0.0029604489068467527,
+        0.0029604491172083515
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4325,
+    "bounds": {
+      "N": [
+        -0.0012735127753910505,
+        -0.0012735125753839433
+      ],
+      "NG": [
+        -0.001965155827219215,
+        -0.0019651556272127146
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 4423,
+    "bounds": {
+      "N": [
+        0.0008567880181652421,
+        0.0008567882181753522
+      ],
+      "NG": [
+        0.0008567880181652421,
+        0.0008567882181753626
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4448,
+    "bounds": {
+      "N": [
+        0.0022943853711062056,
+        0.0022943855711095905
+      ],
+      "NG": [
+        0.0022943853711062056,
+        0.0022943855711096126
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4476,
+    "bounds": {
+      "N": [
+        -0.006365196402659158,
+        -0.006365196202653579
+      ],
+      "NG": [
+        -0.006365196402659158,
+        -0.006365196202653584
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 4496,
+    "bounds": {
+      "N": [
+        -0.0015859139016280834,
+        -0.0015859137016254526
+      ],
+      "NG": [
+        -0.0015859139016280834,
+        -0.0015859137016254496
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 4549,
+    "bounds": {
+      "N": [
+        0.00021529522160138604,
+        0.00021529542160356963
+      ],
+      "NG": [
+        0.00021529522160138604,
+        0.0002152954216035718
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4610,
+    "bounds": {
+      "N": [
+        0.004588398097252635,
+        0.004588398297258021
+      ],
+      "NG": [
+        0.004588398097252635,
+        0.004588398297258033
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4702,
+    "bounds": {
+      "N": [
+        -0.013205174422388851,
+        -0.013205174222379545
+      ],
+      "NG": [
+        -0.013205174422388827,
+        -0.013205174222379521
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 4733,
+    "bounds": {
+      "N": [
+        2.7740172566265187e-05,
+        2.7740372573062268e-05
+      ],
+      "NG": [
+        2.774017256623353e-05,
+        2.7740372573063135e-05
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4761,
+    "bounds": {
+      "N": [
+        0.0023394066572423266,
+        0.002339406857249399
+      ],
+      "NG": [
+        0.002339406657242299,
+        0.002339406857249381
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4768,
+    "bounds": {
+      "N": [
+        0.0016732506567202917,
+        0.0016732508567304434
+      ],
+      "NG": [
+        0.0016732506567202917,
+        0.0016732508567304225
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4781,
+    "bounds": {
+      "N": [
+        0.004730840165030132,
+        0.004730840365034951
+      ],
+      "NG": [
+        0.004425629471452517,
+        0.0044256296714569945
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4884,
+    "bounds": {
+      "N": [
+        0.000451601638325189,
+        0.00045160183833091314
+      ],
+      "NG": [
+        0.0004516016383251838,
+        0.00045160183833090794
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4969,
+    "bounds": {
+      "N": [
+        0.0019085507790251002,
+        0.00190855097903087
+      ],
+      "NG": [
+        0.0019085507790251002,
+        0.0019085509790308605
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 4973,
+    "bounds": {
+      "N": [
+        0.0023361109737975003,
+        0.0023361111738055607
+      ],
+      "NG": [
+        0.0023361109737975007,
+        0.002336111173805552
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 5023,
+    "bounds": {
+      "N": [
+        0.0026229678589327877,
+        0.002622968058937742
+      ],
+      "NG": [
+        0.0026229678589327807,
+        0.002622968058937749
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 5058,
+    "bounds": {
+      "N": [
+        0.003070886662213513,
+        0.0030708868622268287
+      ],
+      "NG": [
+        0.003070886662213513,
+        0.0030708868622245215
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 5065,
+    "bounds": {
+      "N": [
+        -0.015583522778301934,
+        -0.015583522578293025
+      ],
+      "NG": [
+        -0.015583522778301905,
+        -0.01558352257829303
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5097,
+    "bounds": {
+      "N": [
+        -0.010776997316631478,
+        -0.01077699711662268
+      ],
+      "NG": [
+        -0.010776997316631468,
+        -0.010776997116622684
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5127,
+    "bounds": {
+      "N": [
+        0.001562995238637376,
+        0.001562995438645297
+      ],
+      "NG": [
+        0.001562995238637376,
+        0.0015629954386453125
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 5153,
+    "bounds": {
+      "N": [
+        -0.0112734557282752,
+        -0.011273455528267187
+      ],
+      "NG": [
+        -0.011273455728275211,
+        -0.011273455528267189
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5159,
+    "bounds": {
+      "N": [
+        -0.011333963025110574,
+        -0.011333962825096761
+      ],
+      "NG": [
+        -0.01133396302511083,
+        -0.011333962825096761
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5229,
+    "bounds": {
+      "N": [
+        -0.00342157833741061,
+        -0.003421578137401905
+      ],
+      "NG": [
+        -0.0034215783374105893,
+        -0.0034215781374018826
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5250,
+    "bounds": {
+      "N": [
+        0.0001450147660288239,
+        0.00014501496667889072
+      ],
+      "NG": [
+        -0.00024902035642837414,
+        -0.00024902015609426905
+      ]
+    },
+    "classification": "gray_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5251,
+    "bounds": {
+      "N": [
+        -0.0013278706149129475,
+        -0.0013278704149061048
+      ],
+      "NG": [
+        -0.0013278706149129232,
+        -0.0013278704149060952
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5255,
+    "bounds": {
+      "N": [
+        -0.005361350812338583,
+        -0.005361350612331315
+      ],
+      "NG": [
+        -0.005708744942592051,
+        -0.005708744738449944
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5290,
+    "bounds": {
+      "N": [
+        0.0014085585836139543,
+        0.0014085587836196582
+      ],
+      "NG": [
+        0.0014085585836139543,
+        0.0014085587836196651
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 5321,
+    "bounds": {
+      "N": [
+        -0.008002332187305923,
+        -0.008002331987299391
+      ],
+      "NG": [
+        -0.008002332187305923,
+        -0.008002331987299377
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5354,
+    "bounds": {
+      "N": [
+        -0.005045911466356395,
+        -0.005045911266150518
+      ],
+      "NG": [
+        -0.005237402499077849,
+        -0.005237402298561188
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5372,
+    "bounds": {
+      "N": [
+        -0.004477229403439269,
+        -0.004477229203427179
+      ],
+      "NG": [
+        -0.004477229403438669,
+        -0.004477229203427175
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5380,
+    "bounds": {
+      "N": [
+        -0.009440442587469225,
+        -0.009440442387459532
+      ],
+      "NG": [
+        -0.00944044258746921,
+        -0.009440442387459542
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5386,
+    "bounds": {
+      "N": [
+        -0.0032068040842256865,
+        -0.0032068038842189774
+      ],
+      "NG": [
+        -0.0032068040842256865,
+        -0.0032068038842189774
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5401,
+    "bounds": {
+      "N": [
+        -0.006683818065329089,
+        -0.006683817865319949
+      ],
+      "NG": [
+        -0.006683818065329089,
+        -0.006683817865319956
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5408,
+    "bounds": {
+      "N": [
+        -0.00515576885123166,
+        -0.005155768651224508
+      ],
+      "NG": [
+        -0.005267637177395552,
+        -0.005267636977388485
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5495,
+    "bounds": {
+      "N": [
+        -0.00582028603478362,
+        -0.0058202858347738435
+      ],
+      "NG": [
+        -0.005820286034783654,
+        -0.005820285834773835
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5506,
+    "bounds": {
+      "N": [
+        -0.0034805340228498843,
+        -0.0034805338228451606
+      ],
+      "NG": [
+        -0.0034805340228498843,
+        -0.0034805338228451736
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5507,
+    "bounds": {
+      "N": [
+        -0.0028255127687343167,
+        -0.002825512568711767
+      ],
+      "NG": [
+        -0.0037188575517986375,
+        -0.00371885735172988
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5544,
+    "bounds": {
+      "N": [
+        0.003512137508846857,
+        0.003512137708852468
+      ],
+      "NG": [
+        0.0035121375088408443,
+        0.003512137708990223
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 5567,
+    "bounds": {
+      "N": [
+        -0.004329975719002548,
+        -0.004329975518989684
+      ],
+      "NG": [
+        -0.007311578170848898,
+        -0.007311577967437276
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5634,
+    "bounds": {
+      "N": [
+        -0.004708591001754562,
+        -0.004708590801748232
+      ],
+      "NG": [
+        -0.005446192837228895,
+        -0.005446192637131299
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5661,
+    "bounds": {
+      "N": [
+        0.013440834875213987,
+        0.013440835075227468
+      ],
+      "NG": [
+        0.013440834875213987,
+        0.013440835075227468
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 5674,
+    "bounds": {
+      "N": [
+        -0.006735568313524972,
+        -0.006735568113332526
+      ],
+      "NG": [
+        -0.006735568313524972,
+        -0.0067355681131897995
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5675,
+    "bounds": {
+      "N": [
+        0.0039945031907149715,
+        0.003994503390720958
+      ],
+      "NG": [
+        0.003972074433780019,
+        0.003972074633786784
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 5721,
+    "bounds": {
+      "N": [
+        0.0022904220937760996,
+        0.002290422293795623
+      ],
+      "NG": [
+        0.00030097729095385353,
+        0.00030097749106430073
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 5926,
+    "bounds": {
+      "N": [
+        -0.006747137154264474,
+        -0.0067471369542601665
+      ],
+      "NG": [
+        -0.006747137154264474,
+        -0.006747136954260191
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5939,
+    "bounds": {
+      "N": [
+        -0.0031191782707128243,
+        -0.0031191780707080833
+      ],
+      "NG": [
+        -0.0031191782707128243,
+        -0.0031191780707080833
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5942,
+    "bounds": {
+      "N": [
+        -0.011770746304874851,
+        -0.011770746104868364
+      ],
+      "NG": [
+        -0.011770746304874841,
+        -0.011770746104868352
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5971,
+    "bounds": {
+      "N": [
+        -0.00639565906789019,
+        -0.006395658867880162
+      ],
+      "NG": [
+        -0.00639565906789019,
+        -0.006395658867880162
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 5975,
+    "bounds": {
+      "N": [
+        0.00022151483132429797,
+        0.00022151503144897603
+      ],
+      "NG": [
+        -0.0001914172658908958,
+        -0.00019141706578939538
+      ]
+    },
+    "classification": "gray_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6048,
+    "bounds": {
+      "N": [
+        0.0020956816829641955,
+        0.002095681882968055
+      ],
+      "NG": [
+        0.002095062061945629,
+        0.0020950622619494734
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6077,
+    "bounds": {
+      "N": [
+        -0.007323715208251189,
+        -0.007323715008094148
+      ],
+      "NG": [
+        -0.0073237152082512216,
+        -0.007323715008187428
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6125,
+    "bounds": {
+      "N": [
+        0.0020699403025706254,
+        0.002069940502594726
+      ],
+      "NG": [
+        -0.00047459623820530816,
+        -0.000474596038063982
+      ]
+    },
+    "classification": "gray_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6209,
+    "bounds": {
+      "N": [
+        0.0011286383799531921,
+        0.001128638579956359
+      ],
+      "NG": [
+        0.0011286383799531921,
+        0.001128638579956361
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6210,
+    "bounds": {
+      "N": [
+        0.003210136817944636,
+        0.0032101370179499424
+      ],
+      "NG": [
+        0.0012210879416902003,
+        0.0012210881418766167
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6211,
+    "bounds": {
+      "N": [
+        -0.0031940449761913175,
+        -0.0031940447761861506
+      ],
+      "NG": [
+        -0.003194044976191335,
+        -0.0031940447761861566
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6224,
+    "bounds": {
+      "N": [
+        -0.007426534233168605,
+        -0.007426534033163035
+      ],
+      "NG": [
+        -0.007426534233168604,
+        -0.007426534033163021
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6237,
+    "bounds": {
+      "N": [
+        0.007586934536649296,
+        0.007586934736856961
+      ],
+      "NG": [
+        0.007586934536788178,
+        0.007586934736802262
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6247,
+    "bounds": {
+      "N": [
+        -0.00020446837752295533,
+        -0.00020446817751894203
+      ],
+      "NG": [
+        -0.00021032629518985066,
+        -0.00021032609514981453
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6294,
+    "bounds": {
+      "N": [
+        -0.003940772134483158,
+        -0.003940771934477444
+      ],
+      "NG": [
+        -0.00394077213448314,
+        -0.0039407719344774364
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6295,
+    "bounds": {
+      "N": [
+        0.00023859165684722705,
+        0.00023859185685649395
+      ],
+      "NG": [
+        0.00023859165684722705,
+        0.0002385918568564957
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6356,
+    "bounds": {
+      "N": [
+        0.004489609738145878,
+        0.004489609938512274
+      ],
+      "NG": [
+        0.004489609738145878,
+        0.004489609938512301
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6362,
+    "bounds": {
+      "N": [
+        0.004450309154273262,
+        0.0044503093542793025
+      ],
+      "NG": [
+        0.00445030915427326,
+        0.0044503093542793
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6387,
+    "bounds": {
+      "N": [
+        0.0027878228173163094,
+        0.0027878230173203357
+      ],
+      "NG": [
+        0.0027878228173163085,
+        0.0027878230173203314
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6429,
+    "bounds": {
+      "N": [
+        -0.008118140410631622,
+        -0.008118140210621917
+      ],
+      "NG": [
+        -0.008118140410631636,
+        -0.008118140210621901
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6439,
+    "bounds": {
+      "N": [
+        0.0012356479312680439,
+        0.0012356481312709683
+      ],
+      "NG": [
+        0.0012356479312680456,
+        0.001235648131270957
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6514,
+    "bounds": {
+      "N": [
+        -0.00549059290005341,
+        -0.005490592699859368
+      ],
+      "NG": [
+        -0.00549059290005341,
+        -0.005490592700015262
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6531,
+    "bounds": {
+      "N": [
+        0.0017730689844750133,
+        0.001773069184482268
+      ],
+      "NG": [
+        0.0017730689844750185,
+        0.00177306918448228
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6533,
+    "bounds": {
+      "N": [
+        -0.009106421813334192,
+        -0.009106421613327505
+      ],
+      "NG": [
+        -0.009106421813334164,
+        -0.009106421613327512
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6548,
+    "bounds": {
+      "N": [
+        -0.005822745602633952,
+        -0.005822745402628146
+      ],
+      "NG": [
+        -0.005822745602633931,
+        -0.005822745402628153
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6572,
+    "bounds": {
+      "N": [
+        -0.00028851724798140474,
+        -0.00028851704797892803
+      ],
+      "NG": [
+        -0.0002885172479814056,
+        -0.00028851704797892586
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6590,
+    "bounds": {
+      "N": [
+        0.0004724120086413305,
+        0.0004724122086489225
+      ],
+      "NG": [
+        0.00047241200864133224,
+        0.0004724122086489624
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6819,
+    "bounds": {
+      "N": [
+        -0.005700871418816847,
+        -0.005700871218807867
+      ],
+      "NG": [
+        -0.006571953738677619,
+        -0.006571953538668609
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6857,
+    "bounds": {
+      "N": [
+        -0.0026885329878400042,
+        -0.002688532787835682
+      ],
+      "NG": [
+        -0.0026885329878400042,
+        -0.002688532787835702
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6862,
+    "bounds": {
+      "N": [
+        -0.0009567622463700688,
+        -0.0009567620463617281
+      ],
+      "NG": [
+        -0.002819337680577959,
+        -0.002819337480571313
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6866,
+    "bounds": {
+      "N": [
+        -0.0015800268150164402,
+        -0.0015800266150108222
+      ],
+      "NG": [
+        -0.0015800268150164402,
+        -0.0015800266150108222
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6867,
+    "bounds": {
+      "N": [
+        -0.005386595619323182,
+        -0.005386595419310274
+      ],
+      "NG": [
+        -0.005386595619323182,
+        -0.005386595419314203
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6873,
+    "bounds": {
+      "N": [
+        0.003397805198512233,
+        0.003397805398520089
+      ],
+      "NG": [
+        0.0033978051985122126,
+        0.003397805398520097
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6880,
+    "bounds": {
+      "N": [
+        -0.0012010260280719384,
+        -0.001201025828066395
+      ],
+      "NG": [
+        -0.0012010260280937717,
+        -0.001201025828031312
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  },
+  {
+    "record": 6882,
+    "bounds": {
+      "N": [
+        0.002289720475542548,
+        0.002289720675553149
+      ],
+      "NG": [
+        0.002278927112506744,
+        0.002278927321203252
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6889,
+    "bounds": {
+      "N": [
+        0.0014812401418631215,
+        0.0014812403418686042
+      ],
+      "NG": [
+        0.00012982414104211742,
+        0.000129824345256691
+      ]
+    },
+    "classification": "reachable",
+    "actual_correct": false
+  },
+  {
+    "record": 6897,
+    "bounds": {
+      "N": [
+        -0.0019590436871181395,
+        -0.0019590434871137375
+      ],
+      "NG": [
+        -0.0019590436871181395,
+        -0.0019590434871137436
+      ]
+    },
+    "classification": "negative_blocked",
+    "actual_correct": false
+  }
+]

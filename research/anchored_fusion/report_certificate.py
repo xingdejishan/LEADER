@@ -18,7 +18,8 @@ def main():
     selected=[i for i,r in enumerate(original) if r['original']=='N' and r.get('classification')=='reachable']
     with np.load(primary_source/'witnesses.npz') as z:
         vectors={i:(z['x'+str(i)],z['k'+str(i)]) for i in selected}
-    audit=dict(runs={},teacher=read(OUT/'teacher_verified.json'),source_hashes={p.name:e.run.digest(p) for p in e.HERE.glob('*certificate*.py')})
+    dependencies=['certificate_fusion.py','check_certificate.py','verify_teacher.py','evaluate_certificate.py','report_certificate.py','model.py','experiment.py','subspace.py']
+    audit=dict(runs={},teacher=read(OUT/'teacher_verified.json'),source_hashes={name:e.run.digest(e.HERE/name) for name in dependencies})
     internal=read(OUT/'baseline_internal.json')
     for seed in e.SEEDS:
         init=[]
@@ -67,6 +68,24 @@ def main():
                 certificate_count=len(certs),maximum_certificate_gap=max(gaps),coverage_classifications=dict(Counter(r['classification'] for r in cov)))
         assert all(torch.equal(init[0][k],init[1][k]) for k in init[0])
     e.run.save_json(OUT/'audit.json',audit)
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    fig,axes=plt.subplots(1,2,figsize=(12,4.5))
+    base_internal=float(np.mean([r['standard'][0] for r in internal]))
+    axes[0].axhline(base_internal,color='black',linestyle=':',label='Pure LEADER')
+    for seed,color in zip(e.SEEDS,['tab:blue','tab:orange','tab:green']):
+        for arm,style in [('aligned','-'),('shuffled','--')]:
+            logs=read(OUT/f'{arm}_{seed}'/'training.json')
+            points=[(0,base_internal)]+[(r['epoch'],r['internal']['mean'][0]) for r in logs if 'internal' in r]
+            axes[0].plot(*zip(*points),color=color,linestyle=style,label=f'{arm} {seed}')
+            axes[1].plot([r['epoch'] for r in logs],[r['loss'][2] for r in logs],color=color,linestyle=style)
+    axes[0].set(xlabel='Epoch',ylabel='Mean translation error (m)',title='Internal checkpoint selection')
+    axes[1].set(xlabel='Epoch',ylabel='Balanced direction loss',title='Full training budget')
+    axes[0].legend(fontsize=7)
+    for ax in axes:
+        ax.grid(alpha=.2)
+    fig.tight_layout(); fig.savefig(OUT/'learning.png',dpi=150); plt.close(fig)
     lines=['# 训练集证书监督的残差融合','',f'固定联合判据：**{"通过" if summary["passed"] else "未通过"}**。完整执行六组100 epoch，不按开发集调参。','',
         '## 固定设计与训练目标','',
         '同一 640→32→512 小头（37,408 参数），两层和偏置从头学习，末层零初始化；没有新门控或扩容。原保护集合、5%范数限制、MMRegressor、TRR、Matcher、特征缓存和投影不变。LEADER与视觉提取器冻结。推理不读取参考库或GT。','',
@@ -74,7 +93,8 @@ def main():
         '教师间隔gamma=1e-4，求解可行裕量1e-8；固定正例下最小化半平方残差范数，再用原始/对偶证据核验最小性（间隙≤1e-8）与半径≤0.05。多个正例都求解，按最小范数及固定索引选取；有未决正例则跳过该查询。明确错误且获证点得到修正目标，原正确可调整点得到零目标；灰区、无正例、不可达或未决点只参加TRR。灰区只作为确保已知正例登顶的竞争者，不重标成负例。','',
         '教师送入冻结回归头，对原Matcher候选按原coarse voxel GT检查；场景坐标误差增大的修正被剔除，不改标为零。未入选Matcher的修正不做此筛选。最小范数和逐点坐标筛选均不保证姿态改善。','',
         '损失为原TRR + 0.01*Ldir；Ldir对实际施加残差按原特征范数和0.05归一化后计算平方L2误差。修正/保持两类在每批内分别平均，再对存在的类等权平均；没有跨帧对比损失。三个种子2089/2090/2091，配对初始化与样本顺序完全相同；每组100轮、7300更新。AdamW初始1e-3，5轮预热后余弦至1e-5，weight decay1e-4。内部最终位置误差从0、10、…、100轮选模，最早并列优先；不回灌182帧。','',
-        '## 教师可用性','',
+        '运行中出现过WSL实例暂时不可用；后段显存接近上限时，将固定教师张量改为CPU存放并按批传入GPU，已核验与GPU拼接数值逐位相同。没有更改目标、梯度公式、批顺序或有效训练预算；断点恢复使用上一个完整epoch的模型、优化器与样本随机状态，未完成epoch的临时更新丢弃后重放。细节见operational_notes.json。','',
+        '![内部选模与方向损失](learning.png)','', '## 教师可用性','',
         '```json',json.dumps(summary['teacher'],ensure_ascii=False,indent=2),'```','',
         '6299份逐正例证书通过独立复算；保留修正最小间隔0.0001000097，最大范数0.04999025，平均范数0.02694831。单约束解析解、半径不可达、分类等权、跳过标签、零初始化、梯度流和保护检查通过。教师目标文件完整保存，可用verify_teacher.py --folder指定归档目录独立核验。','',
         '## 182帧最终定位','',
@@ -93,6 +113,13 @@ def main():
         '## 轨迹块配对比较','','负值表示正确视觉位置误差更低。按日期内连续最多10帧、超过10秒断块，10000次重采样，种子271828；先计算三个种子的逐帧均值。','',
         '```json',json.dumps(summary['paired_translation'],indent=2),'```','',
         'summary.json保留逐日期位置、旋转、P95、成功率、保护点保留率和固定候选结果。历史同结构对比损失六组结果保留在上级results，不作为本轮选模或调参依据。','',
+        '## 结果解读','',
+        '本轮未建立优于纯LEADER的稳定平均位置收益，继续保留纯LEADER。正确视觉三种子平均位置12.2885cm，相对纯LEADER的12.2615cm高0.270mm；轨迹块95%区间为[-1.548,+2.147]mm，包含零。一个种子退化、两个略有改善，且1月22日三个种子的位置均值都高于基线。','',
+        '同时不能把所有对照都描述为没有差别：正确视觉在三个种子的平均位置上都优于对应置乱，种子均值差为-1.990mm，轨迹块95%区间[-3.462,-0.543]mm。这个结果支持当前开发集上正确与置乱条件存在位置差异，但跨日期并非处处同向，也没有转成超过纯LEADER的稳定平均位置收益；不能概括为图像完全未被使用。','',
+        '方向覆盖从旧正确模型46/52/46增至53/55/55，但原161点上的实际纠正从3/6/4降为2/1/3；置乱为3/3/2。明确方向监督没有建立预期的实际纠正增益。完整6937歧义点的正确视觉Top1仍只有14.01%–14.10%，相对13.9542%的基线变化很小，且未在全部配对种子中优于置乱。不能只用子空间覆盖略增宣布监督有效。','',
+        '尾部读数有改善：正确视觉三个位置P95均低于纯LEADER；旋转均值两组更好、一组更差。全部六组182/182通过1m/5度条件，保护点最终保留率均为100%。这些读数保留，但不替代预先固定的平均位置与视觉对照判据。','',
+        '训练日志中的方向损失在第一轮约0.211–0.215，最后一轮约0.227–0.242，没有呈现期望的下降；总损失下降并不等于方向教师被拟合好。日志本身不足以区分输入信息、共享表达约束与联合损失冲突，不能据此确认某一个失败原因，也不据此调整lambda或继续延长训练。','',
+        '所有1500个保留教师在实际float32特征加法后仍满足正间隔gamma：最小间隔0.00010000537、最大归一化残差0.04999025；零个点跌破gamma。新子空间证书、配对初始化和选模记录均通过独立审计。','',
         '## 适用边界','','182帧是已经参与机制研究的开发集，不是盲测；没有完整NCLT提升结论。只增加方向覆盖不算成功，排序改善但定位不改善也不算成功，正确视觉未稳定优于置乱时不归因于逐点视觉贡献。训练方向标签仅来自578帧；先前开发集161点证书没有用于蒸馏。']
     (OUT/'REPORT.md').write_text('\n'.join(lines)+'\n')
     target=e.HERE/'results/certificate_fusion'; target.mkdir(exist_ok=True)
