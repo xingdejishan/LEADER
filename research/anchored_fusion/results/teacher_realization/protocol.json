@@ -1,0 +1,20 @@
+{
+  "source": "befb9c1",
+  "population": "Exact retained1500 correction and2255 zero fit targets; all six selected best.pt; no selection or training",
+  "tau": 1e-07,
+  "normalization": "Applied float32 fused-minus-original converted to float64, divided by float64 original feature norm",
+  "ranking": "Cosine similarity; earliest fixed candidate index within tau of maximum. Strict correction requires max positive minus max nonpositive >tau; gray and tie separate.",
+  "margins": "Also save unnormalized-query margins for selected teacher positive against N and N+G; common original-norm scaling as teacher certificate.",
+  "fit_bins": [
+    0,
+    0.1,
+    0.25,
+    0.5,
+    1,
+    2
+  ],
+  "near_zero": "Student norm <=0.1 teacher norm, only correction targets",
+  "boundary_check": "Teacher-positive per-competitor margin divided by difference-vector norm gives sufficient perturbation radius; compare residual error and signed margin changes, not assume small gamma caused failure",
+  "controls": "Same targets, reference library, protection, shuffle seeds, checkpoints and masks; no developer/query GT training",
+  "teacher_manifest_sha256": "baeeec969aac379cb6188e32a0bd738e5748c75b82533383afd5945a7fc1ee8a"
+}

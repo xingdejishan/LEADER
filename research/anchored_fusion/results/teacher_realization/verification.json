@@ -1,0 +1,8 @@
+{
+  "verified": true,
+  "model_query_pairs": 22530,
+  "correction_count": 1500,
+  "zero_count": 2255,
+  "identity_R": 1.0,
+  "description": "Independent per-point loops recompute R, strict correction and separate zero-label outcomes from saved applied deltas and scores; no optimizer or new training"
+}
