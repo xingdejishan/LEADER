@@ -1,0 +1,34 @@
+{
+  "frame_id": "1336763660006094",
+  "date": "2012-05-11",
+  "points": 303,
+  "zero": 0,
+  "attempted": 1,
+  "certified": 0,
+  "kept": 0,
+  "coordinate_rejected": 0,
+  "radius_blocked": 1,
+  "uncertain": 0,
+  "gray_skipped": 7,
+  "no_positive": 9,
+  "protected_skipped": 14,
+  "checks": [
+    {
+      "status": "radius_blocked",
+      "lower": 0.005965475402937397,
+      "upper": 0.0059654784381843505,
+      "margin": 0.00010000990000001495,
+      "norm": 0.10922891868167835,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+      "primal_violation": 0.0,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 9,
+      "voxel": 31,
+      "candidate_row": 9,
+      "positive": 14,
+      "key": "31_14"
+    }
+  ]
+}

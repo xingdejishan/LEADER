@@ -1,0 +1,72 @@
+{
+  "frame_id": "1336763662406083",
+  "date": "2012-05-11",
+  "points": 293,
+  "zero": 0,
+  "attempted": 3,
+  "certified": 2,
+  "kept": 0,
+  "coordinate_rejected": 2,
+  "radius_blocked": 1,
+  "uncertain": 0,
+  "gray_skipped": 11,
+  "no_positive": 8,
+  "protected_skipped": 12,
+  "checks": [
+    {
+      "status": "radius_blocked",
+      "lower": 0.0037878491551141392,
+      "upper": 0.0037878513025142815,
+      "margin": 0.00010000989999996291,
+      "norm": 0.08703851104556283,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+      "primal_violation": 6.938893903907228e-18,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 11,
+      "voxel": 219,
+      "candidate_row": 8,
+      "positive": 9,
+      "key": "219_9"
+    },
+    {
+      "status": "certified",
+      "lower": 0.001145136337394035,
+      "upper": 0.0011451375785246488,
+      "margin": 0.00010000989999998026,
+      "norm": 0.04785681724738177,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+      "primal_violation": 3.469446951953614e-18,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 9,
+      "voxel": 221,
+      "candidate_row": 10,
+      "positive": 6,
+      "key": "221_6"
+    },
+    {
+      "status": "certified",
+      "lower": 0.0009548028595295626,
+      "upper": 0.0009548040102076588,
+      "margin": 0.00010000989999999067,
+      "norm": 0.04369905972003651,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+      "primal_violation": 3.469446951953614e-18,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 8,
+      "voxel": 223,
+      "candidate_row": 12,
+      "positive": 4,
+      "key": "223_4"
+    }
+  ],
+  "coordinate_deltas": {
+    "221": 0.0831596702337265,
+    "223": 0.14217495918273926
+  }
+}

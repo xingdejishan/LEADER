@@ -1,0 +1,55 @@
+{
+  "frame_id": "1336763663006072",
+  "date": "2012-05-11",
+  "points": 298,
+  "zero": 1,
+  "attempted": 2,
+  "certified": 2,
+  "kept": 2,
+  "coordinate_rejected": 0,
+  "radius_blocked": 0,
+  "uncertain": 0,
+  "gray_skipped": 6,
+  "no_positive": 7,
+  "protected_skipped": 17,
+  "checks": [
+    {
+      "status": "certified",
+      "lower": 0.0005294867891673047,
+      "upper": 0.0005294876971200212,
+      "margin": 0.00010000990000001495,
+      "norm": 0.03254189905706246,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+      "primal_violation": 0.0,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 6,
+      "voxel": 237,
+      "candidate_row": 4,
+      "positive": 5,
+      "key": "237_5"
+    },
+    {
+      "status": "certified",
+      "lower": 0.0006967387159035561,
+      "upper": 0.0006967398584317494,
+      "margin": 0.00010000990000002883,
+      "norm": 0.03732933855379035,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+      "primal_violation": 0.0,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 6,
+      "voxel": 239,
+      "candidate_row": 6,
+      "positive": 3,
+      "key": "239_3"
+    }
+  ],
+  "coordinate_deltas": {
+    "237": -0.03238829970359802,
+    "239": -0.11550343781709671
+  }
+}

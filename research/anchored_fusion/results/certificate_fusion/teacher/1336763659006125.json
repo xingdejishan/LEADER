@@ -1,0 +1,71 @@
+{
+  "frame_id": "1336763659006125",
+  "date": "2012-05-11",
+  "points": 239,
+  "zero": 0,
+  "attempted": 3,
+  "certified": 1,
+  "kept": 1,
+  "coordinate_rejected": 0,
+  "radius_blocked": 2,
+  "uncertain": 0,
+  "gray_skipped": 8,
+  "no_positive": 16,
+  "protected_skipped": 5,
+  "checks": [
+    {
+      "status": "radius_blocked",
+      "lower": 0.0022099580593031645,
+      "upper": 0.00220996077191713,
+      "margin": 0.00010000989999998373,
+      "norm": 0.06648248900149768,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 0.0,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 20,
+      "voxel": 159,
+      "candidate_row": 18,
+      "positive": 11,
+      "key": "159_11"
+    },
+    {
+      "status": "radius_blocked",
+      "lower": 0.010101837914695974,
+      "upper": 0.01010185200843213,
+      "margin": 0.00010000990000000216,
+      "norm": 0.14213973342054734,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+      "primal_violation": 6.938893903907228e-18,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 15,
+      "voxel": 160,
+      "candidate_row": 19,
+      "positive": 13,
+      "key": "160_13"
+    },
+    {
+      "status": "certified",
+      "lower": 0.001173488070322154,
+      "upper": 0.0011734915245766283,
+      "margin": 0.00010000989999997679,
+      "norm": 0.048445669044335185,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 1.734723475976807e-18,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 17,
+      "voxel": 171,
+      "candidate_row": 29,
+      "positive": 12,
+      "key": "171_12"
+    }
+  ],
+  "coordinate_deltas": {
+    "171": -0.11257369816303253
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "frames": 578,
+  "totals": {
+    "zero": 2255,
+    "attempted": 4874,
+    "certified": 1945,
+    "kept": 1500,
+    "coordinate_rejected": 445,
+    "radius_blocked": 2927,
+    "uncertain": 2,
+    "gray_skipped": 20361,
+    "no_positive": 31328,
+    "protected_skipped": 20779
+  },
+  "frames_with_correction": 434,
+  "frames_with_zero": 458,
+  "dates": {
+    "2012-01-22": {
+      "zero": 795,
+      "attempted": 1650,
+      "certified": 619,
+      "kept": 475,
+      "coordinate_rejected": 144,
+      "radius_blocked": 1030,
+      "uncertain": 1,
+      "gray_skipped": 7460,
+      "no_positive": 12630,
+      "protected_skipped": 7612
+    },
+    "2012-02-02": {
+      "zero": 726,
+      "attempted": 1460,
+      "certified": 636,
+      "kept": 495,
+      "coordinate_rejected": 141,
+      "radius_blocked": 824,
+      "uncertain": 0,
+      "gray_skipped": 5665,
+      "no_positive": 8189,
+      "protected_skipped": 5424
+    },
+    "2012-05-11": {
+      "zero": 734,
+      "attempted": 1764,
+      "certified": 690,
+      "kept": 530,
+      "coordinate_rejected": 160,
+      "radius_blocked": 1073,
+      "uncertain": 1,
+      "gray_skipped": 7236,
+      "no_positive": 10509,
+      "protected_skipped": 7743
+    }
+  }
+}

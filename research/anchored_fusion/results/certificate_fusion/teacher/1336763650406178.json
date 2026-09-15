@@ -1,0 +1,16 @@
+{
+  "frame_id": "1336763650406178",
+  "date": "2012-05-11",
+  "points": 274,
+  "zero": 2,
+  "attempted": 0,
+  "certified": 0,
+  "kept": 0,
+  "coordinate_rejected": 0,
+  "radius_blocked": 0,
+  "uncertain": 0,
+  "gray_skipped": 5,
+  "no_positive": 2,
+  "protected_skipped": 53,
+  "checks": []
+}

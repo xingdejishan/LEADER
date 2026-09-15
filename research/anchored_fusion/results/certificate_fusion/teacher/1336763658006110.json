@@ -1,0 +1,71 @@
+{
+  "frame_id": "1336763658006110",
+  "date": "2012-05-11",
+  "points": 236,
+  "zero": 3,
+  "attempted": 2,
+  "certified": 1,
+  "kept": 1,
+  "coordinate_rejected": 0,
+  "radius_blocked": 1,
+  "uncertain": 0,
+  "gray_skipped": 12,
+  "no_positive": 4,
+  "protected_skipped": 12,
+  "checks": [
+    {
+      "status": "certified",
+      "lower": 0.0002592378847315743,
+      "upper": 0.00025923858376161903,
+      "margin": 0.00010000989999998373,
+      "norm": 0.022770089317418984,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+      "primal_violation": 1.734723475976807e-18,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 8,
+      "voxel": 164,
+      "candidate_row": 2,
+      "positive": 3,
+      "key": "164_3"
+    },
+    {
+      "status": "certified",
+      "lower": 0.0008687843211934918,
+      "upper": 0.0008687860210755029,
+      "margin": 0.00010000990000000325,
+      "norm": 0.041684191753601336,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 4.336808689942018e-19,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 25,
+      "voxel": 164,
+      "candidate_row": 2,
+      "positive": 9,
+      "key": "164_9"
+    },
+    {
+      "status": "radius_blocked",
+      "lower": 0.01536916142510682,
+      "upper": 0.01536916569158361,
+      "margin": 0.00010000989999998546,
+      "norm": 0.17532350436597832,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 6.938893903907228e-18,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 16,
+      "voxel": 180,
+      "candidate_row": 16,
+      "positive": 11,
+      "key": "180_11"
+    }
+  ],
+  "coordinate_deltas": {
+    "164": -0.07489508390426636
+  }
+}

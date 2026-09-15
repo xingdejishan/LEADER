@@ -1,0 +1,72 @@
+{
+  "frame_id": "1327251815001104",
+  "date": "2012-01-22",
+  "points": 785,
+  "zero": 1,
+  "attempted": 3,
+  "certified": 2,
+  "kept": 2,
+  "coordinate_rejected": 0,
+  "radius_blocked": 1,
+  "uncertain": 0,
+  "gray_skipped": 24,
+  "no_positive": 88,
+  "protected_skipped": 50,
+  "checks": [
+    {
+      "status": "certified",
+      "lower": 0.0007302753977168276,
+      "upper": 0.0007302767961697272,
+      "margin": 0.00010000990000000975,
+      "norm": 0.038217187132747674,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 0.0,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 15,
+      "voxel": 378,
+      "candidate_row": 52,
+      "positive": 5,
+      "key": "378_5"
+    },
+    {
+      "status": "radius_blocked",
+      "lower": 0.0017688679989986047,
+      "upper": 0.0017688710312920015,
+      "margin": 0.00010000989999999587,
+      "norm": 0.05947891948063619,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 3.469446951953614e-18,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 20,
+      "voxel": 388,
+      "candidate_row": 58,
+      "positive": 13,
+      "key": "388_13"
+    },
+    {
+      "status": "certified",
+      "lower": 0.0005643458076980761,
+      "upper": 0.0005643475582218798,
+      "margin": 0.00010000989999995944,
+      "norm": 0.033596055072638506,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 0.0,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 22,
+      "voxel": 456,
+      "candidate_row": 97,
+      "positive": 11,
+      "key": "456_11"
+    }
+  ],
+  "coordinate_deltas": {
+    "378": -0.009776115417480469,
+    "456": -0.21323513984680176
+  }
+}

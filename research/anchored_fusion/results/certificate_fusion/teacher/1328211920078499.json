@@ -1,0 +1,54 @@
+{
+  "frame_id": "1328211920078499",
+  "date": "2012-02-02",
+  "points": 591,
+  "zero": 2,
+  "attempted": 2,
+  "certified": 1,
+  "kept": 1,
+  "coordinate_rejected": 0,
+  "radius_blocked": 1,
+  "uncertain": 0,
+  "gray_skipped": 9,
+  "no_positive": 53,
+  "protected_skipped": 0,
+  "checks": [
+    {
+      "status": "certified",
+      "lower": 9.673417408510954e-05,
+      "upper": 9.673453972775576e-05,
+      "margin": 0.00010000989999997679,
+      "norm": 0.013909309093391789,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 0.0,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 21,
+      "voxel": 500,
+      "candidate_row": 5,
+      "positive": 14,
+      "key": "500_14"
+    },
+    {
+      "status": "radius_blocked",
+      "lower": 0.0021465961712121367,
+      "upper": 0.00214659808183407,
+      "margin": 0.00010000990000003404,
+      "norm": 0.06552248441312447,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+      "primal_violation": 0.0,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 7,
+      "voxel": 529,
+      "candidate_row": 28,
+      "positive": 14,
+      "key": "529_14"
+    }
+  ],
+  "coordinate_deltas": {
+    "500": -0.0015112757682800293
+  }
+}

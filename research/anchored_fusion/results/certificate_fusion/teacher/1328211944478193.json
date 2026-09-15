@@ -1,0 +1,71 @@
+{
+  "frame_id": "1328211944478193",
+  "date": "2012-02-02",
+  "points": 520,
+  "zero": 4,
+  "attempted": 1,
+  "certified": 1,
+  "kept": 0,
+  "coordinate_rejected": 1,
+  "radius_blocked": 0,
+  "uncertain": 0,
+  "gray_skipped": 15,
+  "no_positive": 5,
+  "protected_skipped": 0,
+  "checks": [
+    {
+      "status": "certified",
+      "lower": 0.00044611576412499404,
+      "upper": 0.0004461172432400812,
+      "margin": 0.00010000989999999175,
+      "norm": 0.029870291034406787,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 0.0,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 15,
+      "voxel": 506,
+      "candidate_row": 20,
+      "positive": 5,
+      "key": "506_5"
+    },
+    {
+      "status": "radius_blocked",
+      "lower": 0.0017153576495034489,
+      "upper": 0.0017153601164171875,
+      "margin": 0.00010000990000002103,
+      "norm": 0.05857234870512173,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 8.673617379884035e-18,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 17,
+      "voxel": 506,
+      "candidate_row": 20,
+      "positive": 12,
+      "key": "506_12"
+    },
+    {
+      "status": "radius_blocked",
+      "lower": 0.0015899215913273556,
+      "upper": 0.00158992383919497,
+      "margin": 0.00010000990000000715,
+      "norm": 0.056390136357256135,
+      "solver": "Optimization terminated successfully",
+      "dual_solver": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
+      "primal_violation": 0.0,
+      "dual_violation": 0.0,
+      "iterations": 2,
+      "dual_iterations": 14,
+      "voxel": 506,
+      "candidate_row": 20,
+      "positive": 13,
+      "key": "506_13"
+    }
+  ],
+  "coordinate_deltas": {
+    "506": 0.0032280534505844116
+  }
+}
