@@ -2,6 +2,7 @@ import torch
 import transforms3d.quaternions as txq
 import numpy as np
 from utils.pose_util import rigid_transform_3d, transform
+from models.server_sort import server_argsort
 
 
 class Matcher():
@@ -62,7 +63,7 @@ class Matcher():
         is_local_max = score_relation.min(-1)[0].float()
 
         score_local_max = scores * is_local_max
-        sorted_score = torch.argsort(score_local_max, dim=1, descending=True)
+        sorted_score = server_argsort(score_local_max, dim=1, descending=True)
 
         # max_num = scores.shape[1]
 
@@ -93,7 +94,7 @@ class Matcher():
         # The first stage consensus set sampling
         # Finding the k1 nearest neighbors around each seed
         #################################
-        sorted_score = torch.argsort(SC2_measure, dim=2, descending=True)
+        sorted_score = server_argsort(SC2_measure, dim=2, descending=True)
         knn_idx = sorted_score[:, :, 0: k1]
         sorted_value, _ = torch.sort(SC2_measure, dim=2, descending=True)
         idx_tmp = knn_idx.contiguous().view([bs, -1])
@@ -114,7 +115,7 @@ class Matcher():
         #################################
         # perform second stage consensus set sampling
         #################################
-        sorted_score = torch.argsort(local_SC2_measure, dim=3, descending=True)
+        sorted_score = server_argsort(local_SC2_measure, dim=3, descending=True)
         knn_idx_fine = sorted_score[:, :, :, 0: k2]
 
         #################################
