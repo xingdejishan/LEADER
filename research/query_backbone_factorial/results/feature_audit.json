@@ -1,0 +1,586 @@
+{
+  "frames": 96,
+  "training_frames": 64,
+  "pca_samples": 20056,
+  "identical_backbone_masks": true,
+  "identical_center_neighborhood_voxel_coverage": true,
+  "finite_features": true,
+  "records": [
+    {
+      "frame_id": "1329601360002721",
+      "voxels": 915,
+      "center_visible": 566,
+      "neighborhood_visible": 566
+    },
+    {
+      "frame_id": "1329601361402708",
+      "voxels": 1010,
+      "center_visible": 644,
+      "neighborhood_visible": 644
+    },
+    {
+      "frame_id": "1329601363002701",
+      "voxels": 971,
+      "center_visible": 623,
+      "neighborhood_visible": 623
+    },
+    {
+      "frame_id": "1329601365002688",
+      "voxels": 953,
+      "center_visible": 592,
+      "neighborhood_visible": 592
+    },
+    {
+      "frame_id": "1329601366402682",
+      "voxels": 946,
+      "center_visible": 627,
+      "neighborhood_visible": 627
+    },
+    {
+      "frame_id": "1329601368002667",
+      "voxels": 833,
+      "center_visible": 535,
+      "neighborhood_visible": 535
+    },
+    {
+      "frame_id": "1329601369402661",
+      "voxels": 835,
+      "center_visible": 530,
+      "neighborhood_visible": 530
+    },
+    {
+      "frame_id": "1329601371002903",
+      "voxels": 797,
+      "center_visible": 520,
+      "neighborhood_visible": 520
+    },
+    {
+      "frame_id": "1329601372402637",
+      "voxels": 759,
+      "center_visible": 465,
+      "neighborhood_visible": 465
+    },
+    {
+      "frame_id": "1329601374402652",
+      "voxels": 706,
+      "center_visible": 453,
+      "neighborhood_visible": 453
+    },
+    {
+      "frame_id": "1329601376002616",
+      "voxels": 710,
+      "center_visible": 463,
+      "neighborhood_visible": 463
+    },
+    {
+      "frame_id": "1329601377402601",
+      "voxels": 653,
+      "center_visible": 433,
+      "neighborhood_visible": 433
+    },
+    {
+      "frame_id": "1329601379002599",
+      "voxels": 683,
+      "center_visible": 444,
+      "neighborhood_visible": 444
+    },
+    {
+      "frame_id": "1329601380402595",
+      "voxels": 676,
+      "center_visible": 426,
+      "neighborhood_visible": 426
+    },
+    {
+      "frame_id": "1329601382002578",
+      "voxels": 703,
+      "center_visible": 471,
+      "neighborhood_visible": 471
+    },
+    {
+      "frame_id": "1329601384002580",
+      "voxels": 706,
+      "center_visible": 451,
+      "neighborhood_visible": 451
+    },
+    {
+      "frame_id": "1329601385402767",
+      "voxels": 693,
+      "center_visible": 440,
+      "neighborhood_visible": 440
+    },
+    {
+      "frame_id": "1329601387002543",
+      "voxels": 692,
+      "center_visible": 444,
+      "neighborhood_visible": 444
+    },
+    {
+      "frame_id": "1329601388402532",
+      "voxels": 757,
+      "center_visible": 494,
+      "neighborhood_visible": 494
+    },
+    {
+      "frame_id": "1329601390002526",
+      "voxels": 822,
+      "center_visible": 512,
+      "neighborhood_visible": 512
+    },
+    {
+      "frame_id": "1329601391402635",
+      "voxels": 866,
+      "center_visible": 528,
+      "neighborhood_visible": 528
+    },
+    {
+      "frame_id": "1329601393402503",
+      "voxels": 741,
+      "center_visible": 457,
+      "neighborhood_visible": 457
+    },
+    {
+      "frame_id": "1329601395002495",
+      "voxels": 850,
+      "center_visible": 533,
+      "neighborhood_visible": 533
+    },
+    {
+      "frame_id": "1329601396402539",
+      "voxels": 841,
+      "center_visible": 517,
+      "neighborhood_visible": 517
+    },
+    {
+      "frame_id": "1329601398002477",
+      "voxels": 770,
+      "center_visible": 504,
+      "neighborhood_visible": 504
+    },
+    {
+      "frame_id": "1329601399402470",
+      "voxels": 817,
+      "center_visible": 482,
+      "neighborhood_visible": 482
+    },
+    {
+      "frame_id": "1329601401402448",
+      "voxels": 795,
+      "center_visible": 516,
+      "neighborhood_visible": 516
+    },
+    {
+      "frame_id": "1329601403002483",
+      "voxels": 815,
+      "center_visible": 515,
+      "neighborhood_visible": 515
+    },
+    {
+      "frame_id": "1329601404402427",
+      "voxels": 752,
+      "center_visible": 516,
+      "neighborhood_visible": 516
+    },
+    {
+      "frame_id": "1329601406002426",
+      "voxels": 784,
+      "center_visible": 484,
+      "neighborhood_visible": 484
+    },
+    {
+      "frame_id": "1329601407402467",
+      "voxels": 743,
+      "center_visible": 473,
+      "neighborhood_visible": 473
+    },
+    {
+      "frame_id": "1329601409002400",
+      "voxels": 743,
+      "center_visible": 487,
+      "neighborhood_visible": 487
+    },
+    {
+      "frame_id": "1329601411002392",
+      "voxels": 738,
+      "center_visible": 463,
+      "neighborhood_visible": 463
+    },
+    {
+      "frame_id": "1329601412402370",
+      "voxels": 692,
+      "center_visible": 482,
+      "neighborhood_visible": 482
+    },
+    {
+      "frame_id": "1329601414002369",
+      "voxels": 732,
+      "center_visible": 461,
+      "neighborhood_visible": 461
+    },
+    {
+      "frame_id": "1329601415402388",
+      "voxels": 695,
+      "center_visible": 470,
+      "neighborhood_visible": 470
+    },
+    {
+      "frame_id": "1329601417002348",
+      "voxels": 733,
+      "center_visible": 519,
+      "neighborhood_visible": 519
+    },
+    {
+      "frame_id": "1329601418402716",
+      "voxels": 710,
+      "center_visible": 466,
+      "neighborhood_visible": 466
+    },
+    {
+      "frame_id": "1329601420402318",
+      "voxels": 779,
+      "center_visible": 550,
+      "neighborhood_visible": 550
+    },
+    {
+      "frame_id": "1329601422002318",
+      "voxels": 844,
+      "center_visible": 597,
+      "neighborhood_visible": 597
+    },
+    {
+      "frame_id": "1329601423402298",
+      "voxels": 842,
+      "center_visible": 580,
+      "neighborhood_visible": 580
+    },
+    {
+      "frame_id": "1329601425002298",
+      "voxels": 906,
+      "center_visible": 606,
+      "neighborhood_visible": 606
+    },
+    {
+      "frame_id": "1329601426402279",
+      "voxels": 894,
+      "center_visible": 597,
+      "neighborhood_visible": 597
+    },
+    {
+      "frame_id": "1329601428402277",
+      "voxels": 882,
+      "center_visible": 569,
+      "neighborhood_visible": 569
+    },
+    {
+      "frame_id": "1329601430002267",
+      "voxels": 953,
+      "center_visible": 588,
+      "neighborhood_visible": 588
+    },
+    {
+      "frame_id": "1329601431402252",
+      "voxels": 935,
+      "center_visible": 549,
+      "neighborhood_visible": 549
+    },
+    {
+      "frame_id": "1329601433002245",
+      "voxels": 914,
+      "center_visible": 538,
+      "neighborhood_visible": 538
+    },
+    {
+      "frame_id": "1329604598983232",
+      "voxels": 384,
+      "center_visible": 263,
+      "neighborhood_visible": 263
+    },
+    {
+      "frame_id": "1329604600583214",
+      "voxels": 350,
+      "center_visible": 253,
+      "neighborhood_visible": 253
+    },
+    {
+      "frame_id": "1329604602583193",
+      "voxels": 320,
+      "center_visible": 239,
+      "neighborhood_visible": 239
+    },
+    {
+      "frame_id": "1329604603983211",
+      "voxels": 281,
+      "center_visible": 199,
+      "neighborhood_visible": 199
+    },
+    {
+      "frame_id": "1329604605583164",
+      "voxels": 281,
+      "center_visible": 217,
+      "neighborhood_visible": 217
+    },
+    {
+      "frame_id": "1329604606983155",
+      "voxels": 252,
+      "center_visible": 197,
+      "neighborhood_visible": 197
+    },
+    {
+      "frame_id": "1329604608583140",
+      "voxels": 246,
+      "center_visible": 184,
+      "neighborhood_visible": 184
+    },
+    {
+      "frame_id": "1329604609983135",
+      "voxels": 276,
+      "center_visible": 193,
+      "neighborhood_visible": 193
+    },
+    {
+      "frame_id": "1329604611983122",
+      "voxels": 209,
+      "center_visible": 161,
+      "neighborhood_visible": 161
+    },
+    {
+      "frame_id": "1329604613583755",
+      "voxels": 248,
+      "center_visible": 176,
+      "neighborhood_visible": 176
+    },
+    {
+      "frame_id": "1329604614983101",
+      "voxels": 272,
+      "center_visible": 194,
+      "neighborhood_visible": 194
+    },
+    {
+      "frame_id": "1329604616583112",
+      "voxels": 262,
+      "center_visible": 195,
+      "neighborhood_visible": 195
+    },
+    {
+      "frame_id": "1329604617983823",
+      "voxels": 262,
+      "center_visible": 194,
+      "neighborhood_visible": 194
+    },
+    {
+      "frame_id": "1329604619583096",
+      "voxels": 266,
+      "center_visible": 190,
+      "neighborhood_visible": 190
+    },
+    {
+      "frame_id": "1329604621983066",
+      "voxels": 254,
+      "center_visible": 182,
+      "neighborhood_visible": 182
+    },
+    {
+      "frame_id": "1329604623583040",
+      "voxels": 237,
+      "center_visible": 164,
+      "neighborhood_visible": 164
+    },
+    {
+      "frame_id": "1329604624983040",
+      "voxels": 253,
+      "center_visible": 164,
+      "neighborhood_visible": 164
+    },
+    {
+      "frame_id": "1329604635582975",
+      "voxels": 414,
+      "center_visible": 252,
+      "neighborhood_visible": 252
+    },
+    {
+      "frame_id": "1329604636982984",
+      "voxels": 416,
+      "center_visible": 272,
+      "neighborhood_visible": 272
+    },
+    {
+      "frame_id": "1329604637982961",
+      "voxels": 620,
+      "center_visible": 380,
+      "neighborhood_visible": 380
+    },
+    {
+      "frame_id": "1329604639582940",
+      "voxels": 734,
+      "center_visible": 402,
+      "neighborhood_visible": 402
+    },
+    {
+      "frame_id": "1329604640582945",
+      "voxels": 777,
+      "center_visible": 465,
+      "neighborhood_visible": 465
+    },
+    {
+      "frame_id": "1329604641982945",
+      "voxels": 801,
+      "center_visible": 474,
+      "neighborhood_visible": 474
+    },
+    {
+      "frame_id": "1329604642982934",
+      "voxels": 826,
+      "center_visible": 497,
+      "neighborhood_visible": 497
+    },
+    {
+      "frame_id": "1329604644582931",
+      "voxels": 823,
+      "center_visible": 514,
+      "neighborhood_visible": 514
+    },
+    {
+      "frame_id": "1329604645582910",
+      "voxels": 809,
+      "center_visible": 533,
+      "neighborhood_visible": 533
+    },
+    {
+      "frame_id": "1329604646982902",
+      "voxels": 905,
+      "center_visible": 583,
+      "neighborhood_visible": 583
+    },
+    {
+      "frame_id": "1329604647983097",
+      "voxels": 880,
+      "center_visible": 553,
+      "neighborhood_visible": 553
+    },
+    {
+      "frame_id": "1329604649582929",
+      "voxels": 826,
+      "center_visible": 520,
+      "neighborhood_visible": 520
+    },
+    {
+      "frame_id": "1329604651582866",
+      "voxels": 782,
+      "center_visible": 520,
+      "neighborhood_visible": 520
+    },
+    {
+      "frame_id": "1329604652583020",
+      "voxels": 791,
+      "center_visible": 505,
+      "neighborhood_visible": 505
+    },
+    {
+      "frame_id": "1329604653982864",
+      "voxels": 757,
+      "center_visible": 514,
+      "neighborhood_visible": 514
+    },
+    {
+      "frame_id": "1329604654982854",
+      "voxels": 761,
+      "center_visible": 526,
+      "neighborhood_visible": 526
+    },
+    {
+      "frame_id": "1329604656582868",
+      "voxels": 749,
+      "center_visible": 529,
+      "neighborhood_visible": 529
+    },
+    {
+      "frame_id": "1329604657582841",
+      "voxels": 759,
+      "center_visible": 527,
+      "neighborhood_visible": 527
+    },
+    {
+      "frame_id": "1329604658983490",
+      "voxels": 742,
+      "center_visible": 518,
+      "neighborhood_visible": 518
+    },
+    {
+      "frame_id": "1329604659982823",
+      "voxels": 785,
+      "center_visible": 566,
+      "neighborhood_visible": 566
+    },
+    {
+      "frame_id": "1329604661582864",
+      "voxels": 775,
+      "center_visible": 539,
+      "neighborhood_visible": 539
+    },
+    {
+      "frame_id": "1329604662982805",
+      "voxels": 779,
+      "center_visible": 542,
+      "neighborhood_visible": 542
+    },
+    {
+      "frame_id": "1329604663982801",
+      "voxels": 791,
+      "center_visible": 590,
+      "neighborhood_visible": 590
+    },
+    {
+      "frame_id": "1329604665582834",
+      "voxels": 835,
+      "center_visible": 592,
+      "neighborhood_visible": 592
+    },
+    {
+      "frame_id": "1329604666582815",
+      "voxels": 903,
+      "center_visible": 635,
+      "neighborhood_visible": 635
+    },
+    {
+      "frame_id": "1329604667982805",
+      "voxels": 918,
+      "center_visible": 642,
+      "neighborhood_visible": 642
+    },
+    {
+      "frame_id": "1329604668983281",
+      "voxels": 909,
+      "center_visible": 608,
+      "neighborhood_visible": 608
+    },
+    {
+      "frame_id": "1329604670582822",
+      "voxels": 888,
+      "center_visible": 600,
+      "neighborhood_visible": 600
+    },
+    {
+      "frame_id": "1329604671582933",
+      "voxels": 913,
+      "center_visible": 598,
+      "neighborhood_visible": 598
+    },
+    {
+      "frame_id": "1329604672982737",
+      "voxels": 976,
+      "center_visible": 624,
+      "neighborhood_visible": 624
+    },
+    {
+      "frame_id": "1329604673982743",
+      "voxels": 914,
+      "center_visible": 577,
+      "neighborhood_visible": 577
+    },
+    {
+      "frame_id": "1329604675582729",
+      "voxels": 913,
+      "center_visible": 557,
+      "neighborhood_visible": 557
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "totals": {
+    "voxels": 67710,
+    "visible": 44299,
+    "cam5": 14214
+  },
+  "pca": {
+    "dedode": {
+      "samples": 20056,
+      "variance": 0.9849334653399401
+    },
+    "dino": {
+      "samples": 20056,
+      "variance": 0.8749751380624765
+    }
+  },
+  "pca_hashes": {
+    "dedode": "1395393f019ea3cf62443348e8eb38f19629e47cb21d8d2b9b93b58a0dbaa416",
+    "dino": "d59772c7a356e5b27b76b466bfc48610e7b65478a2e40874a03174b3f65aa104"
+  }
+}

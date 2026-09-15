@@ -1,0 +1,390 @@
+[
+  {
+    "file": "1329601360002721.npz",
+    "before": 281292126,
+    "after": 32031011,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601361402708.npz",
+    "before": 310497216,
+    "after": 36838008,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601363002701.npz",
+    "before": 298507758,
+    "after": 35761005,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601365002688.npz",
+    "before": 292974162,
+    "after": 34109827,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601366402682.npz",
+    "before": 290822208,
+    "after": 36000201,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601368002667.npz",
+    "before": 256083522,
+    "after": 29340489,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601369402661.npz",
+    "before": 256698366,
+    "after": 29677360,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601371002903.npz",
+    "before": 245016330,
+    "after": 28361677,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601372402637.npz",
+    "before": 233334294,
+    "after": 25260250,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601374402652.npz",
+    "before": 217040928,
+    "after": 24954340,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601376002616.npz",
+    "before": 218270616,
+    "after": 26322254,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601377402601.npz",
+    "before": 200747562,
+    "after": 24624405,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601379002599.npz",
+    "before": 209970222,
+    "after": 24865623,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601380402595.npz",
+    "before": 207818268,
+    "after": 24455289,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601382002578.npz",
+    "before": 216118662,
+    "after": 27019221,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601384002580.npz",
+    "before": 217040928,
+    "after": 24801862,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601385402767.npz",
+    "before": 213044442,
+    "after": 25237557,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601387002543.npz",
+    "before": 212737020,
+    "after": 25911032,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601388402532.npz",
+    "before": 232719450,
+    "after": 28881141,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601390002526.npz",
+    "before": 252701880,
+    "after": 29242399,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601391402635.npz",
+    "before": 266228448,
+    "after": 29521788,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601393402503.npz",
+    "before": 227800698,
+    "after": 27397843,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601395002495.npz",
+    "before": 261309696,
+    "after": 30466577,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601396402539.npz",
+    "before": 258542898,
+    "after": 30210416,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601398002477.npz",
+    "before": 236715936,
+    "after": 28849743,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601399402470.npz",
+    "before": 251164770,
+    "after": 28818801,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601401402448.npz",
+    "before": 244401486,
+    "after": 29466340,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601403002483.npz",
+    "before": 250549926,
+    "after": 29910291,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601404402427.npz",
+    "before": 231182340,
+    "after": 29999417,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601406002426.npz",
+    "before": 241019844,
+    "after": 27618240,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601407402467.npz",
+    "before": 228415542,
+    "after": 26686314,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601409002400.npz",
+    "before": 228415542,
+    "after": 28032465,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601411002392.npz",
+    "before": 226878432,
+    "after": 26548688,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601412402370.npz",
+    "before": 212737020,
+    "after": 27449249,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601414002369.npz",
+    "before": 225033900,
+    "after": 26898972,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601415402388.npz",
+    "before": 213659286,
+    "after": 26962788,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601417002348.npz",
+    "before": 225341322,
+    "after": 30136243,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601418402716.npz",
+    "before": 218270616,
+    "after": 26926597,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601420402318.npz",
+    "before": 239482734,
+    "after": 32012759,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601422002318.npz",
+    "before": 259465164,
+    "after": 35237598,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601423402298.npz",
+    "before": 258850320,
+    "after": 33310900,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601425002298.npz",
+    "before": 278525328,
+    "after": 34213455,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601426402279.npz",
+    "before": 274836264,
+    "after": 34256778,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601428402277.npz",
+    "before": 271147200,
+    "after": 32392123,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601430002267.npz",
+    "before": 292974162,
+    "after": 33442744,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601431402252.npz",
+    "before": 287440566,
+    "after": 31532884,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329601433002245.npz",
+    "before": 280984704,
+    "after": 31592143,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329604598983232.npz",
+    "before": 118051044,
+    "after": 14266443,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329604600583214.npz",
+    "before": 107598696,
+    "after": 14732507,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329604602583193.npz",
+    "before": 98376036,
+    "after": 13826770,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329604603983211.npz",
+    "before": 86386578,
+    "after": 11471913,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329604605583164.npz",
+    "before": 86386578,
+    "after": 12455052,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329604606983155.npz",
+    "before": 77471340,
+    "after": 11548571,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329604608583140.npz",
+    "before": 75626808,
+    "after": 10882417,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329604609983135.npz",
+    "before": 84849468,
+    "after": 10787073,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329604611983122.npz",
+    "before": 64252194,
+    "after": 9086317,
+    "exact_array_parity": true
+  },
+  {
+    "file": "1329604613583755.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604614983101.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604616583112.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604617983823.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604619583096.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604621983066.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604623583040.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604624983040.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604635582975.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604636982984.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604637982961.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604639582940.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  },
+  {
+    "file": "1329604640582945.npz",
+    "status": "removed incomplete newly generated cache; re-extract"
+  }
+]
