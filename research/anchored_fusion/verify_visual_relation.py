@@ -62,7 +62,7 @@ def final():
         state=torch.load(folder/'resume.pt',map_location='cpu'); states.append(state)
         best=torch.load(folder/'best.pt',map_location='cpu')
         assert all(torch.isfinite(t).all() for t in best.values())
-        records[arm]=dict(best_sha256=v.e.run.digest(folder/'best.pt'),selection=selection,epochs=len(logs),updates=json.loads((folder/'complete.json').read_text())['updates'],parameter_count=sum(t.numel() for t in best.values()))
+        records[arm]=dict(best_sha256=v.e.run.digest(folder/'best.pt'),last_sha256=v.e.run.digest(folder/'last.pt'),selection=selection,epochs=len(logs),updates=json.loads((folder/'complete.json').read_text())['updates'],parameter_count=sum(t.numel() for t in best.values()))
     for s in states[1:]:
         assert s['rng']==states[0]['rng'] and s['rrng']==states[0]['rrng']
         assert s['cursor']==states[0]['cursor'] and np.array_equal(s['schedule'],states[0]['schedule'])
