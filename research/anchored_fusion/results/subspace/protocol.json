@@ -1,0 +1,22 @@
+{
+  "rho": 0.05,
+  "tau": 1e-07,
+  "pad": 1e-10,
+  "source_commit": "f6b63e9",
+  "source_hashes": {
+    "protocol.json": "c1bd6a941984832cd9b573454ea176f6aa3420a3a381cac078b13dd522eb63ad",
+    "records.json": "38ae2c117e43490756a28ca5abeef939ed9bb297b5a566232dc86e83a55591bc",
+    "candidate_labels.json": "845894d061b0dcab2b69fa014871c6efe82fe5d90713f49161362775ba8bc5b8",
+    "witnesses.npz": "e7f80344476a050997d4b2df931735f947a42b686a3b45b095d5e8c79dd49915",
+    "inputs.json": "2d64c0d5036efe94f46338d65e0838ea0dcd9f8c7bae727d22ef802ce80f9fba"
+  },
+  "structure": "Linear640x32,ReLU,Linear32x512 with bias, scalar norm clipping, additive residual; no channel multiplication after output",
+  "basis": "float64 reduced QR of [W2,b2], retain all 33 columns, no PCA truncation",
+  "basis_acceptance": "min singular value >1e-12*max; spectral orthogonality and relative reconstruction errors <1e-12; otherwise unresolved",
+  "solver": "primal and dual SLSQP independently, ftol1e-12 maxiter500, status does not classify",
+  "population": "All 454 explicit LiDAR-N visual-P and 666 LiDAR-G visual-P; primary nested subset is original161 full-space reachable",
+  "labels_and_ties": "Exact prior candidate labels, fixed order, tau1e-7; G stays uncertain; N and N+G optimized separately",
+  "actual_check": "Recompute deployed float32 head, normalize fused-minus-original by original norm, project into Q and repair radius; all prior strict corrections must remain positive-margin legal witnesses",
+  "actual_roundoff": "Float32 fused-minus-original may have tiny out-of-span roundoff; record it, require norm excess and span residual <=1e-6, then use feasible projected witness",
+  "scope": "No training, no new model, no pose evaluation; GT-free coefficients and ReLU feasibility are not imposed; subspace relaxation only"
+}

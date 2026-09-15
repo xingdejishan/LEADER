@@ -1,0 +1,663 @@
+{
+  "aligned_2089": {
+    "verified": true,
+    "rank": 33,
+    "minimum_singular_value": 0.1855906624550475,
+    "condition": 4.096343523680495,
+    "certificates": 3756,
+    "max_gap": 8.122744039884555e-10,
+    "median_gap": 2.0000424927335558e-10,
+    "max_actual_span_error": 3.1029541964278794e-08,
+    "max_actual_norm_excess": 9.98632558590895e-09,
+    "groups": {
+      "N_all": {
+        "count": 454,
+        "classification": {
+          "negative_blocked": 404,
+          "reachable": 46,
+          "gray_blocked": 4
+        },
+        "actual_correct": 3
+      },
+      "N_editable": {
+        "count": 311,
+        "classification": {
+          "negative_blocked": 261,
+          "reachable": 46,
+          "gray_blocked": 4
+        },
+        "actual_correct": 3
+      },
+      "N_protected": {
+        "count": 143,
+        "classification": {
+          "negative_blocked": 143
+        },
+        "actual_correct": 0
+      },
+      "N_full_reachable": {
+        "count": 161,
+        "classification": {
+          "negative_blocked": 111,
+          "reachable": 46,
+          "gray_blocked": 4
+        },
+        "actual_correct": 3
+      },
+      "G_all": {
+        "count": 666,
+        "classification": {
+          "gray_blocked": 298,
+          "negative_blocked": 310,
+          "reachable": 58
+        },
+        "actual_correct": 3
+      },
+      "G_editable": {
+        "count": 430,
+        "classification": {
+          "gray_blocked": 184,
+          "negative_blocked": 188,
+          "reachable": 58
+        },
+        "actual_correct": 3
+      },
+      "G_protected": {
+        "count": 236,
+        "classification": {
+          "gray_blocked": 114,
+          "negative_blocked": 122
+        },
+        "actual_correct": 0
+      },
+      "G_full_reachable": {
+        "count": 218,
+        "classification": {
+          "reachable": 58,
+          "gray_blocked": 127,
+          "negative_blocked": 33
+        },
+        "actual_correct": 3
+      }
+    },
+    "by_date": {
+      "2012-01-22": {
+        "count": 47,
+        "classification": {
+          "negative_blocked": 34,
+          "reachable": 13
+        },
+        "actual_correct": 2
+      },
+      "2012-02-02": {
+        "count": 35,
+        "classification": {
+          "reachable": 7,
+          "negative_blocked": 27,
+          "gray_blocked": 1
+        },
+        "actual_correct": 0
+      },
+      "2012-05-11": {
+        "count": 79,
+        "classification": {
+          "reachable": 26,
+          "negative_blocked": 50,
+          "gray_blocked": 3
+        },
+        "actual_correct": 1
+      }
+    }
+  },
+  "aligned_2090": {
+    "verified": true,
+    "rank": 33,
+    "minimum_singular_value": 0.15409647604903007,
+    "condition": 7.6017544326153255,
+    "certificates": 3756,
+    "max_gap": 5.095402719548781e-10,
+    "median_gap": 2.0000449907353612e-10,
+    "max_actual_span_error": 3.102926119153876e-08,
+    "max_actual_norm_excess": 9.557469406173968e-09,
+    "groups": {
+      "N_all": {
+        "count": 454,
+        "classification": {
+          "negative_blocked": 397,
+          "reachable": 52,
+          "gray_blocked": 5
+        },
+        "actual_correct": 6
+      },
+      "N_editable": {
+        "count": 311,
+        "classification": {
+          "negative_blocked": 254,
+          "reachable": 52,
+          "gray_blocked": 5
+        },
+        "actual_correct": 6
+      },
+      "N_protected": {
+        "count": 143,
+        "classification": {
+          "negative_blocked": 143
+        },
+        "actual_correct": 0
+      },
+      "N_full_reachable": {
+        "count": 161,
+        "classification": {
+          "negative_blocked": 104,
+          "reachable": 52,
+          "gray_blocked": 5
+        },
+        "actual_correct": 6
+      },
+      "G_all": {
+        "count": 666,
+        "classification": {
+          "gray_blocked": 297,
+          "negative_blocked": 305,
+          "reachable": 64
+        },
+        "actual_correct": 4
+      },
+      "G_editable": {
+        "count": 430,
+        "classification": {
+          "gray_blocked": 183,
+          "negative_blocked": 183,
+          "reachable": 64
+        },
+        "actual_correct": 4
+      },
+      "G_protected": {
+        "count": 236,
+        "classification": {
+          "gray_blocked": 114,
+          "negative_blocked": 122
+        },
+        "actual_correct": 0
+      },
+      "G_full_reachable": {
+        "count": 218,
+        "classification": {
+          "reachable": 64,
+          "gray_blocked": 125,
+          "negative_blocked": 29
+        },
+        "actual_correct": 4
+      }
+    },
+    "by_date": {
+      "2012-01-22": {
+        "count": 47,
+        "classification": {
+          "negative_blocked": 32,
+          "reachable": 15
+        },
+        "actual_correct": 2
+      },
+      "2012-02-02": {
+        "count": 35,
+        "classification": {
+          "reachable": 8,
+          "negative_blocked": 26,
+          "gray_blocked": 1
+        },
+        "actual_correct": 0
+      },
+      "2012-05-11": {
+        "count": 79,
+        "classification": {
+          "reachable": 29,
+          "negative_blocked": 46,
+          "gray_blocked": 4
+        },
+        "actual_correct": 4
+      }
+    }
+  },
+  "aligned_2091": {
+    "verified": true,
+    "rank": 33,
+    "minimum_singular_value": 0.1258703085975449,
+    "condition": 4.347504751722403,
+    "certificates": 3756,
+    "max_gap": 4.0505124601630804e-10,
+    "median_gap": 2.0000414215418094e-10,
+    "max_actual_span_error": 3.3769715705733964e-08,
+    "max_actual_norm_excess": 1.08567261777881e-08,
+    "groups": {
+      "N_all": {
+        "count": 454,
+        "classification": {
+          "negative_blocked": 403,
+          "reachable": 46,
+          "gray_blocked": 5
+        },
+        "actual_correct": 4
+      },
+      "N_editable": {
+        "count": 311,
+        "classification": {
+          "negative_blocked": 260,
+          "reachable": 46,
+          "gray_blocked": 5
+        },
+        "actual_correct": 4
+      },
+      "N_protected": {
+        "count": 143,
+        "classification": {
+          "negative_blocked": 143
+        },
+        "actual_correct": 0
+      },
+      "N_full_reachable": {
+        "count": 161,
+        "classification": {
+          "negative_blocked": 110,
+          "reachable": 46,
+          "gray_blocked": 5
+        },
+        "actual_correct": 4
+      },
+      "G_all": {
+        "count": 666,
+        "classification": {
+          "gray_blocked": 298,
+          "negative_blocked": 313,
+          "reachable": 55
+        },
+        "actual_correct": 4
+      },
+      "G_editable": {
+        "count": 430,
+        "classification": {
+          "gray_blocked": 184,
+          "negative_blocked": 191,
+          "reachable": 55
+        },
+        "actual_correct": 4
+      },
+      "G_protected": {
+        "count": 236,
+        "classification": {
+          "gray_blocked": 114,
+          "negative_blocked": 122
+        },
+        "actual_correct": 0
+      },
+      "G_full_reachable": {
+        "count": 218,
+        "classification": {
+          "reachable": 55,
+          "gray_blocked": 127,
+          "negative_blocked": 36
+        },
+        "actual_correct": 4
+      }
+    },
+    "by_date": {
+      "2012-01-22": {
+        "count": 47,
+        "classification": {
+          "negative_blocked": 35,
+          "reachable": 12
+        },
+        "actual_correct": 2
+      },
+      "2012-02-02": {
+        "count": 35,
+        "classification": {
+          "reachable": 6,
+          "negative_blocked": 27,
+          "gray_blocked": 2
+        },
+        "actual_correct": 0
+      },
+      "2012-05-11": {
+        "count": 79,
+        "classification": {
+          "reachable": 28,
+          "negative_blocked": 48,
+          "gray_blocked": 3
+        },
+        "actual_correct": 2
+      }
+    }
+  },
+  "shuffled_2089": {
+    "verified": true,
+    "rank": 33,
+    "minimum_singular_value": 0.19317586071145162,
+    "condition": 3.775371705798191,
+    "certificates": 3756,
+    "max_gap": 2.8735844953553524e-10,
+    "median_gap": 2.0000417468024612e-10,
+    "max_actual_span_error": 3.137710794563182e-08,
+    "max_actual_norm_excess": 1.1372888422678251e-08,
+    "groups": {
+      "N_all": {
+        "count": 454,
+        "classification": {
+          "negative_blocked": 401,
+          "reachable": 48,
+          "gray_blocked": 5
+        },
+        "actual_correct": 5
+      },
+      "N_editable": {
+        "count": 311,
+        "classification": {
+          "negative_blocked": 258,
+          "reachable": 48,
+          "gray_blocked": 5
+        },
+        "actual_correct": 5
+      },
+      "N_protected": {
+        "count": 143,
+        "classification": {
+          "negative_blocked": 143
+        },
+        "actual_correct": 0
+      },
+      "N_full_reachable": {
+        "count": 161,
+        "classification": {
+          "negative_blocked": 108,
+          "reachable": 48,
+          "gray_blocked": 5
+        },
+        "actual_correct": 5
+      },
+      "G_all": {
+        "count": 666,
+        "classification": {
+          "gray_blocked": 299,
+          "negative_blocked": 310,
+          "reachable": 57
+        },
+        "actual_correct": 2
+      },
+      "G_editable": {
+        "count": 430,
+        "classification": {
+          "gray_blocked": 185,
+          "negative_blocked": 188,
+          "reachable": 57
+        },
+        "actual_correct": 2
+      },
+      "G_protected": {
+        "count": 236,
+        "classification": {
+          "gray_blocked": 114,
+          "negative_blocked": 122
+        },
+        "actual_correct": 0
+      },
+      "G_full_reachable": {
+        "count": 218,
+        "classification": {
+          "reachable": 57,
+          "gray_blocked": 128,
+          "negative_blocked": 33
+        },
+        "actual_correct": 2
+      }
+    },
+    "by_date": {
+      "2012-01-22": {
+        "count": 47,
+        "classification": {
+          "negative_blocked": 33,
+          "reachable": 14
+        },
+        "actual_correct": 1
+      },
+      "2012-02-02": {
+        "count": 35,
+        "classification": {
+          "reachable": 7,
+          "negative_blocked": 27,
+          "gray_blocked": 1
+        },
+        "actual_correct": 0
+      },
+      "2012-05-11": {
+        "count": 79,
+        "classification": {
+          "reachable": 27,
+          "negative_blocked": 48,
+          "gray_blocked": 4
+        },
+        "actual_correct": 4
+      }
+    }
+  },
+  "shuffled_2090": {
+    "verified": true,
+    "rank": 33,
+    "minimum_singular_value": 0.18341852744954876,
+    "condition": 5.007657108160102,
+    "certificates": 3756,
+    "max_gap": 3.016348412362979e-10,
+    "median_gap": 2.0000432646855026e-10,
+    "max_actual_span_error": 3.181401917560498e-08,
+    "max_actual_norm_excess": 1.1350454708070057e-08,
+    "groups": {
+      "N_all": {
+        "count": 454,
+        "classification": {
+          "negative_blocked": 402,
+          "reachable": 50,
+          "gray_blocked": 2
+        },
+        "actual_correct": 5
+      },
+      "N_editable": {
+        "count": 311,
+        "classification": {
+          "negative_blocked": 259,
+          "reachable": 50,
+          "gray_blocked": 2
+        },
+        "actual_correct": 5
+      },
+      "N_protected": {
+        "count": 143,
+        "classification": {
+          "negative_blocked": 143
+        },
+        "actual_correct": 0
+      },
+      "N_full_reachable": {
+        "count": 161,
+        "classification": {
+          "negative_blocked": 109,
+          "reachable": 50,
+          "gray_blocked": 2
+        },
+        "actual_correct": 5
+      },
+      "G_all": {
+        "count": 666,
+        "classification": {
+          "gray_blocked": 293,
+          "negative_blocked": 314,
+          "reachable": 59
+        },
+        "actual_correct": 5
+      },
+      "G_editable": {
+        "count": 430,
+        "classification": {
+          "gray_blocked": 179,
+          "negative_blocked": 192,
+          "reachable": 59
+        },
+        "actual_correct": 5
+      },
+      "G_protected": {
+        "count": 236,
+        "classification": {
+          "gray_blocked": 114,
+          "negative_blocked": 122
+        },
+        "actual_correct": 0
+      },
+      "G_full_reachable": {
+        "count": 218,
+        "classification": {
+          "reachable": 59,
+          "gray_blocked": 122,
+          "negative_blocked": 37
+        },
+        "actual_correct": 5
+      }
+    },
+    "by_date": {
+      "2012-01-22": {
+        "count": 47,
+        "classification": {
+          "negative_blocked": 33,
+          "reachable": 14
+        },
+        "actual_correct": 1
+      },
+      "2012-02-02": {
+        "count": 35,
+        "classification": {
+          "reachable": 7,
+          "negative_blocked": 27,
+          "gray_blocked": 1
+        },
+        "actual_correct": 0
+      },
+      "2012-05-11": {
+        "count": 79,
+        "classification": {
+          "reachable": 29,
+          "negative_blocked": 49,
+          "gray_blocked": 1
+        },
+        "actual_correct": 4
+      }
+    }
+  },
+  "shuffled_2091": {
+    "verified": true,
+    "rank": 33,
+    "minimum_singular_value": 0.16994505578679717,
+    "condition": 6.760591464835952,
+    "certificates": 3756,
+    "max_gap": 3.8994010624626707e-10,
+    "median_gap": 2.000045021093022e-10,
+    "max_actual_span_error": 3.086107487788548e-08,
+    "max_actual_norm_excess": 1.3706633356092013e-08,
+    "groups": {
+      "N_all": {
+        "count": 454,
+        "classification": {
+          "negative_blocked": 401,
+          "reachable": 49,
+          "gray_blocked": 4
+        },
+        "actual_correct": 4
+      },
+      "N_editable": {
+        "count": 311,
+        "classification": {
+          "negative_blocked": 258,
+          "reachable": 49,
+          "gray_blocked": 4
+        },
+        "actual_correct": 4
+      },
+      "N_protected": {
+        "count": 143,
+        "classification": {
+          "negative_blocked": 143
+        },
+        "actual_correct": 0
+      },
+      "N_full_reachable": {
+        "count": 161,
+        "classification": {
+          "negative_blocked": 108,
+          "reachable": 49,
+          "gray_blocked": 4
+        },
+        "actual_correct": 4
+      },
+      "G_all": {
+        "count": 666,
+        "classification": {
+          "gray_blocked": 298,
+          "negative_blocked": 309,
+          "reachable": 59
+        },
+        "actual_correct": 3
+      },
+      "G_editable": {
+        "count": 430,
+        "classification": {
+          "gray_blocked": 184,
+          "negative_blocked": 187,
+          "reachable": 59
+        },
+        "actual_correct": 3
+      },
+      "G_protected": {
+        "count": 236,
+        "classification": {
+          "gray_blocked": 114,
+          "negative_blocked": 122
+        },
+        "actual_correct": 0
+      },
+      "G_full_reachable": {
+        "count": 218,
+        "classification": {
+          "reachable": 59,
+          "gray_blocked": 126,
+          "negative_blocked": 33
+        },
+        "actual_correct": 3
+      }
+    },
+    "by_date": {
+      "2012-01-22": {
+        "count": 47,
+        "classification": {
+          "negative_blocked": 31,
+          "reachable": 15,
+          "gray_blocked": 1
+        },
+        "actual_correct": 2
+      },
+      "2012-02-02": {
+        "count": 35,
+        "classification": {
+          "reachable": 7,
+          "negative_blocked": 27,
+          "gray_blocked": 1
+        },
+        "actual_correct": 0
+      },
+      "2012-05-11": {
+        "count": 79,
+        "classification": {
+          "reachable": 27,
+          "negative_blocked": 50,
+          "gray_blocked": 2
+        },
+        "actual_correct": 2
+      }
+    }
+  }
+}
