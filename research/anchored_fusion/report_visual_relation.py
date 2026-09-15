@@ -11,6 +11,8 @@ def main():
     verification=json.loads((v.OUT/'training_verification.json').read_text())
     relation=json.loads((v.OUT/'relations.json').read_text())
     lines=['# H1：视觉筛选关系监督的受控实验','',
+        '**本轮未建立视觉筛选的增量价值，H1在本协议下未通过。** V相对B0的平均位置误差观察改善约2.87mm，但普通TRR微调B1已经获得约2.88mm改善；V反而比B1高0.00768mm，较S低0.01808mm，两项配对区间均包含零。不能把继续微调本身的改善归功于视觉。','',
+        '三种微调的平均旋转误差均高于原始B0，位置P95改善；按日期看，位置改善集中于2月2日，1月22日和5月11日均退化。V相对B0的位置差值区间也包含零，尚未建立跨轨迹一致的净收益，继续保留原始LEADER为主baseline。','',
         '固定578/145/182划分；单种子2089；B1/V/S各完整100epoch、7300次更新。182帧为已反复接触的开发评估，不是盲测。所有定位均为LiDAR-only，原RPGE冻结，MMRegressor结构不变、权重微调。','',
         '## 最终定位','',
         '| 条件 | 选中epoch | 位置均值 cm | 旋转均值 ° | 位置P95 cm | 1m/5°成功 |',
@@ -40,7 +42,7 @@ def main():
         f"- 固定关系池{relation['pool']:,}条；V/S各选{relation['selected']:,}条，每臂关系曝光1,868,800次。标签来自训练GT，视觉只做筛选。",
         f"- V/S重合{relation['overlap']:,}条，占每组选择{100*relation['overlap_fraction']:.4f}%；因此两组并非完全不同的训练集合。S保留日期/难度层内的视觉选择比例，不是彻底消除一切视觉偏好。",
         '- 独立检查重新枚举全部候选组合、核对Cartesian距离及视觉选择标记、逐层核对选择数量；训练与参考仅来自578帧。',
-        '- 关系损失更新pred_out[2]之前的现有隐藏路径，最终线性层仍由TRR更新；没有新增投影头或推理图像模块。',
+        f"- 微调现有回归头共{verification['runs']['V']['parameter_count']:,}个参数。关系损失更新pred_out[2]之前的现有隐藏路径，最终线性层仍由TRR更新；没有新增投影头或推理图像模块。",
         '- 三臂最终帧序RNG、关系索引日程RNG、排列及游标一致；V/S所有100epoch都检测到辅助损失向现有隐藏权重的非零梯度。',
         '- 原缓存、16候选、投影mask及coarse voxel定位监督保持不变；没有使用开发GT生成关系或调节超参数。',
         '', '| 条件 | 训练用时秒（不含选模和保存） | 首轮TRR | 末轮TRR | 首轮关系损失 | 末轮关系损失 |','|---|---:|---:|---:|---:|---:|']
@@ -50,6 +52,7 @@ def main():
     passed=all(summary['V']['metrics']['mean'][0]<summary[arm]['metrics']['mean'][0] for arm in ['B0','B1','S'])
     lines+=['','## 结论边界','',
         'V满足三项平均位置误差比较，仍需结合区间、旋转/P95和机制读数判断是否值得多种子复验。' if passed else 'V未同时优于原始B0、普通微调B1和置乱教师S，未通过预注册的净定位收益判据；保留原始LEADER作为主baseline，不追加调参或训练。',
+        '在6937个固定歧义查询上，B0隐藏层正确Top1为1395个，B1/V/S均为1233个；V没有相对B1或S增加正确数量。V明确N→P纠正56个、P→N损害132个，其余灰区转换见表。关系损失确有非零梯度，但本轮没有建立预期的关系区分机制。近似的结果也不构成统计等效证明。',
         '本轮只检验冻结RPGE、当前MMRegressor微调范围以及固定关系筛选协议，不能推出视觉信息必然无法由LiDAR学习，也不能证明所有训练期蒸馏无效。排序变化、训练损失和视觉/置乱差异不能替代净定位收益。','',
         '## 复现','',
         '`visual_relation.py prepare` → `verify_visual_relation.py prepare` → `visual_relation.py train` → `verify_visual_relation.py final` → `visual_relation.py assess` → `report_visual_relation.py`。',

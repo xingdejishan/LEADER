@@ -1,0 +1,11 @@
+{
+  "pool": 186201,
+  "selected": 131009,
+  "max_positive_m": 0.4999842736519509,
+  "min_negative_m": 2.0000127447941956,
+  "relations_sha256": "2613c6c5cd8a7b1df22f8982b9f4cf3cee20720f2c26be1e86a3b9451a37786f",
+  "candidate_membership": true,
+  "training_only": true,
+  "visual_flags_recomputed": true,
+  "stratum_counts_matched": true
+}

@@ -1,0 +1,39 @@
+{
+  "runs": {
+    "B1": {
+      "best_sha256": "e3e111cd37547d7e9329a7009721688e08167d9c563956eccc3bfde516298006",
+      "last_sha256": "37419035f7ebe9c06a9dbb4fd5f618720c453447465ced8d36f07532f501f8d2",
+      "selection": {
+        "epoch": 60,
+        "mean_translation": 0.1638828905524108
+      },
+      "epochs": 100,
+      "updates": 7300,
+      "parameter_count": 6862852
+    },
+    "V": {
+      "best_sha256": "0999de342d393e59c7112fe88a403bd2d4c3a56063bf55481ffcd30e1ef0912c",
+      "last_sha256": "c35bba85af90491cfbb78247901402139a255238dd8143f4dd8823d8cd4347a7",
+      "selection": {
+        "epoch": 60,
+        "mean_translation": 0.16409009057418283
+      },
+      "epochs": 100,
+      "updates": 7300,
+      "parameter_count": 6862852
+    },
+    "S": {
+      "best_sha256": "2e94354a549189479525ca62da84e02e25eec7a81ef61d6d0f1d8333a23caa01",
+      "last_sha256": "145bdd1cdaf22849a90a36be2567a933cefd6edb9dbb413446703350db512d09",
+      "selection": {
+        "epoch": 60,
+        "mean_translation": 0.16408648109063506
+      },
+      "epochs": 100,
+      "updates": 7300,
+      "parameter_count": 6862852
+    }
+  },
+  "matched_frame_and_relation_schedules": true,
+  "protocol_sha256": "f185c812cf01f4a26fa2db247d0a9dbbcc9937d16e7cf7ce75dd1bcf39da675f"
+}

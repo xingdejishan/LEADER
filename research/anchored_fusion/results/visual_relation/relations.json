@@ -1,0 +1,219 @@
+{
+  "pool": 186201,
+  "selected": 131009,
+  "overlap": 92550,
+  "overlap_fraction": 0.7064400155714493,
+  "strata": [
+    {
+      "date": "2012-01-22",
+      "bin": 0,
+      "count": 6576,
+      "selected": 5044,
+      "intersection": 3852
+    },
+    {
+      "date": "2012-01-22",
+      "bin": 1,
+      "count": 6575,
+      "selected": 4849,
+      "intersection": 3577
+    },
+    {
+      "date": "2012-01-22",
+      "bin": 2,
+      "count": 6575,
+      "selected": 4792,
+      "intersection": 3521
+    },
+    {
+      "date": "2012-01-22",
+      "bin": 3,
+      "count": 6576,
+      "selected": 4704,
+      "intersection": 3358
+    },
+    {
+      "date": "2012-01-22",
+      "bin": 4,
+      "count": 6575,
+      "selected": 4731,
+      "intersection": 3373
+    },
+    {
+      "date": "2012-01-22",
+      "bin": 5,
+      "count": 6575,
+      "selected": 4692,
+      "intersection": 3332
+    },
+    {
+      "date": "2012-01-22",
+      "bin": 6,
+      "count": 6576,
+      "selected": 4625,
+      "intersection": 3279
+    },
+    {
+      "date": "2012-01-22",
+      "bin": 7,
+      "count": 6575,
+      "selected": 4441,
+      "intersection": 3001
+    },
+    {
+      "date": "2012-01-22",
+      "bin": 8,
+      "count": 6575,
+      "selected": 4447,
+      "intersection": 3039
+    },
+    {
+      "date": "2012-01-22",
+      "bin": 9,
+      "count": 6576,
+      "selected": 4197,
+      "intersection": 2704
+    },
+    {
+      "date": "2012-02-02",
+      "bin": 0,
+      "count": 5316,
+      "selected": 4289,
+      "intersection": 3457
+    },
+    {
+      "date": "2012-02-02",
+      "bin": 1,
+      "count": 5316,
+      "selected": 4108,
+      "intersection": 3176
+    },
+    {
+      "date": "2012-02-02",
+      "bin": 2,
+      "count": 5316,
+      "selected": 4045,
+      "intersection": 3083
+    },
+    {
+      "date": "2012-02-02",
+      "bin": 3,
+      "count": 5316,
+      "selected": 3927,
+      "intersection": 2896
+    },
+    {
+      "date": "2012-02-02",
+      "bin": 4,
+      "count": 5315,
+      "selected": 3909,
+      "intersection": 2880
+    },
+    {
+      "date": "2012-02-02",
+      "bin": 5,
+      "count": 5316,
+      "selected": 3810,
+      "intersection": 2737
+    },
+    {
+      "date": "2012-02-02",
+      "bin": 6,
+      "count": 5316,
+      "selected": 3809,
+      "intersection": 2714
+    },
+    {
+      "date": "2012-02-02",
+      "bin": 7,
+      "count": 5316,
+      "selected": 3799,
+      "intersection": 2723
+    },
+    {
+      "date": "2012-02-02",
+      "bin": 8,
+      "count": 5316,
+      "selected": 3675,
+      "intersection": 2520
+    },
+    {
+      "date": "2012-02-02",
+      "bin": 9,
+      "count": 5316,
+      "selected": 3595,
+      "intersection": 2423
+    },
+    {
+      "date": "2012-05-11",
+      "bin": 0,
+      "count": 6729,
+      "selected": 4726,
+      "intersection": 3316
+    },
+    {
+      "date": "2012-05-11",
+      "bin": 1,
+      "count": 6729,
+      "selected": 4633,
+      "intersection": 3192
+    },
+    {
+      "date": "2012-05-11",
+      "bin": 2,
+      "count": 6729,
+      "selected": 4686,
+      "intersection": 3263
+    },
+    {
+      "date": "2012-05-11",
+      "bin": 3,
+      "count": 6728,
+      "selected": 4698,
+      "intersection": 3313
+    },
+    {
+      "date": "2012-05-11",
+      "bin": 4,
+      "count": 6729,
+      "selected": 4646,
+      "intersection": 3207
+    },
+    {
+      "date": "2012-05-11",
+      "bin": 5,
+      "count": 6729,
+      "selected": 4585,
+      "intersection": 3138
+    },
+    {
+      "date": "2012-05-11",
+      "bin": 6,
+      "count": 6728,
+      "selected": 4553,
+      "intersection": 3065
+    },
+    {
+      "date": "2012-05-11",
+      "bin": 7,
+      "count": 6729,
+      "selected": 4450,
+      "intersection": 2953
+    },
+    {
+      "date": "2012-05-11",
+      "bin": 8,
+      "count": 6729,
+      "selected": 4364,
+      "intersection": 2859
+    },
+    {
+      "date": "2012-05-11",
+      "bin": 9,
+      "count": 6729,
+      "selected": 4180,
+      "intersection": 2599
+    }
+  ],
+  "sha256": "2613c6c5cd8a7b1df22f8982b9f4cf3cee20720f2c26be1e86a3b9451a37786f"
+}
