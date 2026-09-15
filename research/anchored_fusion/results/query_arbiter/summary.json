@@ -1,0 +1,229 @@
+{
+  "selection": {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 0,
+    "threshold": 1.1
+  },
+  "groups": {
+    "all": {
+      "count": 30160,
+      "overrides": 0,
+      "rescue": 0,
+      "damage": 0,
+      "neutral": 0,
+      "net": 0,
+      "lidar_accuracy": 0.9520888594164456,
+      "final_accuracy": 0.9520888594164456,
+      "paired_frame_accuracy": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "blocks": {
+          "2012-01-22": 7,
+          "2012-02-02": 6,
+          "2012-05-11": 7
+        }
+      }
+    },
+    "ambiguous": {
+      "count": 6937,
+      "overrides": 0,
+      "rescue": 0,
+      "damage": 0,
+      "neutral": 0,
+      "net": 0,
+      "lidar_accuracy": 0.956897794435635,
+      "final_accuracy": 0.956897794435635,
+      "paired_frame_accuracy": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "blocks": {
+          "2012-01-22": 7,
+          "2012-02-02": 6,
+          "2012-05-11": 7
+        }
+      }
+    },
+    "matcher": {
+      "count": 15956,
+      "overrides": 0,
+      "rescue": 0,
+      "damage": 0,
+      "neutral": 0,
+      "net": 0,
+      "lidar_accuracy": 0.9543118576084232,
+      "final_accuracy": 0.9543118576084232,
+      "paired_frame_accuracy": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "blocks": {
+          "2012-01-22": 7,
+          "2012-02-02": 6,
+          "2012-05-11": 7
+        }
+      }
+    },
+    "ambiguous_matcher": {
+      "count": 4571,
+      "overrides": 0,
+      "rescue": 0,
+      "damage": 0,
+      "neutral": 0,
+      "net": 0,
+      "lidar_accuracy": 0.9544957339750602,
+      "final_accuracy": 0.9544957339750602,
+      "paired_frame_accuracy": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "blocks": {
+          "2012-01-22": 7,
+          "2012-02-02": 6,
+          "2012-05-11": 7
+        }
+      }
+    }
+  },
+  "dates": {
+    "2012-01-22": {
+      "all": {
+        "count": 11295,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      },
+      "ambiguous": {
+        "count": 2817,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      },
+      "matcher": {
+        "count": 6839,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      },
+      "ambiguous_matcher": {
+        "count": 1955,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      }
+    },
+    "2012-02-02": {
+      "all": {
+        "count": 8623,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      },
+      "ambiguous": {
+        "count": 1607,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      },
+      "matcher": {
+        "count": 3865,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      },
+      "ambiguous_matcher": {
+        "count": 1081,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      }
+    },
+    "2012-05-11": {
+      "all": {
+        "count": 10242,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      },
+      "ambiguous": {
+        "count": 2513,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      },
+      "matcher": {
+        "count": 5252,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      },
+      "ambiguous_matcher": {
+        "count": 1535,
+        "overrides": 0,
+        "rescue": 0,
+        "damage": 0,
+        "neutral": 0,
+        "net": 0
+      }
+    }
+  },
+  "classifier_shift": {
+    "oof": {
+      "points": 79597,
+      "beneficial": 1174,
+      "harmful": 47473,
+      "L_accuracy": 0.669208638516527,
+      "V_accuracy": 0.08754098772566805
+    },
+    "internal": {
+      "points": 19030,
+      "beneficial": 347,
+      "harmful": 11165,
+      "L_accuracy": 0.9028376248029427,
+      "V_accuracy": 0.33436678928008406
+    },
+    "development": {
+      "points": 30160,
+      "beneficial": 459,
+      "harmful": 12737,
+      "L_accuracy": 0.9520888594164456,
+      "V_accuracy": 0.5449933687002653
+    }
+  }
+}

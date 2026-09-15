@@ -1,0 +1,13 @@
+{
+  "folds_disjoint": true,
+  "fit_frames_covered_once": 578,
+  "temporal_embargo_verified": true,
+  "six_inputs_recomputed": true,
+  "labels_recomputed": true,
+  "parameters": 129,
+  "epochs": 100,
+  "selection_recomputed": true,
+  "development_counts_recomputed": true,
+  "best_sha256": "a6305b534d11a0f28c188e1472a126bd95e5e163369d71a6f2283ba919f19c58",
+  "protocol_sha256": "9a1823700ad897cee78576a615f0eda2bdfa8083a4aa69a66b4ca9ec2bfeaaca"
+}

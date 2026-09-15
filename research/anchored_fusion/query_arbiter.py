@@ -189,17 +189,23 @@ def evaluate(p,head,selected):
 
 
 def report():
-    s=json.loads((OUT/'summary.json').read_text()); selected=s['selection']; lines=['# Query-only视觉仲裁可学习性探针','',
+    s=json.loads((OUT/'summary.json').read_text()); selected=s['selection']
+    grid=json.loads((OUT/'internal_grid.json').read_text()); active=[r for r in grid if r['overrides']]
+    best_active=max(active,key=lambda r:(r['net'],-r['overrides'],-r['epoch'],r['threshold']))
+    lines=['# Query-only视觉仲裁可学习性探针','',
+        '**本协议未找到净收益为正的仲裁规则：内部选模选择epoch0、threshold1.1，即永不替换；开发集救回0、损害0、净变化0。** 这不是仲裁器安全纠正了样本，而是回退到原LiDAR分类器。',
+        '负结果不能直接解释为query-only信号不足：折外视觉分类器准确率为8.75%，内部完整模型33.44%，开发完整模型54.50%，存在明显输入分布差异。它是本轮解释限制，不是已确认的失败原因；也没有排除更细阈值、其他模型或其他部署信号。','',
         '固定K25分类任务，三折连续轨迹块折外预测训练129参数仲裁器；不改LEADER，不训练融合，不运行Matcher求姿态。Matcher仅用于标记原模型候选交集。','',
         '每日期578训练部分分为三个连续段，同折三个日期一起留出，另排除同日期相距≤10秒的训练帧。分类权重没有见过用于训练仲裁器的相应折外点。固定25类沿用既有训练标签定义，不逐折重聚类。',
         '折分类器使用原架构和优化器，L固定100epoch、V固定35epoch，来自上一轮已确定的训练预算/检查点轮数；不按折外GT选模。145内部与182开发使用上一轮完整578帧训练得到的固定分类器。','',
-        f"内部集选择epoch={selected['epoch']}、threshold={selected['threshold']:.2f}；救回{selected['rescue']}、损害{selected['damage']}、净变化{selected['net']}。开发评估不再扫描阈值。",'',
+        f"内部集选择epoch={selected['epoch']}、threshold={selected['threshold']:.2f}；救回{selected['rescue']}、损害{selected['damage']}、净变化{selected['net']}。开发评估不再扫描阈值。",
+        f"预固定21个0到1阈值加永不替换选项、21个检查点共{len(grid)}个内部配置，其中{len(active)}个产生非空override。最优非空配置为epoch{best_active['epoch']}、threshold{best_active['threshold']:.2f}，override{best_active['overrides']}、救回{best_active['rescue']}、损害{best_active['damage']}、中性{best_active['neutral']}；按少override并列规则仍选择永不替换。没有扫描开发集寻找另一个阈值。",'',
         '| 开发集合 | 点数 | override | 救回 | 损害 | 中性 | 净变化 | 原准确率 % | 最终准确率 % |','|---|---:|---:|---:|---:|---:|---:|---:|---:|']
     for name,r in s['groups'].items(): lines.append(f"| {name} | {r['count']} | {r['overrides']} | {r['rescue']} | {r['damage']} | {r['neutral']} | {r['net']} | {100*r['lidar_accuracy']:.4f} | {100*r['final_accuracy']:.4f} |")
     lines+=['','| 集合 | 帧均准确率差 pp | 轨迹块95%区间 pp |','|---|---:|---|']
     for name,r in s['groups'].items():
         c=r['paired_frame_accuracy']; lines.append(f"| {name} | {100*c['mean']:.5f} | [{100*c['ci95'][0]:.5f}, {100*c['ci95'][1]:.5f}] |")
-    lines+=['','区间使用每帧准确率差，日期内连续轨迹块、10000次bootstrap、seed271828；与按点计数的净变化权重不同。','', '| 日期 | 集合 | 救回 | 损害 | 净变化 |','|---|---|---:|---:|---:|']
+    lines+=['','区间使用每帧准确率差，日期内连续轨迹块、10000次bootstrap、seed271828；与按点计数的净变化权重不同。本轮零区间由永不替换造成，不是方法有效性或统计等效的证明。','', '| 日期 | 集合 | 救回 | 损害 | 净变化 |','|---|---|---:|---:|---:|']
     for date,groups in s['dates'].items():
         for name in ['all','ambiguous','ambiguous_matcher']:
             r=groups[name]; lines.append(f"| {date} | {name} | {r['rescue']} | {r['damage']} | {r['net']} |")
