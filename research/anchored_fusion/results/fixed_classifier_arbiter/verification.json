@@ -1,0 +1,10 @@
+{
+  "same_frozen_classifier_posteriors": true,
+  "frames_held_once": 145,
+  "all63OOFcheckpoint_predictions_recomputed": true,
+  "selection_recomputed": true,
+  "development_counts_recomputed": true,
+  "fold_and_final_epochs": 100,
+  "parameters": 129,
+  "best_sha256": "0744e804a6e3a3e13dd9b1e456a8df931e3797f94ca45c06401306917b5b2f2d"
+}

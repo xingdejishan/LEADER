@@ -1,0 +1,4622 @@
+[
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 0,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 9335,
+    "rescue": 102,
+    "damage": 8793,
+    "neutral": 440,
+    "net": -8691,
+    "epoch": 0,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 0,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 0,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 0,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 0,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 0,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 0,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 0,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 0,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 0,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 5,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 3179,
+    "rescue": 18,
+    "damage": 3086,
+    "neutral": 75,
+    "net": -3068,
+    "epoch": 5,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 5,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 5,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 5,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 5,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 5,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 5,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 5,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 5,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 5,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 10,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 12313,
+    "rescue": 315,
+    "damage": 10941,
+    "neutral": 1057,
+    "net": -10626,
+    "epoch": 10,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 10,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 10,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 10,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 10,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 10,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 10,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 10,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 10,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 10,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 10,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 15,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 7815,
+    "rescue": 99,
+    "damage": 7320,
+    "neutral": 396,
+    "net": -7221,
+    "epoch": 15,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 15,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 15,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 15,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 15,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 15,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 15,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 15,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 15,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 15,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 15,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 20,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 20,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 20,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 20,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 20,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 20,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 20,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 20,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 20,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 20,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 11975,
+    "rescue": 294,
+    "damage": 10656,
+    "neutral": 1025,
+    "net": -10362,
+    "epoch": 20,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 2585,
+    "rescue": 6,
+    "damage": 2532,
+    "neutral": 47,
+    "net": -2526,
+    "epoch": 20,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 20,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 20,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 20,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 20,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 20,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 20,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 20,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 20,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 20,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 20,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 25,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 25,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 25,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 25,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 25,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 25,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 25,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 25,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 25,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 12625,
+    "rescue": 345,
+    "damage": 11162,
+    "neutral": 1118,
+    "net": -10817,
+    "epoch": 25,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 7056,
+    "rescue": 126,
+    "damage": 6573,
+    "neutral": 357,
+    "net": -6447,
+    "epoch": 25,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 6,
+    "rescue": 0,
+    "damage": 6,
+    "neutral": 0,
+    "net": -6,
+    "epoch": 25,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 25,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 25,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 25,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 25,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 25,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 25,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 25,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 25,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 25,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 25,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 30,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 30,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 30,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 30,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 30,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 30,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 30,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 30,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 12633,
+    "rescue": 345,
+    "damage": 11165,
+    "neutral": 1123,
+    "net": -10820,
+    "epoch": 30,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 9118,
+    "rescue": 198,
+    "damage": 8243,
+    "neutral": 677,
+    "net": -8045,
+    "epoch": 30,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 3718,
+    "rescue": 46,
+    "damage": 3511,
+    "neutral": 161,
+    "net": -3465,
+    "epoch": 30,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 30,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 35,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 35,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 35,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 35,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 35,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 35,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 35,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 12636,
+    "rescue": 346,
+    "damage": 11165,
+    "neutral": 1125,
+    "net": -10819,
+    "epoch": 35,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 10064,
+    "rescue": 235,
+    "damage": 9001,
+    "neutral": 828,
+    "net": -8766,
+    "epoch": 35,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 5172,
+    "rescue": 111,
+    "damage": 4767,
+    "neutral": 294,
+    "net": -4656,
+    "epoch": 35,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 1112,
+    "rescue": 0,
+    "damage": 1100,
+    "neutral": 12,
+    "net": -1100,
+    "epoch": 35,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 35,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 40,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 40,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 40,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 40,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 40,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 40,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 12637,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1125,
+    "net": -10818,
+    "epoch": 40,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 11012,
+    "rescue": 267,
+    "damage": 9786,
+    "neutral": 959,
+    "net": -9519,
+    "epoch": 40,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 5263,
+    "rescue": 121,
+    "damage": 4825,
+    "neutral": 317,
+    "net": -4704,
+    "epoch": 40,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 3972,
+    "rescue": 58,
+    "damage": 3702,
+    "neutral": 212,
+    "net": -3644,
+    "epoch": 40,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 40,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 45,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 45,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 45,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 45,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 45,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 45,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 12154,
+    "rescue": 307,
+    "damage": 10770,
+    "neutral": 1077,
+    "net": -10463,
+    "epoch": 45,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 6421,
+    "rescue": 150,
+    "damage": 5792,
+    "neutral": 479,
+    "net": -5642,
+    "epoch": 45,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 5167,
+    "rescue": 110,
+    "damage": 4764,
+    "neutral": 293,
+    "net": -4654,
+    "epoch": 45,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 1361,
+    "rescue": 8,
+    "damage": 1312,
+    "neutral": 41,
+    "net": -1304,
+    "epoch": 45,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 45,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 50,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 50,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 50,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 50,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 50,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 12631,
+    "rescue": 345,
+    "damage": 11163,
+    "neutral": 1123,
+    "net": -10818,
+    "epoch": 50,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 9338,
+    "rescue": 222,
+    "damage": 8318,
+    "neutral": 798,
+    "net": -8096,
+    "epoch": 50,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 5208,
+    "rescue": 120,
+    "damage": 4781,
+    "neutral": 307,
+    "net": -4661,
+    "epoch": 50,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 4157,
+    "rescue": 68,
+    "damage": 3849,
+    "neutral": 240,
+    "net": -3781,
+    "epoch": 50,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 50,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 55,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 55,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 55,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 55,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 55,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 11796,
+    "rescue": 296,
+    "damage": 10445,
+    "neutral": 1055,
+    "net": -10149,
+    "epoch": 55,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 6046,
+    "rescue": 146,
+    "damage": 5417,
+    "neutral": 483,
+    "net": -5271,
+    "epoch": 55,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 5179,
+    "rescue": 113,
+    "damage": 4770,
+    "neutral": 296,
+    "net": -4657,
+    "epoch": 55,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 2485,
+    "rescue": 38,
+    "damage": 2321,
+    "neutral": 126,
+    "net": -2283,
+    "epoch": 55,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 55,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 60,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 60,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 60,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 60,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12636,
+    "rescue": 346,
+    "damage": 11165,
+    "neutral": 1125,
+    "net": -10819,
+    "epoch": 60,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 10016,
+    "rescue": 247,
+    "damage": 8879,
+    "neutral": 890,
+    "net": -8632,
+    "epoch": 60,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 5281,
+    "rescue": 121,
+    "damage": 4827,
+    "neutral": 333,
+    "net": -4706,
+    "epoch": 60,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 4920,
+    "rescue": 85,
+    "damage": 4553,
+    "neutral": 282,
+    "net": -4468,
+    "epoch": 60,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 543,
+    "rescue": 6,
+    "damage": 509,
+    "neutral": 28,
+    "net": -503,
+    "epoch": 60,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 60,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 65,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 65,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 65,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 65,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12616,
+    "rescue": 344,
+    "damage": 11153,
+    "neutral": 1119,
+    "net": -10809,
+    "epoch": 65,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 8178,
+    "rescue": 193,
+    "damage": 7278,
+    "neutral": 707,
+    "net": -7085,
+    "epoch": 65,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 5207,
+    "rescue": 119,
+    "damage": 4780,
+    "neutral": 308,
+    "net": -4661,
+    "epoch": 65,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 4199,
+    "rescue": 70,
+    "damage": 3875,
+    "neutral": 254,
+    "net": -3805,
+    "epoch": 65,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 27,
+    "rescue": 1,
+    "damage": 22,
+    "neutral": 4,
+    "net": -21,
+    "epoch": 65,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 65,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 70,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 70,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 70,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 70,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 12224,
+    "rescue": 316,
+    "damage": 10820,
+    "neutral": 1088,
+    "net": -10504,
+    "epoch": 70,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 6592,
+    "rescue": 159,
+    "damage": 5867,
+    "neutral": 566,
+    "net": -5708,
+    "epoch": 70,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 5190,
+    "rescue": 117,
+    "damage": 4773,
+    "neutral": 300,
+    "net": -4656,
+    "epoch": 70,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 3471,
+    "rescue": 56,
+    "damage": 3210,
+    "neutral": 205,
+    "net": -3154,
+    "epoch": 70,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 2,
+    "rescue": 0,
+    "damage": 1,
+    "neutral": 1,
+    "net": -1,
+    "epoch": 70,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 70,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 75,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 75,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 75,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 75,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 11662,
+    "rescue": 293,
+    "damage": 10322,
+    "neutral": 1047,
+    "net": -10029,
+    "epoch": 75,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 5930,
+    "rescue": 145,
+    "damage": 5298,
+    "neutral": 487,
+    "net": -5153,
+    "epoch": 75,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 5182,
+    "rescue": 113,
+    "damage": 4772,
+    "neutral": 297,
+    "net": -4659,
+    "epoch": 75,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 2880,
+    "rescue": 47,
+    "damage": 2665,
+    "neutral": 168,
+    "net": -2618,
+    "epoch": 75,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 75,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 80,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 80,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 80,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 80,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 11177,
+    "rescue": 281,
+    "damage": 9880,
+    "neutral": 1016,
+    "net": -9599,
+    "epoch": 80,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 5624,
+    "rescue": 131,
+    "damage": 5055,
+    "neutral": 438,
+    "net": -4924,
+    "epoch": 80,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 5175,
+    "rescue": 111,
+    "damage": 4768,
+    "neutral": 296,
+    "net": -4657,
+    "epoch": 80,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 2392,
+    "rescue": 39,
+    "damage": 2212,
+    "neutral": 141,
+    "net": -2173,
+    "epoch": 80,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 80,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 85,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 85,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 85,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 85,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 10878,
+    "rescue": 270,
+    "damage": 9624,
+    "neutral": 984,
+    "net": -9354,
+    "epoch": 85,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 5508,
+    "rescue": 127,
+    "damage": 4973,
+    "neutral": 408,
+    "net": -4846,
+    "epoch": 85,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 5170,
+    "rescue": 110,
+    "damage": 4765,
+    "neutral": 295,
+    "net": -4655,
+    "epoch": 85,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 2032,
+    "rescue": 36,
+    "damage": 1871,
+    "neutral": 125,
+    "net": -1835,
+    "epoch": 85,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 85,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 90,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 90,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 90,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 90,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 10694,
+    "rescue": 268,
+    "damage": 9455,
+    "neutral": 971,
+    "net": -9187,
+    "epoch": 90,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 5456,
+    "rescue": 126,
+    "damage": 4933,
+    "neutral": 397,
+    "net": -4807,
+    "epoch": 90,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 5153,
+    "rescue": 107,
+    "damage": 4754,
+    "neutral": 292,
+    "net": -4647,
+    "epoch": 90,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 1846,
+    "rescue": 35,
+    "damage": 1693,
+    "neutral": 118,
+    "net": -1658,
+    "epoch": 90,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 90,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 95,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 95,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 95,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 95,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 10599,
+    "rescue": 264,
+    "damage": 9378,
+    "neutral": 957,
+    "net": -9114,
+    "epoch": 95,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 5429,
+    "rescue": 126,
+    "damage": 4918,
+    "neutral": 385,
+    "net": -4792,
+    "epoch": 95,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 5142,
+    "rescue": 106,
+    "damage": 4744,
+    "neutral": 292,
+    "net": -4638,
+    "epoch": 95,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 1744,
+    "rescue": 35,
+    "damage": 1596,
+    "neutral": 113,
+    "net": -1561,
+    "epoch": 95,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 95,
+    "threshold": 1.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 100,
+    "threshold": 0.0
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 100,
+    "threshold": 0.05
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 100,
+    "threshold": 0.1
+  },
+  {
+    "count": 19030,
+    "overrides": 12638,
+    "rescue": 347,
+    "damage": 11165,
+    "neutral": 1126,
+    "net": -10818,
+    "epoch": 100,
+    "threshold": 0.15000000000000002
+  },
+  {
+    "count": 19030,
+    "overrides": 10569,
+    "rescue": 263,
+    "damage": 9351,
+    "neutral": 955,
+    "net": -9088,
+    "epoch": 100,
+    "threshold": 0.2
+  },
+  {
+    "count": 19030,
+    "overrides": 5420,
+    "rescue": 126,
+    "damage": 4912,
+    "neutral": 382,
+    "net": -4786,
+    "epoch": 100,
+    "threshold": 0.25
+  },
+  {
+    "count": 19030,
+    "overrides": 5141,
+    "rescue": 105,
+    "damage": 4744,
+    "neutral": 292,
+    "net": -4639,
+    "epoch": 100,
+    "threshold": 0.30000000000000004
+  },
+  {
+    "count": 19030,
+    "overrides": 1690,
+    "rescue": 35,
+    "damage": 1544,
+    "neutral": 111,
+    "net": -1509,
+    "epoch": 100,
+    "threshold": 0.35000000000000003
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.4
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.45
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.5
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.55
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.6000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.65
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.7000000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.75
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.8
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.8500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.9
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 0.9500000000000001
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 1.0
+  },
+  {
+    "count": 19030,
+    "overrides": 0,
+    "rescue": 0,
+    "damage": 0,
+    "neutral": 0,
+    "net": 0,
+    "epoch": 100,
+    "threshold": 1.1
+  }
+]

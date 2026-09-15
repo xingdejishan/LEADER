@@ -152,6 +152,8 @@ def report():
     s=json.loads((OUT/'summary.json').read_text()); selected=s['selection']; grid=json.loads((OUT/'oof_grid.json').read_text())
     active=[r for r in grid if r['overrides']]; best_active=max(active,key=lambda r:(r['net'],-r['overrides'],-r['epoch'],r['threshold']))
     lines=['# 固定分类器的仲裁层交叉拟合','',
+        '**本轮仍未通过：固定同一套完整分类器后，折外选择仍为永不替换；开发集整体及Matcher交集救回0、损害0、净变化0。** 这是回退到原LiDAR分类，而不是安全纠正成功。',
+        f"在预固定{len(grid)}个轮数/阈值组合中，{len(active)}个产生非空替换，其中净收益为正的配置数为{sum(r['net']>0 for r in active)}，净收益为零的配置数为{sum(r['net']==0 for r in active)}。没有据开发集重新挑阈值，也没有扩展网格追求正结果。",'',
         '本轮仅对129参数仲裁器进行交叉拟合和重新训练。训练、OOF选模及开发评估使用同一套既有完整578帧L/V分类器的原始后验；六个输入、标签、BCE、网络结构和优化器均与上一轮相同。没有重训分类器、没有改变类别权重或扫描开发集阈值。','',
         f"145帧分为每日期三个连续轨迹段，三折各训练100epoch，合并OOF分数选择epoch={selected['epoch']}、threshold={selected['threshold']:.2f}；OOF救回{selected['rescue']}、损害{selected['damage']}、净变化{selected['net']}。随后全部145帧从同一初始化训练100epoch，仅保留OOF选定轮数的权重。",'',
         f"OOF预固定462个轮数/阈值组合；最优非空策略：epoch{best_active['epoch']}，threshold{best_active['threshold']:.2f}，override{best_active['overrides']}，救回{best_active['rescue']}，损害{best_active['damage']}，净变化{best_active['net']}。平局依次偏好少替换、早轮数、高阈值；1.1表示永不替换。",'',
