@@ -1,0 +1,56 @@
+train frames: 64  val frames: 32
+train by date: {'2012-01-22': 23, '2012-02-02': 19, '2012-05-11': 22}
+val by date: {'2012-01-22': 11, '2012-02-02': 10, '2012-05-11': 11}
+=== arm A ===
+  [A] epoch 0: MPE=0.1223, MOE=1.2543, Re_mean=1.6415, Re_median=1.5708, rot95=2.4422, trans95=0.2251, fail=0.1562
+  [A] epoch 5: trr=0.5239 rot=0.00000 used=0 gate=0 degen=0 angle=None
+  [A] epoch 5: MPE=0.1219, MOE=1.2120, Re_mean=1.6197, Re_median=1.5602, rot95=2.3092, trans95=0.2176, fail=0.0625
+  [A] epoch 10: trr=0.5032 rot=0.00000 used=0 gate=0 degen=0 angle=None
+  [A] epoch 10: MPE=0.1243, MOE=1.2629, Re_mean=1.5868, Re_median=1.5223, rot95=2.3033, trans95=0.2558, fail=0.0625
+  [A] epoch 15: trr=0.4875 rot=0.00000 used=0 gate=0 degen=0 angle=None
+  [A] epoch 15: MPE=0.1235, MOE=1.3024, Re_mean=1.5470, Re_median=1.4938, rot95=2.5275, trans95=0.2364, fail=0.0938
+  [A] epoch 20: trr=0.4756 rot=0.00000 used=0 gate=0 degen=0 angle=None
+  [A] epoch 20: MPE=0.1232, MOE=1.3522, Re_mean=1.5293, Re_median=1.4806, rot95=2.4991, trans95=0.2344, fail=0.1250
+  [A] epoch 25: trr=0.4683 rot=0.00000 used=0 gate=0 degen=0 angle=None
+  [A] epoch 25: MPE=0.1219, MOE=1.3121, Re_mean=1.5185, Re_median=1.4787, rot95=2.4946, trans95=0.2255, fail=0.1562
+  [A] epoch 30: trr=0.4636 rot=0.00000 used=0 gate=0 degen=0 angle=None
+  [A] epoch 30: MPE=0.1230, MOE=1.3365, Re_mean=1.5132, Re_median=1.4725, rot95=2.3363, trans95=0.2246, fail=0.0938
+  [A] epoch 35: trr=0.4610 rot=0.00000 used=0 gate=0 degen=0 angle=None
+  [A] epoch 35: MPE=0.1207, MOE=1.2924, Re_mean=1.5093, Re_median=1.4674, rot95=2.2171, trans95=0.2126, fail=0.0625
+  [A] epoch 40: trr=0.4593 rot=0.00000 used=0 gate=0 degen=0 angle=None
+  [A] epoch 40: MPE=0.1210, MOE=1.3162, Re_mean=1.5074, Re_median=1.4661, rot95=2.4993, trans95=0.2428, fail=0.0938
+=== arm B ===
+  [B] epoch 0: MPE=0.1223, MOE=1.2543, Re_mean=1.6415, Re_median=1.5708, rot95=2.4422, trans95=0.2251, fail=0.1562
+  [B] epoch 5: trr=0.5242 rot=0.65845 used=64 gate=0 degen=0 angle=1.449231838574633
+  [B] epoch 5: MPE=0.1187, MOE=1.2466, Re_mean=1.6160, Re_median=1.5636, rot95=2.2705, trans95=0.2308, fail=0.0625
+  [B] epoch 10: trr=0.5046 rot=0.57496 used=64 gate=0 degen=0 angle=1.2742550130933523
+  [B] epoch 10: MPE=0.1261, MOE=1.3326, Re_mean=1.5820, Re_median=1.5218, rot95=2.5312, trans95=0.2949, fail=0.0938
+  [B] epoch 15: trr=0.4901 rot=0.51997 used=64 gate=0 degen=0 angle=1.1654815298970789
+  [B] epoch 15: MPE=0.1253, MOE=1.3304, Re_mean=1.5465, Re_median=1.4824, rot95=2.5398, trans95=0.2574, fail=0.1562
+  [B] epoch 20: trr=0.4794 rot=0.48726 used=64 gate=0 degen=0 angle=1.101435688789934
+  [B] epoch 20: MPE=0.1219, MOE=1.2758, Re_mean=1.5295, Re_median=1.4554, rot95=2.3212, trans95=0.2568, fail=0.0938
+  [B] epoch 25: trr=0.4726 rot=0.46381 used=64 gate=0 degen=0 angle=1.0617201226996258
+  [B] epoch 25: MPE=0.1217, MOE=1.2485, Re_mean=1.5151, Re_median=1.4605, rot95=2.1398, trans95=0.2458, fail=0.0625
+  [B] epoch 30: trr=0.4682 rot=0.45246 used=64 gate=0 degen=0 angle=1.0416727422270924
+  [B] epoch 30: MPE=0.1212, MOE=1.2322, Re_mean=1.5091, Re_median=1.4549, rot95=2.0846, trans95=0.2516, fail=0.0625
+  [B] epoch 35: trr=0.4658 rot=0.44467 used=64 gate=0 degen=0 angle=1.0281621335307136
+  [B] epoch 35: MPE=0.1184, MOE=1.2510, Re_mean=1.5062, Re_median=1.4565, rot95=2.0812, trans95=0.2319, fail=0.0625
+  [B] epoch 40: trr=0.4642 rot=0.44037 used=64 gate=0 degen=0 angle=1.0204146744217724
+  [B] epoch 40: MPE=0.1160, MOE=1.2575, Re_mean=1.5045, Re_median=1.4565, rot95=1.9118, trans95=0.2254, fail=0.0312
+
+===== A vs B on the 32 validation frames =====
+ epoch |   A: MPE   A: MOE    A: Re |   B: MPE   B: MOE    B: Re
+     0 |   0.1223   1.2543   1.6415 |   0.1223   1.2543   1.6415
+     5 |   0.1219   1.2120   1.6197 |   0.1187   1.2466   1.6160
+    10 |   0.1243   1.2629   1.5868 |   0.1261   1.3326   1.5820
+    15 |   0.1235   1.3024   1.5470 |   0.1253   1.3304   1.5465
+    20 |   0.1232   1.3522   1.5293 |   0.1219   1.2758   1.5295
+    25 |   0.1219   1.3121   1.5185 |   0.1217   1.2485   1.5151
+    30 |   0.1230   1.3365   1.5132 |   0.1212   1.2322   1.5091
+    35 |   0.1207   1.2924   1.5093 |   0.1184   1.2510   1.5062
+    40 |   0.1210   1.3162   1.5074 |   0.1160   1.2575   1.5045
+
+final (epoch 40):
+  MOE: A 1.3162 -> B 1.2575  (-4.46%)
+  MPE: A 0.1210 -> B 0.1160  (-4.15%)
+  Re : A 1.5074 -> B 1.5045  (-0.19%)
