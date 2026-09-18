@@ -36,6 +36,20 @@ numerically nondeterministic across separate sparse-UNet calls; the check
 itself requires zero difference for coordinates, LiDAR features, encoded
 features, prediction, target, and TRR loss.
 
+`data_equivalence_check.py` independently compares the original
+`NCLT_mink.__getitem__` path with `prepare_frame()` on real manifest frames.
+It checks scan bytes, quantized coordinates, 3D LiDAR features, and the
+scene-coordinate target, and also compares `pose @ inv(camera_to_body)` with
+the frozen LEADER GT cache.
+
+```bash
+python research/prevoxel_multiview/data_equivalence_check.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/manifest.json \
+  --lidar-cache /home/zhang/leader-image-gate/lidar \
+  --checkpoint /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/research/image_gate_checkpoint \
+  --frames 96
+```
+
 ## Frozen voxel residual probe
 
 `residual_probe.py` is deliberately separate from the trainable fusion entry.
