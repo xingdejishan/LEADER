@@ -1,0 +1,68 @@
+{
+  "image": {
+    "width": 808,
+    "height": 616,
+    "note": "stored jpg is half resolution of 1616x1232 tiff; K files already match"
+  },
+  "paths": {
+    "wsl_root": "/home/zhang/leader-image-gate-multicamera",
+    "win_root": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER",
+    "scans": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/glace-local/data/scans/2012-02-18/velodyne_sync",
+    "cam5_rgb": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/glace-local/data/validation_scene/train/rgb",
+    "cam5_calibration": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/glace-local/data/validation_scene/train/calibration",
+    "audit_assets": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/research/projection_audit_assets",
+    "dedode_descriptor": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/rscore-assets/dedode_descriptor_B.pth",
+    "dedode_weights_root": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/rscore-assets"
+  },
+  "camera": {
+    "body_to_lb3_ssc_deg": [0.035, 0.002, -1.23, -179.93, -0.23, 0.50],
+    "n_cameras": 6
+  },
+  "visibility": {
+    "min_depth": 0.5,
+    "max_depth": 80.0,
+    "zbuffer_cell_px": 4,
+    "zbuffer_kernel": 3,
+    "tau_occ_base_m": 0.5,
+    "tau_occ_slope": 0.03,
+    "note": "tau_occ(z) = max(tau_occ_base_m, tau_occ_slope * z); occluded only when nearer depth evidence exists"
+  },
+  "image_feature": {
+    "dim": 128,
+    "patch_px": 15,
+    "grid_cell_px": 4,
+    "pca_enabled": true,
+    "pca_weights": "/home/zhang/rscore-l-local/data/proc/pcad3LB_128.pth",
+    "pca_note": "exact rscore-assets/multicamera.py semantics: F.conv2d(dense, pca.weight, pca.bias) -> 128D; dim must stay 128 when pca_enabled"
+  },
+  "quality": {
+    "log_range": true,
+    "sharpness_patch": 15,
+    "contrast_patch": 15,
+    "saturation_low": 10,
+    "saturation_high": 245
+  },
+  "view_adapter": {
+    "in_dim_note": "128 (img) + Dq (quality)",
+    "hidden": 128,
+    "out_dim": 64
+  },
+  "transformer": {
+    "d_model": 64,
+    "nhead": 4,
+    "num_layers": 2,
+    "ffn_dim": 128,
+    "dropout": 0.0
+  },
+  "training": {
+    "lambda_null": 0.1,
+    "all_camera_dropout_prob": 0.1,
+    "freeze_everything_except": ["view_adapter", "transformer", "null_token", "W_V"],
+    "init_wv_zero": true
+  },
+  "voxel": {
+    "leader_train_script": "../../run_mink.py",
+    "note": "Quantization parameters are read from the original LEADER training entry; do not duplicate voxel_size here."
+  }
+}
+
