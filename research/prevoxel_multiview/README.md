@@ -24,6 +24,38 @@ python research/prevoxel_multiview/train_smoke.py \
 The quantization defaults are read from the original `run_mink.py`; the visual
 configuration intentionally has no independent voxel-size value.
 
+## Frozen voxel residual probe
+
+`residual_probe.py` is deliberately separate from the trainable fusion entry.
+It consumes the already aligned frozen-LEADER output caches: `target -
+prediction` is the residual, while `all_features/*.npz:image` is the fixed
+representative-voxel DeDoDe/PCA128 descriptor. Valid views were averaged when
+those caches were created; the untrained Transformer is not used. The script
+validates the six-view masks, trains the same small probe on real and
+within-view-count stratified shuffled features, then reports all voxels and
+0/1/2/3-view strata on the 32-frame validation split.
+
+```bash
+python research/prevoxel_multiview/residual_probe.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/manifest.json \
+  --checkpoint /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/research/image_gate_checkpoint \
+  --visual-cache /home/zhang/leader-image-gate-multicamera/all_features \
+  --lidar-cache /home/zhang/leader-image-gate/lidar \
+  --output research/prevoxel_multiview/results/residual_probe \
+  --steps 600 --seeds 2089,2090,2091
+```
+
+The decisive fields are `results[*].real_beats_shuffled` and
+`results[*].real.with_view` versus `results[*].shuffled.with_view`, together
+with the validation `relative_reduction` and the per-view-count entries. A
+positive real-versus-shuffled separation is evidence that fixed image evidence
+can predict part of the frozen LEADER residual; it is not a localization result.
+The output also records the checkpoint SHA-256 and the 0/1/2/3-view voxel
+histograms for train and validation. `summary.all_seeds_real_beats_baseline_with_view`
+is the strict version of the proposed test: it must be true before claiming a
+stable residual-prediction gain; real-versus-shuffled alone can be a small
+relative separation without lowering the frozen baseline error.
+
 预注册: `2026-09-18_prevoxel_sixview_null` (kill_test 级, 仅代码 + sanity, 不启动训练).
 
 规格来源: 用户 2026-09-18 粘贴的实现规格书 (raw-point 六视图投影 → 可见性/质量 →
@@ -78,4 +110,3 @@ ViewAdapter → DeepChoice 式 Transformer 加权 + NULL → 点级视觉特征 
 wsl -d Ubuntu -- bash -c 'cd /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/research/prevoxel_multiview && \
   /home/zhang/miniconda3/envs/egonn118/bin/python sanity_check.py --frames 8'
 ```
-
