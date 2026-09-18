@@ -79,6 +79,43 @@ multi-camera strata, per-camera correspondence counts, and geometry/visibility
 diagnostics. The resulting numbers are a camera-geometry upper bound, not a
 learned-system result.
 
+## LEADER-guided local visual refinement
+
+`local_visual_refinement.py` replaces the oracle's GT-generated pixel with a
+real local correspondence generator. The train-only visual map stores each
+0.2 m map voxel's historical per-camera PCA128 descriptors (up to four
+observations); the query uses the frozen LEADER pose to crop and visibility-
+filter the map, extracts the current six image descriptor maps, searches a
+small pixel window around each projected map point, enforces image-grid
+uniqueness, and sends only cosine-filtered correspondences to the unchanged
+bounded robust LM backend. GT is read only for final evaluation.
+
+Dense DeDoDe extraction can be cached in the `bufferx` environment, while the
+solver/refinement runs in `egonn118`:
+
+```bash
+python research/prevoxel_multiview/extract_dense_descriptors.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
+  --output research/prevoxel_multiview/results/dense_query \
+  --dedode-weights /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/rscore-assets/dedode_descriptor_B.pth \
+  --pca-weights /home/zhang/rscore-l-local/data/proc/pcad3LB_128.pth
+
+python research/prevoxel_multiview/local_visual_refinement.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
+  --lidar-cache /home/zhang/leader-image-gate/lidar \
+  --feature-cache /home/zhang/leader-six-camera-controlled/features \
+  --projection-cache /home/zhang/leader-image-gate/projection_audit/mapping \
+  --dedode-weights /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/rscore-assets/dedode_descriptor_B.pth \
+  --pca-weights /home/zhang/rscore-l-local/data/proc/pcad3LB_128.pth \
+  --output research/prevoxel_multiview/results/local_visual_refinement.json \
+  --map-cache research/prevoxel_multiview/results/visual_map.npz
+```
+
+The dense cache is optional when `kornia` is installed in the solver
+environment. The script records correspondence scores, per-camera counts,
+map visibility, geometry diagnostics, and paired pose metrics; it does not use
+oracle pixels or query-frame GT to choose a match.
+
 ## Frozen voxel residual probe
 
 `residual_probe.py` is deliberately separate from the trainable fusion entry.
