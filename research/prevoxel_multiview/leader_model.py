@@ -24,6 +24,8 @@ class VisualProjection(nn.Module):
             nn.GELU(),
             nn.Linear(hidden_dim, out_dim),
         )
+        nn.init.zeros_(self.net[-1].weight)
+        nn.init.zeros_(self.net[-1].bias)
 
     def forward(self, v, reliability):
         return self.net(torch.cat([v, reliability[:, None]], dim=1)) * reliability[:, None]
@@ -70,16 +72,6 @@ class PreVoxelMultiViewLEADER(nn.Module):
         reliability = (1.0 - alpha_null)[index]
         h_visual = self.visual_projection(v_voxel, reliability)
 
-        if not torch.count_nonzero(h_visual):
-            prediction, encoded = self.baseline_forward(lidar_feats[index], coords)
-            diagnostics = {
-                "alpha_null": alpha_null,
-                "alpha_views": alpha_views,
-                "visual_residual": h_visual,
-                "encoded": encoded,
-            }
-            return prediction, diagnostics
-
         sparse = ME.SparseTensor(features=lidar_feats[index], coordinates=coords)
         h_lidar = self.base.encoder.stem[0](sparse)
         mixed = ME.SparseTensor(
@@ -99,9 +91,3 @@ class PreVoxelMultiViewLEADER(nn.Module):
             "encoded": encoded,
         }
         return prediction, diagnostics
-
-    @torch.no_grad()
-    def baseline_forward(self, lidar_feats, coords):
-        sparse = ME.SparseTensor(features=lidar_feats, coordinates=coords)
-        encoded = self.base.encoder(sparse)
-        return self.base.decoder(encoded.F), encoded

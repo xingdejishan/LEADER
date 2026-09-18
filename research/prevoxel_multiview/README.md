@@ -7,9 +7,15 @@ The original encoder, decoder, and pose-side code remain frozen. The trainable
 path is `ViewAdapter + ViewWeighting + NULL + VisualProjection`; the visual
 residual is added after the original first LiDAR stem block. `smoke_dataset.py`
 uses the same raw-point order and ME representative `index` for LiDAR and
-visual features. `train_smoke.py` runs the fixed 64/32 manifest split, loads a
-baseline safetensors checkpoint, performs a real backward step, validates the
-NULL residual, and writes a small checkpoint/report.
+visual features. The polar angular scale is `voxel_size * horizontal_res`,
+the quantization values are parsed from the active `run_mink.py` defaults, and
+the TRR loss is loaded from that same file. `VisualProjection` is zero-initialized
+so the initial multimodal function is the frozen LEADER function; the normal
+backbone path is still used when its residual is zero. `train_smoke.py` runs the
+fixed 64/32 manifest split, performs a real backward step, checks all validation
+frames, runs a strict pre-training B0 equivalence check, and writes a report.
+The Transformer view weights are renormalized conditional on using Camera;
+NULL/reliability gates the projected residual once.
 
 Example in the bundled Ubuntu environment:
 
@@ -21,8 +27,14 @@ python research/prevoxel_multiview/train_smoke.py \
   --steps 2
 ```
 
-The quantization defaults are read from the original `run_mink.py`; the visual
-configuration intentionally has no independent voxel-size value.
+The quantization defaults and TRR implementation are read from the original
+`run_mink.py`; the visual configuration intentionally has no independent
+voxel-size value. The smoke validation is a loss-only check over all 32 frames;
+it does not claim pose-solver localization metrics. The strict B0 check runs
+the same comparison on CPU because this MinkowskiEngine CUDA build is
+numerically nondeterministic across separate sparse-UNet calls; the check
+itself requires zero difference for coordinates, LiDAR features, encoded
+features, prediction, target, and TRR loss.
 
 ## Frozen voxel residual probe
 

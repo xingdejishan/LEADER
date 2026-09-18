@@ -41,7 +41,7 @@ def prepare_frame(row, observer, voxel_size, horizontal_res):
     angles = np.arctan2(scan[:, 1], scan[:, 0]).clip(-np.pi, np.pi - 1e-6)
     ranges = np.linalg.norm(scan[:, :2], axis=1, keepdims=True)
     polar = np.concatenate([
-        angles[:, None] * horizontal_res / (2 * np.pi),
+        angles[:, None] * (voxel_size * horizontal_res) / (2 * np.pi),
         ranges,
         scan[:, 2:3],
     ], axis=1).astype(np.float32)

@@ -51,7 +51,9 @@ class ViewWeighting(nn.Module):
         exactly alpha=0 (Check 4). Degenerate rows (no valid view / forced
         NULL) bypass the transformer entirely (Check 5).
 
-        Returns (alpha_null (N,), alpha_views (N,6), v (N,d)).
+        Returns (alpha_null (N,), alpha_views (N,6), v (N,d)).  The returned
+        v is conditioned on using Camera: alpha_views is renormalized by
+        1-alpha_null, leaving reliability as a separate gate.
         """
         n = z.shape[0]
         device = z.device
@@ -78,7 +80,9 @@ class ViewWeighting(nn.Module):
         # structural overrides (exact, not learned)
         alpha_views = torch.where(bypass[:, None], torch.zeros_like(alpha_views), alpha_views)
         alpha_null = torch.where(bypass, torch.ones_like(alpha_null), alpha_null)
-        v = (alpha_views[..., None] * z).sum(dim=1)
+        reliability = (1.0 - alpha_null).clamp_min(1e-6)
+        beta_views = alpha_views / reliability[:, None]
+        v = (beta_views[..., None] * z).sum(dim=1)
         v = torch.where(bypass[:, None], torch.zeros_like(v), v)
         return alpha_null, alpha_views, v
 
@@ -181,5 +185,3 @@ class MultiViewLeaderForward(nn.Module):
         r_voxel = r_point[index]
         return torch.cat([feats_l_voxel, v_voxel, r_voxel], dim=1), \
             dict(alpha_null=alpha_null, alpha_views=alpha_views)
-
-
