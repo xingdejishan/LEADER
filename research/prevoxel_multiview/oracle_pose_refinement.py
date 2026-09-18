@@ -180,7 +180,7 @@ def build_correspondences(row, initial, gt, reference_map, grid=(16, 12), per_ce
 
 
 def refine_pose(initial, points, pixels, cameras, views, max_translation, max_rotation,
-                max_nfev, f_scale, weights=None):
+                max_nfev, f_scale):
     from scipy.optimize import least_squares
 
     camera_data = {}
@@ -199,8 +199,6 @@ def refine_pose(initial, points, pixels, cameras, views, max_translation, max_ro
             r = uv - pixels[keep]
             bad = (~np.isfinite(r).all(axis=1)) | (depth <= 1e-4)
             r[bad] = 1000.0
-            if weights is not None:
-                r *= np.sqrt(np.maximum(weights[keep], 1e-4))[:, None]
             values.append(r.reshape(-1))
         return np.concatenate(values) if values else np.zeros(0, dtype=np.float64)
 

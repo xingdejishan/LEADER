@@ -340,8 +340,7 @@ def main():
         if len(points) >= 6 and len(np.unique(cameras)):
             refined, optimizer, residual = refine_pose(
                 initial, points, pixels, cameras, row["views"], args.max_translation,
-                math.radians(args.max_rotation_deg), args.max_nfev, args.f_scale_px,
-                weights=np.clip((scores - args.min_cosine) / max(1e-6, 1.0 - args.min_cosine), .05, 1.0))
+                math.radians(args.max_rotation_deg), args.max_nfev, args.f_scale_px)
             after = pose_error(refined, gt)
             solver = {"success": bool(optimizer.success), "status": int(optimizer.status),
                       "nfev": int(optimizer.nfev), "cost": float(optimizer.cost),
