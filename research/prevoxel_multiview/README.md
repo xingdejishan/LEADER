@@ -50,6 +50,35 @@ python research/prevoxel_multiview/data_equivalence_check.py \
   --frames 96
 ```
 
+## Camera geometry oracle refinement
+
+`oracle_pose_refinement.py` is a separate upper-bound experiment. It builds a
+world-frame reference map from the train split only, runs the frozen original
+SC2 + full-pool LEADER solver on each validation query, crops the map around
+that pose, and creates perfect six-camera correspondences by projecting map
+points with the query GT pose. Per-camera black-border/image-mask checks,
+sparse z-buffer occlusion, and fixed image-grid sampling are applied before a
+single bounded six-camera SE(3) least-squares refinement. No DeDoDe, matching,
+learned fusion, or GT-generated query LiDAR points are used.
+
+This script requires the six-view `all_views.json` (the one-view
+`manifest.json` is not sufficient) and the original full-pool solver:
+
+```bash
+python research/prevoxel_multiview/oracle_pose_refinement.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
+  --lidar-cache /home/zhang/leader-image-gate/lidar \
+  --full-pool /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/glace-local/code/tools/full_pool_robust_v1.py \
+  --output research/prevoxel_multiview/results/oracle_refinement.json \
+  --map-cache research/prevoxel_multiview/results/reference_map.npz
+```
+
+The report stores before/after translation and rotation errors, paired deltas,
+bootstrap intervals, LEADER-success-frame metrics (`<1 m/<2°`), one-camera vs
+multi-camera strata, per-camera correspondence counts, and geometry/visibility
+diagnostics. The resulting numbers are a camera-geometry upper bound, not a
+learned-system result.
+
 ## Frozen voxel residual probe
 
 `residual_probe.py` is deliberately separate from the trainable fusion entry.
