@@ -13,18 +13,19 @@ def skew(vectors):
     return output
 
 
-def frozen_lidar_information(pose, evidence, inflation=1., residual_floor_m=.005, regularization_ratio=1e-6):
+def frozen_lidar_information(pose, evidence, covariance_inflation=1., residual_floor_m=.005, regularization_ratio=1e-6):
     source = np.asarray(evidence["source"], dtype=np.float64)
     target = np.asarray(evidence["target"], dtype=np.float64)
     weights = np.asarray(evidence["weights"], dtype=np.float64)
-    transformed = source @ pose[:3, :3].T + pose[:3, 3]
+    rotated = source @ pose[:3, :3].T
+    transformed = rotated + pose[:3, 3]
     residual = transformed - target
-    jacobian = np.concatenate((np.broadcast_to(np.eye(3), (len(source), 3, 3)), -skew(transformed)), axis=2)
+    jacobian = np.concatenate((np.broadcast_to(np.eye(3), (len(source), 3, 3)), -skew(rotated)), axis=2)
     hessian = np.einsum("n,nki,nkj->ij", weights, jacobian, jacobian)
     regularization = regularization_ratio * max(float(np.trace(hessian) / 6), 1e-12)
-    norms = np.linalg.norm(residual, axis=1)
-    residual_scale = max(1.4826 * float(np.median(norms)), residual_floor_m)
-    covariance = inflation ** 2 * residual_scale ** 2 * np.linalg.inv(hessian + regularization * np.eye(6))
+    weighted_sse = float(np.sum(weights * np.sum(residual ** 2, axis=1)))
+    residual_scale = max(np.sqrt(weighted_sse / max(3 * float(weights.sum()) - 6, 1)), residual_floor_m)
+    covariance = covariance_inflation ** 2 * residual_scale ** 2 * np.linalg.inv(hessian + regularization * np.eye(6))
     return {"source": source, "target": target, "weights": weights, "residual": residual,
             "jacobian": jacobian, "hessian": hessian, "regularization": regularization,
             "residual_scale_m": residual_scale, "covariance": covariance}
@@ -43,7 +44,7 @@ def pixel_pose_jacobian(points, pose, camera_to_body, calibration, translation_s
 
 
 def adaptive_innovation_gate(points, matched_pixels, cameras, precisions, pose, views, lidar_covariance,
-                             covariance_inflation=1., innovation_floor_px=1., threshold=9.):
+                             innovation_floor_px=1., threshold=9.):
     points = np.asarray(points, dtype=np.float64)
     matched_pixels = np.asarray(matched_pixels, dtype=np.float64)
     cameras = np.asarray(cameras, dtype=np.int64)
@@ -58,7 +59,7 @@ def adaptive_innovation_gate(points, matched_pixels, cameras, precisions, pose, 
         base, jacobian = pixel_pose_jacobian(points[keep], pose, np.asarray(view["camera_to_body"], dtype=np.float64),
                                              np.loadtxt(view["calibration"]).astype(np.float64))
         roma_covariance = np.linalg.inv(precisions[keep])
-        innovation = covariance_inflation ** 2 * np.einsum("nai,ij,nbj->nab", jacobian, lidar_covariance, jacobian)
+        innovation = np.einsum("nai,ij,nbj->nab", jacobian, lidar_covariance, jacobian)
         innovation += roma_covariance + innovation_floor_px ** 2 * np.eye(2)[None]
         innovation = .5 * (innovation + np.swapaxes(innovation, 1, 2))
         delta = matched_pixels[keep] - base
