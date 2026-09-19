@@ -170,6 +170,21 @@ python research/prevoxel_multiview/cross_frame_visual_probe.py \
   --output research/prevoxel_multiview/results/cross_frame_visual_probe_train.json
 ```
 
+`descriptor_pipeline_sanity.py` verifies that the historical per-view cache
+and the current `DenseDescriptorExtractor` use the same descriptor pipeline.
+It compares the cached descriptor and a fresh descriptor at the same image
+pixel over the train split, before interpreting any cross-frame result.
+
+```bash
+python research/prevoxel_multiview/descriptor_pipeline_sanity.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
+  --feature-cache /home/zhang/leader-six-camera-controlled/features \
+  --projection-cache /home/zhang/leader-image-gate/projection_audit/mapping \
+  --dedode-weights /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/rscore-assets/dedode_descriptor_B.pth \
+  --pca-weights /home/zhang/rscore-l-local/data/proc/pcad3LB_128.pth \
+  --output research/prevoxel_multiview/results/descriptor_pipeline_sanity_train.json
+```
+
 ```bash
 python research/prevoxel_multiview/dedode_local_probe.py \
   --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
