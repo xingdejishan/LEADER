@@ -432,6 +432,7 @@ def main():
     parser.add_argument("--match-cache-dir")
     parser.add_argument("--replay-match-cache", action="store_true")
     parser.add_argument("--gate-free-cache", action="store_true")
+    parser.add_argument("--cache-only", action="store_true")
     parser.add_argument("--seed", type=int, default=2089)
     args = parser.parse_args()
     if min(args.prior_sigma_translation_m, args.prior_sigma_rotation_deg, args.visual_lambda,
@@ -485,7 +486,7 @@ def main():
         fit = ~holdout
         holdout_before = holdout_after = float("nan")
         correction_translation = correction_rotation = float("nan")
-        if len(points) >= 6 and len(np.unique(cameras)) and int(fit.sum()) >= 6 and len(np.unique(cameras[fit])):
+        if not args.cache_only and len(points) >= 6 and len(np.unique(cameras)) and int(fit.sum()) >= 6 and len(np.unique(cameras[fit])):
             candidate, optimizer, fit_residual, _, _ = refine_pose_protected(
                 initial, points[fit], pixels[fit], cameras[fit], precisions[fit], row["views"], args.max_translation,
                 math.radians(args.max_rotation_deg), args.max_nfev, args.prior_sigma_translation_m,
@@ -560,7 +561,7 @@ def main():
                                           "local_radius_px": args.local_radius, "min_overlap": args.min_overlap,
                                           "min_reference_view_cosine": args.min_reference_view_cosine,
                                           "grid_cell_px": args.grid_cell, "max_per_camera": args.max_per_camera,
-                                          "gate_free_cache": args.gate_free_cache},
+                                          "gate_free_cache": args.gate_free_cache, "cache_only": args.cache_only},
                              "optimizer": "LiDAR-prior-protected block-IRLS Trust Region Reflective optimization",
                              "local_pose_update": "R=Exp(delta_rotation) R_LEADER; t=t_LEADER+delta_translation",
                              "prior": {"sigma_translation_m": args.prior_sigma_translation_m,
