@@ -73,21 +73,23 @@ def build_visual_map(rows, lidar_cache, feature_cache, projection_cache, voxel_s
                     continue
                 key_obs = (map_index, camera)
                 if len(observations[key_obs]) < max_history:
-                    observations[key_obs].append(descriptors[point_index, camera])
+                    observations[key_obs].append((descriptors[point_index, camera], row["frame_id"]))
         print("visual map frame %d/%d" % (index + 1, len(train_rows)), flush=True)
-    map_ids, camera_ids, values, counts = [], [], [], []
+    map_ids, camera_ids, values, counts, frame_ids = [], [], [], [], []
     for (map_index, camera), history in observations.items():
-        for descriptor in history:
+        for descriptor, frame_id in history:
             values.append(normalize(np.asarray(descriptor, dtype=np.float32)[None])[0])
             map_ids.append(map_index)
             camera_ids.append(camera)
             counts.append(len(history))
+            frame_ids.append(frame_id)
     result = {
         "points": np.asarray(points, dtype=np.float32),
         "descriptors": np.asarray(values, dtype=np.float32),
         "map_ids": np.asarray(map_ids, dtype=np.int32),
         "camera_ids": np.asarray(camera_ids, dtype=np.int8),
         "history_counts": np.asarray(counts, dtype=np.int16),
+        "observation_frame_ids": np.asarray(frame_ids, dtype="U32"),
         "voxel_size": np.asarray(voxel_size, dtype=np.float32),
     }
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -197,7 +199,8 @@ def visible_map_points(points, pose, view, image, image_mask, zbuffer_cell=4,
 
 
 def query_matches(row, initial, visual_map, extractor, crop_radius, search_radius,
-                  search_step, min_cosine, grid_cell, max_per_camera):
+                  search_step, min_cosine, grid_cell, max_per_camera,
+                  exclude_frame_id=None):
     points = visual_map["points"].astype(np.float64)
     local_mask = np.linalg.norm(points - initial[:3, 3][None], axis=1) <= crop_radius
     local_ids = np.where(local_mask)[0]
@@ -205,6 +208,7 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
     map_ids = visual_map["map_ids"].astype(np.int64)
     camera_ids = visual_map["camera_ids"].astype(np.int64)
     descriptors = visual_map["descriptors"].astype(np.float32)
+    observation_frame_ids = visual_map.get("observation_frame_ids")
     all_points, all_pixels, all_cameras, all_scores = [], [], [], []
     diagnostics = []
     offsets = np.asarray([(du, dv) for dv in np.arange(-search_radius, search_radius + 1, search_step)
@@ -220,7 +224,10 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
             diagnostics.append({"camera": int(view["camera"]), "visible_map_points": 0, "accepted": 0})
             continue
         visible_global = local_ids[visible_local]
-        record_rows = np.where((camera_ids == int(view["camera"])) & np.isin(map_ids, visible_global))[0]
+        record_mask = (camera_ids == int(view["camera"])) & np.isin(map_ids, visible_global)
+        if exclude_frame_id is not None and observation_frame_ids is not None:
+            record_mask &= observation_frame_ids != exclude_frame_id
+        record_rows = np.where(record_mask)[0]
         if not len(record_rows):
             diagnostics.append({"camera": int(view["camera"]), "visible_map_points": int(len(visible_global)), "accepted": 0})
             continue
@@ -245,18 +252,21 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
             record_rows = record_rows[keep]
             best_score = best_score[keep]
             best_uv = best_uv[keep]
-            cells = np.floor(best_uv / grid_cell).astype(np.int64)
-            order = np.argsort(-best_score, kind="stable")
-            occupied = set()
-            selected = []
-            for position in order:
-                key = (int(cells[position, 0]), int(cells[position, 1]))
-                if key in occupied:
-                    continue
-                occupied.add(key)
-                selected.append(position)
-                if len(selected) >= max_per_camera:
-                    break
+            if max_per_camera > 0:
+                cells = np.floor(best_uv / grid_cell).astype(np.int64)
+                order = np.argsort(-best_score, kind="stable")
+                occupied = set()
+                selected = []
+                for position in order:
+                    key = (int(cells[position, 0]), int(cells[position, 1]))
+                    if key in occupied:
+                        continue
+                    occupied.add(key)
+                    selected.append(position)
+                    if len(selected) >= max_per_camera:
+                        break
+            else:
+                selected = np.arange(len(record_rows), dtype=np.int64)
             record_rows = record_rows[selected]
             best_score = best_score[selected]
             best_uv = best_uv[selected]

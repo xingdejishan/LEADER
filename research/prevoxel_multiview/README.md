@@ -116,6 +116,25 @@ environment. The script records correspondence scores, per-camera counts,
 map visibility, geometry diagnostics, and paired pose metrics; it does not use
 oracle pixels or query-frame GT to choose a match.
 
+`calibrate_visual_threshold.py` performs the train-only threshold sweep. Each
+train query excludes its own historical descriptor observations from the
+visual map (leave-one-frame-out), and GT is used only to label calibration
+matches (`<5 px`) and evaluate the fixed LM. It reports threshold versus
+precision, correspondence coverage, and paired pose changes without using the
+32-frame validation split for tuning.
+
+```bash
+python research/prevoxel_multiview/calibrate_visual_threshold.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
+  --lidar-cache /home/zhang/leader-image-gate/lidar \
+  --feature-cache /home/zhang/leader-six-camera-controlled/features \
+  --projection-cache /home/zhang/leader-image-gate/projection_audit/mapping \
+  --dedode-weights /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/rscore-assets/dedode_descriptor_B.pth \
+  --pca-weights /home/zhang/rscore-l-local/data/proc/pcad3LB_128.pth \
+  --output research/prevoxel_multiview/results/threshold_calibration_train.json \
+  --map-cache research/prevoxel_multiview/results/visual_map_calibration_train.npz
+```
+
 ## Frozen voxel residual probe
 
 `residual_probe.py` is deliberately separate from the trainable fusion entry.
