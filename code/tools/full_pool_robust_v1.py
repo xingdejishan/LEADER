@@ -26,9 +26,10 @@ def rigid_transform(source, target, weights):
     return transform
 
 
-def refine(initial, source, target, thresholds):
+def refine(initial, source, target, thresholds, return_evidence=False):
     transform = initial.clone()
     selected_count = 0
+    evidence = None
     for threshold in thresholds:
         residual = torch.linalg.norm(transform_points(transform, source) - target, dim=1)
         mask = residual < threshold
@@ -37,9 +38,16 @@ def refine(initial, source, target, thresholds):
             break
         scaled = residual[mask] / threshold
         weights = (1.0 - scaled.square()).clamp_min(0).square()
+        evidence = {
+            "source": source[mask],
+            "target": target[mask],
+            "weights": weights,
+            "residual": residual[mask],
+            "threshold": threshold,
+        }
         transform = rigid_transform(source[mask], target[mask], weights)
-    return transform, selected_count
+    return (transform, selected_count, evidence) if return_evidence else (transform, selected_count)
 
 
-def full_pool_refine(initial, source, target):
-    return refine(initial, source, target, (1.2, 0.6))
+def full_pool_refine(initial, source, target, return_evidence=False):
+    return refine(initial, source, target, (1.2, 0.6), return_evidence)
