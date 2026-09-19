@@ -212,11 +212,25 @@ reference anchor pixels. A candidate must remain inside the `T_L` local pixel
 window, valid image area, and overlap gate, then the existing image-grid budget
 is applied. The old cosine, ratio, and mutual tests are deliberately absent.
 
-The bounded robust LM uses the RoMa precision matrix in query-pixel units:
-`r_white = L^T r`, where `P = L L^T` is the predicted precision. Thus
-`--f-scale-whitened` is in whitened units, not pixels. The code converts the
-model's dense-map precision to the query image coordinate scale before this
-whitening and eigenvalue-clamps it only for numerical stability.
+The protected backend parameterizes a local correction as
+`R = Exp(delta_rotation) R_LEADER` and `t = t_LEADER + delta_translation`.
+It minimizes a quadratic LEADER prior plus a `lambda / N` visual term. RoMa
+precision is converted to query-pixel units, softened as
+`Sigma_eff = precision_scale^2 Sigma_RoMa + precision_floor_px^2 I`, then
+whitened as `r_white = L^T r`, where `P_eff = L L^T`. Robustness is applied to
+each complete two-dimensional residual block with IRLS; SciPy uses Trust Region
+Reflective least squares, not Levenberg-Marquardt. The prior, precision scale,
+floor, visual weight, and robust scale must be calibrated on train-only data.
+
+Each frame deterministically reserves whole map-anchor groups for holdout.
+The candidate is output only when the solver is finite and successful, its
+actual correction respects the bounds, and holdout block cost improves by the
+configured ratio; otherwise the final pose reverts to frozen LEADER. Results
+separately contain `candidate_pose` / `candidate_after` and accepted final
+`refined_pose` / `after`. Use `--match-cache-dir` to save the observation-world
+coordinates, query pixels, camera ids, RoMa precision, overlap, anchor ids, and
+reference ids, and `--replay-match-cache` to compare backends without running
+RoMa again.
 
 The 0.2 m voxel id is retained only as optional cache metadata; it has no role
 in RoMa visibility, retrieval, local gating, or the final pose correspondences.
@@ -236,6 +250,7 @@ failure without tuning on validation.
   --lidar-cache /home/zhang/leader-image-gate/lidar \
   --projection-cache /home/zhang/leader-image-gate/projection_audit/mapping \
   --map-cache research/prevoxel_multiview/results/roma_reference_observations.npz \
+  --match-cache-dir research/prevoxel_multiview/results/roma_matches_validation \
   --output research/prevoxel_multiview/results/roma_local_refinement.json \
   --frames 1 --roma-setting precise
 ```

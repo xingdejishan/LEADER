@@ -26,7 +26,6 @@ from oracle_pose_refinement import (
     pose_error,
     pose_from_baseline,
     project_world,
-    se3_exp,
 )
 
 
@@ -142,35 +141,86 @@ def stabilize_precision(precision, min_precision, max_precision):
     return (vectors * values[:, None, :]) @ np.swapaxes(vectors, -1, -2)
 
 
-def refine_pose_weighted(initial, points, pixels, cameras, precisions, views,
-                         max_translation, max_rotation, max_nfev, f_scale):
+def apply_local_delta(initial, delta):
+    from scipy.spatial.transform import Rotation
+
+    pose = np.asarray(initial, dtype=np.float64).copy()
+    pose[:3, :3] = Rotation.from_rotvec(delta[3:]).as_matrix() @ pose[:3, :3]
+    pose[:3, 3] += delta[:3]
+    return pose
+
+
+def effective_precision(precisions, precision_scale, precision_floor_px):
+    covariance = np.linalg.inv(precisions)
+    covariance *= precision_scale ** 2
+    covariance += (precision_floor_px ** 2) * np.eye(2)[None]
+    return np.linalg.inv(.5 * (covariance + np.swapaxes(covariance, -1, -2)))
+
+
+def reprojection_blocks(pose, points, pixels, cameras, camera_data):
+    raw = np.empty((len(points), 2), dtype=np.float64)
+    for camera in range(6):
+        keep = cameras == camera
+        if not keep.any():
+            continue
+        uv, depth = project_world(points[keep], pose, *camera_data[camera])
+        raw[keep] = uv - pixels[keep]
+        bad = (~np.isfinite(raw[keep]).all(axis=1)) | (depth <= 1e-4)
+        raw[np.where(keep)[0][bad]] = 1000.
+    return raw
+
+
+def whitened_reprojection(pose, points, pixels, cameras, precisions, views,
+                          precision_scale, precision_floor_px):
+    camera_data = {int(view["camera"]): (np.asarray(view["camera_to_body"], dtype=np.float64),
+                                           np.loadtxt(view["calibration"]).astype(np.float64)) for view in views}
+    effective = effective_precision(precisions, precision_scale, precision_floor_px)
+    cholesky = np.linalg.cholesky(effective)
+    raw = reprojection_blocks(pose, points, pixels, cameras, camera_data)
+    return np.einsum("nij,nj->ni", np.swapaxes(cholesky, 1, 2), raw)
+
+
+def block_soft_l1_cost(whitened, robust_scale):
+    norms = np.linalg.norm(whitened, axis=1)
+    return float(np.sum(2 * robust_scale ** 2 * (np.sqrt(1 + (norms / robust_scale) ** 2) - 1)))
+
+
+def refine_pose_protected(initial, points, pixels, cameras, precisions, views,
+                          max_translation, max_rotation, max_nfev,
+                          prior_sigma_translation, prior_sigma_rotation,
+                          visual_lambda, precision_scale, precision_floor_px,
+                          robust_scale, irls_iterations):
     from scipy.optimize import least_squares
 
     camera_data = {int(view["camera"]): (np.asarray(view["camera_to_body"], dtype=np.float64),
                                            np.loadtxt(view["calibration"]).astype(np.float64)) for view in views}
-    cholesky = np.linalg.cholesky(precisions)
-    def residual(delta):
-        pose = se3_exp(delta) @ initial
-        raw = np.empty((len(points), 2), dtype=np.float64)
-        for camera in range(6):
-            keep = cameras == camera
-            if not keep.any():
-                continue
-            uv, depth = project_world(points[keep], pose, *camera_data[camera])
-            raw[keep] = uv - pixels[keep]
-            bad = (~np.isfinite(raw[keep]).all(axis=1)) | (depth <= 1e-4)
-            raw[np.where(keep)[0][bad]] = 1000.
-        return np.einsum("nij,nj->ni", np.swapaxes(cholesky, 1, 2), raw).reshape(-1)
+    effective = effective_precision(precisions, precision_scale, precision_floor_px)
+    cholesky = np.linalg.cholesky(effective)
+    visual_scale = math.sqrt(visual_lambda / max(len(points), 1))
+    prior_scales = np.array([prior_sigma_translation] * 3 + [prior_sigma_rotation] * 3, dtype=np.float64)
+    weights = np.ones(len(points), dtype=np.float64)
     bounds = np.concatenate([np.full(3, max_translation), np.full(3, max_rotation)])
-    result = least_squares(residual, np.zeros(6), bounds=(-bounds, bounds), method="trf",
-                           loss="soft_l1", f_scale=f_scale, max_nfev=max_nfev)
-    return se3_exp(result.x) @ initial, result, residual(result.x)
+    result = None
+    for _ in range(irls_iterations):
+        def residual(delta):
+            raw = reprojection_blocks(apply_local_delta(initial, delta), points, pixels, cameras, camera_data)
+            whitened = np.einsum("nij,nj->ni", np.swapaxes(cholesky, 1, 2), raw)
+            visual = visual_scale * np.sqrt(weights)[:, None] * whitened
+            return np.concatenate((delta / prior_scales, visual.reshape(-1)))
+        result = least_squares(residual, np.zeros(6) if result is None else result.x,
+                               bounds=(-bounds, bounds), method="trf", loss="linear", max_nfev=max_nfev)
+        raw = reprojection_blocks(apply_local_delta(initial, result.x), points, pixels, cameras, camera_data)
+        whitened = np.einsum("nij,nj->ni", np.swapaxes(cholesky, 1, 2), raw)
+        norms = np.linalg.norm(whitened, axis=1)
+        weights = 1. / np.sqrt(1. + (norms / robust_scale) ** 2)
+    return apply_local_delta(initial, result.x), result, whitened, effective, weights
 
 
 def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, crop_radius, local_radius,
                   min_overlap, max_reference_images, grid_cell, max_per_camera,
                   min_precision, max_precision, min_view_cosine):
-    all_points, all_pixels, all_cameras, all_scores, all_precisions, diagnostics = [], [], [], [], [], []
+    all_points, all_pixels, all_cameras, all_scores, all_precisions = [], [], [], [], []
+    all_anchor_ids, all_reference_frames, all_reference_cameras, diagnostics = [], [], [], []
     for query_view in sorted(row["views"], key=lambda value: value["camera"]):
         from PIL import Image
         query_image = np.asarray(Image.open(query_view["image"]).convert("RGB"))
@@ -236,7 +286,7 @@ def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, cr
             precision = stabilize_precision(precision, min_precision, max_precision)
             for position in np.where(valid)[0]:
                 candidates.append((float(overlap[position]), world[position], query_uv[position], precision[position],
-                                   reference_frame, reference_camera))
+                                   int(references["map_ids"][ref_rows[position]]), reference_frame, reference_camera))
         candidates.sort(key=lambda value: -value[0])
         occupied, selected = set(), []
         for candidate in candidates:
@@ -253,6 +303,9 @@ def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, cr
             all_pixels.append(np.asarray([value[2] for value in selected]))
             all_precisions.append(np.asarray([value[3] for value in selected]))
             all_cameras.append(np.full(len(selected), int(query_view["camera"]), dtype=np.int64))
+            all_anchor_ids.append(np.asarray([value[4] for value in selected], dtype=np.int64))
+            all_reference_frames.append(np.asarray([value[5] for value in selected], dtype="U32"))
+            all_reference_cameras.append(np.asarray([value[6] for value in selected], dtype=np.int8))
         diagnostics.append({"camera": int(query_view["camera"]), "visible_observations": int(len(record_rows)),
                             "reference_images": int(len(selected_pairs)), "raw_candidates": int(len(candidates)),
                             "accepted": int(len(selected)), "stages": dict(stage_counts),
@@ -260,9 +313,54 @@ def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, cr
                             "reference_pairs": [list(pair) for pair in selected_pairs]})
     if not all_points:
         return (np.empty((0, 3)), np.empty((0, 2)), np.empty(0, dtype=np.int64), np.empty(0),
-                np.empty((0, 2, 2)), diagnostics)
+                np.empty((0, 2, 2)), np.empty(0, dtype=np.int64), np.empty(0, dtype="U32"),
+                np.empty(0, dtype=np.int8), diagnostics)
     return (np.concatenate(all_points), np.concatenate(all_pixels), np.concatenate(all_cameras),
-            np.asarray(all_scores), np.concatenate(all_precisions), diagnostics)
+            np.asarray(all_scores), np.concatenate(all_precisions), np.concatenate(all_anchor_ids),
+            np.concatenate(all_reference_frames), np.concatenate(all_reference_cameras), diagnostics)
+
+
+def match_cache_path(cache_dir, frame_id):
+    return Path(cache_dir) / (frame_id + ".npz")
+
+
+def save_match_cache(path, points, pixels, cameras, scores, precisions, anchor_ids,
+                     reference_frames, reference_cameras, diagnostics):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(path, points=points, pixels=pixels, cameras=cameras, scores=scores,
+                        precisions=precisions, anchor_ids=anchor_ids,
+                        reference_frames=reference_frames, reference_cameras=reference_cameras,
+                        diagnostics_json=np.asarray(json.dumps(diagnostics)))
+
+
+def load_match_cache(path):
+    with np.load(path) as data:
+        return (np.asarray(data["points"]), np.asarray(data["pixels"]), np.asarray(data["cameras"]),
+                np.asarray(data["scores"]), np.asarray(data["precisions"]), np.asarray(data["anchor_ids"]),
+                np.asarray(data["reference_frames"]), np.asarray(data["reference_cameras"]),
+                json.loads(str(data["diagnostics_json"])))
+
+
+def holdout_mask(anchor_ids, modulus, min_count=0):
+    if modulus < 2:
+        return np.zeros(len(anchor_ids), dtype=bool)
+    unique, inverse, counts = np.unique(np.asarray(anchor_ids, dtype=np.int64), return_inverse=True, return_counts=True)
+    values = unique.astype(np.uint64)
+    hashes = values + np.uint64(0x9E3779B97F4A7C15)
+    hashes ^= hashes >> np.uint64(30)
+    hashes *= np.uint64(0xBF58476D1CE4E5B9)
+    hashes ^= hashes >> np.uint64(27)
+    hashes *= np.uint64(0x94D049BB133111EB)
+    hashes ^= hashes >> np.uint64(31)
+    order = np.argsort(hashes)
+    selected = np.zeros(len(unique), dtype=bool)
+    count = 0
+    for group in order:
+        if count >= max(int(math.ceil(len(anchor_ids) / modulus)), min_count):
+            break
+        selected[group] = True
+        count += int(counts[group])
+    return selected[inverse]
 
 
 def main():
@@ -291,9 +389,25 @@ def main():
     parser.add_argument("--max-translation", type=float, default=2.)
     parser.add_argument("--max-rotation-deg", type=float, default=10.)
     parser.add_argument("--max-nfev", type=int, default=100)
-    parser.add_argument("--f-scale-whitened", type=float, default=1.)
+    parser.add_argument("--prior-sigma-translation-m", type=float, default=.10)
+    parser.add_argument("--prior-sigma-rotation-deg", type=float, default=1.)
+    parser.add_argument("--visual-lambda", type=float, default=1.)
+    parser.add_argument("--precision-scale", type=float, default=1.)
+    parser.add_argument("--precision-floor-px", type=float, default=1.)
+    parser.add_argument("--robust-scale-whitened", type=float, default=1.)
+    parser.add_argument("--irls-iterations", type=int, default=4)
+    parser.add_argument("--holdout-modulus", type=int, default=5)
+    parser.add_argument("--min-holdout", type=int, default=6)
+    parser.add_argument("--holdout-accept-ratio", type=float, default=.95)
+    parser.add_argument("--match-cache-dir")
+    parser.add_argument("--replay-match-cache", action="store_true")
     parser.add_argument("--seed", type=int, default=2089)
     args = parser.parse_args()
+    if min(args.prior_sigma_translation_m, args.prior_sigma_rotation_deg, args.visual_lambda,
+           args.precision_scale, args.precision_floor_px, args.robust_scale_whitened) <= 0:
+        parser.error("prior, precision, visual, and robust scales must be positive")
+    if args.irls_iterations < 1 or args.min_holdout < 1 or not 0 < args.holdout_accept_ratio <= 1:
+        parser.error("IRLS iterations and minimum holdout must be positive; holdout ratio must be in (0, 1]")
     rows = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
     train_rows = [row for row in rows if row["split"] == "train"]
     val_rows = [row for row in rows if row["split"] in ("val", "validation", "test")]
@@ -309,40 +423,97 @@ def main():
     full_pool_module = load_module("roma_local_pool", Path(args.full_pool))
     matcher = matcher_module.Matcher(inlier_threshold=2., d_thre=2, num_iterations=10,
                                      ratio=.15, nms_radius=.1, max_points=3000, k1=30)
-    roma = RoMaField(args.device, args.roma_setting)
+    roma = None if args.replay_match_cache else RoMaField(args.device, args.roma_setting)
     records, started = [], time.time()
     for index, row in enumerate(val_rows):
         initial, gt, support = pose_from_baseline(row, args.lidar_cache, matcher, full_pool_module.full_pool_refine,
                                                   args.device, args.seed + index)
         before = pose_error(initial, gt)
-        points, pixels, cameras, scores, precisions, matching = query_matches(
-            row, initial, references, rows_by_frame, args.lidar_cache, roma, args.crop_radius, args.local_radius, args.min_overlap,
-            args.max_reference_images, args.grid_cell, args.max_per_camera, args.min_precision, args.max_precision,
-            args.min_reference_view_cosine)
-        if len(points) >= 6 and len(np.unique(cameras)):
-            refined, optimizer, residual = refine_pose_weighted(initial, points, pixels, cameras, precisions, row["views"],
-                                                                  args.max_translation, math.radians(args.max_rotation_deg),
-                                                                  args.max_nfev, args.f_scale_whitened)
-            after = pose_error(refined, gt)
-            solver = {"success": bool(optimizer.success), "status": int(optimizer.status), "nfev": int(optimizer.nfev),
-                      "cost": float(optimizer.cost), "whitened_residual_rmse": float(np.sqrt(np.mean(residual ** 2)))}
+        cache_path = match_cache_path(args.match_cache_dir, row["frame_id"]) if args.match_cache_dir else None
+        if args.replay_match_cache:
+            if cache_path is None or not cache_path.exists():
+                raise FileNotFoundError("missing match cache for %s" % row["frame_id"])
+            points, pixels, cameras, scores, precisions, anchor_ids, reference_frames, reference_cameras, matching = load_match_cache(cache_path)
         else:
-            refined, after = initial.copy(), before
-            solver = {"success": False, "status": -1, "nfev": 0, "cost": float("nan"), "whitened_residual_rmse": float("nan")}
+            points, pixels, cameras, scores, precisions, anchor_ids, reference_frames, reference_cameras, matching = query_matches(
+                row, initial, references, rows_by_frame, args.lidar_cache, roma, args.crop_radius, args.local_radius, args.min_overlap,
+                args.max_reference_images, args.grid_cell, args.max_per_camera, args.min_precision, args.max_precision,
+                args.min_reference_view_cosine)
+            if cache_path is not None:
+                save_match_cache(cache_path, points, pixels, cameras, scores, precisions, anchor_ids,
+                                 reference_frames, reference_cameras, matching)
+        candidate = initial.copy()
+        candidate_after = before
+        accepted = False
+        acceptance_reason = "insufficient_correspondences"
+        solver = {"success": False, "status": -1, "nfev": 0, "cost": float("nan"),
+                  "whitened_residual_rmse": float("nan"), "irls_iterations": 0}
+        holdout = holdout_mask(anchor_ids, args.holdout_modulus, args.min_holdout)
+        fit = ~holdout
+        holdout_before = holdout_after = float("nan")
+        correction_translation = correction_rotation = float("nan")
+        if len(points) >= 6 and len(np.unique(cameras)) and int(fit.sum()) >= 6 and len(np.unique(cameras[fit])):
+            candidate, optimizer, fit_residual, _, _ = refine_pose_protected(
+                initial, points[fit], pixels[fit], cameras[fit], precisions[fit], row["views"], args.max_translation,
+                math.radians(args.max_rotation_deg), args.max_nfev, args.prior_sigma_translation_m,
+                math.radians(args.prior_sigma_rotation_deg), args.visual_lambda, args.precision_scale,
+                args.precision_floor_px, args.robust_scale_whitened, args.irls_iterations)
+            delta = np.asarray(optimizer.x, dtype=np.float64)
+            if np.isfinite(candidate).all():
+                candidate_after = pose_error(candidate, gt)
+            else:
+                candidate_after = (float("nan"), float("nan"))
+            correction_translation = float(np.linalg.norm(candidate[:3, 3] - initial[:3, 3]))
+            correction_rotation = float(np.linalg.norm(delta[3:]))
+            solver = {"success": bool(optimizer.success), "status": int(optimizer.status), "nfev": int(optimizer.nfev),
+                      "cost": float(optimizer.cost), "whitened_residual_rmse": float(np.sqrt(np.mean(fit_residual ** 2))),
+                      "irls_iterations": args.irls_iterations}
+            if int(holdout.sum()) >= args.min_holdout:
+                holdout_before = block_soft_l1_cost(whitened_reprojection(
+                    initial, points[holdout], pixels[holdout], cameras[holdout], precisions[holdout], row["views"],
+                    args.precision_scale, args.precision_floor_px), args.robust_scale_whitened)
+                holdout_after = block_soft_l1_cost(whitened_reprojection(
+                    candidate, points[holdout], pixels[holdout], cameras[holdout], precisions[holdout], row["views"],
+                    args.precision_scale, args.precision_floor_px), args.robust_scale_whitened)
+            if not optimizer.success:
+                acceptance_reason = "solver_failed"
+            elif not np.isfinite(candidate).all() or not np.isfinite(delta).all():
+                acceptance_reason = "nonfinite_candidate"
+            elif correction_translation > args.max_translation + 1e-9:
+                acceptance_reason = "translation_bound"
+            elif correction_rotation > math.radians(args.max_rotation_deg) + 1e-9:
+                acceptance_reason = "rotation_bound"
+            elif int(holdout.sum()) < args.min_holdout:
+                acceptance_reason = "insufficient_holdout"
+            elif not np.isfinite(holdout_before + holdout_after) or holdout_after > args.holdout_accept_ratio * holdout_before:
+                acceptance_reason = "holdout_not_improved"
+            else:
+                accepted, acceptance_reason = True, "accepted"
+        elif len(points) and int(holdout.sum()) >= len(points) - 5:
+            acceptance_reason = "insufficient_fit_correspondences"
+        refined = candidate if accepted else initial.copy()
+        after = candidate_after if accepted else before
+        acceptance = {"accepted": accepted, "reason": acceptance_reason, "fit_correspondences": int(fit.sum()),
+                      "holdout_correspondences": int(holdout.sum()), "holdout_cost_before": holdout_before,
+                      "holdout_cost_candidate": holdout_after, "correction_translation_m": correction_translation,
+                      "correction_rotation_deg": math.degrees(correction_rotation) if np.isfinite(correction_rotation) else float("nan")}
         record = {"frame_id": row["frame_id"], "before": list(before), "after": list(after),
-                  "delta": [after[0] - before[0], after[1] - before[1]],
+                  "candidate_after": list(candidate_after), "delta": [after[0] - before[0], after[1] - before[1]],
+                  "candidate_delta": [candidate_after[0] - before[0], candidate_after[1] - before[1]],
                   "leader_success": bool(before[0] < 1. and before[1] < 2.), "n_correspondences": int(len(points)),
                   "n_cameras": int(len(np.unique(cameras))) if len(cameras) else 0,
                   "overlap_mean": float(scores.mean()) if len(scores) else float("nan"),
                   "per_camera_correspondences": [int((cameras == camera).sum()) for camera in range(6)],
                   "matching": matching, "solver": solver, "baseline_support": support,
                   "geometry": geometry_diagnostics(points, cameras, initial, row["views"]),
-                  "leader_pose": initial.tolist(), "refined_pose": refined.tolist(), "gt_pose": gt.tolist()}
+                  "leader_pose": initial.tolist(), "candidate_pose": candidate.tolist(), "refined_pose": refined.tolist(),
+                  "acceptance": acceptance, "gt_pose": gt.tolist()}
         records.append(record)
-        print("validation %d/%d %s cams=%d corr=%d overlap=%.3f before=(%.3f,%.3f) after=(%.3f,%.3f)" %
+        print("validation %d/%d %s cams=%d corr=%d overlap=%.3f accepted=%s before=(%.3f,%.3f) after=(%.3f,%.3f)" %
               (index + 1, len(val_rows), row["frame_id"], record["n_cameras"], len(points), record["overlap_mean"],
-               before[0], before[1], after[0], after[1]), flush=True)
-        roma.clear_cache()
+               accepted, before[0], before[1], after[0], after[1]), flush=True)
+        if roma is not None:
+            roma.clear_cache()
     success = [record for record in records if record["leader_success"]]
     paired, paired_success = np.asarray([record["delta"] for record in records]), np.asarray([record["delta"] for record in success])
     correspondence_counts = np.asarray([record["n_correspondences"] for record in records], dtype=np.int64)
@@ -354,16 +525,26 @@ def main():
                                           "local_radius_px": args.local_radius, "min_overlap": args.min_overlap,
                                           "min_reference_view_cosine": args.min_reference_view_cosine,
                                           "grid_cell_px": args.grid_cell, "max_per_camera": args.max_per_camera},
-                             "optimizer": "bounded robust LM on RoMa pixel-precision-whitened residuals",
-                             "f_scale_whitened": args.f_scale_whitened, "gt_in_correspondence_path": False},
+                             "optimizer": "LiDAR-prior-protected block-IRLS Trust Region Reflective optimization",
+                             "local_pose_update": "R=Exp(delta_rotation) R_LEADER; t=t_LEADER+delta_translation",
+                             "prior": {"sigma_translation_m": args.prior_sigma_translation_m,
+                                       "sigma_rotation_deg": args.prior_sigma_rotation_deg,
+                                       "visual_lambda": args.visual_lambda},
+                             "precision": {"scale": args.precision_scale, "floor_px": args.precision_floor_px},
+                             "robust_scale_whitened": args.robust_scale_whitened,
+                             "acceptance": {"holdout_group": "map anchor id", "holdout_modulus": args.holdout_modulus,
+                                            "min_holdout": args.min_holdout, "maximum_holdout_cost_ratio": args.holdout_accept_ratio},
+                             "match_cache": {"directory": args.match_cache_dir, "replay": args.replay_match_cache},
+                             "gt_in_correspondence_path": False},
               "reference_map": {"path": str(args.map_cache), "observations": int(len(references["map_ids"])),
                                 "train_frames": len(train_rows), "geometry_only": bool(references["geometry_only"])},
               "validation_frames": len(records), "records": records,
-              "metrics": {"all_before": metrics(records, "before"), "all_after": metrics(records, "after"),
+              "metrics": {"all_before": metrics(records, "before"), "candidate_after": metrics(records, "candidate_after"), "all_after": metrics(records, "after"),
                           "leader_success_before": metrics(success, "before"), "leader_success_after": metrics(success, "after")},
               "coverage": {"translation_improved_frames": int(translation_improved.sum()),
                            "rotation_improved_frames": int(rotation_improved.sum()),
                            "both_improved_frames": int((translation_improved & rotation_improved).sum()),
+                           "accepted_candidates": int(sum(record["acceptance"]["accepted"] for record in records)),
                            "median_correspondences_per_frame": float(np.median(correspondence_counts)) if len(correspondence_counts) else float("nan"),
                            "median_active_cameras_per_frame": float(np.median(active_camera_counts)) if len(active_camera_counts) else float("nan"),
                            "mean_active_cameras_per_frame": float(active_camera_counts.mean()) if len(active_camera_counts) else float("nan")},
