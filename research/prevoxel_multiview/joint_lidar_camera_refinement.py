@@ -1,6 +1,6 @@
 import numpy as np
 
-from local_visual_refinement_roma import apply_local_delta
+from local_visual_refinement_roma import apply_local_delta, reprojection_blocks
 from oracle_pose_refinement import project_world
 
 
@@ -69,3 +69,35 @@ def adaptive_innovation_gate(points, matched_pixels, cameras, precisions, pose, 
         covariance[indices], d2[indices] = innovation, local_d2
         valid[indices] = np.isfinite(local_d2) & (local_d2 < threshold)
     return valid, d2, covariance
+
+
+def refine_joint_pose(initial, lidar, points, pixels, cameras, precisions, pair_ids, views,
+                      camera_floor_px=1., camera_weight=1., max_translation=.5,
+                      max_rotation=np.deg2rad(5.), max_nfev=100, irls_iterations=4):
+    from scipy.optimize import least_squares
+
+    camera_data = {int(view["camera"]): (np.asarray(view["camera_to_body"], dtype=np.float64),
+                                           np.loadtxt(view["calibration"]).astype(np.float64)) for view in views}
+    camera_covariance = np.linalg.inv(precisions) + camera_floor_px ** 2 * np.eye(2)[None]
+    camera_cholesky = np.linalg.cholesky(np.linalg.inv(camera_covariance))
+    groups, inverse, counts = np.unique(np.asarray(pair_ids).astype(str), return_inverse=True, return_counts=True)
+    pair_weights = camera_weight / (len(groups) * counts[inverse])
+    lidar_scale = np.sqrt(lidar["weights"]) / lidar["residual_scale_m"]
+    camera_irls = np.ones(len(points))
+    bounds = np.r_[np.full(3, max_translation), np.full(3, max_rotation)]
+    result = None
+    for _ in range(irls_iterations):
+        def residual(delta):
+            pose = apply_local_delta(initial, delta)
+            lidar_raw = lidar["source"] @ pose[:3, :3].T + pose[:3, 3] - lidar["target"]
+            camera_raw = reprojection_blocks(pose, points, pixels, cameras, camera_data)
+            camera_white = np.einsum("nij,nj->ni", np.swapaxes(camera_cholesky, 1, 2), camera_raw)
+            return np.r_[ (lidar_scale[:, None] * lidar_raw).ravel(),
+                          (np.sqrt(pair_weights * camera_irls)[:, None] * camera_white).ravel()]
+        result = least_squares(residual, np.zeros(6) if result is None else result.x, bounds=(-bounds, bounds), method="trf", loss="linear", max_nfev=max_nfev)
+        pose = apply_local_delta(initial, result.x)
+        camera_raw = reprojection_blocks(pose, points, pixels, cameras, camera_data)
+        camera_white = np.einsum("nij,nj->ni", np.swapaxes(camera_cholesky, 1, 2), camera_raw)
+        norms = np.linalg.norm(camera_white, axis=1)
+        camera_irls = 1. / np.sqrt(1. + norms ** 2)
+    return apply_local_delta(initial, result.x), result
