@@ -345,6 +345,10 @@ def main():
         roma.clear_cache()
     success = [record for record in records if record["leader_success"]]
     paired, paired_success = np.asarray([record["delta"] for record in records]), np.asarray([record["delta"] for record in success])
+    correspondence_counts = np.asarray([record["n_correspondences"] for record in records], dtype=np.int64)
+    active_camera_counts = np.asarray([record["n_cameras"] for record in records], dtype=np.int64)
+    translation_improved = paired[:, 0] < 0 if len(paired) else np.empty(0, dtype=bool)
+    rotation_improved = paired[:, 1] < 0 if len(paired) else np.empty(0, dtype=bool)
     result = {"protocol": {"map_source": "train split only", "front_end": "RoMa v2 dense reference-to-query fields",
                              "matching": {"max_reference_images_per_query_camera": args.max_reference_images,
                                           "local_radius_px": args.local_radius, "min_overlap": args.min_overlap,
@@ -357,6 +361,12 @@ def main():
               "validation_frames": len(records), "records": records,
               "metrics": {"all_before": metrics(records, "before"), "all_after": metrics(records, "after"),
                           "leader_success_before": metrics(success, "before"), "leader_success_after": metrics(success, "after")},
+              "coverage": {"translation_improved_frames": int(translation_improved.sum()),
+                           "rotation_improved_frames": int(rotation_improved.sum()),
+                           "both_improved_frames": int((translation_improved & rotation_improved).sum()),
+                           "median_correspondences_per_frame": float(np.median(correspondence_counts)) if len(correspondence_counts) else float("nan"),
+                           "median_active_cameras_per_frame": float(np.median(active_camera_counts)) if len(active_camera_counts) else float("nan"),
+                           "mean_active_cameras_per_frame": float(active_camera_counts.mean()) if len(active_camera_counts) else float("nan")},
               "paired": {"all_mean_delta_translation_m_rotation_deg": paired.mean(axis=0).tolist() if len(paired) else [],
                          "all_bootstrap_95ci": bootstrap_ci(paired),
                          "leader_success_mean_delta_translation_m_rotation_deg": paired_success.mean(axis=0).tolist() if len(paired_success) else [],
