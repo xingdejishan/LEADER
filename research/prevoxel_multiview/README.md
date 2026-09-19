@@ -157,7 +157,9 @@ window is centered on the GT projection of the map point, not on the LEADER
 pose. Same-frame observations are excluded, visibility is checked at the GT
 pose, and a random descriptor from a different map point provides a shuffled
 control. The report includes rank-1, best-match distance `<5 px`, correct and
-best-wrong cosine, margin, and all six camera breakdowns.
+best-wrong cosine, margin, and all six camera breakdowns. Use
+`--descriptor-space pca128` for the cached baseline or `--descriptor-space raw`
+to repeat the exact probe with the original DeDoDe-B descriptor before PCA.
 
 ```bash
 python research/prevoxel_multiview/cross_frame_visual_probe.py \

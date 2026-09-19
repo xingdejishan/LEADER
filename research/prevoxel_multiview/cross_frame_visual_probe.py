@@ -19,22 +19,56 @@ from local_visual_refinement import DenseDescriptorExtractor, normalize, sample_
 from oracle_pose_refinement import load_lidar, project_world
 
 
-def build_history_map(rows, lidar_cache, feature_cache, projection_cache, voxel_size):
+def project_body(points, camera_to_body, intrinsics):
+    camera = (points - camera_to_body[:3, 3]) @ camera_to_body[:3, :3]
+    pixels = camera @ intrinsics.T
+    with np.errstate(divide="ignore", invalid="ignore"):
+        uv = pixels[:, :2] / pixels[:, 2:3]
+    return uv
+
+
+def frame_descriptors(row, cached, feature_cache, projection_cache, extractor, descriptor_space):
+    with np.load(Path(feature_cache) / (row["frame_id"] + ".npz")) as data:
+        valid = np.asarray(data["mask"], dtype=bool)
+        cached_descriptors = np.asarray(data["image"], dtype=np.float32) if descriptor_space == "pca128" else None
+    with np.load(Path(projection_cache) / (row["frame_id"] + ".npz")) as mapping:
+        projection_xyz = np.asarray(mapping["projection_xyz"], dtype=np.float32)
+        localization_xyz = np.asarray(mapping["localization_xyz"], dtype=np.float32)
+    if not np.array_equal(localization_xyz, cached["source"]):
+        raise ValueError("projection/localization mismatch: %s" % row["frame_id"])
+    if descriptor_space == "pca128":
+        if cached_descriptors.ndim != 3 or cached_descriptors.shape[:2] != valid.shape:
+            raise ValueError("feature/source shape mismatch: %s" % row["frame_id"])
+        return cached_descriptors, valid, projection_xyz
+    descriptor_values = []
+    for view in sorted(row["views"], key=lambda item: item["camera"]):
+        camera = int(view["camera"])
+        dense, image_hw = extractor.image(row["frame_id"], camera, view["image"])
+        K = np.loadtxt(view["calibration"]).astype(np.float32)
+        extrinsic = np.asarray(view["camera_to_body"], dtype=np.float32)
+        uv = project_body(projection_xyz, extrinsic, K)
+        indices = np.where(valid[:, camera] & np.isfinite(uv).all(axis=1))[0]
+        values = np.zeros((len(projection_xyz), dense.shape[1]), dtype=np.float32)
+        if len(indices):
+            sampled = sample_dense(
+                dense, extractor.torch.from_numpy(uv[indices].astype(np.float32)).to(extractor.device), image_hw
+            ).detach().cpu().numpy()
+            values[indices] = sampled
+        descriptor_values.append(values)
+    return np.stack(descriptor_values, axis=1), valid, projection_xyz
+
+
+def build_history_map(rows, lidar_cache, feature_cache, projection_cache, voxel_size,
+                      extractor, descriptor_space):
     point_ids = {}
     points = []
     observations = defaultdict(list)
     for index, row in enumerate(rows):
         cached = load_lidar(lidar_cache, row["frame_id"])
-        with np.load(Path(feature_cache) / (row["frame_id"] + ".npz")) as data:
-            descriptors = np.asarray(data["image"], dtype=np.float32)
-            valid = np.asarray(data["mask"], dtype=bool)
-        if descriptors.ndim != 3 or descriptors.shape[:2] != valid.shape:
-            raise ValueError("feature/source shape mismatch: %s" % row["frame_id"])
-        with np.load(Path(projection_cache) / (row["frame_id"] + ".npz")) as mapping:
-            projection_xyz = np.asarray(mapping["projection_xyz"], dtype=np.float64)
-            localization_xyz = np.asarray(mapping["localization_xyz"], dtype=np.float64)
-        if not np.array_equal(localization_xyz, cached["source"]):
-            raise ValueError("projection/localization mismatch: %s" % row["frame_id"])
+        descriptors, valid, projection_xyz = frame_descriptors(
+            row, cached, feature_cache, projection_cache, extractor, descriptor_space
+        )
+        projection_xyz = projection_xyz.astype(np.float64)
         world = projection_xyz @ cached["GT"][:3, :3].T + cached["GT"][:3, 3]
         keys = np.floor(world / voxel_size).astype(np.int64)
         for point_index, key_array in enumerate(keys):
@@ -205,6 +239,7 @@ def main():
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--frames", type=int, default=0)
     parser.add_argument("--map-voxel-size", type=float, default=0.2)
+    parser.add_argument("--descriptor-space", choices=("pca128", "raw"), default="pca128")
     parser.add_argument("--radius", type=int, default=8)
     parser.add_argument("--step", type=int, default=2)
     parser.add_argument("--seed", type=int, default=2089)
@@ -215,9 +250,11 @@ def main():
         rows = rows[:args.frames]
     if len(rows) < 2:
         raise ValueError("cross-frame probe requires at least two train frames")
-    extractor = DenseDescriptorExtractor(args.device, args.dedode_weights, args.pca_weights)
+    extractor = DenseDescriptorExtractor(args.device, args.dedode_weights, args.pca_weights,
+                                         apply_pca=args.descriptor_space == "pca128")
     points, observations = build_history_map(rows, args.lidar_cache, args.feature_cache,
-                                              args.projection_cache, args.map_voxel_size)
+                                              args.projection_cache, args.map_voxel_size,
+                                              extractor, args.descriptor_space)
     records = []
     started = time.time()
     for index, row in enumerate(rows):
@@ -239,7 +276,8 @@ def main():
             "search_window": "square +/- %d px at step %d" % (args.radius, args.step),
             "actual_descriptor": "historical descriptor from the same map point and camera, source frame != query frame",
             "shuffled_control": "random descriptor from a different map point, same camera, source frame != query frame",
-            "descriptor": "DeDoDe-B + PCA128",
+            "descriptor": "DeDoDe-B + PCA128" if args.descriptor_space == "pca128" else "raw DeDoDe-B descriptor",
+            "descriptor_space": args.descriptor_space,
             "validation_used": False,
         },
         "map": {"points": int(len(points)), "observations": int(sum(len(v) for v in observations.values())),

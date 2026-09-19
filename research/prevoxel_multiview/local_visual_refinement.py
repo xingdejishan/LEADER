@@ -46,7 +46,8 @@ def descriptor_row(path, point_count):
 def build_visual_map(rows, lidar_cache, feature_cache, projection_cache, voxel_size, output, max_history):
     if output.exists():
         with np.load(output) as data:
-            return {key: np.asarray(data[key]) for key in data.files}
+            if "observation_world_xyz" in data.files:
+                return {key: np.asarray(data[key]) for key in data.files}
     point_ids = {}
     points = []
     observations = defaultdict(list)
@@ -73,16 +74,17 @@ def build_visual_map(rows, lidar_cache, feature_cache, projection_cache, voxel_s
                     continue
                 key_obs = (map_index, camera)
                 if len(observations[key_obs]) < max_history:
-                    observations[key_obs].append((descriptors[point_index, camera], row["frame_id"]))
+                    observations[key_obs].append((descriptors[point_index, camera], row["frame_id"], world[point_index]))
         print("visual map frame %d/%d" % (index + 1, len(train_rows)), flush=True)
-    map_ids, camera_ids, values, counts, frame_ids = [], [], [], [], []
+    map_ids, camera_ids, values, counts, frame_ids, observation_world_xyz = [], [], [], [], [], []
     for (map_index, camera), history in observations.items():
-        for descriptor, frame_id in history:
+        for descriptor, frame_id, world_xyz in history:
             values.append(normalize(np.asarray(descriptor, dtype=np.float32)[None])[0])
             map_ids.append(map_index)
             camera_ids.append(camera)
             counts.append(len(history))
             frame_ids.append(frame_id)
+            observation_world_xyz.append(world_xyz)
     result = {
         "points": np.asarray(points, dtype=np.float32),
         "descriptors": np.asarray(values, dtype=np.float32),
@@ -90,6 +92,7 @@ def build_visual_map(rows, lidar_cache, feature_cache, projection_cache, voxel_s
         "camera_ids": np.asarray(camera_ids, dtype=np.int8),
         "history_counts": np.asarray(counts, dtype=np.int16),
         "observation_frame_ids": np.asarray(frame_ids, dtype="U32"),
+        "observation_world_xyz": np.asarray(observation_world_xyz, dtype=np.float32),
         "voxel_size": np.asarray(voxel_size, dtype=np.float32),
     }
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -98,7 +101,7 @@ def build_visual_map(rows, lidar_cache, feature_cache, projection_cache, voxel_s
 
 
 class DenseDescriptorExtractor:
-    def __init__(self, device, weights, pca_weights):
+    def __init__(self, device, weights, pca_weights, apply_pca=True):
         import torch
         import torch.nn.functional as F
         from kornia.feature.dedode.dedode_models import get_descriptor
@@ -106,11 +109,13 @@ class DenseDescriptorExtractor:
         self.torch = torch
         self.F = F
         self.device = torch.device(device)
+        self.apply_pca = bool(apply_pca)
         self.model = get_descriptor("B").to(self.device).eval().requires_grad_(False)
         self.model.load_state_dict(torch.load(weights, map_location="cpu", weights_only=True))
-        pca = torch.load(pca_weights, map_location="cpu", weights_only=True)
-        self.pca_weight = pca["weight"].float().to(self.device)
-        self.pca_bias = pca["bias"].float().to(self.device)
+        if self.apply_pca:
+            pca = torch.load(pca_weights, map_location="cpu", weights_only=True)
+            self.pca_weight = pca["weight"].float().to(self.device)
+            self.pca_bias = pca["bias"].float().to(self.device)
         self.mean = torch.tensor([.485, .456, .406], device=self.device)[None, :, None, None]
         self.std = torch.tensor([.229, .224, .225], device=self.device)[None, :, None, None]
 
@@ -130,7 +135,8 @@ class DenseDescriptorExtractor:
             pixels = pixels.to(self.device).permute(2, 0, 1)[None].float() / 255.0
             with self.torch.autocast(device_type=self.device.type, enabled=self.device.type == "cuda"):
                 dense = self.model((pixels - self.mean) / self.std)
-            dense = self.F.conv2d(dense.float(), self.pca_weight, self.pca_bias)
+            if self.apply_pca:
+                dense = self.F.conv2d(dense.float(), self.pca_weight, self.pca_bias)
         return dense.float(), (height, width)
 
 
@@ -210,6 +216,10 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
     map_ids = visual_map["map_ids"].astype(np.int64)
     camera_ids = visual_map["camera_ids"].astype(np.int64)
     descriptors = visual_map["descriptors"].astype(np.float32)
+    observation_world_xyz = visual_map.get("observation_world_xyz")
+    if observation_world_xyz is None:
+        raise ValueError("visual map lacks descriptor-bound observation_world_xyz; rebuild the map cache")
+    observation_world_xyz = observation_world_xyz.astype(np.float64)
     observation_frame_ids = visual_map.get("observation_frame_ids")
     all_points, all_pixels, all_cameras, all_scores = [], [], [], []
     diagnostics = []
@@ -244,10 +254,12 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
         max_history = max(len(group) for group in grouped_rows)
         descriptor_dim = descriptors.shape[1]
         map_desc = np.zeros((len(unique_map_ids), max_history, descriptor_dim), dtype=np.float32)
+        map_world = np.zeros((len(unique_map_ids), max_history, 3), dtype=np.float64)
         map_desc_mask = np.zeros((len(unique_map_ids), max_history), dtype=bool)
         for group_index, group in enumerate(grouped_rows):
             values = normalize(descriptors[group])
             map_desc[group_index, :len(values)] = values
+            map_world[group_index, :len(values)] = observation_world_xyz[group]
             map_desc_mask[group_index, :len(values)] = True
         query_uv = base_uv[:, None, :] + offsets[None]
         flat_uv = query_uv.reshape(-1, 2)
@@ -263,6 +275,8 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
         scores = scores_by_history.max(axis=-1)
         best_offset = scores.argmax(axis=1)
         best_score = np.clip(scores[np.arange(len(unique_map_ids)), best_offset], -1.0, 1.0)
+        best_history = scores_by_history[np.arange(len(unique_map_ids)), best_offset].argmax(axis=-1)
+        best_world = map_world[np.arange(len(unique_map_ids)), best_history]
         best_uv = query_uv[np.arange(len(unique_map_ids)), best_offset]
         cosine_keep = best_score >= min_cosine
         ratio_values = np.full(len(unique_map_ids), np.nan, dtype=np.float32)
@@ -272,8 +286,9 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
             second_exclude = ((np.abs(offsets[None, :, 0] - offsets[best_offset, 0, None]) <= ratio_exclusion_radius) &
                               (np.abs(offsets[None, :, 1] - offsets[best_offset, 1, None]) <= ratio_exclusion_radius))
             second_scores[second_exclude] = -np.inf
-            second_score = np.clip(second_scores.max(axis=1), -1.0, 1.0)
-            finite_second = np.isfinite(second_score)
+            raw_second_score = second_scores.max(axis=1)
+            finite_second = np.isfinite(raw_second_score)
+            second_score = np.clip(raw_second_score, -1.0, 1.0)
             ratio_values[finite_second] = ((1.0 - best_score[finite_second]) /
                                            np.maximum(1.0 - second_score[finite_second], 1e-8))
             ratio_keep = finite_second & (ratio_values <= float(ratio_threshold))
@@ -298,7 +313,7 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
         if stage_records is not None:
             stage_records.append({
                 "camera": int(view["camera"]),
-                "points": points[unique_map_ids].copy(),
+                "points": best_world.copy(),
                 "pixels": best_uv.copy(),
                 "best_offsets": offsets[best_offset].copy(),
                 "best_scores": best_score.copy(),
@@ -309,6 +324,7 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
         grid_selected_count = 0
         if keep.any():
             unique_map_ids = unique_map_ids[keep]
+            best_world = best_world[keep]
             best_score = best_score[keep]
             best_uv = best_uv[keep]
             if max_per_camera > 0:
@@ -327,10 +343,11 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
             else:
                 selected = np.arange(len(unique_map_ids), dtype=np.int64)
             unique_map_ids = unique_map_ids[selected]
+            best_world = best_world[selected]
             best_score = best_score[selected]
             best_uv = best_uv[selected]
             grid_selected_count = len(unique_map_ids)
-            all_points.append(points[unique_map_ids])
+            all_points.append(best_world)
             all_pixels.append(best_uv)
             all_cameras.append(np.full(len(unique_map_ids), int(view["camera"]), dtype=np.int64))
             all_scores.append(best_score)
@@ -374,6 +391,7 @@ def main():
     parser.add_argument("--ratio-threshold", type=float, default=0.8)
     parser.add_argument("--ratio-exclusion-radius", type=float, default=None)
     parser.add_argument("--mutual-radius", type=float, default=8.0)
+    parser.add_argument("--disable-mutual", action="store_true")
     parser.add_argument("--grid-cell", type=int, default=4)
     parser.add_argument("--max-per-camera", type=int, default=300)
     parser.add_argument("--max-translation", type=float, default=2.0)
@@ -420,7 +438,7 @@ def main():
             args.search_step, args.min_cosine, args.grid_cell, args.max_per_camera,
             ratio_threshold=args.ratio_threshold,
             ratio_exclusion_radius=args.ratio_exclusion_radius,
-            mutual_radius=args.mutual_radius)
+            mutual_radius=None if args.disable_mutual else args.mutual_radius)
         if len(points) >= 6 and len(np.unique(cameras)):
             refined, optimizer, residual = refine_pose(
                 initial, points, pixels, cameras, row["views"], args.max_translation,
@@ -463,7 +481,8 @@ def main():
                                   "map_point_level_history_aggregation": "max cosine over historical descriptors per map point",
                                   "ratio_threshold": args.ratio_threshold,
                                   "ratio_exclusion_radius_px": args.ratio_exclusion_radius if args.ratio_exclusion_radius is not None else args.search_step,
-                                  "mutual_radius_px": args.mutual_radius,
+                                  "mutual_radius_px": None if args.disable_mutual else args.mutual_radius,
+                                  "mutual_enabled": not args.disable_mutual,
                                   "mutual_window_shape": "axis-aligned square"},
                      "visibility": "T_L projection + image mask + black border + local z-buffer",
                      "optimizer": "same bounded robust LM as oracle", "gt_in_correspondence_path": False},
