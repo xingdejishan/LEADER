@@ -40,6 +40,9 @@ def pair_summary(frame_id, camera, pair, selection_score, query_uv, overlap, tru
     error = np.linalg.norm(query_uv - truth_uv, axis=1)
     usable = truth_valid & predicted & (overlap >= min_overlap)
     usable_error = error[usable]
+    overlap_pass = int(usable.sum())
+    correct_5 = int((usable & (error < 5.)).sum())
+    correct_8 = int((usable & (error < 8.)).sum())
     return {
         "query_frame_id": frame_id,
         "query_camera": int(camera),
@@ -49,9 +52,11 @@ def pair_summary(frame_id, camera, pair, selection_score, query_uv, overlap, tru
         "anchors": int(len(query_uv)),
         "gt_visible_anchors": int(truth_valid.sum()),
         "prediction_in_image": int((truth_valid & predicted).sum()),
-        "overlap_pass": int((truth_valid & predicted & (overlap >= min_overlap)).sum()),
-        "correct_lt_5px": int((usable & (error < 5.)).sum()),
-        "correct_lt_8px": int((usable & (error < 8.)).sum()),
+        "overlap_pass": overlap_pass,
+        "correct_lt_5px": correct_5,
+        "correct_lt_8px": correct_8,
+        "precision_lt_5px": float(correct_5 / overlap_pass) if overlap_pass else float("nan"),
+        "precision_lt_8px": float(correct_8 / overlap_pass) if overlap_pass else float("nan"),
         "median_pixel_error_overlap": float(np.median(usable_error)) if len(usable_error) else float("nan"),
         "p90_pixel_error_overlap": float(np.percentile(usable_error, 90)) if len(usable_error) else float("nan"),
     }
@@ -78,7 +83,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--lidar-cache", required=True)
-    parser.add_argument("--feature-cache", required=True)
     parser.add_argument("--projection-cache", required=True)
     parser.add_argument("--map-cache", required=True)
     parser.add_argument("--output", required=True)
@@ -89,7 +93,7 @@ def main():
     parser.add_argument("--cameras", default="")
     parser.add_argument("--max-pairs-per-camera", type=int, default=0)
     parser.add_argument("--map-voxel-size", type=float, default=.2)
-    parser.add_argument("--max-history", type=int, default=4)
+    parser.add_argument("--max-history", type=int, default=0)
     parser.add_argument("--crop-radius", type=float, default=80.)
     parser.add_argument("--min-overlap", type=float, default=.2)
     parser.add_argument("--min-reference-view-cosine", type=float, default=.7)
@@ -103,7 +107,7 @@ def main():
     if not train_rows:
         raise ValueError("manifest has no train rows")
     cameras = set(int(value) for value in args.cameras.split(",") if value) if args.cameras else set(range(6))
-    references = build_reference_observations(rows, args.lidar_cache, args.feature_cache, args.projection_cache,
+    references = build_reference_observations(rows, args.lidar_cache, args.projection_cache,
                                               args.map_voxel_size, Path(args.map_cache), args.max_history)
     rows_by_frame = {row["frame_id"]: row for row in rows}
     matcher_module = load_module("roma_probe_matcher", REPO / "models" / "sc2pcr.py")
@@ -111,7 +115,7 @@ def main():
     matcher = matcher_module.Matcher(inlier_threshold=2., d_thre=2, num_iterations=10,
                                      ratio=.15, nms_radius=.1, max_points=3000, k1=30)
     roma = RoMaField(args.device, args.roma_setting)
-    map_points = references["points"].astype(np.float64)
+    observation_world = references["world_xyz"].astype(np.float64)
     records, started = [], time.time()
     for frame_index, row in enumerate(train_rows):
         initial, gt, _ = pose_from_baseline(row, args.lidar_cache, matcher, pool_module.full_pool_refine,
@@ -124,14 +128,12 @@ def main():
             query_image = np.asarray(Image.open(query_view["image"]).convert("RGB"))
             query_mask = np.asarray(np.load(query_view["mask"]))
             query_height, query_width = query_image.shape[:2]
-            local_ids = np.where(np.linalg.norm(map_points - initial[:3, 3], axis=1) <= args.crop_radius)[0]
-            _, visible_local = visible_map_points(map_points[local_ids], initial, query_view, query_image, query_mask)
-            visible_ids = set(int(value) for value in local_ids[visible_local])
-            eligible = np.fromiter((int(map_id) in visible_ids for map_id in references["map_ids"]), dtype=bool,
-                                   count=len(references["map_ids"]))
-            eligible &= references["frame_ids"] != row["frame_id"]
+            local_observations = np.where(np.linalg.norm(observation_world - initial[:3, 3], axis=1) <= args.crop_radius)[0]
+            _, visible_local = visible_map_points(observation_world[local_observations], initial, query_view, query_image, query_mask)
+            eligible = local_observations[visible_local]
+            eligible = eligible[references["frame_ids"][eligible] != row["frame_id"]]
             groups = defaultdict(list)
-            for record_index in np.where(eligible)[0]:
+            for record_index in eligible:
                 groups[(str(references["frame_ids"][record_index]), int(references["camera_ids"][record_index]))].append(record_index)
             query_center = (initial @ np.asarray(query_view["camera_to_body"], dtype=np.float64))[:3, 3]
             scores = {}
@@ -173,7 +175,7 @@ def main():
             best = sorted(pair_records, key=lambda record: (-record["correct_lt_8px"], -record["correct_lt_5px"],
                                                             record["median_pixel_error_overlap"]))[0] if pair_records else None
             records.append({"frame_id": row["frame_id"], "camera": camera, "all_pairs": pair_records,
-                            "automatic_top_k": aggregate(top_records), "oracle_best_pair": best,
+                            "automatic_top_k": aggregate(top_records), "oracle_best_correspondence_count_pair": best,
                             "all_geometrically_compatible": aggregate(pair_records)})
             print("probe %d/%d %s cam=%d pairs=%d top8=%d best8=%d" %
                   (frame_index + 1, len(train_rows), row["frame_id"], camera, len(pair_records),
@@ -181,8 +183,9 @@ def main():
         roma.clear_cache()
     result = {"protocol": {"split": "train only, leave-one-frame-out", "gt_use": "labels only; never retrieval or matching",
                              "front_end": "RoMa v2 dense reference-to-query field", "local_gate": "disabled",
-                             "reference_pool": "all historical image pairs with at least one ray-compatible local anchor",
-                             "automatic_retrieval": "top-k by current ray-compatible local-anchor count"},
+                             "reference_pool": "all historical image pairs with at least one ray-compatible visible observation",
+                             "automatic_retrieval": "top-k by current ray-compatible visible-observation count",
+                             "oracle": "pair with the largest correct correspondence count; pair precision is reported separately"},
               "settings": vars(args), "records": records, "elapsed_s": time.time() - started}
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)

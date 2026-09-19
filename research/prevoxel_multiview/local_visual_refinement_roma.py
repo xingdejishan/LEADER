@@ -16,7 +16,7 @@ if str(HERE) not in sys.path:
 if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
 
-from local_visual_refinement import descriptor_row, visible_map_points
+from local_visual_refinement import visible_map_points
 from oracle_pose_refinement import (
     bootstrap_ci,
     geometry_diagnostics,
@@ -30,18 +30,17 @@ from oracle_pose_refinement import (
 )
 
 
-def build_reference_observations(rows, lidar_cache, feature_cache, projection_cache,
+def build_reference_observations(rows, lidar_cache, projection_cache,
                                  voxel_size, output, max_history):
-    required = {"points", "map_ids", "world_xyz", "frame_ids", "camera_ids", "ref_uv"}
+    required = {"map_ids", "world_xyz", "frame_ids", "camera_ids", "ref_uv", "geometry_only"}
     if output.exists():
         with np.load(output) as data:
             if required.issubset(data.files):
                 return {key: np.asarray(data[key]) for key in data.files}
-    point_ids, points, observations = {}, [], defaultdict(list)
+    point_ids, observations = {}, defaultdict(list)
     train_rows = [row for row in rows if row["split"] == "train"]
     for index, row in enumerate(train_rows):
         cached = load_lidar(lidar_cache, row["frame_id"])
-        _, valid = descriptor_row(Path(feature_cache) / (row["frame_id"] + ".npz"), len(cached["source"]))
         with np.load(Path(projection_cache) / (row["frame_id"] + ".npz")) as mapping:
             projection_xyz = np.asarray(mapping["projection_xyz"], dtype=np.float32)
             localization_xyz = np.asarray(mapping["localization_xyz"], dtype=np.float32)
@@ -53,31 +52,21 @@ def build_reference_observations(rows, lidar_cache, feature_cache, projection_ca
             key = tuple(int(value) for value in key_array)
             map_index = point_ids.get(key)
             if map_index is None:
-                map_index = len(points)
+                map_index = len(point_ids)
                 point_ids[key] = map_index
-                points.append(world[raw_index])
             map_for_raw[raw_index] = map_index
         for view in row["views"]:
             camera = int(view["camera"])
-            raw_indices = np.where(valid[:, camera])[0]
+            from PIL import Image
+            image = np.asarray(Image.open(view["image"]).convert("RGB"))
+            image_mask = np.asarray(np.load(view["mask"]))
+            uv, raw_indices = visible_map_points(world, cached["GT"], view, image, image_mask)
             if not len(raw_indices):
                 continue
-            K = np.loadtxt(view["calibration"]).astype(np.float64)
-            uv, depth = project_world(world[raw_indices], cached["GT"],
-                                      np.asarray(view["camera_to_body"], dtype=np.float64), K)
-            image_mask = np.asarray(np.load(view["mask"]))
-            height, width = image_mask.shape
-            integer = np.rint(uv).astype(np.int64)
-            in_image = (depth > .5) & np.isfinite(uv).all(axis=1)
-            in_image &= (uv[:, 0] >= 0) & (uv[:, 0] < width) & (uv[:, 1] >= 0) & (uv[:, 1] < height)
-            integer[:, 0] = np.clip(integer[:, 0], 0, width - 1)
-            integer[:, 1] = np.clip(integer[:, 1], 0, height - 1)
-            in_image &= image_mask[integer[:, 1], integer[:, 0]] > 0
-            for position in np.where(in_image)[0]:
-                raw_index = raw_indices[position]
+            for raw_index in raw_indices:
                 key = (int(map_for_raw[raw_index]), row["frame_id"], camera)
-                if len(observations[key]) < max_history:
-                    observations[key].append((world[raw_index], uv[position]))
+                if max_history <= 0 or len(observations[key]) < max_history:
+                    observations[key].append((world[raw_index], uv[raw_index]))
         print("reference observations %d/%d" % (index + 1, len(train_rows)), flush=True)
     map_ids, frame_ids, camera_ids, world_xyz, ref_uv = [], [], [], [], []
     for (map_id, frame_id, camera_id), history in observations.items():
@@ -88,13 +77,13 @@ def build_reference_observations(rows, lidar_cache, feature_cache, projection_ca
             world_xyz.append(xyz)
             ref_uv.append(uv)
     result = {
-        "points": np.asarray(points, dtype=np.float32),
         "map_ids": np.asarray(map_ids, dtype=np.int32),
         "frame_ids": np.asarray(frame_ids, dtype="U32"),
         "camera_ids": np.asarray(camera_ids, dtype=np.int8),
         "world_xyz": np.asarray(world_xyz, dtype=np.float32),
         "ref_uv": np.asarray(ref_uv, dtype=np.float32),
         "voxel_size": np.asarray(voxel_size, dtype=np.float32),
+        "geometry_only": np.asarray(True),
     }
     output.parent.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(output, **result)
@@ -181,25 +170,20 @@ def refine_pose_weighted(initial, points, pixels, cameras, precisions, views,
 def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, crop_radius, local_radius,
                   min_overlap, max_reference_images, grid_cell, max_per_camera,
                   min_precision, max_precision, min_view_cosine):
-    map_points = references["points"].astype(np.float64)
-    local_ids = np.where(np.linalg.norm(map_points - initial[:3, 3], axis=1) <= crop_radius)[0]
-    local_set = set(int(value) for value in local_ids)
     all_points, all_pixels, all_cameras, all_scores, all_precisions, diagnostics = [], [], [], [], [], []
     for query_view in sorted(row["views"], key=lambda value: value["camera"]):
         from PIL import Image
         query_image = np.asarray(Image.open(query_view["image"]).convert("RGB"))
         query_mask = np.asarray(np.load(query_view["mask"]))
         query_height, query_width = query_image.shape[:2]
-        _, visible_local = visible_map_points(map_points[local_ids], initial, query_view, query_image, query_mask)
+        observation_world = references["world_xyz"].astype(np.float64)
+        local_observations = np.where(np.linalg.norm(observation_world - initial[:3, 3], axis=1) <= crop_radius)[0]
+        _, visible_local = visible_map_points(observation_world[local_observations], initial, query_view, query_image, query_mask)
         if not len(visible_local):
             diagnostics.append({"camera": int(query_view["camera"]), "visible_map_points": 0, "reference_images": 0, "accepted": 0})
             continue
-        visible_ids = local_ids[visible_local]
-        visible_set = set(int(value) for value in visible_ids)
-        eligible = np.fromiter((int(map_id) in visible_set for map_id in references["map_ids"]), dtype=bool,
-                               count=len(references["map_ids"]))
-        eligible &= references["frame_ids"] != row["frame_id"]
-        record_rows = np.where(eligible)[0]
+        record_rows = local_observations[visible_local]
+        record_rows = record_rows[references["frame_ids"][record_rows] != row["frame_id"]]
         pair_groups = defaultdict(list)
         for record in record_rows:
             pair_groups[(str(references["frame_ids"][record]), int(references["camera_ids"][record]))].append(record)
@@ -269,7 +253,7 @@ def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, cr
             all_pixels.append(np.asarray([value[2] for value in selected]))
             all_precisions.append(np.asarray([value[3] for value in selected]))
             all_cameras.append(np.full(len(selected), int(query_view["camera"]), dtype=np.int64))
-        diagnostics.append({"camera": int(query_view["camera"]), "visible_map_points": int(len(visible_ids)),
+        diagnostics.append({"camera": int(query_view["camera"]), "visible_observations": int(len(record_rows)),
                             "reference_images": int(len(selected_pairs)), "raw_candidates": int(len(candidates)),
                             "accepted": int(len(selected)), "stages": dict(stage_counts),
                             "reference_pair_covisible_anchors": {"%s:%d" % pair: pair_scores[pair] for pair in selected_pairs},
@@ -285,7 +269,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--lidar-cache", required=True)
-    parser.add_argument("--feature-cache", required=True)
     parser.add_argument("--projection-cache", required=True)
     parser.add_argument("--map-cache", required=True)
     parser.add_argument("--output", required=True)
@@ -295,7 +278,7 @@ def main():
     parser.add_argument("--frames", type=int, default=0)
     parser.add_argument("--train-frames", type=int, default=0)
     parser.add_argument("--map-voxel-size", type=float, default=.2)
-    parser.add_argument("--max-history", type=int, default=4)
+    parser.add_argument("--max-history", type=int, default=0)
     parser.add_argument("--crop-radius", type=float, default=80.)
     parser.add_argument("--local-radius", type=float, default=8.)
     parser.add_argument("--min-overlap", type=float, default=.2)
@@ -319,7 +302,7 @@ def main():
         rows = train_rows + val_rows
     if args.frames:
         val_rows = val_rows[:args.frames]
-    references = build_reference_observations(rows, args.lidar_cache, args.feature_cache, args.projection_cache,
+    references = build_reference_observations(rows, args.lidar_cache, args.projection_cache,
                                               args.map_voxel_size, Path(args.map_cache), args.max_history)
     rows_by_frame = {row["frame_id"]: row for row in rows}
     matcher_module = load_module("roma_local_matcher", REPO / "models" / "sc2pcr.py")
@@ -369,8 +352,8 @@ def main():
                                           "grid_cell_px": args.grid_cell, "max_per_camera": args.max_per_camera},
                              "optimizer": "bounded robust LM on RoMa pixel-precision-whitened residuals",
                              "f_scale_whitened": args.f_scale_whitened, "gt_in_correspondence_path": False},
-              "reference_map": {"path": str(args.map_cache), "points": int(len(references["points"])),
-                                "observations": int(len(references["map_ids"])), "train_frames": len(train_rows)},
+              "reference_map": {"path": str(args.map_cache), "observations": int(len(references["map_ids"])),
+                                "train_frames": len(train_rows), "geometry_only": bool(references["geometry_only"])},
               "validation_frames": len(records), "records": records,
               "metrics": {"all_before": metrics(records, "before"), "all_after": metrics(records, "after"),
                           "leader_success_before": metrics(success, "before"), "leader_success_after": metrics(success, "after")},

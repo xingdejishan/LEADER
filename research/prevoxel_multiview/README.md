@@ -201,10 +201,12 @@ python research/prevoxel_multiview/dedode_local_probe.py \
 ## RoMa v2 uncertainty-weighted local refinement
 
 `local_visual_refinement_roma.py` is a separate replacement front end, not an
-extension of DeDoDe matching. A train-only reference-observation map binds each
-historical image pixel to its own world coordinate. For each query camera,
-LEADER's pose selects visible local anchors and the two historical reference
-images containing the most such anchors. RoMa v2 runs once per selected image
+extension of DeDoDe matching. Its train-only reference-observation map is built
+from LiDAR projection, FOV, image mask, black-border, and z-buffer visibility;
+it does not read the DeDoDe feature cache. Each historical image pixel binds to
+its own world coordinate. For each query camera, LEADER's pose selects visible
+local observations and the two historical reference images containing the most
+ray-compatible observations. RoMa v2 runs once per selected image
 pair; its dense warp, overlap, and 2D precision are read only at the stored
 reference anchor pixels. A candidate must remain inside the `T_L` local pixel
 window, valid image area, and overlap gate, then the existing image-grid budget
@@ -215,6 +217,9 @@ The bounded robust LM uses the RoMa precision matrix in query-pixel units:
 `--f-scale-whitened` is in whitened units, not pixels. The code converts the
 model's dense-map precision to the query image coordinate scale before this
 whitening and eigenvalue-clamps it only for numerical stability.
+
+The 0.2 m voxel id is retained only as optional cache metadata; it has no role
+in RoMa visibility, retrieval, local gating, or the final pose correspondences.
 
 `probe_roma_references.py` is the required train-only retrieval diagnosis. It
 uses leave-one-frame-out reference observations, disables the `T_L` local gate,
@@ -229,7 +234,6 @@ failure without tuning on validation.
 /home/zhang/miniconda3/envs/romav2/bin/python research/prevoxel_multiview/local_visual_refinement_roma.py \
   --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
   --lidar-cache /home/zhang/leader-image-gate/lidar \
-  --feature-cache /home/zhang/leader-six-camera-controlled/features \
   --projection-cache /home/zhang/leader-image-gate/projection_audit/mapping \
   --map-cache research/prevoxel_multiview/results/roma_reference_observations.npz \
   --output research/prevoxel_multiview/results/roma_local_refinement.json \
@@ -240,7 +244,6 @@ failure without tuning on validation.
 /home/zhang/miniconda3/envs/romav2/bin/python research/prevoxel_multiview/probe_roma_references.py \
   --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
   --lidar-cache /home/zhang/leader-image-gate/lidar \
-  --feature-cache /home/zhang/leader-six-camera-controlled/features \
   --projection-cache /home/zhang/leader-image-gate/projection_audit/mapping \
   --map-cache research/prevoxel_multiview/results/roma_reference_observations.npz \
   --output research/prevoxel_multiview/results/roma_reference_probe_train.json
