@@ -103,6 +103,7 @@ def main():
     parser.add_argument("--ratio-threshold", type=float, default=0.8)
     parser.add_argument("--ratio-exclusion-radius", type=float, default=4.0)
     parser.add_argument("--mutual-radius", type=float, default=8.0)
+    parser.add_argument("--disable-mutual", action="store_true")
     parser.add_argument("--frames", type=int, default=0)
     parser.add_argument("--seed", type=int, default=2089)
     args = parser.parse_args()
@@ -131,7 +132,7 @@ def main():
                       exclude_frame_id=row["frame_id"],
                       ratio_threshold=args.ratio_threshold,
                       ratio_exclusion_radius=args.ratio_exclusion_radius,
-                      mutual_radius=args.mutual_radius,
+                      mutual_radius=None if args.disable_mutual else args.mutual_radius,
                       stage_records=stages)
         frame_summary = new_summary()
         for stage in stages:
@@ -163,7 +164,8 @@ def main():
             "min_cosine": args.min_cosine,
             "ratio_threshold": args.ratio_threshold,
             "ratio_exclusion_radius_px": args.ratio_exclusion_radius,
-            "mutual_radius_px": args.mutual_radius,
+            "mutual_radius_px": None if args.disable_mutual else args.mutual_radius,
+            "mutual_enabled": not args.disable_mutual,
             "mutual_window_shape": "axis-aligned square",
             "validation_used_for_tuning": False,
         },
