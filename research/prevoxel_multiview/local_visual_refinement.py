@@ -201,7 +201,8 @@ def visible_map_points(points, pose, view, image, image_mask, zbuffer_cell=4,
 def query_matches(row, initial, visual_map, extractor, crop_radius, search_radius,
                   search_step, min_cosine, grid_cell, max_per_camera,
                   exclude_frame_id=None, ratio_threshold=None,
-                  ratio_exclusion_radius=None, mutual_radius=None):
+                  ratio_exclusion_radius=None, mutual_radius=None,
+                  stage_records=None):
     points = visual_map["points"].astype(np.float64)
     local_mask = np.linalg.norm(points - initial[:3, 3][None], axis=1) <= crop_radius
     local_ids = np.where(local_mask)[0]
@@ -261,7 +262,7 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
         scores_by_history = np.where(map_desc_mask[:, None, :], scores_by_history, -np.inf)
         scores = scores_by_history.max(axis=-1)
         best_offset = scores.argmax(axis=1)
-        best_score = scores[np.arange(len(unique_map_ids)), best_offset]
+        best_score = np.clip(scores[np.arange(len(unique_map_ids)), best_offset], -1.0, 1.0)
         best_uv = query_uv[np.arange(len(unique_map_ids)), best_offset]
         cosine_keep = best_score >= min_cosine
         ratio_values = np.full(len(unique_map_ids), np.nan, dtype=np.float32)
@@ -271,7 +272,7 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
             second_exclude = ((np.abs(offsets[None, :, 0] - offsets[best_offset, 0, None]) <= ratio_exclusion_radius) &
                               (np.abs(offsets[None, :, 1] - offsets[best_offset, 1, None]) <= ratio_exclusion_radius))
             second_scores[second_exclude] = -np.inf
-            second_score = second_scores.max(axis=1)
+            second_score = np.clip(second_scores.max(axis=1), -1.0, 1.0)
             finite_second = np.isfinite(second_score)
             ratio_values[finite_second] = ((1.0 - best_score[finite_second]) /
                                            np.maximum(1.0 - second_score[finite_second], 1e-8))
@@ -282,18 +283,29 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
             accepted = np.where(forward_keep)[0]
             accepted_query = sampled[accepted, best_offset[accepted]]
             mutual_keep[:] = False
-            radius_sq = float(mutual_radius) ** 2
             for start in range(0, len(accepted), 64):
                 stop = min(start + 64, len(accepted))
                 query_chunk = accepted_query[start:stop]
                 delta = base_uv[None, :, :] - best_uv[accepted[start:stop], None, :]
-                nearby = np.sum(delta * delta, axis=-1) <= radius_sq
+                nearby = ((np.abs(delta[:, :, 0]) <= float(mutual_radius)) &
+                          (np.abs(delta[:, :, 1]) <= float(mutual_radius)))
                 mutual_scores = np.einsum("ad,mhd->amh", query_chunk, map_desc).max(axis=-1)
                 mutual_scores = np.where(nearby, mutual_scores, -np.inf)
                 winner = mutual_scores.argmax(axis=1)
                 has_winner = np.isfinite(mutual_scores[np.arange(stop - start), winner])
                 mutual_keep[accepted[start:stop]] = has_winner & (winner == accepted[start:stop])
         keep = forward_keep & mutual_keep
+        if stage_records is not None:
+            stage_records.append({
+                "camera": int(view["camera"]),
+                "points": points[unique_map_ids].copy(),
+                "pixels": best_uv.copy(),
+                "best_offsets": offsets[best_offset].copy(),
+                "best_scores": best_score.copy(),
+                "cosine_keep": cosine_keep.copy(),
+                "ratio_keep": (cosine_keep & ratio_keep).copy(),
+                "mutual_keep": (cosine_keep & ratio_keep & mutual_keep).copy(),
+            })
         grid_selected_count = 0
         if keep.any():
             unique_map_ids = unique_map_ids[keep]
@@ -451,7 +463,8 @@ def main():
                                   "map_point_level_history_aggregation": "max cosine over historical descriptors per map point",
                                   "ratio_threshold": args.ratio_threshold,
                                   "ratio_exclusion_radius_px": args.ratio_exclusion_radius if args.ratio_exclusion_radius is not None else args.search_step,
-                                  "mutual_radius_px": args.mutual_radius},
+                                  "mutual_radius_px": args.mutual_radius,
+                                  "mutual_window_shape": "axis-aligned square"},
                      "visibility": "T_L projection + image mask + black border + local z-buffer",
                      "optimizer": "same bounded robust LM as oracle", "gt_in_correspondence_path": False},
         "visual_map": {"path": str(map_cache), "points": int(len(visual_map["points"])),
