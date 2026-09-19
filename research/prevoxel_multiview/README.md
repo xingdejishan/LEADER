@@ -86,9 +86,13 @@ real local correspondence generator. The train-only visual map stores each
 0.2 m map voxel's historical per-camera PCA128 descriptors (up to four
 observations); the query uses the frozen LEADER pose to crop and visibility-
 filter the map, extracts the current six image descriptor maps, searches a
-small pixel window around each projected map point, enforces image-grid
-uniqueness, and sends only cosine-filtered correspondences to the unchanged
-bounded robust LM backend. GT is read only for final evaluation.
+small pixel window around each projected map point, and scores each map point
+by its best historical descriptor. With the default `cosine=0.55`, the
+forward match then passes a local peak-ratio test (the second peak excludes
+the winning search-step neighborhood) and a map-point-level mutual nearest
+check. Only after `cosine -> ratio -> mutual` does the 4 px image-grid NMS
+run before the unchanged bounded robust LM backend. GT is read only for final
+evaluation.
 
 Dense DeDoDe extraction can be cached in the `bufferx` environment, while the
 solver/refinement runs in `egonn118`:
@@ -108,7 +112,10 @@ python research/prevoxel_multiview/local_visual_refinement.py \
   --dedode-weights /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/rscore-assets/dedode_descriptor_B.pth \
   --pca-weights /home/zhang/rscore-l-local/data/proc/pcad3LB_128.pth \
   --output research/prevoxel_multiview/results/local_visual_refinement.json \
-  --map-cache research/prevoxel_multiview/results/visual_map.npz
+  --map-cache research/prevoxel_multiview/results/visual_map.npz \
+  --min-cosine 0.55 \
+  --ratio-threshold 0.8 \
+  --mutual-radius 8
 ```
 
 The dense cache is optional when `kornia` is installed in the solver

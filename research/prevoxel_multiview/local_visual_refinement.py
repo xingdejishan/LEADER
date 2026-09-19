@@ -200,7 +200,8 @@ def visible_map_points(points, pose, view, image, image_mask, zbuffer_cell=4,
 
 def query_matches(row, initial, visual_map, extractor, crop_radius, search_radius,
                   search_step, min_cosine, grid_cell, max_per_camera,
-                  exclude_frame_id=None):
+                  exclude_frame_id=None, ratio_threshold=None,
+                  ratio_exclusion_radius=None, mutual_radius=None):
     points = visual_map["points"].astype(np.float64)
     local_mask = np.linalg.norm(points - initial[:3, 3][None], axis=1) <= crop_radius
     local_ids = np.where(local_mask)[0]
@@ -213,6 +214,8 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
     diagnostics = []
     offsets = np.asarray([(du, dv) for dv in np.arange(-search_radius, search_radius + 1, search_step)
                           for du in np.arange(-search_radius, search_radius + 1, search_step)], dtype=np.float32)
+    if ratio_exclusion_radius is None:
+        ratio_exclusion_radius = float(search_step)
     for view in sorted(row["views"], key=lambda item: item["camera"]):
         from PIL import Image
 
@@ -231,8 +234,20 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
         if not len(record_rows):
             diagnostics.append({"camera": int(view["camera"]), "visible_map_points": int(len(visible_global)), "accepted": 0})
             continue
+        unique_map_ids = np.unique(map_ids[record_rows])
+        n_map_candidates = len(unique_map_ids)
         positions = {int(map_index): pos for pos, map_index in enumerate(visible_global)}
-        base_uv = np.asarray([uv[visible_local][positions[int(map_index)]] for map_index in map_ids[record_rows]], dtype=np.float32)
+        visible_uv = uv[visible_local]
+        base_uv = np.asarray([visible_uv[positions[int(map_index)]] for map_index in unique_map_ids], dtype=np.float32)
+        grouped_rows = [record_rows[map_ids[record_rows] == map_index] for map_index in unique_map_ids]
+        max_history = max(len(group) for group in grouped_rows)
+        descriptor_dim = descriptors.shape[1]
+        map_desc = np.zeros((len(unique_map_ids), max_history, descriptor_dim), dtype=np.float32)
+        map_desc_mask = np.zeros((len(unique_map_ids), max_history), dtype=bool)
+        for group_index, group in enumerate(grouped_rows):
+            values = normalize(descriptors[group])
+            map_desc[group_index, :len(values)] = values
+            map_desc_mask[group_index, :len(values)] = True
         query_uv = base_uv[:, None, :] + offsets[None]
         flat_uv = query_uv.reshape(-1, 2)
         import torch
@@ -241,15 +256,47 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
         chunk = 2048
         for start in range(0, len(flat_uv), chunk):
             sampled.append(sample_dense(dense, torch.from_numpy(flat_uv[start:start + chunk]).to(extractor.device), image_hw).detach().cpu().numpy())
-        sampled = normalize(np.concatenate(sampled, axis=0)).reshape(len(record_rows), len(offsets), -1)
-        map_desc = normalize(descriptors[record_rows])
-        scores = np.einsum("nkd,nd->nk", sampled, map_desc)
+        sampled = normalize(np.concatenate(sampled, axis=0)).reshape(len(unique_map_ids), len(offsets), -1)
+        scores_by_history = np.einsum("nkd,nhd->nkh", sampled, map_desc)
+        scores_by_history = np.where(map_desc_mask[:, None, :], scores_by_history, -np.inf)
+        scores = scores_by_history.max(axis=-1)
         best_offset = scores.argmax(axis=1)
-        best_score = scores[np.arange(len(record_rows)), best_offset]
-        keep = best_score >= min_cosine
-        best_uv = query_uv[np.arange(len(record_rows)), best_offset]
+        best_score = scores[np.arange(len(unique_map_ids)), best_offset]
+        best_uv = query_uv[np.arange(len(unique_map_ids)), best_offset]
+        cosine_keep = best_score >= min_cosine
+        ratio_values = np.full(len(unique_map_ids), np.nan, dtype=np.float32)
+        ratio_keep = np.ones(len(unique_map_ids), dtype=bool)
+        if ratio_threshold is not None:
+            second_scores = scores.copy()
+            second_exclude = ((np.abs(offsets[None, :, 0] - offsets[best_offset, 0, None]) <= ratio_exclusion_radius) &
+                              (np.abs(offsets[None, :, 1] - offsets[best_offset, 1, None]) <= ratio_exclusion_radius))
+            second_scores[second_exclude] = -np.inf
+            second_score = second_scores.max(axis=1)
+            finite_second = np.isfinite(second_score)
+            ratio_values[finite_second] = ((1.0 - best_score[finite_second]) /
+                                           np.maximum(1.0 - second_score[finite_second], 1e-8))
+            ratio_keep = finite_second & (ratio_values <= float(ratio_threshold))
+        forward_keep = cosine_keep & ratio_keep
+        mutual_keep = np.ones(len(unique_map_ids), dtype=bool)
+        if mutual_radius is not None and forward_keep.any():
+            accepted = np.where(forward_keep)[0]
+            accepted_query = sampled[accepted, best_offset[accepted]]
+            mutual_keep[:] = False
+            radius_sq = float(mutual_radius) ** 2
+            for start in range(0, len(accepted), 64):
+                stop = min(start + 64, len(accepted))
+                query_chunk = accepted_query[start:stop]
+                delta = base_uv[None, :, :] - best_uv[accepted[start:stop], None, :]
+                nearby = np.sum(delta * delta, axis=-1) <= radius_sq
+                mutual_scores = np.einsum("ad,mhd->amh", query_chunk, map_desc).max(axis=-1)
+                mutual_scores = np.where(nearby, mutual_scores, -np.inf)
+                winner = mutual_scores.argmax(axis=1)
+                has_winner = np.isfinite(mutual_scores[np.arange(stop - start), winner])
+                mutual_keep[accepted[start:stop]] = has_winner & (winner == accepted[start:stop])
+        keep = forward_keep & mutual_keep
+        grid_selected_count = 0
         if keep.any():
-            record_rows = record_rows[keep]
+            unique_map_ids = unique_map_ids[keep]
             best_score = best_score[keep]
             best_uv = best_uv[keep]
             if max_per_camera > 0:
@@ -266,16 +313,25 @@ def query_matches(row, initial, visual_map, extractor, crop_radius, search_radiu
                     if len(selected) >= max_per_camera:
                         break
             else:
-                selected = np.arange(len(record_rows), dtype=np.int64)
-            record_rows = record_rows[selected]
+                selected = np.arange(len(unique_map_ids), dtype=np.int64)
+            unique_map_ids = unique_map_ids[selected]
             best_score = best_score[selected]
             best_uv = best_uv[selected]
-            all_points.append(points[map_ids[record_rows]])
+            grid_selected_count = len(unique_map_ids)
+            all_points.append(points[unique_map_ids])
             all_pixels.append(best_uv)
-            all_cameras.append(np.full(len(record_rows), int(view["camera"]), dtype=np.int64))
+            all_cameras.append(np.full(len(unique_map_ids), int(view["camera"]), dtype=np.int64))
             all_scores.append(best_score)
         diagnostics.append({"camera": int(view["camera"]), "visible_map_points": int(len(visible_global)),
-                            "descriptor_candidates": int(len(record_rows)), "accepted": int(keep.sum()),
+                            "descriptor_candidates": int(n_map_candidates),
+                            "map_point_candidates": int(n_map_candidates),
+                            "forward_candidates": int(n_map_candidates),
+                            "cosine_pass": int(cosine_keep.sum()),
+                            "ratio_pass": int((cosine_keep & ratio_keep).sum()),
+                            "mutual_pass": int((cosine_keep & ratio_keep & mutual_keep).sum()),
+                            "grid_selected": int(grid_selected_count),
+                            "accepted": int(grid_selected_count),
+                            "ratio_mean": float(np.nanmean(ratio_values)) if np.isfinite(ratio_values).any() else float("nan"),
                             "score_mean": float(best_score.mean()) if keep.any() else float("nan")})
     if not all_points:
         return np.empty((0, 3)), np.empty((0, 2)), np.empty(0, dtype=np.int64), np.empty(0), diagnostics
@@ -302,7 +358,10 @@ def main():
     parser.add_argument("--crop-radius", type=float, default=80.0)
     parser.add_argument("--search-radius", type=int, default=8)
     parser.add_argument("--search-step", type=int, default=4)
-    parser.add_argument("--min-cosine", type=float, default=0.65)
+    parser.add_argument("--min-cosine", type=float, default=0.55)
+    parser.add_argument("--ratio-threshold", type=float, default=0.8)
+    parser.add_argument("--ratio-exclusion-radius", type=float, default=None)
+    parser.add_argument("--mutual-radius", type=float, default=8.0)
     parser.add_argument("--grid-cell", type=int, default=4)
     parser.add_argument("--max-per-camera", type=int, default=300)
     parser.add_argument("--max-translation", type=float, default=2.0)
@@ -346,7 +405,10 @@ def main():
         before = pose_error(initial, gt)
         points, pixels, cameras, scores, matching = query_matches(
             row, initial, visual_map, extractor, args.crop_radius, args.search_radius,
-            args.search_step, args.min_cosine, args.grid_cell, args.max_per_camera)
+            args.search_step, args.min_cosine, args.grid_cell, args.max_per_camera,
+            ratio_threshold=args.ratio_threshold,
+            ratio_exclusion_radius=args.ratio_exclusion_radius,
+            mutual_radius=args.mutual_radius)
         if len(points) >= 6 and len(np.unique(cameras)):
             refined, optimizer, residual = refine_pose(
                 initial, points, pixels, cameras, row["views"], args.max_translation,
@@ -385,7 +447,11 @@ def main():
                      "query": "dense DeDoDe-B + PCA128, local descriptor search around T_L projection",
                      "matching": {"search_radius_px": args.search_radius, "search_step_px": args.search_step,
                                   "min_cosine": args.min_cosine, "grid_cell_px": args.grid_cell,
-                                  "max_per_camera": args.max_per_camera},
+                                  "max_per_camera": args.max_per_camera,
+                                  "map_point_level_history_aggregation": "max cosine over historical descriptors per map point",
+                                  "ratio_threshold": args.ratio_threshold,
+                                  "ratio_exclusion_radius_px": args.ratio_exclusion_radius if args.ratio_exclusion_radius is not None else args.search_step,
+                                  "mutual_radius_px": args.mutual_radius},
                      "visibility": "T_L projection + image mask + black border + local z-buffer",
                      "optimizer": "same bounded robust LM as oracle", "gt_in_correspondence_path": False},
         "visual_map": {"path": str(map_cache), "points": int(len(visual_map["points"])),
