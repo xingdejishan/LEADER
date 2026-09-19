@@ -216,6 +216,15 @@ The bounded robust LM uses the RoMa precision matrix in query-pixel units:
 model's dense-map precision to the query image coordinate scale before this
 whitening and eigenvalue-clamps it only for numerical stability.
 
+`probe_roma_references.py` is the required train-only retrieval diagnosis. It
+uses leave-one-frame-out reference observations, disables the `T_L` local gate,
+runs RoMa on every geometrically compatible historical image pair, and uses GT
+only to label the produced pixels. Its per-pair fields are anchor count,
+overlap-pass count, `<5 px`, `<8 px`, and error quantiles; it separately
+reports the current automatic top-2 retrieval and the oracle-best historical
+pair. This distinguishes a RoMa domain failure from retrieval or local-gate
+failure without tuning on validation.
+
 ```bash
 /home/zhang/miniconda3/envs/romav2/bin/python research/prevoxel_multiview/local_visual_refinement_roma.py \
   --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
@@ -225,6 +234,16 @@ whitening and eigenvalue-clamps it only for numerical stability.
   --map-cache research/prevoxel_multiview/results/roma_reference_observations.npz \
   --output research/prevoxel_multiview/results/roma_local_refinement.json \
   --frames 1 --roma-setting precise
+```
+
+```bash
+/home/zhang/miniconda3/envs/romav2/bin/python research/prevoxel_multiview/probe_roma_references.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
+  --lidar-cache /home/zhang/leader-image-gate/lidar \
+  --feature-cache /home/zhang/leader-six-camera-controlled/features \
+  --projection-cache /home/zhang/leader-image-gate/projection_audit/mapping \
+  --map-cache research/prevoxel_multiview/results/roma_reference_observations.npz \
+  --output research/prevoxel_multiview/results/roma_reference_probe_train.json
 ```
 
 ## Frozen voxel residual probe

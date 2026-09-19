@@ -118,6 +118,9 @@ class RoMaField:
             self.cache[key] = self.model.match(ref_path, query_path)
         return self.cache[key]
 
+    def clear_cache(self):
+        self.cache.clear()
+
     def sample(self, prediction, ref_uv, ref_hw, query_hw):
         import torch.nn.functional as F
 
@@ -187,13 +190,12 @@ def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, cr
         query_image = np.asarray(Image.open(query_view["image"]).convert("RGB"))
         query_mask = np.asarray(np.load(query_view["mask"]))
         query_height, query_width = query_image.shape[:2]
-        local_uv, visible_local = visible_map_points(map_points[local_ids], initial, query_view, query_image, query_mask)
+        _, visible_local = visible_map_points(map_points[local_ids], initial, query_view, query_image, query_mask)
         if not len(visible_local):
             diagnostics.append({"camera": int(query_view["camera"]), "visible_map_points": 0, "reference_images": 0, "accepted": 0})
             continue
         visible_ids = local_ids[visible_local]
         visible_set = set(int(value) for value in visible_ids)
-        base_by_map = {int(map_id): local_uv[position] for position, map_id in enumerate(visible_ids)}
         eligible = np.fromiter((int(map_id) in visible_set for map_id in references["map_ids"]), dtype=bool,
                                count=len(references["map_ids"]))
         eligible &= references["frame_ids"] != row["frame_id"]
@@ -228,7 +230,8 @@ def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, cr
             prediction = roma.match(ref_view["image"], query_view["image"])
             query_uv, overlap, precision = roma.sample(prediction, ref_uv, (ref_height, ref_width), (query_height, query_width))
             world = references["world_xyz"][ref_rows].astype(np.float64)
-            base = np.asarray([base_by_map[int(map_id)] for map_id in references["map_ids"][ref_rows]], dtype=np.float64)
+            base, base_depth = project_world(world, initial, np.asarray(query_view["camera_to_body"], dtype=np.float64),
+                                             np.loadtxt(query_view["calibration"]).astype(np.float64))
             integer = np.rint(query_uv).astype(np.int64)
             valid = np.isfinite(query_uv).all(axis=1) & np.isfinite(precision).all(axis=(1, 2))
             stage_counts["finite"] += int(valid.sum())
@@ -240,6 +243,8 @@ def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, cr
             stage_counts["mask"] += int(valid.sum())
             valid &= query_image[integer[:, 1], integer[:, 0]].max(axis=1) > 10
             stage_counts["nonblack"] += int(valid.sum())
+            valid &= np.isfinite(base).all(axis=1) & (base_depth > .5)
+            stage_counts["observation_projection"] += int(valid.sum())
             valid &= np.abs(query_uv - base).max(axis=1) <= local_radius
             stage_counts["local"] += int(valid.sum())
             valid &= overlap >= min_overlap
@@ -354,6 +359,7 @@ def main():
         print("validation %d/%d %s cams=%d corr=%d overlap=%.3f before=(%.3f,%.3f) after=(%.3f,%.3f)" %
               (index + 1, len(val_rows), row["frame_id"], record["n_cameras"], len(points), record["overlap_mean"],
                before[0], before[1], after[0], after[1]), flush=True)
+        roma.clear_cache()
     success = [record for record in records if record["leader_success"]]
     paired, paired_success = np.asarray([record["delta"] for record in records]), np.asarray([record["delta"] for record in success])
     result = {"protocol": {"map_source": "train split only", "front_end": "RoMa v2 dense reference-to-query fields",
