@@ -219,7 +219,7 @@ def refine_pose_protected(initial, points, pixels, cameras, precisions, views,
 
 def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, crop_radius, local_radius,
                   min_overlap, max_reference_images, grid_cell, max_per_camera,
-                  min_precision, max_precision, min_view_cosine):
+                  min_precision, max_precision, min_view_cosine, gate_free_cache=False):
     all_points, all_pixels, all_cameras, all_scores, all_precisions = [], [], [], [], []
     all_anchor_ids, all_reference_frames, all_reference_cameras, diagnostics = [], [], [], []
     for query_view in sorted(row["views"], key=lambda value: value["camera"]):
@@ -280,24 +280,28 @@ def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, cr
             stage_counts["nonblack"] += int(valid.sum())
             valid &= np.isfinite(base).all(axis=1) & (base_depth > .5)
             stage_counts["observation_projection"] += int(valid.sum())
-            valid &= np.abs(query_uv - base).max(axis=1) <= local_radius
-            stage_counts["local"] += int(valid.sum())
-            valid &= overlap >= min_overlap
-            stage_counts["overlap"] += int(valid.sum())
+            if not gate_free_cache:
+                valid &= np.abs(query_uv - base).max(axis=1) <= local_radius
+                stage_counts["local"] += int(valid.sum())
+                valid &= overlap >= min_overlap
+                stage_counts["overlap"] += int(valid.sum())
             precision = stabilize_precision(precision, min_precision, max_precision)
             for position in np.where(valid)[0]:
                 candidates.append((float(overlap[position]), world[position], query_uv[position], precision[position],
                                    int(references["map_ids"][ref_rows[position]]), reference_frame, reference_camera))
-        candidates.sort(key=lambda value: -value[0])
-        occupied, selected = set(), []
-        for candidate in candidates:
-            cell = tuple(np.floor(candidate[2] / grid_cell).astype(np.int64))
-            if cell in occupied:
-                continue
-            occupied.add(cell)
-            selected.append(candidate)
-            if max_per_camera > 0 and len(selected) >= max_per_camera:
-                break
+        if gate_free_cache:
+            selected = candidates
+        else:
+            candidates.sort(key=lambda value: -value[0])
+            occupied, selected = set(), []
+            for candidate in candidates:
+                cell = tuple(np.floor(candidate[2] / grid_cell).astype(np.int64))
+                if cell in occupied:
+                    continue
+                occupied.add(cell)
+                selected.append(candidate)
+                if max_per_camera > 0 and len(selected) >= max_per_camera:
+                    break
         if selected:
             all_scores.extend(value[0] for value in selected)
             all_points.append(np.asarray([value[1] for value in selected]))
@@ -427,6 +431,7 @@ def main():
     parser.add_argument("--holdout-accept-ratio", type=float, default=.95)
     parser.add_argument("--match-cache-dir")
     parser.add_argument("--replay-match-cache", action="store_true")
+    parser.add_argument("--gate-free-cache", action="store_true")
     parser.add_argument("--seed", type=int, default=2089)
     args = parser.parse_args()
     if min(args.prior_sigma_translation_m, args.prior_sigma_rotation_deg, args.visual_lambda,
@@ -465,7 +470,7 @@ def main():
             points, pixels, cameras, scores, precisions, anchor_ids, reference_frames, reference_cameras, matching = query_matches(
                 row, initial, references, rows_by_frame, args.lidar_cache, roma, args.crop_radius, args.local_radius, args.min_overlap,
                 args.max_reference_images, args.grid_cell, args.max_per_camera, args.min_precision, args.max_precision,
-                args.min_reference_view_cosine)
+                args.min_reference_view_cosine, args.gate_free_cache)
             if cache_path is not None:
                 save_match_cache(cache_path, points, pixels, cameras, scores, precisions, anchor_ids,
                                  reference_frames, reference_cameras, matching)
@@ -554,7 +559,8 @@ def main():
                              "matching": {"max_reference_images_per_query_camera": args.max_reference_images,
                                           "local_radius_px": args.local_radius, "min_overlap": args.min_overlap,
                                           "min_reference_view_cosine": args.min_reference_view_cosine,
-                                          "grid_cell_px": args.grid_cell, "max_per_camera": args.max_per_camera},
+                                          "grid_cell_px": args.grid_cell, "max_per_camera": args.max_per_camera,
+                                          "gate_free_cache": args.gate_free_cache},
                              "optimizer": "LiDAR-prior-protected block-IRLS Trust Region Reflective optimization",
                              "local_pose_update": "R=Exp(delta_rotation) R_LEADER; t=t_LEADER+delta_translation",
                              "prior": {"sigma_translation_m": args.prior_sigma_translation_m,
