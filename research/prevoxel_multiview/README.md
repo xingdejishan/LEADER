@@ -198,6 +198,35 @@ python research/prevoxel_multiview/dedode_local_probe.py \
   --output research/prevoxel_multiview/results/dedode_local_probe_train.json
 ```
 
+## RoMa v2 uncertainty-weighted local refinement
+
+`local_visual_refinement_roma.py` is a separate replacement front end, not an
+extension of DeDoDe matching. A train-only reference-observation map binds each
+historical image pixel to its own world coordinate. For each query camera,
+LEADER's pose selects visible local anchors and the two historical reference
+images containing the most such anchors. RoMa v2 runs once per selected image
+pair; its dense warp, overlap, and 2D precision are read only at the stored
+reference anchor pixels. A candidate must remain inside the `T_L` local pixel
+window, valid image area, and overlap gate, then the existing image-grid budget
+is applied. The old cosine, ratio, and mutual tests are deliberately absent.
+
+The bounded robust LM uses the RoMa precision matrix in query-pixel units:
+`r_white = L^T r`, where `P = L L^T` is the predicted precision. Thus
+`--f-scale-whitened` is in whitened units, not pixels. The code converts the
+model's dense-map precision to the query image coordinate scale before this
+whitening and eigenvalue-clamps it only for numerical stability.
+
+```bash
+/home/zhang/miniconda3/envs/romav2/bin/python research/prevoxel_multiview/local_visual_refinement_roma.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
+  --lidar-cache /home/zhang/leader-image-gate/lidar \
+  --feature-cache /home/zhang/leader-six-camera-controlled/features \
+  --projection-cache /home/zhang/leader-image-gate/projection_audit/mapping \
+  --map-cache research/prevoxel_multiview/results/roma_reference_observations.npz \
+  --output research/prevoxel_multiview/results/roma_local_refinement.json \
+  --frames 1 --roma-setting precise
+```
+
 ## Frozen voxel residual probe
 
 `residual_probe.py` is deliberately separate from the trainable fusion entry.
