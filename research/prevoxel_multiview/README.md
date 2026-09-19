@@ -150,6 +150,26 @@ window, and reports rank-1 rate, cosine margin, and per-camera breakdown.
 This is an intra-frame local test; it does not establish cross-frame
 historical-map descriptor transfer.
 
+`cross_frame_visual_probe.py` tests that missing transfer directly. It builds
+a 0.2 m train-only voxel map, takes each historical descriptor from a map
+point and camera, and evaluates it in every other train frame. The query
+window is centered on the GT projection of the map point, not on the LEADER
+pose. Same-frame observations are excluded, visibility is checked at the GT
+pose, and a random descriptor from a different map point provides a shuffled
+control. The report includes rank-1, best-match distance `<5 px`, correct and
+best-wrong cosine, margin, and all six camera breakdowns.
+
+```bash
+python research/prevoxel_multiview/cross_frame_visual_probe.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
+  --lidar-cache /home/zhang/leader-image-gate/lidar \
+  --feature-cache /home/zhang/leader-six-camera-controlled/features \
+  --projection-cache /home/zhang/leader-image-gate/projection_audit/mapping \
+  --dedode-weights /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/rscore-assets/dedode_descriptor_B.pth \
+  --pca-weights /home/zhang/rscore-l-local/data/proc/pcad3LB_128.pth \
+  --output research/prevoxel_multiview/results/cross_frame_visual_probe_train.json
+```
+
 ```bash
 python research/prevoxel_multiview/dedode_local_probe.py \
   --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
