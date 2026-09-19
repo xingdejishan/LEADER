@@ -1,5 +1,6 @@
 """LEADER-guided RoMa v2 local correspondence refinement."""
 import argparse
+import hashlib
 import json
 import math
 import sys
@@ -341,26 +342,49 @@ def load_match_cache(path):
                 json.loads(str(data["diagnostics_json"])))
 
 
-def holdout_mask(anchor_ids, modulus, min_count=0):
+def holdout_mask(group_ids, modulus, min_count=0):
     if modulus < 2:
-        return np.zeros(len(anchor_ids), dtype=bool)
-    unique, inverse, counts = np.unique(np.asarray(anchor_ids, dtype=np.int64), return_inverse=True, return_counts=True)
-    values = unique.astype(np.uint64)
-    hashes = values + np.uint64(0x9E3779B97F4A7C15)
-    hashes ^= hashes >> np.uint64(30)
-    hashes *= np.uint64(0xBF58476D1CE4E5B9)
-    hashes ^= hashes >> np.uint64(27)
-    hashes *= np.uint64(0x94D049BB133111EB)
-    hashes ^= hashes >> np.uint64(31)
+        return np.zeros(len(group_ids), dtype=bool)
+    unique, inverse, counts = np.unique(np.asarray(group_ids).astype(str), return_inverse=True, return_counts=True)
+    hashes = np.asarray([int.from_bytes(hashlib.blake2b(value.encode(), digest_size=8).digest(), "little") for value in unique], dtype=np.uint64)
     order = np.argsort(hashes)
     selected = np.zeros(len(unique), dtype=bool)
     count = 0
     for group in order:
-        if count >= max(int(math.ceil(len(anchor_ids) / modulus)), min_count):
+        if count >= max(int(math.ceil(len(group_ids) / modulus)), min_count):
             break
         selected[group] = True
         count += int(counts[group])
     return selected[inverse]
+
+
+def reference_pair_ids(query_cameras, reference_frames, reference_cameras):
+    return np.asarray(["%d|%s|%d" % (camera, frame, reference_camera) for camera, frame, reference_camera in
+                       zip(query_cameras, reference_frames, reference_cameras)], dtype="U64")
+
+
+def gate_diagnostics(records):
+    rows, good, bad = [], [], []
+    for record in records:
+        delta = np.asarray(record["candidate_delta"], dtype=np.float64)
+        acceptance = record["acceptance"]
+        holdout_before = acceptance["holdout_cost_before"]
+        holdout_candidate = acceptance["holdout_cost_candidate"]
+        holdout_improvement = float("nan")
+        if np.isfinite(holdout_before + holdout_candidate) and holdout_before > 0:
+            holdout_improvement = 1. - holdout_candidate / holdout_before
+        label = "mixed"
+        if np.isfinite(delta).all() and (delta < 0).all():
+            label, good = "both_improved", good + [acceptance["accepted"]]
+        elif np.isfinite(delta).all() and (delta > 0).any():
+            label, bad = "any_degraded", bad + [acceptance["accepted"]]
+        rows.append({"frame_id": record["frame_id"], "label_from_train_gt": label,
+                     "candidate_delta_translation_m_rotation_deg": delta.tolist(),
+                     "holdout_improvement_ratio": holdout_improvement,
+                     "accepted": acceptance["accepted"], "acceptance_reason": acceptance["reason"]})
+    return {"good_candidates": len(good), "bad_candidates": len(bad),
+            "good_acceptance_rate": float(np.mean(good)) if good else float("nan"),
+            "bad_rejection_rate": float(1. - np.mean(bad)) if bad else float("nan"), "rows": rows}
 
 
 def main():
@@ -373,6 +397,7 @@ def main():
     parser.add_argument("--full-pool", default=str(REPO.parent / "glace-local" / "code" / "tools" / "full_pool_robust_v1.py"))
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--roma-setting", default="precise", choices=("turbo", "fast", "base", "precise", "mega1500", "scannet1500", "wxbs", "satast"))
+    parser.add_argument("--evaluate-split", default="validation", choices=("train", "validation"))
     parser.add_argument("--frames", type=int, default=0)
     parser.add_argument("--train-frames", type=int, default=0)
     parser.add_argument("--map-voxel-size", type=float, default=.2)
@@ -397,6 +422,7 @@ def main():
     parser.add_argument("--robust-scale-whitened", type=float, default=1.)
     parser.add_argument("--irls-iterations", type=int, default=4)
     parser.add_argument("--holdout-modulus", type=int, default=5)
+    parser.add_argument("--holdout-group", default="reference-pair", choices=("reference-pair", "anchor"))
     parser.add_argument("--min-holdout", type=int, default=6)
     parser.add_argument("--holdout-accept-ratio", type=float, default=.95)
     parser.add_argument("--match-cache-dir")
@@ -414,8 +440,9 @@ def main():
     if args.train_frames:
         train_rows = train_rows[:args.train_frames]
         rows = train_rows + val_rows
+    eval_rows = train_rows if args.evaluate_split == "train" else val_rows
     if args.frames:
-        val_rows = val_rows[:args.frames]
+        eval_rows = eval_rows[:args.frames]
     references = build_reference_observations(rows, args.lidar_cache, args.projection_cache,
                                               args.map_voxel_size, Path(args.map_cache), args.max_history)
     rows_by_frame = {row["frame_id"]: row for row in rows}
@@ -425,7 +452,7 @@ def main():
                                      ratio=.15, nms_radius=.1, max_points=3000, k1=30)
     roma = None if args.replay_match_cache else RoMaField(args.device, args.roma_setting)
     records, started = [], time.time()
-    for index, row in enumerate(val_rows):
+    for index, row in enumerate(eval_rows):
         initial, gt, support = pose_from_baseline(row, args.lidar_cache, matcher, full_pool_module.full_pool_refine,
                                                   args.device, args.seed + index)
         before = pose_error(initial, gt)
@@ -448,7 +475,8 @@ def main():
         acceptance_reason = "insufficient_correspondences"
         solver = {"success": False, "status": -1, "nfev": 0, "cost": float("nan"),
                   "whitened_residual_rmse": float("nan"), "irls_iterations": 0}
-        holdout = holdout_mask(anchor_ids, args.holdout_modulus, args.min_holdout)
+        group_ids = reference_pair_ids(cameras, reference_frames, reference_cameras) if args.holdout_group == "reference-pair" else anchor_ids
+        holdout = holdout_mask(group_ids, args.holdout_modulus, args.min_holdout)
         fit = ~holdout
         holdout_before = holdout_after = float("nan")
         correction_translation = correction_rotation = float("nan")
@@ -496,7 +524,9 @@ def main():
         acceptance = {"accepted": accepted, "reason": acceptance_reason, "fit_correspondences": int(fit.sum()),
                       "holdout_correspondences": int(holdout.sum()), "holdout_cost_before": holdout_before,
                       "holdout_cost_candidate": holdout_after, "correction_translation_m": correction_translation,
-                      "correction_rotation_deg": math.degrees(correction_rotation) if np.isfinite(correction_rotation) else float("nan")}
+                      "correction_rotation_deg": math.degrees(correction_rotation) if np.isfinite(correction_rotation) else float("nan"),
+                      "fit_groups": int(len(np.unique(group_ids[fit]))), "holdout_groups": int(len(np.unique(group_ids[holdout]))),
+                      "holdout_group_ids": np.unique(group_ids[holdout]).astype(str).tolist()}
         record = {"frame_id": row["frame_id"], "before": list(before), "after": list(after),
                   "candidate_after": list(candidate_after), "delta": [after[0] - before[0], after[1] - before[1]],
                   "candidate_delta": [candidate_after[0] - before[0], candidate_after[1] - before[1]],
@@ -509,8 +539,8 @@ def main():
                   "leader_pose": initial.tolist(), "candidate_pose": candidate.tolist(), "refined_pose": refined.tolist(),
                   "acceptance": acceptance, "gt_pose": gt.tolist()}
         records.append(record)
-        print("validation %d/%d %s cams=%d corr=%d overlap=%.3f accepted=%s before=(%.3f,%.3f) after=(%.3f,%.3f)" %
-              (index + 1, len(val_rows), row["frame_id"], record["n_cameras"], len(points), record["overlap_mean"],
+        print("%s %d/%d %s cams=%d corr=%d overlap=%.3f accepted=%s before=(%.3f,%.3f) after=(%.3f,%.3f)" %
+              (args.evaluate_split, index + 1, len(eval_rows), row["frame_id"], record["n_cameras"], len(points), record["overlap_mean"],
                accepted, before[0], before[1], after[0], after[1]), flush=True)
         if roma is not None:
             roma.clear_cache()
@@ -532,13 +562,13 @@ def main():
                                        "visual_lambda": args.visual_lambda},
                              "precision": {"scale": args.precision_scale, "floor_px": args.precision_floor_px},
                              "robust_scale_whitened": args.robust_scale_whitened,
-                             "acceptance": {"holdout_group": "map anchor id", "holdout_modulus": args.holdout_modulus,
+                             "acceptance": {"holdout_group": args.holdout_group, "holdout_modulus": args.holdout_modulus,
                                             "min_holdout": args.min_holdout, "maximum_holdout_cost_ratio": args.holdout_accept_ratio},
                              "match_cache": {"directory": args.match_cache_dir, "replay": args.replay_match_cache},
                              "gt_in_correspondence_path": False},
               "reference_map": {"path": str(args.map_cache), "observations": int(len(references["map_ids"])),
                                 "train_frames": len(train_rows), "geometry_only": bool(references["geometry_only"])},
-              "validation_frames": len(records), "records": records,
+              "evaluation_split": args.evaluate_split, "evaluation_frames": len(records), "records": records,
               "metrics": {"all_before": metrics(records, "before"), "candidate_after": metrics(records, "candidate_after"), "all_after": metrics(records, "after"),
                           "leader_success_before": metrics(success, "before"), "leader_success_after": metrics(success, "after")},
               "coverage": {"translation_improved_frames": int(translation_improved.sum()),
@@ -548,6 +578,7 @@ def main():
                            "median_correspondences_per_frame": float(np.median(correspondence_counts)) if len(correspondence_counts) else float("nan"),
                            "median_active_cameras_per_frame": float(np.median(active_camera_counts)) if len(active_camera_counts) else float("nan"),
                            "mean_active_cameras_per_frame": float(active_camera_counts.mean()) if len(active_camera_counts) else float("nan")},
+              "gate_diagnostics_train_only": gate_diagnostics(records) if args.evaluate_split == "train" else None,
               "paired": {"all_mean_delta_translation_m_rotation_deg": paired.mean(axis=0).tolist() if len(paired) else [],
                          "all_bootstrap_95ci": bootstrap_ci(paired),
                          "leader_success_mean_delta_translation_m_rotation_deg": paired_success.mean(axis=0).tolist() if len(paired_success) else [],

@@ -222,7 +222,10 @@ each complete two-dimensional residual block with IRLS; SciPy uses Trust Region
 Reflective least squares, not Levenberg-Marquardt. The prior, precision scale,
 floor, visual weight, and robust scale must be calibrated on train-only data.
 
-Each frame deterministically reserves whole map-anchor groups for holdout.
+Each frame deterministically reserves whole query-camera × reference-image-pair
+groups for holdout, so a systematic bias in one reference image pair cannot
+simultaneously appear in fit and holdout. `--holdout-group anchor` remains only
+as a diagnostic ablation.
 The candidate is output only when the solver is finite and successful, its
 actual correction respects the bounds, and holdout block cost improves by the
 configured ratio; otherwise the final pose reverts to frozen LEADER. Results
@@ -230,7 +233,10 @@ separately contain `candidate_pose` / `candidate_after` and accepted final
 `refined_pose` / `after`. Use `--match-cache-dir` to save the observation-world
 coordinates, query pixels, camera ids, RoMa precision, overlap, anchor ids, and
 reference ids, and `--replay-match-cache` to compare backends without running
-RoMa again.
+RoMa again. For train-only gate calibration, add `--evaluate-split train` and
+inspect `gate_diagnostics_train_only`: it reports the holdout-improvement ratio
+beside GT-labelled candidate improvement/degradation, good acceptance rate, and
+bad rejection rate. GT is reporting-only and never enters candidate acceptance.
 
 The 0.2 m voxel id is retained only as optional cache metadata; it has no role
 in RoMa visibility, retrieval, local gating, or the final pose correspondences.
