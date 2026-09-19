@@ -135,6 +135,25 @@ python research/prevoxel_multiview/calibrate_visual_threshold.py \
   --map-cache research/prevoxel_multiview/results/visual_map_calibration_train.npz
 ```
 
+`dedode_local_probe.py` isolates the descriptor's local pixel discrimination
+without map matching, thresholding, or LM. On train frames it uses the GT
+projection of each valid `projection_xyz` point as the center pixel, compares
+the cached correct descriptor with dense DeDoDe descriptors in a `+/-8 px`
+window, and reports rank-1 rate, cosine margin, and per-camera breakdown.
+This is an intra-frame local test; it does not establish cross-frame
+historical-map descriptor transfer.
+
+```bash
+python research/prevoxel_multiview/dedode_local_probe.py \
+  --manifest /home/zhang/leader-image-gate-multicamera/all_views.json \
+  --lidar-cache /home/zhang/leader-image-gate/lidar \
+  --feature-cache /home/zhang/leader-six-camera-controlled/features \
+  --projection-cache /home/zhang/leader-image-gate/projection_audit/mapping \
+  --dedode-weights /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/rscore-assets/dedode_descriptor_B.pth \
+  --pca-weights /home/zhang/rscore-l-local/data/proc/pcad3LB_128.pth \
+  --output research/prevoxel_multiview/results/dedode_local_probe_train.json
+```
+
 ## Frozen voxel residual probe
 
 `residual_probe.py` is deliberately separate from the trainable fusion entry.
