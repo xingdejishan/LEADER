@@ -68,6 +68,23 @@ class LocalPoseUpdateTest(unittest.TestCase):
             import os
             os.unlink(calibration.name)
 
+    def test_frozen_lidar_rotation_jacobian_matches_local_pose_update(self):
+        source = np.array([[.5, -1., 3.], [2., .3, 4.], [-1., 1.2, 5.]])
+        pose = np.eye(4)
+        pose[:3, 3] = [300., -200., 10.]
+        target = source + pose[:3, 3]
+        information = frozen_lidar_information(pose, {"source": source, "target": target, "weights": np.ones(len(source))})
+        analytic = information["jacobian"]
+        numeric = np.empty_like(analytic)
+        base = source @ pose[:3, :3].T + pose[:3, 3] - target
+        for axis in range(6):
+            delta = np.zeros(6)
+            delta[axis] = 1e-6
+            updated = apply_local_delta(pose, delta)
+            residual = source @ updated[:3, :3].T + updated[:3, 3] - target
+            numeric[:, :, axis] = (residual - base) / delta[axis]
+        np.testing.assert_allclose(analytic, numeric, rtol=2e-6, atol=2e-6)
+
 
 if __name__ == "__main__":
     unittest.main()
