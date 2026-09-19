@@ -45,7 +45,7 @@ def pose_error(pose, gt):
     return float(np.linalg.norm(pose[:3, 3] - gt[:3, 3])), float(np.degrees(np.arccos(cosine)))
 
 
-def pose_from_baseline(row, cache_dir, matcher, full_pool, device, seed):
+def pose_from_baseline(row, cache_dir, matcher, full_pool, device, seed, return_lidar_evidence=False):
     import torch
 
     cached = load_lidar(cache_dir, row["frame_id"])
@@ -55,10 +55,20 @@ def pose_from_baseline(row, cache_dir, matcher, full_pool, device, seed):
     torch.manual_seed(seed)
     keep = prediction[:, 3].topk(keep_count).indices
     initial = matcher.estimator(source[keep][None], prediction[keep, :3][None])[0]
-    refined, support = full_pool(initial, source, prediction[:, :3])
+    output = full_pool(initial, source, prediction[:, :3], return_evidence=True) if return_lidar_evidence else full_pool(initial, source, prediction[:, :3])
+    refined, support = output[:2]
     pose = refined.detach().cpu().numpy().astype(np.float64)
     pose[:3, 3] += np.asarray(cached["center"], dtype=np.float64)
-    return pose, np.asarray(cached["GT"], dtype=np.float64), int(support)
+    if not return_lidar_evidence:
+        return pose, np.asarray(cached["GT"], dtype=np.float64), int(support)
+    evidence = output[2]
+    if evidence is None:
+        return pose, np.asarray(cached["GT"], dtype=np.float64), int(support), None
+    center = np.asarray(cached["center"], dtype=np.float64)
+    lidar_evidence = {key: value.detach().cpu().numpy().astype(np.float64) for key, value in evidence.items() if key != "threshold"}
+    lidar_evidence["target"] += center
+    lidar_evidence["threshold"] = float(evidence["threshold"])
+    return pose, np.asarray(cached["GT"], dtype=np.float64), int(support), lidar_evidence
 
 
 def transform_points(points, pose):
