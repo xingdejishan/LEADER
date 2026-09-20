@@ -124,7 +124,7 @@ def main():
     for index, row in enumerate(rows):
         initial, gt, _ = pose_from_baseline(row, args.lidar_cache, matcher, full_pool_module.full_pool_refine, args.device, args.seed + index)
         cached = load_match_cache(Path(args.match_cache_dir) / (row["frame_id"] + ".npz"))
-        points, pixels, cameras, _, precisions, anchor_ids, reference_frames, reference_cameras, _ = cached
+        points, pixels, _, cameras, _, precisions, anchor_ids, reference_frames, reference_cameras, _ = cached
         frames.append((initial, gt, row["views"], points, pixels, cameras, precisions, anchor_ids, reference_frames, reference_cameras))
         print("baseline %d/%d %s" % (index + 1, len(rows), row["frame_id"]), flush=True)
     baseline_records = [{"before": list(pose_error(frame[0], frame[1]))} for frame in frames]

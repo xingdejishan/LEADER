@@ -219,8 +219,8 @@ def refine_pose_protected(initial, points, pixels, cameras, precisions, views,
 
 def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, crop_radius, local_radius,
                   min_overlap, max_reference_images, grid_cell, max_per_camera,
-                  min_precision, max_precision, min_view_cosine, gate_free_cache=False):
-    all_points, all_pixels, all_cameras, all_scores, all_precisions = [], [], [], [], []
+                  min_precision, max_precision, min_view_cosine, gate_free_cache=False, return_reference_pixels=False):
+    all_points, all_pixels, all_reference_pixels, all_cameras, all_scores, all_precisions = [], [], [], [], [], []
     all_anchor_ids, all_reference_frames, all_reference_cameras, diagnostics = [], [], [], []
     for query_view in sorted(row["views"], key=lambda value: value["camera"]):
         from PIL import Image
@@ -287,8 +287,9 @@ def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, cr
                 stage_counts["overlap"] += int(valid.sum())
             precision = stabilize_precision(precision, min_precision, max_precision)
             for position in np.where(valid)[0]:
-                candidates.append((float(overlap[position]), world[position], query_uv[position], precision[position],
-                                   int(references["map_ids"][ref_rows[position]]), reference_frame, reference_camera))
+                candidates.append((float(overlap[position]), world[position], query_uv[position], ref_uv[position],
+                                   precision[position], int(references["map_ids"][ref_rows[position]]),
+                                   reference_frame, reference_camera))
         if gate_free_cache:
             selected = candidates
         else:
@@ -306,33 +307,36 @@ def query_matches(row, initial, references, rows_by_frame, lidar_cache, roma, cr
             all_scores.extend(value[0] for value in selected)
             all_points.append(np.asarray([value[1] for value in selected]))
             all_pixels.append(np.asarray([value[2] for value in selected]))
-            all_precisions.append(np.asarray([value[3] for value in selected]))
+            all_reference_pixels.append(np.asarray([value[3] for value in selected]))
+            all_precisions.append(np.asarray([value[4] for value in selected]))
             all_cameras.append(np.full(len(selected), int(query_view["camera"]), dtype=np.int64))
-            all_anchor_ids.append(np.asarray([value[4] for value in selected], dtype=np.int64))
-            all_reference_frames.append(np.asarray([value[5] for value in selected], dtype="U32"))
-            all_reference_cameras.append(np.asarray([value[6] for value in selected], dtype=np.int8))
+            all_anchor_ids.append(np.asarray([value[5] for value in selected], dtype=np.int64))
+            all_reference_frames.append(np.asarray([value[6] for value in selected], dtype="U32"))
+            all_reference_cameras.append(np.asarray([value[7] for value in selected], dtype=np.int8))
         diagnostics.append({"camera": int(query_view["camera"]), "visible_observations": int(len(record_rows)),
                             "reference_images": int(len(selected_pairs)), "raw_candidates": int(len(candidates)),
                             "accepted": int(len(selected)), "stages": dict(stage_counts),
                             "reference_pair_covisible_anchors": {"%s:%d" % pair: pair_scores[pair] for pair in selected_pairs},
                             "reference_pairs": [list(pair) for pair in selected_pairs]})
     if not all_points:
-        return (np.empty((0, 3)), np.empty((0, 2)), np.empty(0, dtype=np.int64), np.empty(0),
+        result = (np.empty((0, 3)), np.empty((0, 2)), np.empty((0, 2)), np.empty(0, dtype=np.int64), np.empty(0),
                 np.empty((0, 2, 2)), np.empty(0, dtype=np.int64), np.empty(0, dtype="U32"),
                 np.empty(0, dtype=np.int8), diagnostics)
-    return (np.concatenate(all_points), np.concatenate(all_pixels), np.concatenate(all_cameras),
+        return result if return_reference_pixels else (result[0], result[1], result[3], result[4], result[5], result[6], result[7], result[8], result[9])
+    result = (np.concatenate(all_points), np.concatenate(all_pixels), np.concatenate(all_reference_pixels), np.concatenate(all_cameras),
             np.asarray(all_scores), np.concatenate(all_precisions), np.concatenate(all_anchor_ids),
             np.concatenate(all_reference_frames), np.concatenate(all_reference_cameras), diagnostics)
+    return result if return_reference_pixels else (result[0], result[1], result[3], result[4], result[5], result[6], result[7], result[8], result[9])
 
 
 def match_cache_path(cache_dir, frame_id):
     return Path(cache_dir) / (frame_id + ".npz")
 
 
-def save_match_cache(path, points, pixels, cameras, scores, precisions, anchor_ids,
+def save_match_cache(path, points, pixels, reference_pixels, cameras, scores, precisions, anchor_ids,
                      reference_frames, reference_cameras, diagnostics):
     path.parent.mkdir(parents=True, exist_ok=True)
-    np.savez_compressed(path, points=points, pixels=pixels, cameras=cameras, scores=scores,
+    np.savez_compressed(path, points=points, pixels=pixels, reference_pixels=reference_pixels, cameras=cameras, scores=scores,
                         precisions=precisions, anchor_ids=anchor_ids,
                         reference_frames=reference_frames, reference_cameras=reference_cameras,
                         diagnostics_json=np.asarray(json.dumps(diagnostics)))
@@ -340,7 +344,9 @@ def save_match_cache(path, points, pixels, cameras, scores, precisions, anchor_i
 
 def load_match_cache(path):
     with np.load(path) as data:
-        return (np.asarray(data["points"]), np.asarray(data["pixels"]), np.asarray(data["cameras"]),
+        if "reference_pixels" not in data.files:
+            raise ValueError("legacy match cache lacks reference_pixels; rebuild it before LSCR or replay")
+        return (np.asarray(data["points"]), np.asarray(data["pixels"]), np.asarray(data["reference_pixels"]), np.asarray(data["cameras"]),
                 np.asarray(data["scores"]), np.asarray(data["precisions"]), np.asarray(data["anchor_ids"]),
                 np.asarray(data["reference_frames"]), np.asarray(data["reference_cameras"]),
                 json.loads(str(data["diagnostics_json"])))
@@ -466,14 +472,14 @@ def main():
         if args.replay_match_cache:
             if cache_path is None or not cache_path.exists():
                 raise FileNotFoundError("missing match cache for %s" % row["frame_id"])
-            points, pixels, cameras, scores, precisions, anchor_ids, reference_frames, reference_cameras, matching = load_match_cache(cache_path)
+            points, pixels, reference_pixels, cameras, scores, precisions, anchor_ids, reference_frames, reference_cameras, matching = load_match_cache(cache_path)
         else:
-            points, pixels, cameras, scores, precisions, anchor_ids, reference_frames, reference_cameras, matching = query_matches(
+            points, pixels, reference_pixels, cameras, scores, precisions, anchor_ids, reference_frames, reference_cameras, matching = query_matches(
                 row, initial, references, rows_by_frame, args.lidar_cache, roma, args.crop_radius, args.local_radius, args.min_overlap,
                 args.max_reference_images, args.grid_cell, args.max_per_camera, args.min_precision, args.max_precision,
-                args.min_reference_view_cosine, args.gate_free_cache)
+                args.min_reference_view_cosine, args.gate_free_cache, return_reference_pixels=True)
             if cache_path is not None:
-                save_match_cache(cache_path, points, pixels, cameras, scores, precisions, anchor_ids,
+                save_match_cache(cache_path, points, pixels, reference_pixels, cameras, scores, precisions, anchor_ids,
                                  reference_frames, reference_cameras, matching)
         candidate = initial.copy()
         candidate_after = before

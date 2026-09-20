@@ -263,7 +263,7 @@ def main():
             raise RuntimeError("full-pool implementation did not return final Tukey evidence")
         lidar = frozen_lidar_information(pose, evidence)
         cache = load_match_cache(Path(args.match_cache_dir) / (row["frame_id"] + ".npz"))
-        points, before_pixels, cameras, _, _, _, reference_frames, reference_cameras, _ = cache
+        points, before_pixels, reference_pixels, cameras, _, _, _, reference_frames, reference_cameras, _ = cache
         lidar_uv, lidar_covariance, lidar_precision, radii = lidar_pixel_prior(
             points, cameras, pose, row["views"], lidar["covariance"], args.covariance_inflation,
             args.pixel_floor_px, args.window_sigmas, args.minimum_radius_px, args.maximum_radius_px)
@@ -284,7 +284,7 @@ def main():
                     reference_hw = (image.height, image.width)
                 ref_features, query_features = features.pair(reference_view["image"], query_view["image"])
                 refined, covariance, local_status = features.score_surface(
-                    ref_features, query_features, before_pixels[keep], reference_hw, query_hw, before_pixels[keep],
+                    ref_features, query_features, reference_pixels[keep], reference_hw, query_hw, before_pixels[keep],
                     radii[keep], lidar_uv[keep], lidar_precision[keep], args.appearance_weight, args.geometry_weight)
                 after_pixels[keep], refined_covariance[keep], status[keep] = refined, covariance, local_status
         truth, visible = truth_pixels(points, cameras, row, gt)

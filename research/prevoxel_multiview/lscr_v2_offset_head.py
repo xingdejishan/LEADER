@@ -82,7 +82,7 @@ def collect_dataset(rows, rows_by_frame, split, lidar_cache, match_cache_dir, ma
         if evidence is None:
             raise RuntimeError("full-pool implementation did not return final Tukey evidence")
         lidar = frozen_lidar_information(pose, evidence)
-        points, pixels, cameras, _, _, _, reference_frames, reference_cameras, _ = load_match_cache(
+        points, pixels, reference_pixels, cameras, _, _, _, reference_frames, reference_cameras, _ = load_match_cache(
             Path(match_cache_dir) / (row["frame_id"] + ".npz"))
         lidar_pixels, covariance, _, radii = lidar_pixel_prior(
             points, cameras, pose, row["views"], lidar["covariance"], covariance_inflation, pixel_floor,
@@ -103,7 +103,7 @@ def collect_dataset(rows, rows_by_frame, split, lidar_cache, match_cache_dir, ma
                 with Image.open(reference_view["image"]) as image:
                     reference_hw = (image.height, image.width)
                 reference_features, query_features = features.pair(reference_view["image"], query_view["image"])
-                local_volume[keep] = features.correlation_volume(reference_features, query_features, pixels[keep],
+                local_volume[keep] = features.correlation_volume(reference_features, query_features, reference_pixels[keep],
                                                                  reference_hw, query_hw, pixels[keep], feature_radius)
         keep = visible & np.isfinite(local_volume).all(axis=1) & np.isfinite(lidar_pixels).all(axis=1)
         volumes.append(local_volume[keep])
