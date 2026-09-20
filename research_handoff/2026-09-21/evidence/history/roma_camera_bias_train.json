@@ -1,0 +1,46 @@
+{
+  "protocol": {
+    "name": "RoMa per-camera fixed bias fit",
+    "split": "train only",
+    "estimator": "per-camera median of RoMa pixel delta: prediction minus GT",
+    "inference": "subtract the frozen bias from RoMa query pixels; no GT is used"
+  },
+  "camera_bias_px": [
+    {
+      "camera": 0,
+      "count": 424,
+      "du_px": 1.2509775930324167,
+      "dv_px": 1.0548852732776908
+    },
+    {
+      "camera": 1,
+      "count": 2197,
+      "du_px": 0.1782872405963758,
+      "dv_px": -1.6705932091012983
+    },
+    {
+      "camera": 2,
+      "count": 1417,
+      "du_px": 3.353018489949477,
+      "dv_px": -0.9139482762480498
+    },
+    {
+      "camera": 3,
+      "count": 1948,
+      "du_px": 1.2300952973609753,
+      "dv_px": -0.02947248259317803
+    },
+    {
+      "camera": 4,
+      "count": 2924,
+      "du_px": 0.8443446756633648,
+      "dv_px": 0.20488968982532185
+    },
+    {
+      "camera": 5,
+      "count": 2584,
+      "du_px": 0.8960170780969463,
+      "dv_px": 0.19537307565630613
+    }
+  ]
+}

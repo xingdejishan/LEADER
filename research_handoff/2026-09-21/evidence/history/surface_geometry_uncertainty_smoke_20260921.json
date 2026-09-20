@@ -1,0 +1,608 @@
+{
+  "protocol": {
+    "name": "surface-bound real-image patch refinement",
+    "map_source": "train split only",
+    "query_gt_in_runner": false,
+    "reference_patch": "8x8 grayscale pixels bound to frozen local fitted surface planes",
+    "online_observation": "reference and query image bilinear samples at candidate-pose projections",
+    "visual_objectives": {
+      "joint": "mean normalized pixel residual squared with shared outer soft_l1",
+      "patch_robust": "mean Huber(||patch_residual||_2/sqrt(m)) with fixed training scale and sqrt(m) small-error scale alignment",
+      "patch_geometry": "patch_robust residual whitened by fixed initial-pose plane-uncertainty propagation",
+      "patch_weak": "patch_robust residual with training-only scalar visual weakening"
+    },
+    "patch_robust_scale": 0.4113392499690306,
+    "patch_robust_scale_alignment": "sqrt(per-patch pixel count), fixed by patch_size",
+    "geometry_uncertainty_model": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/surface_geometry_uncertainty_model_20260921.json",
+    "weak_visual_scale": 0.9274505564533074,
+    "query_mask_enforced_during_optimization": true,
+    "visibility_diagnostic_collected": false,
+    "visibility_filter": "frozen map-point z-buffer at LEADER initial pose for visibility variant",
+    "pose_updates": {
+      "rotation": "R=Exp(delta_rotation) R_LEADER; t=t_LEADER",
+      "joint": "R=Exp(delta_rotation) R_LEADER; t=t_LEADER+delta_translation"
+    },
+    "optimizer": {
+      "method": "trf",
+      "loss": "soft_l1",
+      "jacobian": "central finite difference",
+      "translation_step_m": 0.0001,
+      "rotation_step_rad": 1e-05,
+      "x_scale": "jac"
+    },
+    "no_baseline_fallback": true,
+    "parameters": {
+      "reference_lidar_cache": "/home/zhang/leader-image-gate/lidar",
+      "device": "cuda",
+      "variant": "all",
+      "evaluate_split": "validation",
+      "frames": 1,
+      "train_frames": 0,
+      "map_voxel_size": 0.2,
+      "surface_voxel_size": 0.2,
+      "crop_radius": 80.0,
+      "min_view_cosine": 0.7,
+      "plane_radius": 0.8,
+      "min_plane_neighbors": 8,
+      "patch_size": 8,
+      "max_patches_per_camera": 48,
+      "grid_cell": 32,
+      "min_contrast": 0.03,
+      "max_rotation_deg": 2.0,
+      "max_translation_m": 0.5,
+      "prior_sigma_deg": 1.0,
+      "robust_scale": 0.2,
+      "patch_robust_scale": 0.4113392499690306,
+      "geometry_uncertainty_model": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/surface_geometry_uncertainty_model_20260921.json",
+      "visual_weight": 1.0,
+      "lidar_weight": 1.0,
+      "translation_step_m": 0.0001,
+      "rotation_step_rad": 1e-05,
+      "visibility_cell_px": 4,
+      "visibility_window_cells": 1,
+      "visibility_depth_margin_m": 0.5,
+      "min_visibility_coverage": 0.5,
+      "min_visible_fraction": 0.9,
+      "collect_visibility_diagnostic": false,
+      "max_nfev": 100,
+      "seed": 2089
+    },
+    "input_manifest": "/home/zhang/leader-image-gate-multicamera/all_views.json",
+    "online_lidar_cache": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/official_irls_cache_20260921",
+    "reference_lidar_cache": "/home/zhang/leader-image-gate/lidar",
+    "reference_map_cache": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/official_surface_reference_20260921.npz",
+    "reference_observation_count": 40335,
+    "surface_point_count": 30116,
+    "manifest_sha256": "a7008599fa2349d262745cec4ee80a568608b073f0782d15b4df407524c92e90"
+  },
+  "evaluation_split": "validation",
+  "evaluation_frames": 1,
+  "records": [
+    {
+      "frame_id": "1329604635582975",
+      "initial_pose": [
+        [
+          -0.05219821259379387,
+          -0.9975579380989075,
+          -0.04639708250761032,
+          -77.85289001464844
+        ],
+        [
+          0.997376561164856,
+          -0.04974185302853584,
+          -0.05259529501199722,
+          -336.0888786315918
+        ],
+        [
+          0.05015886574983597,
+          -0.049020715057849884,
+          0.9975373148918152,
+          8.244644165039062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "patch_count": 142,
+      "patch_diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 65,
+          "grid_cells": 22,
+          "selected": 22,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 165,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 249,
+          "grid_cells": 19,
+          "selected": 19,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 53,
+          "grid_cells": 26,
+          "selected": 26,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1131,
+          "grid_cells": 67,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ],
+      "visibility_patch_count": 0,
+      "visibility_diagnostics": [],
+      "reference_frames": [
+        "1329601398002477",
+        "1329601399402470",
+        "1329601401402448",
+        "1329601403002483",
+        "1329601404402427",
+        "1329601406002426",
+        "1329601407402467",
+        "1329601409002400",
+        "1329601411002392",
+        "1329601412402370",
+        "1329601414002369",
+        "1329601430002267",
+        "1329604603983211",
+        "1329604605583164",
+        "1329604606983155",
+        "1329604608583140",
+        "1329604609983135",
+        "1329604611983122",
+        "1329604613583755",
+        "1329604614983101",
+        "1329604616583112",
+        "1329604617983823",
+        "1329604619583096",
+        "1329604621983066",
+        "1329604623583040",
+        "1329604624983040"
+      ],
+      "reference_indices": [
+        20784,
+        20156,
+        33184,
+        20798,
+        19371,
+        20797,
+        18613,
+        38314,
+        19394,
+        37826,
+        38309,
+        38079,
+        38324,
+        20843,
+        38331,
+        20838,
+        38870,
+        38084,
+        20025,
+        39392,
+        38853,
+        39136,
+        21823,
+        22426,
+        23210,
+        20365,
+        21086,
+        20366,
+        21812,
+        20364,
+        20358,
+        25260,
+        39689,
+        39701,
+        40181,
+        39958,
+        38381,
+        38121,
+        38933,
+        39464,
+        39470,
+        37893,
+        36726,
+        39474,
+        39473,
+        39213,
+        37054,
+        36735,
+        40207,
+        19626,
+        19629,
+        37368,
+        40214,
+        38694,
+        37395,
+        38423,
+        38955,
+        39253,
+        37951,
+        37677,
+        37399,
+        38457,
+        40247,
+        39789,
+        38188,
+        39800,
+        39552,
+        39546,
+        40054,
+        39573,
+        40061,
+        40306,
+        40304,
+        39811,
+        39813,
+        39307,
+        39584,
+        39589,
+        39824,
+        39826,
+        40321,
+        40077,
+        40332,
+        40331,
+        39827,
+        40081,
+        40086,
+        40082,
+        40326,
+        40329,
+        40330,
+        39320,
+        40333,
+        39325,
+        40130,
+        39604,
+        39865,
+        40124,
+        39046,
+        40126,
+        40127,
+        39052,
+        38061,
+        40131,
+        39878,
+        39872,
+        38255,
+        37758,
+        38529,
+        18277,
+        39337,
+        39620,
+        39060,
+        21320,
+        39062,
+        38802,
+        40146,
+        40155,
+        24950,
+        39630,
+        39070,
+        39357,
+        22917,
+        24317,
+        39076,
+        39364,
+        40160,
+        23615,
+        39370,
+        39907,
+        39374,
+        40096,
+        33145,
+        25736,
+        38271,
+        39079,
+        38024,
+        39911,
+        39908,
+        39081,
+        40105,
+        37792
+      ],
+      "lidar_evidence_count": 251,
+      "timing_s": {
+        "baseline_s": 0.9839306889999762,
+        "patch_build_s": 7.420831782999926,
+        "visibility_patch_build_s": 0.0,
+        "refine_lidar_s": 0.01904312099998151,
+        "refine_patch_robust_s": 0.7845454170000039,
+        "refine_patch_geometry_s": 1.3778985750000174,
+        "refine_patch_weak_s": 0.7049976810000089,
+        "refine_total_s": 2.8864957730000924,
+        "frame_total_s": 11.291320532999976
+      },
+      "variants": {
+        "lidar": {
+          "final_pose": [
+            [
+              -0.051967151858387725,
+              -0.9975315865198138,
+              -0.04721579443340406,
+              -77.8453365628036
+            ],
+            [
+              0.9973955415554259,
+              -0.04947509700734271,
+              -0.05248686065509593,
+              -336.0804574838287
+            ],
+            [
+              0.050021183366817164,
+              -0.04982038722266502,
+              0.9975046100839758,
+              8.238390121967825
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "delta": [
+            0.00755345184484173,
+            0.008421147763101853,
+            -0.006254043071237166,
+            -9.593308355840258e-05,
+            -0.0008064111409365822,
+            -0.0002721653012537419
+          ],
+          "translation_delta_m": [
+            0.00755345184484173,
+            0.008421147763101853,
+            -0.006254043071237166
+          ],
+          "rotation_delta_rad": [
+            -9.593308355840258e-05,
+            -0.0008064111409365822,
+            -0.0002721653012537419
+          ],
+          "rotation_delta_deg": 0.049073292828654816,
+          "patch_count": 0,
+          "visibility_check": false,
+          "visual_rmse_before": NaN,
+          "visual_rmse_after": NaN,
+          "geometry_ratio_median": NaN,
+          "lidar_rmse_before": 0.6923466063803789,
+          "lidar_rmse_after": 0.6937620936451045,
+          "solver": {
+            "success": true,
+            "status": 2,
+            "nfev": 4,
+            "cost": 64.0403197883876,
+            "optimality": 5.480469566858223e-06,
+            "message": "`ftol` termination condition is satisfied."
+          },
+          "run_failed": false
+        },
+        "patch_robust": {
+          "final_pose": [
+            [
+              -0.052309531152347565,
+              -0.9975034392126695,
+              -0.04743189174811334,
+              -77.84254728617657
+            ],
+            [
+              0.997375999357577,
+              -0.049803554307916595,
+              -0.052547536187998345,
+              -336.0786954362836
+            ],
+            [
+              0.05005395916834744,
+              -0.050056138972492524,
+              0.9974911633743708,
+              8.239622640221361
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "delta": [
+            0.010342728471863037,
+            0.010183195308174168,
+            -0.005021524817702099,
+            -5.0668570000486254e-05,
+            -0.0010405150881295014,
+            5.93377559194992e-05
+          ],
+          "translation_delta_m": [
+            0.010342728471863037,
+            0.010183195308174168,
+            -0.005021524817702099
+          ],
+          "rotation_delta_rad": [
+            -5.0668570000486254e-05,
+            -0.0010405150881295014,
+            5.93377559194992e-05
+          ],
+          "rotation_delta_deg": 0.059784512921108486,
+          "patch_count": 142,
+          "visibility_check": false,
+          "visual_rmse_before": 1.3230969192586046,
+          "visual_rmse_after": 1.315751109081982,
+          "geometry_ratio_median": NaN,
+          "lidar_rmse_before": 0.6923466063803789,
+          "lidar_rmse_after": 0.6941174660077828,
+          "solver": {
+            "success": true,
+            "status": 3,
+            "nfev": 23,
+            "cost": 76.89771427085302,
+            "optimality": 0.0060934489845233695,
+            "message": "`xtol` termination condition is satisfied."
+          },
+          "run_failed": false
+        },
+        "patch_geometry": {
+          "final_pose": [
+            [
+              -0.05227253243482311,
+              -0.9975066837015089,
+              -0.04740443990990484,
+              -77.84326910230939
+            ],
+            [
+              0.9973743428971491,
+              -0.04976450775225735,
+              -0.05261592567419018,
+              -336.07565533816484
+            ],
+            [
+              0.05012556688618096,
+              -0.05003031131856472,
+              0.9974888632794181,
+              8.240440835836358
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "delta": [
+            0.009620912339042907,
+            0.013223293426934842,
+            -0.004203329202704393,
+            1.956860755936116e-05,
+            -0.0010111176982820426,
+            2.3682307693935853e-05
+          ],
+          "translation_delta_m": [
+            0.009620912339042907,
+            0.013223293426934842,
+            -0.004203329202704393
+          ],
+          "rotation_delta_rad": [
+            1.956860755936116e-05,
+            -0.0010111176982820426,
+            2.3682307693935853e-05
+          ],
+          "rotation_delta_deg": 0.05795951061159913,
+          "patch_count": 142,
+          "visibility_check": false,
+          "visual_rmse_before": 1.313338274475056,
+          "visual_rmse_after": 1.295383194467449,
+          "geometry_ratio_median": 0.9977683424386501,
+          "lidar_rmse_before": 0.6923466063803789,
+          "lidar_rmse_after": 0.6943649991846094,
+          "solver": {
+            "success": true,
+            "status": 2,
+            "nfev": 19,
+            "cost": 76.73380644677377,
+            "optimality": 0.0052937147492416155,
+            "message": "`ftol` termination condition is satisfied."
+          },
+          "run_failed": false
+        },
+        "patch_weak": {
+          "final_pose": [
+            [
+              -0.052288371818449524,
+              -0.9975053376086649,
+              -0.04741529535835921,
+              -77.84264659758871
+            ],
+            [
+              0.9973773355925506,
+              -0.04978355190161191,
+              -0.052541127759245035,
+              -336.0787634098708
+            ],
+            [
+              0.05004944146752113,
+              -0.050038202544875315,
+              0.9974922899872739,
+              8.239565816568055
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "delta": [
+            0.010243417059723514,
+            0.010115221721002451,
+            -0.005078348471006877,
+            -5.613679212248376e-05,
+            -0.0010228055709650872,
+            3.901474701663886e-05
+          ],
+          "translation_delta_m": [
+            0.010243417059723514,
+            0.010115221721002451,
+            -0.005078348471006877
+          ],
+          "rotation_delta_rad": [
+            -5.613679212248376e-05,
+            -0.0010228055709650872,
+            3.901474701663886e-05
+          ],
+          "rotation_delta_deg": 0.05873319697450144,
+          "patch_count": 142,
+          "visibility_check": false,
+          "visual_rmse_before": 1.3230969192586046,
+          "visual_rmse_after": 1.3159878172200776,
+          "geometry_ratio_median": NaN,
+          "lidar_rmse_before": 0.6923466063803789,
+          "lidar_rmse_after": 0.6940950830893783,
+          "solver": {
+            "success": true,
+            "status": 2,
+            "nfev": 15,
+            "cost": 75.68895671457287,
+            "optimality": 0.00536788022605557,
+            "message": "`ftol` termination condition is satisfied."
+          },
+          "run_failed": false
+        }
+      }
+    }
+  ],
+  "timing_totals_s": {
+    "baseline_s": 0.9839306889999762,
+    "patch_build_s": 7.420831782999926,
+    "visibility_patch_build_s": 0.0,
+    "refine_lidar_s": 0.01904312099998151,
+    "refine_patch_robust_s": 0.7845454170000039,
+    "refine_patch_geometry_s": 1.3778985750000174,
+    "refine_patch_weak_s": 0.7049976810000089,
+    "refine_total_s": 2.8864957730000924,
+    "frame_total_s": 11.291320532999976
+  },
+  "elapsed_s": 11.129498720169067
+}

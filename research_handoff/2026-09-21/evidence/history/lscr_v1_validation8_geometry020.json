@@ -1,0 +1,361 @@
+{
+  "protocol": {
+    "name": "LSCR V1 deterministic frozen RoMa fine-feature refinement",
+    "input": "cached RoMa correspondences; neither reference retrieval nor pose solver is changed",
+    "appearance": "cosine similarity of frozen RoMa stride-4 refiner features",
+    "geometry": "full-pool final-Tukey Hessian pose covariance projected to pixels",
+    "search": "RoMa pixel-centered covariance-adaptive rectangle; LiDAR Mahalanobis prior",
+    "subpixel": "3x3 quadratic score-surface peak; non-concave or boundary maxima remain integer",
+    "gt_used_for": "evaluation only"
+  },
+  "settings": {
+    "manifest": "/home/zhang/leader-image-gate-multicamera/all_views.json",
+    "lidar_cache": "/home/zhang/leader-image-gate/lidar",
+    "match_cache_dir": "research/prevoxel_multiview/results/lscr_v1_validation8_matches",
+    "output": "research/prevoxel_multiview/results/lscr_v1_validation8_geometry020.json",
+    "full_pool": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/glace-local/code/tools/full_pool_robust_v1.py",
+    "device": "cuda",
+    "roma_setting": "precise",
+    "evaluate_split": "validation",
+    "frames": 8,
+    "feature_stride": 4,
+    "appearance_weight": 1.0,
+    "geometry_weight": 0.2,
+    "covariance_inflation": 4.0,
+    "pixel_floor_px": 1.0,
+    "window_sigmas": 2.0,
+    "minimum_radius_px": 3.0,
+    "maximum_radius_px": 12.0,
+    "seed": 2089
+  },
+  "frames": [
+    {
+      "frame_id": "1329604635582975",
+      "baseline_support": 251,
+      "correspondences": 10,
+      "gt_visible": 10,
+      "before": {
+        "count": 10,
+        "median_pixel_error": 2.4185037178101325,
+        "p90_pixel_error": 4.557189026178131,
+        "mean_du_px": 1.776856566435805,
+        "mean_dv_px": 0.9314770885690138,
+        "lt_2px_fraction": 0.2,
+        "lt_5px_fraction": 0.9,
+        "lt_8px_fraction": 0.9
+      },
+      "after": {
+        "count": 10,
+        "median_pixel_error": 2.072339391563013,
+        "p90_pixel_error": 3.49471232528033,
+        "mean_du_px": 0.9132342991198016,
+        "mean_dv_px": 1.774255429374037,
+        "lt_2px_fraction": 0.5,
+        "lt_5px_fraction": 1.0,
+        "lt_8px_fraction": 1.0
+      },
+      "status": {
+        "subpixel": 10
+      },
+      "window_radius_px": {
+        "median_x": 6.956093864522455,
+        "median_y": 5.6441130137409985,
+        "p90_x": 7.127778891962428,
+        "p90_y": 6.01493987575859
+      },
+      "lidar_residual_scale_m": 0.15326520454822737,
+      "subpixel_covariance_count": 10
+    },
+    {
+      "frame_id": "1329604636982984",
+      "baseline_support": 276,
+      "correspondences": 25,
+      "gt_visible": 24,
+      "before": {
+        "count": 24,
+        "median_pixel_error": 5.76204007136484,
+        "p90_pixel_error": 6.443748674817833,
+        "mean_du_px": -4.354997688600572,
+        "mean_dv_px": 0.7173942552497626,
+        "lt_2px_fraction": 0.125,
+        "lt_5px_fraction": 0.2916666666666667,
+        "lt_8px_fraction": 0.9583333333333334
+      },
+      "after": {
+        "count": 24,
+        "median_pixel_error": 3.73866835306646,
+        "p90_pixel_error": 4.942305662432373,
+        "mean_du_px": -3.2602014042763514,
+        "mean_dv_px": 0.9638930187346068,
+        "lt_2px_fraction": 0.041666666666666664,
+        "lt_5px_fraction": 0.9166666666666666,
+        "lt_8px_fraction": 1.0
+      },
+      "status": {
+        "integer_boundary": 19,
+        "subpixel": 6
+      },
+      "window_radius_px": {
+        "median_x": 3.0,
+        "median_y": 3.0,
+        "p90_x": 7.586510991489142,
+        "p90_y": 4.74999780940218
+      },
+      "lidar_residual_scale_m": 0.13523649381380307,
+      "subpixel_covariance_count": 6
+    },
+    {
+      "frame_id": "1329604637982961",
+      "baseline_support": 478,
+      "correspondences": 32,
+      "gt_visible": 32,
+      "before": {
+        "count": 32,
+        "median_pixel_error": 5.71680068749877,
+        "p90_pixel_error": 8.6318215067169,
+        "mean_du_px": 1.9887758123756694,
+        "mean_dv_px": 0.37050685310832154,
+        "lt_2px_fraction": 0.0,
+        "lt_5px_fraction": 0.40625,
+        "lt_8px_fraction": 0.84375
+      },
+      "after": {
+        "count": 32,
+        "median_pixel_error": 2.483052309696835,
+        "p90_pixel_error": 5.187622123048041,
+        "mean_du_px": 0.5435224296733292,
+        "mean_dv_px": -0.26210473113411403,
+        "lt_2px_fraction": 0.375,
+        "lt_5px_fraction": 0.875,
+        "lt_8px_fraction": 1.0
+      },
+      "status": {
+        "integer_boundary": 29,
+        "subpixel": 3
+      },
+      "window_radius_px": {
+        "median_x": 3.317497393640061,
+        "median_y": 3.122464910435802,
+        "p90_x": 6.573862559538133,
+        "p90_y": 4.884008389216881
+      },
+      "lidar_residual_scale_m": 0.1319274310160592,
+      "subpixel_covariance_count": 3
+    },
+    {
+      "frame_id": "1329604639582940",
+      "baseline_support": 546,
+      "correspondences": 41,
+      "gt_visible": 40,
+      "before": {
+        "count": 40,
+        "median_pixel_error": 5.254317582189483,
+        "p90_pixel_error": 8.275459085370752,
+        "mean_du_px": 0.2100163942922734,
+        "mean_dv_px": -1.470446700995319,
+        "lt_2px_fraction": 0.075,
+        "lt_5px_fraction": 0.45,
+        "lt_8px_fraction": 0.85
+      },
+      "after": {
+        "count": 40,
+        "median_pixel_error": 2.440841007326065,
+        "p90_pixel_error": 6.81041563299295,
+        "mean_du_px": 0.21116852035097367,
+        "mean_dv_px": -0.5417844160402794,
+        "lt_2px_fraction": 0.375,
+        "lt_5px_fraction": 0.85,
+        "lt_8px_fraction": 0.95
+      },
+      "status": {
+        "integer_boundary": 40,
+        "subpixel": 1
+      },
+      "window_radius_px": {
+        "median_x": 3.0,
+        "median_y": 3.0,
+        "p90_x": 3.85985203212733,
+        "p90_y": 3.0
+      },
+      "lidar_residual_scale_m": 0.12227665586339345,
+      "subpixel_covariance_count": 1
+    },
+    {
+      "frame_id": "1329604640582945",
+      "baseline_support": 592,
+      "correspondences": 92,
+      "gt_visible": 92,
+      "before": {
+        "count": 92,
+        "median_pixel_error": 5.9721935734510545,
+        "p90_pixel_error": 11.515687259488391,
+        "mean_du_px": 3.9113523633305647,
+        "mean_dv_px": 0.5379849821395449,
+        "lt_2px_fraction": 0.07608695652173914,
+        "lt_5px_fraction": 0.33695652173913043,
+        "lt_8px_fraction": 0.6521739130434783
+      },
+      "after": {
+        "count": 92,
+        "median_pixel_error": 2.686256715901865,
+        "p90_pixel_error": 7.779306040638866,
+        "mean_du_px": 1.886855788625054,
+        "mean_dv_px": 1.5630316091943273,
+        "lt_2px_fraction": 0.3695652173913043,
+        "lt_5px_fraction": 0.6956521739130435,
+        "lt_8px_fraction": 0.9130434782608695
+      },
+      "status": {
+        "integer_boundary": 90,
+        "subpixel": 2
+      },
+      "window_radius_px": {
+        "median_x": 3.288227662746138,
+        "median_y": 3.0,
+        "p90_x": 5.72703463419613,
+        "p90_y": 4.642231293635461
+      },
+      "lidar_residual_scale_m": 0.12550359640313113,
+      "subpixel_covariance_count": 2
+    },
+    {
+      "frame_id": "1329604641982945",
+      "baseline_support": 633,
+      "correspondences": 123,
+      "gt_visible": 122,
+      "before": {
+        "count": 122,
+        "median_pixel_error": 6.565732495859027,
+        "p90_pixel_error": 9.293646649255423,
+        "mean_du_px": 2.3789538754067596,
+        "mean_dv_px": -2.8365621016817713,
+        "lt_2px_fraction": 0.01639344262295082,
+        "lt_5px_fraction": 0.23770491803278687,
+        "lt_8px_fraction": 0.6721311475409836
+      },
+      "after": {
+        "count": 122,
+        "median_pixel_error": 3.958303140900397,
+        "p90_pixel_error": 6.316084198075621,
+        "mean_du_px": 1.5031417107437395,
+        "mean_dv_px": -1.808202273201529,
+        "lt_2px_fraction": 0.08196721311475409,
+        "lt_5px_fraction": 0.6475409836065574,
+        "lt_8px_fraction": 0.9672131147540983
+      },
+      "status": {
+        "integer_boundary": 110,
+        "subpixel": 13
+      },
+      "window_radius_px": {
+        "median_x": 3.0,
+        "median_y": 3.0,
+        "p90_x": 4.375103923392267,
+        "p90_y": 3.3918206741388355
+      },
+      "lidar_residual_scale_m": 0.12200786591597122,
+      "subpixel_covariance_count": 13
+    },
+    {
+      "frame_id": "1329604642982934",
+      "baseline_support": 646,
+      "correspondences": 223,
+      "gt_visible": 216,
+      "before": {
+        "count": 216,
+        "median_pixel_error": 7.59542227031226,
+        "p90_pixel_error": 10.315658993889787,
+        "mean_du_px": 3.0075498856976854,
+        "mean_dv_px": -4.685388225617645,
+        "lt_2px_fraction": 0.0,
+        "lt_5px_fraction": 0.013888888888888888,
+        "lt_8px_fraction": 0.5879629629629629
+      },
+      "after": {
+        "count": 216,
+        "median_pixel_error": 4.949026197437394,
+        "p90_pixel_error": 7.531192730105783,
+        "mean_du_px": 1.9990314928384225,
+        "mean_dv_px": -3.5614281506839442,
+        "lt_2px_fraction": 0.032407407407407406,
+        "lt_5px_fraction": 0.5092592592592593,
+        "lt_8px_fraction": 0.9259259259259259
+      },
+      "status": {
+        "integer_boundary": 206,
+        "subpixel": 17
+      },
+      "window_radius_px": {
+        "median_x": 3.7691898978535723,
+        "median_y": 3.0095511675870315,
+        "p90_x": 5.293082275971381,
+        "p90_y": 4.170066413362742
+      },
+      "lidar_residual_scale_m": 0.1287692472660524,
+      "subpixel_covariance_count": 17
+    },
+    {
+      "frame_id": "1329604644582931",
+      "baseline_support": 658,
+      "correspondences": 122,
+      "gt_visible": 122,
+      "before": {
+        "count": 122,
+        "median_pixel_error": 6.516853195891333,
+        "p90_pixel_error": 10.041169768674013,
+        "mean_du_px": 3.8807356786591547,
+        "mean_dv_px": -0.4642974371789519,
+        "lt_2px_fraction": 0.0,
+        "lt_5px_fraction": 0.3360655737704918,
+        "lt_8px_fraction": 0.5901639344262295
+      },
+      "after": {
+        "count": 122,
+        "median_pixel_error": 4.0349338769238905,
+        "p90_pixel_error": 7.176673573263713,
+        "mean_du_px": 2.5772381675068003,
+        "mean_dv_px": 0.2428085210583979,
+        "lt_2px_fraction": 0.12295081967213115,
+        "lt_5px_fraction": 0.5655737704918032,
+        "lt_8px_fraction": 0.9672131147540983
+      },
+      "status": {
+        "integer_boundary": 117,
+        "subpixel": 5
+      },
+      "window_radius_px": {
+        "median_x": 3.0,
+        "median_y": 3.0,
+        "p90_x": 4.091864278478884,
+        "p90_y": 3.3816003072161873
+      },
+      "lidar_residual_scale_m": 0.12591756543753851,
+      "subpixel_covariance_count": 5
+    }
+  ],
+  "overall": {
+    "before": {
+      "count": 658,
+      "median_pixel_error": 6.991778700418857,
+      "p90_pixel_error": 9.986303754212257,
+      "mean_du_px": 2.6724124942839063,
+      "mean_dv_px": -2.1059020028058413,
+      "lt_2px_fraction": 0.025835866261398176,
+      "lt_5px_fraction": 0.22948328267477203,
+      "lt_8px_fraction": 0.6595744680851063
+    },
+    "after": {
+      "count": 658,
+      "median_pixel_error": 4.125025279081795,
+      "p90_pixel_error": 7.226200187630887,
+      "mean_du_px": 1.6108128389138623,
+      "mean_dv_px": -1.224362236410103,
+      "lt_2px_fraction": 0.15045592705167174,
+      "lt_5px_fraction": 0.6322188449848024,
+      "lt_8px_fraction": 0.9483282674772037
+    },
+    "median_error_change_px": -2.8667534213370622,
+    "p90_error_change_px": -2.7601035665813693
+  },
+  "elapsed_s": 12.815471649169922
+}

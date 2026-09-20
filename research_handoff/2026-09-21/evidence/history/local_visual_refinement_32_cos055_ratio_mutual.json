@@ -1,0 +1,7036 @@
+{
+  "protocol": {
+    "map_source": "train split only",
+    "map_feature_cache": "/home/zhang/leader-six-camera-controlled/features",
+    "map_voxel_size_m": 0.2,
+    "local_crop_radius_m": 80.0,
+    "query": "dense DeDoDe-B + PCA128, local descriptor search around T_L projection",
+    "matching": {
+      "search_radius_px": 8,
+      "search_step_px": 4,
+      "min_cosine": 0.55,
+      "grid_cell_px": 4,
+      "max_per_camera": 300,
+      "map_point_level_history_aggregation": "max cosine over historical descriptors per map point",
+      "ratio_threshold": 0.8,
+      "ratio_exclusion_radius_px": 4,
+      "mutual_radius_px": 8.0
+    },
+    "visibility": "T_L projection + image mask + black border + local z-buffer",
+    "optimizer": "same bounded robust LM as oracle",
+    "gt_in_correspondence_path": false
+  },
+  "visual_map": {
+    "path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/visual_map_hist.npz",
+    "points": 39652,
+    "descriptor_observations": 34782,
+    "train_frames": 64
+  },
+  "validation_frames": 32,
+  "records": [
+    {
+      "frame_id": "1329604635582975",
+      "before": [
+        0.068455196213898,
+        1.0386958004058646
+      ],
+      "after": [
+        0.068455196213898,
+        1.0386958004058646
+      ],
+      "delta": [
+        0.0,
+        0.0
+      ],
+      "leader_success": true,
+      "n_correspondences": 0,
+      "n_cameras": 0,
+      "score_mean": NaN,
+      "score_p10": NaN,
+      "per_camera_correspondences": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 845,
+          "descriptor_candidates": 71,
+          "map_point_candidates": 71,
+          "forward_candidates": 71,
+          "cosine_pass": 1,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9562216997146606,
+          "score_mean": NaN
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 902,
+          "descriptor_candidates": 63,
+          "map_point_candidates": 63,
+          "forward_candidates": 63,
+          "cosine_pass": 0,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9282050132751465,
+          "score_mean": NaN
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 269,
+          "descriptor_candidates": 34,
+          "map_point_candidates": 34,
+          "forward_candidates": 34,
+          "cosine_pass": 3,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9447041749954224,
+          "score_mean": NaN
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 284,
+          "descriptor_candidates": 34,
+          "map_point_candidates": 34,
+          "forward_candidates": 34,
+          "cosine_pass": 0,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.950442910194397,
+          "score_mean": NaN
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 811,
+          "descriptor_candidates": 150,
+          "map_point_candidates": 150,
+          "forward_candidates": 150,
+          "cosine_pass": 1,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9499737620353699,
+          "score_mean": NaN
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1255,
+          "descriptor_candidates": 407,
+          "map_point_candidates": 407,
+          "forward_candidates": 407,
+          "cosine_pass": 0,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9503841400146484,
+          "score_mean": NaN
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": -1,
+        "nfev": 0,
+        "cost": NaN,
+        "correspondence_rmse_px": NaN
+      },
+      "baseline_support": 251,
+      "geometry": {
+        "point_rank": 0,
+        "point_singular_values": [],
+        "bearing_rank": 0,
+        "mean_depth_m": NaN,
+        "point_spread_m": NaN
+      },
+      "leader_pose": [
+        [
+          -0.05219821259379387,
+          -0.9975579380989075,
+          -0.04639708250761032,
+          -77.85289001464844
+        ],
+        [
+          0.997376561164856,
+          -0.04974185302853584,
+          -0.05259529501199722,
+          -336.0888786315918
+        ],
+        [
+          0.05015886574983597,
+          -0.049020715057849884,
+          0.9975373148918152,
+          8.244644165039062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.05219821259379387,
+          -0.9975579380989075,
+          -0.04639708250761032,
+          -77.85289001464844
+        ],
+        [
+          0.997376561164856,
+          -0.04974185302853584,
+          -0.05259529501199722,
+          -336.0888786315918
+        ],
+        [
+          0.05015886574983597,
+          -0.049020715057849884,
+          0.9975373148918152,
+          8.244644165039062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          -0.048820487389616765,
+          -0.9974336374824418,
+          -0.052370785202416975,
+          -77.79219298471533
+        ],
+        [
+          0.9965855420074926,
+          -0.045149329565860596,
+          -0.06912883930324529,
+          -336.1198627482742
+        ],
+        [
+          0.06658692349219912,
+          -0.055566871239599365,
+          0.9962321539739372,
+          8.251122510459982
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604636982984",
+      "before": [
+        0.11127859735721551,
+        0.688485915878341
+      ],
+      "after": [
+        0.11127859735721551,
+        0.688485915878341
+      ],
+      "delta": [
+        0.0,
+        0.0
+      ],
+      "leader_success": true,
+      "n_correspondences": 3,
+      "n_cameras": 2,
+      "score_mean": 0.5803740620613098,
+      "score_p10": 0.5582370400428772,
+      "per_camera_correspondences": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1047,
+          "descriptor_candidates": 84,
+          "map_point_candidates": 84,
+          "forward_candidates": 84,
+          "cosine_pass": 2,
+          "ratio_pass": 1,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9559537768363953,
+          "score_mean": NaN
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1051,
+          "descriptor_candidates": 111,
+          "map_point_candidates": 111,
+          "forward_candidates": 111,
+          "cosine_pass": 8,
+          "ratio_pass": 2,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9298235177993774,
+          "score_mean": NaN
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 571,
+          "descriptor_candidates": 72,
+          "map_point_candidates": 72,
+          "forward_candidates": 72,
+          "cosine_pass": 0,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9564034938812256,
+          "score_mean": NaN
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 605,
+          "descriptor_candidates": 76,
+          "map_point_candidates": 76,
+          "forward_candidates": 76,
+          "cosine_pass": 0,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9554032683372498,
+          "score_mean": NaN
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 796,
+          "descriptor_candidates": 131,
+          "map_point_candidates": 131,
+          "forward_candidates": 131,
+          "cosine_pass": 3,
+          "ratio_pass": 2,
+          "mutual_pass": 2,
+          "grid_selected": 2,
+          "accepted": 2,
+          "ratio_mean": 0.9454473257064819,
+          "score_mean": 0.5702602863311768
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1331,
+          "descriptor_candidates": 401,
+          "map_point_candidates": 401,
+          "forward_candidates": 401,
+          "cosine_pass": 2,
+          "ratio_pass": 1,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.9406847953796387,
+          "score_mean": 0.6006015539169312
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": -1,
+        "nfev": 0,
+        "cost": NaN,
+        "correspondence_rmse_px": NaN
+      },
+      "baseline_support": 276,
+      "geometry": {
+        "point_rank": 2,
+        "point_singular_values": [
+          15.928838201628386,
+          0.3046741491574984,
+          7.245588865228428e-15
+        ],
+        "bearing_rank": 2,
+        "bearing_singular_values": [
+          0.669156382617577,
+          0.04991020205685817,
+          6.36793509992793e-17
+        ],
+        "mean_depth_m": 11.936220636619865,
+        "point_spread_m": 9.198201142810854
+      },
+      "leader_pose": [
+        [
+          -0.1321910172700882,
+          -0.9901930093765259,
+          -0.045211151242256165,
+          -77.85936546325684
+        ],
+        [
+          0.9879565238952637,
+          -0.12791720032691956,
+          -0.08705995976924896,
+          -334.9973907470703
+        ],
+        [
+          0.08042296767234802,
+          -0.05617533624172211,
+          0.9951772093772888,
+          8.348403930664062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.1321910172700882,
+          -0.9901930093765259,
+          -0.045211151242256165,
+          -77.85936546325684
+        ],
+        [
+          0.9879565238952637,
+          -0.12791720032691956,
+          -0.08705995976924896,
+          -334.9973907470703
+        ],
+        [
+          0.08042296767234802,
+          -0.05617533624172211,
+          0.9951772093772888,
+          8.348403930664062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          -0.1263023798801917,
+          -0.9906600746263683,
+          -0.051384089412054315,
+          -77.90986718502772
+        ],
+        [
+          0.988070941485638,
+          -0.12103339229039563,
+          -0.09521939723867945,
+          -335.0143664709323
+        ],
+        [
+          0.08811086544681573,
+          -0.06279756184159059,
+          0.9941292381224446,
+          8.250708858488817
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604637982961",
+      "before": [
+        0.055738858344348045,
+        0.29891513869396935
+      ],
+      "after": [
+        0.18519610571627518,
+        0.692077445891578
+      ],
+      "delta": [
+        0.12945724737192713,
+        0.3931623071976087
+      ],
+      "leader_success": true,
+      "n_correspondences": 10,
+      "n_cameras": 4,
+      "score_mean": 0.60451740026474,
+      "score_p10": 0.5586920857429505,
+      "per_camera_correspondences": [
+        0,
+        1,
+        1,
+        0,
+        3,
+        5
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 962,
+          "descriptor_candidates": 90,
+          "map_point_candidates": 90,
+          "forward_candidates": 90,
+          "cosine_pass": 2,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9620744585990906,
+          "score_mean": NaN
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1434,
+          "descriptor_candidates": 120,
+          "map_point_candidates": 120,
+          "forward_candidates": 120,
+          "cosine_pass": 2,
+          "ratio_pass": 1,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.9472272396087646,
+          "score_mean": 0.6421523094177246
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 878,
+          "descriptor_candidates": 79,
+          "map_point_candidates": 79,
+          "forward_candidates": 79,
+          "cosine_pass": 10,
+          "ratio_pass": 1,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.9328480958938599,
+          "score_mean": 0.574390172958374
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 511,
+          "descriptor_candidates": 74,
+          "map_point_candidates": 74,
+          "forward_candidates": 74,
+          "cosine_pass": 0,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9532396197319031,
+          "score_mean": NaN
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 983,
+          "descriptor_candidates": 136,
+          "map_point_candidates": 136,
+          "forward_candidates": 136,
+          "cosine_pass": 7,
+          "ratio_pass": 4,
+          "mutual_pass": 3,
+          "grid_selected": 3,
+          "accepted": 3,
+          "ratio_mean": 0.9310624003410339,
+          "score_mean": 0.6284961104393005
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1318,
+          "descriptor_candidates": 384,
+          "map_point_candidates": 384,
+          "forward_candidates": 384,
+          "cosine_pass": 6,
+          "ratio_pass": 6,
+          "mutual_pass": 6,
+          "grid_selected": 5,
+          "accepted": 5,
+          "ratio_mean": 0.9393100738525391,
+          "score_mean": 0.5886286497116089
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 27,
+        "cost": 19.667447221221178,
+        "correspondence_rmse_px": 2.0998574800945446
+      },
+      "baseline_support": 478,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          49.05658789968403,
+          19.196882923290033,
+          3.4596891428234686
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          1.8415339377057933,
+          0.8706231597834377,
+          0.33478274766644506
+        ],
+        "mean_depth_m": 20.157909418364447,
+        "point_spread_m": 16.694425953877243
+      },
+      "leader_pose": [
+        [
+          0.005976825952529907,
+          -0.9985236525535583,
+          -0.05398595333099365,
+          -78.06071281433105
+        ],
+        [
+          0.9999404549598694,
+          0.006460763514041901,
+          -0.008802682161331177,
+          -333.6054801940918
+        ],
+        [
+          0.00913839042186737,
+          -0.0539301335811615,
+          0.9985029697418213,
+          8.287109375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.0006958082518464973,
+          -0.9983565536521143,
+          -0.057300888214423966,
+          -77.87075544802627
+        ],
+        [
+          0.9998968066318048,
+          0.00012744768153632216,
+          -0.014370423103627902,
+          -333.46173461484136
+        ],
+        [
+          0.01435402493086474,
+          -0.05730498249827187,
+          0.9982536000952799,
+          8.287092656508733
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.0056603982466154005,
+          -0.998434536942008,
+          -0.055645634049715,
+          -78.00918560196122
+        ],
+        [
+          0.999975100195334,
+          0.005886079516776129,
+          -0.0038926352415008625,
+          -333.5846795035613
+        ],
+        [
+          0.0042140765246955515,
+          -0.05562221377638229,
+          0.9984429931748661,
+          8.291479499526764
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604639582940",
+      "before": [
+        0.18685675267128912,
+        0.6912988592606232
+      ],
+      "after": [
+        0.37121624559346983,
+        1.066492500965175
+      ],
+      "delta": [
+        0.1843594929221807,
+        0.3751936417045517
+      ],
+      "leader_success": true,
+      "n_correspondences": 7,
+      "n_cameras": 2,
+      "score_mean": 0.645518958568573,
+      "score_p10": 0.5658901333808899,
+      "per_camera_correspondences": [
+        0,
+        3,
+        0,
+        0,
+        0,
+        4
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 960,
+          "descriptor_candidates": 98,
+          "map_point_candidates": 98,
+          "forward_candidates": 98,
+          "cosine_pass": 2,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9665012955665588,
+          "score_mean": NaN
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1533,
+          "descriptor_candidates": 108,
+          "map_point_candidates": 108,
+          "forward_candidates": 108,
+          "cosine_pass": 3,
+          "ratio_pass": 3,
+          "mutual_pass": 3,
+          "grid_selected": 3,
+          "accepted": 3,
+          "ratio_mean": 0.930440366268158,
+          "score_mean": 0.6237695813179016
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1235,
+          "descriptor_candidates": 103,
+          "map_point_candidates": 103,
+          "forward_candidates": 103,
+          "cosine_pass": 0,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9546157717704773,
+          "score_mean": NaN
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 667,
+          "descriptor_candidates": 118,
+          "map_point_candidates": 118,
+          "forward_candidates": 118,
+          "cosine_pass": 2,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9458229541778564,
+          "score_mean": NaN
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1132,
+          "descriptor_candidates": 137,
+          "map_point_candidates": 137,
+          "forward_candidates": 137,
+          "cosine_pass": 7,
+          "ratio_pass": 3,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9328293800354004,
+          "score_mean": NaN
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1218,
+          "descriptor_candidates": 369,
+          "map_point_candidates": 369,
+          "forward_candidates": 369,
+          "cosine_pass": 6,
+          "ratio_pass": 5,
+          "mutual_pass": 5,
+          "grid_selected": 4,
+          "accepted": 4,
+          "ratio_mean": 0.9361849427223206,
+          "score_mean": 0.6618309617042542
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 23,
+        "cost": 5.623710055139563,
+        "correspondence_rmse_px": 1.329744188849386
+      },
+      "baseline_support": 546,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          34.91979433772481,
+          2.19637646539344,
+          0.791375577969524
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          1.199695603695675,
+          0.10421511486932364,
+          0.011869308877924036
+        ],
+        "mean_depth_m": 25.435098294144613,
+        "point_spread_m": 13.227905467890539
+      },
+      "leader_pose": [
+        [
+          0.1327100694179535,
+          -0.9903498888015747,
+          -0.03993195295333862,
+          -77.66507720947266
+        ],
+        [
+          0.9907200336456299,
+          0.13135157525539398,
+          0.03493480384349823,
+          -331.3860740661621
+        ],
+        [
+          -0.02935267984867096,
+          -0.0441974401473999,
+          0.9985910654067993,
+          8.434646606445312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.1356709238493471,
+          -0.989761393094826,
+          -0.04433068144403246,
+          -77.73896570308833
+        ],
+        [
+          0.9900747638226487,
+          0.1337863526328065,
+          0.04304691494900771,
+          -331.4030848267657
+        ],
+        [
+          -0.03667546686008691,
+          -0.0497307638705365,
+          0.9980886088382225,
+          8.733430407664327
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.14099502149190823,
+          -0.9893417062890433,
+          -0.036378460997433484,
+          -77.7707802688915
+        ],
+        [
+          0.9897663833281363,
+          0.14004944613016465,
+          0.027361621665214022,
+          -331.23507916616694
+        ],
+        [
+          -0.021975210915430473,
+          -0.039864030044524205,
+          0.9989634378931966,
+          8.403940753195407
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604640582945",
+      "before": [
+        0.016211266581101565,
+        0.7696303406385869
+      ],
+      "after": [
+        0.28180177633666714,
+        1.155328235307092
+      ],
+      "delta": [
+        0.2655905097555656,
+        0.385697894668505
+      ],
+      "leader_success": true,
+      "n_correspondences": 15,
+      "n_cameras": 4,
+      "score_mean": 0.6717967987060547,
+      "score_p10": 0.57463219165802,
+      "per_camera_correspondences": [
+        0,
+        4,
+        1,
+        0,
+        4,
+        6
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1043,
+          "descriptor_candidates": 113,
+          "map_point_candidates": 113,
+          "forward_candidates": 113,
+          "cosine_pass": 1,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9644491076469421,
+          "score_mean": NaN
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1418,
+          "descriptor_candidates": 129,
+          "map_point_candidates": 129,
+          "forward_candidates": 129,
+          "cosine_pass": 5,
+          "ratio_pass": 4,
+          "mutual_pass": 4,
+          "grid_selected": 4,
+          "accepted": 4,
+          "ratio_mean": 0.9128527045249939,
+          "score_mean": 0.713385820388794
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1336,
+          "descriptor_candidates": 97,
+          "map_point_candidates": 97,
+          "forward_candidates": 97,
+          "cosine_pass": 7,
+          "ratio_pass": 1,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.9362502694129944,
+          "score_mean": 0.5850139856338501
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 846,
+          "descriptor_candidates": 141,
+          "map_point_candidates": 141,
+          "forward_candidates": 141,
+          "cosine_pass": 6,
+          "ratio_pass": 1,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9445706605911255,
+          "score_mean": NaN
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1068,
+          "descriptor_candidates": 113,
+          "map_point_candidates": 113,
+          "forward_candidates": 113,
+          "cosine_pass": 8,
+          "ratio_pass": 5,
+          "mutual_pass": 4,
+          "grid_selected": 4,
+          "accepted": 4,
+          "ratio_mean": 0.9187774062156677,
+          "score_mean": 0.6483448147773743
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1236,
+          "descriptor_candidates": 341,
+          "map_point_candidates": 341,
+          "forward_candidates": 341,
+          "cosine_pass": 9,
+          "ratio_pass": 8,
+          "mutual_pass": 6,
+          "grid_selected": 6,
+          "accepted": 6,
+          "ratio_mean": 0.9349225759506226,
+          "score_mean": 0.6741690635681152
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 3,
+        "nfev": 22,
+        "cost": 31.533295527252786,
+        "correspondence_rmse_px": 2.102931221979303
+      },
+      "baseline_support": 592,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          55.05824958760541,
+          24.403048873063728,
+          6.013761681013084
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          2.4032723422672015,
+          1.454761998140788,
+          0.5332266275871823
+        ],
+        "mean_depth_m": 19.07004855604303,
+        "point_spread_m": 15.627081133955055
+      },
+      "leader_pose": [
+        [
+          0.12837544083595276,
+          -0.9908801317214966,
+          -0.040954411029815674,
+          -77.58290481567383
+        ],
+        [
+          0.9913277626037598,
+          0.12938490509986877,
+          -0.02302214503288269,
+          -329.9859924316406
+        ],
+        [
+          0.02811126410961151,
+          -0.037643954157829285,
+          0.9988965392112732,
+          8.452499389648438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.12558169470700545,
+          -0.9907473697460102,
+          -0.05147655162592324,
+          -77.31308385821207
+        ],
+        [
+          0.9918603973103813,
+          0.1264855557200495,
+          -0.014682150162594783,
+          -330.06113067302954
+        ],
+        [
+          0.02105754236493369,
+          -0.04921392006640279,
+          0.9985670623910442,
+          8.430404245585748
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.14165578777610868,
+          -0.9890400994647426,
+          -0.041633155092085726,
+          -77.58763771523265
+        ],
+        [
+          0.9895550875634936,
+          0.14261439739099682,
+          -0.021020563824763666,
+          -329.9991776131719
+        ],
+        [
+          0.026727667617005745,
+          -0.03822061538525941,
+          0.9989118155642893,
+          8.444341214980266
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604641982945",
+      "before": [
+        0.11148106773949637,
+        0.6377628245188695
+      ],
+      "after": [
+        0.04104582464939544,
+        0.5469532836910982
+      ],
+      "delta": [
+        -0.07043524309010094,
+        -0.09080954082777126
+      ],
+      "leader_success": true,
+      "n_correspondences": 24,
+      "n_cameras": 5,
+      "score_mean": 0.6723573207855225,
+      "score_p10": 0.5683951497077941,
+      "per_camera_correspondences": [
+        1,
+        6,
+        0,
+        6,
+        4,
+        7
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1134,
+          "descriptor_candidates": 124,
+          "map_point_candidates": 124,
+          "forward_candidates": 124,
+          "cosine_pass": 3,
+          "ratio_pass": 1,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.9541683793067932,
+          "score_mean": 0.6514610648155212
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1391,
+          "descriptor_candidates": 137,
+          "map_point_candidates": 137,
+          "forward_candidates": 137,
+          "cosine_pass": 12,
+          "ratio_pass": 7,
+          "mutual_pass": 6,
+          "grid_selected": 6,
+          "accepted": 6,
+          "ratio_mean": 0.9142584800720215,
+          "score_mean": 0.6729497313499451
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1496,
+          "descriptor_candidates": 134,
+          "map_point_candidates": 134,
+          "forward_candidates": 134,
+          "cosine_pass": 16,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9408127665519714,
+          "score_mean": NaN
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1020,
+          "descriptor_candidates": 177,
+          "map_point_candidates": 177,
+          "forward_candidates": 177,
+          "cosine_pass": 28,
+          "ratio_pass": 14,
+          "mutual_pass": 6,
+          "grid_selected": 6,
+          "accepted": 6,
+          "ratio_mean": 0.9126480221748352,
+          "score_mean": 0.6639257073402405
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1103,
+          "descriptor_candidates": 123,
+          "map_point_candidates": 123,
+          "forward_candidates": 123,
+          "cosine_pass": 20,
+          "ratio_pass": 11,
+          "mutual_pass": 4,
+          "grid_selected": 4,
+          "accepted": 4,
+          "ratio_mean": 0.908606767654419,
+          "score_mean": 0.5977126955986023
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1254,
+          "descriptor_candidates": 352,
+          "map_point_candidates": 352,
+          "forward_candidates": 352,
+          "cosine_pass": 15,
+          "ratio_pass": 11,
+          "mutual_pass": 8,
+          "grid_selected": 7,
+          "accepted": 7,
+          "ratio_mean": 0.9297748804092407,
+          "score_mean": 0.7247158885002136
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 16,
+        "cost": 79.84039869939181,
+        "correspondence_rmse_px": 2.993630535387991
+      },
+      "baseline_support": 633,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          65.23750003406386,
+          35.222069066177944,
+          14.00278098122585
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          3.7453594082431416,
+          2.1856270858418343,
+          1.1757515730469272
+        ],
+        "mean_depth_m": 15.46171185579378,
+        "point_spread_m": 15.401032751092364
+      },
+      "leader_pose": [
+        [
+          0.09954874217510223,
+          -0.9944483637809753,
+          -0.03409910202026367,
+          -77.36767959594727
+        ],
+        [
+          0.9945566654205322,
+          0.1005038321018219,
+          -0.027511000633239746,
+          -328.23212814331055
+        ],
+        [
+          0.030785545706748962,
+          -0.03117498755455017,
+          0.9990403056144714,
+          8.491668701171875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.10548303512760261,
+          -0.9936270669771071,
+          -0.039734328308082996,
+          -77.42673638707544
+        ],
+        [
+          0.9940234151380359,
+          0.1064879379878675,
+          -0.024054469778465037,
+          -328.10246661026736
+        ],
+        [
+          0.028132580455766616,
+          -0.03695969664918804,
+          0.9989212690669216,
+          8.52273659652158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.09717575635986389,
+          -0.99427146511689,
+          -0.04450983140035591,
+          -77.39874576071169
+        ],
+        [
+          0.9948585207443722,
+          0.09832019213147067,
+          -0.024283018613940326,
+          -328.1257510318349
+        ],
+        [
+          0.028520126645341044,
+          -0.041921264859647596,
+          0.9987137777735354,
+          8.503786127683618
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604642982934",
+      "before": [
+        0.08379936019378678,
+        1.0289184830898501
+      ],
+      "after": [
+        0.10048121183284722,
+        1.1569394589306945
+      ],
+      "delta": [
+        0.01668185163906044,
+        0.12802097584084438
+      ],
+      "leader_success": true,
+      "n_correspondences": 61,
+      "n_cameras": 5,
+      "score_mean": 0.6934785842895508,
+      "score_p10": 0.6190144419670105,
+      "per_camera_correspondences": [
+        0,
+        8,
+        4,
+        17,
+        20,
+        12
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1171,
+          "descriptor_candidates": 140,
+          "map_point_candidates": 140,
+          "forward_candidates": 140,
+          "cosine_pass": 2,
+          "ratio_pass": 0,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9563851356506348,
+          "score_mean": NaN
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1385,
+          "descriptor_candidates": 143,
+          "map_point_candidates": 143,
+          "forward_candidates": 143,
+          "cosine_pass": 17,
+          "ratio_pass": 9,
+          "mutual_pass": 8,
+          "grid_selected": 8,
+          "accepted": 8,
+          "ratio_mean": 0.9050008058547974,
+          "score_mean": 0.6589861512184143
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1565,
+          "descriptor_candidates": 146,
+          "map_point_candidates": 146,
+          "forward_candidates": 146,
+          "cosine_pass": 22,
+          "ratio_pass": 6,
+          "mutual_pass": 4,
+          "grid_selected": 4,
+          "accepted": 4,
+          "ratio_mean": 0.921242892742157,
+          "score_mean": 0.6718615293502808
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1091,
+          "descriptor_candidates": 193,
+          "map_point_candidates": 193,
+          "forward_candidates": 193,
+          "cosine_pass": 49,
+          "ratio_pass": 24,
+          "mutual_pass": 17,
+          "grid_selected": 17,
+          "accepted": 17,
+          "ratio_mean": 0.9022335410118103,
+          "score_mean": 0.7027776837348938
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1190,
+          "descriptor_candidates": 135,
+          "map_point_candidates": 135,
+          "forward_candidates": 135,
+          "cosine_pass": 39,
+          "ratio_pass": 22,
+          "mutual_pass": 20,
+          "grid_selected": 20,
+          "accepted": 20,
+          "ratio_mean": 0.8819714188575745,
+          "score_mean": 0.6872859001159668
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1272,
+          "descriptor_candidates": 356,
+          "map_point_candidates": 356,
+          "forward_candidates": 356,
+          "cosine_pass": 28,
+          "ratio_pass": 16,
+          "mutual_pass": 12,
+          "grid_selected": 12,
+          "accepted": 12,
+          "ratio_mean": 0.9236844778060913,
+          "score_mean": 0.7208266854286194
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 3,
+        "nfev": 16,
+        "cost": 193.31793789509086,
+        "correspondence_rmse_px": 2.9458769829717815
+      },
+      "baseline_support": 646,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          91.45637335538987,
+          48.20465203302049,
+          18.46453146037402
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          5.411116525399887,
+          4.238801862748156,
+          1.731285191026638
+        ],
+        "mean_depth_m": 11.964844135279936,
+        "point_spread_m": 13.44624734473062
+      },
+      "leader_pose": [
+        [
+          0.10003690421581268,
+          -0.9945427775382996,
+          -0.029611125588417053,
+          -77.22927284240723
+        ],
+        [
+          0.994385302066803,
+          0.10096430778503418,
+          -0.03168472647666931,
+          -326.7587661743164
+        ],
+        [
+          0.034501492977142334,
+          -0.026275217533111572,
+          0.9990590810775757,
+          8.497207641601562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.10207604207989159,
+          -0.9942718550235402,
+          -0.03167803408305405,
+          -77.3356098861615
+        ],
+        [
+          0.9942322964525302,
+          0.10302156588902577,
+          -0.029808378781452677,
+          -326.7518149427585
+        ],
+        [
+          0.03290116279487252,
+          -0.02845259436923944,
+          0.9990534274227473,
+          8.537279054681756
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.08220124449747442,
+          -0.9961965399326008,
+          -0.028903451366364418,
+          -77.25737186144902
+        ],
+        [
+          0.99604772880638,
+          0.08309886170048741,
+          -0.0313608240724254,
+          -326.6888563734567
+        ],
+        [
+          0.03364338768627918,
+          -0.026211318712318854,
+          0.9990901305449962,
+          8.533887304107283
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604644582931",
+      "before": [
+        0.06560183567374869,
+        0.7889687171302207
+      ],
+      "after": [
+        0.033454775810008906,
+        0.8071157172911448
+      ],
+      "delta": [
+        -0.03214705986373979,
+        0.018147000160924187
+      ],
+      "leader_success": true,
+      "n_correspondences": 104,
+      "n_cameras": 6,
+      "score_mean": 0.725838303565979,
+      "score_p10": 0.6085646748542786,
+      "per_camera_correspondences": [
+        5,
+        15,
+        10,
+        32,
+        18,
+        24
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1155,
+          "descriptor_candidates": 150,
+          "map_point_candidates": 150,
+          "forward_candidates": 150,
+          "cosine_pass": 14,
+          "ratio_pass": 6,
+          "mutual_pass": 5,
+          "grid_selected": 5,
+          "accepted": 5,
+          "ratio_mean": 0.9256343841552734,
+          "score_mean": 0.773148238658905
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1409,
+          "descriptor_candidates": 164,
+          "map_point_candidates": 164,
+          "forward_candidates": 164,
+          "cosine_pass": 37,
+          "ratio_pass": 23,
+          "mutual_pass": 15,
+          "grid_selected": 15,
+          "accepted": 15,
+          "ratio_mean": 0.8820189237594604,
+          "score_mean": 0.6909323334693909
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1614,
+          "descriptor_candidates": 189,
+          "map_point_candidates": 189,
+          "forward_candidates": 189,
+          "cosine_pass": 35,
+          "ratio_pass": 11,
+          "mutual_pass": 10,
+          "grid_selected": 10,
+          "accepted": 10,
+          "ratio_mean": 0.9102669954299927,
+          "score_mean": 0.6945881247520447
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1298,
+          "descriptor_candidates": 279,
+          "map_point_candidates": 279,
+          "forward_candidates": 279,
+          "cosine_pass": 69,
+          "ratio_pass": 37,
+          "mutual_pass": 32,
+          "grid_selected": 32,
+          "accepted": 32,
+          "ratio_mean": 0.8896268010139465,
+          "score_mean": 0.7604831457138062
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1281,
+          "descriptor_candidates": 151,
+          "map_point_candidates": 151,
+          "forward_candidates": 151,
+          "cosine_pass": 54,
+          "ratio_pass": 27,
+          "mutual_pass": 18,
+          "grid_selected": 18,
+          "accepted": 18,
+          "ratio_mean": 0.8699061870574951,
+          "score_mean": 0.7293508052825928
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1337,
+          "descriptor_candidates": 348,
+          "map_point_candidates": 348,
+          "forward_candidates": 348,
+          "cosine_pass": 51,
+          "ratio_pass": 33,
+          "mutual_pass": 26,
+          "grid_selected": 24,
+          "accepted": 24,
+          "ratio_mean": 0.9082287549972534,
+          "score_mean": 0.7019913792610168
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 9,
+        "cost": 308.79507114474006,
+        "correspondence_rmse_px": 2.9516458483184214
+      },
+      "baseline_support": 658,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          134.57463636082556,
+          59.3507312040257,
+          31.682680007679505
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          7.435095942172968,
+          5.712379509410489,
+          2.228498598632228
+        ],
+        "mean_depth_m": 14.026467544388208,
+        "point_spread_m": 14.75330284356496
+      },
+      "leader_pose": [
+        [
+          0.16455881297588348,
+          -0.9852802753448486,
+          -0.04628840088844299,
+          -76.95561981201172
+        ],
+        [
+          0.9838955402374268,
+          0.16728556156158447,
+          -0.06296482682228088,
+          -324.63832092285156
+        ],
+        [
+          0.06978128105401993,
+          -0.0351814329624176,
+          0.9969412088394165,
+          8.527435302734375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.17078381194000905,
+          -0.9843193517207466,
+          -0.04413324709336963,
+          -76.92863823936054
+        ],
+        [
+          0.982921504379912,
+          0.17331482578380547,
+          -0.06186072377534347,
+          -324.5832195583934
+        ],
+        [
+          0.06853955076771526,
+          -0.032814605093812545,
+          0.9971080516728126,
+          8.537658814669674
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.17126044831408097,
+          -0.9835088956742026,
+          -0.058138724528095875,
+          -76.96013961015511
+        ],
+        [
+          0.9826294838166165,
+          0.17479270602400376,
+          -0.0623442599534837,
+          -324.57308968147714
+        ],
+        [
+          0.07147835981461668,
+          -0.04645171879203362,
+          0.9963599160954891,
+          8.532732227999158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604645582910",
+      "before": [
+        0.06964987608141249,
+        0.822554761021305
+      ],
+      "after": [
+        0.05290325978835983,
+        0.5530132140473164
+      ],
+      "delta": [
+        -0.016746616293052657,
+        -0.2695415469739886
+      ],
+      "leader_success": true,
+      "n_correspondences": 123,
+      "n_cameras": 6,
+      "score_mean": 0.7013843655586243,
+      "score_p10": 0.5995378851890564,
+      "per_camera_correspondences": [
+        1,
+        18,
+        15,
+        37,
+        24,
+        28
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1200,
+          "descriptor_candidates": 151,
+          "map_point_candidates": 151,
+          "forward_candidates": 151,
+          "cosine_pass": 10,
+          "ratio_pass": 3,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.925307035446167,
+          "score_mean": 0.7608970999717712
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1464,
+          "descriptor_candidates": 189,
+          "map_point_candidates": 189,
+          "forward_candidates": 189,
+          "cosine_pass": 34,
+          "ratio_pass": 21,
+          "mutual_pass": 18,
+          "grid_selected": 18,
+          "accepted": 18,
+          "ratio_mean": 0.8889312148094177,
+          "score_mean": 0.6743419766426086
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1617,
+          "descriptor_candidates": 223,
+          "map_point_candidates": 223,
+          "forward_candidates": 223,
+          "cosine_pass": 45,
+          "ratio_pass": 20,
+          "mutual_pass": 15,
+          "grid_selected": 15,
+          "accepted": 15,
+          "ratio_mean": 0.9051514863967896,
+          "score_mean": 0.7146545648574829
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1345,
+          "descriptor_candidates": 287,
+          "map_point_candidates": 287,
+          "forward_candidates": 287,
+          "cosine_pass": 73,
+          "ratio_pass": 40,
+          "mutual_pass": 37,
+          "grid_selected": 37,
+          "accepted": 37,
+          "ratio_mean": 0.8892277479171753,
+          "score_mean": 0.7272171974182129
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1325,
+          "descriptor_candidates": 156,
+          "map_point_candidates": 156,
+          "forward_candidates": 156,
+          "cosine_pass": 57,
+          "ratio_pass": 28,
+          "mutual_pass": 25,
+          "grid_selected": 24,
+          "accepted": 24,
+          "ratio_mean": 0.8808822631835938,
+          "score_mean": 0.667971134185791
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1459,
+          "descriptor_candidates": 395,
+          "map_point_candidates": 395,
+          "forward_candidates": 395,
+          "cosine_pass": 67,
+          "ratio_pass": 40,
+          "mutual_pass": 29,
+          "grid_selected": 28,
+          "accepted": 28,
+          "ratio_mean": 0.9027312994003296,
+          "score_mean": 0.7040380835533142
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 14,
+        "cost": 422.0687316782503,
+        "correspondence_rmse_px": 3.1229617598641197
+      },
+      "baseline_support": 643,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          135.2751106836829,
+          68.31736182331282,
+          36.50646138366727
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          7.802927394788963,
+          6.796978528259206,
+          2.4555746384035486
+        ],
+        "mean_depth_m": 13.072950488562439,
+        "point_spread_m": 14.055447463972762
+      },
+      "leader_pose": [
+        [
+          0.17146174609661102,
+          -0.9838451743125916,
+          -0.05146916210651398,
+          -76.65246200561523
+        ],
+        [
+          0.9841299057006836,
+          0.1734672486782074,
+          -0.03737948089838028,
+          -323.06507110595703
+        ],
+        [
+          0.04570382833480835,
+          -0.044243231415748596,
+          0.997974693775177,
+          8.549270629882812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.1779318404215895,
+          -0.9828767387779942,
+          -0.0478863629890005,
+          -76.68569530867906
+        ],
+        [
+          0.9829886191418992,
+          0.1797827986586656,
+          -0.03756738263245683,
+          -323.1541921907511
+        ],
+        [
+          0.04553324494345767,
+          -0.0403873567327768,
+          0.9981459701154283,
+          8.560896228871359
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.18496562506015427,
+          -0.9813490284005857,
+          -0.05236223052154792,
+          -76.69216329307763
+        ],
+        [
+          0.9818551444761884,
+          0.18680253700659943,
+          -0.03263873853352718,
+          -323.1165553479697
+        ],
+        [
+          0.04181139179008567,
+          -0.04537508142017458,
+          0.9980946398272978,
+          8.524284917238118
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604646982902",
+      "before": [
+        0.12492582375836635,
+        1.1531420758663424
+      ],
+      "after": [
+        0.10238095753841821,
+        1.1183120801423059
+      ],
+      "delta": [
+        -0.02254486621994814,
+        -0.034829995724036555
+      ],
+      "leader_success": true,
+      "n_correspondences": 159,
+      "n_cameras": 6,
+      "score_mean": 0.7062484622001648,
+      "score_p10": 0.6061266422271728,
+      "per_camera_correspondences": [
+        2,
+        27,
+        32,
+        40,
+        23,
+        35
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1202,
+          "descriptor_candidates": 155,
+          "map_point_candidates": 155,
+          "forward_candidates": 155,
+          "cosine_pass": 14,
+          "ratio_pass": 5,
+          "mutual_pass": 2,
+          "grid_selected": 2,
+          "accepted": 2,
+          "ratio_mean": 0.9321925044059753,
+          "score_mean": 0.7195873260498047
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1584,
+          "descriptor_candidates": 245,
+          "map_point_candidates": 245,
+          "forward_candidates": 245,
+          "cosine_pass": 52,
+          "ratio_pass": 29,
+          "mutual_pass": 27,
+          "grid_selected": 27,
+          "accepted": 27,
+          "ratio_mean": 0.8877596259117126,
+          "score_mean": 0.7014090418815613
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1751,
+          "descriptor_candidates": 266,
+          "map_point_candidates": 266,
+          "forward_candidates": 266,
+          "cosine_pass": 91,
+          "ratio_pass": 45,
+          "mutual_pass": 32,
+          "grid_selected": 32,
+          "accepted": 32,
+          "ratio_mean": 0.8820825219154358,
+          "score_mean": 0.7286741733551025
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1438,
+          "descriptor_candidates": 327,
+          "map_point_candidates": 327,
+          "forward_candidates": 327,
+          "cosine_pass": 70,
+          "ratio_pass": 43,
+          "mutual_pass": 40,
+          "grid_selected": 40,
+          "accepted": 40,
+          "ratio_mean": 0.8892799019813538,
+          "score_mean": 0.7115426659584045
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1385,
+          "descriptor_candidates": 164,
+          "map_point_candidates": 164,
+          "forward_candidates": 164,
+          "cosine_pass": 66,
+          "ratio_pass": 27,
+          "mutual_pass": 23,
+          "grid_selected": 23,
+          "accepted": 23,
+          "ratio_mean": 0.8840108513832092,
+          "score_mean": 0.7083616852760315
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1464,
+          "descriptor_candidates": 417,
+          "map_point_candidates": 417,
+          "forward_candidates": 417,
+          "cosine_pass": 86,
+          "ratio_pass": 47,
+          "mutual_pass": 35,
+          "grid_selected": 35,
+          "accepted": 35,
+          "ratio_mean": 0.8946225643157959,
+          "score_mean": 0.6812766790390015
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 11,
+        "cost": 533.9765234503917,
+        "correspondence_rmse_px": 3.1257982964593922
+      },
+      "baseline_support": 708,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          148.91241252529744,
+          84.9868749887578,
+          43.34917154496898
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          8.958733390429012,
+          8.081402479571098,
+          2.733234272127753
+        ],
+        "mean_depth_m": 13.036460766564304,
+        "point_spread_m": 14.025319915429826
+      },
+      "leader_pose": [
+        [
+          0.19382460415363312,
+          -0.9806442260742188,
+          -0.02772161364555359,
+          -76.43616676330566
+        ],
+        [
+          0.9807462096214294,
+          0.19437675178050995,
+          -0.01882091909646988,
+          -321.1380386352539
+        ],
+        [
+          0.02384503185749054,
+          -0.02353990077972412,
+          0.9994382858276367,
+          8.517074584960938
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.1882796738952539,
+          -0.9818144791958658,
+          -0.024303400499038175,
+          -76.30911096229048
+        ],
+        [
+          0.9819534930716252,
+          0.18864014142130048,
+          -0.013487440405774626,
+          -321.16020457029913
+        ],
+        [
+          0.017826728492037824,
+          -0.021325388157477573,
+          0.9996134431430572,
+          8.530745123671073
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.1893917604484573,
+          -0.9809968264358626,
+          -0.04214245158577896,
+          -76.33619171430523
+        ],
+        [
+          0.9818077701601317,
+          0.18979250336061054,
+          -0.005684083135243027,
+          -321.0633207581708
+        ],
+        [
+          0.013574390353868641,
+          -0.0402992672100332,
+          0.9990954437274153,
+          8.511718293029073
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604647983097",
+      "before": [
+        0.24516772129538048,
+        1.6705087278501687
+      ],
+      "after": [
+        0.15453519391682527,
+        1.4533167172764307
+      ],
+      "delta": [
+        -0.0906325273785552,
+        -0.21719201057373794
+      ],
+      "leader_success": true,
+      "n_correspondences": 141,
+      "n_cameras": 6,
+      "score_mean": 0.7190263271331787,
+      "score_p10": 0.5953093767166138,
+      "per_camera_correspondences": [
+        1,
+        11,
+        31,
+        37,
+        28,
+        33
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1266,
+          "descriptor_candidates": 176,
+          "map_point_candidates": 176,
+          "forward_candidates": 176,
+          "cosine_pass": 14,
+          "ratio_pass": 2,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.9367609620094299,
+          "score_mean": 0.5544002652168274
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1585,
+          "descriptor_candidates": 273,
+          "map_point_candidates": 273,
+          "forward_candidates": 273,
+          "cosine_pass": 34,
+          "ratio_pass": 21,
+          "mutual_pass": 11,
+          "grid_selected": 11,
+          "accepted": 11,
+          "ratio_mean": 0.9038515090942383,
+          "score_mean": 0.6791311502456665
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1754,
+          "descriptor_candidates": 283,
+          "map_point_candidates": 283,
+          "forward_candidates": 283,
+          "cosine_pass": 82,
+          "ratio_pass": 38,
+          "mutual_pass": 31,
+          "grid_selected": 31,
+          "accepted": 31,
+          "ratio_mean": 0.8949045538902283,
+          "score_mean": 0.7803781032562256
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1473,
+          "descriptor_candidates": 357,
+          "map_point_candidates": 357,
+          "forward_candidates": 357,
+          "cosine_pass": 85,
+          "ratio_pass": 47,
+          "mutual_pass": 37,
+          "grid_selected": 37,
+          "accepted": 37,
+          "ratio_mean": 0.8964254856109619,
+          "score_mean": 0.695750892162323
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1419,
+          "descriptor_candidates": 193,
+          "map_point_candidates": 193,
+          "forward_candidates": 193,
+          "cosine_pass": 71,
+          "ratio_pass": 34,
+          "mutual_pass": 28,
+          "grid_selected": 28,
+          "accepted": 28,
+          "ratio_mean": 0.8794388175010681,
+          "score_mean": 0.732049286365509
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1450,
+          "descriptor_candidates": 450,
+          "map_point_candidates": 450,
+          "forward_candidates": 450,
+          "cosine_pass": 91,
+          "ratio_pass": 57,
+          "mutual_pass": 33,
+          "grid_selected": 33,
+          "accepted": 33,
+          "ratio_mean": 0.8937646746635437,
+          "score_mean": 0.6947265863418579
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 11,
+        "cost": 506.0108930169072,
+        "correspondence_rmse_px": 3.089343895214724
+      },
+      "baseline_support": 649,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          154.5459421807557,
+          65.06045014272073,
+          39.20288286229333
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          8.700275485849733,
+          6.911029812530655,
+          2.3707679437084987
+        ],
+        "mean_depth_m": 13.52138274331887,
+        "point_spread_m": 14.502182873604664
+      },
+      "leader_pose": [
+        [
+          0.16010192036628723,
+          -0.9869939088821411,
+          -0.014487132430076599,
+          -76.22033309936523
+        ],
+        [
+          0.9870511889457703,
+          0.15993013978004456,
+          0.012345761060714722,
+          -319.88640213012695
+        ],
+        [
+          -0.009868152439594269,
+          -0.016276240348815918,
+          0.9998185634613037,
+          8.575225830078125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.1576697258179305,
+          -0.9873955627733976,
+          -0.013774583081368467,
+          -76.16943399192144
+        ],
+        [
+          0.9873621701083529,
+          0.15740772867413583,
+          0.01840840551354977,
+          -319.8014623727759
+        ],
+        [
+          -0.01600804598397475,
+          -0.016503070909991358,
+          0.999735388055971,
+          8.58340213268268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.17340968476749066,
+          -0.9847810290073871,
+          -0.01163644109425574,
+          -76.07785377152612
+        ],
+        [
+          0.984206161694007,
+          0.17285716952511332,
+          0.03819202355789462,
+          -319.6950001111363
+        ],
+        [
+          -0.03559933836697461,
+          -0.018075524902340954,
+          0.9992026632444226,
+          8.518904254904886
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604649582929",
+      "before": [
+        0.17181084291263582,
+        1.2642940825129452
+      ],
+      "after": [
+        0.10331169538505829,
+        0.6587603409266184
+      ],
+      "delta": [
+        -0.06849914752757753,
+        -0.6055337415863268
+      ],
+      "leader_success": true,
+      "n_correspondences": 121,
+      "n_cameras": 6,
+      "score_mean": 0.7084274291992188,
+      "score_p10": 0.5902430415153503,
+      "per_camera_correspondences": [
+        4,
+        27,
+        10,
+        43,
+        17,
+        20
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1466,
+          "descriptor_candidates": 200,
+          "map_point_candidates": 200,
+          "forward_candidates": 200,
+          "cosine_pass": 11,
+          "ratio_pass": 5,
+          "mutual_pass": 4,
+          "grid_selected": 4,
+          "accepted": 4,
+          "ratio_mean": 0.9310013055801392,
+          "score_mean": 0.6887759566307068
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1799,
+          "descriptor_candidates": 337,
+          "map_point_candidates": 337,
+          "forward_candidates": 337,
+          "cosine_pass": 85,
+          "ratio_pass": 58,
+          "mutual_pass": 27,
+          "grid_selected": 27,
+          "accepted": 27,
+          "ratio_mean": 0.8531025052070618,
+          "score_mean": 0.6543257832527161
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1722,
+          "descriptor_candidates": 318,
+          "map_point_candidates": 318,
+          "forward_candidates": 318,
+          "cosine_pass": 51,
+          "ratio_pass": 26,
+          "mutual_pass": 10,
+          "grid_selected": 10,
+          "accepted": 10,
+          "ratio_mean": 0.909522294998169,
+          "score_mean": 0.7701956033706665
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1599,
+          "descriptor_candidates": 376,
+          "map_point_candidates": 376,
+          "forward_candidates": 376,
+          "cosine_pass": 136,
+          "ratio_pass": 65,
+          "mutual_pass": 43,
+          "grid_selected": 43,
+          "accepted": 43,
+          "ratio_mean": 0.8734344840049744,
+          "score_mean": 0.7272000908851624
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1532,
+          "descriptor_candidates": 231,
+          "map_point_candidates": 231,
+          "forward_candidates": 231,
+          "cosine_pass": 86,
+          "ratio_pass": 45,
+          "mutual_pass": 17,
+          "grid_selected": 17,
+          "accepted": 17,
+          "ratio_mean": 0.8658998608589172,
+          "score_mean": 0.7415063381195068
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1603,
+          "descriptor_candidates": 492,
+          "map_point_candidates": 492,
+          "forward_candidates": 492,
+          "cosine_pass": 109,
+          "ratio_pass": 55,
+          "mutual_pass": 20,
+          "grid_selected": 20,
+          "accepted": 20,
+          "ratio_mean": 0.9014936685562134,
+          "score_mean": 0.6860321760177612
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 11,
+        "cost": 449.4112900091339,
+        "correspondence_rmse_px": 3.2504680116108218
+      },
+      "baseline_support": 616,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          117.51580420976393,
+          76.19075243150897,
+          38.05143802646761
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          8.022845580955506,
+          6.370955048564997,
+          2.685541383623263
+        ],
+        "mean_depth_m": 12.711582293453938,
+        "point_spread_m": 13.193695880997147
+      },
+      "leader_pose": [
+        [
+          0.019747255370020866,
+          -0.999197244644165,
+          -0.03485152870416641,
+          -76.14438438415527
+        ],
+        [
+          0.9985421299934387,
+          0.021461892873048782,
+          -0.04952621832489967,
+          -317.74878692626953
+        ],
+        [
+          0.05023442581295967,
+          -0.033822692930698395,
+          0.9981642961502075,
+          8.500991821289062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.01426743552623732,
+          -0.9996619926493914,
+          -0.021726912367142043,
+          -76.07913576607297
+        ],
+        [
+          0.9984311337730645,
+          0.015419891568395901,
+          -0.05382695428795534,
+          -317.7158767518215
+        ],
+        [
+          0.05414377525974273,
+          -0.020924829832924294,
+          0.9983135968896222,
+          8.542105817517308
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.021943205519228407,
+          -0.9996718722790756,
+          -0.013215304911773942,
+          -75.97757619184996
+        ],
+        [
+          0.9983314476483313,
+          0.0226161459777798,
+          -0.053130325392419804,
+          -317.7346632367518
+        ],
+        [
+          0.05341177189367507,
+          -0.012027403997749691,
+          0.9985001373310054,
+          8.539650767428247
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604651582866",
+      "before": [
+        0.10990850897171822,
+        1.2246082366181446
+      ],
+      "after": [
+        0.13370472631684654,
+        1.0225214535681368
+      ],
+      "delta": [
+        0.023796217345128323,
+        -0.2020867830500077
+      ],
+      "leader_success": true,
+      "n_correspondences": 182,
+      "n_cameras": 6,
+      "score_mean": 0.7028540968894958,
+      "score_p10": 0.5880815625190735,
+      "per_camera_correspondences": [
+        15,
+        46,
+        4,
+        51,
+        32,
+        34
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1604,
+          "descriptor_candidates": 208,
+          "map_point_candidates": 208,
+          "forward_candidates": 208,
+          "cosine_pass": 22,
+          "ratio_pass": 16,
+          "mutual_pass": 15,
+          "grid_selected": 15,
+          "accepted": 15,
+          "ratio_mean": 0.9058865308761597,
+          "score_mean": 0.7314233779907227
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1681,
+          "descriptor_candidates": 330,
+          "map_point_candidates": 330,
+          "forward_candidates": 330,
+          "cosine_pass": 65,
+          "ratio_pass": 48,
+          "mutual_pass": 46,
+          "grid_selected": 46,
+          "accepted": 46,
+          "ratio_mean": 0.8615902066230774,
+          "score_mean": 0.6645224690437317
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1690,
+          "descriptor_candidates": 323,
+          "map_point_candidates": 323,
+          "forward_candidates": 323,
+          "cosine_pass": 36,
+          "ratio_pass": 9,
+          "mutual_pass": 4,
+          "grid_selected": 4,
+          "accepted": 4,
+          "ratio_mean": 0.9248230457305908,
+          "score_mean": 0.7363572120666504
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1710,
+          "descriptor_candidates": 391,
+          "map_point_candidates": 391,
+          "forward_candidates": 391,
+          "cosine_pass": 116,
+          "ratio_pass": 64,
+          "mutual_pass": 51,
+          "grid_selected": 51,
+          "accepted": 51,
+          "ratio_mean": 0.8826248645782471,
+          "score_mean": 0.6958999633789062
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1591,
+          "descriptor_candidates": 240,
+          "map_point_candidates": 240,
+          "forward_candidates": 240,
+          "cosine_pass": 77,
+          "ratio_pass": 37,
+          "mutual_pass": 32,
+          "grid_selected": 32,
+          "accepted": 32,
+          "ratio_mean": 0.8813604116439819,
+          "score_mean": 0.7371795773506165
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1638,
+          "descriptor_candidates": 521,
+          "map_point_candidates": 521,
+          "forward_candidates": 521,
+          "cosine_pass": 88,
+          "ratio_pass": 39,
+          "mutual_pass": 34,
+          "grid_selected": 34,
+          "accepted": 34,
+          "ratio_mean": 0.9100683331489563,
+          "score_mean": 0.71629399061203
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 17,
+        "cost": 406.45527787287415,
+        "correspondence_rmse_px": 2.4345540353047777
+      },
+      "baseline_support": 568,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          137.6659237737263,
+          98.2358647383817,
+          44.161512771033834
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          9.596041065106379,
+          7.825267658086539,
+          3.2418947745741313
+        ],
+        "mean_depth_m": 12.988051377729905,
+        "point_spread_m": 12.956484841512237
+      },
+      "leader_pose": [
+        [
+          0.08531776815652847,
+          -0.9955607056617737,
+          -0.03973738104104996,
+          -75.81453132629395
+        ],
+        [
+          0.9959418773651123,
+          0.08636115491390228,
+          -0.025322120636701584,
+          -314.8346939086914
+        ],
+        [
+          0.028641462326049805,
+          -0.037415653467178345,
+          0.9988889098167419,
+          8.603805541992188
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.07923677140553083,
+          -0.9962168321705536,
+          -0.035677116668544805,
+          -75.77848213407871
+        ],
+        [
+          0.9965229997383982,
+          0.08008413315088919,
+          -0.02298095937580377,
+          -314.7399864280565
+        ],
+        [
+          0.025751176022509165,
+          -0.033732088250594,
+          0.9990987650141538,
+          8.5820400794241
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.08207164826131866,
+          -0.9964492869925112,
+          -0.018789984296233082,
+          -75.70866720130657
+        ],
+        [
+          0.9961955823655374,
+          0.08257590404673451,
+          -0.027849238569741794,
+          -314.8540148954511
+        ],
+        [
+          0.029301954707412148,
+          -0.01643286524471786,
+          0.9994355182930053,
+          8.581459024239404
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604652583020",
+      "before": [
+        0.05207609208137639,
+        1.0241619533955142
+      ],
+      "after": [
+        0.07653373879976182,
+        0.8939716615007605
+      ],
+      "delta": [
+        0.024457646718385427,
+        -0.13019029189475373
+      ],
+      "leader_success": true,
+      "n_correspondences": 185,
+      "n_cameras": 6,
+      "score_mean": 0.7125658392906189,
+      "score_p10": 0.6002580046653747,
+      "per_camera_correspondences": [
+        18,
+        31,
+        22,
+        52,
+        39,
+        23
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1674,
+          "descriptor_candidates": 215,
+          "map_point_candidates": 215,
+          "forward_candidates": 215,
+          "cosine_pass": 27,
+          "ratio_pass": 19,
+          "mutual_pass": 18,
+          "grid_selected": 18,
+          "accepted": 18,
+          "ratio_mean": 0.9084851741790771,
+          "score_mean": 0.7048397064208984
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1685,
+          "descriptor_candidates": 320,
+          "map_point_candidates": 320,
+          "forward_candidates": 320,
+          "cosine_pass": 53,
+          "ratio_pass": 37,
+          "mutual_pass": 31,
+          "grid_selected": 31,
+          "accepted": 31,
+          "ratio_mean": 0.8746105432510376,
+          "score_mean": 0.6752216815948486
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1671,
+          "descriptor_candidates": 327,
+          "map_point_candidates": 327,
+          "forward_candidates": 327,
+          "cosine_pass": 45,
+          "ratio_pass": 24,
+          "mutual_pass": 22,
+          "grid_selected": 22,
+          "accepted": 22,
+          "ratio_mean": 0.9028220176696777,
+          "score_mean": 0.7234258055686951
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1730,
+          "descriptor_candidates": 403,
+          "map_point_candidates": 403,
+          "forward_candidates": 403,
+          "cosine_pass": 130,
+          "ratio_pass": 63,
+          "mutual_pass": 53,
+          "grid_selected": 52,
+          "accepted": 52,
+          "ratio_mean": 0.8822553753852844,
+          "score_mean": 0.7230106592178345
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1549,
+          "descriptor_candidates": 246,
+          "map_point_candidates": 246,
+          "forward_candidates": 246,
+          "cosine_pass": 83,
+          "ratio_pass": 47,
+          "mutual_pass": 39,
+          "grid_selected": 39,
+          "accepted": 39,
+          "ratio_mean": 0.8691196441650391,
+          "score_mean": 0.7290661931037903
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1594,
+          "descriptor_candidates": 500,
+          "map_point_candidates": 500,
+          "forward_candidates": 500,
+          "cosine_pass": 71,
+          "ratio_pass": 26,
+          "mutual_pass": 23,
+          "grid_selected": 23,
+          "accepted": 23,
+          "ratio_mean": 0.9162817001342773,
+          "score_mean": 0.7069653272628784
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 11,
+        "cost": 376.82702753030094,
+        "correspondence_rmse_px": 2.3290143605830034
+      },
+      "baseline_support": 597,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          142.73499388220097,
+          99.0450414434897,
+          48.38354135442391
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          9.25579387259619,
+          8.230543194779445,
+          3.3254126916368234
+        ],
+        "mean_depth_m": 13.33599738715054,
+        "point_spread_m": 13.259196866772765
+      },
+      "leader_pose": [
+        [
+          0.04036541283130646,
+          -0.9987552762031555,
+          -0.02930469624698162,
+          -75.59750366210938
+        ],
+        [
+          0.9987969398498535,
+          0.04115007817745209,
+          -0.026683444157242775,
+          -313.4198913574219
+        ],
+        [
+          0.02785610780119896,
+          -0.028192324563860893,
+          0.9992149472236633,
+          8.594390869140625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.03641691878083226,
+          -0.9988719269499059,
+          -0.030478117338473814,
+          -75.65729511176897
+        ],
+        [
+          0.9989946859086395,
+          0.03718578810350452,
+          -0.025049877421889303,
+          -313.33815675325394
+        ],
+        [
+          0.0261549593980762,
+          -0.02953520875953653,
+          0.9992221325481434,
+          8.606323810039681
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.024269143273160564,
+          -0.9994359165386566,
+          -0.023213269179643142,
+          -75.64627573157543
+        ],
+        [
+          0.999175018450131,
+          0.025006045460686393,
+          -0.03199969704228787,
+          -313.4137113535513
+        ],
+        [
+          0.03256211864519881,
+          -0.022417513233504858,
+          0.9992182760172184,
+          8.611566787125593
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604653982864",
+      "before": [
+        0.05357135205742421,
+        0.7407192572389368
+      ],
+      "after": [
+        0.050313384370637565,
+        0.5007199821725752
+      ],
+      "delta": [
+        -0.003257967686786642,
+        -0.23999927506636165
+      ],
+      "leader_success": true,
+      "n_correspondences": 171,
+      "n_cameras": 6,
+      "score_mean": 0.695188581943512,
+      "score_p10": 0.5909121632575989,
+      "per_camera_correspondences": [
+        18,
+        12,
+        27,
+        51,
+        38,
+        25
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1769,
+          "descriptor_candidates": 253,
+          "map_point_candidates": 253,
+          "forward_candidates": 253,
+          "cosine_pass": 35,
+          "ratio_pass": 21,
+          "mutual_pass": 18,
+          "grid_selected": 18,
+          "accepted": 18,
+          "ratio_mean": 0.9067591428756714,
+          "score_mean": 0.7385541796684265
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1613,
+          "descriptor_candidates": 311,
+          "map_point_candidates": 311,
+          "forward_candidates": 311,
+          "cosine_pass": 25,
+          "ratio_pass": 15,
+          "mutual_pass": 12,
+          "grid_selected": 12,
+          "accepted": 12,
+          "ratio_mean": 0.8992840647697449,
+          "score_mean": 0.6617120504379272
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1689,
+          "descriptor_candidates": 320,
+          "map_point_candidates": 320,
+          "forward_candidates": 320,
+          "cosine_pass": 55,
+          "ratio_pass": 35,
+          "mutual_pass": 27,
+          "grid_selected": 27,
+          "accepted": 27,
+          "ratio_mean": 0.9021072387695312,
+          "score_mean": 0.6650897264480591
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1747,
+          "descriptor_candidates": 396,
+          "map_point_candidates": 396,
+          "forward_candidates": 396,
+          "cosine_pass": 126,
+          "ratio_pass": 62,
+          "mutual_pass": 52,
+          "grid_selected": 51,
+          "accepted": 51,
+          "ratio_mean": 0.8889206647872925,
+          "score_mean": 0.693956196308136
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1519,
+          "descriptor_candidates": 268,
+          "map_point_candidates": 268,
+          "forward_candidates": 268,
+          "cosine_pass": 83,
+          "ratio_pass": 43,
+          "mutual_pass": 38,
+          "grid_selected": 38,
+          "accepted": 38,
+          "ratio_mean": 0.8766745924949646,
+          "score_mean": 0.7108033895492554
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1619,
+          "descriptor_candidates": 509,
+          "map_point_candidates": 509,
+          "forward_candidates": 509,
+          "cosine_pass": 62,
+          "ratio_pass": 28,
+          "mutual_pass": 25,
+          "grid_selected": 25,
+          "accepted": 25,
+          "ratio_mean": 0.9188601970672607,
+          "score_mean": 0.6913197040557861
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 3,
+        "nfev": 18,
+        "cost": 435.8475876624853,
+        "correspondence_rmse_px": 2.537519019036649
+      },
+      "baseline_support": 556,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          131.53016108959355,
+          94.85090502306463,
+          47.83727395866755
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          8.726094572509941,
+          7.251519366558178,
+          3.3311732346098526
+        ],
+        "mean_depth_m": 13.925323398178834,
+        "point_spread_m": 12.92924565529195
+      },
+      "leader_pose": [
+        [
+          -0.052666209638118744,
+          -0.9981864094734192,
+          -0.029148705303668976,
+          -75.7280330657959
+        ],
+        [
+          0.998501718044281,
+          -0.0522041916847229,
+          -0.016389869153499603,
+          -311.4031753540039
+        ],
+        [
+          0.014838462695479393,
+          -0.029968231916427612,
+          0.9994404315948486,
+          8.68682861328125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.05122149362995684,
+          -0.9984687003223105,
+          -0.020882952253790235,
+          -75.66148328608392
+        ],
+        [
+          0.9986265204817673,
+          -0.05097680982887274,
+          -0.012084036591411907,
+          -311.343950097175
+        ],
+        [
+          0.011000987727790526,
+          -0.021473237935522898,
+          0.9997086223010531,
+          8.646560905006071
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          -0.058224738847782016,
+          -0.9981498258105537,
+          -0.01751587628640146,
+          -75.6992845551087
+        ],
+        [
+          0.9981898085737794,
+          -0.057944352923755174,
+          -0.016110801891425768,
+          -311.37697640242664
+        ],
+        [
+          0.015066047697404739,
+          -0.018422216613987956,
+          0.9997167780842411,
+          8.649990754619534
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604654982854",
+      "before": [
+        0.1023925635472197,
+        0.75428453199324
+      ],
+      "after": [
+        0.10437159604670594,
+        0.42899592574580997
+      ],
+      "delta": [
+        0.0019790324994862357,
+        -0.32528860624743
+      ],
+      "leader_success": true,
+      "n_correspondences": 162,
+      "n_cameras": 6,
+      "score_mean": 0.6979144811630249,
+      "score_p10": 0.5899405658245087,
+      "per_camera_correspondences": [
+        8,
+        35,
+        24,
+        44,
+        40,
+        11
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1832,
+          "descriptor_candidates": 271,
+          "map_point_candidates": 271,
+          "forward_candidates": 271,
+          "cosine_pass": 34,
+          "ratio_pass": 22,
+          "mutual_pass": 8,
+          "grid_selected": 8,
+          "accepted": 8,
+          "ratio_mean": 0.913677453994751,
+          "score_mean": 0.6861419081687927
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1608,
+          "descriptor_candidates": 293,
+          "map_point_candidates": 293,
+          "forward_candidates": 293,
+          "cosine_pass": 49,
+          "ratio_pass": 37,
+          "mutual_pass": 35,
+          "grid_selected": 35,
+          "accepted": 35,
+          "ratio_mean": 0.875737726688385,
+          "score_mean": 0.6966303586959839
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1683,
+          "descriptor_candidates": 307,
+          "map_point_candidates": 307,
+          "forward_candidates": 307,
+          "cosine_pass": 47,
+          "ratio_pass": 32,
+          "mutual_pass": 24,
+          "grid_selected": 24,
+          "accepted": 24,
+          "ratio_mean": 0.9073895812034607,
+          "score_mean": 0.656635582447052
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1671,
+          "descriptor_candidates": 391,
+          "map_point_candidates": 391,
+          "forward_candidates": 391,
+          "cosine_pass": 116,
+          "ratio_pass": 61,
+          "mutual_pass": 45,
+          "grid_selected": 44,
+          "accepted": 44,
+          "ratio_mean": 0.8913457989692688,
+          "score_mean": 0.7222022414207458
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1539,
+          "descriptor_candidates": 275,
+          "map_point_candidates": 275,
+          "forward_candidates": 275,
+          "cosine_pass": 82,
+          "ratio_pass": 48,
+          "mutual_pass": 41,
+          "grid_selected": 40,
+          "accepted": 40,
+          "ratio_mean": 0.868652880191803,
+          "score_mean": 0.7092244029045105
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1669,
+          "descriptor_candidates": 513,
+          "map_point_candidates": 513,
+          "forward_candidates": 513,
+          "cosine_pass": 70,
+          "ratio_pass": 24,
+          "mutual_pass": 11,
+          "grid_selected": 11,
+          "accepted": 11,
+          "ratio_mean": 0.9217566251754761,
+          "score_mean": 0.6623479127883911
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 9,
+        "cost": 385.6301517973038,
+        "correspondence_rmse_px": 2.4259583544897882
+      },
+      "baseline_support": 563,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          113.47310423971544,
+          89.34222400215245,
+          44.443282613501104
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          9.103285218482359,
+          7.501285481878669,
+          3.226973106139772
+        ],
+        "mean_depth_m": 11.881262630980858,
+        "point_spread_m": 11.872102309203509
+      },
+      "leader_pose": [
+        [
+          -0.05610905587673187,
+          -0.9980095028877258,
+          -0.028787586838006973,
+          -75.84681129455566
+        ],
+        [
+          0.9982276558876038,
+          -0.05550171807408333,
+          -0.02147863619029522,
+          -309.84813690185547
+        ],
+        [
+          0.019838126376271248,
+          -0.029941711574792862,
+          0.9993547797203064,
+          8.701690673828125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.06251582400693842,
+          -0.9975989724457502,
+          -0.02979902261527728,
+          -75.71080485046105
+        ],
+        [
+          0.9979438817529818,
+          -0.06205854813483758,
+          -0.016030295055262905,
+          -309.88929962627407
+        ],
+        [
+          0.014142524841179204,
+          -0.03073989970686491,
+          0.9994273763560754,
+          8.695699723017153
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          -0.06743915666620764,
+          -0.9974297837187901,
+          -0.024203028481974916,
+          -75.80125451419984
+        ],
+        [
+          0.9976067966888482,
+          -0.06704058851003913,
+          -0.01691863149394597,
+          -309.9334593571826
+        ],
+        [
+          0.015252562159507014,
+          -0.02528608339599857,
+          0.9995638919818447,
+          8.668091634402348
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604656582868",
+      "before": [
+        0.1336798500371663,
+        0.6307366519824196
+      ],
+      "after": [
+        0.04280611969186692,
+        0.7165284358765914
+      ],
+      "delta": [
+        -0.09087373034529936,
+        0.08579178389417186
+      ],
+      "leader_success": true,
+      "n_correspondences": 175,
+      "n_cameras": 6,
+      "score_mean": 0.7152318954467773,
+      "score_p10": 0.5901920914649963,
+      "per_camera_correspondences": [
+        11,
+        31,
+        18,
+        50,
+        47,
+        18
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1908,
+          "descriptor_candidates": 263,
+          "map_point_candidates": 263,
+          "forward_candidates": 263,
+          "cosine_pass": 28,
+          "ratio_pass": 11,
+          "mutual_pass": 11,
+          "grid_selected": 11,
+          "accepted": 11,
+          "ratio_mean": 0.9199823141098022,
+          "score_mean": 0.6902046799659729
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1595,
+          "descriptor_candidates": 273,
+          "map_point_candidates": 273,
+          "forward_candidates": 273,
+          "cosine_pass": 61,
+          "ratio_pass": 46,
+          "mutual_pass": 31,
+          "grid_selected": 31,
+          "accepted": 31,
+          "ratio_mean": 0.8699193000793457,
+          "score_mean": 0.7411700487136841
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1640,
+          "descriptor_candidates": 289,
+          "map_point_candidates": 289,
+          "forward_candidates": 289,
+          "cosine_pass": 32,
+          "ratio_pass": 22,
+          "mutual_pass": 18,
+          "grid_selected": 18,
+          "accepted": 18,
+          "ratio_mean": 0.913801372051239,
+          "score_mean": 0.644252598285675
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1693,
+          "descriptor_candidates": 417,
+          "map_point_candidates": 417,
+          "forward_candidates": 417,
+          "cosine_pass": 122,
+          "ratio_pass": 72,
+          "mutual_pass": 51,
+          "grid_selected": 50,
+          "accepted": 50,
+          "ratio_mean": 0.8800345659255981,
+          "score_mean": 0.7517921924591064
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1584,
+          "descriptor_candidates": 279,
+          "map_point_candidates": 279,
+          "forward_candidates": 279,
+          "cosine_pass": 92,
+          "ratio_pass": 54,
+          "mutual_pass": 47,
+          "grid_selected": 47,
+          "accepted": 47,
+          "ratio_mean": 0.8731016516685486,
+          "score_mean": 0.7085068821907043
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1693,
+          "descriptor_candidates": 567,
+          "map_point_candidates": 567,
+          "forward_candidates": 567,
+          "cosine_pass": 75,
+          "ratio_pass": 19,
+          "mutual_pass": 18,
+          "grid_selected": 18,
+          "accepted": 18,
+          "ratio_mean": 0.9252658486366272,
+          "score_mean": 0.6728375554084778
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 8,
+        "cost": 459.7153770872653,
+        "correspondence_rmse_px": 2.7740708380731
+      },
+      "baseline_support": 526,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          189.31252713744374,
+          88.96762227112036,
+          48.42210957821356
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          8.784517105360788,
+          8.340026988491426,
+          3.2776617152840055
+        ],
+        "mean_depth_m": 13.59988737007158,
+        "point_spread_m": 16.230336928066293
+      },
+      "leader_pose": [
+        [
+          -0.026256754994392395,
+          -0.9994338154792786,
+          -0.0210445336997509,
+          -75.8806209564209
+        ],
+        [
+          0.9994198679924011,
+          -0.02578747645020485,
+          -0.02226855792105198,
+          -307.7480926513672
+        ],
+        [
+          0.021713247522711754,
+          -0.02161693572998047,
+          0.999531090259552,
+          8.749008178710938
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.02746557229283711,
+          -0.9993327381404107,
+          -0.024082410832482325,
+          -75.82602323471806
+        ],
+        [
+          0.9994786664968326,
+          -0.02704391828462043,
+          -0.017662860647340364,
+          -307.619420440822
+        ],
+        [
+          0.016999776325198557,
+          -0.02455488424116045,
+          0.9995545119242972,
+          8.736925793143941
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          -0.017417534300163285,
+          -0.9994742834070874,
+          -0.02734568095544552,
+          -75.8549426209913
+        ],
+        [
+          0.9995672374907089,
+          -0.016757674587320782,
+          -0.02417683846478184,
+          -307.6242439741532
+        ],
+        [
+          0.023705877918128712,
+          -0.027754948141803962,
+          0.9993336248267699,
+          8.705736588170796
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604657582841",
+      "before": [
+        0.027983465908400822,
+        0.32748559809985256
+      ],
+      "after": [
+        0.05106184477555609,
+        0.4679770905923292
+      ],
+      "delta": [
+        0.023078378867155264,
+        0.14049149249247667
+      ],
+      "leader_success": true,
+      "n_correspondences": 177,
+      "n_cameras": 6,
+      "score_mean": 0.7074539065361023,
+      "score_p10": 0.5885823845863343,
+      "per_camera_correspondences": [
+        4,
+        31,
+        15,
+        56,
+        45,
+        26
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1849,
+          "descriptor_candidates": 236,
+          "map_point_candidates": 236,
+          "forward_candidates": 236,
+          "cosine_pass": 23,
+          "ratio_pass": 13,
+          "mutual_pass": 4,
+          "grid_selected": 4,
+          "accepted": 4,
+          "ratio_mean": 0.9324737787246704,
+          "score_mean": 0.7191663384437561
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1605,
+          "descriptor_candidates": 323,
+          "map_point_candidates": 323,
+          "forward_candidates": 323,
+          "cosine_pass": 67,
+          "ratio_pass": 39,
+          "mutual_pass": 31,
+          "grid_selected": 31,
+          "accepted": 31,
+          "ratio_mean": 0.8829009532928467,
+          "score_mean": 0.7150379419326782
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1698,
+          "descriptor_candidates": 253,
+          "map_point_candidates": 253,
+          "forward_candidates": 253,
+          "cosine_pass": 36,
+          "ratio_pass": 20,
+          "mutual_pass": 15,
+          "grid_selected": 15,
+          "accepted": 15,
+          "ratio_mean": 0.9018429517745972,
+          "score_mean": 0.6917499899864197
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1642,
+          "descriptor_candidates": 431,
+          "map_point_candidates": 431,
+          "forward_candidates": 431,
+          "cosine_pass": 128,
+          "ratio_pass": 82,
+          "mutual_pass": 58,
+          "grid_selected": 56,
+          "accepted": 56,
+          "ratio_mean": 0.8730059266090393,
+          "score_mean": 0.7473967671394348
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1589,
+          "descriptor_candidates": 285,
+          "map_point_candidates": 285,
+          "forward_candidates": 285,
+          "cosine_pass": 105,
+          "ratio_pass": 54,
+          "mutual_pass": 45,
+          "grid_selected": 45,
+          "accepted": 45,
+          "ratio_mean": 0.8727335333824158,
+          "score_mean": 0.6909124851226807
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1703,
+          "descriptor_candidates": 566,
+          "map_point_candidates": 566,
+          "forward_candidates": 566,
+          "cosine_pass": 89,
+          "ratio_pass": 37,
+          "mutual_pass": 27,
+          "grid_selected": 26,
+          "accepted": 26,
+          "ratio_mean": 0.9112226366996765,
+          "score_mean": 0.6482683420181274
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 8,
+        "cost": 483.6127317317432,
+        "correspondence_rmse_px": 2.694132005377009
+      },
+      "baseline_support": 601,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          266.523087950162,
+          92.7275996026,
+          50.46559086418097
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          9.032714971688502,
+          8.51814986369458,
+          3.105318651008687
+        ],
+        "mean_depth_m": 15.733703718304758,
+        "point_spread_m": 21.547443383918385
+      },
+      "leader_pose": [
+        [
+          0.06317970156669617,
+          -0.9979062676429749,
+          -0.013836951926350594,
+          -75.83090209960938
+        ],
+        [
+          0.997556746006012,
+          0.06355989724397659,
+          -0.029006831347942352,
+          -306.22876739501953
+        ],
+        [
+          0.029825564473867416,
+          -0.01197049766778946,
+          0.9994840025901794,
+          8.711746215820312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.05873636426436479,
+          -0.9980802859065627,
+          -0.019642771070749663,
+          -75.80748029761038
+        ],
+        [
+          0.9978300675613758,
+          0.05928569449747804,
+          -0.028654493277629107,
+          -306.1857459881328
+        ],
+        [
+          0.029764009672905104,
+          -0.017917077491537366,
+          0.999396923397711,
+          8.760566000895793
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.0645892154509216,
+          -0.997767794168592,
+          -0.016960607210267226,
+          -75.81381086864971
+        ],
+        [
+          0.9973089569651776,
+          0.06513161385434824,
+          -0.03365586011503083,
+          -306.2288315397183
+        ],
+        [
+          0.034685405771600855,
+          -0.01474115910824978,
+          0.9992895585159168,
+          8.7339038346903
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604658983490",
+      "before": [
+        0.07704487461313186,
+        0.12129737917029766
+      ],
+      "after": [
+        0.11581881798960178,
+        1.210063813622062
+      ],
+      "delta": [
+        0.038773943376469916,
+        1.0887664344517645
+      ],
+      "leader_success": true,
+      "n_correspondences": 140,
+      "n_cameras": 6,
+      "score_mean": 0.6965340971946716,
+      "score_p10": 0.5900756478309631,
+      "per_camera_correspondences": [
+        3,
+        35,
+        6,
+        33,
+        30,
+        33
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1733,
+          "descriptor_candidates": 228,
+          "map_point_candidates": 228,
+          "forward_candidates": 228,
+          "cosine_pass": 27,
+          "ratio_pass": 9,
+          "mutual_pass": 4,
+          "grid_selected": 3,
+          "accepted": 3,
+          "ratio_mean": 0.9263321757316589,
+          "score_mean": 0.6729853749275208
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1535,
+          "descriptor_candidates": 326,
+          "map_point_candidates": 326,
+          "forward_candidates": 326,
+          "cosine_pass": 61,
+          "ratio_pass": 40,
+          "mutual_pass": 35,
+          "grid_selected": 35,
+          "accepted": 35,
+          "ratio_mean": 0.8815909624099731,
+          "score_mean": 0.6794564127922058
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1684,
+          "descriptor_candidates": 235,
+          "map_point_candidates": 235,
+          "forward_candidates": 235,
+          "cosine_pass": 26,
+          "ratio_pass": 13,
+          "mutual_pass": 6,
+          "grid_selected": 6,
+          "accepted": 6,
+          "ratio_mean": 0.9119352102279663,
+          "score_mean": 0.6506642699241638
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1562,
+          "descriptor_candidates": 430,
+          "map_point_candidates": 430,
+          "forward_candidates": 430,
+          "cosine_pass": 116,
+          "ratio_pass": 55,
+          "mutual_pass": 33,
+          "grid_selected": 33,
+          "accepted": 33,
+          "ratio_mean": 0.8938463926315308,
+          "score_mean": 0.7126988768577576
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1585,
+          "descriptor_candidates": 292,
+          "map_point_candidates": 292,
+          "forward_candidates": 292,
+          "cosine_pass": 85,
+          "ratio_pass": 37,
+          "mutual_pass": 30,
+          "grid_selected": 30,
+          "accepted": 30,
+          "ratio_mean": 0.8894286751747131,
+          "score_mean": 0.6910284161567688
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1579,
+          "descriptor_candidates": 473,
+          "map_point_candidates": 473,
+          "forward_candidates": 473,
+          "cosine_pass": 91,
+          "ratio_pass": 47,
+          "mutual_pass": 34,
+          "grid_selected": 33,
+          "accepted": 33,
+          "ratio_mean": 0.8963711857795715,
+          "score_mean": 0.7139679789543152
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 9,
+        "cost": 382.56932077433544,
+        "correspondence_rmse_px": 2.6443885851298616
+      },
+      "baseline_support": 562,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          289.9548306073197,
+          95.94965995570345,
+          46.27262595206345
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          8.92603964937229,
+          6.382234256148196,
+          2.4582519056581296
+        ],
+        "mean_depth_m": 19.945535713024125,
+        "point_spread_m": 26.107100423151746
+      },
+      "leader_pose": [
+        [
+          0.13431568443775177,
+          -0.9907102584838867,
+          -0.021285714581608772,
+          -75.63887596130371
+        ],
+        [
+          0.9905233979225159,
+          0.1348501294851303,
+          -0.026059485971927643,
+          -304.19327545166016
+        ],
+        [
+          0.02868778631091118,
+          -0.017583800479769707,
+          0.9994342923164368,
+          8.770614624023438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.12970159522780086,
+          -0.9907443332700426,
+          -0.04004700455782142,
+          -75.69216181820673
+        ],
+        [
+          0.9912172843210129,
+          0.13060296363881868,
+          -0.020770609994233722,
+          -304.21015994491364
+        ],
+        [
+          0.025808631502058237,
+          -0.037001293338672324,
+          0.9989824334285567,
+          8.778370683056039
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.13296064725996912,
+          -0.9909266571275547,
+          -0.01964247377628227,
+          -75.58154583916168
+        ],
+        [
+          0.9907383540023328,
+          0.13343404949850482,
+          -0.025156877041668843,
+          -304.24442429429996
+        ],
+        [
+          0.027549594224792265,
+          -0.016115677074854944,
+          0.999490521847156,
+          8.776356200108557
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604659982823",
+      "before": [
+        0.11668986593611086,
+        0.4728398826858256
+      ],
+      "after": [
+        0.08212766899578203,
+        1.448950198512439
+      ],
+      "delta": [
+        -0.03456219694032883,
+        0.9761103158266133
+      ],
+      "leader_success": true,
+      "n_correspondences": 157,
+      "n_cameras": 6,
+      "score_mean": 0.7128923535346985,
+      "score_p10": 0.6041419029235839,
+      "per_camera_correspondences": [
+        5,
+        43,
+        8,
+        31,
+        37,
+        33
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1639,
+          "descriptor_candidates": 226,
+          "map_point_candidates": 226,
+          "forward_candidates": 226,
+          "cosine_pass": 34,
+          "ratio_pass": 10,
+          "mutual_pass": 5,
+          "grid_selected": 5,
+          "accepted": 5,
+          "ratio_mean": 0.9276782870292664,
+          "score_mean": 0.6895797848701477
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1446,
+          "descriptor_candidates": 321,
+          "map_point_candidates": 321,
+          "forward_candidates": 321,
+          "cosine_pass": 81,
+          "ratio_pass": 51,
+          "mutual_pass": 43,
+          "grid_selected": 43,
+          "accepted": 43,
+          "ratio_mean": 0.8644707798957825,
+          "score_mean": 0.739054799079895
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1568,
+          "descriptor_candidates": 235,
+          "map_point_candidates": 235,
+          "forward_candidates": 235,
+          "cosine_pass": 24,
+          "ratio_pass": 15,
+          "mutual_pass": 8,
+          "grid_selected": 8,
+          "accepted": 8,
+          "ratio_mean": 0.918615460395813,
+          "score_mean": 0.6374769806861877
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1538,
+          "descriptor_candidates": 407,
+          "map_point_candidates": 407,
+          "forward_candidates": 407,
+          "cosine_pass": 109,
+          "ratio_pass": 56,
+          "mutual_pass": 31,
+          "grid_selected": 31,
+          "accepted": 31,
+          "ratio_mean": 0.8901465535163879,
+          "score_mean": 0.7350466847419739
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1606,
+          "descriptor_candidates": 319,
+          "map_point_candidates": 319,
+          "forward_candidates": 319,
+          "cosine_pass": 85,
+          "ratio_pass": 44,
+          "mutual_pass": 37,
+          "grid_selected": 37,
+          "accepted": 37,
+          "ratio_mean": 0.8855957984924316,
+          "score_mean": 0.7149747610092163
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1403,
+          "descriptor_candidates": 448,
+          "map_point_candidates": 448,
+          "forward_candidates": 448,
+          "cosine_pass": 94,
+          "ratio_pass": 55,
+          "mutual_pass": 35,
+          "grid_selected": 33,
+          "accepted": 33,
+          "ratio_mean": 0.8956565856933594,
+          "score_mean": 0.6774702072143555
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 8,
+        "cost": 376.39068883481184,
+        "correspondence_rmse_px": 2.5132838472248964
+      },
+      "baseline_support": 569,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          310.8590366468996,
+          104.11734134693326,
+          46.86100742405002
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          9.171651303988218,
+          7.050530451988993,
+          2.613766614483038
+        ],
+        "mean_depth_m": 20.171426771901636,
+        "point_spread_m": 26.429779027321658
+      },
+      "leader_pose": [
+        [
+          0.07673227787017822,
+          -0.9968856573104858,
+          -0.018212148919701576,
+          -75.50561904907227
+        ],
+        [
+          0.9967829585075378,
+          0.07712298631668091,
+          -0.021824698895215988,
+          -302.8428726196289
+        ],
+        [
+          0.023161306977272034,
+          -0.016478870064020157,
+          0.9995967149734497,
+          8.829620361328125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.07153136874010381,
+          -0.9968774390284327,
+          -0.03345405448025777,
+          -75.43539411777873
+        ],
+        [
+          0.9972655530605455,
+          0.07210340568602687,
+          -0.01621898501936086,
+          -302.7763937815176
+        ],
+        [
+          0.018580499027028633,
+          -0.03220236595250502,
+          0.9993094431654423,
+          8.824108120511461
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.07893098526702264,
+          -0.9968146229876798,
+          -0.011423994859017282,
+          -75.39187711619059
+        ],
+        [
+          0.9965165863347446,
+          0.07920646472752071,
+          -0.026096528929249584,
+          -302.84294362015794
+        ],
+        [
+          0.026918256023695745,
+          -0.009324375915356663,
+          0.9995941493980656,
+          8.803557121401905
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604661582864",
+      "before": [
+        0.1449318788712547,
+        0.6217926913888681
+      ],
+      "after": [
+        0.06663839187123934,
+        0.42766069716890076
+      ],
+      "delta": [
+        -0.07829348700001536,
+        -0.1941319942199673
+      ],
+      "leader_success": true,
+      "n_correspondences": 149,
+      "n_cameras": 6,
+      "score_mean": 0.6951912641525269,
+      "score_p10": 0.5897033333778381,
+      "per_camera_correspondences": [
+        2,
+        34,
+        2,
+        28,
+        36,
+        47
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1449,
+          "descriptor_candidates": 191,
+          "map_point_candidates": 191,
+          "forward_candidates": 191,
+          "cosine_pass": 25,
+          "ratio_pass": 2,
+          "mutual_pass": 2,
+          "grid_selected": 2,
+          "accepted": 2,
+          "ratio_mean": 0.9397315979003906,
+          "score_mean": 0.7960537672042847
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1432,
+          "descriptor_candidates": 275,
+          "map_point_candidates": 275,
+          "forward_candidates": 275,
+          "cosine_pass": 75,
+          "ratio_pass": 47,
+          "mutual_pass": 34,
+          "grid_selected": 34,
+          "accepted": 34,
+          "ratio_mean": 0.8680577278137207,
+          "score_mean": 0.7057357430458069
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1661,
+          "descriptor_candidates": 276,
+          "map_point_candidates": 276,
+          "forward_candidates": 276,
+          "cosine_pass": 19,
+          "ratio_pass": 9,
+          "mutual_pass": 2,
+          "grid_selected": 2,
+          "accepted": 2,
+          "ratio_mean": 0.9281558990478516,
+          "score_mean": 0.7597956657409668
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1681,
+          "descriptor_candidates": 421,
+          "map_point_candidates": 421,
+          "forward_candidates": 421,
+          "cosine_pass": 94,
+          "ratio_pass": 52,
+          "mutual_pass": 28,
+          "grid_selected": 28,
+          "accepted": 28,
+          "ratio_mean": 0.9085378646850586,
+          "score_mean": 0.709053635597229
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1635,
+          "descriptor_candidates": 330,
+          "map_point_candidates": 330,
+          "forward_candidates": 330,
+          "cosine_pass": 99,
+          "ratio_pass": 46,
+          "mutual_pass": 36,
+          "grid_selected": 36,
+          "accepted": 36,
+          "ratio_mean": 0.8833094835281372,
+          "score_mean": 0.6906009912490845
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1416,
+          "descriptor_candidates": 505,
+          "map_point_candidates": 505,
+          "forward_candidates": 505,
+          "cosine_pass": 122,
+          "ratio_pass": 70,
+          "mutual_pass": 49,
+          "grid_selected": 47,
+          "accepted": 47,
+          "ratio_mean": 0.8829895853996277,
+          "score_mean": 0.675779402256012
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 12,
+        "cost": 381.26732012127525,
+        "correspondence_rmse_px": 2.639835119436657
+      },
+      "baseline_support": 544,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          373.27109436449456,
+          105.85111470348055,
+          47.00298551963403
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          8.453714689802899,
+          6.846557070098045,
+          2.4301930031516426
+        ],
+        "mean_depth_m": 26.2067141342674,
+        "point_spread_m": 32.01772254829873
+      },
+      "leader_pose": [
+        [
+          0.026278652250766754,
+          -0.9995824098587036,
+          -0.01201736181974411,
+          -75.38991165161133
+        ],
+        [
+          0.9991261959075928,
+          0.026653781533241272,
+          -0.03219554200768471,
+          -300.57154846191406
+        ],
+        [
+          0.03250240534543991,
+          -0.011160723865032196,
+          0.9994097352027893,
+          8.885910034179688
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.0185578615540105,
+          -0.9995165489537149,
+          -0.024945059831164403,
+          -75.30541538109858
+        ],
+        [
+          0.9992690404971207,
+          0.019375808534413463,
+          -0.03295594457384696,
+          -300.58457672187734
+        ],
+        [
+          0.03342334131470825,
+          -0.024315146255796886,
+          0.9991458544355023,
+          8.845588228063132
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.017070137200195644,
+          -0.9996987568275387,
+          -0.017635364268831503,
+          -75.26264271779084
+        ],
+        [
+          0.9992764260441952,
+          0.017657195979574672,
+          -0.03368748924582214,
+          -300.6344473706791
+        ],
+        [
+          0.03398873148222264,
+          -0.017047553583356207,
+          0.9992768119861961,
+          8.856727928814966
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604662982805",
+      "before": [
+        0.03135527300443231,
+        1.0467779364473444
+      ],
+      "after": [
+        0.08764813606796651,
+        1.265255891660067
+      ],
+      "delta": [
+        0.0562928630635342,
+        0.2184779552127225
+      ],
+      "leader_success": true,
+      "n_correspondences": 115,
+      "n_cameras": 6,
+      "score_mean": 0.6930370926856995,
+      "score_p10": 0.6025817394256592,
+      "per_camera_correspondences": [
+        1,
+        18,
+        13,
+        15,
+        27,
+        41
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1412,
+          "descriptor_candidates": 198,
+          "map_point_candidates": 198,
+          "forward_candidates": 198,
+          "cosine_pass": 30,
+          "ratio_pass": 4,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.9390406608581543,
+          "score_mean": 0.6348881125450134
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1319,
+          "descriptor_candidates": 253,
+          "map_point_candidates": 253,
+          "forward_candidates": 253,
+          "cosine_pass": 47,
+          "ratio_pass": 29,
+          "mutual_pass": 18,
+          "grid_selected": 18,
+          "accepted": 18,
+          "ratio_mean": 0.8977043628692627,
+          "score_mean": 0.6912301778793335
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1628,
+          "descriptor_candidates": 271,
+          "map_point_candidates": 271,
+          "forward_candidates": 271,
+          "cosine_pass": 34,
+          "ratio_pass": 20,
+          "mutual_pass": 13,
+          "grid_selected": 13,
+          "accepted": 13,
+          "ratio_mean": 0.9147138595581055,
+          "score_mean": 0.6799189448356628
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1710,
+          "descriptor_candidates": 411,
+          "map_point_candidates": 411,
+          "forward_candidates": 411,
+          "cosine_pass": 104,
+          "ratio_pass": 29,
+          "mutual_pass": 15,
+          "grid_selected": 15,
+          "accepted": 15,
+          "ratio_mean": 0.9123891592025757,
+          "score_mean": 0.7075622081756592
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1626,
+          "descriptor_candidates": 348,
+          "map_point_candidates": 348,
+          "forward_candidates": 348,
+          "cosine_pass": 88,
+          "ratio_pass": 36,
+          "mutual_pass": 27,
+          "grid_selected": 27,
+          "accepted": 27,
+          "ratio_mean": 0.8995196223258972,
+          "score_mean": 0.6703158617019653
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1386,
+          "descriptor_candidates": 486,
+          "map_point_candidates": 486,
+          "forward_candidates": 486,
+          "cosine_pass": 122,
+          "ratio_pass": 67,
+          "mutual_pass": 47,
+          "grid_selected": 41,
+          "accepted": 41,
+          "ratio_mean": 0.8811185956001282,
+          "score_mean": 0.7090567350387573
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 4,
+        "nfev": 16,
+        "cost": 354.9875813729897,
+        "correspondence_rmse_px": 2.8198229123108356
+      },
+      "baseline_support": 545,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          340.51530923104974,
+          95.38134514704437,
+          43.670459917788655
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          7.373536544343485,
+          6.276356627077397,
+          2.1780628189450533
+        ],
+        "mean_depth_m": 27.369184245814814,
+        "point_spread_m": 33.22589167085738
+      },
+      "leader_pose": [
+        [
+          0.009174543432891369,
+          -0.9998112320899963,
+          -0.01712861657142639,
+          -75.24573516845703
+        ],
+        [
+          0.9995349645614624,
+          0.009667265228927135,
+          -0.0289101991802454,
+          -298.625244140625
+        ],
+        [
+          0.029070314019918442,
+          -0.01685543730854988,
+          0.9994349479675293,
+          8.914016723632812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.0018355371403097754,
+          -0.999585470490062,
+          -0.02873288109365815,
+          -75.25419886234667
+        ],
+        [
+          0.9996070771209811,
+          0.0026373828596587545,
+          -0.027895106982739514,
+          -298.572922932639
+        ],
+        [
+          0.027959308974980827,
+          -0.0286704201922229,
+          0.9991975224607144,
+          8.868924992187482
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          -0.006903321149762927,
+          -0.9999401438409542,
+          -0.008488328496632579,
+          -75.26220068107727
+        ],
+        [
+          0.9995594774395105,
+          -0.006655166107757045,
+          -0.028923348102759844,
+          -298.65115306215915
+        ],
+        [
+          0.02886512565565954,
+          -0.008684255711758428,
+          0.9995455915401278,
+          8.907631755013298
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604663982801",
+      "before": [
+        0.11471548763752556,
+        0.899643646517864
+      ],
+      "after": [
+        0.09950622118371413,
+        1.1481042132323096
+      ],
+      "delta": [
+        -0.015209266453811432,
+        0.2484605667144456
+      ],
+      "leader_success": true,
+      "n_correspondences": 127,
+      "n_cameras": 5,
+      "score_mean": 0.707056999206543,
+      "score_p10": 0.5832266211509705,
+      "per_camera_correspondences": [
+        0,
+        8,
+        22,
+        22,
+        19,
+        56
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1291,
+          "descriptor_candidates": 178,
+          "map_point_candidates": 178,
+          "forward_candidates": 178,
+          "cosine_pass": 25,
+          "ratio_pass": 1,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.953676700592041,
+          "score_mean": NaN
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1221,
+          "descriptor_candidates": 260,
+          "map_point_candidates": 260,
+          "forward_candidates": 260,
+          "cosine_pass": 33,
+          "ratio_pass": 10,
+          "mutual_pass": 8,
+          "grid_selected": 8,
+          "accepted": 8,
+          "ratio_mean": 0.919757068157196,
+          "score_mean": 0.664201021194458
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1642,
+          "descriptor_candidates": 256,
+          "map_point_candidates": 256,
+          "forward_candidates": 256,
+          "cosine_pass": 47,
+          "ratio_pass": 30,
+          "mutual_pass": 22,
+          "grid_selected": 22,
+          "accepted": 22,
+          "ratio_mean": 0.895039439201355,
+          "score_mean": 0.7413400411605835
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1689,
+          "descriptor_candidates": 399,
+          "map_point_candidates": 399,
+          "forward_candidates": 399,
+          "cosine_pass": 107,
+          "ratio_pass": 42,
+          "mutual_pass": 22,
+          "grid_selected": 22,
+          "accepted": 22,
+          "ratio_mean": 0.9073766469955444,
+          "score_mean": 0.7231578230857849
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1659,
+          "descriptor_candidates": 345,
+          "map_point_candidates": 345,
+          "forward_candidates": 345,
+          "cosine_pass": 107,
+          "ratio_pass": 29,
+          "mutual_pass": 19,
+          "grid_selected": 19,
+          "accepted": 19,
+          "ratio_mean": 0.8996607661247253,
+          "score_mean": 0.7145348191261292
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1310,
+          "descriptor_candidates": 502,
+          "map_point_candidates": 502,
+          "forward_candidates": 502,
+          "cosine_pass": 159,
+          "ratio_pass": 96,
+          "mutual_pass": 60,
+          "grid_selected": 56,
+          "accepted": 56,
+          "ratio_mean": 0.8662043809890747,
+          "score_mean": 0.6908484697341919
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 13,
+        "cost": 328.6372162850314,
+        "correspondence_rmse_px": 2.657200164041178
+      },
+      "baseline_support": 547,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          361.34517783270707,
+          91.59539848270732,
+          43.02777754188207
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          8.387176515835002,
+          6.053650406436261,
+          2.3454581031915285
+        ],
+        "mean_depth_m": 27.156872716271685,
+        "point_spread_m": 33.297920793705146
+      },
+      "leader_pose": [
+        [
+          -0.0035452425945550203,
+          -0.999768853187561,
+          -0.02121276780962944,
+          -75.33702850341797
+        ],
+        [
+          0.9997491240501404,
+          -0.0030745130497962236,
+          -0.02218148112297058,
+          -297.1212615966797
+        ],
+        [
+          0.022111129015684128,
+          -0.02128610387444496,
+          0.9995287656784058,
+          8.917205810546875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.010534371258204516,
+          -0.9995310285833892,
+          -0.02875864836857016,
+          -75.25001340657386
+        ],
+        [
+          0.9995815486307434,
+          -0.009751450379856691,
+          -0.027228999182263576,
+          -297.12856835294355
+        ],
+        [
+          0.026935784183586258,
+          -0.029033476662975313,
+          0.9992153295406835,
+          8.891801381475924
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          -0.014908005329625025,
+          -0.9998321196149734,
+          -0.010652902732132872,
+          -75.27127338234114
+        ],
+        [
+          0.999692978452163,
+          -0.014693355898224776,
+          -0.019951286365041915,
+          -297.2120308896275
+        ],
+        [
+          0.019791409495143426,
+          -0.010947066921116237,
+          0.9997441980977093,
+          8.941636173086973
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604665582834",
+      "before": [
+        0.05591365738283429,
+        1.294496688425865
+      ],
+      "after": [
+        0.04001212092592742,
+        0.7583617125323595
+      ],
+      "delta": [
+        -0.015901536456906867,
+        -0.5361349758935056
+      ],
+      "leader_success": true,
+      "n_correspondences": 202,
+      "n_cameras": 5,
+      "score_mean": 0.7175069451332092,
+      "score_p10": 0.6011033177375793,
+      "per_camera_correspondences": [
+        0,
+        46,
+        15,
+        41,
+        33,
+        67
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 1054,
+          "descriptor_candidates": 180,
+          "map_point_candidates": 180,
+          "forward_candidates": 180,
+          "cosine_pass": 40,
+          "ratio_pass": 4,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9399564862251282,
+          "score_mean": NaN
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1343,
+          "descriptor_candidates": 283,
+          "map_point_candidates": 283,
+          "forward_candidates": 283,
+          "cosine_pass": 81,
+          "ratio_pass": 54,
+          "mutual_pass": 46,
+          "grid_selected": 46,
+          "accepted": 46,
+          "ratio_mean": 0.8635753393173218,
+          "score_mean": 0.694884181022644
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1603,
+          "descriptor_candidates": 255,
+          "map_point_candidates": 255,
+          "forward_candidates": 255,
+          "cosine_pass": 36,
+          "ratio_pass": 18,
+          "mutual_pass": 15,
+          "grid_selected": 15,
+          "accepted": 15,
+          "ratio_mean": 0.9106970429420471,
+          "score_mean": 0.689994215965271
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1657,
+          "descriptor_candidates": 403,
+          "map_point_candidates": 403,
+          "forward_candidates": 403,
+          "cosine_pass": 142,
+          "ratio_pass": 68,
+          "mutual_pass": 42,
+          "grid_selected": 41,
+          "accepted": 41,
+          "ratio_mean": 0.8864499926567078,
+          "score_mean": 0.7691292762756348
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1578,
+          "descriptor_candidates": 369,
+          "map_point_candidates": 369,
+          "forward_candidates": 369,
+          "cosine_pass": 116,
+          "ratio_pass": 43,
+          "mutual_pass": 33,
+          "grid_selected": 33,
+          "accepted": 33,
+          "ratio_mean": 0.8980543613433838,
+          "score_mean": 0.7128533124923706
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1141,
+          "descriptor_candidates": 446,
+          "map_point_candidates": 446,
+          "forward_candidates": 446,
+          "cosine_pass": 143,
+          "ratio_pass": 93,
+          "mutual_pass": 69,
+          "grid_selected": 67,
+          "accepted": 67,
+          "ratio_mean": 0.862604022026062,
+          "score_mean": 0.7099011540412903
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 10,
+        "cost": 559.9956596992986,
+        "correspondence_rmse_px": 2.6427150129943295
+      },
+      "baseline_support": 622,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          371.4645759535198,
+          132.59767384572464,
+          56.84852563049422
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          10.391309722927023,
+          7.811554868811953,
+          2.9663971413394052
+        ],
+        "mean_depth_m": 22.39047481790243,
+        "point_spread_m": 28.038148443478683
+      },
+      "leader_pose": [
+        [
+          -0.0190657377243042,
+          -0.9998168349266052,
+          -0.0016822516918182373,
+          -75.32001686096191
+        ],
+        [
+          0.9994125962257385,
+          -0.019009597599506378,
+          -0.02850637398660183,
+          -294.97762298583984
+        ],
+        [
+          0.028469182550907135,
+          -0.0022247396409511566,
+          0.999592125415802,
+          8.94378662109375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.022386218916564622,
+          -0.9996900870075207,
+          -0.010891559662969926,
+          -75.24168943065497
+        ],
+        [
+          0.9992342145990382,
+          -0.022023269791491305,
+          -0.032333771296665204,
+          -294.95227291736296
+        ],
+        [
+          0.03208388664147712,
+          -0.011607032204946388,
+          0.9994177113118129,
+          8.953110966438908
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          -0.03178439610375049,
+          -0.9992920457451796,
+          -0.02012859002778925,
+          -75.27609887807445
+        ],
+        [
+          0.9990205023574709,
+          -0.031142563584400033,
+          -0.0314352802129859,
+          -294.95842808455325
+        ],
+        [
+          0.030786170320035063,
+          -0.021108024756342617,
+          0.9993030890108773,
+          8.972580780668553
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604666582815",
+      "before": [
+        0.10459955781553824,
+        1.4559020312762532
+      ],
+      "after": [
+        0.05012980394782736,
+        0.9408965961275638
+      ],
+      "delta": [
+        -0.054469753867710885,
+        -0.5150054351486894
+      ],
+      "leader_success": true,
+      "n_correspondences": 232,
+      "n_cameras": 6,
+      "score_mean": 0.756373941898346,
+      "score_p10": 0.626040130853653,
+      "per_camera_correspondences": [
+        1,
+        51,
+        9,
+        55,
+        44,
+        72
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 969,
+          "descriptor_candidates": 177,
+          "map_point_candidates": 177,
+          "forward_candidates": 177,
+          "cosine_pass": 38,
+          "ratio_pass": 4,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.939022421836853,
+          "score_mean": 0.791827917098999
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1315,
+          "descriptor_candidates": 288,
+          "map_point_candidates": 288,
+          "forward_candidates": 288,
+          "cosine_pass": 77,
+          "ratio_pass": 60,
+          "mutual_pass": 51,
+          "grid_selected": 51,
+          "accepted": 51,
+          "ratio_mean": 0.8503605723381042,
+          "score_mean": 0.7483609318733215
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1610,
+          "descriptor_candidates": 254,
+          "map_point_candidates": 254,
+          "forward_candidates": 254,
+          "cosine_pass": 32,
+          "ratio_pass": 13,
+          "mutual_pass": 9,
+          "grid_selected": 9,
+          "accepted": 9,
+          "ratio_mean": 0.916003942489624,
+          "score_mean": 0.6863825917243958
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1563,
+          "descriptor_candidates": 386,
+          "map_point_candidates": 386,
+          "forward_candidates": 386,
+          "cosine_pass": 142,
+          "ratio_pass": 79,
+          "mutual_pass": 56,
+          "grid_selected": 55,
+          "accepted": 55,
+          "ratio_mean": 0.8679298758506775,
+          "score_mean": 0.7938381433486938
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1548,
+          "descriptor_candidates": 371,
+          "map_point_candidates": 371,
+          "forward_candidates": 371,
+          "cosine_pass": 125,
+          "ratio_pass": 56,
+          "mutual_pass": 45,
+          "grid_selected": 44,
+          "accepted": 44,
+          "ratio_mean": 0.8829397559165955,
+          "score_mean": 0.763945996761322
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1096,
+          "descriptor_candidates": 434,
+          "map_point_candidates": 434,
+          "forward_candidates": 434,
+          "cosine_pass": 154,
+          "ratio_pass": 109,
+          "mutual_pass": 76,
+          "grid_selected": 72,
+          "accepted": 72,
+          "ratio_mean": 0.8431059122085571,
+          "score_mean": 0.737060546875
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 11,
+        "cost": 634.3097955605313,
+        "correspondence_rmse_px": 2.6214418299337554
+      },
+      "baseline_support": 653,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          360.10038005910025,
+          130.88560301711024,
+          55.47623030212206
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          11.487513382524407,
+          8.125948464851515,
+          3.346952640612227
+        ],
+        "mean_depth_m": 19.589942529103507,
+        "point_spread_m": 25.417287841660862
+      },
+      "leader_pose": [
+        [
+          -0.009066853672266006,
+          -0.9998909831047058,
+          -0.01165221631526947,
+          -75.38188934326172
+        ],
+        [
+          0.9997437596321106,
+          -0.008822808973491192,
+          -0.020815005525946617,
+          -293.5254821777344
+        ],
+        [
+          0.020709894597530365,
+          -0.011837877333164215,
+          0.9997144937515259,
+          8.998382568359375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.01506099577888205,
+          -0.999745446724042,
+          -0.016797934917186584,
+          -75.28910830119668
+        ],
+        [
+          0.9995422734293433,
+          -0.014613132122309054,
+          -0.02646488331566577,
+          -293.5691721714975
+        ],
+        [
+          0.026212640594771686,
+          -0.017188761332760046,
+          0.9995076522721469,
+          8.968475104246227
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          -0.02534618963610029,
+          -0.9992519961762626,
+          -0.02920650295165791,
+          -75.27738774229881
+        ],
+        [
+          0.9992640688388762,
+          -0.024483451429904046,
+          -0.029527633521926826,
+          -293.52806813701636
+        ],
+        [
+          0.028790471606999227,
+          -0.029933422170005983,
+          0.9991371770767766,
+          8.994668311234758
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604667982805",
+      "before": [
+        0.07616752106640612,
+        0.9776694257781023
+      ],
+      "after": [
+        0.08286936072835285,
+        0.7475466600908484
+      ],
+      "delta": [
+        0.006701839661946735,
+        -0.23012276568725398
+      ],
+      "leader_success": true,
+      "n_correspondences": 303,
+      "n_cameras": 6,
+      "score_mean": 0.7862913608551025,
+      "score_p10": 0.6279655814170837,
+      "per_camera_correspondences": [
+        6,
+        59,
+        28,
+        64,
+        57,
+        89
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 929,
+          "descriptor_candidates": 186,
+          "map_point_candidates": 186,
+          "forward_candidates": 186,
+          "cosine_pass": 58,
+          "ratio_pass": 15,
+          "mutual_pass": 6,
+          "grid_selected": 6,
+          "accepted": 6,
+          "ratio_mean": 0.9153276681900024,
+          "score_mean": 0.7819468975067139
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1353,
+          "descriptor_candidates": 333,
+          "map_point_candidates": 333,
+          "forward_candidates": 333,
+          "cosine_pass": 92,
+          "ratio_pass": 74,
+          "mutual_pass": 59,
+          "grid_selected": 59,
+          "accepted": 59,
+          "ratio_mean": 0.8406534194946289,
+          "score_mean": 0.7540410161018372
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1486,
+          "descriptor_candidates": 219,
+          "map_point_candidates": 219,
+          "forward_candidates": 219,
+          "cosine_pass": 61,
+          "ratio_pass": 35,
+          "mutual_pass": 28,
+          "grid_selected": 28,
+          "accepted": 28,
+          "ratio_mean": 0.8819196224212646,
+          "score_mean": 0.7386762499809265
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1504,
+          "descriptor_candidates": 367,
+          "map_point_candidates": 367,
+          "forward_candidates": 367,
+          "cosine_pass": 140,
+          "ratio_pass": 88,
+          "mutual_pass": 65,
+          "grid_selected": 64,
+          "accepted": 64,
+          "ratio_mean": 0.8458440899848938,
+          "score_mean": 0.840526819229126
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1490,
+          "descriptor_candidates": 394,
+          "map_point_candidates": 394,
+          "forward_candidates": 394,
+          "cosine_pass": 163,
+          "ratio_pass": 85,
+          "mutual_pass": 57,
+          "grid_selected": 57,
+          "accepted": 57,
+          "ratio_mean": 0.858392059803009,
+          "score_mean": 0.828007161617279
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1049,
+          "descriptor_candidates": 408,
+          "map_point_candidates": 408,
+          "forward_candidates": 408,
+          "cosine_pass": 165,
+          "ratio_pass": 114,
+          "mutual_pass": 92,
+          "grid_selected": 89,
+          "accepted": 89,
+          "ratio_mean": 0.8231879472732544,
+          "score_mean": 0.7572260499000549
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 7,
+        "cost": 884.0773578821318,
+        "correspondence_rmse_px": 2.758203532134211
+      },
+      "baseline_support": 692,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          390.1447284976583,
+          162.4102541142713,
+          74.72066567818104
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          11.823854300582187,
+          10.95375231019617,
+          3.689392289460188
+        ],
+        "mean_depth_m": 19.10947488041659,
+        "point_spread_m": 24.654254594727945
+      },
+      "leader_pose": [
+        [
+          0.03956082463264465,
+          -0.9989053606987,
+          -0.024973668158054352,
+          -75.29991340637207
+        ],
+        [
+          0.9988987445831299,
+          0.04016609489917755,
+          -0.02425350248813629,
+          -291.52735137939453
+        ],
+        [
+          0.02523002028465271,
+          -0.023986712098121643,
+          0.999394416809082,
+          9.064544677734375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.03251834837857907,
+          -0.9990857212044723,
+          -0.02776561743904681,
+          -75.29143088646244
+        ],
+        [
+          0.9991814368246981,
+          0.03316453777243243,
+          -0.023169608301978464,
+          -291.57075510661247
+        ],
+        [
+          0.02406923394280022,
+          -0.026989484785896214,
+          0.9993464647321956,
+          9.05713339828482
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.024615880797475682,
+          -0.9995400800146041,
+          -0.017711208283263735,
+          -75.23050552292901
+        ],
+        [
+          0.9994753339570426,
+          0.024979611739644757,
+          -0.020617340811415183,
+          -291.51948676180695
+        ],
+        [
+          0.021050277037919774,
+          -0.017194402216142383,
+          0.9996305506207034,
+          9.034177182421843
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604668983281",
+      "before": [
+        0.07364242432901773,
+        0.8737007819061069
+      ],
+      "after": [
+        0.02464379519295703,
+        0.7230171375058951
+      ],
+      "delta": [
+        -0.0489986291360607,
+        -0.15068364440021176
+      ],
+      "leader_success": true,
+      "n_correspondences": 310,
+      "n_cameras": 6,
+      "score_mean": 0.788881778717041,
+      "score_p10": 0.6440154612064362,
+      "per_camera_correspondences": [
+        8,
+        46,
+        33,
+        60,
+        70,
+        93
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 819,
+          "descriptor_candidates": 166,
+          "map_point_candidates": 166,
+          "forward_candidates": 166,
+          "cosine_pass": 57,
+          "ratio_pass": 12,
+          "mutual_pass": 8,
+          "grid_selected": 8,
+          "accepted": 8,
+          "ratio_mean": 0.9285497069358826,
+          "score_mean": 0.8702758550643921
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1329,
+          "descriptor_candidates": 342,
+          "map_point_candidates": 342,
+          "forward_candidates": 342,
+          "cosine_pass": 81,
+          "ratio_pass": 55,
+          "mutual_pass": 46,
+          "grid_selected": 46,
+          "accepted": 46,
+          "ratio_mean": 0.8610097169876099,
+          "score_mean": 0.7510075569152832
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1486,
+          "descriptor_candidates": 205,
+          "map_point_candidates": 205,
+          "forward_candidates": 205,
+          "cosine_pass": 57,
+          "ratio_pass": 36,
+          "mutual_pass": 33,
+          "grid_selected": 33,
+          "accepted": 33,
+          "ratio_mean": 0.8725321888923645,
+          "score_mean": 0.7394340634346008
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1457,
+          "descriptor_candidates": 341,
+          "map_point_candidates": 341,
+          "forward_candidates": 341,
+          "cosine_pass": 128,
+          "ratio_pass": 81,
+          "mutual_pass": 61,
+          "grid_selected": 60,
+          "accepted": 60,
+          "ratio_mean": 0.8657861948013306,
+          "score_mean": 0.8116805553436279
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1468,
+          "descriptor_candidates": 400,
+          "map_point_candidates": 400,
+          "forward_candidates": 400,
+          "cosine_pass": 157,
+          "ratio_pass": 97,
+          "mutual_pass": 70,
+          "grid_selected": 70,
+          "accepted": 70,
+          "ratio_mean": 0.8595883846282959,
+          "score_mean": 0.8298205733299255
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 1036,
+          "descriptor_candidates": 411,
+          "map_point_candidates": 411,
+          "forward_candidates": 411,
+          "cosine_pass": 180,
+          "ratio_pass": 125,
+          "mutual_pass": 97,
+          "grid_selected": 93,
+          "accepted": 93,
+          "ratio_mean": 0.8064681887626648,
+          "score_mean": 0.7726364135742188
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 8,
+        "cost": 796.4069128522156,
+        "correspondence_rmse_px": 2.6307099102748657
+      },
+      "baseline_support": 689,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          392.0396028078086,
+          175.25381896450668,
+          79.32567908589104
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          11.99336209107896,
+          10.565912580758447,
+          3.9828166299332803
+        ],
+        "mean_depth_m": 19.634068503329264,
+        "point_spread_m": 24.80254374270888
+      },
+      "leader_pose": [
+        [
+          0.08766993880271912,
+          -0.9959293007850647,
+          -0.020956963300704956,
+          -75.26471138000488
+        ],
+        [
+          0.9955260157585144,
+          0.08834000676870346,
+          -0.033516015857458115,
+          -290.11305236816406
+        ],
+        [
+          0.03523089364171028,
+          -0.017924822866916656,
+          0.999218225479126,
+          9.04833984375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.08059353741051538,
+          -0.9965435311017884,
+          -0.020150960465799537,
+          -75.19030531804054
+        ],
+        [
+          0.9961511523135653,
+          0.08122792547147263,
+          -0.032927644117196286,
+          -290.0844564297482
+        ],
+        [
+          0.03445062496535937,
+          -0.01741961468324489,
+          0.9992543664175779,
+          9.064176115391449
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.08064636006234538,
+          -0.9967135199770206,
+          -0.007636917531098808,
+          -75.19215193868445
+        ],
+        [
+          0.9962306452906727,
+          0.08084813724003898,
+          -0.03143374251103381,
+          -290.10869815551143
+        ],
+        [
+          0.031947867170490925,
+          -0.005073114855876284,
+          0.9994766616884896,
+          9.06014556136889
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604670582822",
+      "before": [
+        0.03955600910942356,
+        1.0828576026215744
+      ],
+      "after": [
+        0.07235373119131214,
+        0.8166732656297089
+      ],
+      "delta": [
+        0.03279772208188858,
+        -0.2661843369918655
+      ],
+      "leader_success": true,
+      "n_correspondences": 201,
+      "n_cameras": 6,
+      "score_mean": 0.7369176745414734,
+      "score_p10": 0.6194156408309937,
+      "per_camera_correspondences": [
+        1,
+        41,
+        16,
+        38,
+        43,
+        62
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 578,
+          "descriptor_candidates": 130,
+          "map_point_candidates": 130,
+          "forward_candidates": 130,
+          "cosine_pass": 42,
+          "ratio_pass": 6,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.9317681193351746,
+          "score_mean": 0.7928293347358704
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1322,
+          "descriptor_candidates": 336,
+          "map_point_candidates": 336,
+          "forward_candidates": 336,
+          "cosine_pass": 75,
+          "ratio_pass": 58,
+          "mutual_pass": 41,
+          "grid_selected": 41,
+          "accepted": 41,
+          "ratio_mean": 0.8713257312774658,
+          "score_mean": 0.6867751479148865
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1469,
+          "descriptor_candidates": 160,
+          "map_point_candidates": 160,
+          "forward_candidates": 160,
+          "cosine_pass": 47,
+          "ratio_pass": 27,
+          "mutual_pass": 16,
+          "grid_selected": 16,
+          "accepted": 16,
+          "ratio_mean": 0.8794374465942383,
+          "score_mean": 0.7474187612533569
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1426,
+          "descriptor_candidates": 362,
+          "map_point_candidates": 362,
+          "forward_candidates": 362,
+          "cosine_pass": 109,
+          "ratio_pass": 63,
+          "mutual_pass": 38,
+          "grid_selected": 38,
+          "accepted": 38,
+          "ratio_mean": 0.8854872584342957,
+          "score_mean": 0.8090349435806274
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1288,
+          "descriptor_candidates": 353,
+          "map_point_candidates": 353,
+          "forward_candidates": 353,
+          "cosine_pass": 138,
+          "ratio_pass": 62,
+          "mutual_pass": 43,
+          "grid_selected": 43,
+          "accepted": 43,
+          "ratio_mean": 0.876765787601471,
+          "score_mean": 0.7320730686187744
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 842,
+          "descriptor_candidates": 346,
+          "map_point_candidates": 346,
+          "forward_candidates": 346,
+          "cosine_pass": 117,
+          "ratio_pass": 92,
+          "mutual_pass": 69,
+          "grid_selected": 62,
+          "accepted": 62,
+          "ratio_mean": 0.8285191059112549,
+          "score_mean": 0.7256237864494324
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 8,
+        "cost": 723.2506551029262,
+        "correspondence_rmse_px": 3.275882342359194
+      },
+      "baseline_support": 714,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          341.9088745565183,
+          171.4497779225803,
+          55.042927652571244
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          9.289701251391953,
+          8.742588510001314,
+          3.0680820030298435
+        ],
+        "mean_depth_m": 23.161022855298913,
+        "point_spread_m": 27.25651400847867
+      },
+      "leader_pose": [
+        [
+          0.32433196902275085,
+          -0.9459232091903687,
+          -0.00618530809879303,
+          -74.7294807434082
+        ],
+        [
+          0.9440363049507141,
+          0.3240863084793091,
+          -0.06134311109781265,
+          -287.9351043701172
+        ],
+        [
+          0.06003043055534363,
+          0.014056399464607239,
+          0.9980976581573486,
+          9.064041137695312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.31763156892782596,
+          -0.9481724117088153,
+          -0.008914515438994899,
+          -74.77296637285069
+        ],
+        [
+          0.9462043883789647,
+          0.31755620624000963,
+          -0.062086766307744734,
+          -287.9145421889383
+        ],
+        [
+          0.06169980243622577,
+          0.011285785192089953,
+          0.9980310292764222,
+          9.069978841576056
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.31644321508304185,
+          -0.9483353602986454,
+          -0.02288528644321374,
+          -74.72294640932768
+        ],
+        [
+          0.9461314769510473,
+          0.3172673961072524,
+          -0.0646268413823289,
+          -287.961666397789
+        ],
+        [
+          0.0685486743936605,
+          -0.0012017641937359291,
+          0.9976470487272387,
+          9.092614534776375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604671582933",
+      "before": [
+        0.02842999135277721,
+        0.24031099118448804
+      ],
+      "after": [
+        0.13665372684934815,
+        0.438743953410799
+      ],
+      "delta": [
+        0.10822373549657094,
+        0.198432962226311
+      ],
+      "leader_success": true,
+      "n_correspondences": 205,
+      "n_cameras": 5,
+      "score_mean": 0.7322487235069275,
+      "score_p10": 0.5931768536567689,
+      "per_camera_correspondences": [
+        0,
+        42,
+        21,
+        27,
+        63,
+        52
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 532,
+          "descriptor_candidates": 109,
+          "map_point_candidates": 109,
+          "forward_candidates": 109,
+          "cosine_pass": 21,
+          "ratio_pass": 2,
+          "mutual_pass": 0,
+          "grid_selected": 0,
+          "accepted": 0,
+          "ratio_mean": 0.9355206489562988,
+          "score_mean": NaN
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1301,
+          "descriptor_candidates": 348,
+          "map_point_candidates": 348,
+          "forward_candidates": 348,
+          "cosine_pass": 64,
+          "ratio_pass": 46,
+          "mutual_pass": 42,
+          "grid_selected": 42,
+          "accepted": 42,
+          "ratio_mean": 0.8754035830497742,
+          "score_mean": 0.7275226712226868
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1505,
+          "descriptor_candidates": 159,
+          "map_point_candidates": 159,
+          "forward_candidates": 159,
+          "cosine_pass": 62,
+          "ratio_pass": 41,
+          "mutual_pass": 21,
+          "grid_selected": 21,
+          "accepted": 21,
+          "ratio_mean": 0.8509065508842468,
+          "score_mean": 0.7461668252944946
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1474,
+          "descriptor_candidates": 360,
+          "map_point_candidates": 360,
+          "forward_candidates": 360,
+          "cosine_pass": 85,
+          "ratio_pass": 39,
+          "mutual_pass": 27,
+          "grid_selected": 27,
+          "accepted": 27,
+          "ratio_mean": 0.9061172604560852,
+          "score_mean": 0.7650662064552307
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1213,
+          "descriptor_candidates": 338,
+          "map_point_candidates": 338,
+          "forward_candidates": 338,
+          "cosine_pass": 138,
+          "ratio_pass": 85,
+          "mutual_pass": 63,
+          "grid_selected": 63,
+          "accepted": 63,
+          "ratio_mean": 0.840219259262085,
+          "score_mean": 0.7156012058258057
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 851,
+          "descriptor_candidates": 350,
+          "map_point_candidates": 350,
+          "forward_candidates": 350,
+          "cosine_pass": 99,
+          "ratio_pass": 78,
+          "mutual_pass": 53,
+          "grid_selected": 52,
+          "accepted": 52,
+          "ratio_mean": 0.8363896608352661,
+          "score_mean": 0.7335742712020874
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 7,
+        "cost": 756.8669920869226,
+        "correspondence_rmse_px": 3.4190127869573517
+      },
+      "baseline_support": 684,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          326.9728204753866,
+          153.05921268790684,
+          54.112647366291554
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          9.828865033645712,
+          8.66037819853514,
+          3.189737168019992
+        ],
+        "mean_depth_m": 20.729968358750043,
+        "point_spread_m": 25.496678552051318
+      },
+      "leader_pose": [
+        [
+          0.45637625455856323,
+          -0.8891598582267761,
+          -0.03339435160160065,
+          -74.13881301879883
+        ],
+        [
+          0.886322021484375,
+          0.45758768916130066,
+          -0.07103639841079712,
+          -286.6431655883789
+        ],
+        [
+          0.07844354957342148,
+          0.0028212517499923706,
+          0.9969141483306885,
+          9.104629516601562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.4501851752241669,
+          -0.8922080343077904,
+          -0.03602575137912852,
+          -74.24604840694238
+        ],
+        [
+          0.8893614643321234,
+          0.45162432329623936,
+          -0.07121126626388494,
+          -286.6534320851325
+        ],
+        [
+          0.07980536155006428,
+          1.8415184696457753e-05,
+          0.9968100483816532,
+          9.086351138123089
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.4565532820798162,
+          -0.8889389847239627,
+          -0.03669578732305237,
+          -74.11193095220574
+        ],
+        [
+          0.8859032761237103,
+          0.4580245280544264,
+          -0.07340924022310744,
+          -286.64861190378133
+        ],
+        [
+          0.0820639063529425,
+          0.0010063119939542902,
+          0.9966265606548428,
+          9.11210992785637
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604672982737",
+      "before": [
+        0.13184647162921104,
+        2.106268732711279
+      ],
+      "after": [
+        0.06840602767514894,
+        1.830323283616166
+      ],
+      "delta": [
+        -0.06344044395406209,
+        -0.27594544909511276
+      ],
+      "leader_success": false,
+      "n_correspondences": 316,
+      "n_cameras": 6,
+      "score_mean": 0.7510673403739929,
+      "score_p10": 0.6195619106292725,
+      "per_camera_correspondences": [
+        1,
+        40,
+        45,
+        53,
+        110,
+        67
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 506,
+          "descriptor_candidates": 101,
+          "map_point_candidates": 101,
+          "forward_candidates": 101,
+          "cosine_pass": 24,
+          "ratio_pass": 5,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.9235278367996216,
+          "score_mean": 0.6968463659286499
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1277,
+          "descriptor_candidates": 362,
+          "map_point_candidates": 362,
+          "forward_candidates": 362,
+          "cosine_pass": 65,
+          "ratio_pass": 50,
+          "mutual_pass": 40,
+          "grid_selected": 40,
+          "accepted": 40,
+          "ratio_mean": 0.8804960250854492,
+          "score_mean": 0.7441126108169556
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1469,
+          "descriptor_candidates": 152,
+          "map_point_candidates": 152,
+          "forward_candidates": 152,
+          "cosine_pass": 71,
+          "ratio_pass": 56,
+          "mutual_pass": 45,
+          "grid_selected": 45,
+          "accepted": 45,
+          "ratio_mean": 0.8144181966781616,
+          "score_mean": 0.7730646133422852
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1615,
+          "descriptor_candidates": 400,
+          "map_point_candidates": 400,
+          "forward_candidates": 400,
+          "cosine_pass": 91,
+          "ratio_pass": 66,
+          "mutual_pass": 55,
+          "grid_selected": 53,
+          "accepted": 53,
+          "ratio_mean": 0.8896991014480591,
+          "score_mean": 0.7968733906745911
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1220,
+          "descriptor_candidates": 322,
+          "map_point_candidates": 322,
+          "forward_candidates": 322,
+          "cosine_pass": 177,
+          "ratio_pass": 120,
+          "mutual_pass": 113,
+          "grid_selected": 110,
+          "accepted": 110,
+          "ratio_mean": 0.7880856990814209,
+          "score_mean": 0.7435325384140015
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 819,
+          "descriptor_candidates": 346,
+          "map_point_candidates": 346,
+          "forward_candidates": 346,
+          "cosine_pass": 107,
+          "ratio_pass": 85,
+          "mutual_pass": 71,
+          "grid_selected": 67,
+          "accepted": 67,
+          "ratio_mean": 0.8248834609985352,
+          "score_mean": 0.7173904180526733
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 3,
+        "nfev": 15,
+        "cost": 717.4819204123139,
+        "correspondence_rmse_px": 2.411658495457857
+      },
+      "baseline_support": 653,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          431.15026510040127,
+          199.58099953244854,
+          66.75934808962813
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          12.341569561429766,
+          10.806050897296835,
+          3.703907782746112
+        ],
+        "mean_depth_m": 21.99327722569034,
+        "point_spread_m": 26.98921121930195
+      },
+      "leader_pose": [
+        [
+          0.5018829703330994,
+          -0.8649324178695679,
+          0.0019474849104881287,
+          -73.16641235351562
+        ],
+        [
+          0.8647280335426331,
+          0.5017123818397522,
+          -0.023017458617687225,
+          -284.82798767089844
+        ],
+        [
+          0.0189315527677536,
+          0.01323622465133667,
+          0.9997321367263794,
+          9.057662963867188
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.49762139881758954,
+          -0.8673273815721699,
+          -0.010702928966715704,
+          -73.122110137156
+        ],
+        [
+          0.8671326825048891,
+          0.4977366750599916,
+          -0.018406661405693726,
+          -284.86408791950305
+        ],
+        [
+          0.021291922547830314,
+          -0.00012120817857859333,
+          0.9997722657833709,
+          9.088439202687193
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.5214142537510198,
+          -0.8528974682051894,
+          -0.026326508150338487,
+          -73.08562470163862
+        ],
+        [
+          0.8528110429259064,
+          0.521913374319899,
+          -0.017881689318208837,
+          -284.91705363968947
+        ],
+        [
+          0.028991404448674395,
+          -0.013127768484307653,
+          0.9994934519348109,
+          9.111737917298395
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604673982743",
+      "before": [
+        0.06697742810410583,
+        1.3681785661396486
+      ],
+      "after": [
+        0.03971995812323871,
+        1.553644770943045
+      ],
+      "delta": [
+        -0.027257469980867116,
+        0.18546620480339637
+      ],
+      "leader_success": true,
+      "n_correspondences": 281,
+      "n_cameras": 6,
+      "score_mean": 0.7317692637443542,
+      "score_p10": 0.5909279584884644,
+      "per_camera_correspondences": [
+        2,
+        35,
+        37,
+        50,
+        89,
+        68
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 431,
+          "descriptor_candidates": 82,
+          "map_point_candidates": 82,
+          "forward_candidates": 82,
+          "cosine_pass": 20,
+          "ratio_pass": 3,
+          "mutual_pass": 2,
+          "grid_selected": 2,
+          "accepted": 2,
+          "ratio_mean": 0.9418230056762695,
+          "score_mean": 0.6553703546524048
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1034,
+          "descriptor_candidates": 287,
+          "map_point_candidates": 287,
+          "forward_candidates": 287,
+          "cosine_pass": 67,
+          "ratio_pass": 42,
+          "mutual_pass": 35,
+          "grid_selected": 35,
+          "accepted": 35,
+          "ratio_mean": 0.880321741104126,
+          "score_mean": 0.7266629934310913
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1420,
+          "descriptor_candidates": 141,
+          "map_point_candidates": 141,
+          "forward_candidates": 141,
+          "cosine_pass": 71,
+          "ratio_pass": 47,
+          "mutual_pass": 38,
+          "grid_selected": 37,
+          "accepted": 37,
+          "ratio_mean": 0.8135514259338379,
+          "score_mean": 0.7528389096260071
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1599,
+          "descriptor_candidates": 391,
+          "map_point_candidates": 391,
+          "forward_candidates": 391,
+          "cosine_pass": 105,
+          "ratio_pass": 53,
+          "mutual_pass": 51,
+          "grid_selected": 50,
+          "accepted": 50,
+          "ratio_mean": 0.8984783887863159,
+          "score_mean": 0.7219706177711487
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1197,
+          "descriptor_candidates": 316,
+          "map_point_candidates": 316,
+          "forward_candidates": 316,
+          "cosine_pass": 153,
+          "ratio_pass": 99,
+          "mutual_pass": 89,
+          "grid_selected": 89,
+          "accepted": 89,
+          "ratio_mean": 0.8074707388877869,
+          "score_mean": 0.7443320751190186
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 774,
+          "descriptor_candidates": 353,
+          "map_point_candidates": 353,
+          "forward_candidates": 353,
+          "cosine_pass": 112,
+          "ratio_pass": 87,
+          "mutual_pass": 74,
+          "grid_selected": 68,
+          "accepted": 68,
+          "ratio_mean": 0.8320992588996887,
+          "score_mean": 0.7159423828125
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 3,
+        "nfev": 13,
+        "cost": 686.4749293794118,
+        "correspondence_rmse_px": 2.4839226913080226
+      },
+      "baseline_support": 680,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          407.25338685087576,
+          199.19755262295644,
+          66.43387804209371
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          11.907202219251232,
+          9.86834804495073,
+          3.352660690003422
+        ],
+        "mean_depth_m": 22.24947751028578,
+        "point_spread_m": 27.33399889258382
+      },
+      "leader_pose": [
+        [
+          0.4084828495979309,
+          -0.9126362204551697,
+          -0.015377558767795563,
+          -72.61742210388184
+        ],
+        [
+          0.9099717736244202,
+          0.4084914028644562,
+          -0.07130877673625946,
+          -283.7097473144531
+        ],
+        [
+          0.0713605061173439,
+          0.015135377645492554,
+          0.9973348379135132,
+          9.101974487304688
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.40201008408757527,
+          -0.9155186993257765,
+          -0.014593722621533021,
+          -72.59208340175287
+        ],
+        [
+          0.9128536131284251,
+          0.40197891083301196,
+          -0.07148453102134658,
+          -283.73192545878004
+        ],
+        [
+          0.07131172647203561,
+          0.015415679929345198,
+          0.997334033789059,
+          9.091209853819194
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.41325549995552435,
+          -0.9098031666357013,
+          -0.038445931560434264,
+          -72.56354316447641
+        ],
+        [
+          0.9072228206012999,
+          0.4149897715541679,
+          -0.06877676519587089,
+          -283.74771179677805
+        ],
+        [
+          0.07852798713412497,
+          -0.0064566501330830615,
+          0.9968910006954509,
+          9.113879689772016
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604675582729",
+      "before": [
+        0.055457611406398294,
+        0.8235275255656429
+      ],
+      "after": [
+        0.07460976664740611,
+        1.0821941558778339
+      ],
+      "delta": [
+        0.019152155241007815,
+        0.25866663031219095
+      ],
+      "leader_success": true,
+      "n_correspondences": 263,
+      "n_cameras": 6,
+      "score_mean": 0.7558748722076416,
+      "score_p10": 0.6244532465934753,
+      "per_camera_correspondences": [
+        1,
+        23,
+        24,
+        56,
+        91,
+        68
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_map_points": 379,
+          "descriptor_candidates": 84,
+          "map_point_candidates": 84,
+          "forward_candidates": 84,
+          "cosine_pass": 18,
+          "ratio_pass": 1,
+          "mutual_pass": 1,
+          "grid_selected": 1,
+          "accepted": 1,
+          "ratio_mean": 0.9372400641441345,
+          "score_mean": 0.5792145133018494
+        },
+        {
+          "camera": 1,
+          "visible_map_points": 1038,
+          "descriptor_candidates": 296,
+          "map_point_candidates": 296,
+          "forward_candidates": 296,
+          "cosine_pass": 47,
+          "ratio_pass": 39,
+          "mutual_pass": 23,
+          "grid_selected": 23,
+          "accepted": 23,
+          "ratio_mean": 0.8795961141586304,
+          "score_mean": 0.7109866738319397
+        },
+        {
+          "camera": 2,
+          "visible_map_points": 1441,
+          "descriptor_candidates": 133,
+          "map_point_candidates": 133,
+          "forward_candidates": 133,
+          "cosine_pass": 47,
+          "ratio_pass": 37,
+          "mutual_pass": 25,
+          "grid_selected": 24,
+          "accepted": 24,
+          "ratio_mean": 0.8272918462753296,
+          "score_mean": 0.7743949890136719
+        },
+        {
+          "camera": 3,
+          "visible_map_points": 1600,
+          "descriptor_candidates": 395,
+          "map_point_candidates": 395,
+          "forward_candidates": 395,
+          "cosine_pass": 131,
+          "ratio_pass": 68,
+          "mutual_pass": 56,
+          "grid_selected": 56,
+          "accepted": 56,
+          "ratio_mean": 0.8928694725036621,
+          "score_mean": 0.775712788105011
+        },
+        {
+          "camera": 4,
+          "visible_map_points": 1055,
+          "descriptor_candidates": 297,
+          "map_point_candidates": 297,
+          "forward_candidates": 297,
+          "cosine_pass": 155,
+          "ratio_pass": 105,
+          "mutual_pass": 92,
+          "grid_selected": 91,
+          "accepted": 91,
+          "ratio_mean": 0.7916288375854492,
+          "score_mean": 0.7675092220306396
+        },
+        {
+          "camera": 5,
+          "visible_map_points": 717,
+          "descriptor_candidates": 309,
+          "map_point_candidates": 309,
+          "forward_candidates": 309,
+          "cosine_pass": 99,
+          "ratio_pass": 79,
+          "mutual_pass": 69,
+          "grid_selected": 68,
+          "accepted": 68,
+          "ratio_mean": 0.8247209787368774,
+          "score_mean": 0.7352125644683838
+        }
+      ],
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 12,
+        "cost": 550.8164070450641,
+        "correspondence_rmse_px": 2.276747818994537
+      },
+      "baseline_support": 693,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          346.1556226724141,
+          191.10872581045,
+          64.55483850672984
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          10.654209182925582,
+          9.463711866494737,
+          3.3838850519412698
+        ],
+        "mean_depth_m": 20.332728475665952,
+        "point_spread_m": 24.704611364560186
+      },
+      "leader_pose": [
+        [
+          0.4610510766506195,
+          -0.8867685794830322,
+          -0.03276117146015167,
+          -71.76055145263672
+        ],
+        [
+          0.8828357458114624,
+          0.46210920810699463,
+          -0.08399882912635803,
+          -281.79823303222656
+        ],
+        [
+          0.08962669968605042,
+          0.009805016219615936,
+          0.9959269165992737,
+          9.119293212890625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.45575188309478154,
+          -0.8898369109943226,
+          -0.02191781597490959,
+          -71.68653683118632
+        ],
+        [
+          0.8852057494941544,
+          0.45568509624575476,
+          -0.09360319227963385,
+          -281.7804306319371
+        ],
+        [
+          0.09327913366794754,
+          0.02325805258990172,
+          0.9953680588580935,
+          9.043676913818599
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          0.4700103772089111,
+          -0.8820970138244033,
+          -0.031545263548251164,
+          -71.73549269235514
+        ],
+        [
+          0.8772530484733708,
+          0.47078238507933057,
+          -0.09376051275031827,
+          -281.75559311503434
+        ],
+        [
+          0.09755682299468216,
+          0.016395235491041875,
+          0.9950949017420162,
+          9.09420451707171
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "metrics": {
+    "all_before": {
+      "count": 32,
+      "mean_translation_m": 0.09087240886512976,
+      "median_translation_m": 0.07660619783976899,
+      "p90_translation_m": 0.14380667598784588,
+      "mean_rotation_deg": 0.9043886199379486,
+      "median_rotation_deg": 0.8486141537358749,
+      "p90_rotation_deg": 1.3608103783682703,
+      "success_1m_2deg": 31
+    },
+    "all_after": {
+      "count": 32,
+      "mean_translation_m": 0.09706218054780114,
+      "median_translation_m": 0.07933070389777191,
+      "p90_translation_m": 0.1527470472100776,
+      "mean_rotation_deg": 0.9174263003168707,
+      "median_rotation_deg": 0.8553224635652347,
+      "p90_rotation_deg": 1.430580767827202,
+      "success_1m_2deg": 32
+    },
+    "leader_success_before": {
+      "count": 31,
+      "mean_translation_m": 0.0895506649049981,
+      "median_translation_m": 0.07616752106640612,
+      "p90_translation_m": 0.1449318788712547,
+      "mean_rotation_deg": 0.8656182937194538,
+      "median_rotation_deg": 0.8235275255656429,
+      "p90_rotation_deg": 1.294496688425865,
+      "success_1m_2deg": 31
+    },
+    "leader_success_after": {
+      "count": 31,
+      "mean_translation_m": 0.09798657257595123,
+      "median_translation_m": 0.08212766899578203,
+      "p90_translation_m": 0.15453519391682527,
+      "mean_rotation_deg": 0.8879780105330225,
+      "median_rotation_deg": 0.8166732656297089,
+      "p90_rotation_deg": 1.265255891660067,
+      "success_1m_2deg": 31
+    },
+    "one_camera_or_less_after": {
+      "count": 1,
+      "mean_translation_m": 0.068455196213898,
+      "median_translation_m": 0.068455196213898,
+      "p90_translation_m": 0.068455196213898,
+      "mean_rotation_deg": 1.0386958004058646,
+      "median_rotation_deg": 1.0386958004058646,
+      "p90_rotation_deg": 1.0386958004058646,
+      "success_1m_2deg": 1
+    },
+    "multi_camera_after": {
+      "count": 31,
+      "mean_translation_m": 0.09798498649405607,
+      "median_translation_m": 0.08212766899578203,
+      "p90_translation_m": 0.15453519391682527,
+      "mean_rotation_deg": 0.9135143809591612,
+      "median_rotation_deg": 0.8166732656297089,
+      "p90_rotation_deg": 1.448950198512439,
+      "success_1m_2deg": 31
+    }
+  },
+  "paired": {
+    "all_mean_delta_translation_m_rotation_deg": [
+      0.0061897716826713675,
+      0.013037680378922074
+    ],
+    "all_median_delta_translation_m_rotation_deg": [
+      -0.001628983843393321,
+      -0.017414997862018278
+    ],
+    "all_bootstrap_95ci": [
+      [
+        -0.018805504619810967,
+        -0.11203319952011902
+      ],
+      [
+        0.033871146666934374,
+        0.14697614023766972
+      ]
+    ],
+    "leader_success_mean_delta_translation_m_rotation_deg": [
+      0.008435907670953091,
+      0.02235971681356836
+    ],
+    "leader_success_median_delta_translation_m_rotation_deg": [
+      0.0,
+      0.0
+    ],
+    "leader_success_bootstrap_95ci": [
+      [
+        -0.016886337211627835,
+        -0.10348077666887376
+      ],
+      [
+        0.03710231263126335,
+        0.16259953753420095
+      ]
+    ]
+  },
+  "elapsed_s": 444.5228223800659
+}

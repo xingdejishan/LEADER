@@ -1,0 +1,2130 @@
+{
+  "frames": 96,
+  "all_scan_equal": true,
+  "all_coords_equal": true,
+  "all_lidar_features_equal": true,
+  "max_target_abs": 0.0,
+  "max_manifest_gt_vs_cached_gt_abs": 0.0,
+  "target_equal": true,
+  "manifest_gt_equal_cached_gt": true,
+  "pass": true,
+  "quantization": {
+    "voxel_size": 0.2,
+    "horizontal_res": 1024.0,
+    "script": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/run_mink.py"
+  },
+  "records": [
+    {
+      "frame_id": "1329601360002721",
+      "raw_points": 65036,
+      "quantized_points": 33686,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.4353130552535731e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -71.97315240930664,
+        -281.48268036875555,
+        9.070004400760045
+      ],
+      "cached_gt_translation": [
+        -71.97315240930664,
+        -281.48268036875555,
+        9.070004400760045
+      ]
+    },
+    {
+      "frame_id": "1329601361402708",
+      "raw_points": 65627,
+      "quantized_points": 33876,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.4937906655632105e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -72.88802437304433,
+        -282.89476045271834,
+        9.099729456898464
+      ],
+      "cached_gt_translation": [
+        -72.88802437304433,
+        -282.89476045271834,
+        9.099729456898464
+      ]
+    },
+    {
+      "frame_id": "1329601363002701",
+      "raw_points": 66521,
+      "quantized_points": 33956,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.0040165193458961e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -73.92640479287363,
+        -284.95868923938394,
+        9.11772035996092
+      ],
+      "cached_gt_translation": [
+        -73.92640479287363,
+        -284.95868923938394,
+        9.11772035996092
+      ]
+    },
+    {
+      "frame_id": "1329601365002688",
+      "raw_points": 68177,
+      "quantized_points": 34038,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 4.025906491733622e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.24730405529031,
+        -287.43979284426587,
+        9.092022020753284
+      ],
+      "cached_gt_translation": [
+        -75.24730405529031,
+        -287.43979284426587,
+        9.092022020753284
+      ]
+    },
+    {
+      "frame_id": "1329601366402682",
+      "raw_points": 68260,
+      "quantized_points": 33732,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 6.581657999049639e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -76.34882179091095,
+        -289.0420161234201,
+        9.065992835626009
+      ],
+      "cached_gt_translation": [
+        -76.34882179091095,
+        -289.0420161234201,
+        9.065992835626009
+      ]
+    },
+    {
+      "frame_id": "1329601368002667",
+      "raw_points": 65375,
+      "quantized_points": 31534,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.780387276539841e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.37990931940027,
+        -290.99729664925223,
+        8.999673945801614
+      ],
+      "cached_gt_translation": [
+        -77.37990931940027,
+        -290.99729664925223,
+        8.999673945801614
+      ]
+    },
+    {
+      "frame_id": "1329601369402661",
+      "raw_points": 69449,
+      "quantized_points": 33431,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.609196664276169e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.8585076671515,
+        -292.97422707209586,
+        8.920537578071224
+      ],
+      "cached_gt_translation": [
+        -77.8585076671515,
+        -292.97422707209586,
+        8.920537578071224
+      ]
+    },
+    {
+      "frame_id": "1329601371002903",
+      "raw_points": 69788,
+      "quantized_points": 33524,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.643903937065261e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.17971121044118,
+        -295.28505061872687,
+        8.856165641834195
+      ],
+      "cached_gt_translation": [
+        -78.17971121044118,
+        -295.28505061872687,
+        8.856165641834195
+      ]
+    },
+    {
+      "frame_id": "1329601372402637",
+      "raw_points": 70616,
+      "quantized_points": 33049,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.0184778602706501e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.33847147746224,
+        -297.253112867761,
+        8.812208720747098
+      ],
+      "cached_gt_translation": [
+        -78.33847147746224,
+        -297.253112867761,
+        8.812208720747098
+      ]
+    },
+    {
+      "frame_id": "1329601374402652",
+      "raw_points": 71225,
+      "quantized_points": 32643,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 4.64030932789683e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.56947215375573,
+        -300.0283156721907,
+        8.757576830200685
+      ],
+      "cached_gt_translation": [
+        -78.56947215375573,
+        -300.0283156721907,
+        8.757576830200685
+      ]
+    },
+    {
+      "frame_id": "1329601376002616",
+      "raw_points": 71860,
+      "quantized_points": 32791,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 5.378956458912398e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.64128650688615,
+        -302.2370880554944,
+        8.713439824434406
+      ],
+      "cached_gt_translation": [
+        -78.64128650688615,
+        -302.2370880554944,
+        8.713439824434406
+      ]
+    },
+    {
+      "frame_id": "1329601377402601",
+      "raw_points": 72245,
+      "quantized_points": 32721,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.0392889180366183e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.68674196366626,
+        -304.18769349835793,
+        8.668961274501516
+      ],
+      "cached_gt_translation": [
+        -78.68674196366626,
+        -304.18769349835793,
+        8.668961274501516
+      ]
+    },
+    {
+      "frame_id": "1329601379002599",
+      "raw_points": 72894,
+      "quantized_points": 33203,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.1994053977559815e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.67921162817926,
+        -306.47275979678835,
+        8.625667966421497
+      ],
+      "cached_gt_translation": [
+        -78.67921162817926,
+        -306.47275979678835,
+        8.625667966421497
+      ]
+    },
+    {
+      "frame_id": "1329601380402595",
+      "raw_points": 75160,
+      "quantized_points": 34203,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 5.244807198323542e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.54951786795415,
+        -308.4752144817553,
+        8.604394096125846
+      ],
+      "cached_gt_translation": [
+        -78.54951786795415,
+        -308.4752144817553,
+        8.604394096125846
+      ]
+    },
+    {
+      "frame_id": "1329601382002578",
+      "raw_points": 76592,
+      "quantized_points": 34411,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.2880423355454695e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.44110286889186,
+        -310.54920721636086,
+        8.578181456676777
+      ],
+      "cached_gt_translation": [
+        -78.44110286889186,
+        -310.54920721636086,
+        8.578181456676777
+      ]
+    },
+    {
+      "frame_id": "1329601384002580",
+      "raw_points": 77311,
+      "quantized_points": 35199,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 3.305081406779209e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.35569952944353,
+        -313.1400113433561,
+        8.549590419597601
+      ],
+      "cached_gt_translation": [
+        -78.35569952944353,
+        -313.1400113433561,
+        8.549590419597601
+      ]
+    },
+    {
+      "frame_id": "1329601385402767",
+      "raw_points": 77411,
+      "quantized_points": 35165,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 3.5291514564050885e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.33914833078656,
+        -315.32678575571396,
+        8.514610122194119
+      ],
+      "cached_gt_translation": [
+        -78.33914833078656,
+        -315.32678575571396,
+        8.514610122194119
+      ]
+    },
+    {
+      "frame_id": "1329601387002543",
+      "raw_points": 78341,
+      "quantized_points": 35882,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.2297237844904885e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.12506682932221,
+        -317.4373961500278,
+        8.491416206280373
+      ],
+      "cached_gt_translation": [
+        -78.12506682932221,
+        -317.4373961500278,
+        8.491416206280373
+      ]
+    },
+    {
+      "frame_id": "1329601388402532",
+      "raw_points": 77314,
+      "quantized_points": 35655,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 3.2615069471830793e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.93102294079199,
+        -319.4337430763837,
+        8.485877268438724
+      ],
+      "cached_gt_translation": [
+        -77.93102294079199,
+        -319.4337430763837,
+        8.485877268438724
+      ]
+    },
+    {
+      "frame_id": "1329601390002526",
+      "raw_points": 77837,
+      "quantized_points": 36450,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.799128560582176e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.22555263788998,
+        -321.61953987980814,
+        8.49618821026809
+      ],
+      "cached_gt_translation": [
+        -77.22555263788998,
+        -321.61953987980814,
+        8.49618821026809
+      ]
+    },
+    {
+      "frame_id": "1329601391402635",
+      "raw_points": 78713,
+      "quantized_points": 37649,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.1059937125755823e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -76.26767131626976,
+        -323.37800018029725,
+        8.508062424598675
+      ],
+      "cached_gt_translation": [
+        -76.26767131626976,
+        -323.37800018029725,
+        8.508062424598675
+      ]
+    },
+    {
+      "frame_id": "1329601393402503",
+      "raw_points": 78119,
+      "quantized_points": 36866,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 6.163118143831525e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.47022115299518,
+        -325.3946289658525,
+        8.481327568689757
+      ],
+      "cached_gt_translation": [
+        -75.47022115299518,
+        -325.3946289658525,
+        8.481327568689757
+      ]
+    },
+    {
+      "frame_id": "1329601395002495",
+      "raw_points": 77997,
+      "quantized_points": 36937,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.1324283946123614e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.43655415738368,
+        -325.57059848248707,
+        8.476451558716102
+      ],
+      "cached_gt_translation": [
+        -75.43655415738368,
+        -325.57059848248707,
+        8.476451558716102
+      ]
+    },
+    {
+      "frame_id": "1329601396402539",
+      "raw_points": 78575,
+      "quantized_points": 36931,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 7.474538278984255e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.40935428506698,
+        -325.50080093156953,
+        8.483280597106198
+      ],
+      "cached_gt_translation": [
+        -75.40935428506698,
+        -325.50080093156953,
+        8.483280597106198
+      ]
+    },
+    {
+      "frame_id": "1329601398002477",
+      "raw_points": 78741,
+      "quantized_points": 35897,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.5381014151216732e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.93395079344155,
+        -325.53488252932584,
+        8.484147055385192
+      ],
+      "cached_gt_translation": [
+        -75.93395079344155,
+        -325.53488252932584,
+        8.484147055385192
+      ]
+    },
+    {
+      "frame_id": "1329601399402470",
+      "raw_points": 77216,
+      "quantized_points": 36002,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 7.076132135352964e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -76.49859185101775,
+        -325.18079320894464,
+        8.499124250138172
+      ],
+      "cached_gt_translation": [
+        -76.49859185101775,
+        -325.18079320894464,
+        8.499124250138172
+      ]
+    },
+    {
+      "frame_id": "1329601401402448",
+      "raw_points": 75559,
+      "quantized_points": 35273,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.5210530648346321e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.23858413801447,
+        -323.7183380609537,
+        8.506406559762748
+      ],
+      "cached_gt_translation": [
+        -77.23858413801447,
+        -323.7183380609537,
+        8.506406559762748
+      ]
+    },
+    {
+      "frame_id": "1329601403002483",
+      "raw_points": 77539,
+      "quantized_points": 36502,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.703199285429946e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.48684191284471,
+        -321.398878231679,
+        8.4968584433851
+      ],
+      "cached_gt_translation": [
+        -77.48684191284471,
+        -321.398878231679,
+        8.4968584433851
+      ]
+    },
+    {
+      "frame_id": "1329601404402427",
+      "raw_points": 74531,
+      "quantized_points": 34194,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.4323330620745764e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.31675200508697,
+        -319.2796012121017,
+        8.504764693613614
+      ],
+      "cached_gt_translation": [
+        -77.31675200508697,
+        -319.2796012121017,
+        8.504764693613614
+      ]
+    },
+    {
+      "frame_id": "1329601406002426",
+      "raw_points": 78825,
+      "quantized_points": 36501,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 3.113391585429781e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.2518392488667,
+        -317.36447454893846,
+        8.53137033878728
+      ],
+      "cached_gt_translation": [
+        -77.2518392488667,
+        -317.36447454893846,
+        8.53137033878728
+      ]
+    },
+    {
+      "frame_id": "1329601407402467",
+      "raw_points": 78881,
+      "quantized_points": 36351,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.2357294451703638e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.32211351138105,
+        -315.4292420936226,
+        8.54993891361729
+      ],
+      "cached_gt_translation": [
+        -77.32211351138105,
+        -315.4292420936226,
+        8.54993891361729
+      ]
+    },
+    {
+      "frame_id": "1329601409002400",
+      "raw_points": 78069,
+      "quantized_points": 35799,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.954679453319841e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.29185979967798,
+        -312.98557615633047,
+        8.58364183695443
+      ],
+      "cached_gt_translation": [
+        -77.29185979967798,
+        -312.98557615633047,
+        8.58364183695443
+      ]
+    },
+    {
+      "frame_id": "1329601411002392",
+      "raw_points": 77229,
+      "quantized_points": 35121,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.6343598392486456e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.2630452190355,
+        -310.20150339437964,
+        8.635881686688691
+      ],
+      "cached_gt_translation": [
+        -77.2630452190355,
+        -310.20150339437964,
+        8.635881686688691
+      ]
+    },
+    {
+      "frame_id": "1329601412402370",
+      "raw_points": 76036,
+      "quantized_points": 34072,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 6.035227627876338e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.2712157520245,
+        -308.1644317336826,
+        8.690001539047042
+      ],
+      "cached_gt_translation": [
+        -77.2712157520245,
+        -308.1644317336826,
+        8.690001539047042
+      ]
+    },
+    {
+      "frame_id": "1329601414002369",
+      "raw_points": 75176,
+      "quantized_points": 33791,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 5.380454197734252e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.21698985880361,
+        -306.3030709767597,
+        8.734129056648811
+      ],
+      "cached_gt_translation": [
+        -77.21698985880361,
+        -306.3030709767597,
+        8.734129056648811
+      ]
+    },
+    {
+      "frame_id": "1329601415402388",
+      "raw_points": 75159,
+      "quantized_points": 33460,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 4.9737884637579555e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.1686748239578,
+        -304.8880260320709,
+        8.75894462278432
+      ],
+      "cached_gt_translation": [
+        -77.1686748239578,
+        -304.8880260320709,
+        8.75894462278432
+      ]
+    },
+    {
+      "frame_id": "1329601417002348",
+      "raw_points": 73248,
+      "quantized_points": 32852,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 7.917240452570695e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.11928416879961,
+        -302.3488385183064,
+        8.775278321360364
+      ],
+      "cached_gt_translation": [
+        -77.11928416879961,
+        -302.3488385183064,
+        8.775278321360364
+      ]
+    },
+    {
+      "frame_id": "1329601418402716",
+      "raw_points": 74017,
+      "quantized_points": 33507,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.3445800536592287e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.03909945987738,
+        -300.63188990087866,
+        8.802267236669138
+      ],
+      "cached_gt_translation": [
+        -77.03909945987738,
+        -300.63188990087866,
+        8.802267236669138
+      ]
+    },
+    {
+      "frame_id": "1329601420402318",
+      "raw_points": 72215,
+      "quantized_points": 33648,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.115760210585904e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -76.50631162503755,
+        -298.14623940767916,
+        8.880115614303008
+      ],
+      "cached_gt_translation": [
+        -76.50631162503755,
+        -298.14623940767916,
+        8.880115614303008
+      ]
+    },
+    {
+      "frame_id": "1329601422002318",
+      "raw_points": 70423,
+      "quantized_points": 33556,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.2009662555101386e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.99206899180076,
+        -295.86647358604057,
+        8.942441584445724
+      ],
+      "cached_gt_translation": [
+        -75.99206899180076,
+        -295.86647358604057,
+        8.942441584445724
+      ]
+    },
+    {
+      "frame_id": "1329601423402298",
+      "raw_points": 69719,
+      "quantized_points": 33726,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 8.508760004133364e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.64705125872406,
+        -294.0896996708694,
+        8.984173877327892
+      ],
+      "cached_gt_translation": [
+        -75.64705125872406,
+        -294.0896996708694,
+        8.984173877327892
+      ]
+    },
+    {
+      "frame_id": "1329601425002298",
+      "raw_points": 68389,
+      "quantized_points": 33217,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 5.023661685754632e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.32149520470342,
+        -291.7865040470992,
+        9.035756943593704
+      ],
+      "cached_gt_translation": [
+        -75.32149520470342,
+        -291.7865040470992,
+        9.035756943593704
+      ]
+    },
+    {
+      "frame_id": "1329601426402279",
+      "raw_points": 66791,
+      "quantized_points": 32745,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.268934119025289e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.13309708092972,
+        -289.6495793397318,
+        9.073186958101436
+      ],
+      "cached_gt_translation": [
+        -75.13309708092972,
+        -289.6495793397318,
+        9.073186958101436
+      ]
+    },
+    {
+      "frame_id": "1329601428402277",
+      "raw_points": 66702,
+      "quantized_points": 33015,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.3444768114823091e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -74.69484493171724,
+        -286.92610349859126,
+        9.103908178863954
+      ],
+      "cached_gt_translation": [
+        -74.69484493171724,
+        -286.92610349859126,
+        9.103908178863954
+      ]
+    },
+    {
+      "frame_id": "1329601430002267",
+      "raw_points": 64778,
+      "quantized_points": 32879,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.0305495322882052e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -73.91803224682145,
+        -284.7710468234109,
+        9.132529188055988
+      ],
+      "cached_gt_translation": [
+        -73.91803224682145,
+        -284.7710468234109,
+        9.132529188055988
+      ]
+    },
+    {
+      "frame_id": "1329601431402252",
+      "raw_points": 64173,
+      "quantized_points": 32954,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.756242849955015e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -72.90833419227766,
+        -283.1130648707103,
+        9.08957269576163
+      ],
+      "cached_gt_translation": [
+        -72.90833419227766,
+        -283.1130648707103,
+        9.08957269576163
+      ]
+    },
+    {
+      "frame_id": "1329601433002245",
+      "raw_points": 63814,
+      "quantized_points": 32386,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.5327108030760428e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -71.54902213628958,
+        -281.3546906200768,
+        9.054631547865867
+      ],
+      "cached_gt_translation": [
+        -71.54902213628958,
+        -281.3546906200768,
+        9.054631547865867
+      ]
+    },
+    {
+      "frame_id": "1329604598983232",
+      "raw_points": 87341,
+      "quantized_points": 29079,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 5.608519870747841e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.79520977111753,
+        -358.8678642107613,
+        8.436587425890568
+      ],
+      "cached_gt_translation": [
+        -78.79520977111753,
+        -358.8678642107613,
+        8.436587425890568
+      ]
+    },
+    {
+      "frame_id": "1329604600583214",
+      "raw_points": 85715,
+      "quantized_points": 28304,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.4884958204675058e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.83728255759947,
+        -356.5355380935574,
+        8.402625424923402
+      ],
+      "cached_gt_translation": [
+        -78.83728255759947,
+        -356.5355380935574,
+        8.402625424923402
+      ]
+    },
+    {
+      "frame_id": "1329604602583193",
+      "raw_points": 83924,
+      "quantized_points": 28489,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.8332059312342608e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.73428191499228,
+        -353.6793334745813,
+        8.371078035069385
+      ],
+      "cached_gt_translation": [
+        -78.73428191499228,
+        -353.6793334745813,
+        8.371078035069385
+      ]
+    },
+    {
+      "frame_id": "1329604603983211",
+      "raw_points": 86908,
+      "quantized_points": 28405,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 8.405755522744585e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.63531595046523,
+        -351.7444847241149,
+        8.35330196808786
+      ],
+      "cached_gt_translation": [
+        -78.63531595046523,
+        -351.7444847241149,
+        8.35330196808786
+      ]
+    },
+    {
+      "frame_id": "1329604605583164",
+      "raw_points": 83041,
+      "quantized_points": 26912,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.7536156065034447e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.58135841364589,
+        -349.6344429130627,
+        8.327549291259558
+      ],
+      "cached_gt_translation": [
+        -78.58135841364589,
+        -349.6344429130627,
+        8.327549291259558
+      ]
+    },
+    {
+      "frame_id": "1329604606983155",
+      "raw_points": 83471,
+      "quantized_points": 26729,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 7.0392529778473545e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.44823768744878,
+        -347.6748422443311,
+        8.319208726874788
+      ],
+      "cached_gt_translation": [
+        -78.44823768744878,
+        -347.6748422443311,
+        8.319208726874788
+      ]
+    },
+    {
+      "frame_id": "1329604608583140",
+      "raw_points": 84803,
+      "quantized_points": 26336,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 4.372553163989323e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.15797861571723,
+        -345.3840638535023,
+        8.343569065787223
+      ],
+      "cached_gt_translation": [
+        -78.15797861571723,
+        -345.3840638535023,
+        8.343569065787223
+      ]
+    },
+    {
+      "frame_id": "1329604609983135",
+      "raw_points": 83570,
+      "quantized_points": 25212,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.4691101284824981e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.08408537574681,
+        -343.40467891241434,
+        8.328335860850578
+      ],
+      "cached_gt_translation": [
+        -78.08408537574681,
+        -343.40467891241434,
+        8.328335860850578
+      ]
+    },
+    {
+      "frame_id": "1329604611983122",
+      "raw_points": 77080,
+      "quantized_points": 22215,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.4686347299175395e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.01903767349943,
+        -341.3818201062692,
+        8.272353483721263
+      ],
+      "cached_gt_translation": [
+        -78.01903767349943,
+        -341.3818201062692,
+        8.272353483721263
+      ]
+    },
+    {
+      "frame_id": "1329604613583755",
+      "raw_points": 73159,
+      "quantized_points": 21851,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.2575901621403318e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.01681654093431,
+        -341.66315954855787,
+        8.282233319251185
+      ],
+      "cached_gt_translation": [
+        -78.01681654093431,
+        -341.66315954855787,
+        8.282233319251185
+      ]
+    },
+    {
+      "frame_id": "1329604614983101",
+      "raw_points": 77687,
+      "quantized_points": 23558,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.6709779604061623e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.02481908879713,
+        -341.4342994620954,
+        8.274037773304613
+      ],
+      "cached_gt_translation": [
+        -78.02481908879713,
+        -341.4342994620954,
+        8.274037773304613
+      ]
+    },
+    {
+      "frame_id": "1329604616583112",
+      "raw_points": 78178,
+      "quantized_points": 23695,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.031403528235387e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.03406727253973,
+        -340.9993693344022,
+        8.260921834019847
+      ],
+      "cached_gt_translation": [
+        -78.03406727253973,
+        -340.9993693344022,
+        8.260921834019847
+      ]
+    },
+    {
+      "frame_id": "1329604617983823",
+      "raw_points": 71884,
+      "quantized_points": 22658,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 5.552053551127756e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.9995601214927,
+        -340.69763738799105,
+        8.25424535161793
+      ],
+      "cached_gt_translation": [
+        -77.9995601214927,
+        -340.69763738799105,
+        8.25424535161793
+      ]
+    },
+    {
+      "frame_id": "1329604619583096",
+      "raw_points": 65509,
+      "quantized_points": 21053,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.710586286662874e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.92103858609377,
+        -340.134229720309,
+        8.246434817808222
+      ],
+      "cached_gt_translation": [
+        -77.92103858609377,
+        -340.134229720309,
+        8.246434817808222
+      ]
+    },
+    {
+      "frame_id": "1329604621983066",
+      "raw_points": 59957,
+      "quantized_points": 19356,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 4.661692400986794e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.85426336584001,
+        -339.4034470445049,
+        8.243765344527919
+      ],
+      "cached_gt_translation": [
+        -77.85426336584001,
+        -339.4034470445049,
+        8.243765344527919
+      ]
+    },
+    {
+      "frame_id": "1329604623583040",
+      "raw_points": 49135,
+      "quantized_points": 16794,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.201409025952671e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.81680776064114,
+        -338.88963642340974,
+        8.24678108559742
+      ],
+      "cached_gt_translation": [
+        -77.81680776064114,
+        -338.88963642340974,
+        8.24678108559742
+      ]
+    },
+    {
+      "frame_id": "1329604624983040",
+      "raw_points": 48358,
+      "quantized_points": 16386,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.9361514322090443e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.81902606847565,
+        -338.3835436601623,
+        8.25245240443603
+      ],
+      "cached_gt_translation": [
+        -77.81902606847565,
+        -338.3835436601623,
+        8.25245240443603
+      ]
+    },
+    {
+      "frame_id": "1329604635582975",
+      "raw_points": 50137,
+      "quantized_points": 18368,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.0218977340391575e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.79219298471533,
+        -336.1198627482742,
+        8.251122510459982
+      ],
+      "cached_gt_translation": [
+        -77.79219298471533,
+        -336.1198627482742,
+        8.251122510459982
+      ]
+    },
+    {
+      "frame_id": "1329604636982984",
+      "raw_points": 53350,
+      "quantized_points": 19329,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 7.308364558866742e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.90986718502772,
+        -335.0143664709323,
+        8.250708858488817
+      ],
+      "cached_gt_translation": [
+        -77.90986718502772,
+        -335.0143664709323,
+        8.250708858488817
+      ]
+    },
+    {
+      "frame_id": "1329604637982961",
+      "raw_points": 72830,
+      "quantized_points": 27712,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 6.775735585051734e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -78.00918560196122,
+        -333.5846795035613,
+        8.291479499526764
+      ],
+      "cached_gt_translation": [
+        -78.00918560196122,
+        -333.5846795035613,
+        8.291479499526764
+      ]
+    },
+    {
+      "frame_id": "1329604639582940",
+      "raw_points": 77434,
+      "quantized_points": 32666,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 5.427582905781492e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.7707802688915,
+        -331.23507916616694,
+        8.403940753195407
+      ],
+      "cached_gt_translation": [
+        -77.7707802688915,
+        -331.23507916616694,
+        8.403940753195407
+      ]
+    },
+    {
+      "frame_id": "1329604640582945",
+      "raw_points": 78085,
+      "quantized_points": 34056,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.5877812984399498e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.58763771523265,
+        -329.9991776131719,
+        8.444341214980266
+      ],
+      "cached_gt_translation": [
+        -77.58763771523265,
+        -329.9991776131719,
+        8.444341214980266
+      ]
+    },
+    {
+      "frame_id": "1329604641982945",
+      "raw_points": 79362,
+      "quantized_points": 35321,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.8609959909099416e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.39874576071169,
+        -328.1257510318349,
+        8.503786127683618
+      ],
+      "cached_gt_translation": [
+        -77.39874576071169,
+        -328.1257510318349,
+        8.503786127683618
+      ]
+    },
+    {
+      "frame_id": "1329604642982934",
+      "raw_points": 79172,
+      "quantized_points": 36276,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.3600019201476243e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -77.25737186144902,
+        -326.6888563734567,
+        8.533887304107283
+      ],
+      "cached_gt_translation": [
+        -77.25737186144902,
+        -326.6888563734567,
+        8.533887304107283
+      ]
+    },
+    {
+      "frame_id": "1329604644582931",
+      "raw_points": 78390,
+      "quantized_points": 36577,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 4.4328136397098206e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -76.96013961015511,
+        -324.57308968147714,
+        8.532732227999158
+      ],
+      "cached_gt_translation": [
+        -76.96013961015511,
+        -324.57308968147714,
+        8.532732227999158
+      ]
+    },
+    {
+      "frame_id": "1329604645582910",
+      "raw_points": 78232,
+      "quantized_points": 37103,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.18004677776662e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -76.69216329307763,
+        -323.1165553479697,
+        8.524284917238118
+      ],
+      "cached_gt_translation": [
+        -76.69216329307763,
+        -323.1165553479697,
+        8.524284917238118
+      ]
+    },
+    {
+      "frame_id": "1329604646982902",
+      "raw_points": 78565,
+      "quantized_points": 37054,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 5.185108832961305e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -76.33619171430523,
+        -321.0633207581708,
+        8.511718293029073
+      ],
+      "cached_gt_translation": [
+        -76.33619171430523,
+        -321.0633207581708,
+        8.511718293029073
+      ]
+    },
+    {
+      "frame_id": "1329604647983097",
+      "raw_points": 78888,
+      "quantized_points": 37237,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 7.21308242646046e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -76.07785377152612,
+        -319.6950001111363,
+        8.518904254904886
+      ],
+      "cached_gt_translation": [
+        -76.07785377152612,
+        -319.6950001111363,
+        8.518904254904886
+      ]
+    },
+    {
+      "frame_id": "1329604649582929",
+      "raw_points": 79900,
+      "quantized_points": 36844,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.693902942179193e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.97757619184996,
+        -317.7346632367518,
+        8.539650767428247
+      ],
+      "cached_gt_translation": [
+        -75.97757619184996,
+        -317.7346632367518,
+        8.539650767428247
+      ]
+    },
+    {
+      "frame_id": "1329604651582866",
+      "raw_points": 80324,
+      "quantized_points": 36204,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.0989201086886169e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.70866720130657,
+        -314.8540148954511,
+        8.581459024239404
+      ],
+      "cached_gt_translation": [
+        -75.70866720130657,
+        -314.8540148954511,
+        8.581459024239404
+      ]
+    },
+    {
+      "frame_id": "1329604652583020",
+      "raw_points": 79810,
+      "quantized_points": 35573,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.5453089304173773e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.64627573157543,
+        -313.4137113535513,
+        8.611566787125593
+      ],
+      "cached_gt_translation": [
+        -75.64627573157543,
+        -313.4137113535513,
+        8.611566787125593
+      ]
+    },
+    {
+      "frame_id": "1329604653982864",
+      "raw_points": 79358,
+      "quantized_points": 35021,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.3277426635104348e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.6992845551087,
+        -311.37697640242664,
+        8.649990754619534
+      ],
+      "cached_gt_translation": [
+        -75.6992845551087,
+        -311.37697640242664,
+        8.649990754619534
+      ]
+    },
+    {
+      "frame_id": "1329604654982854",
+      "raw_points": 78776,
+      "quantized_points": 34401,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.819507320988123e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.80125451419984,
+        -309.9334593571826,
+        8.668091634402348
+      ],
+      "cached_gt_translation": [
+        -75.80125451419984,
+        -309.9334593571826,
+        8.668091634402348
+      ]
+    },
+    {
+      "frame_id": "1329604656582868",
+      "raw_points": 74228,
+      "quantized_points": 31659,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.3603971783359157e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.8549426209913,
+        -307.6242439741532,
+        8.705736588170796
+      ],
+      "cached_gt_translation": [
+        -75.8549426209913,
+        -307.6242439741532,
+        8.705736588170796
+      ]
+    },
+    {
+      "frame_id": "1329604657582841",
+      "raw_points": 76420,
+      "quantized_points": 32423,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.073893707825846e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.81381086864971,
+        -306.2288315397183,
+        8.7339038346903
+      ],
+      "cached_gt_translation": [
+        -75.81381086864971,
+        -306.2288315397183,
+        8.7339038346903
+      ]
+    },
+    {
+      "frame_id": "1329604658983490",
+      "raw_points": 76353,
+      "quantized_points": 32518,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 9.011096835820354e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.58154583916168,
+        -304.24442429429996,
+        8.776356200108557
+      ],
+      "cached_gt_translation": [
+        -75.58154583916168,
+        -304.24442429429996,
+        8.776356200108557
+      ]
+    },
+    {
+      "frame_id": "1329604659982823",
+      "raw_points": 75171,
+      "quantized_points": 32815,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.2922810810778174e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.39187711619059,
+        -302.84294362015794,
+        8.803557121401905
+      ],
+      "cached_gt_translation": [
+        -75.39187711619059,
+        -302.84294362015794,
+        8.803557121401905
+      ]
+    },
+    {
+      "frame_id": "1329604661582864",
+      "raw_points": 75269,
+      "quantized_points": 33496,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.307853966636685e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.26264271779084,
+        -300.6344473706791,
+        8.856727928814966
+      ],
+      "cached_gt_translation": [
+        -75.26264271779084,
+        -300.6344473706791,
+        8.856727928814966
+      ]
+    },
+    {
+      "frame_id": "1329604662982805",
+      "raw_points": 73927,
+      "quantized_points": 33583,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.2792218058166327e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.26220068107727,
+        -298.65115306215915,
+        8.907631755013298
+      ],
+      "cached_gt_translation": [
+        -75.26220068107727,
+        -298.65115306215915,
+        8.907631755013298
+      ]
+    },
+    {
+      "frame_id": "1329604663982801",
+      "raw_points": 72470,
+      "quantized_points": 33397,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 5.2431850008360925e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.27127338234114,
+        -297.2120308896275,
+        8.941636173086973
+      ],
+      "cached_gt_translation": [
+        -75.27127338234114,
+        -297.2120308896275,
+        8.941636173086973
+      ]
+    },
+    {
+      "frame_id": "1329604665582834",
+      "raw_points": 69519,
+      "quantized_points": 32914,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 6.97404050242767e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.27609887807445,
+        -294.95842808455325,
+        8.972580780668553
+      ],
+      "cached_gt_translation": [
+        -75.27609887807445,
+        -294.95842808455325,
+        8.972580780668553
+      ]
+    },
+    {
+      "frame_id": "1329604666582815",
+      "raw_points": 68774,
+      "quantized_points": 33038,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.2482719487015856e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.27738774229881,
+        -293.52806813701636,
+        8.994668311234758
+      ],
+      "cached_gt_translation": [
+        -75.27738774229881,
+        -293.52806813701636,
+        8.994668311234758
+      ]
+    },
+    {
+      "frame_id": "1329604667982805",
+      "raw_points": 68373,
+      "quantized_points": 33248,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 1.397061492980356e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.23050552292901,
+        -291.51948676180695,
+        9.034177182421843
+      ],
+      "cached_gt_translation": [
+        -75.23050552292901,
+        -291.51948676180695,
+        9.034177182421843
+      ]
+    },
+    {
+      "frame_id": "1329604668983281",
+      "raw_points": 68551,
+      "quantized_points": 33468,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.5059808308469655e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -75.19215193868445,
+        -290.10869815551143,
+        9.06014556136889
+      ],
+      "cached_gt_translation": [
+        -75.19215193868445,
+        -290.10869815551143,
+        9.06014556136889
+      ]
+    },
+    {
+      "frame_id": "1329604670582822",
+      "raw_points": 68002,
+      "quantized_points": 33668,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 3.5240860256635642e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -74.72294640932768,
+        -287.961666397789,
+        9.092614534776375
+      ],
+      "cached_gt_translation": [
+        -74.72294640932768,
+        -287.961666397789,
+        9.092614534776375
+      ]
+    },
+    {
+      "frame_id": "1329604671582933",
+      "raw_points": 68306,
+      "quantized_points": 33955,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 8.70168742039823e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -74.11193095220574,
+        -286.64861190378133,
+        9.11210992785637
+      ],
+      "cached_gt_translation": [
+        -74.11193095220574,
+        -286.64861190378133,
+        9.11210992785637
+      ]
+    },
+    {
+      "frame_id": "1329604672982737",
+      "raw_points": 64989,
+      "quantized_points": 33208,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 4.170332204012084e-07,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -73.08562470163862,
+        -284.91705363968947,
+        9.111737917298395
+      ],
+      "cached_gt_translation": [
+        -73.08562470163862,
+        -284.91705363968947,
+        9.111737917298395
+      ]
+    },
+    {
+      "frame_id": "1329604673982743",
+      "raw_points": 66274,
+      "quantized_points": 33429,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 5.56682016394916e-06,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -72.56354316447641,
+        -283.74771179677805,
+        9.113879689772016
+      ],
+      "cached_gt_translation": [
+        -72.56354316447641,
+        -283.74771179677805,
+        9.113879689772016
+      ]
+    },
+    {
+      "frame_id": "1329604675582729",
+      "raw_points": 65410,
+      "quantized_points": 32945,
+      "scan_equal": true,
+      "coords_equal": true,
+      "lidar_features_equal": true,
+      "target_max_abs": 0.0,
+      "manifest_gt_vs_cached_gt_max_abs": 0.0,
+      "float32_prepare_gt_vs_cached_gt_max_abs": 2.2119340655990527e-05,
+      "camera_to_body_det": 1.0000000000000009,
+      "manifest_gt_translation": [
+        -71.73549269235514,
+        -281.75559311503434,
+        9.09420451707171
+      ],
+      "cached_gt_translation": [
+        -71.73549269235514,
+        -281.75559311503434,
+        9.09420451707171
+      ]
+    }
+  ]
+}

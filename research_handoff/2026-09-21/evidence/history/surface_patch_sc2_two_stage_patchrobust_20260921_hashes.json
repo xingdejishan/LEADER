@@ -1,0 +1,39 @@
+{
+  "experiment": "SC2-PCR plus two-stage full-pool with patch-level robust visual factor",
+  "date": "2026-09-21",
+  "network": {
+    "checkpoint": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/research/image_gate_checkpoint/model.safetensors",
+    "checkpoint_sha256": "a78d5114bb908717676f7851399bdbb78943fd9e0170b1dd8eb592e0558fa028",
+    "prediction_cache_manifest_sha256": "F4F60B004345B0CAAD9DA3A01645CDE2E5AD59AADEADB6FF0F75AAD93D11A770",
+    "prediction_cache_tree_sha256": "60bae0879ce36d65b06b666e78f5e10a1cb7eceba817517d2d4e413615d92929"
+  },
+  "inputs": {
+    "manifest_file_sha256": "f97b04a1006b1b21032fef522778edf2de6cbfdbad651ca9111d7afc86ff7f12",
+    "protocol_manifest_sha256": "a7008599fa2349d262745cec4ee80a568608b073f0782d15d15b4df407524c92e90",
+    "projection_cache_tree_sha256": "68c617a8302246ebaedb982b3dbbbac877a6a2c4bebda8d7fe5f75fdda7e1544",
+    "reference_lidar_cache_tree_sha256": "f6170ac2623be9d83cdcc21d0c7fb1b070bd3a1c176510a34b347ad9147da400",
+    "surface_reference_map_sha256": "ABBF522EDFFE9339B1440BB6CF9DC03AF884D8A1092A47DBED01135E0A0AC0D0"
+  },
+  "solver": {
+    "baseline": "SC2-PCR Matcher.estimator followed by full_pool_refine, then center restoration",
+    "visual_variants": ["G: lidar-only", "C: per-pixel visual objective", "D: patch-level Huber visual objective"],
+    "patch_robust_scale": 0.4113392499690306,
+    "patch_robust_scale_source": "64 train frames only; 1.4826 times MAD of normalized patch RMS",
+    "optimizer": "scipy least_squares trf, shared soft_l1 outer solver, max_nfev=100, seed=2089"
+  },
+  "artifacts": {
+    "runner_sha256": "E46B10113975C61B2DF79E95DA99ECD37706338C6A446244FF3653903CD40A2E",
+    "calibration_sha256": "C752E3DDA6F2751197E440F950C57122BB2FF7FF836D46EBC85BE0614A91742D",
+    "scale_json_sha256": "2F9A5671322B64224A4CA3A48FE3F8CA98E1FD4FCB3D2FF54A4FB29EF4ADE52A",
+    "predictions_json_sha256": "E3BEA65F5C394BEC5270C7AD46C961177E3682C90A0FB57CA8D2CB3BC8A76E08",
+    "evaluation_json_sha256": "B78C0A4A8954116D5240DE1EE24A8D747A4A62B9B75A0256CBF4A5B67AB3801F"
+  },
+  "audit": {
+    "validation_frames": 32,
+    "online_cache_contains_gt": false,
+    "query_gt_used_in_runner": false,
+    "runner_failures": 0,
+    "mask_enforced": true,
+    "visibility_filter_enabled_for_compared_variants": false
+  }
+}

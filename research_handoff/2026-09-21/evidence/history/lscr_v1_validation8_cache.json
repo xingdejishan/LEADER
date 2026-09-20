@@ -1,0 +1,3040 @@
+{
+  "protocol": {
+    "map_source": "train split only",
+    "front_end": "RoMa v2 dense reference-to-query fields",
+    "matching": {
+      "max_reference_images_per_query_camera": 2,
+      "local_radius_px": 8.0,
+      "min_overlap": 0.2,
+      "min_reference_view_cosine": 0.7,
+      "grid_cell_px": 4,
+      "max_per_camera": 300,
+      "gate_free_cache": false,
+      "cache_only": true
+    },
+    "optimizer": "LiDAR-prior-protected block-IRLS Trust Region Reflective optimization",
+    "local_pose_update": "R=Exp(delta_rotation) R_LEADER; t=t_LEADER+delta_translation",
+    "prior": {
+      "sigma_translation_m": 0.1,
+      "sigma_rotation_deg": 1.0,
+      "visual_lambda": 1.0
+    },
+    "precision": {
+      "scale": 1.0,
+      "floor_px": 1.0
+    },
+    "robust_scale_whitened": 1.0,
+    "acceptance": {
+      "holdout_group": "reference-pair",
+      "holdout_modulus": 5,
+      "min_holdout": 6,
+      "maximum_holdout_cost_ratio": 0.95
+    },
+    "match_cache": {
+      "directory": "research/prevoxel_multiview/results/lscr_v1_validation8_matches",
+      "replay": false
+    },
+    "gt_in_correspondence_path": false
+  },
+  "reference_map": {
+    "path": "research/prevoxel_multiview/results/roma_accuracy_reference_observations.npz",
+    "observations": 40335,
+    "train_frames": 64,
+    "geometry_only": true
+  },
+  "evaluation_split": "validation",
+  "evaluation_frames": 8,
+  "records": [
+    {
+      "frame_id": "1329604635582975",
+      "before": [
+        0.06845829785766014,
+        1.0373619109686139
+      ],
+      "after": [
+        0.06845829785766014,
+        1.0373619109686139
+      ],
+      "candidate_after": [
+        0.06845829785766014,
+        1.0373619109686139
+      ],
+      "delta": [
+        0.0,
+        0.0
+      ],
+      "candidate_delta": [
+        0.0,
+        0.0
+      ],
+      "leader_success": true,
+      "n_correspondences": 10,
+      "n_cameras": 2,
+      "overlap_mean": 0.5432564437389373,
+      "per_camera_correspondences": [
+        0,
+        0,
+        0,
+        0,
+        9,
+        1
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_observations": 933,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 46,
+            "in_image": 46,
+            "mask": 44,
+            "nonblack": 34,
+            "observation_projection": 34,
+            "local": 0,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604624983040:5": 9,
+            "1329601393402503:5": 8
+          },
+          "reference_pairs": [
+            [
+              "1329604624983040",
+              5
+            ],
+            [
+              "1329601393402503",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 1,
+          "visible_observations": 1128,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 66,
+            "in_image": 66,
+            "mask": 66,
+            "nonblack": 60,
+            "observation_projection": 60,
+            "local": 2,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601396402539:3": 17,
+            "1329601391402635:5": 16
+          },
+          "reference_pairs": [
+            [
+              "1329601396402539",
+              3
+            ],
+            [
+              "1329601391402635",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 2,
+          "visible_observations": 282,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 13,
+            "in_image": 13,
+            "mask": 13,
+            "nonblack": 4,
+            "observation_projection": 4,
+            "local": 0,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604608583140:2": 7,
+            "1329604617983823:2": 6
+          },
+          "reference_pairs": [
+            [
+              "1329604608583140",
+              2
+            ],
+            [
+              "1329604617983823",
+              2
+            ]
+          ]
+        },
+        {
+          "camera": 3,
+          "visible_observations": 324,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 19,
+            "in_image": 19,
+            "mask": 19,
+            "nonblack": 6,
+            "observation_projection": 6,
+            "local": 0,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604609983135:2": 9,
+            "1329604608583140:2": 8
+          },
+          "reference_pairs": [
+            [
+              "1329604609983135",
+              2
+            ],
+            [
+              "1329604608583140",
+              2
+            ]
+          ]
+        },
+        {
+          "camera": 4,
+          "visible_observations": 910,
+          "reference_images": 2,
+          "raw_candidates": 12,
+          "accepted": 9,
+          "stages": {
+            "finite": 37,
+            "in_image": 37,
+            "mask": 36,
+            "nonblack": 33,
+            "observation_projection": 33,
+            "local": 17,
+            "overlap": 12
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604624983040:4": 19,
+            "1329604624983040:5": 16
+          },
+          "reference_pairs": [
+            [
+              "1329604624983040",
+              4
+            ],
+            [
+              "1329604624983040",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 5,
+          "visible_observations": 1527,
+          "reference_images": 2,
+          "raw_candidates": 1,
+          "accepted": 1,
+          "stages": {
+            "finite": 53,
+            "in_image": 53,
+            "mask": 53,
+            "nonblack": 49,
+            "observation_projection": 49,
+            "local": 12,
+            "overlap": 1
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604623583040:5": 27,
+            "1329604624983040:5": 26
+          },
+          "reference_pairs": [
+            [
+              "1329604623583040",
+              5
+            ],
+            [
+              "1329604624983040",
+              5
+            ]
+          ]
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": -1,
+        "nfev": 0,
+        "cost": NaN,
+        "whitened_residual_rmse": NaN,
+        "irls_iterations": 0
+      },
+      "baseline_support": 251,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          3.928858101880587,
+          2.5542426435704404,
+          0.9953165954546382
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          0.8021774582894611,
+          0.5159531860660753,
+          0.13691070193171234
+        ],
+        "mean_depth_m": 4.966078921849101,
+        "point_spread_m": 1.5149500517222954
+      },
+      "leader_pose": [
+        [
+          -0.05219786986708641,
+          -0.9975587129592896,
+          -0.04639718681573868,
+          -77.8528938293457
+        ],
+        [
+          0.9973763227462769,
+          -0.04974230378866196,
+          -0.05259520560503006,
+          -336.08888244628906
+        ],
+        [
+          0.050158917903900146,
+          -0.04902080446481705,
+          0.9975376129150391,
+          8.24462890625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "candidate_pose": [
+        [
+          -0.05219786986708641,
+          -0.9975587129592896,
+          -0.04639718681573868,
+          -77.8528938293457
+        ],
+        [
+          0.9973763227462769,
+          -0.04974230378866196,
+          -0.05259520560503006,
+          -336.08888244628906
+        ],
+        [
+          0.050158917903900146,
+          -0.04902080446481705,
+          0.9975376129150391,
+          8.24462890625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.05219786986708641,
+          -0.9975587129592896,
+          -0.04639718681573868,
+          -77.8528938293457
+        ],
+        [
+          0.9973763227462769,
+          -0.04974230378866196,
+          -0.05259520560503006,
+          -336.08888244628906
+        ],
+        [
+          0.050158917903900146,
+          -0.04902080446481705,
+          0.9975376129150391,
+          8.24462890625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "acceptance": {
+        "accepted": false,
+        "reason": "insufficient_fit_correspondences",
+        "fit_correspondences": 2,
+        "holdout_correspondences": 8,
+        "holdout_cost_before": NaN,
+        "holdout_cost_candidate": NaN,
+        "correction_translation_m": NaN,
+        "correction_rotation_deg": NaN,
+        "fit_groups": 1,
+        "holdout_groups": 2,
+        "holdout_group_ids": [
+          "4|1329604624983040|4",
+          "5|1329604624983040|5"
+        ]
+      },
+      "gt_pose": [
+        [
+          -0.048820487389616765,
+          -0.9974336374824418,
+          -0.052370785202416975,
+          -77.79219298471533
+        ],
+        [
+          0.9965855420074926,
+          -0.045149329565860596,
+          -0.06912883930324529,
+          -336.1198627482742
+        ],
+        [
+          0.06658692349219912,
+          -0.055566871239599365,
+          0.9962321539739372,
+          8.251122510459982
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604636982984",
+      "before": [
+        0.11126144058586708,
+        0.6867309780026083
+      ],
+      "after": [
+        0.11126144058586708,
+        0.6867309780026083
+      ],
+      "candidate_after": [
+        0.11126144058586708,
+        0.6867309780026083
+      ],
+      "delta": [
+        0.0,
+        0.0
+      ],
+      "candidate_delta": [
+        0.0,
+        0.0
+      ],
+      "leader_success": true,
+      "n_correspondences": 25,
+      "n_cameras": 3,
+      "overlap_mean": 0.7188408386707306,
+      "per_camera_correspondences": [
+        0,
+        18,
+        0,
+        0,
+        6,
+        1
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_observations": 1115,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 73,
+            "in_image": 73,
+            "mask": 73,
+            "nonblack": 73,
+            "observation_projection": 73,
+            "local": 2,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:5": 16,
+            "1329601399402470:3": 15
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              5
+            ],
+            [
+              "1329601399402470",
+              3
+            ]
+          ]
+        },
+        {
+          "camera": 1,
+          "visible_observations": 1377,
+          "reference_images": 2,
+          "raw_candidates": 18,
+          "accepted": 18,
+          "stages": {
+            "finite": 51,
+            "in_image": 51,
+            "mask": 51,
+            "nonblack": 51,
+            "observation_projection": 51,
+            "local": 20,
+            "overlap": 18
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601391402635:4": 24,
+            "1329601395002495:3": 19
+          },
+          "reference_pairs": [
+            [
+              "1329601391402635",
+              4
+            ],
+            [
+              "1329601395002495",
+              3
+            ]
+          ]
+        },
+        {
+          "camera": 2,
+          "visible_observations": 597,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 50,
+            "in_image": 50,
+            "mask": 50,
+            "nonblack": 33,
+            "observation_projection": 33,
+            "local": 1,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601391402635:5": 25,
+            "1329601387002543:5": 22
+          },
+          "reference_pairs": [
+            [
+              "1329601391402635",
+              5
+            ],
+            [
+              "1329601387002543",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 3,
+          "visible_observations": 680,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 36,
+            "in_image": 36,
+            "mask": 36,
+            "nonblack": 28,
+            "observation_projection": 28,
+            "local": 0,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601395002495:5": 19,
+            "1329601399402470:3": 15
+          },
+          "reference_pairs": [
+            [
+              "1329601395002495",
+              5
+            ],
+            [
+              "1329601399402470",
+              3
+            ]
+          ]
+        },
+        {
+          "camera": 4,
+          "visible_observations": 893,
+          "reference_images": 2,
+          "raw_candidates": 10,
+          "accepted": 6,
+          "stages": {
+            "finite": 39,
+            "in_image": 39,
+            "mask": 38,
+            "nonblack": 37,
+            "observation_projection": 37,
+            "local": 16,
+            "overlap": 10
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604624983040:4": 21,
+            "1329604624983040:5": 18
+          },
+          "reference_pairs": [
+            [
+              "1329604624983040",
+              4
+            ],
+            [
+              "1329604624983040",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 5,
+          "visible_observations": 1590,
+          "reference_images": 2,
+          "raw_candidates": 1,
+          "accepted": 1,
+          "stages": {
+            "finite": 53,
+            "in_image": 53,
+            "mask": 53,
+            "nonblack": 53,
+            "observation_projection": 53,
+            "local": 6,
+            "overlap": 1
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604623583040:5": 29,
+            "1329604624983040:5": 24
+          },
+          "reference_pairs": [
+            [
+              "1329604623583040",
+              5
+            ],
+            [
+              "1329604624983040",
+              5
+            ]
+          ]
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": -1,
+        "nfev": 0,
+        "cost": NaN,
+        "whitened_residual_rmse": NaN,
+        "irls_iterations": 0
+      },
+      "baseline_support": 276,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          43.94468369012261,
+          9.523578458704506,
+          8.183844658587534
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          3.375153012481671,
+          0.7198263664284312,
+          0.5669882027230496
+        ],
+        "mean_depth_m": 15.009756623625055,
+        "point_spread_m": 9.14069818926305
+      },
+      "leader_pose": [
+        [
+          -0.1321910321712494,
+          -0.9901930093765259,
+          -0.045211151242256165,
+          -77.85937118530273
+        ],
+        [
+          0.9879568219184875,
+          -0.12791739404201508,
+          -0.087059885263443,
+          -334.99739837646484
+        ],
+        [
+          0.08042293787002563,
+          -0.05617550015449524,
+          0.9951776266098022,
+          8.348388671875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "candidate_pose": [
+        [
+          -0.1321910321712494,
+          -0.9901930093765259,
+          -0.045211151242256165,
+          -77.85937118530273
+        ],
+        [
+          0.9879568219184875,
+          -0.12791739404201508,
+          -0.087059885263443,
+          -334.99739837646484
+        ],
+        [
+          0.08042293787002563,
+          -0.05617550015449524,
+          0.9951776266098022,
+          8.348388671875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.1321910321712494,
+          -0.9901930093765259,
+          -0.045211151242256165,
+          -77.85937118530273
+        ],
+        [
+          0.9879568219184875,
+          -0.12791739404201508,
+          -0.087059885263443,
+          -334.99739837646484
+        ],
+        [
+          0.08042293787002563,
+          -0.05617550015449524,
+          0.9951776266098022,
+          8.348388671875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "acceptance": {
+        "accepted": false,
+        "reason": "insufficient_correspondences",
+        "fit_correspondences": 13,
+        "holdout_correspondences": 12,
+        "holdout_cost_before": NaN,
+        "holdout_cost_candidate": NaN,
+        "correction_translation_m": NaN,
+        "correction_rotation_deg": NaN,
+        "fit_groups": 3,
+        "holdout_groups": 2,
+        "holdout_group_ids": [
+          "1|1329601391402635|4",
+          "4|1329604624983040|4"
+        ]
+      },
+      "gt_pose": [
+        [
+          -0.1263023798801917,
+          -0.9906600746263683,
+          -0.051384089412054315,
+          -77.90986718502772
+        ],
+        [
+          0.988070941485638,
+          -0.12103339229039563,
+          -0.09521939723867945,
+          -335.0143664709323
+        ],
+        [
+          0.08811086544681573,
+          -0.06279756184159059,
+          0.9941292381224446,
+          8.250708858488817
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604637982961",
+      "before": [
+        0.05572891427378841,
+        0.30889941366251994
+      ],
+      "after": [
+        0.05572891427378841,
+        0.30889941366251994
+      ],
+      "candidate_after": [
+        0.05572891427378841,
+        0.30889941366251994
+      ],
+      "delta": [
+        0.0,
+        0.0
+      ],
+      "candidate_delta": [
+        0.0,
+        0.0
+      ],
+      "leader_success": true,
+      "n_correspondences": 32,
+      "n_cameras": 6,
+      "overlap_mean": 0.534153776243329,
+      "per_camera_correspondences": [
+        2,
+        11,
+        10,
+        1,
+        5,
+        3
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_observations": 1001,
+          "reference_images": 2,
+          "raw_candidates": 2,
+          "accepted": 2,
+          "stages": {
+            "finite": 62,
+            "in_image": 62,
+            "mask": 62,
+            "nonblack": 62,
+            "observation_projection": 62,
+            "local": 3,
+            "overlap": 2
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:5": 18,
+            "1329601390002526:5": 15
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              5
+            ],
+            [
+              "1329601390002526",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 1,
+          "visible_observations": 1746,
+          "reference_images": 2,
+          "raw_candidates": 11,
+          "accepted": 11,
+          "stages": {
+            "finite": 87,
+            "in_image": 87,
+            "mask": 87,
+            "nonblack": 87,
+            "observation_projection": 87,
+            "local": 16,
+            "overlap": 11
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601396402539:3": 37,
+            "1329601393402503:4": 35
+          },
+          "reference_pairs": [
+            [
+              "1329601396402539",
+              3
+            ],
+            [
+              "1329601393402503",
+              4
+            ]
+          ]
+        },
+        {
+          "camera": 2,
+          "visible_observations": 919,
+          "reference_images": 2,
+          "raw_candidates": 10,
+          "accepted": 10,
+          "stages": {
+            "finite": 73,
+            "in_image": 73,
+            "mask": 73,
+            "nonblack": 70,
+            "observation_projection": 70,
+            "local": 23,
+            "overlap": 10
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601390002526:5": 38,
+            "1329601398002477:3": 34
+          },
+          "reference_pairs": [
+            [
+              "1329601390002526",
+              5
+            ],
+            [
+              "1329601398002477",
+              3
+            ]
+          ]
+        },
+        {
+          "camera": 3,
+          "visible_observations": 538,
+          "reference_images": 2,
+          "raw_candidates": 1,
+          "accepted": 1,
+          "stages": {
+            "finite": 29,
+            "in_image": 29,
+            "mask": 29,
+            "nonblack": 26,
+            "observation_projection": 26,
+            "local": 1,
+            "overlap": 1
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601395002495:5": 16,
+            "1329601391402635:1": 12
+          },
+          "reference_pairs": [
+            [
+              "1329601395002495",
+              5
+            ],
+            [
+              "1329601391402635",
+              1
+            ]
+          ]
+        },
+        {
+          "camera": 4,
+          "visible_observations": 1131,
+          "reference_images": 2,
+          "raw_candidates": 5,
+          "accepted": 5,
+          "stages": {
+            "finite": 34,
+            "in_image": 34,
+            "mask": 34,
+            "nonblack": 33,
+            "observation_projection": 33,
+            "local": 8,
+            "overlap": 5
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604621983066:5": 10,
+            "1329604624983040:5": 10
+          },
+          "reference_pairs": [
+            [
+              "1329604621983066",
+              5
+            ],
+            [
+              "1329604624983040",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 5,
+          "visible_observations": 1576,
+          "reference_images": 2,
+          "raw_candidates": 3,
+          "accepted": 3,
+          "stages": {
+            "finite": 38,
+            "in_image": 38,
+            "mask": 38,
+            "nonblack": 38,
+            "observation_projection": 38,
+            "local": 9,
+            "overlap": 3
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601398002477:1": 21,
+            "1329604624983040:5": 17
+          },
+          "reference_pairs": [
+            [
+              "1329601398002477",
+              1
+            ],
+            [
+              "1329604624983040",
+              5
+            ]
+          ]
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": -1,
+        "nfev": 0,
+        "cost": NaN,
+        "whitened_residual_rmse": NaN,
+        "irls_iterations": 0
+      },
+      "baseline_support": 478,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          64.27320398141246,
+          31.39776975891976,
+          17.5487024775779
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          4.14151958921649,
+          2.2408811044684,
+          1.3774056305326383
+        ],
+        "mean_depth_m": 13.33702798274193,
+        "point_spread_m": 13.020202636812314
+      },
+      "leader_pose": [
+        [
+          0.005976643413305283,
+          -0.9985235929489136,
+          -0.05398605763912201,
+          -78.06070899963379
+        ],
+        [
+          0.9999397397041321,
+          0.006461046636104584,
+          -0.008802711963653564,
+          -333.60547256469727
+        ],
+        [
+          0.009138375520706177,
+          -0.05392996966838837,
+          0.9985018968582153,
+          8.287155151367188
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "candidate_pose": [
+        [
+          0.005976643413305283,
+          -0.9985235929489136,
+          -0.05398605763912201,
+          -78.06070899963379
+        ],
+        [
+          0.9999397397041321,
+          0.006461046636104584,
+          -0.008802711963653564,
+          -333.60547256469727
+        ],
+        [
+          0.009138375520706177,
+          -0.05392996966838837,
+          0.9985018968582153,
+          8.287155151367188
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.005976643413305283,
+          -0.9985235929489136,
+          -0.05398605763912201,
+          -78.06070899963379
+        ],
+        [
+          0.9999397397041321,
+          0.006461046636104584,
+          -0.008802711963653564,
+          -333.60547256469727
+        ],
+        [
+          0.009138375520706177,
+          -0.05392996966838837,
+          0.9985018968582153,
+          8.287155151367188
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "acceptance": {
+        "accepted": false,
+        "reason": "insufficient_correspondences",
+        "fit_correspondences": 25,
+        "holdout_correspondences": 7,
+        "holdout_cost_before": NaN,
+        "holdout_cost_candidate": NaN,
+        "correction_translation_m": NaN,
+        "correction_rotation_deg": NaN,
+        "fit_groups": 7,
+        "holdout_groups": 1,
+        "holdout_group_ids": [
+          "1|1329601396402539|3"
+        ]
+      },
+      "gt_pose": [
+        [
+          0.0056603982466154005,
+          -0.998434536942008,
+          -0.055645634049715,
+          -78.00918560196122
+        ],
+        [
+          0.999975100195334,
+          0.005886079516776129,
+          -0.0038926352415008625,
+          -333.5846795035613
+        ],
+        [
+          0.0042140765246955515,
+          -0.05562221377638229,
+          0.9984429931748661,
+          8.291479499526764
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604639582940",
+      "before": [
+        0.18684873885559802,
+        0.6900083903012518
+      ],
+      "after": [
+        0.18684873885559802,
+        0.6900083903012518
+      ],
+      "candidate_after": [
+        0.18684873885559802,
+        0.6900083903012518
+      ],
+      "delta": [
+        0.0,
+        0.0
+      ],
+      "candidate_delta": [
+        0.0,
+        0.0
+      ],
+      "leader_success": true,
+      "n_correspondences": 41,
+      "n_cameras": 6,
+      "overlap_mean": 0.4819156512981508,
+      "per_camera_correspondences": [
+        2,
+        16,
+        3,
+        1,
+        9,
+        10
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_observations": 1003,
+          "reference_images": 2,
+          "raw_candidates": 2,
+          "accepted": 2,
+          "stages": {
+            "finite": 62,
+            "in_image": 62,
+            "mask": 61,
+            "nonblack": 61,
+            "observation_projection": 61,
+            "local": 2,
+            "overlap": 2
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:5": 30,
+            "1329601399402470:3": 21
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              5
+            ],
+            [
+              "1329601399402470",
+              3
+            ]
+          ]
+        },
+        {
+          "camera": 1,
+          "visible_observations": 1853,
+          "reference_images": 2,
+          "raw_candidates": 16,
+          "accepted": 16,
+          "stages": {
+            "finite": 113,
+            "in_image": 113,
+            "mask": 113,
+            "nonblack": 113,
+            "observation_projection": 113,
+            "local": 23,
+            "overlap": 16
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:4": 59,
+            "1329601396402539:3": 53
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              4
+            ],
+            [
+              "1329601396402539",
+              3
+            ]
+          ]
+        },
+        {
+          "camera": 2,
+          "visible_observations": 1282,
+          "reference_images": 2,
+          "raw_candidates": 3,
+          "accepted": 3,
+          "stages": {
+            "finite": 96,
+            "in_image": 96,
+            "mask": 96,
+            "nonblack": 95,
+            "observation_projection": 95,
+            "local": 15,
+            "overlap": 3
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601391402635:5": 44,
+            "1329601390002526:5": 43
+          },
+          "reference_pairs": [
+            [
+              "1329601391402635",
+              5
+            ],
+            [
+              "1329601390002526",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 3,
+          "visible_observations": 737,
+          "reference_images": 2,
+          "raw_candidates": 1,
+          "accepted": 1,
+          "stages": {
+            "finite": 71,
+            "in_image": 71,
+            "mask": 71,
+            "nonblack": 69,
+            "observation_projection": 69,
+            "local": 4,
+            "overlap": 1
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601395002495:5": 38,
+            "1329601399402470:3": 31
+          },
+          "reference_pairs": [
+            [
+              "1329601395002495",
+              5
+            ],
+            [
+              "1329601399402470",
+              3
+            ]
+          ]
+        },
+        {
+          "camera": 4,
+          "visible_observations": 1287,
+          "reference_images": 2,
+          "raw_candidates": 9,
+          "accepted": 9,
+          "stages": {
+            "finite": 91,
+            "in_image": 91,
+            "mask": 90,
+            "nonblack": 90,
+            "observation_projection": 90,
+            "local": 11,
+            "overlap": 9
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:1": 26,
+            "1329601395002495:5": 24
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              1
+            ],
+            [
+              "1329601395002495",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 5,
+          "visible_observations": 1496,
+          "reference_images": 2,
+          "raw_candidates": 10,
+          "accepted": 10,
+          "stages": {
+            "finite": 43,
+            "in_image": 43,
+            "mask": 43,
+            "nonblack": 43,
+            "observation_projection": 43,
+            "local": 21,
+            "overlap": 10
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601399402470:1": 22,
+            "1329601398002477:1": 21
+          },
+          "reference_pairs": [
+            [
+              "1329601399402470",
+              1
+            ],
+            [
+              "1329601398002477",
+              1
+            ]
+          ]
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": -1,
+        "nfev": 0,
+        "cost": NaN,
+        "whitened_residual_rmse": NaN,
+        "irls_iterations": 0
+      },
+      "baseline_support": 546,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          75.3156623984039,
+          44.30580770446423,
+          16.020420571261152
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          4.8875838538763405,
+          2.55887070588054,
+          1.2296796638768253
+        ],
+        "mean_depth_m": 14.506434303437963,
+        "point_spread_m": 13.874091905361746
+      },
+      "leader_pose": [
+        [
+          0.13270974159240723,
+          -0.9903501272201538,
+          -0.03993189334869385,
+          -77.66506958007812
+        ],
+        [
+          0.9907200336456299,
+          0.13135191798210144,
+          0.034934937953948975,
+          -331.38605880737305
+        ],
+        [
+          -0.029352471232414246,
+          -0.04419770836830139,
+          0.9985913634300232,
+          8.434646606445312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "candidate_pose": [
+        [
+          0.13270974159240723,
+          -0.9903501272201538,
+          -0.03993189334869385,
+          -77.66506958007812
+        ],
+        [
+          0.9907200336456299,
+          0.13135191798210144,
+          0.034934937953948975,
+          -331.38605880737305
+        ],
+        [
+          -0.029352471232414246,
+          -0.04419770836830139,
+          0.9985913634300232,
+          8.434646606445312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.13270974159240723,
+          -0.9903501272201538,
+          -0.03993189334869385,
+          -77.66506958007812
+        ],
+        [
+          0.9907200336456299,
+          0.13135191798210144,
+          0.034934937953948975,
+          -331.38605880737305
+        ],
+        [
+          -0.029352471232414246,
+          -0.04419770836830139,
+          0.9985913634300232,
+          8.434646606445312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "acceptance": {
+        "accepted": false,
+        "reason": "insufficient_correspondences",
+        "fit_correspondences": 30,
+        "holdout_correspondences": 11,
+        "holdout_cost_before": NaN,
+        "holdout_cost_candidate": NaN,
+        "correction_translation_m": NaN,
+        "correction_rotation_deg": NaN,
+        "fit_groups": 8,
+        "holdout_groups": 1,
+        "holdout_group_ids": [
+          "1|1329601396402539|3"
+        ]
+      },
+      "gt_pose": [
+        [
+          0.14099502149190823,
+          -0.9893417062890433,
+          -0.036378460997433484,
+          -77.7707802688915
+        ],
+        [
+          0.9897663833281363,
+          0.14004944613016465,
+          0.027361621665214022,
+          -331.23507916616694
+        ],
+        [
+          -0.021975210915430473,
+          -0.039864030044524205,
+          0.9989634378931966,
+          8.403940753195407
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604640582945",
+      "before": [
+        0.01621402074730877,
+        0.774870192965072
+      ],
+      "after": [
+        0.01621402074730877,
+        0.774870192965072
+      ],
+      "candidate_after": [
+        0.01621402074730877,
+        0.774870192965072
+      ],
+      "delta": [
+        0.0,
+        0.0
+      ],
+      "candidate_delta": [
+        0.0,
+        0.0
+      ],
+      "leader_success": true,
+      "n_correspondences": 92,
+      "n_cameras": 6,
+      "overlap_mean": 0.6263047981521358,
+      "per_camera_correspondences": [
+        11,
+        11,
+        29,
+        18,
+        17,
+        6
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_observations": 1127,
+          "reference_images": 2,
+          "raw_candidates": 11,
+          "accepted": 11,
+          "stages": {
+            "finite": 68,
+            "in_image": 68,
+            "mask": 68,
+            "nonblack": 68,
+            "observation_projection": 68,
+            "local": 13,
+            "overlap": 11
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:5": 40,
+            "1329601399402470:3": 28
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              5
+            ],
+            [
+              "1329601399402470",
+              3
+            ]
+          ]
+        },
+        {
+          "camera": 1,
+          "visible_observations": 1739,
+          "reference_images": 2,
+          "raw_candidates": 11,
+          "accepted": 11,
+          "stages": {
+            "finite": 99,
+            "in_image": 99,
+            "mask": 99,
+            "nonblack": 97,
+            "observation_projection": 97,
+            "local": 23,
+            "overlap": 11
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:4": 51,
+            "1329601396402539:3": 48
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              4
+            ],
+            [
+              "1329601396402539",
+              3
+            ]
+          ]
+        },
+        {
+          "camera": 2,
+          "visible_observations": 1406,
+          "reference_images": 2,
+          "raw_candidates": 30,
+          "accepted": 29,
+          "stages": {
+            "finite": 117,
+            "in_image": 117,
+            "mask": 116,
+            "nonblack": 115,
+            "observation_projection": 115,
+            "local": 46,
+            "overlap": 30
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601390002526:5": 59,
+            "1329601391402635:5": 56
+          },
+          "reference_pairs": [
+            [
+              "1329601390002526",
+              5
+            ],
+            [
+              "1329601391402635",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 3,
+          "visible_observations": 919,
+          "reference_images": 2,
+          "raw_candidates": 18,
+          "accepted": 18,
+          "stages": {
+            "finite": 86,
+            "in_image": 86,
+            "mask": 85,
+            "nonblack": 83,
+            "observation_projection": 83,
+            "local": 20,
+            "overlap": 18
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601395002495:5": 46,
+            "1329601393402503:5": 40
+          },
+          "reference_pairs": [
+            [
+              "1329601395002495",
+              5
+            ],
+            [
+              "1329601393402503",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 4,
+          "visible_observations": 1259,
+          "reference_images": 2,
+          "raw_candidates": 17,
+          "accepted": 17,
+          "stages": {
+            "finite": 90,
+            "in_image": 90,
+            "mask": 89,
+            "nonblack": 88,
+            "observation_projection": 88,
+            "local": 21,
+            "overlap": 17
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:1": 37,
+            "1329601398002477:5": 35
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              1
+            ],
+            [
+              "1329601398002477",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 5,
+          "visible_observations": 1557,
+          "reference_images": 2,
+          "raw_candidates": 9,
+          "accepted": 6,
+          "stages": {
+            "finite": 64,
+            "in_image": 64,
+            "mask": 64,
+            "nonblack": 64,
+            "observation_projection": 64,
+            "local": 23,
+            "overlap": 9
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601396402539:1": 35,
+            "1329601398002477:1": 28
+          },
+          "reference_pairs": [
+            [
+              "1329601396402539",
+              1
+            ],
+            [
+              "1329601398002477",
+              1
+            ]
+          ]
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": -1,
+        "nfev": 0,
+        "cost": NaN,
+        "whitened_residual_rmse": NaN,
+        "irls_iterations": 0
+      },
+      "baseline_support": 592,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          103.78004171337328,
+          52.72867739621872,
+          33.53926429861855
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          7.141978354812593,
+          5.022503294133596,
+          2.793766629613386
+        ],
+        "mean_depth_m": 11.57397875375054,
+        "point_spread_m": 12.629973289790938
+      },
+      "leader_pose": [
+        [
+          0.1283753514289856,
+          -0.9908795952796936,
+          -0.04095458984375,
+          -77.58290100097656
+        ],
+        [
+          0.9913269281387329,
+          0.12938512861728668,
+          -0.023022353649139404,
+          -329.9859809875488
+        ],
+        [
+          0.028111174702644348,
+          -0.03764379024505615,
+          0.9988954067230225,
+          8.452484130859375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "candidate_pose": [
+        [
+          0.1283753514289856,
+          -0.9908795952796936,
+          -0.04095458984375,
+          -77.58290100097656
+        ],
+        [
+          0.9913269281387329,
+          0.12938512861728668,
+          -0.023022353649139404,
+          -329.9859809875488
+        ],
+        [
+          0.028111174702644348,
+          -0.03764379024505615,
+          0.9988954067230225,
+          8.452484130859375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.1283753514289856,
+          -0.9908795952796936,
+          -0.04095458984375,
+          -77.58290100097656
+        ],
+        [
+          0.9913269281387329,
+          0.12938512861728668,
+          -0.023022353649139404,
+          -329.9859809875488
+        ],
+        [
+          0.028111174702644348,
+          -0.03764379024505615,
+          0.9988954067230225,
+          8.452484130859375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "acceptance": {
+        "accepted": false,
+        "reason": "insufficient_correspondences",
+        "fit_correspondences": 67,
+        "holdout_correspondences": 25,
+        "holdout_cost_before": NaN,
+        "holdout_cost_candidate": NaN,
+        "correction_translation_m": NaN,
+        "correction_rotation_deg": NaN,
+        "fit_groups": 10,
+        "holdout_groups": 2,
+        "holdout_group_ids": [
+          "1|1329601396402539|3",
+          "3|1329601395002495|5"
+        ]
+      },
+      "gt_pose": [
+        [
+          0.14165578777610868,
+          -0.9890400994647426,
+          -0.041633155092085726,
+          -77.58763771523265
+        ],
+        [
+          0.9895550875634936,
+          0.14261439739099682,
+          -0.021020563824763666,
+          -329.9991776131719
+        ],
+        [
+          0.026727667617005745,
+          -0.03822061538525941,
+          0.9989118155642893,
+          8.444341214980266
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604641982945",
+      "before": [
+        0.1114841763097653,
+        0.6392991255680329
+      ],
+      "after": [
+        0.1114841763097653,
+        0.6392991255680329
+      ],
+      "candidate_after": [
+        0.1114841763097653,
+        0.6392991255680329
+      ],
+      "delta": [
+        0.0,
+        0.0
+      ],
+      "candidate_delta": [
+        0.0,
+        0.0
+      ],
+      "leader_success": true,
+      "n_correspondences": 123,
+      "n_cameras": 6,
+      "overlap_mean": 0.632842217640179,
+      "per_camera_correspondences": [
+        6,
+        17,
+        57,
+        12,
+        14,
+        17
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_observations": 1228,
+          "reference_images": 2,
+          "raw_candidates": 7,
+          "accepted": 6,
+          "stages": {
+            "finite": 68,
+            "in_image": 68,
+            "mask": 68,
+            "nonblack": 67,
+            "observation_projection": 67,
+            "local": 9,
+            "overlap": 7
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:5": 34,
+            "1329601387002543:5": 30
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              5
+            ],
+            [
+              "1329601387002543",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 1,
+          "visible_observations": 1770,
+          "reference_images": 2,
+          "raw_candidates": 17,
+          "accepted": 17,
+          "stages": {
+            "finite": 113,
+            "in_image": 113,
+            "mask": 113,
+            "nonblack": 112,
+            "observation_projection": 112,
+            "local": 30,
+            "overlap": 17
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:4": 46,
+            "1329601388402532:4": 43
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              4
+            ],
+            [
+              "1329601388402532",
+              4
+            ]
+          ]
+        },
+        {
+          "camera": 2,
+          "visible_observations": 1642,
+          "reference_images": 2,
+          "raw_candidates": 57,
+          "accepted": 57,
+          "stages": {
+            "finite": 144,
+            "in_image": 144,
+            "mask": 143,
+            "nonblack": 141,
+            "observation_projection": 141,
+            "local": 72,
+            "overlap": 57
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601398002477:3": 69,
+            "1329601391402635:5": 68
+          },
+          "reference_pairs": [
+            [
+              "1329601398002477",
+              3
+            ],
+            [
+              "1329601391402635",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 3,
+          "visible_observations": 1115,
+          "reference_images": 2,
+          "raw_candidates": 12,
+          "accepted": 12,
+          "stages": {
+            "finite": 100,
+            "in_image": 100,
+            "mask": 100,
+            "nonblack": 96,
+            "observation_projection": 96,
+            "local": 15,
+            "overlap": 12
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601395002495:5": 53,
+            "1329601391402635:1": 45
+          },
+          "reference_pairs": [
+            [
+              "1329601395002495",
+              5
+            ],
+            [
+              "1329601391402635",
+              1
+            ]
+          ]
+        },
+        {
+          "camera": 4,
+          "visible_observations": 1330,
+          "reference_images": 2,
+          "raw_candidates": 15,
+          "accepted": 14,
+          "stages": {
+            "finite": 98,
+            "in_image": 98,
+            "mask": 96,
+            "nonblack": 95,
+            "observation_projection": 95,
+            "local": 21,
+            "overlap": 15
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601398002477:5": 54,
+            "1329601393402503:1": 44
+          },
+          "reference_pairs": [
+            [
+              "1329601398002477",
+              5
+            ],
+            [
+              "1329601393402503",
+              1
+            ]
+          ]
+        },
+        {
+          "camera": 5,
+          "visible_observations": 1588,
+          "reference_images": 2,
+          "raw_candidates": 18,
+          "accepted": 17,
+          "stages": {
+            "finite": 80,
+            "in_image": 80,
+            "mask": 80,
+            "nonblack": 78,
+            "observation_projection": 78,
+            "local": 39,
+            "overlap": 18
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601396402539:1": 44,
+            "1329601398002477:1": 36
+          },
+          "reference_pairs": [
+            [
+              "1329601396402539",
+              1
+            ],
+            [
+              "1329601398002477",
+              1
+            ]
+          ]
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": -1,
+        "nfev": 0,
+        "cost": NaN,
+        "whitened_residual_rmse": NaN,
+        "irls_iterations": 0
+      },
+      "baseline_support": 633,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          120.10224766335911,
+          67.43165068342488,
+          43.8899491768514
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          8.493829043320929,
+          5.392585349215594,
+          2.8986875115685735
+        ],
+        "mean_depth_m": 12.734122586126452,
+        "point_spread_m": 13.034633368228553
+      },
+      "leader_pose": [
+        [
+          0.09954918175935745,
+          -0.9944483041763306,
+          -0.034099116921424866,
+          -77.3676815032959
+        ],
+        [
+          0.9945564866065979,
+          0.10050342231988907,
+          -0.02751097083091736,
+          -328.2321319580078
+        ],
+        [
+          0.0307854562997818,
+          -0.0311749130487442,
+          0.9990399479866028,
+          8.491668701171875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "candidate_pose": [
+        [
+          0.09954918175935745,
+          -0.9944483041763306,
+          -0.034099116921424866,
+          -77.3676815032959
+        ],
+        [
+          0.9945564866065979,
+          0.10050342231988907,
+          -0.02751097083091736,
+          -328.2321319580078
+        ],
+        [
+          0.0307854562997818,
+          -0.0311749130487442,
+          0.9990399479866028,
+          8.491668701171875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.09954918175935745,
+          -0.9944483041763306,
+          -0.034099116921424866,
+          -77.3676815032959
+        ],
+        [
+          0.9945564866065979,
+          0.10050342231988907,
+          -0.02751097083091736,
+          -328.2321319580078
+        ],
+        [
+          0.0307854562997818,
+          -0.0311749130487442,
+          0.9990399479866028,
+          8.491668701171875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "acceptance": {
+        "accepted": false,
+        "reason": "insufficient_correspondences",
+        "fit_correspondences": 96,
+        "holdout_correspondences": 27,
+        "holdout_cost_before": NaN,
+        "holdout_cost_candidate": NaN,
+        "correction_translation_m": NaN,
+        "correction_rotation_deg": NaN,
+        "fit_groups": 8,
+        "holdout_groups": 3,
+        "holdout_group_ids": [
+          "3|1329601395002495|5",
+          "4|1329601398002477|5",
+          "5|1329601396402539|1"
+        ]
+      },
+      "gt_pose": [
+        [
+          0.09717575635986389,
+          -0.99427146511689,
+          -0.04450983140035591,
+          -77.39874576071169
+        ],
+        [
+          0.9948585207443722,
+          0.09832019213147067,
+          -0.024283018613940326,
+          -328.1257510318349
+        ],
+        [
+          0.028520126645341044,
+          -0.041921264859647596,
+          0.9987137777735354,
+          8.503786127683618
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604642982934",
+      "before": [
+        0.08379775749073606,
+        1.0260628331528847
+      ],
+      "after": [
+        0.08379775749073606,
+        1.0260628331528847
+      ],
+      "candidate_after": [
+        0.08379775749073606,
+        1.0260628331528847
+      ],
+      "delta": [
+        0.0,
+        0.0
+      ],
+      "candidate_delta": [
+        0.0,
+        0.0
+      ],
+      "leader_success": true,
+      "n_correspondences": 223,
+      "n_cameras": 6,
+      "overlap_mean": 0.6659293042437378,
+      "per_camera_correspondences": [
+        9,
+        23,
+        38,
+        51,
+        77,
+        25
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_observations": 1261,
+          "reference_images": 2,
+          "raw_candidates": 9,
+          "accepted": 9,
+          "stages": {
+            "finite": 68,
+            "in_image": 68,
+            "mask": 67,
+            "nonblack": 67,
+            "observation_projection": 67,
+            "local": 9,
+            "overlap": 9
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601393402503:5": 34,
+            "1329601387002543:5": 27
+          },
+          "reference_pairs": [
+            [
+              "1329601393402503",
+              5
+            ],
+            [
+              "1329601387002543",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 1,
+          "visible_observations": 1744,
+          "reference_images": 2,
+          "raw_candidates": 25,
+          "accepted": 23,
+          "stages": {
+            "finite": 93,
+            "in_image": 93,
+            "mask": 93,
+            "nonblack": 92,
+            "observation_projection": 92,
+            "local": 38,
+            "overlap": 25
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601401402448:2": 44,
+            "1329601399402470:2": 43
+          },
+          "reference_pairs": [
+            [
+              "1329601401402448",
+              2
+            ],
+            [
+              "1329601399402470",
+              2
+            ]
+          ]
+        },
+        {
+          "camera": 2,
+          "visible_observations": 1761,
+          "reference_images": 2,
+          "raw_candidates": 39,
+          "accepted": 38,
+          "stages": {
+            "finite": 154,
+            "in_image": 154,
+            "mask": 154,
+            "nonblack": 152,
+            "observation_projection": 152,
+            "local": 46,
+            "overlap": 39
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601391402635:5": 83,
+            "1329601390002526:5": 70
+          },
+          "reference_pairs": [
+            [
+              "1329601391402635",
+              5
+            ],
+            [
+              "1329601390002526",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 3,
+          "visible_observations": 1229,
+          "reference_images": 2,
+          "raw_candidates": 51,
+          "accepted": 51,
+          "stages": {
+            "finite": 108,
+            "in_image": 108,
+            "mask": 108,
+            "nonblack": 104,
+            "observation_projection": 104,
+            "local": 59,
+            "overlap": 51
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601395002495:5": 56,
+            "1329601391402635:1": 52
+          },
+          "reference_pairs": [
+            [
+              "1329601395002495",
+              5
+            ],
+            [
+              "1329601391402635",
+              1
+            ]
+          ]
+        },
+        {
+          "camera": 4,
+          "visible_observations": 1485,
+          "reference_images": 2,
+          "raw_candidates": 77,
+          "accepted": 77,
+          "stages": {
+            "finite": 115,
+            "in_image": 115,
+            "mask": 114,
+            "nonblack": 113,
+            "observation_projection": 113,
+            "local": 92,
+            "overlap": 77
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601398002477:5": 63,
+            "1329601395002495:1": 52
+          },
+          "reference_pairs": [
+            [
+              "1329601398002477",
+              5
+            ],
+            [
+              "1329601395002495",
+              1
+            ]
+          ]
+        },
+        {
+          "camera": 5,
+          "visible_observations": 1644,
+          "reference_images": 2,
+          "raw_candidates": 28,
+          "accepted": 25,
+          "stages": {
+            "finite": 103,
+            "in_image": 103,
+            "mask": 103,
+            "nonblack": 102,
+            "observation_projection": 102,
+            "local": 58,
+            "overlap": 28
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601398002477:1": 55,
+            "1329601396402539:1": 48
+          },
+          "reference_pairs": [
+            [
+              "1329601398002477",
+              1
+            ],
+            [
+              "1329601396402539",
+              1
+            ]
+          ]
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": -1,
+        "nfev": 0,
+        "cost": NaN,
+        "whitened_residual_rmse": NaN,
+        "irls_iterations": 0
+      },
+      "baseline_support": 646,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          138.2113838646337,
+          90.66421073502629,
+          51.34177664417026
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          10.8458911068545,
+          8.585229533422618,
+          4.1335127329350145
+        ],
+        "mean_depth_m": 10.280552767023133,
+        "point_spread_m": 11.59061855195274
+      },
+      "leader_pose": [
+        [
+          0.10003720223903656,
+          -0.9945433735847473,
+          -0.02961103618144989,
+          -77.22927856445312
+        ],
+        [
+          0.9943857192993164,
+          0.10096415132284164,
+          -0.031684547662734985,
+          -326.7587585449219
+        ],
+        [
+          0.03450147807598114,
+          -0.026275262236595154,
+          0.9990598559379578,
+          8.4971923828125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "candidate_pose": [
+        [
+          0.10003720223903656,
+          -0.9945433735847473,
+          -0.02961103618144989,
+          -77.22927856445312
+        ],
+        [
+          0.9943857192993164,
+          0.10096415132284164,
+          -0.031684547662734985,
+          -326.7587585449219
+        ],
+        [
+          0.03450147807598114,
+          -0.026275262236595154,
+          0.9990598559379578,
+          8.4971923828125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.10003720223903656,
+          -0.9945433735847473,
+          -0.02961103618144989,
+          -77.22927856445312
+        ],
+        [
+          0.9943857192993164,
+          0.10096415132284164,
+          -0.031684547662734985,
+          -326.7587585449219
+        ],
+        [
+          0.03450147807598114,
+          -0.026275262236595154,
+          0.9990598559379578,
+          8.4971923828125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "acceptance": {
+        "accepted": false,
+        "reason": "insufficient_correspondences",
+        "fit_correspondences": 153,
+        "holdout_correspondences": 70,
+        "holdout_cost_before": NaN,
+        "holdout_cost_candidate": NaN,
+        "correction_translation_m": NaN,
+        "correction_rotation_deg": NaN,
+        "fit_groups": 10,
+        "holdout_groups": 2,
+        "holdout_group_ids": [
+          "3|1329601395002495|5",
+          "4|1329601398002477|5"
+        ]
+      },
+      "gt_pose": [
+        [
+          0.08220124449747442,
+          -0.9961965399326008,
+          -0.028903451366364418,
+          -77.25737186144902
+        ],
+        [
+          0.99604772880638,
+          0.08309886170048741,
+          -0.0313608240724254,
+          -326.6888563734567
+        ],
+        [
+          0.03364338768627918,
+          -0.026211318712318854,
+          0.9990901305449962,
+          8.533887304107283
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame_id": "1329604644582931",
+      "before": [
+        0.06560317191916139,
+        0.7854089372961987
+      ],
+      "after": [
+        0.06560317191916139,
+        0.7854089372961987
+      ],
+      "candidate_after": [
+        0.06560317191916139,
+        0.7854089372961987
+      ],
+      "delta": [
+        0.0,
+        0.0
+      ],
+      "candidate_delta": [
+        0.0,
+        0.0
+      ],
+      "leader_success": true,
+      "n_correspondences": 122,
+      "n_cameras": 5,
+      "overlap_mean": 0.752051624729008,
+      "per_camera_correspondences": [
+        0,
+        43,
+        35,
+        26,
+        7,
+        11
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_observations": 1251,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 51,
+            "in_image": 51,
+            "mask": 46,
+            "nonblack": 46,
+            "observation_projection": 46,
+            "local": 1,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601398002477:1": 27,
+            "1329601393402503:0": 24
+          },
+          "reference_pairs": [
+            [
+              "1329601398002477",
+              1
+            ],
+            [
+              "1329601393402503",
+              0
+            ]
+          ]
+        },
+        {
+          "camera": 1,
+          "visible_observations": 1827,
+          "reference_images": 2,
+          "raw_candidates": 43,
+          "accepted": 43,
+          "stages": {
+            "finite": 116,
+            "in_image": 116,
+            "mask": 116,
+            "nonblack": 115,
+            "observation_projection": 115,
+            "local": 49,
+            "overlap": 43
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601391402635:4": 51,
+            "1329601388402532:4": 50
+          },
+          "reference_pairs": [
+            [
+              "1329601391402635",
+              4
+            ],
+            [
+              "1329601388402532",
+              4
+            ]
+          ]
+        },
+        {
+          "camera": 2,
+          "visible_observations": 1794,
+          "reference_images": 2,
+          "raw_candidates": 35,
+          "accepted": 35,
+          "stages": {
+            "finite": 153,
+            "in_image": 153,
+            "mask": 151,
+            "nonblack": 151,
+            "observation_projection": 151,
+            "local": 47,
+            "overlap": 35
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601390002526:5": 78,
+            "1329601391402635:5": 75
+          },
+          "reference_pairs": [
+            [
+              "1329601390002526",
+              5
+            ],
+            [
+              "1329601391402635",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 3,
+          "visible_observations": 1493,
+          "reference_images": 2,
+          "raw_candidates": 26,
+          "accepted": 26,
+          "stages": {
+            "finite": 111,
+            "in_image": 111,
+            "mask": 110,
+            "nonblack": 108,
+            "observation_projection": 108,
+            "local": 30,
+            "overlap": 26
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601391402635:1": 62,
+            "1329601393402503:1": 49
+          },
+          "reference_pairs": [
+            [
+              "1329601391402635",
+              1
+            ],
+            [
+              "1329601393402503",
+              1
+            ]
+          ]
+        },
+        {
+          "camera": 4,
+          "visible_observations": 1679,
+          "reference_images": 2,
+          "raw_candidates": 7,
+          "accepted": 7,
+          "stages": {
+            "finite": 122,
+            "in_image": 122,
+            "mask": 120,
+            "nonblack": 120,
+            "observation_projection": 120,
+            "local": 9,
+            "overlap": 7
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601398002477:5": 62,
+            "1329601395002495:1": 60
+          },
+          "reference_pairs": [
+            [
+              "1329601398002477",
+              5
+            ],
+            [
+              "1329601395002495",
+              1
+            ]
+          ]
+        },
+        {
+          "camera": 5,
+          "visible_observations": 1712,
+          "reference_images": 2,
+          "raw_candidates": 11,
+          "accepted": 11,
+          "stages": {
+            "finite": 117,
+            "in_image": 117,
+            "mask": 116,
+            "nonblack": 115,
+            "observation_projection": 115,
+            "local": 19,
+            "overlap": 11
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601398002477:1": 63,
+            "1329601396402539:1": 54
+          },
+          "reference_pairs": [
+            [
+              "1329601398002477",
+              1
+            ],
+            [
+              "1329601396402539",
+              1
+            ]
+          ]
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": -1,
+        "nfev": 0,
+        "cost": NaN,
+        "whitened_residual_rmse": NaN,
+        "irls_iterations": 0
+      },
+      "baseline_support": 658,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          93.36307892557478,
+          79.93155506288787,
+          27.46775754654774
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          7.745556252794118,
+          6.6631993766723605,
+          2.314628057762847
+        ],
+        "mean_depth_m": 11.799465426392302,
+        "point_spread_m": 11.401824597251071
+      },
+      "leader_pose": [
+        [
+          0.16455896198749542,
+          -0.9852806925773621,
+          -0.046288371086120605,
+          -76.95561981201172
+        ],
+        [
+          0.9838958382606506,
+          0.16728565096855164,
+          -0.06296481937170029,
+          -324.6383247375488
+        ],
+        [
+          0.06978143006563187,
+          -0.035181522369384766,
+          0.9969421625137329,
+          8.5274658203125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "candidate_pose": [
+        [
+          0.16455896198749542,
+          -0.9852806925773621,
+          -0.046288371086120605,
+          -76.95561981201172
+        ],
+        [
+          0.9838958382606506,
+          0.16728565096855164,
+          -0.06296481937170029,
+          -324.6383247375488
+        ],
+        [
+          0.06978143006563187,
+          -0.035181522369384766,
+          0.9969421625137329,
+          8.5274658203125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          0.16455896198749542,
+          -0.9852806925773621,
+          -0.046288371086120605,
+          -76.95561981201172
+        ],
+        [
+          0.9838958382606506,
+          0.16728565096855164,
+          -0.06296481937170029,
+          -324.6383247375488
+        ],
+        [
+          0.06978143006563187,
+          -0.035181522369384766,
+          0.9969421625137329,
+          8.5274658203125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "acceptance": {
+        "accepted": false,
+        "reason": "insufficient_correspondences",
+        "fit_correspondences": 71,
+        "holdout_correspondences": 51,
+        "holdout_cost_before": NaN,
+        "holdout_cost_candidate": NaN,
+        "correction_translation_m": NaN,
+        "correction_rotation_deg": NaN,
+        "fit_groups": 4,
+        "holdout_groups": 5,
+        "holdout_group_ids": [
+          "1|1329601388402532|4",
+          "1|1329601391402635|4",
+          "3|1329601393402503|1",
+          "4|1329601395002495|1",
+          "4|1329601398002477|5"
+        ]
+      },
+      "gt_pose": [
+        [
+          0.17126044831408097,
+          -0.9835088956742026,
+          -0.058138724528095875,
+          -76.96013961015511
+        ],
+        [
+          0.9826294838166165,
+          0.17479270602400376,
+          -0.0623442599534837,
+          -324.57308968147714
+        ],
+        [
+          0.07147835981461668,
+          -0.04645171879203362,
+          0.9963599160954891,
+          8.532732227999158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "metrics": {
+    "all_before": {
+      "count": 8,
+      "mean_translation_m": 0.08742456475498565,
+      "median_translation_m": 0.0761280276741981,
+      "p90_translation_m": 0.13409354507351512,
+      "mean_rotation_deg": 0.7435802227396477,
+      "median_rotation_deg": 0.7324392916331619,
+      "p90_rotation_deg": 1.0294525564976034,
+      "success_1m_2deg": 8
+    },
+    "candidate_after": {
+      "count": 8,
+      "mean_translation_m": 0.08742456475498565,
+      "median_translation_m": 0.0761280276741981,
+      "p90_translation_m": 0.13409354507351512,
+      "mean_rotation_deg": 0.7435802227396477,
+      "median_rotation_deg": 0.7324392916331619,
+      "p90_rotation_deg": 1.0294525564976034,
+      "success_1m_2deg": 8
+    },
+    "all_after": {
+      "count": 8,
+      "mean_translation_m": 0.08742456475498565,
+      "median_translation_m": 0.0761280276741981,
+      "p90_translation_m": 0.13409354507351512,
+      "mean_rotation_deg": 0.7435802227396477,
+      "median_rotation_deg": 0.7324392916331619,
+      "p90_rotation_deg": 1.0294525564976034,
+      "success_1m_2deg": 8
+    },
+    "leader_success_before": {
+      "count": 8,
+      "mean_translation_m": 0.08742456475498565,
+      "median_translation_m": 0.0761280276741981,
+      "p90_translation_m": 0.13409354507351512,
+      "mean_rotation_deg": 0.7435802227396477,
+      "median_rotation_deg": 0.7324392916331619,
+      "p90_rotation_deg": 1.0294525564976034,
+      "success_1m_2deg": 8
+    },
+    "leader_success_after": {
+      "count": 8,
+      "mean_translation_m": 0.08742456475498565,
+      "median_translation_m": 0.0761280276741981,
+      "p90_translation_m": 0.13409354507351512,
+      "mean_rotation_deg": 0.7435802227396477,
+      "median_rotation_deg": 0.7324392916331619,
+      "p90_rotation_deg": 1.0294525564976034,
+      "success_1m_2deg": 8
+    }
+  },
+  "coverage": {
+    "translation_improved_frames": 0,
+    "rotation_improved_frames": 0,
+    "both_improved_frames": 0,
+    "accepted_candidates": 0,
+    "median_correspondences_per_frame": 66.5,
+    "median_active_cameras_per_frame": 6.0,
+    "mean_active_cameras_per_frame": 5.0
+  },
+  "gate_diagnostics_train_only": null,
+  "paired": {
+    "all_mean_delta_translation_m_rotation_deg": [
+      0.0,
+      0.0
+    ],
+    "all_bootstrap_95ci": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "leader_success_mean_delta_translation_m_rotation_deg": [
+      0.0,
+      0.0
+    ],
+    "leader_success_bootstrap_95ci": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ]
+  },
+  "elapsed_s": 456.48787784576416
+}

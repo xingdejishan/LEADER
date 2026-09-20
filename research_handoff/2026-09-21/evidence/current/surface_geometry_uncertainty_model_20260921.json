@@ -1,0 +1,3221 @@
+{
+  "parameterization": [
+    "normal_x",
+    "normal_y",
+    "normal_z",
+    "local_plane_offset_m"
+  ],
+  "parameter_covariance": [
+    [
+      2.017441736305738e-05,
+      9.693639278579602e-06,
+      4.9836784932816e-07,
+      -1.0989900493473595e-05
+    ],
+    [
+      9.693639278579602e-06,
+      9.872485515516838e-05,
+      -2.042908453469376e-07,
+      -0.00012402667812900193
+    ],
+    [
+      4.9836784932816e-07,
+      -2.042908453469376e-07,
+      1.8351651048361494e-08,
+      -2.1136215574815476e-07
+    ],
+    [
+      -1.0989900493473595e-05,
+      -0.0001240266781290019,
+      -2.1136215574815476e-07,
+      0.000220885212709661
+    ]
+  ],
+  "parameter_steps": [
+    0.0001,
+    0.0001,
+    0.0001,
+    0.001
+  ],
+  "weak_visual_scale": 0.9274505564533074,
+  "weak_visual_scale_rule": "median train-only sqrt(trace(J_pose^T W^T W J_pose) / trace(J_pose^T J_pose))",
+  "training_only": true,
+  "query_gt_used": false,
+  "ratio_count": 12189,
+  "ratio_median": 0.9988627079169297,
+  "ratio_p10": 0.9801590743213007,
+  "ratio_p90": 0.9999927835669075,
+  "information_ratio_count": 12185,
+  "information_ratio_p10": 0.6062500521619965,
+  "information_ratio_median": 0.9274505564533074,
+  "information_ratio_p90": 0.9997469708559398,
+  "covariance_diagnostics": {
+    "sampled_anchors": 12000,
+    "usable_anchors": 59,
+    "frame_count_median": 4.0,
+    "frame_count_p10": 3.0,
+    "frame_count_p90": 6.0
+  },
+  "parameters": {
+    "manifest": "/home/zhang/leader-image-gate-multicamera/all_views.json",
+    "online_cache": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/official_irls_cache_20260921",
+    "reference_lidar_cache": "/home/zhang/leader-image-gate/lidar",
+    "projection_cache": "/home/zhang/leader-image-gate/projection_audit/mapping",
+    "map_cache": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/official_surface_reference_20260921.npz",
+    "full_pool": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/glace-local/code/tools/full_pool_robust_v1.py",
+    "device": "cuda",
+    "seed": 2089,
+    "train_frames": 0,
+    "sample_count": 12000,
+    "uncertainty_radius": 1.2,
+    "min_plane_neighbors": 8,
+    "map_voxel_size": 0.2,
+    "surface_voxel_size": 0.2,
+    "crop_radius": 80.0,
+    "min_view_cosine": 0.7,
+    "plane_radius": 0.8,
+    "patch_size": 8,
+    "max_patches_per_camera": 48,
+    "grid_cell": 32,
+    "min_contrast": 0.03
+  },
+  "manifest_sha256": "a7008599fa2349d262745cec4ee80a568608b073f0782d15b4df407524c92e90",
+  "frames": [
+    {
+      "frame_id": "1329601360002721",
+      "patch_count": 164,
+      "ratio_count": 164,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 3,
+          "grid_cells": 2,
+          "selected": 2,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 85,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 37,
+          "grid_cells": 21,
+          "selected": 21,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 108,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 506,
+          "grid_cells": 42,
+          "selected": 42,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 845,
+          "grid_cells": 29,
+          "selected": 29,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601361402708",
+      "patch_count": 180,
+      "ratio_count": 180,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 3,
+          "grid_cells": 3,
+          "selected": 3,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 80,
+          "grid_cells": 34,
+          "selected": 34,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 77,
+          "grid_cells": 31,
+          "selected": 31,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 149,
+          "grid_cells": 40,
+          "selected": 40,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 337,
+          "grid_cells": 39,
+          "selected": 39,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 948,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601363002701",
+      "patch_count": 189,
+      "ratio_count": 189,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 80,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 94,
+          "grid_cells": 34,
+          "selected": 34,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 206,
+          "grid_cells": 45,
+          "selected": 45,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 413,
+          "grid_cells": 40,
+          "selected": 40,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 959,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601365002688",
+      "patch_count": 204,
+      "ratio_count": 204,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 80,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 116,
+          "grid_cells": 31,
+          "selected": 31,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 293,
+          "grid_cells": 61,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 588,
+          "grid_cells": 57,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 926,
+          "grid_cells": 44,
+          "selected": 44,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601366402682",
+      "patch_count": 214,
+      "ratio_count": 214,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 3,
+          "grid_cells": 2,
+          "selected": 2,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 79,
+          "grid_cells": 39,
+          "selected": 39,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 125,
+          "grid_cells": 36,
+          "selected": 36,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 323,
+          "grid_cells": 59,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 646,
+          "grid_cells": 61,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 695,
+          "grid_cells": 41,
+          "selected": 41,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601368002667",
+      "patch_count": 215,
+      "ratio_count": 215,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 4,
+          "grid_cells": 4,
+          "selected": 4,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 46,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 170,
+          "grid_cells": 40,
+          "selected": 40,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 391,
+          "grid_cells": 62,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 559,
+          "grid_cells": 75,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 968,
+          "grid_cells": 54,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601369402661",
+      "patch_count": 215,
+      "ratio_count": 215,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 6,
+          "grid_cells": 6,
+          "selected": 6,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 27,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 204,
+          "grid_cells": 47,
+          "selected": 47,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 427,
+          "grid_cells": 62,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 468,
+          "grid_cells": 75,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 967,
+          "grid_cells": 55,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601371002903",
+      "patch_count": 211,
+      "ratio_count": 211,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 9,
+          "grid_cells": 7,
+          "selected": 7,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 18,
+          "grid_cells": 12,
+          "selected": 12,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 217,
+          "grid_cells": 48,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 479,
+          "grid_cells": 60,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 337,
+          "grid_cells": 81,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 959,
+          "grid_cells": 68,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601372402637",
+      "patch_count": 207,
+      "ratio_count": 207,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 12,
+          "grid_cells": 12,
+          "selected": 12,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 18,
+          "grid_cells": 11,
+          "selected": 11,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 238,
+          "grid_cells": 40,
+          "selected": 40,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 568,
+          "grid_cells": 63,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 359,
+          "grid_cells": 85,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 928,
+          "grid_cells": 66,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601374402652",
+      "patch_count": 211,
+      "ratio_count": 211,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 15,
+          "grid_cells": 14,
+          "selected": 14,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 15,
+          "grid_cells": 12,
+          "selected": 12,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 261,
+          "grid_cells": 41,
+          "selected": 41,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 656,
+          "grid_cells": 62,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 371,
+          "grid_cells": 84,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 887,
+          "grid_cells": 70,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601376002616",
+      "patch_count": 216,
+      "ratio_count": 216,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 19,
+          "grid_cells": 15,
+          "selected": 15,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 17,
+          "grid_cells": 14,
+          "selected": 14,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 278,
+          "grid_cells": 43,
+          "selected": 43,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 703,
+          "grid_cells": 59,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 392,
+          "grid_cells": 84,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 841,
+          "grid_cells": 66,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601377402601",
+      "patch_count": 215,
+      "ratio_count": 215,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 18,
+          "grid_cells": 13,
+          "selected": 13,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 15,
+          "grid_cells": 12,
+          "selected": 12,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 301,
+          "grid_cells": 46,
+          "selected": 46,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 758,
+          "grid_cells": 80,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 430,
+          "grid_cells": 88,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 790,
+          "grid_cells": 70,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601379002599",
+      "patch_count": 213,
+      "ratio_count": 213,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 22,
+          "grid_cells": 17,
+          "selected": 17,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 20,
+          "grid_cells": 13,
+          "selected": 13,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 290,
+          "grid_cells": 39,
+          "selected": 39,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 811,
+          "grid_cells": 78,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 330,
+          "grid_cells": 85,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 759,
+          "grid_cells": 72,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601380402595",
+      "patch_count": 224,
+      "ratio_count": 224,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 33,
+          "grid_cells": 25,
+          "selected": 25,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 22,
+          "grid_cells": 17,
+          "selected": 17,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 310,
+          "grid_cells": 38,
+          "selected": 38,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 862,
+          "grid_cells": 75,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 347,
+          "grid_cells": 79,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 706,
+          "grid_cells": 70,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601382002578",
+      "patch_count": 224,
+      "ratio_count": 224,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 25,
+          "grid_cells": 19,
+          "selected": 19,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 29,
+          "grid_cells": 20,
+          "selected": 20,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 333,
+          "grid_cells": 41,
+          "selected": 41,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 900,
+          "grid_cells": 85,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 371,
+          "grid_cells": 76,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 655,
+          "grid_cells": 68,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601384002580",
+      "patch_count": 221,
+      "ratio_count": 221,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 26,
+          "grid_cells": 23,
+          "selected": 23,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 30,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 357,
+          "grid_cells": 36,
+          "selected": 36,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 954,
+          "grid_cells": 75,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 424,
+          "grid_cells": 69,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 577,
+          "grid_cells": 70,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601385402767",
+      "patch_count": 233,
+      "ratio_count": 233,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 30,
+          "grid_cells": 26,
+          "selected": 26,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 41,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 355,
+          "grid_cells": 36,
+          "selected": 36,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 990,
+          "grid_cells": 85,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 437,
+          "grid_cells": 76,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 524,
+          "grid_cells": 73,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601387002543",
+      "patch_count": 223,
+      "ratio_count": 223,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 27,
+          "grid_cells": 22,
+          "selected": 22,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 35,
+          "grid_cells": 20,
+          "selected": 20,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 337,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 1008,
+          "grid_cells": 74,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 416,
+          "grid_cells": 81,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 446,
+          "grid_cells": 71,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601388402532",
+      "patch_count": 231,
+      "ratio_count": 231,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 24,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 56,
+          "grid_cells": 32,
+          "selected": 32,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 311,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 1009,
+          "grid_cells": 68,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 367,
+          "grid_cells": 79,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 407,
+          "grid_cells": 72,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601390002526",
+      "patch_count": 228,
+      "ratio_count": 228,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 25,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 73,
+          "grid_cells": 39,
+          "selected": 39,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 104,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 989,
+          "grid_cells": 55,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 275,
+          "grid_cells": 75,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 354,
+          "grid_cells": 71,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601391402635",
+      "patch_count": 209,
+      "ratio_count": 209,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 18,
+          "grid_cells": 13,
+          "selected": 13,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 57,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 45,
+          "grid_cells": 23,
+          "selected": 23,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 968,
+          "grid_cells": 44,
+          "selected": 44,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 202,
+          "grid_cells": 76,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 290,
+          "grid_cells": 70,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601393402503",
+      "patch_count": 229,
+      "ratio_count": 229,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 7,
+          "grid_cells": 7,
+          "selected": 7,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 47,
+          "grid_cells": 30,
+          "selected": 30,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 479,
+          "grid_cells": 48,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 927,
+          "grid_cells": 57,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 172,
+          "grid_cells": 50,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 269,
+          "grid_cells": 67,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601395002495",
+      "patch_count": 223,
+      "ratio_count": 223,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 11,
+          "grid_cells": 10,
+          "selected": 10,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 92,
+          "grid_cells": 30,
+          "selected": 30,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 551,
+          "grid_cells": 60,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 89,
+          "grid_cells": 39,
+          "selected": 39,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 135,
+          "grid_cells": 57,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 210,
+          "grid_cells": 53,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601396402539",
+      "patch_count": 217,
+      "ratio_count": 217,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 17,
+          "grid_cells": 10,
+          "selected": 10,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 395,
+          "grid_cells": 58,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 292,
+          "grid_cells": 62,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 76,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 86,
+          "grid_cells": 43,
+          "selected": 43,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 78,
+          "grid_cells": 31,
+          "selected": 31,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601398002477",
+      "patch_count": 212,
+      "ratio_count": 212,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 11,
+          "grid_cells": 9,
+          "selected": 9,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 729,
+          "grid_cells": 75,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 180,
+          "grid_cells": 60,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 152,
+          "grid_cells": 41,
+          "selected": 41,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 70,
+          "grid_cells": 40,
+          "selected": 40,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 56,
+          "grid_cells": 26,
+          "selected": 26,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601399402470",
+      "patch_count": 217,
+      "ratio_count": 217,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 20,
+          "grid_cells": 14,
+          "selected": 14,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 691,
+          "grid_cells": 69,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 206,
+          "grid_cells": 56,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 324,
+          "grid_cells": 43,
+          "selected": 43,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 25,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 403,
+          "grid_cells": 46,
+          "selected": 46,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601401402448",
+      "patch_count": 207,
+      "ratio_count": 207,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 20,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 527,
+          "grid_cells": 81,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 207,
+          "grid_cells": 52,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 323,
+          "grid_cells": 35,
+          "selected": 35,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 12,
+          "grid_cells": 10,
+          "selected": 10,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 986,
+          "grid_cells": 52,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601403002483",
+      "patch_count": 208,
+      "ratio_count": 208,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 16,
+          "grid_cells": 14,
+          "selected": 14,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 251,
+          "grid_cells": 84,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 357,
+          "grid_cells": 57,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 332,
+          "grid_cells": 38,
+          "selected": 38,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 18,
+          "grid_cells": 12,
+          "selected": 12,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 976,
+          "grid_cells": 57,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601404402427",
+      "patch_count": 215,
+      "ratio_count": 215,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 22,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 195,
+          "grid_cells": 78,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 400,
+          "grid_cells": 63,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 333,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 41,
+          "grid_cells": 16,
+          "selected": 16,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 962,
+          "grid_cells": 61,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601406002426",
+      "patch_count": 222,
+      "ratio_count": 222,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 35,
+          "grid_cells": 29,
+          "selected": 29,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 242,
+          "grid_cells": 66,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 483,
+          "grid_cells": 73,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 343,
+          "grid_cells": 31,
+          "selected": 31,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 39,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 949,
+          "grid_cells": 70,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601407402467",
+      "patch_count": 226,
+      "ratio_count": 226,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 37,
+          "grid_cells": 34,
+          "selected": 34,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 249,
+          "grid_cells": 72,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 503,
+          "grid_cells": 66,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 348,
+          "grid_cells": 30,
+          "selected": 30,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 47,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 905,
+          "grid_cells": 74,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601409002400",
+      "patch_count": 229,
+      "ratio_count": 229,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 31,
+          "grid_cells": 26,
+          "selected": 26,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 220,
+          "grid_cells": 68,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 526,
+          "grid_cells": 58,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 360,
+          "grid_cells": 34,
+          "selected": 34,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 71,
+          "grid_cells": 25,
+          "selected": 25,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 850,
+          "grid_cells": 85,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601411002392",
+      "patch_count": 236,
+      "ratio_count": 236,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 46,
+          "grid_cells": 36,
+          "selected": 36,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 317,
+          "grid_cells": 59,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 546,
+          "grid_cells": 56,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 369,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 70,
+          "grid_cells": 29,
+          "selected": 29,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 760,
+          "grid_cells": 85,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601412402370",
+      "patch_count": 239,
+      "ratio_count": 239,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 47,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 306,
+          "grid_cells": 57,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 558,
+          "grid_cells": 56,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 376,
+          "grid_cells": 30,
+          "selected": 30,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 83,
+          "grid_cells": 28,
+          "selected": 28,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 708,
+          "grid_cells": 81,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601414002369",
+      "patch_count": 228,
+      "ratio_count": 228,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 37,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 298,
+          "grid_cells": 58,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 565,
+          "grid_cells": 48,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 384,
+          "grid_cells": 30,
+          "selected": 30,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 89,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 639,
+          "grid_cells": 78,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601415402388",
+      "patch_count": 214,
+      "ratio_count": 214,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 43,
+          "grid_cells": 32,
+          "selected": 32,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 318,
+          "grid_cells": 57,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 556,
+          "grid_cells": 38,
+          "selected": 38,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 387,
+          "grid_cells": 24,
+          "selected": 24,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 84,
+          "grid_cells": 24,
+          "selected": 24,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 578,
+          "grid_cells": 65,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601417002348",
+      "patch_count": 198,
+      "ratio_count": 198,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 22,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 335,
+          "grid_cells": 55,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 561,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 391,
+          "grid_cells": 24,
+          "selected": 24,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 75,
+          "grid_cells": 23,
+          "selected": 23,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 517,
+          "grid_cells": 57,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601418402716",
+      "patch_count": 214,
+      "ratio_count": 214,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 35,
+          "grid_cells": 26,
+          "selected": 26,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 323,
+          "grid_cells": 57,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 566,
+          "grid_cells": 40,
+          "selected": 40,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 395,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 85,
+          "grid_cells": 25,
+          "selected": 25,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 479,
+          "grid_cells": 65,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601420402318",
+      "patch_count": 207,
+      "ratio_count": 207,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 35,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 265,
+          "grid_cells": 61,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 563,
+          "grid_cells": 39,
+          "selected": 39,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 268,
+          "grid_cells": 26,
+          "selected": 26,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 98,
+          "grid_cells": 19,
+          "selected": 19,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 448,
+          "grid_cells": 64,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601422002318",
+      "patch_count": 191,
+      "ratio_count": 191,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 18,
+          "grid_cells": 15,
+          "selected": 15,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 242,
+          "grid_cells": 47,
+          "selected": 47,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 564,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 398,
+          "grid_cells": 28,
+          "selected": 28,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 91,
+          "grid_cells": 20,
+          "selected": 20,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 347,
+          "grid_cells": 50,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601423402298",
+      "patch_count": 169,
+      "ratio_count": 169,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 11,
+          "grid_cells": 8,
+          "selected": 8,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 234,
+          "grid_cells": 49,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 563,
+          "grid_cells": 29,
+          "selected": 29,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 397,
+          "grid_cells": 22,
+          "selected": 22,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 85,
+          "grid_cells": 19,
+          "selected": 19,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 308,
+          "grid_cells": 43,
+          "selected": 43,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601425002298",
+      "patch_count": 160,
+      "ratio_count": 160,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 4,
+          "grid_cells": 3,
+          "selected": 3,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 234,
+          "grid_cells": 48,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 562,
+          "grid_cells": 29,
+          "selected": 29,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 405,
+          "grid_cells": 20,
+          "selected": 20,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 75,
+          "grid_cells": 16,
+          "selected": 16,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 269,
+          "grid_cells": 44,
+          "selected": 44,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601426402279",
+      "patch_count": 149,
+      "ratio_count": 149,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 1,
+          "grid_cells": 1,
+          "selected": 1,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 218,
+          "grid_cells": 44,
+          "selected": 44,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 563,
+          "grid_cells": 26,
+          "selected": 26,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 404,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 73,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 246,
+          "grid_cells": 42,
+          "selected": 42,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601428402277",
+      "patch_count": 142,
+      "ratio_count": 142,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 187,
+          "grid_cells": 43,
+          "selected": 43,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 557,
+          "grid_cells": 19,
+          "selected": 19,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 373,
+          "grid_cells": 17,
+          "selected": 17,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 81,
+          "grid_cells": 24,
+          "selected": 24,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 212,
+          "grid_cells": 39,
+          "selected": 39,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601430002267",
+      "patch_count": 135,
+      "ratio_count": 135,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 157,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 543,
+          "grid_cells": 13,
+          "selected": 13,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 50,
+          "grid_cells": 15,
+          "selected": 15,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 87,
+          "grid_cells": 29,
+          "selected": 29,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 186,
+          "grid_cells": 41,
+          "selected": 41,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601431402252",
+      "patch_count": 143,
+      "ratio_count": 143,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 3,
+          "grid_cells": 2,
+          "selected": 2,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 139,
+          "grid_cells": 42,
+          "selected": 42,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 528,
+          "grid_cells": 12,
+          "selected": 12,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 21,
+          "grid_cells": 10,
+          "selected": 10,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 69,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 142,
+          "grid_cells": 44,
+          "selected": 44,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601433002245",
+      "patch_count": 127,
+      "ratio_count": 127,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 3,
+          "grid_cells": 2,
+          "selected": 2,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 110,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 503,
+          "grid_cells": 13,
+          "selected": 13,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 32,
+          "grid_cells": 10,
+          "selected": 10,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 59,
+          "grid_cells": 30,
+          "selected": 30,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 96,
+          "grid_cells": 35,
+          "selected": 35,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604598983232",
+      "patch_count": 76,
+      "ratio_count": 76,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 25,
+          "grid_cells": 15,
+          "selected": 15,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 18,
+          "grid_cells": 11,
+          "selected": 11,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 24,
+          "grid_cells": 16,
+          "selected": 16,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 8,
+          "grid_cells": 6,
+          "selected": 6,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1247,
+          "grid_cells": 28,
+          "selected": 28,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604600583214",
+      "patch_count": 97,
+      "ratio_count": 97,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 1,
+          "grid_cells": 1,
+          "selected": 1,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 27,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 30,
+          "grid_cells": 18,
+          "selected": 18,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 40,
+          "grid_cells": 20,
+          "selected": 20,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 13,
+          "grid_cells": 10,
+          "selected": 10,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1310,
+          "grid_cells": 30,
+          "selected": 30,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604602583193",
+      "patch_count": 120,
+      "ratio_count": 120,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 23,
+          "grid_cells": 15,
+          "selected": 15,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 49,
+          "grid_cells": 22,
+          "selected": 22,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 73,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 19,
+          "grid_cells": 14,
+          "selected": 14,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1344,
+          "grid_cells": 36,
+          "selected": 36,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604603983211",
+      "patch_count": 136,
+      "ratio_count": 136,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 1,
+          "grid_cells": 1,
+          "selected": 1,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 37,
+          "grid_cells": 16,
+          "selected": 16,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 62,
+          "grid_cells": 23,
+          "selected": 23,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 125,
+          "grid_cells": 43,
+          "selected": 43,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 13,
+          "grid_cells": 12,
+          "selected": 12,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1367,
+          "grid_cells": 41,
+          "selected": 41,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604605583164",
+      "patch_count": 146,
+      "ratio_count": 146,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 48,
+          "grid_cells": 16,
+          "selected": 16,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 79,
+          "grid_cells": 30,
+          "selected": 30,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 143,
+          "grid_cells": 36,
+          "selected": 36,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 21,
+          "grid_cells": 16,
+          "selected": 16,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1380,
+          "grid_cells": 50,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604606983155",
+      "patch_count": 145,
+      "ratio_count": 145,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 49,
+          "grid_cells": 14,
+          "selected": 14,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 93,
+          "grid_cells": 31,
+          "selected": 31,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 164,
+          "grid_cells": 40,
+          "selected": 40,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 25,
+          "grid_cells": 16,
+          "selected": 16,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1392,
+          "grid_cells": 44,
+          "selected": 44,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604608583140",
+      "patch_count": 167,
+      "ratio_count": 167,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 1,
+          "grid_cells": 1,
+          "selected": 1,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 60,
+          "grid_cells": 15,
+          "selected": 15,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 124,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 224,
+          "grid_cells": 49,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 51,
+          "grid_cells": 20,
+          "selected": 20,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1383,
+          "grid_cells": 46,
+          "selected": 46,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604609983135",
+      "patch_count": 169,
+      "ratio_count": 169,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 88,
+          "grid_cells": 24,
+          "selected": 24,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 140,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 237,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 55,
+          "grid_cells": 28,
+          "selected": 28,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1367,
+          "grid_cells": 47,
+          "selected": 47,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604611983122",
+      "patch_count": 164,
+      "ratio_count": 164,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 108,
+          "grid_cells": 32,
+          "selected": 32,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 138,
+          "grid_cells": 22,
+          "selected": 22,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 243,
+          "grid_cells": 37,
+          "selected": 37,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 60,
+          "grid_cells": 25,
+          "selected": 25,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1357,
+          "grid_cells": 57,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604613583755",
+      "patch_count": 160,
+      "ratio_count": 160,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 109,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 139,
+          "grid_cells": 20,
+          "selected": 20,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 243,
+          "grid_cells": 34,
+          "selected": 34,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 57,
+          "grid_cells": 25,
+          "selected": 25,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1357,
+          "grid_cells": 61,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604614983101",
+      "patch_count": 169,
+      "ratio_count": 169,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 113,
+          "grid_cells": 36,
+          "selected": 36,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 138,
+          "grid_cells": 23,
+          "selected": 23,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 243,
+          "grid_cells": 35,
+          "selected": 35,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 54,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1356,
+          "grid_cells": 66,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604616583112",
+      "patch_count": 169,
+      "ratio_count": 169,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 113,
+          "grid_cells": 42,
+          "selected": 42,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 139,
+          "grid_cells": 22,
+          "selected": 22,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 243,
+          "grid_cells": 28,
+          "selected": 28,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 63,
+          "grid_cells": 29,
+          "selected": 29,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1345,
+          "grid_cells": 73,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604617983823",
+      "patch_count": 169,
+      "ratio_count": 169,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 100,
+          "grid_cells": 34,
+          "selected": 34,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 141,
+          "grid_cells": 24,
+          "selected": 24,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 246,
+          "grid_cells": 30,
+          "selected": 30,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 88,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1338,
+          "grid_cells": 74,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604619583096",
+      "patch_count": 173,
+      "ratio_count": 173,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 107,
+          "grid_cells": 42,
+          "selected": 42,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 143,
+          "grid_cells": 22,
+          "selected": 22,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 248,
+          "grid_cells": 31,
+          "selected": 31,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 85,
+          "grid_cells": 30,
+          "selected": 30,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1326,
+          "grid_cells": 76,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604621983066",
+      "patch_count": 184,
+      "ratio_count": 184,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 114,
+          "grid_cells": 56,
+          "selected": 48,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 149,
+          "grid_cells": 27,
+          "selected": 27,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 248,
+          "grid_cells": 28,
+          "selected": 28,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 82,
+          "grid_cells": 33,
+          "selected": 33,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1290,
+          "grid_cells": 68,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604623583040",
+      "patch_count": 172,
+      "ratio_count": 172,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 106,
+          "grid_cells": 43,
+          "selected": 43,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 149,
+          "grid_cells": 24,
+          "selected": 24,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 248,
+          "grid_cells": 23,
+          "selected": 23,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 77,
+          "grid_cells": 34,
+          "selected": 34,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1270,
+          "grid_cells": 74,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    },
+    {
+      "frame_id": "1329604624983040",
+      "patch_count": 169,
+      "ratio_count": 169,
+      "diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0,
+          "visibility_check": false
+        },
+        {
+          "camera": 1,
+          "candidates": 102,
+          "grid_cells": 41,
+          "selected": 41,
+          "visibility_check": false
+        },
+        {
+          "camera": 2,
+          "candidates": 148,
+          "grid_cells": 23,
+          "selected": 23,
+          "visibility_check": false
+        },
+        {
+          "camera": 3,
+          "candidates": 248,
+          "grid_cells": 22,
+          "selected": 22,
+          "visibility_check": false
+        },
+        {
+          "camera": 4,
+          "candidates": 73,
+          "grid_cells": 35,
+          "selected": 35,
+          "visibility_check": false
+        },
+        {
+          "camera": 5,
+          "candidates": 1258,
+          "grid_cells": 79,
+          "selected": 48,
+          "visibility_check": false
+        }
+      ]
+    }
+  ]
+}

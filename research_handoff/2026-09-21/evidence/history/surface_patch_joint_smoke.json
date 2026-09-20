@@ -1,0 +1,421 @@
+{
+  "protocol": {
+    "name": "surface-bound real-image patch refinement",
+    "map_source": "train split only",
+    "query_gt_in_runner": false,
+    "reference_patch": "8x8 grayscale pixels bound to frozen local fitted surface planes",
+    "online_observation": "reference and query image bilinear samples at candidate-pose projections",
+    "pose_updates": {
+      "rotation": "R=Exp(delta_rotation) R_LEADER; t=t_LEADER",
+      "joint": "R=Exp(delta_rotation) R_LEADER; t=t_LEADER+delta_translation"
+    },
+    "optimizer": {
+      "method": "trf",
+      "loss": "soft_l1",
+      "jacobian": "central finite difference",
+      "translation_step_m": 0.0001,
+      "rotation_step_rad": 1e-05,
+      "x_scale": "jac"
+    },
+    "no_baseline_fallback": true,
+    "parameters": {
+      "device": "cuda",
+      "variant": "all",
+      "evaluate_split": "validation",
+      "frames": 1,
+      "train_frames": 0,
+      "map_voxel_size": 0.2,
+      "surface_voxel_size": 0.2,
+      "crop_radius": 80.0,
+      "min_view_cosine": 0.7,
+      "plane_radius": 0.8,
+      "min_plane_neighbors": 8,
+      "patch_size": 8,
+      "max_patches_per_camera": 48,
+      "grid_cell": 32,
+      "min_contrast": 0.03,
+      "max_rotation_deg": 2.0,
+      "max_translation_m": 0.5,
+      "prior_sigma_deg": 1.0,
+      "robust_scale": 0.2,
+      "visual_weight": 1.0,
+      "lidar_weight": 1.0,
+      "translation_step_m": 0.0001,
+      "rotation_step_rad": 1e-05,
+      "max_nfev": 30,
+      "seed": 2089
+    },
+    "input_manifest": "/home/zhang/leader-image-gate-multicamera/all_views.json",
+    "reference_map_cache": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/surface_patch_reference_observations.npz",
+    "reference_observation_count": 40335,
+    "surface_point_count": 30116,
+    "manifest_sha256": "a7008599fa2349d262745cec4ee80a568608b073f0782d15b4df407524c92e90"
+  },
+  "evaluation_split": "validation",
+  "evaluation_frames": 1,
+  "records": [
+    {
+      "frame_id": "1329604635582975",
+      "initial_pose": [
+        [
+          -0.05219786986708641,
+          -0.9975587129592896,
+          -0.04639718681573868,
+          -77.8528938293457
+        ],
+        [
+          0.9973763227462769,
+          -0.04974230378866196,
+          -0.05259520560503006,
+          -336.08888244628906
+        ],
+        [
+          0.050158917903900146,
+          -0.04902080446481705,
+          0.9975376129150391,
+          8.24462890625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "patch_count": 142,
+      "patch_diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0
+        },
+        {
+          "camera": 1,
+          "candidates": 65,
+          "grid_cells": 22,
+          "selected": 22
+        },
+        {
+          "camera": 2,
+          "candidates": 165,
+          "grid_cells": 27,
+          "selected": 27
+        },
+        {
+          "camera": 3,
+          "candidates": 249,
+          "grid_cells": 19,
+          "selected": 19
+        },
+        {
+          "camera": 4,
+          "candidates": 53,
+          "grid_cells": 26,
+          "selected": 26
+        },
+        {
+          "camera": 5,
+          "candidates": 1131,
+          "grid_cells": 67,
+          "selected": 48
+        }
+      ],
+      "reference_frames": [
+        "1329601398002477",
+        "1329601399402470",
+        "1329601401402448",
+        "1329601403002483",
+        "1329601404402427",
+        "1329601406002426",
+        "1329601407402467",
+        "1329601409002400",
+        "1329601411002392",
+        "1329601412402370",
+        "1329601414002369",
+        "1329601430002267",
+        "1329604603983211",
+        "1329604605583164",
+        "1329604606983155",
+        "1329604608583140",
+        "1329604609983135",
+        "1329604611983122",
+        "1329604613583755",
+        "1329604614983101",
+        "1329604616583112",
+        "1329604617983823",
+        "1329604619583096",
+        "1329604621983066",
+        "1329604623583040",
+        "1329604624983040"
+      ],
+      "reference_indices": [
+        20784,
+        20156,
+        33184,
+        20798,
+        19371,
+        20797,
+        18613,
+        38314,
+        19394,
+        37826,
+        38309,
+        38079,
+        38324,
+        20843,
+        38331,
+        20838,
+        38870,
+        38084,
+        20025,
+        39392,
+        38853,
+        39136,
+        21823,
+        22426,
+        23210,
+        20365,
+        21086,
+        20366,
+        21812,
+        20364,
+        20358,
+        25260,
+        39689,
+        39701,
+        40181,
+        39958,
+        38381,
+        38121,
+        38933,
+        39464,
+        39470,
+        37893,
+        36726,
+        39474,
+        39473,
+        39213,
+        37054,
+        36735,
+        40207,
+        19626,
+        19629,
+        37368,
+        40214,
+        38694,
+        37395,
+        38423,
+        38955,
+        39253,
+        37951,
+        37677,
+        37399,
+        38457,
+        40247,
+        39789,
+        38188,
+        39800,
+        39552,
+        39546,
+        40054,
+        39573,
+        40061,
+        40306,
+        40304,
+        39811,
+        39813,
+        39307,
+        39584,
+        39589,
+        39824,
+        39826,
+        40321,
+        40077,
+        40332,
+        40331,
+        39827,
+        40081,
+        40086,
+        40082,
+        40326,
+        40329,
+        40330,
+        39320,
+        40333,
+        39325,
+        40130,
+        39604,
+        39865,
+        40124,
+        39046,
+        40126,
+        40127,
+        39052,
+        38061,
+        40131,
+        39878,
+        39872,
+        38255,
+        37758,
+        38529,
+        18277,
+        39337,
+        39620,
+        39060,
+        21320,
+        39062,
+        38802,
+        40146,
+        40155,
+        24950,
+        39630,
+        39070,
+        39357,
+        22917,
+        24317,
+        39076,
+        39364,
+        40160,
+        23615,
+        39370,
+        39907,
+        39374,
+        40096,
+        33145,
+        25736,
+        38271,
+        39079,
+        38024,
+        39911,
+        39908,
+        39081,
+        40105,
+        37792
+      ],
+      "lidar_evidence_count": 251,
+      "variants": {
+        "rotation": {
+          "final_pose": [
+            [
+              NaN,
+              NaN,
+              NaN,
+              NaN
+            ],
+            [
+              NaN,
+              NaN,
+              NaN,
+              NaN
+            ],
+            [
+              NaN,
+              NaN,
+              NaN,
+              NaN
+            ],
+            [
+              NaN,
+              NaN,
+              NaN,
+              NaN
+            ]
+          ],
+          "delta": [
+            0.006354518405256267,
+            -0.0038189109437786863,
+            0.0017694069451951826
+          ],
+          "translation_delta_m": [
+            0.006354518405256267,
+            -0.0038189109437786863,
+            0.0017694069451951826
+          ],
+          "rotation_delta_rad": [
+            0.006354518405256267,
+            -0.0038189109437786863,
+            0.0017694069451951826
+          ],
+          "rotation_delta_deg": 0.43670806272051715,
+          "patch_count": 142,
+          "visual_rmse_before": 1.3231092617406344,
+          "visual_rmse_after": 1.2740051835511914,
+          "lidar_rmse_before": 0.6923519509146245,
+          "lidar_rmse_after": 0.734429065706721,
+          "solver": {
+            "success": false,
+            "status": 0,
+            "nfev": 30,
+            "cost": 44.161111468222195,
+            "optimality": 4.439545594042035,
+            "message": "The maximum number of function evaluations is exceeded."
+          },
+          "run_failed": true
+        },
+        "joint": {
+          "final_pose": [
+            [
+              NaN,
+              NaN,
+              NaN,
+              NaN
+            ],
+            [
+              NaN,
+              NaN,
+              NaN,
+              NaN
+            ],
+            [
+              NaN,
+              NaN,
+              NaN,
+              NaN
+            ],
+            [
+              NaN,
+              NaN,
+              NaN,
+              NaN
+            ]
+          ],
+          "delta": [
+            0.016111079653095616,
+            0.015447487098471881,
+            0.00604284689753565,
+            0.0008121630594125916,
+            -0.0012959813848116618,
+            0.001454709016620408
+          ],
+          "translation_delta_m": [
+            0.016111079653095616,
+            0.015447487098471881,
+            0.00604284689753565
+          ],
+          "rotation_delta_rad": [
+            0.0008121630594125916,
+            -0.0012959813848116618,
+            0.001454709016620408
+          ],
+          "rotation_delta_deg": 0.12093827923025695,
+          "patch_count": 142,
+          "visual_rmse_before": 1.3231092617406344,
+          "visual_rmse_after": 1.2954287437182275,
+          "lidar_rmse_before": 0.6923519509146245,
+          "lidar_rmse_after": 0.6985280710940616,
+          "solver": {
+            "success": false,
+            "status": 0,
+            "nfev": 30,
+            "cost": 110.07482488825927,
+            "optimality": 3.147550696014186,
+            "message": "The maximum number of function evaluations is exceeded."
+          },
+          "run_failed": true
+        }
+      }
+    }
+  ],
+  "elapsed_s": 14.515716791152954
+}

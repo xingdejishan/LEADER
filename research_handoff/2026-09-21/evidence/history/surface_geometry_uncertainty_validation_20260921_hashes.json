@@ -1,0 +1,46 @@
+{
+  "experiment": "A/G/D plus fixed train-calibrated surface geometry uncertainty propagation and weak-visual control",
+  "date": "2026-09-21",
+  "paths": {
+    "A": "initial_pose from SC2-PCR plus two-stage full-pool",
+    "G": "lidar-only refinement",
+    "D": "scale-aligned patch Huber visual refinement",
+    "patch_geometry": "D with initial-pose-fixed plane-to-image residual whitening",
+    "patch_weak": "D with train-only scalar visual weakening"
+  },
+  "model": {
+    "parameterization": ["normal_x", "normal_y", "normal_z", "local_plane_offset_m"],
+    "uncertainty_radius_m": 1.2,
+    "min_plane_neighbors": 8,
+    "sampled_anchors": 12000,
+    "usable_anchors": 59,
+    "median_reference_frames_per_anchor": 4.0,
+    "weak_visual_scale": 0.927450556453307,
+    "weak_visual_scale_rule": "median train-only pose-Jacobian information ratio",
+    "query_gt_used": false
+  },
+  "inputs": {
+    "checkpoint_sha256": "a78d5114bb908717676f7851399bdbb78943fd9e0170b1dd8eb592e0558fa028",
+    "prediction_cache_manifest_sha256": "F4F60B004345B0CAAD9DA3A01645CDE2E5AD59AADEADB6FF0F75AAD93D11A770",
+    "prediction_cache_tree_sha256": "60bae0879ce36d65b06b666e78f5e10a1cb7eceba817517d2d4e413615d92929",
+    "manifest_file_sha256": "f97b04a1006b1b21032fef522778edf2de6cbfdbad651ca9111d7afc86ff7f12",
+    "projection_cache_tree_sha256": "68c617a8302246ebaedb982b3dbbbac877a6a2c4bebda8d7fe5f75fdda7e1544",
+    "reference_lidar_cache_tree_sha256": "f6170ac2623be9d83cdcc21d0c7fb1b070bd3a1c176510a34b347ad9147da400",
+    "surface_reference_map_sha256": "ABBF522EDFFE9339B1440BB6CF9DC03AF884D8A1092A47DBED01135E0A0AC0D0"
+  },
+  "artifacts": {
+    "runner_sha256": "F551980751ADC558C7F1629A91463CAC21775108D1CF8E09E1D1812BF1054D2E",
+    "calibration_sha256": "6C257BFBBF970D89122BBF26172F6709D989D269DF6ADCD5C4878B09ADA05135",
+    "model_json_sha256": "A3CFB559C832AA59FA83CD56B7730ADFC5518C4538FE8524CB2FD5950088BB71",
+    "predictions_json_sha256": "F6AC3FD6822EC0629D1F43DD9696969864440BAF9D367FB77EDD0065531DFE65",
+    "evaluation_json_sha256": "CDBB4AD8F662A9F6D5FBDEC85AC0CBE39F299EB08ED1CAB9D0C3C102910DDA4D"
+  },
+  "audit": {
+    "validation_frames": 32,
+    "runner_failures": 0,
+    "online_cache_contains_gt": false,
+    "mask_enforced": true,
+    "visibility_filter_enabled": false,
+    "D_exact_match_to_scale_aligned_reference": true
+  }
+}

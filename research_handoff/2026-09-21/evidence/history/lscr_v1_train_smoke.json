@@ -1,0 +1,96 @@
+{
+  "protocol": {
+    "name": "LSCR V1 deterministic frozen RoMa fine-feature refinement",
+    "input": "cached RoMa correspondences; neither reference retrieval nor pose solver is changed",
+    "appearance": "cosine similarity of frozen RoMa stride-4 refiner features",
+    "geometry": "full-pool final-Tukey Hessian pose covariance projected to pixels",
+    "search": "RoMa pixel-centered covariance-adaptive rectangle; LiDAR Mahalanobis prior",
+    "subpixel": "3x3 quadratic score-surface peak; non-concave or boundary maxima remain integer",
+    "gt_used_for": "evaluation only"
+  },
+  "settings": {
+    "manifest": "/home/zhang/leader-image-gate-multicamera/all_views.json",
+    "lidar_cache": "/home/zhang/leader-image-gate/lidar",
+    "match_cache_dir": "research/prevoxel_multiview/results/roma_train_precise_top2_cache",
+    "output": "research/prevoxel_multiview/results/lscr_v1_train_smoke.json",
+    "full_pool": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/glace-local/code/tools/full_pool_robust_v1.py",
+    "device": "cuda",
+    "roma_setting": "precise",
+    "evaluate_split": "train",
+    "frames": 1,
+    "feature_stride": 4,
+    "appearance_weight": 1.0,
+    "geometry_weight": 0.05,
+    "covariance_inflation": 4.0,
+    "pixel_floor_px": 1.0,
+    "window_sigmas": 2.0,
+    "minimum_radius_px": 3.0,
+    "maximum_radius_px": 12.0,
+    "seed": 2089
+  },
+  "frames": [
+    {
+      "frame_id": "1329601360002721",
+      "baseline_support": 662,
+      "correspondences": 354,
+      "gt_visible": 344,
+      "before": {
+        "count": 344,
+        "median_pixel_error": 4.540591703206275,
+        "p90_pixel_error": 11.527722020254936,
+        "mean_du_px": 0.41785893054577106,
+        "mean_dv_px": -2.4531198830138967,
+        "lt_2px_fraction": 0.14244186046511628,
+        "lt_5px_fraction": 0.5581395348837209,
+        "lt_8px_fraction": 0.8197674418604651
+      },
+      "after": {
+        "count": 344,
+        "median_pixel_error": 3.0736798702679256,
+        "p90_pixel_error": 7.622944349196579,
+        "mean_du_px": 0.35523826264120323,
+        "mean_dv_px": -1.642685169955894,
+        "lt_2px_fraction": 0.22965116279069767,
+        "lt_5px_fraction": 0.7761627906976745,
+        "lt_8px_fraction": 0.9069767441860465
+      },
+      "status": {
+        "integer_boundary": 282,
+        "subpixel": 72
+      },
+      "window_radius_px": {
+        "median_x": 3.0,
+        "median_y": 3.0,
+        "p90_x": 4.391275310906572,
+        "p90_y": 4.158716110208298
+      },
+      "lidar_residual_scale_m": 0.15044963758924504,
+      "subpixel_covariance_count": 72
+    }
+  ],
+  "overall": {
+    "before": {
+      "count": 344,
+      "median_pixel_error": 4.540591703206275,
+      "p90_pixel_error": 11.527722020254936,
+      "mean_du_px": 0.41785893054577106,
+      "mean_dv_px": -2.4531198830138967,
+      "lt_2px_fraction": 0.14244186046511628,
+      "lt_5px_fraction": 0.5581395348837209,
+      "lt_8px_fraction": 0.8197674418604651
+    },
+    "after": {
+      "count": 344,
+      "median_pixel_error": 3.0736798702679256,
+      "p90_pixel_error": 7.622944349196579,
+      "mean_du_px": 0.35523826264120323,
+      "mean_dv_px": -1.642685169955894,
+      "lt_2px_fraction": 0.22965116279069767,
+      "lt_5px_fraction": 0.7761627906976745,
+      "lt_8px_fraction": 0.9069767441860465
+    },
+    "median_error_change_px": -1.466911832938349,
+    "p90_error_change_px": -3.9047776710583575
+  },
+  "elapsed_s": 3.422837972640991
+}

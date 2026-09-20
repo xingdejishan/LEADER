@@ -1,0 +1,410 @@
+{
+  "protocol": {
+    "map_source": "train split only",
+    "front_end": "RoMa v2 dense reference-to-query fields",
+    "matching": {
+      "max_reference_images_per_query_camera": 2,
+      "local_radius_px": 24.0,
+      "min_overlap": 0.2,
+      "min_reference_view_cosine": 0.7,
+      "grid_cell_px": 4,
+      "max_per_camera": 30
+    },
+    "optimizer": "bounded robust LM on RoMa pixel-precision-whitened residuals",
+    "f_scale_whitened": 1.0,
+    "gt_in_correspondence_path": false
+  },
+  "reference_map": {
+    "path": "/tmp/roma_geometry_only_smoke.npz",
+    "observations": 40335,
+    "train_frames": 64,
+    "geometry_only": true
+  },
+  "validation_frames": 1,
+  "records": [
+    {
+      "frame_id": "1329604635582975",
+      "before": [
+        0.06845829785766014,
+        1.0373619109686139
+      ],
+      "after": [
+        0.10489972306792593,
+        1.4505635623199697
+      ],
+      "delta": [
+        0.03644142521026579,
+        0.4132016513513559
+      ],
+      "leader_success": true,
+      "n_correspondences": 19,
+      "n_cameras": 2,
+      "overlap_mean": 0.4403942760668303,
+      "per_camera_correspondences": [
+        0,
+        0,
+        0,
+        0,
+        16,
+        3
+      ],
+      "matching": [
+        {
+          "camera": 0,
+          "visible_observations": 933,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 46,
+            "in_image": 46,
+            "mask": 44,
+            "nonblack": 40,
+            "observation_projection": 40,
+            "local": 1,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604624983040:5": 9,
+            "1329601393402503:5": 8
+          },
+          "reference_pairs": [
+            [
+              "1329604624983040",
+              5
+            ],
+            [
+              "1329601393402503",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 1,
+          "visible_observations": 1128,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 66,
+            "in_image": 66,
+            "mask": 66,
+            "nonblack": 61,
+            "observation_projection": 61,
+            "local": 13,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329601396402539:3": 17,
+            "1329601391402635:5": 16
+          },
+          "reference_pairs": [
+            [
+              "1329601396402539",
+              3
+            ],
+            [
+              "1329601391402635",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 2,
+          "visible_observations": 282,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 13,
+            "in_image": 13,
+            "mask": 13,
+            "nonblack": 4,
+            "observation_projection": 4,
+            "local": 4,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604608583140:2": 7,
+            "1329604617983823:2": 6
+          },
+          "reference_pairs": [
+            [
+              "1329604608583140",
+              2
+            ],
+            [
+              "1329604617983823",
+              2
+            ]
+          ]
+        },
+        {
+          "camera": 3,
+          "visible_observations": 324,
+          "reference_images": 2,
+          "raw_candidates": 0,
+          "accepted": 0,
+          "stages": {
+            "finite": 19,
+            "in_image": 19,
+            "mask": 19,
+            "nonblack": 10,
+            "observation_projection": 10,
+            "local": 0,
+            "overlap": 0
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604609983135:2": 9,
+            "1329604608583140:2": 8
+          },
+          "reference_pairs": [
+            [
+              "1329604609983135",
+              2
+            ],
+            [
+              "1329604608583140",
+              2
+            ]
+          ]
+        },
+        {
+          "camera": 4,
+          "visible_observations": 910,
+          "reference_images": 2,
+          "raw_candidates": 20,
+          "accepted": 16,
+          "stages": {
+            "finite": 37,
+            "in_image": 37,
+            "mask": 34,
+            "nonblack": 32,
+            "observation_projection": 32,
+            "local": 24,
+            "overlap": 20
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604624983040:4": 19,
+            "1329604624983040:5": 16
+          },
+          "reference_pairs": [
+            [
+              "1329604624983040",
+              4
+            ],
+            [
+              "1329604624983040",
+              5
+            ]
+          ]
+        },
+        {
+          "camera": 5,
+          "visible_observations": 1527,
+          "reference_images": 2,
+          "raw_candidates": 3,
+          "accepted": 3,
+          "stages": {
+            "finite": 53,
+            "in_image": 53,
+            "mask": 53,
+            "nonblack": 48,
+            "observation_projection": 48,
+            "local": 24,
+            "overlap": 3
+          },
+          "reference_pair_covisible_anchors": {
+            "1329604623583040:5": 27,
+            "1329604624983040:5": 26
+          },
+          "reference_pairs": [
+            [
+              "1329604623583040",
+              5
+            ],
+            [
+              "1329604624983040",
+              5
+            ]
+          ]
+        }
+      ],
+      "solver": {
+        "success": false,
+        "status": 0,
+        "nfev": 10,
+        "cost": 40.30139325028614,
+        "whitened_residual_rmse": 2.188060533806088
+      },
+      "baseline_support": 251,
+      "geometry": {
+        "point_rank": 3,
+        "point_singular_values": [
+          7.918154275169117,
+          5.282073879155241,
+          4.390298882519541
+        ],
+        "bearing_rank": 3,
+        "bearing_singular_values": [
+          1.393027622432063,
+          0.9178840137763437,
+          0.32592052452260006
+        ],
+        "mean_depth_m": 5.308361629698538,
+        "point_spread_m": 2.404734320242438
+      },
+      "leader_pose": [
+        [
+          -0.05219786986708641,
+          -0.9975587129592896,
+          -0.04639718681573868,
+          -77.8528938293457
+        ],
+        [
+          0.9973763227462769,
+          -0.04974230378866196,
+          -0.05259520560503006,
+          -336.08888244628906
+        ],
+        [
+          0.050158917903900146,
+          -0.04902080446481705,
+          0.9975376129150391,
+          8.24462890625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "refined_pose": [
+        [
+          -0.058119980672162015,
+          -0.9972276966055534,
+          -0.046472451210143935,
+          -77.86458634881991
+        ],
+        [
+          0.9973335762703407,
+          -0.055942418218962175,
+          -0.04686435817534629,
+          -336.0442204708325
+        ],
+        [
+          0.044134672643137376,
+          -0.04907228162794837,
+          0.997819766785875,
+          8.244688336326572
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "gt_pose": [
+        [
+          -0.048820487389616765,
+          -0.9974336374824418,
+          -0.052370785202416975,
+          -77.79219298471533
+        ],
+        [
+          0.9965855420074926,
+          -0.045149329565860596,
+          -0.06912883930324529,
+          -336.1198627482742
+        ],
+        [
+          0.06658692349219912,
+          -0.055566871239599365,
+          0.9962321539739372,
+          8.251122510459982
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "metrics": {
+    "all_before": {
+      "count": 1,
+      "mean_translation_m": 0.06845829785766014,
+      "median_translation_m": 0.06845829785766014,
+      "p90_translation_m": 0.06845829785766014,
+      "mean_rotation_deg": 1.0373619109686139,
+      "median_rotation_deg": 1.0373619109686139,
+      "p90_rotation_deg": 1.0373619109686139,
+      "success_1m_2deg": 1
+    },
+    "all_after": {
+      "count": 1,
+      "mean_translation_m": 0.10489972306792593,
+      "median_translation_m": 0.10489972306792593,
+      "p90_translation_m": 0.10489972306792593,
+      "mean_rotation_deg": 1.4505635623199697,
+      "median_rotation_deg": 1.4505635623199697,
+      "p90_rotation_deg": 1.4505635623199697,
+      "success_1m_2deg": 1
+    },
+    "leader_success_before": {
+      "count": 1,
+      "mean_translation_m": 0.06845829785766014,
+      "median_translation_m": 0.06845829785766014,
+      "p90_translation_m": 0.06845829785766014,
+      "mean_rotation_deg": 1.0373619109686139,
+      "median_rotation_deg": 1.0373619109686139,
+      "p90_rotation_deg": 1.0373619109686139,
+      "success_1m_2deg": 1
+    },
+    "leader_success_after": {
+      "count": 1,
+      "mean_translation_m": 0.10489972306792593,
+      "median_translation_m": 0.10489972306792593,
+      "p90_translation_m": 0.10489972306792593,
+      "mean_rotation_deg": 1.4505635623199697,
+      "median_rotation_deg": 1.4505635623199697,
+      "p90_rotation_deg": 1.4505635623199697,
+      "success_1m_2deg": 1
+    }
+  },
+  "paired": {
+    "all_mean_delta_translation_m_rotation_deg": [
+      0.03644142521026579,
+      0.4132016513513559
+    ],
+    "all_bootstrap_95ci": [
+      [
+        0.03644142521026579,
+        0.4132016513513559
+      ],
+      [
+        0.03644142521026579,
+        0.4132016513513559
+      ]
+    ],
+    "leader_success_mean_delta_translation_m_rotation_deg": [
+      0.03644142521026579,
+      0.4132016513513559
+    ],
+    "leader_success_bootstrap_95ci": [
+      [
+        0.03644142521026579,
+        0.4132016513513559
+      ],
+      [
+        0.03644142521026579,
+        0.4132016513513559
+      ]
+    ]
+  },
+  "elapsed_s": 5.713627815246582
+}

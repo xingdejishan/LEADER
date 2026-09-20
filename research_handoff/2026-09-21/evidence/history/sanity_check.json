@@ -1,0 +1,76 @@
+{
+  "frames": 1,
+  "leader_quantization": {
+    "voxel_size": 0.2,
+    "horizontal_res": 1024.0,
+    "script": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/run_mink.py"
+  },
+  "coverage_hist_0_to_6_views": [
+    30521,
+    26353,
+    7460,
+    702,
+    0,
+    0,
+    0
+  ],
+  "voxel_coverage_hist_0_to_6_views": [
+    18155,
+    11845,
+    3381,
+    284,
+    0,
+    0,
+    0
+  ],
+  "raw_points_total": 65036,
+  "raw_points_with_at_least_1_observation": 34515,
+  "raw_point_visual_coverage": 0.5307060704840396,
+  "camera_valid_point_counts": [
+    800,
+    12580,
+    6871,
+    6858,
+    7330,
+    8940
+  ],
+  "camera_point_coverage": [
+    0.01230087951288517,
+    0.1934313303401193,
+    0.10564917891629251,
+    0.10544928962420813,
+    0.11270680853681038,
+    0.1374623285564918
+  ],
+  "six_view_gain_over_each_single_camera": [
+    0.5184051909711545,
+    0.3372747401439203,
+    0.4250568915677471,
+    0.4252567808598315,
+    0.41799926194722925,
+    0.3932437419275478
+  ],
+  "camera_unique_contribution_to_six_view": [
+    0.0003844024847776616,
+    0.11548988252660065,
+    0.08180084876068638,
+    0.07408204686635095,
+    0.0666246386616643,
+    0.0668245279537487
+  ],
+  "voxels_total": 33665,
+  "voxels_representative_with_at_least_1_observation": 15510,
+  "voxel_representative_visual_coverage": 0.46071587702361505,
+  "voxels_representative_with_at_least_2_observations": 3665,
+  "voxel_representative_multiview_coverage": 0.10886677558294965,
+  "voxels_with_any_member_observation": 15991,
+  "voxel_any_member_visual_coverage_diagnostic": 0.47500371305510175,
+  "alpha_NULL_mean(no valid view)": 1.0,
+  "alpha_NULL_mean(has valid view)": 0.5834397221507843,
+  "check1_force_null": "PASS",
+  "check4_invalid_alpha_zero_and_attention_masked": "PASS",
+  "check5_noview_null": "PASS",
+  "check6_gradient_chain_adapter_weighting_nulltoken": "PASS",
+  "check7_gather_equals_ME_quantize": "PASS",
+  "gt_free": true
+}

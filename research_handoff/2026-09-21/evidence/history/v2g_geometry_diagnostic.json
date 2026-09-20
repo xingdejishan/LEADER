@@ -1,0 +1,61 @@
+{
+  "protocol": "V2-G geometry diagnostic; train GT is used only to fit train-frame models",
+  "samples": {
+    "train": 13527,
+    "validation": 658
+  },
+  "comparison": {
+    "direct_lidar": {
+      "count": 658,
+      "median_px": 2.7318469238659353,
+      "p90_px": 5.1934597867652075,
+      "lt_1px": 0.030395136778115502,
+      "lt_2px": 0.24924012158054712,
+      "lt_5px": 0.8799392097264438,
+      "accurate_count": 164,
+      "accurate_ruined_fraction": 0.0,
+      "middle_to_lt_2_fraction": 0.0,
+      "mean_du": 0.7590182094279497,
+      "mean_dv": -0.44670777741911394
+    },
+    "frozen_v2": {
+      "count": 658,
+      "median_px": 3.188081142096183,
+      "p90_px": 5.390435313119116,
+      "lt_1px": 0.0364741641337386,
+      "lt_2px": 0.1899696048632219,
+      "lt_5px": 0.8556231003039514,
+      "accurate_count": 164,
+      "accurate_ruined_fraction": 0.5,
+      "middle_to_lt_2_fraction": 0.10361445783132531,
+      "mean_du": 1.1079406668319627,
+      "mean_dv": -0.45161185280406035
+    },
+    "v2g_pointwise_raw_scale": {
+      "count": 658,
+      "median_px": 2.922170725205699,
+      "p90_px": 5.264659497325388,
+      "lt_1px": 0.0425531914893617,
+      "lt_2px": 0.24164133738601823,
+      "lt_5px": 0.8738601823708206,
+      "accurate_count": 164,
+      "accurate_ruined_fraction": 0.4024390243902439,
+      "middle_to_lt_2_fraction": 0.14698795180722893,
+      "mean_du": 0.9847454337286647,
+      "mean_dv": -0.6211622711536002
+    },
+    "v2g_shared_linear": {
+      "count": 658,
+      "median_px": 2.9034272886055597,
+      "p90_px": 5.517132245005248,
+      "lt_1px": 0.028875379939209727,
+      "lt_2px": 0.21124620060790272,
+      "lt_5px": 0.8419452887537994,
+      "accurate_count": 164,
+      "accurate_ruined_fraction": 0.4817073170731707,
+      "middle_to_lt_2_fraction": 0.13012048192771083,
+      "mean_du": 0.974622415188129,
+      "mean_dv": -0.6838581045284021
+    }
+  }
+}

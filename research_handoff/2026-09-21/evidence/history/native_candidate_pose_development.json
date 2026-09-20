@@ -1,0 +1,628 @@
+{
+  "protocol": "native_context_pose_v1",
+  "status": "completed_development_only",
+  "evaluation_status": "development_only_not_independent_test",
+  "train_sequences": [
+    "2012-02-18"
+  ],
+  "development_sequences": [
+    "2012-02-18"
+  ],
+  "sequence_overlap": [
+    "2012-02-18"
+  ],
+  "training_frames": 47,
+  "development_frames": 8,
+  "settings": {
+    "command": "train",
+    "manifest": "/home/zhang/leader-image-gate-multicamera/all_views.json",
+    "lidar_cache": "/home/zhang/leader-image-gate/lidar",
+    "full_pool": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/glace-local/code/tools/full_pool_robust_v1.py",
+    "train_matches": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/roma_train_precise_top2_cache_refuv",
+    "development_matches": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/lscr_v1_validation8_matches_refuv",
+    "cache": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/native_candidate_pose_v1",
+    "output": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/native_candidate_pose_development.json",
+    "device": "cuda",
+    "epochs": 40,
+    "learning_rate": 0.001,
+    "seed": 2089,
+    "limit": 0
+  },
+  "pose_solver": "257 fixed antithetic bounded SE(3) hypotheses; differentiable posterior mean; exact hypothesis projection",
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "training_device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+  },
+  "loss": "final translation norm / 0.1 m + final SO(3) geodesic error / 1 degree; no query pixel GT",
+  "source_sha256": "5c1d8870c14e07ba0847f53f34276e29f29c2a8fb5b17882bb076a3dc475ccdb",
+  "limitations": [
+    "same-sequence development only",
+    "shared preexisting RoMa-selected observations may encode visual selection",
+    "finite pose hypotheses approximate continuous optimization",
+    "native front-end and hypothesis projection times are replay measurements; original observation selection and cache I/O are not included",
+    "D head timing excludes inherited visual observation selection, so it is not an end-to-end image-free runtime"
+  ],
+  "comparison": {
+    "A_frozen_LEADER": {
+      "frames": 8,
+      "MPE_m": 0.08742456475498565,
+      "MOE_deg": 0.7435802227396477,
+      "P90_translation_m": 0.13409354507351512,
+      "P90_rotation_deg": 1.0294525564976034,
+      "translation_degraded_fraction": 0.0,
+      "rotation_degraded_fraction": 0.0,
+      "either_degraded_fraction": 0.0,
+      "mean_measured_added_seconds": 0.0
+    },
+    "B_existing_protected": {
+      "frames": 8,
+      "MPE_m": 0.09925193395483575,
+      "MOE_deg": 0.9494677383804235,
+      "P90_translation_m": 0.13856989434738143,
+      "P90_rotation_deg": 1.1363728664265758,
+      "translation_degraded_fraction": 0.5,
+      "rotation_degraded_fraction": 0.625,
+      "either_degraded_fraction": 0.625,
+      "mean_measured_added_seconds": 40.236224096874935
+    },
+    "C_native_candidate_pose": {
+      "frames": 8,
+      "MPE_m": 0.1079413570826569,
+      "MOE_deg": 1.0832811501151653,
+      "P90_translation_m": 0.1412100996697275,
+      "P90_rotation_deg": 1.563904515590576,
+      "translation_degraded_fraction": 0.75,
+      "rotation_degraded_fraction": 0.625,
+      "either_degraded_fraction": 0.875,
+      "mean_measured_added_seconds": 40.22733815412505,
+      "mean_head_seconds": 0.002059168000016598,
+      "mean_hypothesis_geometry_seconds": 0.033467239125116066,
+      "mean_native_frontend_seconds": 40.19181174699992
+    },
+    "D_retrained_zero_visual": {
+      "frames": 8,
+      "MPE_m": 0.08673475026853439,
+      "MOE_deg": 0.8545632003002914,
+      "P90_translation_m": 0.1254233210977437,
+      "P90_rotation_deg": 1.192172867959304,
+      "translation_degraded_fraction": 0.375,
+      "rotation_degraded_fraction": 0.75,
+      "either_degraded_fraction": 0.75,
+      "mean_measured_added_seconds": 0.03542703137503622,
+      "mean_head_seconds": 0.001959792249920156,
+      "mean_hypothesis_geometry_seconds": 0.033467239125116066,
+      "mean_native_frontend_seconds": 0.0
+    }
+  },
+  "records": [
+    {
+      "method": "C_native_candidate_pose",
+      "frames": [
+        {
+          "frame_id": "1329604635582975",
+          "delta": [
+            -0.031018007546663284,
+            0.0024395096115767956,
+            -0.02295602113008499,
+            -0.005403170362114906,
+            -0.0022571019362658262,
+            0.0006085354252718389
+          ],
+          "errors": [
+            0.10196328792513841,
+            1.309292923848942
+          ],
+          "A_errors": [
+            0.06845829785766014,
+            1.0373619109686139
+          ],
+          "B_errors": [
+            0.06845829785766014,
+            1.0373619109686139
+          ],
+          "head_seconds": 0.002611313000215887,
+          "hypothesis_geometry_seconds": 0.022148874000322394,
+          "native_feature_seconds": 16.04108185199948,
+          "posterior_zero_probability": 0.10105054080486298
+        },
+        {
+          "frame_id": "1329604636982984",
+          "delta": [
+            -0.011362339369952679,
+            -0.0272962786257267,
+            -0.0014730049297213554,
+            0.013562396168708801,
+            -0.008963998407125473,
+            -0.0007439666660502553
+          ],
+          "errors": [
+            0.10437367845471501,
+            0.4698498712830798
+          ],
+          "A_errors": [
+            0.11126144058586708,
+            0.6867309780026083
+          ],
+          "B_errors": [
+            0.0975601357068809,
+            0.9612344633735906
+          ],
+          "head_seconds": 0.0017445869998482522,
+          "hypothesis_geometry_seconds": 0.022870610000154556,
+          "native_feature_seconds": 27.67114178800057,
+          "posterior_zero_probability": 0.000631543924100697
+        },
+        {
+          "frame_id": "1329604637982961",
+          "delta": [
+            -0.04202200844883919,
+            0.03193805739283562,
+            0.015216020867228508,
+            0.012126607820391655,
+            0.014992503449320793,
+            0.004710005130618811
+          ],
+          "errors": [
+            0.09483450048560957,
+            1.3914457961756435
+          ],
+          "A_errors": [
+            0.05572891427378841,
+            0.3088994136625199
+          ],
+          "B_errors": [
+            0.07429190964044896,
+            0.8505793632187996
+          ],
+          "head_seconds": 0.0017352199997731077,
+          "hypothesis_geometry_seconds": 0.03692219300000943,
+          "native_feature_seconds": 40.771754669000984,
+          "posterior_zero_probability": 0.000216883810935542
+        },
+        {
+          "frame_id": "1329604639582940",
+          "delta": [
+            0.01827877014875412,
+            -0.01598217897117138,
+            0.003391038626432419,
+            0.016401460394263268,
+            -0.002920540515333414,
+            -0.0027936901897192
+          ],
+          "errors": [
+            0.21074210155129827,
+            0.6853426023619711
+          ],
+          "A_errors": [
+            0.18684873885559802,
+            0.6900083903012518
+          ],
+          "B_errors": [
+            0.18684873885559802,
+            0.6900083903012518
+          ],
+          "head_seconds": 0.0017408749999958673,
+          "hypothesis_geometry_seconds": 0.03520448100016438,
+          "native_feature_seconds": 39.61886041300022,
+          "posterior_zero_probability": 0.0004546061099972576
+        },
+        {
+          "frame_id": "1329604640582945",
+          "delta": [
+            0.013465340249240398,
+            0.0035661794245243073,
+            0.023045295849442482,
+            0.00830074306577444,
+            -0.0009613126167096198,
+            -0.008256693370640278
+          ],
+          "errors": [
+            0.03981219627330568,
+            0.6344790799776099
+          ],
+          "A_errors": [
+            0.01621402074730877,
+            0.774870192965072
+          ],
+          "B_errors": [
+            0.09027187486471279,
+            0.8898341441943608
+          ],
+          "head_seconds": 0.0021891510000386916,
+          "hypothesis_geometry_seconds": 0.03748732900021423,
+          "native_feature_seconds": 55.61242539799832,
+          "posterior_zero_probability": 0.0022832010872662067
+        },
+        {
+          "frame_id": "1329604641982945",
+          "delta": [
+            0.0136680006980896,
+            0.03268970176577568,
+            0.045004744082689285,
+            0.009007936343550682,
+            -0.000659327779430896,
+            -0.009518180042505264
+          ],
+          "errors": [
+            0.0922656335132474,
+            1.1198692130204366
+          ],
+          "A_errors": [
+            0.1114841763097653,
+            0.6392991255680329
+          ],
+          "B_errors": [
+            0.11787896098671721,
+            1.0549461427985096
+          ],
+          "head_seconds": 0.00218097700008002,
+          "hypothesis_geometry_seconds": 0.037606065000090894,
+          "native_feature_seconds": 49.51014533599937,
+          "posterior_zero_probability": 0.0008021820103749633
+        },
+        {
+          "frame_id": "1329604642982934",
+          "delta": [
+            -0.005676638334989548,
+            -0.03520015999674797,
+            0.007312430068850517,
+            0.01272400002926588,
+            -0.0063059041276574135,
+            -0.012950247153639793
+          ],
+          "errors": [
+            0.11141067029191147,
+            1.9663081942254188
+          ],
+          "A_errors": [
+            0.08379775749073606,
+            1.0260628331528847
+          ],
+          "B_errors": [
+            0.0931023818075066,
+            1.3263685548920634
+          ],
+          "head_seconds": 0.0024613840000711207,
+          "hypothesis_geometry_seconds": 0.04360417399993821,
+          "native_feature_seconds": 49.827198555999985,
+          "posterior_zero_probability": 0.0021145243663340807
+        },
+        {
+          "frame_id": "1329604644582931",
+          "delta": [
+            0.04109225049614906,
+            -0.03235515207052231,
+            -0.004089185502380133,
+            0.013445880264043808,
+            0.001836456824094057,
+            -0.007784397341310978
+          ],
+          "errors": [
+            0.10812878816602929,
+            1.0896615200282216
+          ],
+          "A_errors": [
+            0.06560317191916139,
+            0.7854089372961987
+          ],
+          "B_errors": [
+            0.06560317191916139,
+            0.7854089372961987
+          ],
+          "head_seconds": 0.0018098370001098374,
+          "hypothesis_geometry_seconds": 0.031894187000034435,
+          "native_feature_seconds": 42.48188596400041,
+          "posterior_zero_probability": 0.0004850357072427869
+        }
+      ],
+      "train_loss": [
+        1.6079263040359983,
+        1.6028031935083105,
+        1.6001045970206564,
+        1.5983858488975686,
+        1.5973484097643103,
+        1.595887951394345,
+        1.5960193935860978,
+        1.5914326132612024,
+        1.5910961666005723,
+        1.5889488306451351,
+        1.5845646211441526,
+        1.5825460451714537,
+        1.5745901858552973,
+        1.5763565618941124,
+        1.5667555991639481,
+        1.5651525855064392,
+        1.5624148313035355,
+        1.5573932642632342,
+        1.5563020756904116,
+        1.541315809209296,
+        1.5502898350675056,
+        1.5267497167942372,
+        1.4973035683023168,
+        1.46936094507258,
+        1.4704825206005827,
+        1.4458648613158693,
+        1.4444617565642013,
+        1.4284427914213627,
+        1.412730818099164,
+        1.4166893667363105,
+        1.4140734850092138,
+        1.4171638970679425,
+        1.4096660157467455,
+        1.3979345623483048,
+        1.3940135646373668,
+        1.3913726584708437,
+        1.4028563860883103,
+        1.3966856928581888,
+        1.3886559890939834,
+        1.3823801621477654
+      ]
+    },
+    {
+      "method": "D_retrained_zero_visual",
+      "frames": [
+        {
+          "frame_id": "1329604635582975",
+          "delta": [
+            -0.018463488668203354,
+            0.0012674713507294655,
+            -0.03674132004380226,
+            -0.005071903113275766,
+            -0.006749631837010384,
+            -0.00027518963906913996
+          ],
+          "errors": [
+            0.09579232342396422,
+            1.26751473753732
+          ],
+          "A_errors": [
+            0.06845829785766014,
+            1.0373619109686139
+          ],
+          "B_errors": [
+            0.06845829785766014,
+            1.0373619109686139
+          ],
+          "head_seconds": 0.0019627239998953883,
+          "hypothesis_geometry_seconds": 0.022148874000322394,
+          "native_feature_seconds": 16.04108185199948,
+          "posterior_zero_probability": 0.0595209077000618
+        },
+        {
+          "frame_id": "1329604636982984",
+          "delta": [
+            -0.004839802626520395,
+            0.01286560483276844,
+            -0.022543631494045258,
+            -0.009729588404297829,
+            -0.001632494735531509,
+            0.0014924949500709772
+          ],
+          "errors": [
+            0.09284386773912201,
+            1.1598834952830115
+          ],
+          "A_errors": [
+            0.11126144058586708,
+            0.6867309780026083
+          ],
+          "B_errors": [
+            0.0975601357068809,
+            0.9612344633735906
+          ],
+          "head_seconds": 0.0023676659998272953,
+          "hypothesis_geometry_seconds": 0.022870610000154556,
+          "native_feature_seconds": 27.67114178800057,
+          "posterior_zero_probability": 0.10075215250253677
+        },
+        {
+          "frame_id": "1329604637982961",
+          "delta": [
+            0.012625213712453842,
+            0.003549152985215187,
+            -0.01151802483946085,
+            -0.002931191585958004,
+            0.0009291243040934205,
+            -0.0003995427396148443
+          ],
+          "errors": [
+            0.045402663643748724,
+            0.2073026348159116
+          ],
+          "A_errors": [
+            0.05572891427378841,
+            0.3088994136625199
+          ],
+          "B_errors": [
+            0.07429190964044896,
+            0.8505793632187996
+          ],
+          "head_seconds": 0.0021341599999686878,
+          "hypothesis_geometry_seconds": 0.03692219300000943,
+          "native_feature_seconds": 40.771754669000984,
+          "posterior_zero_probability": 0.4903033673763275
+        },
+        {
+          "frame_id": "1329604639582940",
+          "delta": [
+            -0.001056601176969707,
+            0.005533804651349783,
+            -0.02489149197936058,
+            -0.0034654843620955944,
+            0.0015832410426810384,
+            0.0015827631577849388
+          ],
+          "errors": [
+            0.17927848790946918,
+            0.8748947503958832
+          ],
+          "A_errors": [
+            0.18684873885559802,
+            0.6900083903012518
+          ],
+          "B_errors": [
+            0.18684873885559802,
+            0.6900083903012518
+          ],
+          "head_seconds": 0.001878935000149795,
+          "hypothesis_geometry_seconds": 0.03520448100016438,
+          "native_feature_seconds": 39.61886041300022,
+          "posterior_zero_probability": 0.2516852617263794
+        },
+        {
+          "frame_id": "1329604640582945",
+          "delta": [
+            0.0017574656521901488,
+            0.00037425023037940264,
+            -0.004175481386482716,
+            -0.00043880572775378823,
+            0.00039743067463859916,
+            0.0007764901965856552
+          ],
+          "errors": [
+            0.015559035335287397,
+            0.8177961693516376
+          ],
+          "A_errors": [
+            0.01621402074730877,
+            0.774870192965072
+          ],
+          "B_errors": [
+            0.09027187486471279,
+            0.8898341441943608
+          ],
+          "head_seconds": 0.0016783199998826603,
+          "hypothesis_geometry_seconds": 0.03748732900021423,
+          "native_feature_seconds": 55.61242539799832,
+          "posterior_zero_probability": 0.8803945779800415
+        },
+        {
+          "frame_id": "1329604641982945",
+          "delta": [
+            -0.007700128480792046,
+            0.010438147000968456,
+            -0.01477300189435482,
+            -0.003160512074828148,
+            -0.0005454139318317175,
+            0.0008175637340173125
+          ],
+          "errors": [
+            0.10234253532128995,
+            0.5720734071910292
+          ],
+          "A_errors": [
+            0.1114841763097653,
+            0.6392991255680329
+          ],
+          "B_errors": [
+            0.11787896098671721,
+            1.0549461427985096
+          ],
+          "head_seconds": 0.002224098999704438,
+          "hypothesis_geometry_seconds": 0.037606065000090894,
+          "native_feature_seconds": 49.51014533599937,
+          "posterior_zero_probability": 0.4289075434207916
+        },
+        {
+          "frame_id": "1329604642982934",
+          "delta": [
+            -0.0002130628563463688,
+            -0.0018200426129624248,
+            -0.0005922025884501636,
+            -6.494080298580229e-05,
+            -9.360769763588905e-05,
+            -0.0003765228029806167
+          ],
+          "errors": [
+            0.08550855545165878,
+            1.0475461750992976
+          ],
+          "A_errors": [
+            0.08379775749073606,
+            1.0260628331528847
+          ],
+          "B_errors": [
+            0.0931023818075066,
+            1.3263685548920634
+          ],
+          "head_seconds": 0.0018881000000874337,
+          "hypothesis_geometry_seconds": 0.04360417399993821,
+          "native_feature_seconds": 49.827198555999985,
+          "posterior_zero_probability": 0.901681125164032
+        },
+        {
+          "frame_id": "1329604644582931",
+          "delta": [
+            -0.002168199047446251,
+            -0.0051230210810899734,
+            -0.026299646124243736,
+            0.00037895585410296917,
+            0.0011962528806179762,
+            0.0014400073559954762
+          ],
+          "errors": [
+            0.07715053332373485,
+            0.8894942327282415
+          ],
+          "A_errors": [
+            0.06560317191916139,
+            0.7854089372961987
+          ],
+          "B_errors": [
+            0.06560317191916139,
+            0.7854089372961987
+          ],
+          "head_seconds": 0.0015443339998455485,
+          "hypothesis_geometry_seconds": 0.031894187000034435,
+          "native_feature_seconds": 42.48188596400041,
+          "posterior_zero_probability": 0.2702181935310364
+        }
+      ],
+      "train_loss": [
+        1.609758311129631,
+        1.6050299469460831,
+        1.6031002896897337,
+        1.6025377461250792,
+        1.6020330456977194,
+        1.6024431053628312,
+        1.6032104669733251,
+        1.6013753173199106,
+        1.602243149534185,
+        1.6019361653226487,
+        1.601878376717263,
+        1.601380704565251,
+        1.6018207174666383,
+        1.601361152973581,
+        1.6019942341966833,
+        1.601558601602595,
+        1.601219264750785,
+        1.6012401365219278,
+        1.6016150598830365,
+        1.601403959254001,
+        1.6010103289117203,
+        1.6012606925152717,
+        1.6016451881286946,
+        1.6008286679044683,
+        1.6014028901749469,
+        1.6008110097114077,
+        1.6013363206640203,
+        1.6013802530917716,
+        1.600984017899696,
+        1.6007818402128016,
+        1.6008836779188602,
+        1.6008120153812653,
+        1.600702333957591,
+        1.6014658872117387,
+        1.601032481548634,
+        1.6018937103291775,
+        1.6006708107096084,
+        1.6010793307994275,
+        1.6003240182044658,
+        1.6007174215418227
+      ]
+    }
+  ],
+  "development_C_beats_A_B_D_on_both_means": false,
+  "independent_test_success": null
+}

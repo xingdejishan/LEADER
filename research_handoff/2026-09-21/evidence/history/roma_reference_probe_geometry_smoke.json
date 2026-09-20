@@ -1,0 +1,96 @@
+{
+  "protocol": {
+    "split": "train only, leave-one-frame-out",
+    "gt_use": "labels only; never retrieval or matching",
+    "front_end": "RoMa v2 dense reference-to-query field",
+    "local_gate": "disabled",
+    "reference_pool": "all historical image pairs with at least one ray-compatible visible observation",
+    "automatic_retrieval": "top-k by current ray-compatible visible-observation count",
+    "oracle": "pair with the largest correct correspondence count; pair precision is reported separately"
+  },
+  "settings": {
+    "manifest": "/home/zhang/leader-image-gate-multicamera/all_views.json",
+    "lidar_cache": "/home/zhang/leader-image-gate/lidar",
+    "projection_cache": "/home/zhang/leader-image-gate/projection_audit/mapping",
+    "map_cache": "/tmp/roma_geometry_only_smoke.npz",
+    "output": "research/prevoxel_multiview/results/roma_reference_probe_geometry_smoke.json",
+    "full_pool": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/glace-local/code/tools/full_pool_robust_v1.py",
+    "device": "cuda",
+    "roma_setting": "fast",
+    "frames": 1,
+    "cameras": "4",
+    "max_pairs_per_camera": 1,
+    "map_voxel_size": 0.2,
+    "max_history": 0,
+    "crop_radius": 80.0,
+    "min_overlap": 0.2,
+    "min_reference_view_cosine": 0.7,
+    "top_k": 2,
+    "seed": 2089
+  },
+  "records": [
+    {
+      "frame_id": "1329601360002721",
+      "camera": 4,
+      "all_pairs": [
+        {
+          "query_frame_id": "1329601360002721",
+          "query_camera": 4,
+          "reference_frame_id": "1329601361402708",
+          "reference_camera": 4,
+          "selection_covisible_anchor_count": 59,
+          "anchors": 59,
+          "gt_visible_anchors": 58,
+          "prediction_in_image": 58,
+          "overlap_pass": 42,
+          "correct_lt_5px": 20,
+          "correct_lt_8px": 33,
+          "precision_lt_5px": 0.47619047619047616,
+          "precision_lt_8px": 0.7857142857142857,
+          "median_pixel_error_overlap": 5.101160019834457,
+          "p90_pixel_error_overlap": 11.42304301562965,
+          "automatic_top_k": true
+        }
+      ],
+      "automatic_top_k": {
+        "pairs": 1,
+        "anchors": 59,
+        "gt_visible_anchors": 58,
+        "overlap_pass": 42,
+        "correct_lt_5px": 20,
+        "correct_lt_8px": 33,
+        "precision_lt_5px": 0.47619047619047616,
+        "precision_lt_8px": 0.7857142857142857
+      },
+      "oracle_best_correspondence_count_pair": {
+        "query_frame_id": "1329601360002721",
+        "query_camera": 4,
+        "reference_frame_id": "1329601361402708",
+        "reference_camera": 4,
+        "selection_covisible_anchor_count": 59,
+        "anchors": 59,
+        "gt_visible_anchors": 58,
+        "prediction_in_image": 58,
+        "overlap_pass": 42,
+        "correct_lt_5px": 20,
+        "correct_lt_8px": 33,
+        "precision_lt_5px": 0.47619047619047616,
+        "precision_lt_8px": 0.7857142857142857,
+        "median_pixel_error_overlap": 5.101160019834457,
+        "p90_pixel_error_overlap": 11.42304301562965,
+        "automatic_top_k": true
+      },
+      "all_geometrically_compatible": {
+        "pairs": 1,
+        "anchors": 59,
+        "gt_visible_anchors": 58,
+        "overlap_pass": 42,
+        "correct_lt_5px": 20,
+        "correct_lt_8px": 33,
+        "precision_lt_5px": 0.47619047619047616,
+        "precision_lt_8px": 0.7857142857142857
+      }
+    }
+  ],
+  "elapsed_s": 1.6116440296173096
+}

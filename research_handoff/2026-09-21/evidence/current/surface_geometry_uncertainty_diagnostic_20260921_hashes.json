@@ -1,0 +1,37 @@
+{
+  "experiment": "train-only leave-out diagnostic for frozen surface geometry uncertainty propagation",
+  "date": "2026-09-21",
+  "protocol": {
+    "folds": 4,
+    "fit_frames_per_fold": 48,
+    "holdout_frames_per_fold": 16,
+    "query_gt_used": false,
+    "source_cloud": "current calibration口径: source transformed by GT",
+    "projection_cloud": "map-compatible diagnostic: projection_xyz transformed by GT",
+    "direction_check": "fixed pose, observed holdout plane delta propagated to image residual"
+  },
+  "artifacts": {
+    "runner_sha256": "BC315B536390A40B3E8A278967284E3B04E9336E9E9D9CABC341D181A6AF81DA",
+    "diagnostic_script_sha256": "27C36A5B1ADE5C2562B3F708EB3F54DA796D822427E0EAC49B531DEEA8204E7E",
+    "calibration_script_sha256": "9ACA463CD8FBB6EF724052F89A67793D3F6FBD42CE35CFF31578A3C649F5CFCE",
+    "model_json_sha256": "A3CFB559C832AA59FA83CD56B7730ADFC5518C4538FE8524CB2FD5950088BB71",
+    "leaveout_json_sha256": "96DEF96F4B47A4619B8DE368B9BF0577BF299F9022A7CBCE21919D989D72F243",
+    "validation_predictions_sha256": "8B4599FE7D28D2068883F6E27DC7FC9A87FBDB74AD51349F46A045E7C5AE819E",
+    "validation_evaluation_sha256": "BA50B579C62C34DBB7E6F71E46C2B7EA905A7DF74EE013A8B3CC15E3E463BF8B",
+    "surface_reference_map_sha256": "ABBF522EDFFE9339B1440BB6CF9DC03AF884D8A1092A47DBED01135E0A0AC0D0"
+  },
+  "diagnostic_summary": {
+    "source_holdout_plane_samples": 10,
+    "projection_holdout_plane_samples": 164,
+    "source_weighted_coverage_95": 0.0,
+    "projection_weighted_coverage_95": 0.0,
+    "direction_samples": 15,
+    "direction_attenuation_median": 0.9905786724882005,
+    "direction_samples_below_0_99": 7,
+    "geometry_invalid_rate_nonzero_frames": 2,
+    "geometry_invalid_rate_max": 0.5,
+    "full_validation_frames": 32,
+    "full_validation_failures": 0,
+    "pose_parity_to_previous_u_run": true
+  }
+}

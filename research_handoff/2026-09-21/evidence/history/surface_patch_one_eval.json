@@ -1,0 +1,394 @@
+{
+  "protocol": {
+    "predictions": "research/prevoxel_multiview/results/surface_patch_one.json",
+    "gt_used_only_here": true,
+    "lidar_cache": "/home/zhang/leader-image-gate/lidar"
+  },
+  "metrics": {
+    "before": {
+      "count": 1,
+      "valid_count": 1,
+      "failure_count": 0,
+      "mean_translation_m": 0.068455196213898,
+      "median_translation_m": 0.068455196213898,
+      "p90_translation_m": 0.068455196213898,
+      "mean_rotation_deg": 1.0386958004058646,
+      "median_rotation_deg": 1.0386958004058646,
+      "p90_rotation_deg": 1.0386958004058646,
+      "success_1m_2deg": 1
+    },
+    "after": {
+      "count": 1,
+      "valid_count": 1,
+      "failure_count": 0,
+      "mean_translation_m": 0.068455196213898,
+      "median_translation_m": 0.068455196213898,
+      "p90_translation_m": 0.068455196213898,
+      "mean_rotation_deg": 0.7019172238714787,
+      "median_rotation_deg": 0.7019172238714787,
+      "p90_rotation_deg": 0.7019172238714787,
+      "success_1m_2deg": 1
+    }
+  },
+  "paired": {
+    "mean_delta_translation_m_rotation_deg": [
+      0.0,
+      -0.3367785765343859
+    ],
+    "bootstrap_95ci": [
+      [
+        0.0,
+        -0.3367785765343859
+      ],
+      [
+        0.0,
+        -0.3367785765343859
+      ]
+    ],
+    "translation_improved_frames": 0,
+    "rotation_improved_frames": 1,
+    "both_improved_frames": 0,
+    "rescue_frames": 0,
+    "damage_frames": 0
+  },
+  "criteria": {
+    "mpe_decreased": false,
+    "moe_decreased": true,
+    "p90_translation_not_worse": true,
+    "p90_rotation_not_worse": true,
+    "no_runner_failures": true
+  },
+  "records": [
+    {
+      "frame_id": "1329604635582975",
+      "initial_pose": [
+        [
+          -0.05219821259379387,
+          -0.9975579380989075,
+          -0.04639708250761032,
+          -77.85289001464844
+        ],
+        [
+          0.997376561164856,
+          -0.04974185302853584,
+          -0.05259529501199722,
+          -336.0888786315918
+        ],
+        [
+          0.05015886574983597,
+          -0.049020715057849884,
+          0.9975373148918152,
+          8.244644165039062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "final_pose": [
+        [
+          -0.05429778381347619,
+          -0.9972870069110606,
+          -0.04969468397762564,
+          -77.85289001464844
+        ],
+        [
+          0.9969461618036656,
+          -0.051346496401587366,
+          -0.05884223377395554,
+          -336.0888786315918
+        ],
+        [
+          0.05613083920818604,
+          -0.05273789401653063,
+          0.9970294272653364,
+          8.244644165039062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "rotation_delta_rad": [
+        0.006171255684869482,
+        -0.0034140411641748357,
+        0.00192358351376328
+      ],
+      "rotation_delta_deg": 0.41884840132369755,
+      "patch_count": 143,
+      "patch_diagnostics": [
+        {
+          "camera": 0,
+          "candidates": 0,
+          "grid_cells": 0,
+          "selected": 0
+        },
+        {
+          "camera": 1,
+          "candidates": 66,
+          "grid_cells": 23,
+          "selected": 23
+        },
+        {
+          "camera": 2,
+          "candidates": 170,
+          "grid_cells": 27,
+          "selected": 27
+        },
+        {
+          "camera": 3,
+          "candidates": 279,
+          "grid_cells": 19,
+          "selected": 19
+        },
+        {
+          "camera": 4,
+          "candidates": 54,
+          "grid_cells": 26,
+          "selected": 26
+        },
+        {
+          "camera": 5,
+          "candidates": 1177,
+          "grid_cells": 67,
+          "selected": 48
+        }
+      ],
+      "visual_rmse_before": 1.3022108138289594,
+      "visual_rmse_after": 1.2677852343380211,
+      "solver": {
+        "success": true,
+        "status": 2,
+        "nfev": 70,
+        "cost": 43.59820532525114,
+        "optimality": 0.025806639522291536,
+        "message": "`ftol` termination condition is satisfied."
+      },
+      "run_failed": false,
+      "reference_frames": [
+        "1329601398002477",
+        "1329601399402470",
+        "1329601401402448",
+        "1329601403002483",
+        "1329601404402427",
+        "1329601406002426",
+        "1329601407402467",
+        "1329601409002400",
+        "1329601411002392",
+        "1329601412402370",
+        "1329601430002267",
+        "1329604603983211",
+        "1329604605583164",
+        "1329604606983155",
+        "1329604608583140",
+        "1329604609983135",
+        "1329604611983122",
+        "1329604613583755",
+        "1329604614983101",
+        "1329604616583112",
+        "1329604617983823",
+        "1329604619583096",
+        "1329604621983066",
+        "1329604623583040",
+        "1329604624983040"
+      ],
+      "reference_indices": [
+        20784,
+        20156,
+        33184,
+        18619,
+        19371,
+        20797,
+        18613,
+        19389,
+        38314,
+        19394,
+        37826,
+        38309,
+        38079,
+        38324,
+        20843,
+        38331,
+        38629,
+        38870,
+        38084,
+        20025,
+        39392,
+        38853,
+        39136,
+        21823,
+        22426,
+        23210,
+        20365,
+        21086,
+        20366,
+        21812,
+        20364,
+        20358,
+        25260,
+        39689,
+        39701,
+        40181,
+        39958,
+        38381,
+        38121,
+        38933,
+        39464,
+        37608,
+        37893,
+        36726,
+        39474,
+        39473,
+        39213,
+        37054,
+        36735,
+        40207,
+        19626,
+        19629,
+        37368,
+        40214,
+        38694,
+        37395,
+        38423,
+        38955,
+        39253,
+        37951,
+        39781,
+        37399,
+        38456,
+        40247,
+        39789,
+        39258,
+        39800,
+        39552,
+        39546,
+        40054,
+        39573,
+        40061,
+        40306,
+        40304,
+        39811,
+        39812,
+        39307,
+        39584,
+        39589,
+        39824,
+        39317,
+        40321,
+        40077,
+        40332,
+        40331,
+        39827,
+        40081,
+        40086,
+        40082,
+        40326,
+        40329,
+        40330,
+        39320,
+        40333,
+        39325,
+        40130,
+        39604,
+        39865,
+        39870,
+        40124,
+        39046,
+        40123,
+        40126,
+        40127,
+        39052,
+        38523,
+        38061,
+        40131,
+        39868,
+        39878,
+        39872,
+        38255,
+        39875,
+        37758,
+        40143,
+        38264,
+        18277,
+        39337,
+        19034,
+        38263,
+        39060,
+        21320,
+        21376,
+        39062,
+        38802,
+        40146,
+        39633,
+        40155,
+        24950,
+        39887,
+        39630,
+        39070,
+        39357,
+        39361,
+        22917,
+        24317,
+        40161,
+        39076,
+        39364,
+        40160,
+        23614,
+        23615,
+        39370
+      ],
+      "before": [
+        0.068455196213898,
+        1.0386958004058646
+      ],
+      "after": [
+        0.068455196213898,
+        0.7019172238714787
+      ],
+      "delta": [
+        0.0,
+        -0.3367785765343859
+      ],
+      "leader_success": true
+    }
+  ],
+  "source_protocol": {
+    "name": "surface-bound real-image patch rotation-only refinement",
+    "map_source": "train split only",
+    "query_gt_in_runner": false,
+    "reference_patch": "8x8 grayscale pixels bound to frozen local fitted surface planes",
+    "online_observation": "query image bilinear samples at candidate-pose projections",
+    "pose_update": "R=Exp(delta_rotation) R_LEADER; t=t_LEADER",
+    "no_baseline_fallback": true,
+    "parameters": {
+      "device": "cuda",
+      "evaluate_split": "validation",
+      "frames": 1,
+      "train_frames": 0,
+      "map_voxel_size": 0.2,
+      "surface_voxel_size": 0.2,
+      "crop_radius": 80.0,
+      "min_view_cosine": 0.7,
+      "plane_radius": 0.8,
+      "min_plane_neighbors": 8,
+      "patch_size": 8,
+      "max_patches_per_camera": 48,
+      "grid_cell": 32,
+      "min_contrast": 0.03,
+      "max_rotation_deg": 2.0,
+      "prior_sigma_deg": 1.0,
+      "robust_scale": 0.2,
+      "max_nfev": 100,
+      "seed": 2089
+    },
+    "input_manifest": "/home/zhang/leader-image-gate-multicamera/all_views.json",
+    "reference_map_cache": "research/prevoxel_multiview/results/surface_patch_reference_observations.npz",
+    "reference_observation_count": 40335,
+    "surface_point_count": 30116,
+    "manifest_sha256": "a7008599fa2349d262745cec4ee80a568608b073f0782d15b4df407524c92e90"
+  }
+}
