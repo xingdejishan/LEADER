@@ -109,6 +109,31 @@ class RoMaFineFeatures:
     def clear(self):
         self.cache.clear()
 
+    def correlation_volume(self, reference_features, query_features, reference_uv, reference_hw, query_hw,
+                           center_uv, radius, batch_size=128):
+        import torch.nn.functional as F
+
+        reference_uv = np.asarray(reference_uv, dtype=np.float64)
+        center_uv = np.asarray(center_uv, dtype=np.float64)
+        offsets_y, offsets_x = np.mgrid[-radius:radius + 1, -radius:radius + 1]
+        offsets = np.column_stack((offsets_x.ravel(), offsets_y.ravel())).astype(np.float64)
+        output = np.empty((len(reference_uv), len(offsets)), dtype=np.float32)
+        for start in range(0, len(reference_uv), batch_size):
+            stop = min(start + batch_size, len(reference_uv))
+            reference_grid = self._normalized_grid(reference_uv[start:stop], reference_hw)
+            candidates = center_uv[start:stop, None, :] + offsets[None]
+            candidates[..., 0] = np.clip(candidates[..., 0], 0, query_hw[1] - 1)
+            candidates[..., 1] = np.clip(candidates[..., 1], 0, query_hw[0] - 1)
+            query_grid = self._normalized_grid(candidates.reshape(-1, 2), query_hw)
+            reference = F.grid_sample(reference_features, reference_grid[None, :, None], mode="bilinear",
+                                      padding_mode="border", align_corners=False)[0, :, :, 0].T
+            query = F.grid_sample(query_features, query_grid[None, :, None], mode="bilinear",
+                                  padding_mode="border", align_corners=False)[0, :, :, 0].T
+            reference = F.normalize(reference, dim=1)
+            query = F.normalize(query, dim=1).reshape(stop - start, len(offsets), -1)
+            output[start:stop] = (query * reference[:, None]).sum(dim=2).detach().cpu().numpy()
+        return output
+
     def score_surface(self, reference_features, query_features, reference_uv, reference_hw, query_hw,
                       center_uv, radius_xy, lidar_uv, lidar_precision, appearance_weight, geometry_weight):
         import torch.nn.functional as F
