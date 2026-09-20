@@ -142,6 +142,7 @@ def main():
     parser.add_argument("--roma-setting", default="precise")
     parser.add_argument("--feature-stride", type=int, default=4)
     parser.add_argument("--feature-radius", type=int, default=4)
+    parser.add_argument("--zero-correlation", action="store_true")
     parser.add_argument("--hidden", type=int, default=128)
     parser.add_argument("--epochs", type=int, default=40)
     parser.add_argument("--batch-size", type=int, default=512)
@@ -169,6 +170,9 @@ def main():
                                  matcher, pool_module.full_pool_refine, args.device, args.seed, features,
                                  args.feature_radius, args.covariance_inflation, args.pixel_floor_px,
                                  args.window_sigmas, args.minimum_radius_px, args.maximum_radius_px)
+    if args.zero_correlation:
+        train["volume"].fill(0.)
+        validation["volume"].fill(0.)
     head = OffsetHead(train["volume"].shape[1], train["geometry"].shape[1], args.hidden, args.device)
     head.fit(train["volume"], train["geometry"], train["truth"] - train["baseline"], args.epochs,
              args.batch_size, args.learning_rate, args.seed)
