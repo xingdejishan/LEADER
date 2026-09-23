@@ -41,4 +41,11 @@ python run_mink.py --dataset NCLT --mode train --dataset_folder <数据根目录
 
 ## 验证边界
 
-当前只有合成几何与接口单元验证，以及单张真实图像的 SAM-L 编码 smoke；没有完整 MinkowskiEngine 前后向、真实同步图像训练或 MPE/MOE。padding mask 只隔离直接采样和池化中的无效特征格，不消除 SAM 自身编码时可能产生的 padding 上下文影响。`run_mink.py --mode test` 是原仓库的开发诊断入口，仍在同一进程读取 GT，不能充当研究交接记录规定的正式在线评价。正式比较需要独立在线预测与 GT evaluator，并将纯 LiDAR 与多模态放在同一图像、扫描及完整帧分母上；32 帧历史开发集不得称为独立测试。
+WSL Ubuntu 的 `/home/zhang/.venvs/leader-magic/bin/python` 继承原 `egonn118` 环境的 PyTorch 2.0.1+cu118 与 MinkowskiEngine 0.5.4，在隔离的虚拟环境中补齐 LEADER 入口、SAM 与数据加载所需依赖。可从本仓库根目录运行：
+
+```bash
+/home/zhang/.venvs/leader-magic/bin/python -m unittest discover -s tests -p test_magic_fusion.py
+/home/zhang/.venvs/leader-magic/bin/python -m tools.smoke_magic_full
+```
+
+9项合成几何与接口单元测试通过；完整 RPGE→阶段视觉融合→回归头的128体素 CUDA 合成前后向通过，浅层投影收到非零梯度，峰值分配约623 MiB。另有单张真实图像的 SAM-L 编码 smoke。上述显存数字不能外推到真实点云或训练 batch；尚无真实同步图像训练或 MPE/MOE。padding mask 只隔离直接采样和池化中的无效特征格，不消除 SAM 自身编码时可能产生的 padding 上下文影响。`run_mink.py --mode test` 是原仓库的开发诊断入口，仍在同一进程读取 GT，不能充当研究交接记录规定的正式在线评价。正式比较需要独立在线预测与 GT evaluator，并将纯 LiDAR 与多模态放在同一图像、扫描及完整帧分母上；32 帧历史开发集不得称为独立测试。
