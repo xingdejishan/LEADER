@@ -22,6 +22,7 @@ import transforms3d.quaternions as txq
 
 from torch.cuda.amp import autocast
 from models.sc2pcr import Matcher
+from utils.full_pool_robust_v1 import full_pool_refine
 
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -398,6 +399,7 @@ def process_one_epoch(
                     c_gt = c_gt[indices]
 
                     T = ransac.estimator(c_local[None], c_pred[None])[0]
+                    T = full_pool_refine(T, c_local, c_pred)
                     T[:3, 3] += center_t
                     T = T @ (T_corr[i])
                     
