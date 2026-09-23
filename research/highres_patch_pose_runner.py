@@ -108,7 +108,9 @@ def run(args):
             "refined_solver": {"success": bool(refined_solver.success), "status": int(refined_solver.status),
                                "iterations": int(getattr(refined_solver, "nit", 0)),
                                "message": str(refined_solver.message)},
-            "baseline_peak_parity_max_abs": baseline_parity,
+            "baseline_parity_max_abs": baseline_parity,
+            "peak_parity_max_abs": peak_parity,
+            "baseline_peak_parity_max_abs": max(baseline_parity, peak_parity),
             "reference_pixels": frame["reference_pixels"].astype(np.float32).tolist(),
             "points": frame["points"].astype(np.float32).tolist(),
             "cameras": frame["cameras"].astype(int).tolist(),
@@ -124,7 +126,8 @@ def run(args):
                                                 frame["map_valid"].tobytes()).hexdigest(),
         })
         print(json.dumps({"frame": frame_id, "usable_peaks": len(frame["points"]),
-                          "baseline_peak_parity_max_abs": max(baseline_parity, peak_parity),
+                          "baseline_parity_max_abs": baseline_parity,
+                          "peak_parity_max_abs": peak_parity,
                           "peak_success": bool(peak_solver.success),
                           "refined_success": bool(refined_solver.success)}), flush=True)
 

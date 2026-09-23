@@ -1,6 +1,6 @@
 {
   "protocol": "separate post-freeze GT evaluator; query GT read only from lidar cache here",
-  "run_output_sha256": "a6d55a7e3f9456be09e9a458ffb906e28ef375fd942896d3a9a01a5d54eac578",
+  "run_output_sha256": "52c16ac60466c6710d5431146228a90fc8e51e774ce3a9555683ff07b0c5b047",
   "run_frames": 32,
   "geometry_only_control": {
     "denominator": 32,

@@ -156,7 +156,9 @@
         "iterations": 24,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 2.334195414732676e-08,
+      "baseline_peak_parity_max_abs": 2.334195414732676e-08,
       "reference_pixels": [
         [
           389.1165771484375,
@@ -647,7 +649,9 @@
         "iterations": 31,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.368019297842693e-08,
+      "baseline_peak_parity_max_abs": 1.368019297842693e-08,
       "reference_pixels": [
         [
           376.10369873046875,
@@ -1561,7 +1565,9 @@
         "iterations": 30,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.585065412257336e-08,
+      "baseline_peak_parity_max_abs": 1.585065412257336e-08,
       "reference_pixels": [
         [
           299.7001037597656,
@@ -2671,7 +2677,9 @@
         "iterations": 32,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 2.841044732804221e-09,
+      "baseline_peak_parity_max_abs": 2.841044732804221e-09,
       "reference_pixels": [
         [
           260.361328125,
@@ -4033,7 +4041,9 @@
         "iterations": 30,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 2.938861598522635e-09,
+      "baseline_peak_parity_max_abs": 2.938861598522635e-09,
       "reference_pixels": [
         [
           278.7086486816406,
@@ -6823,7 +6833,9 @@
         "iterations": 29,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.7739580471243244e-08,
+      "baseline_peak_parity_max_abs": 1.7739580471243244e-08,
       "reference_pixels": [
         [
           290.49554443359375,
@@ -10481,7 +10493,9 @@
         "iterations": 33,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 8.932306627684738e-08,
+      "baseline_peak_parity_max_abs": 8.932306627684738e-08,
       "reference_pixels": [
         [
           290.49554443359375,
@@ -16938,7 +16952,9 @@
         "iterations": 28,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.2180711550513479e-08,
+      "baseline_peak_parity_max_abs": 1.2180711550513479e-08,
       "reference_pixels": [
         [
           376.10369873046875,
@@ -20567,7 +20583,9 @@
         "iterations": 28,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.4984351537350449e-09,
+      "baseline_peak_parity_max_abs": 1.4984351537350449e-09,
       "reference_pixels": [
         [
           424.8060302734375,
@@ -24141,7 +24159,9 @@
         "iterations": 18,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.628982992940564e-08,
+      "baseline_peak_parity_max_abs": 1.628982992940564e-08,
       "reference_pixels": [
         [
           317.018310546875,
@@ -30878,7 +30898,9 @@
         "iterations": 24,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.2441873309398943e-08,
+      "baseline_peak_parity_max_abs": 1.2441873309398943e-08,
       "reference_pixels": [
         [
           296.07037353515625,
@@ -35851,7 +35873,9 @@
         "iterations": 22,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 5.543597580981441e-09,
+      "baseline_peak_parity_max_abs": 5.543597580981441e-09,
       "reference_pixels": [
         [
           320.5676574707031,
@@ -41357,7 +41381,9 @@
         "iterations": 23,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.600535348700305e-08,
+      "baseline_peak_parity_max_abs": 1.600535348700305e-08,
       "reference_pixels": [
         [
           309.32037353515625,
@@ -46723,7 +46749,9 @@
         "iterations": 31,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.084293899111799e-08,
+      "baseline_peak_parity_max_abs": 1.084293899111799e-08,
       "reference_pixels": [
         [
           291.5696716308594,
@@ -53461,7 +53489,9 @@
         "iterations": 27,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 3.141715865240258e-08,
+      "baseline_peak_parity_max_abs": 3.141715865240258e-08,
       "reference_pixels": [
         [
           272.17999267578125,
@@ -60171,7 +60201,9 @@
         "iterations": 25,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.4237741652323166e-08,
+      "baseline_peak_parity_max_abs": 1.4237741652323166e-08,
       "reference_pixels": [
         [
           278.5690002441406,
@@ -66181,7 +66213,9 @@
         "iterations": 24,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 7.432917925598304e-08,
+      "baseline_peak_parity_max_abs": 7.432917925598304e-08,
       "reference_pixels": [
         [
           272.6916809082031,
@@ -72247,7 +72281,9 @@
         "iterations": 24,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 2.9549084956670413e-08,
+      "baseline_peak_parity_max_abs": 2.9549084956670413e-08,
       "reference_pixels": [
         [
           283.23516845703125,
@@ -77669,7 +77705,9 @@
         "iterations": 20,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 2.2364954332942943e-09,
+      "baseline_peak_parity_max_abs": 2.2364954332942943e-09,
       "reference_pixels": [
         [
           283.6866149902344,
@@ -82671,7 +82709,9 @@
         "iterations": 26,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 2.111477215294144e-09,
+      "baseline_peak_parity_max_abs": 2.111477215294144e-09,
       "reference_pixels": [
         [
           725.921142578125,
@@ -88652,7 +88692,9 @@
         "iterations": 24,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 3.9241044191840047e-08,
+      "baseline_peak_parity_max_abs": 3.9241044191840047e-08,
       "reference_pixels": [
         [
           337.03082275390625,
@@ -93934,7 +93976,9 @@
         "iterations": 25,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.035491514755904e-08,
+      "baseline_peak_parity_max_abs": 1.035491514755904e-08,
       "reference_pixels": [
         [
           292.440673828125,
@@ -98460,7 +98504,9 @@
         "iterations": 27,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 3.0524233807227574e-08,
+      "baseline_peak_parity_max_abs": 3.0524233807227574e-08,
       "reference_pixels": [
         [
           294.3387756347656,
@@ -104077,7 +104123,9 @@
         "iterations": 19,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 2.622090988779746e-08,
+      "baseline_peak_parity_max_abs": 2.622090988779746e-08,
       "reference_pixels": [
         [
           445.2398681640625,
@@ -108574,7 +108622,9 @@
         "iterations": 22,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 1.8237130916531896e-08,
+      "baseline_peak_parity_max_abs": 1.8237130916531896e-08,
       "reference_pixels": [
         [
           445.2398681640625,
@@ -114024,7 +114074,9 @@
         "iterations": 28,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 8.036607823669328e-09,
+      "baseline_peak_parity_max_abs": 8.036607823669328e-09,
       "reference_pixels": [
         [
           324.259033203125,
@@ -122414,7 +122466,9 @@
         "iterations": 24,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 6.917730388522614e-09,
+      "baseline_peak_parity_max_abs": 6.917730388522614e-09,
       "reference_pixels": [
         [
           294.6441955566406,
@@ -131476,7 +131530,9 @@
         "iterations": 21,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 2.0273816403459932e-08,
+      "baseline_peak_parity_max_abs": 2.0273816403459932e-08,
       "reference_pixels": [
         [
           312.9549865722656,
@@ -138522,7 +138578,9 @@
         "iterations": 21,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 4.005482878710609e-08,
+      "baseline_peak_parity_max_abs": 4.005482878710609e-08,
       "reference_pixels": [
         [
           294.3387756347656,
@@ -144308,7 +144366,9 @@
         "iterations": 20,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 3.371985712874448e-08,
+      "baseline_peak_parity_max_abs": 3.371985712874448e-08,
       "reference_pixels": [
         [
           247.67825317382812,
@@ -152530,7 +152590,9 @@
         "iterations": 26,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 3.668958470370853e-08,
+      "baseline_peak_parity_max_abs": 3.668958470370853e-08,
       "reference_pixels": [
         [
           320.4765930175781,
@@ -160640,7 +160702,9 @@
         "iterations": 23,
         "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH"
       },
-      "baseline_peak_parity_max_abs": 0.0,
+      "baseline_parity_max_abs": 0.0,
+      "peak_parity_max_abs": 6.2420841828725315e-09,
+      "baseline_peak_parity_max_abs": 6.2420841828725315e-09,
       "reference_pixels": [
         [
           275.7694091796875,
