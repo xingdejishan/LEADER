@@ -43,16 +43,18 @@ class MaGiCFusionTests(unittest.TestCase):
         model = MaGiCFusion(lidar_channels=8, image_channels=8)
         lidar = torch.randn(3, 8)
         points = torch.tensor([[0.0, 0.0, 4.0], [0.2, 0.0, 4.0], [0.0, 0.2, 4.0]])
-        intrinsic = torch.tensor([[[20.0, 0.0, 16.0], [0.0, 20.0, 16.0], [0.0, 0.0, 1.0]]])
+        intrinsic = torch.tensor([[[20.0, 0.0, 512.0], [0.0, 20.0, 512.0], [0.0, 0.0, 1.0]]])
         coordinates = torch.tensor([[0, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0]])
         result = model(
-            lidar, points, coordinates, torch.ones(3), torch.randn(1, 3, 64, 64),
+            lidar, points, coordinates, torch.ones(3), torch.randn(1, 256, 64, 64),
             intrinsic, torch.eye(4).unsqueeze(0), torch.eye(4).unsqueeze(0),
-            torch.tensor([[64.0, 64.0]])
+            torch.tensor([[1024.0, 1024.0]])
         )
         torch.testing.assert_close(result, lidar)
         result.sum().backward()
         self.assertIsNotNone(model.aggregate.output.weight.grad)
+        with self.assertRaises(ValueError):
+            model.image_encoder(torch.randn(1, 3, 64, 64))
 
     def test_multiscale_groups_pool_lidar_and_geometry_together(self):
         lidar = torch.tensor([[1.0, 0.0], [3.0, 0.0], [7.0, 0.0]])
@@ -73,19 +75,25 @@ class MaGiCFusionTests(unittest.TestCase):
                 "image": "image.png",
                 "K": [[40, 0, 20], [0, 40, 10], [0, 0, 1]],
                 "T_camera_lidar": np.eye(4).tolist(),
+                "sam_features": "features.npy",
+                "sam_checkpoint_sha256": "a" * 64,
+                "resized_size": [1024, 512],
             }
+            np.save(os.path.join(directory, "features.npy"), np.zeros((256, 64, 64), dtype=np.float16))
             manifest = os.path.join(directory, "manifest.json")
             with open(manifest, "w", encoding="utf-8") as stream:
-                json.dump({"frames": {"NCLT/scan.bin": record}}, stream)
-            dataset = CalibratedImageDataset(FakeLidarDataset(scan), directory, manifest, 64)
+                json.dump({"sam_model": "vit_l", "sam_checkpoint_sha256": "a" * 64,
+                           "frames": {"NCLT/scan.bin": record}}, stream)
+            dataset = CalibratedImageDataset(FakeLidarDataset(scan), directory, manifest)
             sample = dataset[0]
-            self.assertEqual(sample[5].shape, (3, 64, 64))
-            self.assertEqual(sample[8].tolist(), [64.0, 32.0])
-            torch.testing.assert_close(sample[6][0, 0], torch.tensor(32.0))
+            self.assertEqual(sample[5].shape, (256, 64, 64))
+            self.assertEqual(sample[8].tolist(), [1024.0, 512.0])
+            torch.testing.assert_close(sample[6][0, 0], torch.tensor(512.0))
             with open(manifest, "w", encoding="utf-8") as stream:
-                json.dump({"frames": {}}, stream)
+                json.dump({"sam_model": "vit_l", "sam_checkpoint_sha256": "a" * 64,
+                           "frames": {}}, stream)
             with self.assertRaises(ValueError):
-                CalibratedImageDataset(FakeLidarDataset(scan), directory, manifest, 64)
+                CalibratedImageDataset(FakeLidarDataset(scan), directory, manifest)
 
 
 if __name__ == "__main__":

@@ -8,19 +8,23 @@ from torch.utils.data import Dataset
 
 
 class CalibratedImageDataset(Dataset):
-    def __init__(self, lidar_dataset, dataset_root, manifest_path, image_size):
-        if image_size < 64 or image_size % 32:
-            raise ValueError('image_size must be at least 64 and divisible by 32')
+    def __init__(self, lidar_dataset, dataset_root, manifest_path):
         self.lidar_dataset = lidar_dataset
         self.dataset_root = os.path.abspath(dataset_root)
-        self.image_size = image_size
         with open(manifest_path, encoding="utf-8") as stream:
-            self.frames = json.load(stream)["frames"]
+            manifest = json.load(stream)
+        if manifest.get("sam_model") != "vit_l" or not manifest.get("sam_checkpoint_sha256"):
+            raise ValueError('Manifest requires cached official SAM ViT-L features')
+        self.frames = manifest["frames"]
+        self.sam_checkpoint_sha256 = manifest["sam_checkpoint_sha256"]
         self.manifest_dir = os.path.dirname(os.path.abspath(manifest_path))
         self.keys = [os.path.relpath(path, self.dataset_root).replace("\\", "/") for path in lidar_dataset.pcs]
         missing = [key for key in self.keys if key not in self.frames]
         if missing:
             raise ValueError(f"Missing calibrated images for {len(missing)} scans; first: {missing[0]}")
+        missing_features = [key for key in self.keys if "sam_features" not in self.frames[key]]
+        if missing_features:
+            raise ValueError(f"Missing SAM ViT-L features for {len(missing_features)} scans; first: {missing_features[0]}")
 
     def __len__(self):
         return len(self.lidar_dataset)
@@ -35,16 +39,20 @@ class CalibratedImageDataset(Dataset):
         if not os.path.isabs(image_path):
             image_path = os.path.join(self.manifest_dir, image_path)
         with Image.open(image_path) as source:
-            image = source.convert("RGB")
-            width, height = image.size
-            scale = self.image_size / max(width, height)
-            resized_width = max(1, round(width * scale))
-            resized_height = max(1, round(height * scale))
-            resampling = getattr(Image, "Resampling", Image)
-            image = image.resize((resized_width, resized_height), resampling.BILINEAR)
-            canvas = Image.new("RGB", (self.image_size, self.image_size))
-            canvas.paste(image, (0, 0))
-            pixels = np.asarray(canvas, dtype=np.float32).copy() / 255.0
+            width, height = source.size
+        scale = 1024.0 / max(width, height)
+        resized_width = int(width * scale + 0.5)
+        resized_height = int(height * scale + 0.5)
+        if record.get("resized_size") != [resized_width, resized_height]:
+            raise ValueError(f"SAM resize mismatch: {self.keys[index]}")
+        feature_path = record["sam_features"]
+        if not os.path.isabs(feature_path):
+            feature_path = os.path.join(self.manifest_dir, feature_path)
+        features = np.load(feature_path, allow_pickle=False)
+        if features.shape != (256, 64, 64) or not np.isfinite(features).all():
+            raise ValueError(f"Invalid SAM feature map: {self.keys[index]}")
+        if record.get("sam_checkpoint_sha256") != self.sam_checkpoint_sha256:
+            raise ValueError(f"SAM checkpoint mismatch: {self.keys[index]}")
         intrinsic = np.asarray(record["K"], dtype=np.float32)
         extrinsic = np.asarray(record["T_camera_lidar"], dtype=np.float32)
         if intrinsic.shape != (3, 3) or extrinsic.shape != (4, 4):
@@ -62,7 +70,7 @@ class CalibratedImageDataset(Dataset):
         intrinsic[0, :] *= resized_width / width
         intrinsic[1, :] *= resized_height / height
         return lidar + (
-            torch.from_numpy(pixels).permute(2, 0, 1),
+            torch.from_numpy(features.astype(np.float32)),
             torch.from_numpy(intrinsic),
             torch.from_numpy(extrinsic),
             torch.tensor([resized_width, resized_height], dtype=torch.float32),

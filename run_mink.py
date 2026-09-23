@@ -78,7 +78,6 @@ def get_args(is_main_process=True):
                         help='If present, restore checkpoint and resume training')
     parser.add_argument('--magic_manifest', type=str, default='',
                         help='Calibrated LiDAR-camera frame manifest; enables MaGiC fusion')
-    parser.add_argument('--magic_image_size', type=int, default=320)
     parser.add_argument('--magic_init_weights', type=str, default='',
                         help='LiDAR-only state dict used to initialize the multimodal model')
 
@@ -115,8 +114,8 @@ def get_data_loader(FLAGS):
     if FLAGS.magic_manifest:
         from data.magic_data import CalibratedImageDataset
         if FLAGS.mode != 'test':
-            train_set = CalibratedImageDataset(train_set, FLAGS.dataset_folder, FLAGS.magic_manifest, FLAGS.magic_image_size)
-        val_set = CalibratedImageDataset(val_set, FLAGS.dataset_folder, FLAGS.magic_manifest, FLAGS.magic_image_size)
+            train_set = CalibratedImageDataset(train_set, FLAGS.dataset_folder, FLAGS.magic_manifest)
+        val_set = CalibratedImageDataset(val_set, FLAGS.dataset_folder, FLAGS.magic_manifest)
 
     def collate_pair_fn(list_data):
         N = len(list_data)
@@ -137,7 +136,7 @@ def get_data_loader(FLAGS):
             'T_corr': T_corr_batch
         }
         if FLAGS.magic_manifest:
-            result['images'] = torch.stack([item[5] for item in list_data])
+            result['sam_features'] = torch.stack([item[5] for item in list_data])
             result['intrinsics'] = torch.stack([item[6] for item in list_data])
             result['camera_from_lidar'] = torch.stack([item[7] for item in list_data])
             result['image_bounds'] = torch.stack([item[8] for item in list_data])
@@ -392,13 +391,13 @@ def process_one_epoch(
             voxel_centers_w = (voxel_centers_l[:, None] @ gt_T_corr[batch_idx, :3, :3].permute(0, 2, 1))[:, 0] + gt_T_corr[batch_idx, :3, 3] - center_t
 
             if FLAGS.magic_manifest:
-                image = input_dict['images'].to(device=enc_F.device, dtype=enc_F.dtype)
+                sam_features = input_dict['sam_features'].to(device=enc_F.device, dtype=enc_F.dtype)
                 intrinsics = input_dict['intrinsics'].to(device=enc_F.device, dtype=enc_F.dtype)
                 extrinsics = input_dict['camera_from_lidar'].to(device=enc_F.device, dtype=enc_F.dtype)
                 bounds = input_dict['image_bounds'].to(device=enc_F.device, dtype=enc_F.dtype)
                 recovery = torch.linalg.inv(T_corr.to(device=enc_F.device, dtype=enc_F.dtype))
                 enc_F = model.magic_fusion(
-                    enc_F, voxel_centers_l, enc_C, stride, image, intrinsics, extrinsics, recovery, bounds
+                    enc_F, voxel_centers_l, enc_C, stride, sam_features, intrinsics, extrinsics, recovery, bounds
                 )
             pred_f = model.decoder(enc_F)
 

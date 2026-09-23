@@ -5,36 +5,18 @@ from torch import nn
 from torch.nn import functional as F
 
 
-class ImagePyramid(nn.Module):
+class SAMFeaturePyramid(nn.Module):
     def __init__(self, channels=64):
         super().__init__()
-        self.stages = nn.ModuleList([
-            self._stage(3, channels // 2),
-            self._stage(channels // 2, channels),
-            self._stage(channels, channels),
-            self._stage(channels, channels),
-            self._stage(channels, channels),
-        ])
+        self.projections = nn.ModuleList([nn.Conv2d(256, channels, 1) for _ in range(3)])
 
-    @staticmethod
-    def _stage(input_channels, output_channels):
-        return nn.Sequential(
-            nn.Conv2d(input_channels, output_channels, 3, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(output_channels),
-            nn.ReLU(inplace=True),
-            nn.Conv2d(output_channels, output_channels, 3, padding=1, bias=False),
-            nn.BatchNorm2d(output_channels),
-            nn.ReLU(inplace=True),
-        )
-
-    def forward(self, image):
-        features = image
-        pyramid = []
-        for index, stage in enumerate(self.stages):
-            features = stage(features)
-            if index >= 2:
-                pyramid.append(features)
-        return pyramid
+    def forward(self, embedding):
+        if embedding.ndim != 4 or embedding.shape[1:] != (256, 64, 64):
+            raise ValueError('Expected SAM ViT-L image embeddings shaped [B, 256, 64, 64]')
+        return [
+            projection(F.avg_pool2d(embedding, kernel_size=factor))
+            for factor, projection in zip((1, 2, 4), self.projections)
+        ]
 
 
 def project_voxel_centers(points, batch_index, intrinsics, camera_from_lidar, recovery, image_bounds):
@@ -115,7 +97,7 @@ class MultiScaleAggregation(nn.Module):
 class MaGiCFusion(nn.Module):
     def __init__(self, lidar_channels=512, image_channels=64, region_size=3):
         super().__init__()
-        self.image_encoder = ImagePyramid(image_channels)
+        self.image_encoder = SAMFeaturePyramid(image_channels)
         self.attention = nn.ModuleList([
             VoxelRegionAttention(lidar_channels, image_channels, region_size=region_size)
             for _ in range(3)
@@ -134,7 +116,7 @@ class MaGiCFusion(nn.Module):
         pooled_points = points.new_zeros((groups.shape[0], 3)).index_add(0, inverse, points)
         return pooled_lidar / counts, pooled_points / counts, groups[:, 0], inverse
 
-    def forward(self, lidar, points, coordinates, stride, images, intrinsics, camera_from_lidar, recovery, image_bounds):
+    def forward(self, lidar, points, coordinates, stride, sam_features, intrinsics, camera_from_lidar, recovery, image_bounds):
         points = points.to(lidar.device)
         coordinates = coordinates.to(lidar.device)
         stride = stride.to(lidar.device)
@@ -142,7 +124,7 @@ class MaGiCFusion(nn.Module):
         _, fine_valid = project_voxel_centers(
             points, batch_index, intrinsics, camera_from_lidar, recovery, image_bounds
         )
-        image_features = self.image_encoder(images)
+        image_features = self.image_encoder(sam_features)
         fused = []
         for factor, attention, feature in zip((1, 2, 4), self.attention, image_features):
             pooled_lidar, pooled_points, pooled_batch, inverse = self._pool_voxels(
@@ -152,7 +134,7 @@ class MaGiCFusion(nn.Module):
                 pooled_points, pooled_batch, intrinsics, camera_from_lidar, recovery, image_bounds
             )
             fused.append(attention(
-                pooled_lidar, feature, pixels, pooled_batch, valid, images.shape[-1], image_bounds
+                pooled_lidar, feature, pixels, pooled_batch, valid, 1024, image_bounds
             )[inverse])
         delta = self.aggregate(*fused)
         return lidar + delta * fine_valid[:, None]
