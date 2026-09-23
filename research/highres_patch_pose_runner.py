@@ -9,6 +9,7 @@ import torch
 import nre_scoremap_pose_runner as nre
 from highres_patch_pose_refiner import (
     HighResPatchPoseRefiner,
+    SEARCH_RADIUS,
     SEED,
     build_patch_batch,
     build_ro_ma_channels,
@@ -136,7 +137,9 @@ def run(args):
             "baseline": "SC2-PCR followed by two-stage full-pool refinement at 1.2 m and 0.6 m",
             "correspondence_set": "frozen train-map RoMa controlled validation cache",
             "head": "shared full-resolution RGB patch encoder; RoMa local similarity map and candidate validity are input channels; no confidence head",
-            "loss_training": "pixel endpoint smooth L1 plus beta=1 pose reprojection smooth L1 after five unrolled Gauss-Newton steps",
+            "loss_training": checkpoint.get(
+                "training_protocol",
+                "pixel endpoint smooth L1 plus beta=1 pose reprojection smooth L1 after five unrolled Gauss-Newton steps"),
             "pose_backend": "same L-BFGS-B peak-then-pose objective, precision matrices, LiDAR prior and bounds for both visual methods",
             "gt_in_runner": False,
             "validation_gt_used_for_training": False,
@@ -150,7 +153,7 @@ def run(args):
             "training_report_sha256": sha256_file(args.training_report),
             "reference_peak_run_sha256": sha256_file(reference_run_path),
             "reference_peak_parity_tolerance": args.parity_tolerance,
-            "search_radius_px": int(checkpoint["config"]["search_radius_px"]),
+            "search_radius_px": int(checkpoint["config"].get("search_radius_px", SEARCH_RADIUS)),
             "frames": len(records),
             "expected_frames": args.expected_frames,
             "device": args.device,
