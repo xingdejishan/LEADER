@@ -20,6 +20,8 @@ All pose metrics use all 32 frames from the repeatedly used 2012-02-18 developme
 
 Against `peak_then_pose`, the fine-tuned head changes mean MPE by +0.700 mm and mean MOE by +0.007846 degrees. The contiguous four-frame block-bootstrap descriptive 95% intervals cross zero for both metrics: [−1.331, +2.539] mm and [−0.00259, +0.01559] degrees. The result therefore does not establish a pose improvement over the peak path.
 
+Compared with the initial checkpoint that was fine-tuned, paired mean MPE/MOE decrease by 1.269 mm / 0.007566 degrees. Both contiguous-block descriptive 95% intervals cross zero ([−2.786, +0.184] mm; [−0.01476, +0.00201] degrees), so this development-set comparison also does not establish a reliable pose gain. It is recorded post hoc and was not used for training or selection.
+
 Pixel endpoint error did improve: mean 7.506 px to 5.351 px over 5,757 GT-visible correspondences (4,913 improved, 844 worsened). This pixel gain did not establish a pose gain. On the training set, final mean MPE/MOE were 0.076986 m / 0.717041 degrees. Forward objective parity against the deployed solver was at most 9.95e-13; the mean/max projected KKT residual used for implicit differentiation was 0.02998 / 0.05315, so the derivative is local to the returned approximate optimum.
 
 ## Artifacts
@@ -27,6 +29,7 @@ Pixel endpoint error did improve: mean 7.506 px to 5.351 px over 5,757 GT-visibl
 - `highres_patch_pose_head.pt`: final epoch weights only; intermediate epoch checkpoints and input caches are not included.
 - `training_report.json`: data hashes, fixed protocol, per-epoch/per-frame training records, and final checkpoint hash.
 - `validation_run.json`: frozen GT-free inference output, per-frame solver records, and input hashes.
-- `evaluation.json`: separate post-freeze GT metrics and paired comparisons.
+- `evaluation.json`: separate post-freeze GT metrics, paired comparisons against `peak_then_pose`, and post-hoc comparison against the initial checkpoint.
+- `SHA256SUMS.txt`: integrity hashes for the files above.
 
 The input manifest, image data, LiDAR caches, and materialized feature/match caches are not included. Their hashes are recorded in the reports.

@@ -1155,5 +1155,30 @@
     "fraction_at_most_1px": 0.030224075039082855,
     "fraction_at_most_2px": 0.11585895431648428
   },
-  "interval_note": "descriptive 95% bootstrap intervals over contiguous blocks of four adjacent frames; all frames share one sequence"
+  "interval_note": "descriptive 95% bootstrap intervals over contiguous blocks of four adjacent frames; all frames share one sequence",
+  "continued_training_vs_initial_checkpoint": {
+    "denominator": 32,
+    "comparison": "fine-tuned head minus its initial high-resolution head, paired by frame on the same development set; descriptive post-hoc comparison, not used for training or selection",
+    "initial_checkpoint_sha256": "271415f4f252b7960186b64f70adbc829c8916b2b7f16e2cdb3ca02768231399",
+    "initial_evaluation_sha256": "272cfa87af44c8fcef62860f2f2ab582c89d1115dcb456fdeef777e740e9de5e",
+    "mpe": {
+      "mean_delta": -0.0012693080679826757,
+      "ci95_block4": [
+        -0.002786040382556236,
+        0.000183703680781205
+      ],
+      "improved_frames": 22,
+      "damaged_frames": 10
+    },
+    "moe": {
+      "mean_delta": -0.007566463754032067,
+      "ci95_block4": [
+        -0.014762000879877842,
+        0.002008002306266297
+      ],
+      "improved_frames": 22,
+      "damaged_frames": 10
+    },
+    "both_improved_frames": 14
+  }
 }
