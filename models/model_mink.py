@@ -387,6 +387,7 @@ class RPGE(nn.Module):
         x: ME.SparseTensor,
         encoders: nn.ModuleList,
         decoders: nn.ModuleList,
+        stages=None,
     ) -> ME.SparseTensor:
         if not encoders and not decoders:
             return x
@@ -397,11 +398,14 @@ class RPGE(nn.Module):
                 [encoders[0]["downsample"](x), encoders[0]["res"](x)], [encoders[0]["maxpool"](x)]
             )
         )
+        if stages is not None:
+            stages.append(xc)
 
         # inner recursion
-        yd = self._unet_forward(xc, 
-                                encoders[1:], 
-                                decoders[:-1] if len(decoders) == len(encoders) else decoders)
+        yd = self._unet_forward(xc,
+                                encoders[1:],
+                                decoders[:-1] if len(decoders) == len(encoders) else decoders,
+                                stages)
 
         # upsample and fuse
         if len(encoders) == len(decoders):
@@ -415,8 +419,12 @@ class RPGE(nn.Module):
 
         return y
 
-    def forward(self, x: ME.SparseTensor) -> ME.SparseTensor:
+    def forward(self, x: ME.SparseTensor, return_stages=False):
         stem_x = self.stem(x)
+        if return_stages:
+            stages = []
+            output = self._unet_forward(stem_x, self.encoders, self.decoders, stages)
+            return output, (stages[0], stages[2], stages[4])
         return self._unet_forward(stem_x, self.encoders, self.decoders)
 
 

@@ -289,6 +289,9 @@ def train():
     )
 
     center_t = train_loader.dataset.get_center_t() + np.array([0, 0, -2 * FLAGS.max_range])
+    if FLAGS.magic_init_weights:
+        from data.magic_data import load_lidar_center
+        center_t = load_lidar_center(FLAGS.magic_init_weights)
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, FLAGS.decay_epoch, gamma=0.9)
     model, optimizer, train_loader, val_loader, scheduler = accelerator.prepare(model, optimizer, train_loader, val_loader, scheduler)
     process_info = {'epoch': -1, 'train_iter': 0, 'val_iter': 0, 'center_t': center_t.tolist()}
@@ -378,7 +381,10 @@ def process_one_epoch(
         batch_size = gt_T.shape[0]
 
         with context_manager:   
-            enc = model.encoder(input)
+            if FLAGS.magic_manifest:
+                enc, stages = model.encoder(input, return_stages=True)
+            else:
+                enc = model.encoder(input)
             enc_C = enc.C
             enc_F = enc.F
             stride = torch.tensor(enc.tensor_stride, device=device, dtype=torch.float32)
@@ -397,7 +403,9 @@ def process_one_epoch(
                 bounds = input_dict['image_bounds'].to(device=enc_F.device, dtype=enc_F.dtype)
                 recovery = torch.linalg.inv(T_corr.to(device=enc_F.device, dtype=enc_F.dtype))
                 enc_F = model.magic_fusion(
-                    enc_F, voxel_centers_l, enc_C, stride, sam_features, intrinsics, extrinsics, recovery, bounds
+                    enc_F, voxel_centers_l, enc_C, stride, sam_features, intrinsics, extrinsics,
+                    recovery, bounds, stages=stages, voxel_size=voxel_size,
+                    horizontal=FLAGS.horizontal_res
                 )
             pred_f = model.decoder(enc_F)
 

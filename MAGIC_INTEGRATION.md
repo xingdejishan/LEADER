@@ -5,12 +5,12 @@
 ## 接入内容
 
 - **增强恢复（AR）**：LEADER 的极坐标体素中心先转回校正后的 LiDAR 笛卡尔坐标，再用 `T_corr` 的逆变换回数据集 `scan` 在地面校正前的坐标，最后按显式标定投影到相机。当前 main 无随机几何增强，因此恢复项只处理原有地面校正；融合前不使用查询 GT 位姿。
-- **体素区域注意力（VRA）**：以 LiDAR 特征为 query，在投影位置周围的 3×3 图像特征区域生成 key/value，softmax 加权后与 LiDAR 特征融合；深度非正或视野外的体素不接收视觉增量。
+- **体素区域注意力（VRA）**：以 LiDAR 特征为 query，将极坐标体素的八个角点投影到图像，以其包围框内固定 3×3 位置生成 key/value，softmax 加权后与 LiDAR 特征融合。角点深度无效的体素不取视觉候选；有效图像外的特征格在插值和图像金字塔池化中被 mask 排除。八角点包围框是本分支的几何实现选择，论文未规定具体区域算法。
 - **SAM-large 图像特征**：使用 Meta 官方 SAM ViT-L 权重及图像编码器，按其 1024 像素预处理生成 256×64×64 特征，冻结并缓存。缓存由图像文件和 checkpoint 的 SHA-256 定址，训练时不能静默换成轻量编码器。
-- **多尺度聚合（MMA）**：在 LEADER 输出体素上按 1、2、4 倍网格聚合 LiDAR 特征，将 SAM-L 的 64×64 输出分别池化至 64×64、32×32、16×16 后执行 VRA，再用跨尺度门控融合。聚合结果以零初始化残差接到原有坐标回归头，载入 LiDAR 权重时初始输出严格相同。
+- **多尺度聚合（MMA）**：从 RPGE 的第 1/3/5 个 encoder 阶段取真实浅/中/深层稀疏特征，各层分别执行 VRA，再按带 batch 的稀疏体素坐标对齐至原有回归头体素。SAM-L 的单张 64×64 输出经有效区域加权池化成为 64×64、32×32、16×16；跨尺度门控结果以零初始化残差接到坐标回归头，载入 LiDAR 权重时初始特征相同。
 - 坐标监督、TRR 损失、对应点选择和 SC2-PCR＋两阶段全池精修保持 LEADER 口径。
 
-这是**面向 LEADER 的 MaGiC 原语移植**，不是论文的逐项复现：论文没有公开 SAM 三尺度特征的具体抽取代码，本分支从官方单层 SAM-L 输出确定性池化三个尺度；LiDAR 侧使用 LEADER 输出体素的分组聚合而非论文原生 3D 骨干层，且保留 LEADER 的 TRR 损失。SAM 编码器冻结是本分支的实现选择，不应冒充论文训练设置。因此不能引用论文指标作为本分支效果。
+这是**面向 LEADER 的 MaGiC 原语移植**，不是论文的逐项复现：论文没有公开 SAM 三尺度特征的具体抽取代码，本分支从官方单层 SAM-L 输出池化三个尺度；LiDAR 侧使用 RPGE 的真实阶段特征，跨层对齐使用较粗层的稀疏坐标分组，而非论文原生 3D 骨干。区域使用极坐标体素八角点投影包围框，且保留 LEADER 的 TRR 损失。SAM 编码器冻结是本分支的实现选择。不能引用论文指标作为本分支效果。
 
 ## 标定清单
 
@@ -37,8 +37,8 @@ python tools/cache_sam_l_features.py --manifest <原始标定清单.json> --chec
 python run_mink.py --dataset NCLT --mode train --dataset_folder <数据根目录> --magic_manifest <SAM特征缓存目录/manifest.json> --magic_init_weights <LiDAR模型状态字典> --log_dir <新输出目录>
 ```
 
-`--magic_init_weights` 接受本地 PyTorch 状态字典文件，可从现有 LiDAR-only checkpoint 的 `pytorch_model.bin` 初始化编码器和回归头；融合层新建。继续训练已保存的多模态 checkpoint 时使用原有 `--resume_model`，两者不可同时传入。
+`--magic_init_weights` 接受 LiDAR-only checkpoint 目录中的 `pytorch_model.bin`，并要求同目录有 `extra.json`，从中恢复有效的三维 `center_t`；缺失或无效时直接失败。融合层新建。旧 checkpoint 没有记录完整数据配置，仍需人工核对体素大小、水平分辨率和坐标约定。继续训练已保存的多模态 checkpoint 时使用原有 `--resume_model`，两者不可同时传入。
 
 ## 验证边界
 
-当前只有合成几何与接口单元验证，没有用真实同步图像训练或报告 MPE/MOE。`run_mink.py --mode test` 是原仓库的开发诊断入口，仍在同一进程读取 GT，不能充当研究交接记录规定的正式在线评价。正式比较需要独立在线预测与 GT evaluator，并将纯 LiDAR 与多模态放在同一图像、扫描及完整帧分母上；32 帧历史开发集不得称为独立测试。
+当前只有合成几何与接口单元验证，以及单张真实图像的 SAM-L 编码 smoke；没有完整 MinkowskiEngine 前后向、真实同步图像训练或 MPE/MOE。padding mask 只隔离直接采样和池化中的无效特征格，不消除 SAM 自身编码时可能产生的 padding 上下文影响。`run_mink.py --mode test` 是原仓库的开发诊断入口，仍在同一进程读取 GT，不能充当研究交接记录规定的正式在线评价。正式比较需要独立在线预测与 GT evaluator，并将纯 LiDAR 与多模态放在同一图像、扫描及完整帧分母上；32 帧历史开发集不得称为独立测试。

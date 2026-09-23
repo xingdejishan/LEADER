@@ -75,3 +75,13 @@ class CalibratedImageDataset(Dataset):
             torch.from_numpy(extrinsic),
             torch.tensor([resized_width, resized_height], dtype=torch.float32),
         )
+
+
+def load_lidar_center(weights_path):
+    metadata_path = os.path.join(os.path.dirname(os.path.abspath(weights_path)), 'extra.json')
+    with open(metadata_path, encoding='utf-8') as stream:
+        metadata = json.load(stream)
+    center = np.asarray(metadata['center_t'], dtype=np.float64)
+    if center.shape != (3,) or not np.isfinite(center).all():
+        raise ValueError(f'Invalid center_t in {metadata_path}')
+    return center
