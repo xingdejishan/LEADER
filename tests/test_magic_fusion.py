@@ -146,6 +146,25 @@ class MaGiCFusionTests(unittest.TestCase):
         altered = attention(args[0], changed, *args[1:])
         torch.testing.assert_close(altered, baseline)
 
+    def test_irregular_view_mask_excludes_black_region(self):
+        attention = VoxelRegionAttention(1, 1, attention_channels=1)
+        with torch.no_grad():
+            for parameter in attention.parameters():
+                parameter.zero_()
+            attention.value.weight.fill_(1)
+            attention.fuse.weight[0, 1] = 1
+        image = torch.zeros(1, 1, 64, 64)
+        changed = image.clone()
+        changed[:, :, :, 32:] = 100
+        mask = torch.ones(1, 1, 64, 64)
+        mask[:, :, :, 32:] = 0
+        arguments = (torch.zeros(1, 1), torch.tensor([[507.5, 327.5]]),
+                     torch.tensor([0]), torch.tensor([True]), 1024,
+                     torch.tensor([[1024.0, 1024.0]]))
+        baseline = attention(arguments[0], image, *arguments[1:], image_valid_mask=mask)
+        altered = attention(arguments[0], changed, *arguments[1:], image_valid_mask=mask)
+        torch.testing.assert_close(altered, baseline)
+
     def test_manifest_scales_intrinsics_and_requires_coverage(self):
         with tempfile.TemporaryDirectory() as directory:
             scan = os.path.join(directory, "NCLT", "scan.bin")

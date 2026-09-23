@@ -7,6 +7,7 @@ import numpy as np
 import torch
 from PIL import Image
 
+from data.local905_mask import load_valid_mask
 from utils.pose_util import cartesian_to_polar_expansion
 
 
@@ -36,19 +37,25 @@ def load_sparse_scan(path, key, max_points, voxel_size=0.2, horizontal_res=1024)
 
 
 class Local905Query:
-    def __init__(self, data_root, split_path, sam_manifest=None, max_points=4096):
+    def __init__(self, data_root, split_path, sam_manifest=None, max_points=4096,
+                 subset='test'):
         self.root = Path(data_root).resolve()
-        self.keys = json.loads(Path(split_path).read_text(encoding='utf-8'))['splits']['test']
+        if subset not in ('val', 'test'):
+            raise ValueError('Online queries must use val or test')
+        split = json.loads(Path(split_path).read_text(encoding='utf-8'))
+        self.keys = split['splits'][subset]
+        self.valid_mask_sha256 = split.get('valid_mask_sha256')
+        self.valid_masks = {}
         self.max_points = max_points
         self.manifest_path = Path(sam_manifest).resolve() if sam_manifest else None
         self.manifest = (json.loads(self.manifest_path.read_text(encoding='utf-8'))
                          if self.manifest_path else None)
         if self.manifest is not None and set(self.keys) - set(self.manifest['frames']):
-            raise ValueError('SAM manifest does not cover all test scans')
+            raise ValueError('SAM manifest does not cover all query scans')
 
     def load(self, key, feature_key=None):
         if key not in self.keys:
-            raise ValueError(f'Unknown test scan: {key}')
+            raise ValueError(f'Unknown query scan: {key}')
         coordinates, features = load_sparse_scan(self.root / key, key, self.max_points)
         result = {'coords': coordinates, 'feats': features}
         if self.manifest is None:
@@ -75,4 +82,10 @@ class Local905Query:
             'camera_from_lidar': torch.tensor(record['T_camera_lidar'], dtype=torch.float32)[None],
             'image_bounds': torch.tensor([[resized_width, resized_height]], dtype=torch.float32),
         })
+        if self.valid_mask_sha256:
+            size = (resized_width, resized_height)
+            if size not in self.valid_masks:
+                self.valid_masks[size] = load_valid_mask(
+                    self.root, self.valid_mask_sha256, size)
+            result['image_valid_mask'] = self.valid_masks[size][None]
         return result

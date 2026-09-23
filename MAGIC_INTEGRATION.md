@@ -48,4 +48,14 @@ WSL Ubuntu 的 `/home/zhang/.venvs/leader-magic/bin/python` 继承原 `egonn118`
 /home/zhang/.venvs/leader-magic/bin/python -m tools.smoke_magic_full
 ```
 
-9项合成几何与接口单元测试通过；完整 RPGE→阶段视觉融合→回归头的128体素 CUDA 合成前后向通过，浅层投影收到非零梯度，峰值分配约623 MiB。另有单张真实图像的 SAM-L 编码 smoke。上述显存数字不能外推到真实点云或训练 batch；尚无真实同步图像训练或 MPE/MOE。padding mask 只隔离直接采样和池化中的无效特征格，不消除 SAM 自身编码时可能产生的 padding 上下文影响。`run_mink.py --mode test` 是原仓库的开发诊断入口，仍在同一进程读取 GT，不能充当研究交接记录规定的正式在线评价。正式比较需要独立在线预测与 GT evaluator，并将纯 LiDAR 与多模态放在同一图像、扫描及完整帧分母上；32 帧历史开发集不得称为独立测试。
+合成几何与接口单元测试通过；完整 RPGE→阶段视觉融合→回归头的128体素 CUDA 合成前后向通过，浅层投影收到非零梯度，峰值分配约623 MiB。另有单张真实图像的 SAM-L 编码 smoke。上述显存数字不能外推到真实点云或训练 batch。图像范围外及 `valid_mask.npy` 指定的非矩形无效区，在直接采样和池化中排除；这不消除 SAM 编码图像时可能形成的上下文影响。`run_mink.py --mode test` 是原仓库的开发诊断入口，仍在同一进程读取 GT，不能充当正式在线评价。正式比较需要独立在线预测与 GT evaluator，并将纯 LiDAR 与多模态放在同一图像、扫描及完整帧分母上；32 帧历史开发集不得称为独立测试。
+
+## 本地 905 帧训练协议
+
+`tools/prepare_local905.py` 从 `glace-local/data` 中读取真实原始 NCLT `.bin`、同步图像、内参及相机到车体的外参，固定生成 `split.json` 和不含 GT 的 `raw_manifest.json`。905帧按采集日期划分：`2012-01-22` 的319帧与 `2012-02-02` 前233帧训练，`2012-02-02` 末40帧内部验证，整段 `2012-05-11` 的313帧留作测试。这个测试日期属于历史已审查过的905开发池，只是本次训练过程中的日期留出，不宣称外部独立测试。
+
+`data/local905_mink.py` 从原始扫描解码车体坐标，按扫描路径的 SHA-256 种子固定抽取4096点；对应位姿为原图 `T_WC @ inverse(T_BC)`。已抽样核对从原始扫描重建的历史 `lidar_world` 与现存文件逐点完全相同。SAM-L 缓存由不含 GT 的清单生成，模型训练从随机初始化开始，避免用曾在测试日期预训练过的 LiDAR 权重。当前固定 batch size 16、体素大小0.2 m、TRR、Adam 初始学习率0.001；至少训练12个 epoch，内部验证 TRR 连续8个 epoch 未改善0.2% 时早停，上限80个 epoch。纯 LiDAR 对照使用同一划分、点抽样、训练预算和 SC2-PCR＋两阶段精修后端。
+
+`tools/eval_local905_online.py` 独立运行，只读取原始测试扫描、SAM 特征、标定、训练 checkpoint 和无 GT 的划分；先将完整预测输出落盘并记录 SHA-256。`tools/eval_local905_gt.py` 在另一个进程核验 hash 与313帧分母后才读取测试位姿。失败帧明确计数；如有失败，所有帧 MPE/MOE 不报告为看似完整的有限均值。支持在验证集先检查接口，以及固定置换图像特征的对照。
+
+首轮 `train_magic_v1` 在第35轮前停止：原融合只处理矩形 padding，抽样帧约21%的图像范围内投影点处于原数据非矩形无效视野。该轮 checkpoint 保留供审计，不能作为最终结果。`tools/prepare_local905_mask.py` 在不改变905帧划分的前提下生成绑定 `valid_mask.npy` 哈希的 `split_masked.json`。训练和在线预测共同使用该掩码；修正后的 `train_magic_v2` 从随机初始化重训，禁止从 v1 恢复。

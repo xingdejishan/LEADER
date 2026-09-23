@@ -130,8 +130,12 @@ def get_data_loader(FLAGS):
     if FLAGS.magic_manifest:
         from data.magic_data import CalibratedImageDataset
         if FLAGS.mode != 'test':
-            train_set = CalibratedImageDataset(train_set, FLAGS.dataset_folder, FLAGS.magic_manifest)
-        val_set = CalibratedImageDataset(val_set, FLAGS.dataset_folder, FLAGS.magic_manifest)
+            train_set = CalibratedImageDataset(
+                train_set, FLAGS.dataset_folder, FLAGS.magic_manifest,
+                getattr(train_set, 'valid_mask_sha256', None))
+        val_set = CalibratedImageDataset(
+            val_set, FLAGS.dataset_folder, FLAGS.magic_manifest,
+            getattr(val_set, 'valid_mask_sha256', None))
 
     def collate_pair_fn(list_data):
         N = len(list_data)
@@ -156,6 +160,8 @@ def get_data_loader(FLAGS):
             result['intrinsics'] = torch.stack([item[6] for item in list_data])
             result['camera_from_lidar'] = torch.stack([item[7] for item in list_data])
             result['image_bounds'] = torch.stack([item[8] for item in list_data])
+            if len(list_data[0]) > 9:
+                result['image_valid_mask'] = torch.stack([item[9] for item in list_data])
         return result
     collation_fn = collate_pair_fn
 
@@ -421,7 +427,9 @@ def process_one_epoch(
                 enc_F = model.magic_fusion(
                     enc_F, voxel_centers_l, enc_C, stride, sam_features, intrinsics, extrinsics,
                     recovery, bounds, stages=stages, voxel_size=voxel_size,
-                    horizontal=FLAGS.horizontal_res
+                    horizontal=FLAGS.horizontal_res,
+                    image_valid_mask=input_dict['image_valid_mask'].to(enc_F.device)
+                    if 'image_valid_mask' in input_dict else None
                 )
             pred_f = model.decoder(enc_F)
 

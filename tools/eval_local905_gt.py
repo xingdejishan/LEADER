@@ -27,7 +27,10 @@ def main():
         raise ValueError('Prediction file changed after online runner closed')
     data = json.loads(args.predictions.read_text(encoding='utf-8'))
     split = json.loads(args.split.read_text(encoding='utf-8'))
-    keys = split['splits']['test']
+    subset = data['subset']
+    if subset not in ('val', 'test'):
+        raise ValueError('Unknown evaluation subset')
+    keys = split['splits'][subset]
     if data['protocol'] != 'local905_gt_isolated_online_v1':
         raise ValueError('Unknown online protocol')
     if data['split_sha256'] != digest(args.split):
@@ -60,7 +63,7 @@ def main():
     summary = {
         'protocol': 'local905_gt_isolated_evaluator_v1',
         'predictions_sha256': observed_hash,
-        'test_frames': len(rows), 'successful_frames': len(successes),
+        'subset': subset, 'frames': len(rows), 'successful_frames': len(successes),
         'failed_frames': len(rows) - len(successes),
         'all_frame_mpe_mean_m': float(errors_t.mean()) if all_success else None,
         'all_frame_moe_mean_deg': float(errors_q.mean()) if all_success else None,

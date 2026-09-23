@@ -8,7 +8,7 @@ from torch.utils.data import Dataset
 
 
 class CalibratedImageDataset(Dataset):
-    def __init__(self, lidar_dataset, dataset_root, manifest_path):
+    def __init__(self, lidar_dataset, dataset_root, manifest_path, valid_mask_sha256=None):
         self.lidar_dataset = lidar_dataset
         self.dataset_root = os.path.abspath(dataset_root)
         with open(manifest_path, encoding="utf-8") as stream:
@@ -18,6 +18,8 @@ class CalibratedImageDataset(Dataset):
         self.frames = manifest["frames"]
         self.sam_checkpoint_sha256 = manifest["sam_checkpoint_sha256"]
         self.manifest_dir = os.path.dirname(os.path.abspath(manifest_path))
+        self.valid_mask_sha256 = valid_mask_sha256
+        self.valid_masks = {}
         self.keys = [os.path.relpath(path, self.dataset_root).replace("\\", "/") for path in lidar_dataset.pcs]
         missing = [key for key in self.keys if key not in self.frames]
         if missing:
@@ -69,12 +71,20 @@ class CalibratedImageDataset(Dataset):
         intrinsic = intrinsic.copy()
         intrinsic[0, :] *= resized_width / width
         intrinsic[1, :] *= resized_height / height
-        return lidar + (
+        result = lidar + (
             torch.from_numpy(features.astype(np.float32)),
             torch.from_numpy(intrinsic),
             torch.from_numpy(extrinsic),
             torch.tensor([resized_width, resized_height], dtype=torch.float32),
         )
+        if self.valid_mask_sha256:
+            size = (resized_width, resized_height)
+            if size not in self.valid_masks:
+                from data.local905_mask import load_valid_mask
+                self.valid_masks[size] = load_valid_mask(
+                    self.dataset_root, self.valid_mask_sha256, size)
+            result += (self.valid_masks[size],)
+        return result
 
 
 def load_lidar_center(weights_path):

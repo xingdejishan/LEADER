@@ -31,6 +31,7 @@ def main():
     parser.add_argument('--checkpoint', type=Path, required=True)
     parser.add_argument('--sam_manifest', type=Path)
     parser.add_argument('--shuffle_sam_seed', type=int)
+    parser.add_argument('--subset', choices=('val', 'test'), default='test')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
     checkpoint = torch.load(args.checkpoint, map_location='cpu')
@@ -45,7 +46,7 @@ def main():
     if args.shuffle_sam_seed is not None and not magic:
         raise ValueError('SAM shuffling requires a multimodal checkpoint')
     query = Local905Query(args.data_root, args.split, args.sam_manifest,
-                          max_points=settings['max_points'])
+                          max_points=settings['max_points'], subset=args.subset)
     model = LEADER(in_channels=3, out_channels=4, feat_channels=512, magic=magic).cuda()
     model.load_state_dict(checkpoint['model'])
     model.eval()
@@ -80,7 +81,9 @@ def main():
                         frame['sam_features'].cuda(), frame['intrinsics'].cuda(),
                         frame['camera_from_lidar'].cuda(), identity,
                         frame['image_bounds'].cuda(), stages=stages,
-                        voxel_size=settings['voxel_size'], horizontal=1024)
+                        voxel_size=settings['voxel_size'], horizontal=1024,
+                        image_valid_mask=frame['image_valid_mask'].cuda()
+                        if 'image_valid_mask' in frame else None)
                 output = model.decoder(features)
                 count = max(min(50, len(output)), int(0.5 * len(output)))
                 if count < 3:
@@ -105,7 +108,8 @@ def main():
         'checkpoint_sha256': digest(args.checkpoint),
         'split_sha256': digest(args.split),
         'sam_manifest_sha256': digest(args.sam_manifest) if magic else None,
-        'magic': magic, 'shuffle_sam_seed': args.shuffle_sam_seed,
+        'magic': magic, 'subset': args.subset,
+        'shuffle_sam_seed': args.shuffle_sam_seed,
         'shuffle_offset': shift, 'expected_frames': len(keys),
         'elapsed_seconds': time.perf_counter() - started,
         'predictions': predictions,

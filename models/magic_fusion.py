@@ -10,7 +10,7 @@ class SAMFeaturePyramid(nn.Module):
         super().__init__()
         self.projections = nn.ModuleList([nn.Conv2d(256, channels, 1) for _ in range(3)])
 
-    def forward(self, embedding, image_bounds=None):
+    def forward(self, embedding, image_bounds=None, image_valid_mask=None):
         if embedding.ndim != 4 or embedding.shape[1:] != (256, 64, 64):
             raise ValueError('Expected SAM ViT-L image embeddings shaped [B, 256, 64, 64]')
         if image_bounds is None:
@@ -21,6 +21,10 @@ class SAMFeaturePyramid(nn.Module):
             width = (image_bounds[:, 0] * (64.0 / 1024.0))[:, None, None]
             height = (image_bounds[:, 1] * (64.0 / 1024.0))[:, None, None]
             mask = ((width - x).clamp(0, 1) * (height - y).clamp(0, 1))[:, None]
+        if image_valid_mask is not None:
+            if image_valid_mask.shape != mask.shape:
+                raise ValueError('Expected image valid mask shaped [B, 1, 64, 64]')
+            mask = mask * image_valid_mask.to(device=embedding.device, dtype=embedding.dtype)
         return [
             projection(F.avg_pool2d(embedding * mask, factor) /
                        F.avg_pool2d(mask, factor).clamp_min(1e-6))
@@ -79,7 +83,7 @@ class VoxelRegionAttention(nn.Module):
         self.fuse = nn.Linear(lidar_channels + attention_channels, lidar_channels)
 
     def forward(self, lidar, image, pixels, batch_index, valid, input_size, image_bounds,
-                region_bounds=None):
+                region_bounds=None, image_valid_mask=None):
         keys = self.key(image)
         values = self.value(image)
         visual = lidar.new_zeros((lidar.shape[0], keys.shape[1]))
@@ -105,6 +109,10 @@ class VoxelRegionAttention(nn.Module):
             x_weight = (image_bounds[batch, 0] * feature_scale - x).clamp(0, 1)
             y_weight = (image_bounds[batch, 1] * (image.shape[-2] / input_size) - y).clamp(0, 1)
             mask = (y_weight[:, None] * x_weight[None, :])[None, None]
+            if image_valid_mask is not None:
+                factor = 64 // image.shape[-1]
+                view = F.avg_pool2d(image_valid_mask[batch:batch + 1], factor)
+                mask = mask * view.to(device=image.device, dtype=image.dtype)
             normalized = (locations + 0.5) * (2.0 / image.shape[-1]) - 1.0
             normalized = normalized.reshape(1, -1, self.region_size ** 2, 2)
             sampled_mask = F.grid_sample(mask, normalized, align_corners=False)
@@ -184,15 +192,29 @@ class MaGiCFusion(nn.Module):
         return (pooled / counts.clamp_min(1)[:, None])[target_index]
 
     def forward(self, lidar, points, coordinates, stride, sam_features, intrinsics, camera_from_lidar,
-                recovery, image_bounds, stages=None, voxel_size=0.2, horizontal=1024):
+                recovery, image_bounds, stages=None, voxel_size=0.2, horizontal=1024,
+                image_valid_mask=None):
         points = points.to(lidar.device)
         coordinates = coordinates.to(lidar.device)
         stride = stride.to(lidar.device)
         batch_index = coordinates[:, 0].long()
-        _, fine_valid = project_voxel_centers(
+        fine_pixels, fine_valid = project_voxel_centers(
             points, batch_index, intrinsics, camera_from_lidar, recovery, image_bounds
         )
-        image_features = self.image_encoder(sam_features, image_bounds)
+        if image_valid_mask is not None:
+            normalized = (fine_pixels + 0.5) * (2.0 / 1024) - 1.0
+            normalized = normalized.reshape(-1, 1, 1, 2)
+            support = torch.zeros_like(fine_valid)
+            for batch in range(sam_features.shape[0]):
+                selection = torch.where(fine_valid & (batch_index == batch))[0]
+                if selection.numel() == 0:
+                    continue
+                sampled = F.grid_sample(image_valid_mask[batch:batch + 1],
+                                        normalized[selection].reshape(1, -1, 1, 2),
+                                        align_corners=False)
+                support[selection] = sampled.reshape(-1) > 0.5
+            fine_valid &= support
+        image_features = self.image_encoder(sam_features, image_bounds, image_valid_mask)
         fused = []
         if stages is None:
             for factor, attention, feature in zip((1, 2, 4), self.attention, image_features):
@@ -203,7 +225,8 @@ class MaGiCFusion(nn.Module):
                     pooled_points, pooled_batch, intrinsics, camera_from_lidar, recovery, image_bounds
                 )
                 fused.append(attention(
-                    pooled_lidar, feature, pixels, pooled_batch, valid, 1024, image_bounds
+                    pooled_lidar, feature, pixels, pooled_batch, valid, 1024, image_bounds,
+                    image_valid_mask=image_valid_mask
                 )[inverse])
         else:
             if len(stages) != 3:
@@ -223,7 +246,8 @@ class MaGiCFusion(nn.Module):
                     camera_from_lidar, recovery, image_bounds
                 )
                 attended = attention(stage_lidar, feature, pixels, stage_batch, valid & region_valid,
-                                     1024, image_bounds, region_bounds=regions)
+                                     1024, image_bounds, region_bounds=regions,
+                                     image_valid_mask=image_valid_mask)
                 fused.append(self._align_stage(attended, stage_coords, stage_stride, coordinates, stride))
         delta = self.aggregate(*fused)
         return lidar + delta * fine_valid[:, None]

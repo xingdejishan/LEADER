@@ -47,7 +47,9 @@ def batch_loss(model, batch, center, loss_fn, magic, voxel_size, horizontal_res)
         features = model.magic_fusion(features, points, encoded.C, stride, sam,
                                        intrinsics, extrinsics, recovery, bounds,
                                        stages=stages, voxel_size=voxel_size,
-                                       horizontal=horizontal_res)
+                                       horizontal=horizontal_res,
+                                       image_valid_mask=batch['image_valid_mask'].cuda(non_blocking=True)
+                                       if 'image_valid_mask' in batch else None)
     predictions = model.decoder(features)
     weighted, raw = loss_fn(targets, predictions[:, :3], predictions[:, 3], batch_index)
     return weighted.mean(), raw
