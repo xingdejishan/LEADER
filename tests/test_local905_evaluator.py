@@ -50,6 +50,7 @@ class Local905EvaluatorTests(unittest.TestCase):
             self.assertEqual((report['frames'], report['successful_frames'],
                               report['failed_frames']), (2, 1, 1))
             self.assertIsNone(report['all_frame_mpe_mean_m'])
+            self.assertIsNone(report['all_frame_rotation_gt_90_deg'])
             self.assertAlmostEqual(report['success_only_mpe_mean_m'], 0)
             predictions.write_text(predictions.read_text(encoding='utf-8') + ' ', encoding='utf-8')
             failed = subprocess.run(command[:-1] + [str(root / 'second.json')],
