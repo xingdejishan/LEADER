@@ -23,7 +23,8 @@ class Local905_mink:
         self.max_range = max_range
         split = json.loads(Path(split_path).read_text(encoding='utf-8'))
         if split['protocol'] not in ('local905_date_holdout_v1',
-                                     'local905_date_holdout_masked_v2'):
+                                     'local905_date_holdout_masked_v2',
+                                     'local905_same_domain_holdout_v3'):
             raise ValueError('Unknown local905 split protocol')
         self.valid_mask_sha256 = split.get('valid_mask_sha256')
         self.keys = split['splits'][subset]

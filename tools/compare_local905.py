@@ -50,15 +50,21 @@ def compare(first, second):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--magic', required=True)
-    parser.add_argument('--lidar', required=True)
+    parser.add_argument('--lidar')
     parser.add_argument('--shuffled')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
+    if not args.lidar and not args.shuffled:
+        raise ValueError('Provide at least one comparison')
     magic = read(args.magic)
-    lidar = read(args.lidar)
-    if magic['subset'] != 'test' or lidar['subset'] != 'test':
+    if magic['subset'] != 'test':
         raise ValueError('Final comparison requires the fixed test subset')
-    report = {'magic_vs_lidar': compare(magic, lidar)}
+    report = {}
+    if args.lidar:
+        lidar = read(args.lidar)
+        if lidar['subset'] != 'test':
+            raise ValueError('LiDAR control requires the fixed test subset')
+        report['magic_vs_lidar'] = compare(magic, lidar)
     if args.shuffled:
         shuffled = read(args.shuffled)
         if shuffled['subset'] != 'test':

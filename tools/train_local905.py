@@ -70,6 +70,7 @@ def main():
     parser.add_argument('--patience', type=int, default=8)
     parser.add_argument('--learning_rate', type=float, default=0.001)
     parser.add_argument('--seed', type=int, default=20)
+    parser.add_argument('--metric_reduction', choices=('batch', 'frame'), default='batch')
     parser.add_argument('--smoke_only', action='store_true')
     args = parser.parse_args()
     if args.magic and args.sam_manifest is None:
@@ -118,6 +119,7 @@ def main():
         'magic': args.magic, 'split_sha256': split_hash, 'sam_manifest_sha256': sam_hash,
         'max_points': args.max_points, 'voxel_size': args.voxel_size,
         'batch_size': args.batch_size,
+        'metric_reduction': args.metric_reduction,
         'learning_rate': args.learning_rate, 'seed': args.seed,
         'max_epochs': args.max_epochs, 'min_epochs': args.min_epochs,
         'patience': args.patience, 'train_count': len(train_loader.dataset),
@@ -125,8 +127,17 @@ def main():
     }
     settings_path = args.out / 'settings.json'
     if settings_path.exists():
-        if json.loads(settings_path.read_text(encoding='utf-8')) != settings:
+        previous = json.loads(settings_path.read_text(encoding='utf-8'))
+        unchanged = {key: value for key, value in settings.items() if key != 'max_epochs'}
+        old_unchanged = {key: value for key, value in previous.items()
+                         if key != 'max_epochs'}
+        if old_unchanged != unchanged or args.max_epochs < previous['max_epochs']:
             raise ValueError('Existing training settings differ')
+        if args.max_epochs > previous['max_epochs']:
+            with (args.out / 'extensions.jsonl').open('a', encoding='utf-8') as stream:
+                stream.write(json.dumps({'from_max_epochs': previous['max_epochs'],
+                                         'to_max_epochs': args.max_epochs}) + '\n')
+            settings_path.write_text(json.dumps(settings, indent=2) + '\n', encoding='utf-8')
     else:
         settings_path.write_text(json.dumps(settings, indent=2) + '\n', encoding='utf-8')
     best = float('inf')
@@ -151,6 +162,8 @@ def main():
     for epoch in range(start_epoch, args.max_epochs):
         model.train()
         train_loss = 0.0
+        train_frame_loss = 0.0
+        train_frames = 0
         train_l2 = 0.0
         for batch in train_loader:
             optimizer.zero_grad(set_to_none=True)
@@ -161,19 +174,31 @@ def main():
             weighted.backward()
             optimizer.step()
             train_loss += weighted.item()
+            train_frame_loss += weighted.item() * len(batch['T'])
+            train_frames += len(batch['T'])
             train_l2 += raw.item()
         model.eval()
         val_loss = 0.0
+        val_frame_loss = 0.0
+        val_frames = 0
         val_l2 = 0.0
         with torch.no_grad():
             for batch in val_loader:
                 weighted, raw = batch_loss(model, batch, center, loss_fn, args.magic,
                                            args.voxel_size, 1024)
                 val_loss += weighted.item()
+                val_frame_loss += weighted.item() * len(batch['T'])
+                val_frames += len(batch['T'])
                 val_l2 += raw.item()
-        train_loss /= len(train_loader)
+        train_batch_loss = train_loss / len(train_loader)
+        train_frame_loss /= train_frames
+        train_loss = (train_frame_loss if args.metric_reduction == 'frame'
+                      else train_batch_loss)
         train_l2 /= len(train_loader)
-        val_loss /= len(val_loader)
+        val_batch_loss = val_loss / len(val_loader)
+        val_frame_loss /= val_frames
+        val_loss = (val_frame_loss if args.metric_reduction == 'frame'
+                    else val_batch_loss)
         val_l2 /= len(val_loader)
         improved = val_loss < best * 0.998
         if improved:
@@ -186,6 +211,10 @@ def main():
         record = {
             'epoch': epoch, 'train_trr': train_loss, 'train_l2': train_l2,
             'val_trr': val_loss, 'val_l2': val_l2,
+            'train_trr_batch_mean': train_batch_loss,
+            'train_trr_frame_weighted': train_frame_loss,
+            'val_trr_batch_mean': val_batch_loss,
+            'val_trr_frame_weighted': val_frame_loss,
             'best_epoch': best_epoch, 'stale': stale,
             'lr': optimizer.param_groups[0]['lr'],
             'peak_allocated_mb': torch.cuda.max_memory_allocated() / (1024 ** 2),
