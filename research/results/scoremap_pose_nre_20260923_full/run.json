@@ -1,0 +1,4977 @@
+{
+  "protocol": {
+    "name": "local dense RoMa cost maps with shared pose refinement",
+    "dataset": "2012-02-18 validation development set; not an independent sequence test",
+    "baseline": "SC2-PCR followed by two-stage full-pool refinement at thresholds 1.2 m and 0.6 m",
+    "correspondence_set": "frozen train-map RoMa v2 controlled validation cache; shared by peak and score-map paths",
+    "visual_map": "cosine similarity of frozen RoMa precise stride-4 refiner features; local 25x25 pixel grid centered at baseline projection; no per-point LiDAR score",
+    "peak_control": "one maximum per map, local quadratic curvature as the coordinate precision, then shared-pose reprojection optimization",
+    "scoremap_method": "sum of per-map relative negative-log costs (maximum similarity minus sampled similarity) plus one LiDAR-derived 6D pose prior",
+    "lidar_prior": "one covariance from the final 0.6 m full-pool Tukey evidence; no duplicate pixel-wise LiDAR prior",
+    "geometry_control": "same 6D optimizer and LiDAR prior with visual factors disabled",
+    "pose_update": "R=Exp(delta_rotation) R_A; t=t_A+delta_translation",
+    "bounds": {
+      "translation_each_axis_m": 0.1,
+      "rotation_each_axis_deg": 1.0
+    },
+    "gt_in_runner": false
+  },
+  "settings": {
+    "repo_root": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER-num1",
+    "baseline_code_root": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/glace-local/code",
+    "manifest": "/home/zhang/leader-image-gate-multicamera/all_views.json",
+    "lidar_cache": "/home/zhang/leader-image-gate/lidar",
+    "match_cache_dir": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER/research/prevoxel_multiview/results/roma_controlled_validation_matches",
+    "output": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/scoremap_pose_nre_20260923_full/run.json",
+    "device": "cuda",
+    "roma_setting": "precise",
+    "feature_stride": 4,
+    "frames": 0,
+    "expected_frames": 32,
+    "seed": 2089
+  },
+  "inputs": {
+    "manifest_sha256": "f97b04a1006b1b21032fef522778edf2de6cbfdbad651ca9111d7afc86ff7f12",
+    "match_cache_sha256": {
+      "1329604635582975": "c9f78ce4b6fe062eb05ef6709cd5b4d0a8079055132a3c99f4977ec5e542ad56",
+      "1329604636982984": "b52a04349572991687843db08b449a28965b3096a881ae87970c2d6bc7f6f780",
+      "1329604637982961": "a5fe182392a92330e5dc446ab38ccf7a513940551501ea33212611ba18f5d94e",
+      "1329604639582940": "d5d9863117884c0d23884c9a8d3ea1b305b5fe5b3e6895db3d85219031229ee9",
+      "1329604640582945": "b05c9f99a5de17da8925919c4f479f42f7bd32b93f61bea0dbee686dec65e110",
+      "1329604641982945": "151f103faaa1746d78ff472e2d311337c93dbf42ca7d694c0359162e1081ba0d",
+      "1329604642982934": "29bba6acd6d53bc904b7bcaa40865e81aaa32842042d5a32d51089a0114fd0cf",
+      "1329604644582931": "e2570b81af26b7f794963468eb1f011cb8ec07a7f94bbaf057b429528ad2a083",
+      "1329604645582910": "8817b7f109d2e79a1e5a2d12060d728cd7c5481719d4875879c593259862479e",
+      "1329604646982902": "38330bfec1e31e2dbe60e25195d2902d40a7e0e50b1d279a9dae259bec11066d",
+      "1329604647983097": "686c3efb642c6691bf5b16d8aa6060af979d88877c23c5a716c106221e97d5d7",
+      "1329604649582929": "6a96b73933159b933303988bf848c7d75be38d4c361afb6665c09c3f2b1c4b33",
+      "1329604651582866": "eb694d07191beac2316f9da39e62c585582a6cb9b3f73302e5d58b2e82adc3b8",
+      "1329604652583020": "fef1d6dd00f51488dcbfa321943782c56c93238ff3352e2f92325e9d0971e85d",
+      "1329604653982864": "ec68d53c514ad7413dcf29a4e8bde5a61076a05fe25cb5938caf38c05b98ddae",
+      "1329604654982854": "ac22495d78a6b5d1bb9b2ccb4373b392a6d4b4101413a2151a7e0deeb69b8368",
+      "1329604656582868": "88767e300a2d55a9ab8eeaa8e3f9778050185bd6d136cc15d88e7c18714d1794",
+      "1329604657582841": "d07c1567e71cb166f1392718db45ab6ae16b6fa10fe3c807e600a27e54ecd0cd",
+      "1329604658983490": "791e9ccf79314cb19ca4006f6c027cde9db3cd555a89727057fa76926aa13b0d",
+      "1329604659982823": "212f74dbdd61c9fe5f56b3f85ff6cb44357b9260e24cb2d217db477ab1e1f1f5",
+      "1329604661582864": "cdb95bfe55dad122b3e560aabf8ea5c96d0aafb725643bfc0098e0c9258384cc",
+      "1329604662982805": "ca214c461719973344d54cfc520406c5d8dc2f8f94807e7e6fbcc8b87bbaf7a6",
+      "1329604663982801": "2d1fe81b80212289dad7f9bbcd380a43a559e9d0fa105ce02d7fca640f5c0b7a",
+      "1329604665582834": "d0d2848bab52932e54a7622886555021e665cc5c48527ede306caab655aa07af",
+      "1329604666582815": "36f94edb159c50f46b364d11d281051b05fb4344f07f8b9c2e09248f2a2290ab",
+      "1329604667982805": "78638476b0be68882ff12df3521e86cbbfedbc87cd114331fd9973ca839683e9",
+      "1329604668983281": "0628b87a1c6cc92856a9ba186e8b28dd65827f6d455371e2ecb1b359cb56c2dc",
+      "1329604670582822": "6ae6de8c9e8072ef8fdb5c0f3ce39953f6b0294d0772fc9140b15e017b991e07",
+      "1329604671582933": "1f8add31957837fbf2b1561c1a47445372200bb8c25b54fe6b981bc45c1d21b0",
+      "1329604672982737": "55b7b3da148c0317a79cbe5fc23dff337b634f71076998fb8514d8419cca7524",
+      "1329604673982743": "66484cbcecd0caed35e3506fc6cfbec5c4bd23e8b6fe39d0edaad847a6f36627",
+      "1329604675582729": "5d86ae191d762bac80acd10ef0edf7417a5dd026fbee7a519496bd9910ef8aa9"
+    },
+    "lidar_inputs_sha256": {
+      "1329604635582975": "f3daa7df0f1d35d1a3333e19d5d448285696bc375906a3b4a7207bbb7122edc5",
+      "1329604636982984": "0b7d3f44d84c2ee827a0736a094b0e71b96e84c23adac00ebe1f70a268696ec9",
+      "1329604637982961": "133d7964b26956a19f218f7e5419ec34555eeb0e4d5d59ec75479b8765fd1de0",
+      "1329604639582940": "8a24a80dbd1c75d162a3ed96b79c93bd75c0cc2c0325b3a67d00603fd1c76c1a",
+      "1329604640582945": "781e6bf985c4fd1775f74aa3d10bf5dacfb68bb7e8221e33636b5fcdf0699bf0",
+      "1329604641982945": "a054f65119921779b2e17ab30eb7af90ae3030fc21540adc8893c59aba87c281",
+      "1329604642982934": "ced89c982e1c56e9ab79e849e7178671a2095b31601f750fe8ed7d99a9bf0c6a",
+      "1329604644582931": "178b9acada0b3aeada988c908377886250bd33cb2124733eaf23ef4d2312d750",
+      "1329604645582910": "8a4bf19250b40a1d21933dd22048dfdd9bcc6ca492cc09a91d449435e054b3ab",
+      "1329604646982902": "2792ba254c4c7aa1332fd6a6899e2a5cdc628ea2d2ffcd57ca113d4cb22864f6",
+      "1329604647983097": "9d013d26e559bb0481e12c2c5fd5003da5ed353105aa489c01679bbd343683e8",
+      "1329604649582929": "4ceae6a76be76591e081c53d1a246cd59d38d114db710170570717e986aadc7b",
+      "1329604651582866": "8d1b10dd35c74f219a6d5fc0f55a4cddd566c56dfbfe44589f6f5320d9a49b9e",
+      "1329604652583020": "bc41a560490323a03a919e2595998c6a11b3584a4e3a5bda152afff7e049f72d",
+      "1329604653982864": "9af78c3dd698be44209019085b3546af66db68eaf493c4e38fc0664e74b08bb2",
+      "1329604654982854": "3f644b26013b0e384b558797f8b2cd954a0fd98f6e02e0667beba02b58b5841c",
+      "1329604656582868": "a5e9f5b1fc67bfb803fcb76af8429eff0d1fb6ebbea3a4b470650c5fa91be61d",
+      "1329604657582841": "f0fe6847b5f0a01167fc4d626d3b1ad7b541c92a8daa4173ec1094e79c664959",
+      "1329604658983490": "ed84a7c423bf0024cf17dad043869c7e76e0ae3ba25c85515c0207fccac60301",
+      "1329604659982823": "7e0de58d9b317b6b4d3e1bdca44317abe5cf7afe6233e429d653a4a0684eebe3",
+      "1329604661582864": "72d0cc8af4bdc6be5430b1c67a38ac5368ec93ba7dcfcb52df488a2943e5c9ce",
+      "1329604662982805": "7d3a778f24584c6a3aba67287c20c514644ba467f5d371fc9e3d8bf80ea5fab1",
+      "1329604663982801": "2c3cb4ebb8ae1036977e141f8c09895ed81be36122f2aeb7e5f695af325b261c",
+      "1329604665582834": "c25eff36b694d6ad9896e2d20f48c76c6df9036fe74dcaed7e44f50f6c50892d",
+      "1329604666582815": "60cded43e312654cdaa8b487a72c841f2cad45d8568169429a22a4c009759247",
+      "1329604667982805": "6d43895e45711001e4d475c643bfbcd1fc613fda1b48cab1827da63a0b5de9f7",
+      "1329604668983281": "4d074e829796451bc90a8133121384ce99c527ad4b4f599cbb9d7782efaa8ad5",
+      "1329604670582822": "c5e72c6ac4d06d42d35135d80e14dfe4b15202a47cccfcb0a5fd72b9301c9a5d",
+      "1329604671582933": "1d5c537528071fbb913b7f6798b947e2e20e4b506d73b338b4bcde9b61a9986c",
+      "1329604672982737": "52042bcbd57d7b92d499541eb730885a05771b6c5d643cb8968f3569d7221d02",
+      "1329604673982743": "ad4ef7d85d9015d016186f7e63397f32c4ff3581b8d68f017fb08ef34628f50f",
+      "1329604675582729": "f27e778aedaa6468000e18402c330d37b7bcb2ea258b932314ef37f89c3568d7"
+    },
+    "runner_sha256": "f18ab5e8e5387b17d4096e2e0f9701684925d8f7e08b9614c406b186d9079d6b",
+    "branch_model_source_sha256": "36ac2860984d3eb8b4f223d099d1b08f6fac561f4307129fadd5eebbba4e17ee",
+    "baseline_matcher_source_sha256": "4eab5248ad5267479c9710ed2d251471024464ada617964b03b547430bc40bfe",
+    "full_pool_source_sha256": "525d6e05a96170c7b0dd4a9d3897ca116b57460410655812dd6d0e933c578694",
+    "roma_feature_state_sha256": "94ceb814e25083fca5e81c468331ee3d40ea482d0d9db4bc6cb3a9df21049f8f"
+  },
+  "frames": 32,
+  "records": [
+    {
+      "frame_id": "1329604635582975",
+      "correspondences_in_cache": 10,
+      "usable_score_maps": 10,
+      "active_cameras": 2,
+      "peak_quadratic_fits": 8,
+      "peak_without_positive_curvature": 2,
+      "match_offset_median_px": 1.7319945606842124,
+      "match_offset_p90_px": 4.058168801859801,
+      "score_map_sha256": "2836b3fe1194025c8b22a74d07ee7af5b747bf0a53449b6851a172ae2a648563",
+      "lidar_information": {
+        "support": 247,
+        "residual_scale_m": 0.14965352781646568,
+        "covariance_diagonal": [
+          0.000248387088807235,
+          0.00020777309563441756,
+          0.00030673918020476625,
+          2.4516848163595068e-06,
+          2.256883385626733e-06,
+          1.2519879459877715e-06
+        ]
+      },
+      "baseline_support": 251,
+      "baseline_pose": [
+        [
+          -0.04775996133685112,
+          -0.9977765083312988,
+          -0.04648382589221001,
+          -77.86598205566406
+        ],
+        [
+          0.9976583123207092,
+          -0.04537001997232437,
+          -0.05118074268102646,
+          -336.08523178100586
+        ],
+        [
+          0.048957981169223785,
+          -0.04881936311721802,
+          0.9976069331169128,
+          8.251571655273438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          -0.04775996133685112,
+          -0.9977765083312988,
+          -0.04648382589221001,
+          -77.86598205566406
+        ],
+        [
+          0.9976583123207092,
+          -0.04537001997232437,
+          -0.05118074268102646,
+          -336.08523178100586
+        ],
+        [
+          0.048957981169223785,
+          -0.04881936311721802,
+          0.9976069331169128,
+          8.251571655273438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.047947743756061346,
+          -0.9977747305213917,
+          -0.04632840940196358,
+          -77.86274321040482
+        ],
+        [
+          0.9976437614841867,
+          -0.045559798040869785,
+          -0.05129566536748336,
+          -336.0905818573125
+        ],
+        [
+          0.04907081627664127,
+          -0.04867875759197094,
+          0.9976082601355518,
+          8.255397737771752
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          -0.04780282631470598,
+          -0.9977682262329296,
+          -0.046617347253876534,
+          -77.86616282165221
+        ],
+        [
+          0.9976499157690957,
+          -0.0453995923103782,
+          -0.05131800721727981,
+          -336.08631125100624
+        ],
+        [
+          0.04908707907292346,
+          -0.04896093589079965,
+          0.9975936510243787,
+          8.249080016272503
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 22,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 12.076435544092936,
+        "objective_final": 11.926089081362333
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 24,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 0.8714869916439056,
+        "objective_final": 0.8577807582602827
+      }
+    },
+    {
+      "frame_id": "1329604636982984",
+      "correspondences_in_cache": 25,
+      "usable_score_maps": 25,
+      "active_cameras": 3,
+      "peak_quadratic_fits": 22,
+      "peak_without_positive_curvature": 3,
+      "match_offset_median_px": 7.157656153818002,
+      "match_offset_p90_px": 7.939323743478346,
+      "score_map_sha256": "9b226048a1885a9da32a28c69297d42dd2f813ac6f3f4e9cc152c08388210f8c",
+      "lidar_information": {
+        "support": 277,
+        "residual_scale_m": 0.1352136810378159,
+        "covariance_diagonal": [
+          0.00033040900536829293,
+          0.00012923053264945022,
+          0.00037655441720302015,
+          1.5399254109626846e-06,
+          2.8499858019278288e-06,
+          1.1157533055275854e-06
+        ]
+      },
+      "baseline_support": 276,
+      "baseline_pose": [
+        [
+          -0.13233140110969543,
+          -0.9901928305625916,
+          -0.04479038715362549,
+          -77.85419464111328
+        ],
+        [
+          0.9878780245780945,
+          -0.12805306911468506,
+          -0.08773788064718246,
+          -334.9998321533203
+        ],
+        [
+          0.08114181458950043,
+          -0.055857717990875244,
+          0.9951350688934326,
+          8.340240478515625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          -0.13233140110969543,
+          -0.9901928305625916,
+          -0.04479038715362549,
+          -77.85419464111328
+        ],
+        [
+          0.9878780245780945,
+          -0.12805306911468506,
+          -0.08773788064718246,
+          -334.9998321533203
+        ],
+        [
+          0.08114181458950043,
+          -0.055857717990875244,
+          0.9951350688934326,
+          8.340240478515625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.1320211018214466,
+          -0.9902003034212383,
+          -0.04553469073139088,
+          -77.85955055109083
+        ],
+        [
+          0.9878509206689701,
+          -0.1276308638543956,
+          -0.08865346635256137,
+          -335.0051085866339
+        ],
+        [
+          0.08197299827485684,
+          -0.05668541754864297,
+          0.9950201378198532,
+          8.31877029939455
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          -0.13231545922141646,
+          -0.9901888219284277,
+          -0.044925899141053535,
+          -77.8551813129546
+        ],
+        [
+          0.9878806482327835,
+          -0.1280255438987466,
+          -0.08774850782650961,
+          -335.0003020206349
+        ],
+        [
+          0.08113586960803085,
+          -0.055991712813757005,
+          0.9951280233135616,
+          8.339691556976385
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 22,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 56.36443205661825,
+        "objective_final": 55.23014213363371
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 38,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 3.668303072452545,
+        "objective_final": 3.662623114498263
+      }
+    },
+    {
+      "frame_id": "1329604637982961",
+      "correspondences_in_cache": 32,
+      "usable_score_maps": 32,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 27,
+      "peak_without_positive_curvature": 5,
+      "match_offset_median_px": 4.793788524500233,
+      "match_offset_p90_px": 7.606391252532072,
+      "score_map_sha256": "6502c431e4c77ad850ee200cdd5971990687409d2f4a9ac691173abf79ff933f",
+      "lidar_information": {
+        "support": 469,
+        "residual_scale_m": 0.12994830497728177,
+        "covariance_diagonal": [
+          0.00012307354230036338,
+          7.513047975614724e-05,
+          0.000151821828284344,
+          5.605570271087652e-07,
+          1.0219345308888218e-06,
+          4.4065733671357216e-07
+        ]
+      },
+      "baseline_support": 468,
+      "baseline_pose": [
+        [
+          0.007336132228374481,
+          -0.9985737800598145,
+          -0.052883416414260864,
+          -78.06354713439941
+        ],
+        [
+          0.9999290108680725,
+          0.007821828126907349,
+          -0.008984401822090149,
+          -333.60972595214844
+        ],
+        [
+          0.00938531756401062,
+          -0.05281385779380798,
+          0.9985605478286743,
+          8.284561157226562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.007336132228374481,
+          -0.9985737800598145,
+          -0.052883416414260864,
+          -78.06354713439941
+        ],
+        [
+          0.9999290108680725,
+          0.007821828126907349,
+          -0.008984401822090149,
+          -333.60972595214844
+        ],
+        [
+          0.00938531756401062,
+          -0.05281385779380798,
+          0.9985605478286743,
+          8.284561157226562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.007252651119337502,
+          -0.9986101818803912,
+          -0.052203185739505005,
+          -78.0589757861992
+        ],
+        [
+          0.9999296481889045,
+          0.0077321845640959015,
+          -0.008991065174519475,
+          -333.6038946223404
+        ],
+        [
+          0.009382298332825527,
+          -0.05213441051682355,
+          0.9985962803021655,
+          8.287924130791803
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.007336132228374481,
+          -0.9985737800598145,
+          -0.052883416414260864,
+          -78.06354713439941
+        ],
+        [
+          0.9999290108680725,
+          0.007821828126907349,
+          -0.008984401822090149,
+          -333.60972595214844
+        ],
+        [
+          0.00938531756401062,
+          -0.05281385779380798,
+          0.9985605478286743,
+          8.284561157226562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 25,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 50.554144306298376,
+        "objective_final": 49.89903811146207
+      },
+      "scoremap_solver": {
+        "success": false,
+        "status": 2,
+        "iterations": 0,
+        "message": "ABNORMAL: ",
+        "objective_initial": 3.8446420431137085,
+        "objective_final": 3.8446420431137085
+      }
+    },
+    {
+      "frame_id": "1329604639582940",
+      "correspondences_in_cache": 41,
+      "usable_score_maps": 41,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 34,
+      "peak_without_positive_curvature": 7,
+      "match_offset_median_px": 6.187112601745279,
+      "match_offset_p90_px": 8.468137202184568,
+      "score_map_sha256": "698202fce76e391373f14b12ea7513b62791ecc7783a772de1c43d73b9c21e16",
+      "lidar_information": {
+        "support": 545,
+        "residual_scale_m": 0.12177836791011583,
+        "covariance_diagonal": [
+          6.981286546585822e-05,
+          6.918087303855737e-05,
+          0.00015397130281937267,
+          4.91217403769825e-07,
+          5.318326361321866e-07,
+          2.765785088893766e-07
+        ]
+      },
+      "baseline_support": 545,
+      "baseline_pose": [
+        [
+          0.13280418515205383,
+          -0.9903361797332764,
+          -0.03997260332107544,
+          -77.66648292541504
+        ],
+        [
+          0.9907054901123047,
+          0.13143976032733917,
+          0.035023123025894165,
+          -331.3846549987793
+        ],
+        [
+          -0.029430627822875977,
+          -0.04425239562988281,
+          0.9985872507095337,
+          8.43499755859375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.13280418515205383,
+          -0.9903361797332764,
+          -0.03997260332107544,
+          -77.66648292541504
+        ],
+        [
+          0.9907054901123047,
+          0.13143976032733917,
+          0.035023123025894165,
+          -331.3846549987793
+        ],
+        [
+          -0.029430627822875977,
+          -0.04425239562988281,
+          0.9985872507095337,
+          8.43499755859375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.1330843148771931,
+          -0.9902775934226352,
+          -0.04048904366781129,
+          -77.66671023535407
+        ],
+        [
+          0.9906838471186404,
+          0.13172562024527157,
+          0.03455826536108412,
+          -331.3820730261478
+        ],
+        [
+          -0.02888878291811495,
+          -0.0447111053169644,
+          0.9985826400856742,
+          8.424359582384977
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.13281367941027472,
+          -0.9903347138947672,
+          -0.03997737510506905,
+          -77.66636240583334
+        ],
+        [
+          0.9907043644846777,
+          0.13144929168159625,
+          0.0350191916117025,
+          -331.3845351178524
+        ],
+        [
+          -0.029425674828747084,
+          -0.044256888435233815,
+          0.9985871975651138,
+          8.435115033136178
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 25,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 69.19301521614756,
+        "objective_final": 68.37056199888649
+      },
+      "scoremap_solver": {
+        "success": false,
+        "status": 2,
+        "iterations": 11,
+        "message": "ABNORMAL: ",
+        "objective_initial": 5.639232516288757,
+        "objective_final": 5.637891972596263
+      }
+    },
+    {
+      "frame_id": "1329604640582945",
+      "correspondences_in_cache": 92,
+      "usable_score_maps": 92,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 80,
+      "peak_without_positive_curvature": 12,
+      "match_offset_median_px": 7.59734264605549,
+      "match_offset_p90_px": 9.259695593503416,
+      "score_map_sha256": "9859df8eabb207f4ad55980de4d1cf8eb79b906d9eb038591691d4576dacae6f",
+      "lidar_information": {
+        "support": 594,
+        "residual_scale_m": 0.12584493108361236,
+        "covariance_diagonal": [
+          6.00514785013193e-05,
+          6.661294931420001e-05,
+          0.00011726219554096789,
+          4.822891025035701e-07,
+          5.035009422934559e-07,
+          2.583001792971218e-07
+        ]
+      },
+      "baseline_support": 596,
+      "baseline_pose": [
+        [
+          0.1282036006450653,
+          -0.9909123182296753,
+          -0.040706828236579895,
+          -77.57785034179688
+        ],
+        [
+          0.9913533329963684,
+          0.12920284271240234,
+          -0.02292892336845398,
+          -329.9829750061035
+        ],
+        [
+          0.027980148792266846,
+          -0.03741535544395447,
+          0.9989083409309387,
+          8.454666137695312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.1282036006450653,
+          -0.9909123182296753,
+          -0.040706828236579895,
+          -77.57785034179688
+        ],
+        [
+          0.9913533329963684,
+          0.12920284271240234,
+          -0.02292892336845398,
+          -329.9829750061035
+        ],
+        [
+          0.027980148792266846,
+          -0.03741535544395447,
+          0.9989083409309387,
+          8.454666137695312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.12933898316659762,
+          -0.9907188725171356,
+          -0.041808775972745724,
+          -77.59100029958921
+        ],
+        [
+          0.9911483332825577,
+          0.1304386728355025,
+          -0.024723977168670426,
+          -329.9703505561941
+        ],
+        [
+          0.029948149399313378,
+          -0.038240999915806206,
+          0.9988200068971101,
+          8.419400727654136
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.1282109504159592,
+          -0.9909104862984568,
+          -0.0407282682109393,
+          -77.57807217497323
+        ],
+        [
+          0.9913525705596803,
+          0.12921042967689253,
+          -0.022919132820109045,
+          -329.9831325516548
+        ],
+        [
+          0.027973484337062076,
+          -0.03743766570902815,
+          0.99890769167758,
+          8.454327983336873
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 27,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 176.47527416318746,
+        "objective_final": 158.88094118195255
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 59,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 15.05700495839119,
+        "objective_final": 15.054472393493723
+      }
+    },
+    {
+      "frame_id": "1329604641982945",
+      "correspondences_in_cache": 123,
+      "usable_score_maps": 123,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 110,
+      "peak_without_positive_curvature": 13,
+      "match_offset_median_px": 5.84456292403806,
+      "match_offset_p90_px": 8.671575840866957,
+      "score_map_sha256": "abe0c5ad4937c18310964edff63d12debf08c9a48668881e787ca9d55ef146c4",
+      "lidar_information": {
+        "support": 633,
+        "residual_scale_m": 0.12155920082940724,
+        "covariance_diagonal": [
+          4.7335154886199644e-05,
+          5.328520446795284e-05,
+          9.167860558826096e-05,
+          3.810331896777895e-07,
+          4.805223748847303e-07,
+          2.0695554616824648e-07
+        ]
+      },
+      "baseline_support": 633,
+      "baseline_pose": [
+        [
+          0.100571408867836,
+          -0.9943434000015259,
+          -0.03416341543197632,
+          -77.37254905700684
+        ],
+        [
+          0.9944583773612976,
+          0.10152169317007065,
+          -0.027322247624397278,
+          -328.2214775085449
+        ],
+        [
+          0.030636131763458252,
+          -0.03122638165950775,
+          0.9990430474281311,
+          8.492950439453125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.100571408867836,
+          -0.9943434000015259,
+          -0.03416341543197632,
+          -77.37254905700684
+        ],
+        [
+          0.9944583773612976,
+          0.10152169317007065,
+          -0.027322247624397278,
+          -328.2214775085449
+        ],
+        [
+          0.030636131763458252,
+          -0.03122638165950775,
+          0.9990430474281311,
+          8.492950439453125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.10091444249490696,
+          -0.9942796286471328,
+          -0.03499770758363788,
+          -77.37579404859117
+        ],
+        [
+          0.9943778865111235,
+          0.10193395203823771,
+          -0.028682949788563127,
+          -328.21842141694987
+        ],
+        [
+          0.032086434341753345,
+          -0.031906546372861,
+          0.998976027559736,
+          8.472887908791346
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.10058046775185153,
+          -0.9943422416527367,
+          -0.03417045995498436,
+          -77.3725999814447
+        ],
+        [
+          0.9944576019726101,
+          0.10153079418092001,
+          -0.027316650873885497,
+          -328.22152779247176
+        ],
+        [
+          0.030631561188727306,
+          -0.031233676060623862,
+          0.999042959554399,
+          8.492899382497852
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 28,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 206.55012743827913,
+        "objective_final": 200.98894503333267
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 13,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 16.848943650722504,
+        "objective_final": 16.84822057366736
+      }
+    },
+    {
+      "frame_id": "1329604642982934",
+      "correspondences_in_cache": 223,
+      "usable_score_maps": 223,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 209,
+      "peak_without_positive_curvature": 14,
+      "match_offset_median_px": 5.992530408296859,
+      "match_offset_p90_px": 9.396823880974743,
+      "score_map_sha256": "f682144b4e0fabb54bc4aa8d9e596010af1540ab18c30adade7168f602bc007c",
+      "lidar_information": {
+        "support": 643,
+        "residual_scale_m": 0.1289005792313107,
+        "covariance_diagonal": [
+          5.3953963893274994e-05,
+          6.06067869638912e-05,
+          9.797196645064685e-05,
+          4.2471458137427823e-07,
+          6.144044944624706e-07,
+          2.4593506328553706e-07
+        ]
+      },
+      "baseline_support": 645,
+      "baseline_pose": [
+        [
+          0.09948734939098358,
+          -0.994598925113678,
+          -0.029604196548461914,
+          -77.22160720825195
+        ],
+        [
+          0.9944462180137634,
+          0.10041061788797379,
+          -0.03154796361923218,
+          -326.76987075805664
+        ],
+        [
+          0.0343504399061203,
+          -0.026301458477973938,
+          0.9990650415420532,
+          8.498001098632812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.09948734939098358,
+          -0.994598925113678,
+          -0.029604196548461914,
+          -77.22160720825195
+        ],
+        [
+          0.9944462180137634,
+          0.10041061788797379,
+          -0.03154796361923218,
+          -326.76987075805664
+        ],
+        [
+          0.0343504399061203,
+          -0.026301458477973938,
+          0.9990650415420532,
+          8.498001098632812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.10049811124200184,
+          -0.9944564669829794,
+          -0.030945566301845102,
+          -77.22025010886337
+        ],
+        [
+          0.9942713342237647,
+          0.10151989956349068,
+          -0.03345248367694968,
+          -326.7493430189526
+        ],
+        [
+          0.03640892074959046,
+          -0.027406678170585518,
+          0.9989624332052364,
+          8.47224483104679
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.09956458315428734,
+          -0.9945964382403297,
+          -0.02942757181384304,
+          -77.21977711739295
+        ],
+        [
+          0.9944410213327902,
+          0.10048025352403415,
+          -0.031490005036709075,
+          -326.76791760262654
+        ],
+        [
+          0.03427703027356735,
+          -0.026128995988985028,
+          0.9990720881363637,
+          8.500613475218055
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 23,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 423.2857947982909,
+        "objective_final": 394.352518342748
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 26,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 33.095698326826096,
+        "objective_final": 33.004267090493435
+      }
+    },
+    {
+      "frame_id": "1329604644582931",
+      "correspondences_in_cache": 122,
+      "usable_score_maps": 122,
+      "active_cameras": 5,
+      "peak_quadratic_fits": 119,
+      "peak_without_positive_curvature": 3,
+      "match_offset_median_px": 7.337903104880125,
+      "match_offset_p90_px": 8.48264313454747,
+      "score_map_sha256": "b2ac877d0f3cdde4a148e1eec983563672737398e84e05aff6c493dc32e5cbf9",
+      "lidar_information": {
+        "support": 653,
+        "residual_scale_m": 0.12559147110718585,
+        "covariance_diagonal": [
+          4.5257215431490935e-05,
+          5.137689393494605e-05,
+          7.481827553442054e-05,
+          3.343777123649009e-07,
+          5.25264439114854e-07,
+          1.898642663723481e-07
+        ]
+      },
+      "baseline_support": 657,
+      "baseline_pose": [
+        [
+          0.16431619226932526,
+          -0.9853332042694092,
+          -0.04603734612464905,
+          -76.95608329772949
+        ],
+        [
+          0.9839493632316589,
+          0.1670207530260086,
+          -0.0628332570195198,
+          -324.6396713256836
+        ],
+        [
+          0.06960099190473557,
+          -0.03497402369976044,
+          0.996962308883667,
+          8.528717041015625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.16431619226932526,
+          -0.9853332042694092,
+          -0.04603734612464905,
+          -76.95608329772949
+        ],
+        [
+          0.9839493632316589,
+          0.1670207530260086,
+          -0.0628332570195198,
+          -324.6396713256836
+        ],
+        [
+          0.06960099190473557,
+          -0.03497402369976044,
+          0.996962308883667,
+          8.528717041015625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.16430152470495576,
+          -0.9852540025479571,
+          -0.04775280904672494,
+          -76.94958679484668
+        ],
+        [
+          0.9838158459220447,
+          0.16718570995764875,
+          -0.06446409002069345,
+          -324.64555476008417
+        ],
+        [
+          0.07149719443669285,
+          -0.036388549849296035,
+          0.9967774832360957,
+          8.496345694113021
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.16432177659270442,
+          -0.9853268523529022,
+          -0.046153217274435686,
+          -76.9557718951313
+        ],
+        [
+          0.9839423822205634,
+          0.16703675720707858,
+          -0.06289999780479467,
+          -324.6398188395546
+        ],
+        [
+          0.06968644579500557,
+          -0.03507639498313973,
+          0.9969527428980322,
+          8.527335744230399
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 26,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 220.80611188124988,
+        "objective_final": 206.88329372395904
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 40,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 20.028439581394196,
+        "objective_final": 20.003700555386374
+      }
+    },
+    {
+      "frame_id": "1329604645582910",
+      "correspondences_in_cache": 120,
+      "usable_score_maps": 120,
+      "active_cameras": 5,
+      "peak_quadratic_fits": 110,
+      "peak_without_positive_curvature": 10,
+      "match_offset_median_px": 5.922214909620985,
+      "match_offset_p90_px": 9.13733413066521,
+      "score_map_sha256": "f96e7231fb91eabad45fff04cea7db3fd1e47608a3bdd68005b62bba0ad411cc",
+      "lidar_information": {
+        "support": 649,
+        "residual_scale_m": 0.13094183454711975,
+        "covariance_diagonal": [
+          5.3948977279932915e-05,
+          5.587024520835655e-05,
+          7.488248120782027e-05,
+          3.980303014104525e-07,
+          6.583381021508299e-07,
+          2.2245215151414509e-07
+        ]
+      },
+      "baseline_support": 635,
+      "baseline_pose": [
+        [
+          0.17566172778606415,
+          -0.9831528663635254,
+          -0.05052584409713745,
+          -76.65946388244629
+        ],
+        [
+          0.9834377765655518,
+          0.17757712304592133,
+          -0.0362754762172699,
+          -323.04798889160156
+        ],
+        [
+          0.044636428356170654,
+          -0.04331664741039276,
+          0.9980631470680237,
+          8.556503295898438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.17566172778606415,
+          -0.9831528663635254,
+          -0.05052584409713745,
+          -76.65946388244629
+        ],
+        [
+          0.9834377765655518,
+          0.17757712304592133,
+          -0.0362754762172699,
+          -323.04798889160156
+        ],
+        [
+          0.044636428356170654,
+          -0.04331664741039276,
+          0.9980631470680237,
+          8.556503295898438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.17535203035804672,
+          -0.983134161920281,
+          -0.05194562470677656,
+          -76.64781770545206
+        ],
+        [
+          0.9834119514982013,
+          0.17739964414799989,
+          -0.037811444208027276,
+          -323.05997664358466
+        ],
+        [
+          0.04638871437308074,
+          -0.04445347154529638,
+          0.9979332459601551,
+          8.531057365216707
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.17568320412864372,
+          -0.9831458179652743,
+          -0.05058828505982934,
+          -76.65856812103452
+        ],
+        [
+          0.9834325416889309,
+          0.177602225997973,
+          -0.03629449633084749,
+          -323.04708870738136
+        ],
+        [
+          0.04466723022215617,
+          -0.04337366884314716,
+          0.9980592926187506,
+          8.555592235077874
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 25,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 225.40684410789433,
+        "objective_final": 211.93061547809555
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 17,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 18.857636332511902,
+        "objective_final": 18.825434311811193
+      }
+    },
+    {
+      "frame_id": "1329604646982902",
+      "correspondences_in_cache": 233,
+      "usable_score_maps": 233,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 213,
+      "peak_without_positive_curvature": 20,
+      "match_offset_median_px": 5.581706410409021,
+      "match_offset_p90_px": 8.806878925013633,
+      "score_map_sha256": "f245c560a8ef0ab16aea0278f468fc200cc79eb960ab30139bcf8e6dc353e6ab",
+      "lidar_information": {
+        "support": 698,
+        "residual_scale_m": 0.13344979334529272,
+        "covariance_diagonal": [
+          5.125142774805817e-05,
+          5.4948415789578586e-05,
+          6.907520397690542e-05,
+          4.018793186532025e-07,
+          6.195740295510194e-07,
+          1.9894511053926055e-07
+        ]
+      },
+      "baseline_support": 703,
+      "baseline_pose": [
+        [
+          0.1947888284921646,
+          -0.9804586172103882,
+          -0.02753204107284546,
+          -76.42869758605957
+        ],
+        [
+          0.9805669784545898,
+          0.19532528519630432,
+          -0.018338128924369812,
+          -321.12874603271484
+        ],
+        [
+          0.02335740625858307,
+          -0.023424848914146423,
+          0.9994524717330933,
+          8.517837524414062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.1947888284921646,
+          -0.9804586172103882,
+          -0.02753204107284546,
+          -76.42869758605957
+        ],
+        [
+          0.9805669784545898,
+          0.19532528519630432,
+          -0.018338128924369812,
+          -321.12874603271484
+        ],
+        [
+          0.02335740625858307,
+          -0.023424848914146423,
+          0.9994524717330933,
+          8.517837524414062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.19361131454646782,
+          -0.9806889163304686,
+          -0.02763529081997936,
+          -76.40821956279864
+        ],
+        [
+          0.9807670530715853,
+          0.19418250342319204,
+          -0.019722991859206465,
+          -321.1481651273178
+        ],
+        [
+          0.02470833577781812,
+          -0.02328508957783573,
+          0.9994232525836539,
+          8.505762143032047
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.19474057117931184,
+          -0.9804665437283844,
+          -0.027591078819065397,
+          -76.42881195866767
+        ],
+        [
+          0.9805758565807643,
+          0.19527886428565697,
+          -0.018357775003250188,
+          -321.1284434370344
+        ],
+        [
+          0.023387064708895847,
+          -0.02348004340700188,
+          0.9994504830045375,
+          8.51830443312525
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 20,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 446.4574287594736,
+        "objective_final": 426.2883816805775
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 31,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 35.08798548579216,
+        "objective_final": 35.06429614222163
+      }
+    },
+    {
+      "frame_id": "1329604647983097",
+      "correspondences_in_cache": 170,
+      "usable_score_maps": 170,
+      "active_cameras": 5,
+      "peak_quadratic_fits": 153,
+      "peak_without_positive_curvature": 17,
+      "match_offset_median_px": 5.7535700348946355,
+      "match_offset_p90_px": 8.134452847063091,
+      "score_map_sha256": "09492951abcb7281c8b1ed79382cf450293cf14412ca2dcbcdad63a5f43ba232",
+      "lidar_information": {
+        "support": 645,
+        "residual_scale_m": 0.14403280199422092,
+        "covariance_diagonal": [
+          6.75670242747494e-05,
+          7.34679086752467e-05,
+          9.247129109716515e-05,
+          5.82750226200682e-07,
+          9.141335481009356e-07,
+          3.082643586543782e-07
+        ]
+      },
+      "baseline_support": 644,
+      "baseline_pose": [
+        [
+          0.16170629858970642,
+          -0.9867337346076965,
+          -0.014399334788322449,
+          -76.2175064086914
+        ],
+        [
+          0.9867943525314331,
+          0.1615431159734726,
+          0.011860430240631104,
+          -319.87776947021484
+        ],
+        [
+          -0.009376965463161469,
+          -0.01612706482410431,
+          0.9998257756233215,
+          8.571502685546875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.16170629858970642,
+          -0.9867337346076965,
+          -0.014399334788322449,
+          -76.2175064086914
+        ],
+        [
+          0.9867943525314331,
+          0.1615431159734726,
+          0.011860430240631104,
+          -319.87776947021484
+        ],
+        [
+          -0.009376965463161469,
+          -0.01612706482410431,
+          0.9998257756233215,
+          8.571502685546875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.1609893951289968,
+          -0.9868735048163282,
+          -0.012760520417236082,
+          -76.20239040498322
+        ],
+        [
+          0.9869030097502214,
+          0.16083314199170615,
+          0.012453600343682187,
+          -319.8706640072561
+        ],
+        [
+          -0.01023780615001105,
+          -0.014598269751048715,
+          0.9998408219340601,
+          8.572652201444058
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.16166654312753115,
+          -0.9867472853451379,
+          -0.013908793336952949,
+          -76.21634162571542
+        ],
+        [
+          0.9867973187423109,
+          0.16150343341278117,
+          0.012150516028302374,
+          -319.8769109645662
+        ],
+        [
+          -0.009743163192258866,
+          -0.01568946815529698,
+          0.9998292367583433,
+          8.575302623377198
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 21,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 264.9223305332995,
+        "objective_final": 259.6358954811405
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 40,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 26.31515508890152,
+        "objective_final": 26.16901989500396
+      }
+    },
+    {
+      "frame_id": "1329604649582929",
+      "correspondences_in_cache": 189,
+      "usable_score_maps": 189,
+      "active_cameras": 5,
+      "peak_quadratic_fits": 176,
+      "peak_without_positive_curvature": 13,
+      "match_offset_median_px": 6.438447219219809,
+      "match_offset_p90_px": 8.675219110652844,
+      "score_map_sha256": "bb3cb5ac16108452b10d18b703cd3606a54be7fdaa4f56ff1b97f885e49ac6ed",
+      "lidar_information": {
+        "support": 611,
+        "residual_scale_m": 0.13740989327801933,
+        "covariance_diagonal": [
+          6.309190298884643e-05,
+          6.127359865017691e-05,
+          6.865705695031e-05,
+          3.8457532651783413e-07,
+          9.260387767966506e-07,
+          2.391794735886436e-07
+        ]
+      },
+      "baseline_support": 611,
+      "baseline_pose": [
+        [
+          0.02101985737681389,
+          -0.9991621375083923,
+          -0.03511403873562813,
+          -76.14029693603516
+        ],
+        [
+          0.9985276460647583,
+          0.02273746393620968,
+          -0.04924730211496353,
+          -317.74237060546875
+        ],
+        [
+          0.050004422664642334,
+          -0.034027136862277985,
+          0.9981689453125,
+          8.497695922851562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.02101985737681389,
+          -0.9991621375083923,
+          -0.03511403873562813,
+          -76.14029693603516
+        ],
+        [
+          0.9985276460647583,
+          0.02273746393620968,
+          -0.04924730211496353,
+          -317.74237060546875
+        ],
+        [
+          0.050004422664642334,
+          -0.034027136862277985,
+          0.9981689453125,
+          8.497695922851562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.02019942141708747,
+          -0.9993456305671731,
+          -0.030001689569672283,
+          -76.12645723060224
+        ],
+        [
+          0.9986353471963045,
+          0.02161252418462197,
+          -0.04754040964573766,
+          -317.74359890967946
+        ],
+        [
+          0.04815769253529746,
+          -0.02900042765723506,
+          0.9984184212753082,
+          8.528325956285906
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.020992791598874076,
+          -0.9991718586543537,
+          -0.03485264305273739,
+          -76.13910893637066
+        ],
+        [
+          0.9985329624092387,
+          0.022694353276613916,
+          -0.049159315259986194,
+          -317.7430083722036
+        ],
+        [
+          0.049909541461621056,
+          -0.03376949129309746,
+          0.9981824436763082,
+          8.500004519949071
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 25,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 394.4554929208907,
+        "objective_final": 363.4208290362453
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 32,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 26.878214240074158,
+        "objective_final": 26.817982779420117
+      }
+    },
+    {
+      "frame_id": "1329604651582866",
+      "correspondences_in_cache": 184,
+      "usable_score_maps": 184,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 164,
+      "peak_without_positive_curvature": 20,
+      "match_offset_median_px": 4.156839241916068,
+      "match_offset_p90_px": 7.883138549031147,
+      "score_map_sha256": "c8f0c3244824032760e696821ba2055764327d77bc217b27a5b78bd414d77f43",
+      "lidar_information": {
+        "support": 565,
+        "residual_scale_m": 0.13726305522904456,
+        "covariance_diagonal": [
+          7.023317083708516e-05,
+          6.395084615500917e-05,
+          6.887505064736219e-05,
+          3.2946493707842583e-07,
+          1.07601107075271e-06,
+          2.2796698583461017e-07
+        ]
+      },
+      "baseline_support": 568,
+      "baseline_pose": [
+        [
+          0.08453744649887085,
+          -0.9956074953079224,
+          -0.04023605212569237,
+          -75.81900405883789
+        ],
+        [
+          0.9960100650787354,
+          0.08559238910675049,
+          -0.02525213733315468,
+          -314.84588623046875
+        ],
+        [
+          0.028585096821188927,
+          -0.03794075921177864,
+          0.9988711476325989,
+          8.601837158203125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.08453744649887085,
+          -0.9956074953079224,
+          -0.04023605212569237,
+          -75.81900405883789
+        ],
+        [
+          0.9960100650787354,
+          0.08559238910675049,
+          -0.02525213733315468,
+          -314.84588623046875
+        ],
+        [
+          0.028585096821188927,
+          -0.03794075921177864,
+          0.9988711476325989,
+          8.601837158203125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.08447139694519872,
+          -0.9956430269908897,
+          -0.03948861080694969,
+          -75.82487941622372
+        ],
+        [
+          0.9960296939085926,
+          0.08548900801963749,
+          -0.024824494905852215,
+          -314.8361593017017
+        ],
+        [
+          0.028092157436813644,
+          -0.03723486683364456,
+          0.9989116947821893,
+          8.586794725472485
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.08450734069164348,
+          -0.9956123511413396,
+          -0.04017910030606314,
+          -75.81959930130007
+        ],
+        [
+          0.996014526590916,
+          0.08555833999818789,
+          -0.025191476923806504,
+          -314.84380343692794
+        ],
+        [
+          0.028518582504620377,
+          -0.03789010038850078,
+          0.9988749718019828,
+          8.601600026789852
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 20,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 221.69030820893428,
+        "objective_final": 214.8187197634827
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 45,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 23.634666085243225,
+        "objective_final": 23.586975597395643
+      }
+    },
+    {
+      "frame_id": "1329604652583020",
+      "correspondences_in_cache": 234,
+      "usable_score_maps": 233,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 211,
+      "peak_without_positive_curvature": 22,
+      "match_offset_median_px": 3.9745545717507076,
+      "match_offset_p90_px": 7.632801404982421,
+      "score_map_sha256": "9df8c5e20a65e1fca8b14f4376c439aea0ed2aae4915e835b06e4c52d5ed2a0d",
+      "lidar_information": {
+        "support": 600,
+        "residual_scale_m": 0.14060171328296234,
+        "covariance_diagonal": [
+          7.037504895046227e-05,
+          6.381848289337743e-05,
+          6.390309935320989e-05,
+          3.3054962496514816e-07,
+          9.853390441925938e-07,
+          2.3475223571607386e-07
+        ]
+      },
+      "baseline_support": 599,
+      "baseline_pose": [
+        [
+          0.04244526848196983,
+          -0.998677134513855,
+          -0.029017988592386246,
+          -75.59627914428711
+        ],
+        [
+          0.9987351894378662,
+          0.04319591075181961,
+          -0.02574223279953003,
+          -313.4092712402344
+        ],
+        [
+          0.026961641386151314,
+          -0.027888627722859383,
+          0.9992474317550659,
+          8.595489501953125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.04244526848196983,
+          -0.998677134513855,
+          -0.029017988592386246,
+          -75.59627914428711
+        ],
+        [
+          0.9987351894378662,
+          0.04319591075181961,
+          -0.02574223279953003,
+          -313.4092712402344
+        ],
+        [
+          0.026961641386151314,
+          -0.027888627722859383,
+          0.9992474317550659,
+          8.595489501953125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.042191830472723846,
+          -0.9987199994678848,
+          -0.027890422149374504,
+          -75.61597759976709
+        ],
+        [
+          0.9987417594755801,
+          0.042917683031308995,
+          -0.025951842422801557,
+          -313.4069840169972
+        ],
+        [
+          0.02711562031773742,
+          -0.026760351433415645,
+          0.9992741177013141,
+          8.578825818981443
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.04239947257877285,
+          -0.9986837070418522,
+          -0.028858300476243746,
+          -75.59752256617816
+        ],
+        [
+          0.9987382443626664,
+          0.04314488879820962,
+          -0.025709252716258093,
+          -313.407399424801
+        ],
+        [
+          0.02692050364783109,
+          -0.02773180705402766,
+          0.9992529053742812,
+          8.593884399296298
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 24,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 326.01618788118486,
+        "objective_final": 311.84035881197264
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 53,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 31.367151200771332,
+        "objective_final": 31.258466017045365
+      }
+    },
+    {
+      "frame_id": "1329604653982864",
+      "correspondences_in_cache": 232,
+      "usable_score_maps": 232,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 216,
+      "peak_without_positive_curvature": 16,
+      "match_offset_median_px": 3.9864208549324056,
+      "match_offset_p90_px": 6.505252502375308,
+      "score_map_sha256": "043482b7636b71a024057b710fcf8cc216d9a7df251b052db01aff2f2edc9c49",
+      "lidar_information": {
+        "support": 555,
+        "residual_scale_m": 0.1371342644397577,
+        "covariance_diagonal": [
+          7.069393760810174e-05,
+          6.205079207858788e-05,
+          6.090927973256702e-05,
+          3.268690107463476e-07,
+          9.84444644077061e-07,
+          2.36727942854683e-07
+        ]
+      },
+      "baseline_support": 555,
+      "baseline_pose": [
+        [
+          -0.052639201283454895,
+          -0.9982119202613831,
+          -0.028322413563728333,
+          -75.7154598236084
+        ],
+        [
+          0.998508095741272,
+          -0.05220041051506996,
+          -0.01602303981781006,
+          -311.4006576538086
+        ],
+        [
+          0.014515956863760948,
+          -0.02912360429763794,
+          0.9994704127311707,
+          8.6895751953125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          -0.052639201283454895,
+          -0.9982119202613831,
+          -0.028322413563728333,
+          -75.7154598236084
+        ],
+        [
+          0.998508095741272,
+          -0.05220041051506996,
+          -0.01602303981781006,
+          -311.4006576538086
+        ],
+        [
+          0.014515956863760948,
+          -0.02912360429763794,
+          0.9994704127311707,
+          8.6895751953125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.05274836557363717,
+          -0.9982300533124838,
+          -0.027467306477614518,
+          -75.7036772955658
+        ],
+        [
+          0.9985054619340711,
+          -0.05232935813634699,
+          -0.015764477353595607,
+          -311.38494976783386
+        ],
+        [
+          0.014299237512157644,
+          -0.028257810919081885,
+          0.9994983897779562,
+          8.672649485349101
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          -0.05264394940354136,
+          -0.9982177730375548,
+          -0.02810648601639664,
+          -75.71346880100059
+        ],
+        [
+          0.9985088703204866,
+          -0.05221066668349644,
+          -0.015941145023276905,
+          -311.39865949516087
+        ],
+        [
+          0.01444528500219459,
+          -0.02890378545371658,
+          0.9994778177524759,
+          8.687608664452162
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 21,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 337.15134456297284,
+        "objective_final": 327.34433000718576
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 30,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 27.770429134368896,
+        "objective_final": 27.655449736498525
+      }
+    },
+    {
+      "frame_id": "1329604654982854",
+      "correspondences_in_cache": 207,
+      "usable_score_maps": 207,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 196,
+      "peak_without_positive_curvature": 11,
+      "match_offset_median_px": 4.355063114399067,
+      "match_offset_p90_px": 7.900235600766183,
+      "score_map_sha256": "5154e4974e7a971878d2f454a15fdfe520d64ffb56984c6bb23d6ee971d6de98",
+      "lidar_information": {
+        "support": 563,
+        "residual_scale_m": 0.1316785352277159,
+        "covariance_diagonal": [
+          5.8793698225701165e-05,
+          5.337715526556166e-05,
+          5.2386504963829956e-05,
+          2.7765111098958023e-07,
+          8.203149925008179e-07,
+          1.9943139741924988e-07
+        ]
+      },
+      "baseline_support": 568,
+      "baseline_pose": [
+        [
+          -0.05566826090216637,
+          -0.9980331063270569,
+          -0.0288141667842865,
+          -75.84340476989746
+        ],
+        [
+          0.9982535243034363,
+          -0.055062826722860336,
+          -0.021385187283158302,
+          -309.8485565185547
+        ],
+        [
+          0.019756540656089783,
+          -0.02995433658361435,
+          0.9993554353713989,
+          8.701644897460938
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          -0.05566826090216637,
+          -0.9980331063270569,
+          -0.0288141667842865,
+          -75.84340476989746
+        ],
+        [
+          0.9982535243034363,
+          -0.055062826722860336,
+          -0.021385187283158302,
+          -309.8485565185547
+        ],
+        [
+          0.019756540656089783,
+          -0.02995433658361435,
+          0.9993554353713989,
+          8.701644897460938
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.055799365178015946,
+          -0.9980039743673823,
+          -0.029559953498881412,
+          -75.84083080658077
+        ],
+        [
+          0.998237751973522,
+          -0.05516484076387352,
+          -0.02185339120622263,
+          -309.8702419549766
+        ],
+        [
+          0.020179106406824774,
+          -0.030727284001619302,
+          0.9993235247360578,
+          8.674923189788936
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          -0.05571112423173416,
+          -0.9980251091769677,
+          -0.029007669899481003,
+          -75.84104570819837
+        ],
+        [
+          0.998250813853228,
+          -0.05510102639121346,
+          -0.0214132999110782,
+          -309.8521302019381
+        ],
+        [
+          0.019772663781153974,
+          -0.030149906047067288,
+          0.9993492354141708,
+          8.698015745152729
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 23,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 306.28262128064296,
+        "objective_final": 287.9662405475261
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 42,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 28.888759672641754,
+        "objective_final": 28.536845937516567
+      }
+    },
+    {
+      "frame_id": "1329604656582868",
+      "correspondences_in_cache": 210,
+      "usable_score_maps": 209,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 194,
+      "peak_without_positive_curvature": 15,
+      "match_offset_median_px": 4.03398330933609,
+      "match_offset_p90_px": 7.461213021437363,
+      "score_map_sha256": "d99ceeaead745d6a4d4b65433f7119b8d2d765f5c76ee3f99152c46d46306293",
+      "lidar_information": {
+        "support": 530,
+        "residual_scale_m": 0.14131635035000814,
+        "covariance_diagonal": [
+          8.060359098153583e-05,
+          7.120661918884593e-05,
+          6.959164818407414e-05,
+          3.181111185485282e-07,
+          1.1977330160429063e-06,
+          2.300032513106286e-07
+        ]
+      },
+      "baseline_support": 534,
+      "baseline_pose": [
+        [
+          -0.024378785863518715,
+          -0.9994841814041138,
+          -0.020901940762996674,
+          -75.87954902648926
+        ],
+        [
+          0.9994707703590393,
+          -0.023917514830827713,
+          -0.022044464945793152,
+          -307.7262649536133
+        ],
+        [
+          0.021533174440264702,
+          -0.02142830565571785,
+          0.9995384216308594,
+          8.744735717773438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          -0.024378785863518715,
+          -0.9994841814041138,
+          -0.020901940762996674,
+          -75.87954902648926
+        ],
+        [
+          0.9994707703590393,
+          -0.023917514830827713,
+          -0.022044464945793152,
+          -307.7262649536133
+        ],
+        [
+          0.021533174440264702,
+          -0.02142830565571785,
+          0.9995384216308594,
+          8.744735717773438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.023741684530533838,
+          -0.9994996893775968,
+          -0.020893746407552913,
+          -75.86833067661746
+        ],
+        [
+          0.9994854054206181,
+          -0.02328019821045302,
+          -0.02206316819836303,
+          -307.7257473663915
+        ],
+        [
+          0.0215657221205562,
+          -0.021406820907808016,
+          0.9995381802856874,
+          8.719395274280657
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          -0.024337696636765563,
+          -0.99948119679717,
+          -0.021091680338889227,
+          -75.87604307294312
+        ],
+        [
+          0.9994716798922251,
+          -0.023872167700466473,
+          -0.022052379673096357,
+          -307.7246041349698
+        ],
+        [
+          0.02153743762791216,
+          -0.0216172508471109,
+          0.9995342612686929,
+          8.741672257517838
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 23,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 353.23678891975464,
+        "objective_final": 339.5833216513481
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 27,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 25.108420252799988,
+        "objective_final": 24.886152030763796
+      }
+    },
+    {
+      "frame_id": "1329604657582841",
+      "correspondences_in_cache": 186,
+      "usable_score_maps": 186,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 164,
+      "peak_without_positive_curvature": 22,
+      "match_offset_median_px": 3.3437013853455584,
+      "match_offset_p90_px": 8.443012250866081,
+      "score_map_sha256": "8d7f78eb6c6ba7ac4054e418906371fa51c9871ae39a90f884b791ec5088f8e8",
+      "lidar_information": {
+        "support": 606,
+        "residual_scale_m": 0.1465537937231844,
+        "covariance_diagonal": [
+          7.470159561412017e-05,
+          6.761507498725142e-05,
+          6.604935804011241e-05,
+          3.0157462761430876e-07,
+          1.1228530904805152e-06,
+          2.4636353327201324e-07
+        ]
+      },
+      "baseline_support": 603,
+      "baseline_pose": [
+        [
+          0.06441740691661835,
+          -0.9978123307228088,
+          -0.014843214303255081,
+          -75.83900451660156
+        ],
+        [
+          0.9974732398986816,
+          0.06482810527086258,
+          -0.029055694118142128,
+          -306.2379913330078
+        ],
+        [
+          0.029954416677355766,
+          -0.012934007681906223,
+          0.9994670152664185,
+          8.713150024414062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.06441740691661835,
+          -0.9978123307228088,
+          -0.014843214303255081,
+          -75.83900451660156
+        ],
+        [
+          0.9974732398986816,
+          0.06482810527086258,
+          -0.029055694118142128,
+          -306.2379913330078
+        ],
+        [
+          0.029954416677355766,
+          -0.012934007681906223,
+          0.9994670152664185,
+          8.713150024414062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.06362678340653591,
+          -0.9978340193992735,
+          -0.016681528170990927,
+          -75.85056636591683
+        ],
+        [
+          0.997506804424289,
+          0.06409972017997564,
+          -0.029515781239085458,
+          -306.23397522941866
+        ],
+        [
+          0.030521160969001218,
+          -0.014761935257570248,
+          0.999424541550201,
+          8.699067190307604
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.06441740691661835,
+          -0.9978123307228088,
+          -0.014843214303255081,
+          -75.83900451660156
+        ],
+        [
+          0.9974732398986816,
+          0.06482810527086258,
+          -0.029055694118142128,
+          -306.2379913330078
+        ],
+        [
+          0.029954416677355766,
+          -0.012934007681906223,
+          0.9994670152664185,
+          8.713150024414062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 30,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 269.05158645315385,
+        "objective_final": 261.47600336184047
+      },
+      "scoremap_solver": {
+        "success": false,
+        "status": 2,
+        "iterations": 0,
+        "message": "ABNORMAL: ",
+        "objective_initial": 21.019181191921234,
+        "objective_final": 21.01918119192187
+      }
+    },
+    {
+      "frame_id": "1329604658983490",
+      "correspondences_in_cache": 171,
+      "usable_score_maps": 171,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 157,
+      "peak_without_positive_curvature": 14,
+      "match_offset_median_px": 5.065682688527104,
+      "match_offset_p90_px": 8.285115215312352,
+      "score_map_sha256": "b6699e07ac27c0e5897f6a5b9e2787db0544a5e795e05b1ed784080230bc8fd7",
+      "lidar_information": {
+        "support": 562,
+        "residual_scale_m": 0.14456215077312612,
+        "covariance_diagonal": [
+          8.393173702658337e-05,
+          7.222741691341385e-05,
+          7.921286045753275e-05,
+          3.546894814084947e-07,
+          1.1231164408123461e-06,
+          2.9160863610765665e-07
+        ]
+      },
+      "baseline_support": 562,
+      "baseline_pose": [
+        [
+          0.13456043601036072,
+          -0.990677535533905,
+          -0.021263640373945236,
+          -75.64179611206055
+        ],
+        [
+          0.9904863834381104,
+          0.13509656488895416,
+          -0.026192039251327515,
+          -304.1961212158203
+        ],
+        [
+          0.028820516541600227,
+          -0.017536930739879608,
+          0.9994315505027771,
+          8.769454956054688
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.13456043601036072,
+          -0.990677535533905,
+          -0.021263640373945236,
+          -75.64179611206055
+        ],
+        [
+          0.9904863834381104,
+          0.13509656488895416,
+          -0.026192039251327515,
+          -304.1961212158203
+        ],
+        [
+          0.028820516541600227,
+          -0.017536930739879608,
+          0.9994315505027771,
+          8.769454956054688
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.13370476474146342,
+          -0.9907353032024019,
+          -0.023816539237206315,
+          -75.64700429043125
+        ],
+        [
+          0.9905710752131396,
+          0.13432972468539875,
+          -0.026923051357749025,
+          -304.2009351204789
+        ],
+        [
+          0.029872892826859183,
+          -0.01999222975289415,
+          0.9993545473088274,
+          8.760058361244475
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.13459447873275024,
+          -0.9906683938291725,
+          -0.021473065125364888,
+          -75.64375947507735
+        ],
+        [
+          0.9904812850367195,
+          0.13513641532043533,
+          -0.02617926241618401,
+          -304.194854886031
+        ],
+        [
+          0.028836767780015638,
+          -0.01774508152623351,
+          0.9994274076469721,
+          8.767991282066491
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 21,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 275.1732420019243,
+        "objective_final": 268.8537000553832
+      },
+      "scoremap_solver": {
+        "success": false,
+        "status": 2,
+        "iterations": 30,
+        "message": "ABNORMAL: ",
+        "objective_initial": 23.280249416828156,
+        "objective_final": 23.227488749993647
+      }
+    },
+    {
+      "frame_id": "1329604659982823",
+      "correspondences_in_cache": 206,
+      "usable_score_maps": 206,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 196,
+      "peak_without_positive_curvature": 10,
+      "match_offset_median_px": 4.959003507812387,
+      "match_offset_p90_px": 8.123478822213237,
+      "score_map_sha256": "20e484f1aa3af4b42dc1600b99578f3cccc3c6e1be97e3121c9b20d347469a9f",
+      "lidar_information": {
+        "support": 568,
+        "residual_scale_m": 0.1372751535396622,
+        "covariance_diagonal": [
+          6.87946579966737e-05,
+          5.999838119447107e-05,
+          6.201609334178806e-05,
+          3.2703897197516745e-07,
+          1.0027614658722703e-06,
+          2.6712389369758877e-07
+        ]
+      },
+      "baseline_support": 568,
+      "baseline_pose": [
+        [
+          0.07671607285737991,
+          -0.9968717098236084,
+          -0.01900501362979412,
+          -75.51045799255371
+        ],
+        [
+          0.9967682957649231,
+          0.07713604718446732,
+          -0.02242865413427353,
+          -302.8437805175781
+        ],
+        [
+          0.023824457079172134,
+          -0.017222952097654343,
+          0.9995678663253784,
+          8.825469970703125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.07671607285737991,
+          -0.9968717098236084,
+          -0.01900501362979412,
+          -75.51045799255371
+        ],
+        [
+          0.9967682957649231,
+          0.07713604718446732,
+          -0.02242865413427353,
+          -302.8437805175781
+        ],
+        [
+          0.023824457079172134,
+          -0.017222952097654343,
+          0.9995678663253784,
+          8.825469970703125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.07609428231006785,
+          -0.9968374948251433,
+          -0.022900256858369463,
+          -75.51045011929708
+        ],
+        [
+          0.9967948895068,
+          0.07661993649018095,
+          -0.023008324219154865,
+          -302.84661992380904
+        ],
+        [
+          0.024690169799490878,
+          -0.02107605142858387,
+          0.9994730360105071,
+          8.806897169247245
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.07673148182418947,
+          -0.9968629319923041,
+          -0.019399142534439823,
+          -75.5105397924162
+        ],
+        [
+          0.9967638669047468,
+          0.07716270186761161,
+          -0.022533549119032877,
+          -302.84396122477375
+        ],
+        [
+          0.023959744615621822,
+          -0.017607326913649905,
+          0.9995579357359141,
+          8.82230537350313
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 20,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 338.5626141854708,
+        "objective_final": 320.8288485112943
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 40,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 27.53578543663025,
+        "objective_final": 27.377980650263734
+      }
+    },
+    {
+      "frame_id": "1329604661582864",
+      "correspondences_in_cache": 181,
+      "usable_score_maps": 181,
+      "active_cameras": 5,
+      "peak_quadratic_fits": 166,
+      "peak_without_positive_curvature": 15,
+      "match_offset_median_px": 5.162549949244871,
+      "match_offset_p90_px": 7.660735589908862,
+      "score_map_sha256": "fba0a1ffe1011cb032142313a1516bd5f7c65efab2505d45b290dd67ab3119ee",
+      "lidar_information": {
+        "support": 536,
+        "residual_scale_m": 0.13532429284234013,
+        "covariance_diagonal": [
+          7.480863386812871e-05,
+          6.199498029536772e-05,
+          7.318409700126407e-05,
+          4.580892322357849e-07,
+          9.235594623522081e-07,
+          3.3650869532300465e-07
+        ]
+      },
+      "baseline_support": 536,
+      "baseline_pose": [
+        [
+          0.024300159886479378,
+          -0.9996246695518494,
+          -0.012668699026107788,
+          -75.37560653686523
+        ],
+        [
+          0.9991627335548401,
+          0.024702347815036774,
+          -0.03261946886777878,
+          -300.5901184082031
+        ],
+        [
+          0.032920174300670624,
+          -0.011865377426147461,
+          0.9993879199028015,
+          8.881179809570312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.024300159886479378,
+          -0.9996246695518494,
+          -0.012668699026107788,
+          -75.37560653686523
+        ],
+        [
+          0.9991627335548401,
+          0.024702347815036774,
+          -0.03261946886777878,
+          -300.5901184082031
+        ],
+        [
+          0.032920174300670624,
+          -0.011865377426147461,
+          0.9993879199028015,
+          8.881179809570312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.02389223698759222,
+          -0.9995842657505399,
+          -0.01615335126086467,
+          -75.36561017454015
+        ],
+        [
+          0.9991247543328604,
+          0.024430069985931294,
+          -0.03396028265608465,
+          -300.586349563966
+        ],
+        [
+          0.034340792977231804,
+          -0.015327768595600389,
+          0.9992930043670077,
+          8.850484432389003
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.024276264358099243,
+          -0.9996204929137531,
+          -0.013038667847086266,
+          -75.37538545587441
+        ],
+        [
+          0.9991624188443641,
+          0.024690870581214063,
+          -0.03263779312424819,
+          -300.59020220229786
+        ],
+        [
+          0.03294734479697757,
+          -0.012235366871952784,
+          0.9993825632522467,
+          8.88095046294917
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 23,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 292.058485499095,
+        "objective_final": 268.6545422108378
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 25,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 24.973806083202362,
+        "objective_final": 24.88673336796521
+      }
+    },
+    {
+      "frame_id": "1329604662982805",
+      "correspondences_in_cache": 155,
+      "usable_score_maps": 154,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 137,
+      "peak_without_positive_curvature": 17,
+      "match_offset_median_px": 5.209567301366292,
+      "match_offset_p90_px": 8.450759974598334,
+      "score_map_sha256": "098c7c827ef016b8bcc375c7a2945c96192dc8ac4c1d43edfb7c11538f043566",
+      "lidar_information": {
+        "support": 543,
+        "residual_scale_m": 0.13993598166670265,
+        "covariance_diagonal": [
+          7.52771242919029e-05,
+          6.63981405160503e-05,
+          7.218257398035826e-05,
+          5.424169482033721e-07,
+          9.443074919460511e-07,
+          3.7844099598359123e-07
+        ]
+      },
+      "baseline_support": 544,
+      "baseline_pose": [
+        [
+          0.010595724917948246,
+          -0.999809741973877,
+          -0.016385942697525024,
+          -75.25103378295898
+        ],
+        [
+          0.9995639324188232,
+          0.011041888035833836,
+          -0.02739344909787178,
+          -298.6113052368164
+        ],
+        [
+          0.027569184079766273,
+          -0.016088511794805527,
+          0.9994907379150391,
+          8.92236328125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.010595724917948246,
+          -0.999809741973877,
+          -0.016385942697525024,
+          -75.25103378295898
+        ],
+        [
+          0.9995639324188232,
+          0.011041888035833836,
+          -0.02739344909787178,
+          -298.6113052368164
+        ],
+        [
+          0.027569184079766273,
+          -0.016088511794805527,
+          0.9994907379150391,
+          8.92236328125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.00933680134996633,
+          -0.9998036850096222,
+          -0.017484388773007408,
+          -75.24970388524113
+        ],
+        [
+          0.9995419732756129,
+          0.009834795027467641,
+          -0.028626914252408684,
+          -298.59917520240566
+        ],
+        [
+          0.02879326467748451,
+          -0.01720906438437263,
+          0.9994375574687661,
+          8.893331563763715
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.010545192706373841,
+          -0.9998089119243541,
+          -0.016468976454071107,
+          -75.25108644914577
+        ],
+        [
+          0.9995642866470125,
+          0.010993762057050938,
+          -0.027399879758408786,
+          -298.6118185687063
+        ],
+        [
+          0.027575715051056878,
+          -0.016172831586023655,
+          0.9994891969167518,
+          8.921362256648102
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 22,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 253.88264022283334,
+        "objective_final": 239.2665300694953
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 36,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 20.839106798171997,
+        "objective_final": 20.823133184374527
+      }
+    },
+    {
+      "frame_id": "1329604663982801",
+      "correspondences_in_cache": 193,
+      "usable_score_maps": 193,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 178,
+      "peak_without_positive_curvature": 15,
+      "match_offset_median_px": 3.8811112248721655,
+      "match_offset_p90_px": 8.146000583772503,
+      "score_map_sha256": "c225d60975a9c6861fecba4c4b29e8769276d329bcc3dfc34fafda8cd7e2ce55",
+      "lidar_information": {
+        "support": 544,
+        "residual_scale_m": 0.13839796621240108,
+        "covariance_diagonal": [
+          7.055980642747228e-05,
+          6.30492714305773e-05,
+          6.897672342789238e-05,
+          4.752444328511601e-07,
+          8.552976698238491e-07,
+          3.3134331767565517e-07
+        ]
+      },
+      "baseline_support": 543,
+      "baseline_pose": [
+        [
+          -0.0032398835755884647,
+          -0.9997421503067017,
+          -0.0224892720580101,
+          -75.3419189453125
+        ],
+        [
+          0.9997300505638123,
+          -0.002720746211707592,
+          -0.02306922897696495,
+          -297.1383590698242
+        ],
+        [
+          0.023002086207270622,
+          -0.022557947784662247,
+          0.9994809627532959,
+          8.910354614257812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          -0.0032398835755884647,
+          -0.9997421503067017,
+          -0.0224892720580101,
+          -75.3419189453125
+        ],
+        [
+          0.9997300505638123,
+          -0.002720746211707592,
+          -0.02306922897696495,
+          -297.1383590698242
+        ],
+        [
+          0.023002086207270622,
+          -0.022557947784662247,
+          0.9994809627532959,
+          8.910354614257812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.003846362357137839,
+          -0.9996987218797898,
+          -0.024254946223580084,
+          -75.32764963079427
+        ],
+        [
+          0.9997212460076454,
+          -0.003279137840503207,
+          -0.023376123506664275,
+          -297.14621895263434
+        ],
+        [
+          0.02328953828076303,
+          -0.024338103767742102,
+          0.9994325420072325,
+          8.890260110346196
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          -0.0033055843014844996,
+          -0.999732927653423,
+          -0.02288619217314521,
+          -75.34127665793308
+        ],
+        [
+          0.9997293504914199,
+          -0.002776769078919336,
+          -0.023092879597342804,
+          -297.14006841840495
+        ],
+        [
+          0.023023155609565714,
+          -0.02295633871220846,
+          0.999471406649166,
+          8.908546618405268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 28,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 254.0037880233339,
+        "objective_final": 241.3838109432293
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 45,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 22.99800580739975,
+        "objective_final": 22.85019983966674
+      }
+    },
+    {
+      "frame_id": "1329604665582834",
+      "correspondences_in_cache": 153,
+      "usable_score_maps": 153,
+      "active_cameras": 5,
+      "peak_quadratic_fits": 137,
+      "peak_without_positive_curvature": 16,
+      "match_offset_median_px": 5.095897402438548,
+      "match_offset_p90_px": 7.553947697312605,
+      "score_map_sha256": "816f32e42576760c9c29f3f2a3f4ec755fd8877fbd528d6f4fcc9f96b4f03b4b",
+      "lidar_information": {
+        "support": 624,
+        "residual_scale_m": 0.13121004110968978,
+        "covariance_diagonal": [
+          5.123980552791652e-05,
+          4.9411338714484396e-05,
+          5.003449123378939e-05,
+          4.0962223047762184e-07,
+          5.107791859834476e-07,
+          2.458063747193143e-07
+        ]
+      },
+      "baseline_support": 624,
+      "baseline_pose": [
+        [
+          -0.018042849376797676,
+          -0.9998356699943542,
+          -0.0017396286129951477,
+          -75.3221492767334
+        ],
+        [
+          0.9994481205940247,
+          -0.017987502738833427,
+          -0.02791913039982319,
+          -294.9818801879883
+        ],
+        [
+          0.027883248403668404,
+          -0.002242404967546463,
+          0.9996085166931152,
+          8.945755004882812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          -0.018042849376797676,
+          -0.9998356699943542,
+          -0.0017396286129951477,
+          -75.3221492767334
+        ],
+        [
+          0.9994481205940247,
+          -0.017987502738833427,
+          -0.02791913039982319,
+          -294.9818801879883
+        ],
+        [
+          0.027883248403668404,
+          -0.002242404967546463,
+          0.9996085166931152,
+          8.945755004882812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.017425567849965403,
+          -0.9998369689231014,
+          -0.00472474456879218,
+          -75.32125542995627
+        ],
+        [
+          0.9994798934419816,
+          -0.01729097359786632,
+          -0.0272128347242882,
+          -294.9663156154748
+        ],
+        [
+          0.027126700949687707,
+          -0.005196482904872592,
+          0.9996183417737151,
+          8.930665918543186
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          -0.018050242097070287,
+          -0.9998350962143778,
+          -0.0019765764158416665,
+          -75.32235030266251
+        ],
+        [
+          0.9994506119339687,
+          -0.017988509309308863,
+          -0.027829151857122463,
+          -294.98264817885945
+        ],
+        [
+          0.027789004644913778,
+          -0.002477809252588086,
+          0.999610585302091,
+          8.945605704794128
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 21,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 232.27876420740253,
+        "objective_final": 211.38339121558775
+      },
+      "scoremap_solver": {
+        "success": false,
+        "status": 2,
+        "iterations": 29,
+        "message": "ABNORMAL: ",
+        "objective_initial": 21.06942754983902,
+        "objective_final": 20.996017949578043
+      }
+    },
+    {
+      "frame_id": "1329604666582815",
+      "correspondences_in_cache": 188,
+      "usable_score_maps": 187,
+      "active_cameras": 5,
+      "peak_quadratic_fits": 167,
+      "peak_without_positive_curvature": 20,
+      "match_offset_median_px": 3.144883417117983,
+      "match_offset_p90_px": 8.118368649275427,
+      "score_map_sha256": "703207a41ffa6d95d72bc6efcdf61fa5567e65f41a9cb415af758207f035d99b",
+      "lidar_information": {
+        "support": 652,
+        "residual_scale_m": 0.13306433180061855,
+        "covariance_diagonal": [
+          4.907236563550829e-05,
+          5.016162493086035e-05,
+          5.1396228184207966e-05,
+          4.1380940782823055e-07,
+          4.6619987668711604e-07,
+          2.392542152556895e-07
+        ]
+      },
+      "baseline_support": 648,
+      "baseline_pose": [
+        [
+          -0.010023505426943302,
+          -0.999887228012085,
+          -0.011144325137138367,
+          -75.38371276855469
+        ],
+        [
+          0.9997716546058655,
+          -0.009811325930058956,
+          -0.018956534564495087,
+          -293.53572845458984
+        ],
+        [
+          0.018845025449991226,
+          -0.011331699788570404,
+          0.9997571706771851,
+          9.002899169921875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          -0.010023505426943302,
+          -0.999887228012085,
+          -0.011144325137138367,
+          -75.38371276855469
+        ],
+        [
+          0.9997716546058655,
+          -0.009811325930058956,
+          -0.018956534564495087,
+          -293.53572845458984
+        ],
+        [
+          0.018845025449991226,
+          -0.011331699788570404,
+          0.9997571706771851,
+          9.002899169921875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.010544209875507733,
+          -0.9998718573782106,
+          -0.012009318911099963,
+          -75.37327326661061
+        ],
+        [
+          0.9997504891535798,
+          -0.010305469697997886,
+          -0.019792188255665165,
+          -293.54844388896026
+        ],
+        [
+          0.01966586061895524,
+          -0.01221492511833347,
+          0.9997309598333199,
+          8.990139562302813
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          -0.010049697293465882,
+          -0.9998852388593162,
+          -0.011298145721717239,
+          -75.38258093681453
+        ],
+        [
+          0.99976971145293,
+          -0.009833573298574294,
+          -0.019047272445927257,
+          -293.53667278548477
+        ],
+        [
+          0.018933954796593985,
+          -0.011486871885980151,
+          0.9997537195837426,
+          9.001592487868544
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": false,
+        "status": 2,
+        "iterations": 21,
+        "message": "ABNORMAL: ",
+        "objective_initial": 224.43334212476378,
+        "objective_final": 217.19127050369158
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 19,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 21.763720393180847,
+        "objective_final": 21.689480320495427
+      }
+    },
+    {
+      "frame_id": "1329604667982805",
+      "correspondences_in_cache": 292,
+      "usable_score_maps": 292,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 273,
+      "peak_without_positive_curvature": 19,
+      "match_offset_median_px": 4.75175242308965,
+      "match_offset_p90_px": 7.728137888332606,
+      "score_map_sha256": "aaf3092991854988579ae8260f7e03de225fe592e669079ee21af793b9060806",
+      "lidar_information": {
+        "support": 693,
+        "residual_scale_m": 0.12571669395701468,
+        "covariance_diagonal": [
+          3.8297606652775286e-05,
+          3.978621836973553e-05,
+          3.9782037234497765e-05,
+          3.317194716446051e-07,
+          3.1144719723076634e-07,
+          1.7655123077727056e-07
+        ]
+      },
+      "baseline_support": 687,
+      "baseline_pose": [
+        [
+          0.0375644825398922,
+          -0.9989940524101257,
+          -0.024470441043376923,
+          -75.29808807373047
+        ],
+        [
+          0.9990048408508301,
+          0.03813163936138153,
+          -0.023116568103432655,
+          -291.5313034057617
+        ],
+        [
+          0.024026423692703247,
+          -0.023577600717544556,
+          0.999432384967804,
+          9.063018798828125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.0375644825398922,
+          -0.9989940524101257,
+          -0.024470441043376923,
+          -75.29808807373047
+        ],
+        [
+          0.9990048408508301,
+          0.03813163936138153,
+          -0.023116568103432655,
+          -291.5313034057617
+        ],
+        [
+          0.024026423692703247,
+          -0.023577600717544556,
+          0.999432384967804,
+          9.063018798828125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.036388913070262,
+          -0.9990151640942022,
+          -0.025368482613678845,
+          -75.30418373244291
+        ],
+        [
+          0.9990427761825498,
+          0.03698316088207578,
+          -0.02334192952496787,
+          -291.5404111928439
+        ],
+        [
+          0.024257159569335683,
+          -0.024494686113363015,
+          0.9994047552138732,
+          9.045061400951772
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.037492961933132854,
+          -0.9989920514846468,
+          -0.024661074135100765,
+          -75.29688912631697
+        ],
+        [
+          0.9990069708545,
+          0.03806511920377102,
+          -0.023134141441484887,
+          -291.53013699976674
+        ],
+        [
+          0.024049561678754033,
+          -0.023769091217110537,
+          0.9994272926283528,
+          9.060149187377426
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 25,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 430.43073503332585,
+        "objective_final": 416.90848410792086
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 32,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 39.061495780944824,
+        "objective_final": 38.854328062504734
+      }
+    },
+    {
+      "frame_id": "1329604668983281",
+      "correspondences_in_cache": 317,
+      "usable_score_maps": 316,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 291,
+      "peak_without_positive_curvature": 25,
+      "match_offset_median_px": 4.615407461627231,
+      "match_offset_p90_px": 7.265347563149796,
+      "score_map_sha256": "c19ad77f9690ef4075be42769431ddfd3aab418264024d95cfa9e72b746f1698",
+      "lidar_information": {
+        "support": 685,
+        "residual_scale_m": 0.13004493959283103,
+        "covariance_diagonal": [
+          4.160495859271724e-05,
+          4.3155227957134806e-05,
+          4.234286556614774e-05,
+          3.6017824646668697e-07,
+          3.45391818973924e-07,
+          1.9339168261200465e-07
+        ]
+      },
+      "baseline_support": 690,
+      "baseline_pose": [
+        [
+          0.08766472339630127,
+          -0.9959278106689453,
+          -0.021061740815639496,
+          -75.26456260681152
+        ],
+        [
+          0.9955201148986816,
+          0.08834134787321091,
+          -0.033707741647958755,
+          -290.1130142211914
+        ],
+        [
+          0.03543112426996231,
+          -0.018012575805187225,
+          0.9992108345031738,
+          9.0484619140625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.08766472339630127,
+          -0.9959278106689453,
+          -0.021061740815639496,
+          -75.26456260681152
+        ],
+        [
+          0.9955201148986816,
+          0.08834134787321091,
+          -0.033707741647958755,
+          -290.1130142211914
+        ],
+        [
+          0.03543112426996231,
+          -0.018012575805187225,
+          0.9992108345031738,
+          9.0484619140625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.08650275869510855,
+          -0.9960280412595046,
+          -0.021126231779640393,
+          -75.2656042977428
+        ],
+        [
+          0.9955767649169494,
+          0.08720496271347732,
+          -0.034970061069659025,
+          -290.1209530558237
+        ],
+        [
+          0.03667349667955008,
+          -0.018007948187608567,
+          0.9991660911586706,
+          9.035566635568241
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.08757382147372807,
+          -0.9959357287814075,
+          -0.021065483241811088,
+          -75.2648759880803
+        ],
+        [
+          0.9955237105551178,
+          0.08825287522442249,
+          -0.033833068982102074,
+          -290.11384702057416
+        ],
+        [
+          0.03555467589678829,
+          -0.018008465961909123,
+          0.99920651990505,
+          9.047514958299354
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 20,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 396.9567999655729,
+        "objective_final": 386.953781744366
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 43,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 36.902528911828995,
+        "objective_final": 36.84645469023374
+      }
+    },
+    {
+      "frame_id": "1329604670582822",
+      "correspondences_in_cache": 244,
+      "usable_score_maps": 244,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 225,
+      "peak_without_positive_curvature": 19,
+      "match_offset_median_px": 5.19744980436693,
+      "match_offset_p90_px": 7.9148263809959785,
+      "score_map_sha256": "e83870a072be368e4cf1d53da6337b6f3e74be1755fab9db220f32d32d55aa1b",
+      "lidar_information": {
+        "support": 714,
+        "residual_scale_m": 0.1179719529138992,
+        "covariance_diagonal": [
+          3.0994168294625186e-05,
+          3.123889681827088e-05,
+          3.0279985822582545e-05,
+          2.0689118523510848e-07,
+          2.4296600676402777e-07,
+          1.2536764784936592e-07
+        ]
+      },
+      "baseline_support": 712,
+      "baseline_pose": [
+        [
+          0.32327792048454285,
+          -0.9462862610816956,
+          -0.005810409784317017,
+          -74.73527145385742
+        ],
+        [
+          0.9444189667701721,
+          0.3230153024196625,
+          -0.06110492721199989,
+          -287.93409729003906
+        ],
+        [
+          0.05969960615038872,
+          0.014266446232795715,
+          0.9981144070625305,
+          9.064926147460938
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.32327792048454285,
+          -0.9462862610816956,
+          -0.005810409784317017,
+          -74.73527145385742
+        ],
+        [
+          0.9444189667701721,
+          0.3230153024196625,
+          -0.06110492721199989,
+          -287.93409729003906
+        ],
+        [
+          0.05969960615038872,
+          0.014266446232795715,
+          0.9981144070625305,
+          9.064926147460938
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.3223627190536411,
+          -0.9465982875125417,
+          -0.005832862425738659,
+          -74.73746427062673
+        ],
+        [
+          0.9446876092866369,
+          0.32209305187147813,
+          -0.061816414576433304,
+          -287.9390979679191
+        ],
+        [
+          0.0603940383415706,
+          0.014417108302108416,
+          0.9980704640365174,
+          9.068826085927613
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.32325177925327325,
+          -0.9462950642737082,
+          -0.0058310542808424235,
+          -74.7351097349741
+        ],
+        [
+          0.9444241302191455,
+          0.3229896486475055,
+          -0.06116070341225119,
+          -287.93435025524354
+        ],
+        [
+          0.0597594437052836,
+          0.014263351469180556,
+          0.9981108704654633,
+          9.065075248443424
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 24,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 408.9983443939056,
+        "objective_final": 402.8752230008029
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 36,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 33.09144526720047,
+        "objective_final": 33.077708098168
+      }
+    },
+    {
+      "frame_id": "1329604671582933",
+      "correspondences_in_cache": 199,
+      "usable_score_maps": 199,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 177,
+      "peak_without_positive_curvature": 22,
+      "match_offset_median_px": 6.712358239413268,
+      "match_offset_p90_px": 9.102018638330575,
+      "score_map_sha256": "73d9145e9ad5af23a8d3b740acf2946176711add4b991c3fdde7e5d9aabd70db",
+      "lidar_information": {
+        "support": 674,
+        "residual_scale_m": 0.13621337060627103,
+        "covariance_diagonal": [
+          5.2137543228570185e-05,
+          5.228745801040282e-05,
+          5.2227129558230226e-05,
+          3.231035955464554e-07,
+          3.8365288940610134e-07,
+          1.9613696145387252e-07
+        ]
+      },
+      "baseline_support": 673,
+      "baseline_pose": [
+        [
+          0.4585183262825012,
+          -0.8880435228347778,
+          -0.033762067556381226,
+          -74.12417411804199
+        ],
+        [
+          0.885195791721344,
+          0.4597514569759369,
+          -0.07111552357673645,
+          -286.64505767822266
+        ],
+        [
+          0.07867586612701416,
+          0.0027216970920562744,
+          0.9968966841697693,
+          9.1053466796875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.4585183262825012,
+          -0.8880435228347778,
+          -0.033762067556381226,
+          -74.12417411804199
+        ],
+        [
+          0.885195791721344,
+          0.4597514569759369,
+          -0.07111552357673645,
+          -286.64505767822266
+        ],
+        [
+          0.07867586612701416,
+          0.0027216970920562744,
+          0.9968966841697693,
+          9.1053466796875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.45719656855723867,
+          -0.8887116622341614,
+          -0.03410439394921931,
+          -74.13753441377786
+        ],
+        [
+          0.8858081524942154,
+          0.45845912610387857,
+          -0.07183005482719387,
+          -286.6585627436124
+        ],
+        [
+          0.0794717044185536,
+          0.002630470760492177,
+          0.996833801265203,
+          9.1142154249288
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.4584721490054328,
+          -0.8880657819875074,
+          -0.033803647989703235,
+          -74.12392040240657
+        ],
+        [
+          0.8852129037395057,
+          0.4597085247959439,
+          -0.07118003136872886,
+          -286.64497679303986
+        ],
+        [
+          0.07875240166707338,
+          0.002710602924509383,
+          0.9968906711996511,
+          9.105220637363724
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 22,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 372.9297245870249,
+        "objective_final": 361.9681629726346
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 27,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 28.84225904941559,
+        "objective_final": 28.821630360470955
+      }
+    },
+    {
+      "frame_id": "1329604672982737",
+      "correspondences_in_cache": 287,
+      "usable_score_maps": 286,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 261,
+      "peak_without_positive_curvature": 25,
+      "match_offset_median_px": 3.5417305680104034,
+      "match_offset_p90_px": 6.864913185206462,
+      "score_map_sha256": "2506db52a3f9f62556260205dac81dbe59f4fd20b3df1a0b662c03c963ed1c30",
+      "lidar_information": {
+        "support": 649,
+        "residual_scale_m": 0.1467691304236562,
+        "covariance_diagonal": [
+          6.770236672885038e-05,
+          6.792642104373864e-05,
+          6.790997207937734e-05,
+          4.272361781739916e-07,
+          5.141512999112492e-07,
+          2.586122798727929e-07
+        ]
+      },
+      "baseline_support": 657,
+      "baseline_pose": [
+        [
+          0.5021832585334778,
+          -0.8647602200508118,
+          0.0017765983939170837,
+          -73.17169189453125
+        ],
+        [
+          0.8645577430725098,
+          0.5020185708999634,
+          -0.022748220711946487,
+          -284.8283920288086
+        ],
+        [
+          0.018779801204800606,
+          0.012959547340869904,
+          0.999740719795227,
+          9.058074951171875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.5021832585334778,
+          -0.8647602200508118,
+          0.0017765983939170837,
+          -73.17169189453125
+        ],
+        [
+          0.8645577430725098,
+          0.5020185708999634,
+          -0.022748220711946487,
+          -284.8283920288086
+        ],
+        [
+          0.018779801204800606,
+          0.012959547340869904,
+          0.999740719795227,
+          9.058074951171875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.5017751633885031,
+          -0.8649985204575291,
+          -0.000814657585427633,
+          -73.1630914299952
+        ],
+        [
+          0.8647700998656244,
+          0.5016634866433899,
+          -0.022508640871584384,
+          -284.83466522897726
+        ],
+        [
+          0.0198785556835551,
+          0.010589587014286656,
+          0.9997473891354874,
+          9.04594990249716
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.5021418604620063,
+          -0.8647849176016428,
+          0.0014204828162796646,
+          -73.17034854086931
+        ],
+        [
+          0.864581187298677,
+          0.5019861151968721,
+          -0.022572746105251475,
+          -284.82958241761804
+        ],
+        [
+          0.018807438214450314,
+          0.012562643683654557,
+          0.9997452665684033,
+          9.053967912762836
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 23,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 382.45705355669253,
+        "objective_final": 367.9438604728337
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 36,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 35.28652548789978,
+        "objective_final": 34.989777458588236
+      }
+    },
+    {
+      "frame_id": "1329604673982743",
+      "correspondences_in_cache": 282,
+      "usable_score_maps": 282,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 258,
+      "peak_without_positive_curvature": 24,
+      "match_offset_median_px": 3.4945708335652204,
+      "match_offset_p90_px": 7.124905913898632,
+      "score_map_sha256": "fb8d7e4fd1460719fd1db88bde23fbaa960f83ac84b2f2b3825d74e23a88620c",
+      "lidar_information": {
+        "support": 681,
+        "residual_scale_m": 0.12984374576535604,
+        "covariance_diagonal": [
+          4.3907550944190455e-05,
+          4.3122617440792415e-05,
+          4.2726105884842626e-05,
+          2.5520988274069856e-07,
+          3.09384263016621e-07,
+          1.5389710092079714e-07
+        ]
+      },
+      "baseline_support": 678,
+      "baseline_pose": [
+        [
+          0.4070669114589691,
+          -0.9132791757583618,
+          -0.014771997928619385,
+          -72.62267303466797
+        ],
+        [
+          0.9106923341751099,
+          0.40705180168151855,
+          -0.07034517824649811,
+          -283.71885681152344
+        ],
+        [
+          0.07025772333145142,
+          0.015182413160800934,
+          0.9974135756492615,
+          9.1011962890625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.4070669114589691,
+          -0.9132791757583618,
+          -0.014771997928619385,
+          -72.62267303466797
+        ],
+        [
+          0.9106923341751099,
+          0.40705180168151855,
+          -0.07034517824649811,
+          -283.71885681152344
+        ],
+        [
+          0.07025772333145142,
+          0.015182413160800934,
+          0.9974135756492615,
+          9.1011962890625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.4063012930357068,
+          -0.9136144773980472,
+          -0.015112288999226956,
+          -72.63547054190063
+        ],
+        [
+          0.9110214114460558,
+          0.4063120484666859,
+          -0.07036084074035695,
+          -283.7155577222496
+        ],
+        [
+          0.07042295635744192,
+          0.01482004571271401,
+          0.9974073730057812,
+          9.086750409760633
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.40696542214744136,
+          -0.9133246309339093,
+          -0.014758012238415207,
+          -72.62365262794214
+        ],
+        [
+          0.9107377223084676,
+          0.4069495572876503,
+          -0.07034912828314976,
+          -283.71952418384166
+        ],
+        [
+          0.07025732672477884,
+          0.015188948227319634,
+          0.9974135040891272,
+          9.100734148119807
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 27,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 331.1892770188971,
+        "objective_final": 322.1187142432922
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 48,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 31.268618941307068,
+        "objective_final": 31.217568617199642
+      }
+    },
+    {
+      "frame_id": "1329604675582729",
+      "correspondences_in_cache": 271,
+      "usable_score_maps": 271,
+      "active_cameras": 6,
+      "peak_quadratic_fits": 246,
+      "peak_without_positive_curvature": 25,
+      "match_offset_median_px": 2.247096993696761,
+      "match_offset_p90_px": 6.062047644202464,
+      "score_map_sha256": "b428e7eaff73e5def3c7dec7f5edac68dfa79da6431431c617f98ea2bde7cfc7",
+      "lidar_information": {
+        "support": 685,
+        "residual_scale_m": 0.12872393646363456,
+        "covariance_diagonal": [
+          4.217731212973383e-05,
+          4.208487551208399e-05,
+          4.12021883858402e-05,
+          2.5868812514649654e-07,
+          2.580041444668005e-07,
+          1.4377466799331886e-07
+        ]
+      },
+      "baseline_support": 685,
+      "baseline_pose": [
+        [
+          0.45990297198295593,
+          -0.8873927593231201,
+          -0.03199591487646103,
+          -71.76338195800781
+        ],
+        [
+          0.883486807346344,
+          0.460900217294693,
+          -0.08379913866519928,
+          -281.7967224121094
+        ],
+        [
+          0.08910974115133286,
+          0.010271407663822174,
+          0.9959695339202881,
+          9.122024536132812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_only_pose": [
+        [
+          0.45990297198295593,
+          -0.8873927593231201,
+          -0.03199591487646103,
+          -71.76338195800781
+        ],
+        [
+          0.883486807346344,
+          0.460900217294693,
+          -0.08379913866519928,
+          -281.7967224121094
+        ],
+        [
+          0.08910974115133286,
+          0.010271407663822174,
+          0.9959695339202881,
+          9.122024536132812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.45998850298614813,
+          -0.887364742330426,
+          -0.03154017733017344,
+          -71.75326800042568
+        ],
+        [
+          0.883470880090433,
+          0.46094570615376695,
+          -0.08371681261516256,
+          -281.79153808013797
+        ],
+        [
+          0.08882572552277436,
+          0.010643846299835223,
+          0.9959909935369626,
+          9.111684100120078
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scoremap_pose": [
+        [
+          0.4599942593526693,
+          -0.8873497442408661,
+          -0.03187639060356821,
+          -71.7607378567934
+        ],
+        [
+          0.8834384899468015,
+          0.4609797060961264,
+          -0.08387126899313518,
+          -281.7952151650745
+        ],
+        [
+          0.08911758639546558,
+          0.010419375220774404,
+          0.9959672949784932,
+          9.123019784251088
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "geometry_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 0,
+        "message": "analytic minimum at zero pose correction",
+        "objective_initial": 0.0,
+        "objective_final": 0.0
+      },
+      "peak_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 28,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 284.15869772496586,
+        "objective_final": 279.4570158764651
+      },
+      "scoremap_solver": {
+        "success": true,
+        "status": 0,
+        "iterations": 46,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective_initial": 28.065051555633545,
+        "objective_final": 27.90605089272524
+      }
+    }
+  ],
+  "elapsed_s": 84.55283904075623
+}
