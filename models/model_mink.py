@@ -8,6 +8,7 @@ from torch.nn import functional as F
 from torch.nn import MultiheadAttention
 import MinkowskiEngine as ME
 from torch.cuda.amp import autocast
+from models.magic_fusion import MaGiCFusion
 
 
 class SparseConvPadding(nn.Module):
@@ -492,6 +493,7 @@ class LEADER(nn.Module):
         out_channels: int = 3,
         feat_channels: int = 512,
         width: int = 1024,
+        magic: bool = False,
     ) -> None:
         super().__init__()
         self.encoder = RPGE(
@@ -509,6 +511,7 @@ class LEADER(nn.Module):
             head_num=4,
             layers=5,
         )
+        self.magic_fusion = MaGiCFusion(feat_channels) if magic else None
 
     def forward(self, input):
         raise NotImplementedError

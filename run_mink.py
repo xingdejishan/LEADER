@@ -76,6 +76,11 @@ def get_args(is_main_process=True):
                         help='max range of points, default: Oxford 100, NCLT 100')
     parser.add_argument('--resume_model', type=str, default='',
                         help='If present, restore checkpoint and resume training')
+    parser.add_argument('--magic_manifest', type=str, default='',
+                        help='Calibrated LiDAR-camera frame manifest; enables MaGiC fusion')
+    parser.add_argument('--magic_image_size', type=int, default=320)
+    parser.add_argument('--magic_init_weights', type=str, default='',
+                        help='LiDAR-only state dict used to initialize the multimodal model')
 
     FLAGS = parser.parse_args()
     args = vars(FLAGS)
@@ -107,25 +112,36 @@ def get_data_loader(FLAGS):
         horizontal_res=FLAGS.horizontal_res,
         # reverse=True
     )
+    if FLAGS.magic_manifest:
+        from data.magic_data import CalibratedImageDataset
+        if FLAGS.mode != 'test':
+            train_set = CalibratedImageDataset(train_set, FLAGS.dataset_folder, FLAGS.magic_manifest, FLAGS.magic_image_size)
+        val_set = CalibratedImageDataset(val_set, FLAGS.dataset_folder, FLAGS.magic_manifest, FLAGS.magic_image_size)
 
     def collate_pair_fn(list_data):
         N = len(list_data)
         list_data = [data for data in list_data if data is not None]
 
-        coords, feats, points, T, T_corr = list(zip(*list_data))
+        coords, feats, points, T, T_corr = list(zip(*(item[:5] for item in list_data)))
 
         coords_batch = ME.utils.batched_coordinates(coords)
         feats_batch = torch.from_numpy(np.concatenate(feats)).float()
         T_batch = torch.from_numpy(np.stack(T)).float()
         T_corr_batch = torch.from_numpy(np.stack(T_corr)).float()
 
-        return {
+        result = {
             'coords': coords_batch,
             'feats': feats_batch,
             'points': points,
             'T': T_batch,
             'T_corr': T_corr_batch
         }
+        if FLAGS.magic_manifest:
+            result['images'] = torch.stack([item[5] for item in list_data])
+            result['intrinsics'] = torch.stack([item[6] for item in list_data])
+            result['camera_from_lidar'] = torch.stack([item[7] for item in list_data])
+            result['image_bounds'] = torch.stack([item[8] for item in list_data])
+        return result
     collation_fn = collate_pair_fn
 
     train_loader = DataLoader(train_set,
@@ -222,6 +238,10 @@ def save_checkpoint(path, accelerator, process_info):
 
 def train():
     FLAGS = get_args()
+    if FLAGS.magic_init_weights and not FLAGS.magic_manifest:
+        raise ValueError('--magic_init_weights requires --magic_manifest')
+    if FLAGS.magic_init_weights and FLAGS.resume_model:
+        raise ValueError('Use either --magic_init_weights or --resume_model')
     accelerator = Accelerator()
     if accelerator.state.is_main_process:
         os.makedirs(FLAGS.log_dir, exist_ok=True)
@@ -243,7 +263,16 @@ def train():
     model = LEADER(in_channels=3, 
                    out_channels=4, 
                    feat_channels=512, 
-                   width=FLAGS.horizontal_res)
+                   width=FLAGS.horizontal_res,
+                   magic=bool(FLAGS.magic_manifest))
+    if FLAGS.magic_init_weights:
+        weights = torch.load(FLAGS.magic_init_weights, map_location='cpu')
+        if isinstance(weights, dict) and 'state_dict' in weights:
+            weights = weights['state_dict']
+        weights = {key[7:] if key.startswith('module.') else key: value for key, value in weights.items()}
+        missing, unexpected = model.load_state_dict(weights, strict=False)
+        if unexpected or any(not key.startswith('magic_fusion.') for key in missing):
+            raise ValueError(f'Incompatible LiDAR checkpoint: missing={missing}, unexpected={unexpected}')
     loss_fn = TRR(scale=10.0)
     ransac = Matcher(inlier_threshold=2.0,
                      d_thre=2,
@@ -362,6 +391,15 @@ def process_one_epoch(
             voxel_centers_l = polar_expansion_to_cartesian(voxel_centers, FLAGS.horizontal_res * voxel_size)    # local
             voxel_centers_w = (voxel_centers_l[:, None] @ gt_T_corr[batch_idx, :3, :3].permute(0, 2, 1))[:, 0] + gt_T_corr[batch_idx, :3, 3] - center_t
 
+            if FLAGS.magic_manifest:
+                image = input_dict['images'].to(device=enc_F.device, dtype=enc_F.dtype)
+                intrinsics = input_dict['intrinsics'].to(device=enc_F.device, dtype=enc_F.dtype)
+                extrinsics = input_dict['camera_from_lidar'].to(device=enc_F.device, dtype=enc_F.dtype)
+                bounds = input_dict['image_bounds'].to(device=enc_F.device, dtype=enc_F.dtype)
+                recovery = torch.linalg.inv(T_corr.to(device=enc_F.device, dtype=enc_F.dtype))
+                enc_F = model.magic_fusion(
+                    enc_F, voxel_centers_l, enc_C, stride, image, intrinsics, extrinsics, recovery, bounds
+                )
             pred_f = model.decoder(enc_F)
 
         if train:
