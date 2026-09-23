@@ -80,6 +80,8 @@ def get_args(is_main_process=True):
                         help='Calibrated LiDAR-camera frame manifest; enables MaGiC fusion')
     parser.add_argument('--magic_init_weights', type=str, default='',
                         help='LiDAR-only state dict used to initialize the multimodal model')
+    parser.add_argument('--local905_split', type=str, default='')
+    parser.add_argument('--local905_max_points', type=int, default=4096)
 
     FLAGS = parser.parse_args()
     args = vars(FLAGS)
@@ -90,27 +92,41 @@ def get_args(is_main_process=True):
 
 
 def get_data_loader(FLAGS):
-    if FLAGS.dataset == 'Oxford':
+    if FLAGS.dataset == 'Local905':
+        from data.local905_mink import Local905_mink
+        if not FLAGS.local905_split:
+            raise ValueError('--local905_split is required for Local905')
+        train_set = Local905_mink(
+            FLAGS.dataset_folder, FLAGS.local905_split, 'train',
+            voxel_size=FLAGS.voxel_size, horizontal_res=FLAGS.horizontal_res,
+            max_points=FLAGS.local905_max_points)
+        val_set = Local905_mink(
+            FLAGS.dataset_folder, FLAGS.local905_split,
+            'test' if FLAGS.mode == 'test' else 'val',
+            voxel_size=FLAGS.voxel_size, horizontal_res=FLAGS.horizontal_res,
+            max_points=FLAGS.local905_max_points)
+    elif FLAGS.dataset == 'Oxford':
         dataset_class = RobotCar
     elif FLAGS.dataset == 'NCLT':
         dataset_class = NCLT
     else:
         raise ValueError('Dataset not found!')
 
-    train_set = dataset_class(
-        data_path=FLAGS.dataset_folder,
-        train=True,
-        voxel_size=FLAGS.voxel_size,
-        horizontal_res=FLAGS.horizontal_res
-    )
+    if FLAGS.dataset != 'Local905':
+        train_set = dataset_class(
+            data_path=FLAGS.dataset_folder,
+            train=True,
+            voxel_size=FLAGS.voxel_size,
+            horizontal_res=FLAGS.horizontal_res
+        )
 
-    val_set = dataset_class(
-        data_path=FLAGS.dataset_folder,
-        train=False,
-        voxel_size=FLAGS.voxel_size,
-        horizontal_res=FLAGS.horizontal_res,
-        # reverse=True
-    )
+        val_set = dataset_class(
+            data_path=FLAGS.dataset_folder,
+            train=False,
+            voxel_size=FLAGS.voxel_size,
+            horizontal_res=FLAGS.horizontal_res,
+            # reverse=True
+        )
     if FLAGS.magic_manifest:
         from data.magic_data import CalibratedImageDataset
         if FLAGS.mode != 'test':
