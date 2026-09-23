@@ -1,0 +1,563 @@
+{
+  "protocol": "train-only raw RGB patch matching head with unrolled shared-pose reprojection supervision",
+  "training_split": "manifest split=train only; validation frames and GT are never loaded by this script",
+  "train_frames": 47,
+  "train_correspondences": 13628,
+  "visible_pixel_labels": 13604,
+  "epochs": 8,
+  "selection": "fixed final epoch; no validation-based early stopping or checkpoint selection",
+  "optimizer": {
+    "name": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0
+  },
+  "head": {
+    "shared_rgb_patch_encoder": true,
+    "reference_patch_px": 49,
+    "query_search_patch_px": 65,
+    "offset_radius_px": 24,
+    "search_grid": 49,
+    "confidence_head": false
+  },
+  "loss": {
+    "pixel": "mean per-frame smooth L1, beta=1 px",
+    "pose": "mean per-frame smooth L1 of GT reprojection after five differentiable Gauss-Newton updates",
+    "pose_weight": 1.0
+  },
+  "baseline": "SC2-PCR plus two-stage full-pool refinement at 1.2 m and 0.6 m",
+  "manifest_sha256": "f97b04a1006b1b21032fef522778edf2de6cbfdbad651ca9111d7afc86ff7f12",
+  "roma_feature_state_sha256": "94ceb814e25083fca5e81c468331ee3d40ea482d0d9db4bc6cb3a9df21049f8f",
+  "training_inputs": [
+    {
+      "frame_id": "1329601360002721",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601360002721.npz",
+      "cache_sha256": "adc9cc77a54c6b1a88e2763e138d9b1549930affa196cdd4bd2e9c6a8901d03e",
+      "match_cache_sha256": "ecbc67c0ed6a05f4784091d933468e82ef09a39fc2be8de9240b1000901cbb4f",
+      "lidar_cache_sha256": "c086dd9b2fb3aadcc54fedddeb46375e81327b1b90f01a277153d05bf699841f",
+      "matched_points": 354,
+      "usable_local_peaks": 353,
+      "visible_train_labels": 353
+    },
+    {
+      "frame_id": "1329601361402708",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601361402708.npz",
+      "cache_sha256": "711cb4e8f5977a3c9360d4a69133480618de22c9121e1466af5339002771c941",
+      "match_cache_sha256": "f7418d17d8b8c6019f0c0380f07a3784455bd8dbecee07c678f2910a2f5a76b1",
+      "lidar_cache_sha256": "5a7c81e8c50c8b937bc2f665c7e4e065765e59bc459539f5a16afe9102921a60",
+      "matched_points": 397,
+      "usable_local_peaks": 397,
+      "visible_train_labels": 395
+    },
+    {
+      "frame_id": "1329601363002701",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601363002701.npz",
+      "cache_sha256": "942191162ff96b9b077034231c17495e9f2238cf3e89af270cd7ceb5194b485c",
+      "match_cache_sha256": "fe9b4c04b3db9e28f9399fb21132e147653e1e1e891d2006f7ef9c8622a10bdd",
+      "lidar_cache_sha256": "62eeb33259ff58cf75d5e00986e7466e2dabc50750b0cfae0568b3d72e342260",
+      "matched_points": 447,
+      "usable_local_peaks": 447,
+      "visible_train_labels": 447
+    },
+    {
+      "frame_id": "1329601365002688",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601365002688.npz",
+      "cache_sha256": "a2d3c075c95c86b73751bd79cdaf9fa7357e8789946279f0415ebdf8890dafa8",
+      "match_cache_sha256": "371dc51bfc89de04f7f105a8e5790a6985c53d953bad87d273d5ca1c9fe0e181",
+      "lidar_cache_sha256": "8c99318363a38aa6fb6491244eb718341616ceea209d3338de88d13a683463d9",
+      "matched_points": 376,
+      "usable_local_peaks": 376,
+      "visible_train_labels": 376
+    },
+    {
+      "frame_id": "1329601366402682",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601366402682.npz",
+      "cache_sha256": "f73091ba877d7dbed381fd72e823b1cfdf709648543fbb48f8d7e6c75f645e32",
+      "match_cache_sha256": "664600cd9b7494076609488ea07f5270dd28c5ba9fb7d41a69cbd7b4a8ee88ff",
+      "lidar_cache_sha256": "33615cc6c2e2f4be48e7c0e765e7310669c1cc9f0f6b5d4c9f243bc87fd4edfe",
+      "matched_points": 337,
+      "usable_local_peaks": 337,
+      "visible_train_labels": 336
+    },
+    {
+      "frame_id": "1329601368002667",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601368002667.npz",
+      "cache_sha256": "cf1246ed5ad68333c70f199131edd00d4cca5d5631ccbbcec470f2d6439b3b3f",
+      "match_cache_sha256": "9f561883a93f89b8e8c34dbbba626e8ee0a2585deedba3373cbe8720d96afe64",
+      "lidar_cache_sha256": "bbc8bfd2dfdf1cbdfc7e2589d807b5d344c19204a374dad48ef69992f22592ab",
+      "matched_points": 274,
+      "usable_local_peaks": 274,
+      "visible_train_labels": 274
+    },
+    {
+      "frame_id": "1329601369402661",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601369402661.npz",
+      "cache_sha256": "3e3e52fe494676016ac92108ac8ccf625361a5ff5724500135ca04227d489a7a",
+      "match_cache_sha256": "180907fc90762ff2c37d834644790907ff5c356f235b6decd7374a6c0d771cd3",
+      "lidar_cache_sha256": "3323e2e3f5d13379c4e1daea33f01bcad5000322c1e9f51312e7242d35eaa090",
+      "matched_points": 195,
+      "usable_local_peaks": 194,
+      "visible_train_labels": 193
+    },
+    {
+      "frame_id": "1329601371002903",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601371002903.npz",
+      "cache_sha256": "7ffe347cc34864499ed6972291d5f06bf65fc19689bc9a712fef4b50c4614aee",
+      "match_cache_sha256": "76015ed3ae49bd968788e335baade2a2190fec5d97a87d5eaa12d707c6e3e6d3",
+      "lidar_cache_sha256": "327bc57b501c6566c5c6cf083a04f4f843db5f65321299d78c50bc8d3715729f",
+      "matched_points": 185,
+      "usable_local_peaks": 185,
+      "visible_train_labels": 185
+    },
+    {
+      "frame_id": "1329601372402637",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601372402637.npz",
+      "cache_sha256": "d6e4ee59a2861b55b2acea2d6a79024b2a3ce1fa1ba285ec0839d9b0a5328ea9",
+      "match_cache_sha256": "d4c033bc70f5330cbd8bc0b2ef897e24f3e8f6e266a60d4d0414580a2285de1d",
+      "lidar_cache_sha256": "8e6a5f373ee86db8df8dd307863c96b2f3290cb5cd406450fcdfadb11d56fb89",
+      "matched_points": 168,
+      "usable_local_peaks": 168,
+      "visible_train_labels": 167
+    },
+    {
+      "frame_id": "1329601374402652",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601374402652.npz",
+      "cache_sha256": "6f6a6e691cdd6935b7e64bb9584d35fec37dd84dc3b75613783edbea2e62ce70",
+      "match_cache_sha256": "bd26ec3e0031e5c102d43b6217b2de4e12c39bf0fbc53c6f2124a81be8e94657",
+      "lidar_cache_sha256": "5a44c5b16b0b0773585f985f79df4edba2a561777604c4dfa0d6b6343426c519",
+      "matched_points": 192,
+      "usable_local_peaks": 192,
+      "visible_train_labels": 192
+    },
+    {
+      "frame_id": "1329601376002616",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601376002616.npz",
+      "cache_sha256": "8328f180274bc8d616b80c5875f9081ef2b3c62f238688896cd011d3b4174d1e",
+      "match_cache_sha256": "12e7360b68b7b8cc84e415e7f0f574f2419419e4c88b24d3de43486d590e9cdc",
+      "lidar_cache_sha256": "814b8e3752d959c519cdd74216089ffb5c2d641088e7a990b0275122a34e9113",
+      "matched_points": 169,
+      "usable_local_peaks": 169,
+      "visible_train_labels": 169
+    },
+    {
+      "frame_id": "1329601377402601",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601377402601.npz",
+      "cache_sha256": "d464bddfd67090c4d8954fb933106211211790e89f13835715984fb5ab2a10b7",
+      "match_cache_sha256": "8a8dce1eece7e95a3ff1327c25faefc8f3dc202f36949680ea1afdde67c1ebf5",
+      "lidar_cache_sha256": "267ed6ecbc199816e82660102a9fa7598ecb1115232aa70e1ba9515e6b2480f6",
+      "matched_points": 177,
+      "usable_local_peaks": 177,
+      "visible_train_labels": 177
+    },
+    {
+      "frame_id": "1329601379002599",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601379002599.npz",
+      "cache_sha256": "3029c7fcbc4521aef01113e9c38b0e00ef3c670194ce755bca951807a6b84343",
+      "match_cache_sha256": "c06c6fdf6796a58fae4523318cdf19dc88d8e7c368d1bb036e737208f13e2608",
+      "lidar_cache_sha256": "3af777f6536810560fd04cd3ae835b59b569ffadc9630fb54c7d2ea1a7c76203",
+      "matched_points": 190,
+      "usable_local_peaks": 190,
+      "visible_train_labels": 189
+    },
+    {
+      "frame_id": "1329601380402595",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601380402595.npz",
+      "cache_sha256": "ad91a30fbbc8c436ef6cc7500d33d9ca32779c5ad5783420827a8c0ef96933a0",
+      "match_cache_sha256": "829e4971a8353dd67f658c196b5362cc8074970b8a917bc07c984d1970ae7a25",
+      "lidar_cache_sha256": "1bc5bc60174031431681d289e54b85541ab1959405085653878afc1af51533a3",
+      "matched_points": 170,
+      "usable_local_peaks": 168,
+      "visible_train_labels": 168
+    },
+    {
+      "frame_id": "1329601382002578",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601382002578.npz",
+      "cache_sha256": "a43f4105857acbfe72f4606a1415dfa1551aab117740d32a374c66c36c2826f9",
+      "match_cache_sha256": "a305958cf0693977eb2d7d2f6fb6b621cd63ee35559c533b832abaa41d3076b1",
+      "lidar_cache_sha256": "a35d87f9dc1942ca67c4c55030ca040f855e7403b7ae5502771b80904abfa075",
+      "matched_points": 207,
+      "usable_local_peaks": 207,
+      "visible_train_labels": 207
+    },
+    {
+      "frame_id": "1329601384002580",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601384002580.npz",
+      "cache_sha256": "ee3da73c2ac985624838947034f8ff0c8c5b98fce2682495e9f20f3cb375a8d2",
+      "match_cache_sha256": "161555733d4e236ff09cdec2a5d2d7e286afeba59311296cadec1ca69ea51455",
+      "lidar_cache_sha256": "6ed680c4288a2713a95c81b6a9f6bff6d5976c62ffe44369d23e20be4247682e",
+      "matched_points": 209,
+      "usable_local_peaks": 208,
+      "visible_train_labels": 208
+    },
+    {
+      "frame_id": "1329601385402767",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601385402767.npz",
+      "cache_sha256": "571ace9c39695e98be8e0df0b0b1688c38dae24b239b548214af6bd28855789a",
+      "match_cache_sha256": "9aeccce4dfa3ab34aa95539f67eee186397a9359726893da2fcd347711e3e455",
+      "lidar_cache_sha256": "026ef7f94cf7db8348afa85a1bfce4cda0b3ef7d1e7a82de32ce655af24782ee",
+      "matched_points": 210,
+      "usable_local_peaks": 210,
+      "visible_train_labels": 210
+    },
+    {
+      "frame_id": "1329601387002543",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601387002543.npz",
+      "cache_sha256": "2411fb625a85d3ed1f35f003547c062734934f6f23fd540c5ce6b71c473a4e79",
+      "match_cache_sha256": "8fa4cc62b0dbf1cd03db4ddeaadd017d75685bbba6f1cd677b5af926a25150df",
+      "lidar_cache_sha256": "6e95cc5a6902d42854d4270e69b9759b22f7b7a3a835fa0119eacd61060d9849",
+      "matched_points": 258,
+      "usable_local_peaks": 258,
+      "visible_train_labels": 257
+    },
+    {
+      "frame_id": "1329601388402532",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601388402532.npz",
+      "cache_sha256": "0e7ef7247c969c83d4d5a1c26185585fda95f0be60e0c9800dbddffc1f6e6886",
+      "match_cache_sha256": "ea83da8ea304efe221f7ab24c3cb85f82ffe4cf4aa9d8bc7a1b46a5839b895ef",
+      "lidar_cache_sha256": "3b1098b5c6d7b544cf36c01e9c4d81080382053df3c123053646f3da15fb5735",
+      "matched_points": 327,
+      "usable_local_peaks": 326,
+      "visible_train_labels": 325
+    },
+    {
+      "frame_id": "1329601390002526",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601390002526.npz",
+      "cache_sha256": "f74c17d1118b6449beeb9f8c5473362acdbfee7ae28cf03af8482537b30b9275",
+      "match_cache_sha256": "b485b7697502ece9e705ee839d1ef3a122d94a043f68faa6969bb473b887e4e0",
+      "lidar_cache_sha256": "3a68c51b2dde3256f72519935796e5e64ed73fc5cc9e998c991a30f796ffe6d4",
+      "matched_points": 310,
+      "usable_local_peaks": 309,
+      "visible_train_labels": 307
+    },
+    {
+      "frame_id": "1329601391402635",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601391402635.npz",
+      "cache_sha256": "d33d8b5d948a30e8b402f1e95ef5bd368a50bff50ea6629aeedf73aedc68c82b",
+      "match_cache_sha256": "625efdc4663225a57f55d44d3a5c7dd51771906e449431e07b2562969017686f",
+      "lidar_cache_sha256": "96822e328941d28d4f08584cfe3ee7eaa30bcdbf610653502175b59aae62eab8",
+      "matched_points": 396,
+      "usable_local_peaks": 396,
+      "visible_train_labels": 396
+    },
+    {
+      "frame_id": "1329601393402503",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601393402503.npz",
+      "cache_sha256": "c37e6226a37f1301312845517708724c150aa6a74eeb98def3a00a1ff7935543",
+      "match_cache_sha256": "d8d8f5b2c4dbaeba1797086b20528bb6964685e0192e29600ef96ac1f2b7377c",
+      "lidar_cache_sha256": "efd2198e970e9eb2646c9f54379d00cdd1fb08e7b5054d127fdc41ee38073e25",
+      "matched_points": 428,
+      "usable_local_peaks": 427,
+      "visible_train_labels": 425
+    },
+    {
+      "frame_id": "1329601395002495",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601395002495.npz",
+      "cache_sha256": "439954352452b1526d76a8a75502de107acb672b9c86b2f02bcf49866ffca7e3",
+      "match_cache_sha256": "9bb2824982ca7211f819e1c15acbbf2ce850aace19ac96383c921b7181770891",
+      "lidar_cache_sha256": "8c92206a0a55c3f127b01908cb136cfab14e988cd6ddcd6aa96730243d3323a6",
+      "matched_points": 446,
+      "usable_local_peaks": 446,
+      "visible_train_labels": 446
+    },
+    {
+      "frame_id": "1329601396402539",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601396402539.npz",
+      "cache_sha256": "0495ac8d6b727dfd4fcc0cd0b0a6960e3b844370a04ae867b932f7e227889697",
+      "match_cache_sha256": "a6f6e9ff5a692f4dacc96b852c2fe9fb839ba6145be3d2049e905f2d3a843b19",
+      "lidar_cache_sha256": "9c89401a5a68cbba00747c0462e7e8a9254e6b23c647162c62729831f5898301",
+      "matched_points": 424,
+      "usable_local_peaks": 423,
+      "visible_train_labels": 422
+    },
+    {
+      "frame_id": "1329601398002477",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601398002477.npz",
+      "cache_sha256": "c33c5d5c9c4338a3b11a48e16bec3ae7f60eb1ae91c68427a6ab17106145466b",
+      "match_cache_sha256": "5a5c60701939bf8c5959405e4ec57980514ed55280fb592173f197606032a7e2",
+      "lidar_cache_sha256": "8a2de4feef58695f375e5dc320a97c55e744dd0291f23f834bfe9d54b79e9767",
+      "matched_points": 414,
+      "usable_local_peaks": 414,
+      "visible_train_labels": 414
+    },
+    {
+      "frame_id": "1329601399402470",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601399402470.npz",
+      "cache_sha256": "5bbd039bad24fa6a8565453e0569aa93afa68e3e3b0ab3c6784335fe01ab86d6",
+      "match_cache_sha256": "919e5f84529e2e5c6319218fb63b24f623195ec32d2154a5660daed7dbbba69e",
+      "lidar_cache_sha256": "5ea3f97aeed4c44aab7d106bd907923e679a5c25a0a9ac93d55ee6a1b905a18c",
+      "matched_points": 357,
+      "usable_local_peaks": 356,
+      "visible_train_labels": 356
+    },
+    {
+      "frame_id": "1329601401402448",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601401402448.npz",
+      "cache_sha256": "b815055d70a5ff8c51f6977a5ed28411b2e0640c533f7b417518d92e20f5c430",
+      "match_cache_sha256": "d7516e4cabd75ebe6397a9ddfc98175ac70e88dc2dea66a2f36979ea6333519f",
+      "lidar_cache_sha256": "1c00f561b36666199185514add4efb212269792fad043be587eaac9bf9b67028",
+      "matched_points": 318,
+      "usable_local_peaks": 318,
+      "visible_train_labels": 318
+    },
+    {
+      "frame_id": "1329601403002483",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601403002483.npz",
+      "cache_sha256": "cd88ee7f643832383e5e8169df434b6a012cdb60e47eecd5407bff93c72215f4",
+      "match_cache_sha256": "75c4192657add0ebbb5d6ee1095ec8397cff10a419f8c7cf3b1a391c5f272d08",
+      "lidar_cache_sha256": "8f3fab74e2587271dbe045c72b2677ce1dbd7726bacef4b2662cffe463fb14d0",
+      "matched_points": 289,
+      "usable_local_peaks": 289,
+      "visible_train_labels": 288
+    },
+    {
+      "frame_id": "1329601404402427",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601404402427.npz",
+      "cache_sha256": "92c15e108321a7624fa0f2fcab62ee404dff88f488304051314f47b14475aa34",
+      "match_cache_sha256": "d396bccabdd443d78454a1052aee033df4ad285ad1738e4e50a884f71a769595",
+      "lidar_cache_sha256": "6d5c41bf823fc31ba10ae6a029881ddf2b31b51e48db3e207147b760e56e2d97",
+      "matched_points": 306,
+      "usable_local_peaks": 306,
+      "visible_train_labels": 306
+    },
+    {
+      "frame_id": "1329601406002426",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601406002426.npz",
+      "cache_sha256": "fab672168b76996a8512614fe196241f456f20688fbf17b2e8dd86e7ab1e6cbe",
+      "match_cache_sha256": "d9f18ddc287d7856296526c9a825ef2bfbf1a883f798c1d910bbda75f9dc3bbd",
+      "lidar_cache_sha256": "597ae6b5e13bfff489274a7d20f814543ea922f3fe7b620bd5ca4a4843233859",
+      "matched_points": 316,
+      "usable_local_peaks": 316,
+      "visible_train_labels": 315
+    },
+    {
+      "frame_id": "1329601407402467",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601407402467.npz",
+      "cache_sha256": "c26f20885abd170d76726dd173ffc8bd53b1a9e2854f77d64c985aabcd5d7237",
+      "match_cache_sha256": "d93e84a4d240adf8b2ff83472473cbfdba9d517df02f0ea81f93454204326a90",
+      "lidar_cache_sha256": "11cd36dd6b57c7c238d1f605bf166e8bd32ac8c96ad606aa6a3abdf3ca8c8215",
+      "matched_points": 250,
+      "usable_local_peaks": 250,
+      "visible_train_labels": 250
+    },
+    {
+      "frame_id": "1329601409002400",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601409002400.npz",
+      "cache_sha256": "7eb5105c79bf2c6eb3cab693355548ab9abf181dd049e61ff38782ada78a151b",
+      "match_cache_sha256": "f20f25e3c7f8d608c1d7216005543273fa4dfc5aa47757c930e213da8ff7377b",
+      "lidar_cache_sha256": "9086b4828ef14833c527efab0002ebb0a217eebf71671137ac63e0e7f24e3312",
+      "matched_points": 247,
+      "usable_local_peaks": 247,
+      "visible_train_labels": 247
+    },
+    {
+      "frame_id": "1329601411002392",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601411002392.npz",
+      "cache_sha256": "39f996c653511ff68c2c33a96c976f4261ad84c078e793a3aa73e69da4068173",
+      "match_cache_sha256": "dfd4887883c5fd0c1fb9ffed588f5428f25afa60289fa60306a7adeb29d2702a",
+      "lidar_cache_sha256": "83fae0432e41cf077b14c52fbf0997cdbef5d09b14a71df91b9d194e8ae5ad28",
+      "matched_points": 257,
+      "usable_local_peaks": 256,
+      "visible_train_labels": 256
+    },
+    {
+      "frame_id": "1329601412402370",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601412402370.npz",
+      "cache_sha256": "26163ccf412bd39af2c51b525eb3b154e63a59bec5416be389144c5f9ba8b60a",
+      "match_cache_sha256": "e2c52f216c28f907d1e5b3b9606294b24c6a89aaae59cb8500d8800b727c2e31",
+      "lidar_cache_sha256": "ff0e9cad9dd6ba647210581691134dece762d2e4623a1831cb6b7feac0d7d6c7",
+      "matched_points": 226,
+      "usable_local_peaks": 226,
+      "visible_train_labels": 225
+    },
+    {
+      "frame_id": "1329601414002369",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601414002369.npz",
+      "cache_sha256": "95dc7fa0d854e4d4c6ade226be629931231c7d3184d3f711d329813ff3a814fa",
+      "match_cache_sha256": "5570734c7f9b423cd44457718e3467c69891a28591d1e83d3c71930ff197457f",
+      "lidar_cache_sha256": "a2cd3830e2f33a2aefccf07362f1fbc3413f0bfe7f3cb20cdeb9b10ca6fa525b",
+      "matched_points": 239,
+      "usable_local_peaks": 239,
+      "visible_train_labels": 239
+    },
+    {
+      "frame_id": "1329601415402388",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601415402388.npz",
+      "cache_sha256": "6bad3a53bea299ee578964f0905d2def246b47cc0dedff9edcb4733895f280f0",
+      "match_cache_sha256": "0645079acc9469c7cc3844c335b9f3de3572dc613131aca039be05499e9e99f7",
+      "lidar_cache_sha256": "16650d90595fa3211931a8ba7dfcb56d561d6c2c4916a75c7ac857b761a851c1",
+      "matched_points": 240,
+      "usable_local_peaks": 239,
+      "visible_train_labels": 239
+    },
+    {
+      "frame_id": "1329601417002348",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601417002348.npz",
+      "cache_sha256": "492d7a6d3b53f7132673f530db04c69f1a09cadcafec90c3dee7d1246e48e1c8",
+      "match_cache_sha256": "32b13478d39634eb48b35bf0ca2dfab72510b28de6f80948ec593e3e153b9b80",
+      "lidar_cache_sha256": "540228f502599d6132cb7a0947b373be7d779dbe32d7ec2d3f9df42cfd02832d",
+      "matched_points": 184,
+      "usable_local_peaks": 184,
+      "visible_train_labels": 184
+    },
+    {
+      "frame_id": "1329601418402716",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601418402716.npz",
+      "cache_sha256": "84bbf13591e634d8c4fcb08c50c6c4057895e41209333b05d384d6fa70855b8e",
+      "match_cache_sha256": "dbc6672df3da03cd44ff4aa0e6b173090773f018e6a9eecc9c2ebf83a69593e0",
+      "lidar_cache_sha256": "c4446c03b2ec516c71ca831ffc878bf127d27e461a508cdf3e39595173afc1ef",
+      "matched_points": 187,
+      "usable_local_peaks": 187,
+      "visible_train_labels": 187
+    },
+    {
+      "frame_id": "1329601420402318",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601420402318.npz",
+      "cache_sha256": "a40b5567ca514d35e1a3278846f1f7b30b269d49a5e913c7cdfcccf62fc4a790",
+      "match_cache_sha256": "4a821dab4857e12267664c9148f3611f7efe448c0b6538a9bdd12d7bb6ae33fa",
+      "lidar_cache_sha256": "49b718b3bde664e1fa4858074f8dffe3aeaa38917a791e5f4a382d8f38427345",
+      "matched_points": 194,
+      "usable_local_peaks": 193,
+      "visible_train_labels": 193
+    },
+    {
+      "frame_id": "1329601422002318",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601422002318.npz",
+      "cache_sha256": "93d0a59cd4c744e848d06308492ed15e325fa101aadbec61e673f72e4ba8470a",
+      "match_cache_sha256": "e8eb574cf05a701c3ed2c5860c3e29080392a9f1588c51e18336bed7a4f29ed4",
+      "lidar_cache_sha256": "df32f82e24522e66d8be08d080db0734c956a9afc22415132748d7a33729227e",
+      "matched_points": 265,
+      "usable_local_peaks": 264,
+      "visible_train_labels": 264
+    },
+    {
+      "frame_id": "1329601423402298",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601423402298.npz",
+      "cache_sha256": "0588b81f34ee1ce22cac63f37492225f3016a7a64ff658458a1c4dd0b0aeeddb",
+      "match_cache_sha256": "ffcca985f16533557dddf53acab5e3dc6e927b49597efa3e11f475a793be6058",
+      "lidar_cache_sha256": "2fb85786821939365fcb5fa68ed7fae788b3fc5e91adc24cd4efb1d491687b9b",
+      "matched_points": 269,
+      "usable_local_peaks": 269,
+      "visible_train_labels": 269
+    },
+    {
+      "frame_id": "1329601425002298",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601425002298.npz",
+      "cache_sha256": "701ae6fa1f702b53dca2b70e2fb3abfad32a4426bccb62ee3da35f0b9758b8b7",
+      "match_cache_sha256": "05ee76cb88990e328a1746d4cfa3245d7fa0e45590527b7cfb96cee9145c7c69",
+      "lidar_cache_sha256": "910089f00657c42f124639924dddb47b293995113d596adf407e024747d9d1a5",
+      "matched_points": 351,
+      "usable_local_peaks": 350,
+      "visible_train_labels": 347
+    },
+    {
+      "frame_id": "1329601426402279",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601426402279.npz",
+      "cache_sha256": "c63bcc27b1dc8dd49df65d6fbc54878fc1234d443e58c52664605ed9e654ef02",
+      "match_cache_sha256": "8b14e2d1453c8a130a7df097d578699581ef4ea19103587d8a284372773a2c12",
+      "lidar_cache_sha256": "bc404e28d9b6fad01911138ba973d0926fd4c9aa8db2ac189e4b1b22875dc929",
+      "matched_points": 407,
+      "usable_local_peaks": 407,
+      "visible_train_labels": 405
+    },
+    {
+      "frame_id": "1329601428402277",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601428402277.npz",
+      "cache_sha256": "277a9ad7aa9f47d607ba4d2263a113ba7130a45b006608c77f9e5d4eead45ea8",
+      "match_cache_sha256": "4530402afdc82032b7692f271d2b303c52e207c6c6925568a3060bccb484f86e",
+      "lidar_cache_sha256": "aba3171a81c436610a9f1168806fa2c5f6f4c4f1f3f97f00348c14a8b8f36d9d",
+      "matched_points": 372,
+      "usable_local_peaks": 372,
+      "visible_train_labels": 372
+    },
+    {
+      "frame_id": "1329601430002267",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601430002267.npz",
+      "cache_sha256": "610f9facca00d12697df69f9c41da261e8048042c294962898e4024340c92ca3",
+      "match_cache_sha256": "ff12c6e5975bb9c702133b714c0ca74ee06f77da5fa496213bc20efd0e487807",
+      "lidar_cache_sha256": "869ed0fd9257454c65ffcd35f05bbe449918552bbb73d1d0c8242534b933b0f9",
+      "matched_points": 385,
+      "usable_local_peaks": 384,
+      "visible_train_labels": 384
+    },
+    {
+      "frame_id": "1329601431402252",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601431402252.npz",
+      "cache_sha256": "4465a313ee415cb24a8dcb95f30455a2d4628fd554970daa92f64bb18651e7de",
+      "match_cache_sha256": "f2bdee281e8a5418dd6d0049a1e99de7281dfc83964bcd7d4d0c8211e98e7d3c",
+      "lidar_cache_sha256": "4a82c4e4cd49b3786375e9ce5f2f8e48083d4cba620e8caa5bf4dc8cccc5abea",
+      "matched_points": 379,
+      "usable_local_peaks": 379,
+      "visible_train_labels": 376
+    },
+    {
+      "frame_id": "1329601433002245",
+      "cache_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/train_inputs/1329601433002245.npz",
+      "cache_sha256": "dccd3250d2885691c36fed3aef606fc7438165cd1182da3a1ebfd36e36483f76",
+      "match_cache_sha256": "d443f31bd36de39ccbb31ca80a548bcfa9ac6483ad078b944ba7e3baae19a66e",
+      "lidar_cache_sha256": "bd66184cd9941e2a98921f8a574ee5924035be95979b67c8b5dff3e94e3229a5",
+      "matched_points": 346,
+      "usable_local_peaks": 346,
+      "visible_train_labels": 346
+    }
+  ],
+  "history": [
+    {
+      "epoch": 1,
+      "frames": 47,
+      "mean_pixel_loss_px": 5.8967256774293615,
+      "mean_pose_reprojection_loss_px": 3.4472135888769273,
+      "mean_total_loss": 9.343939248551713
+    },
+    {
+      "epoch": 2,
+      "frames": 47,
+      "mean_pixel_loss_px": 3.647674357637446,
+      "mean_pose_reprojection_loss_px": 3.5018038775058504,
+      "mean_total_loss": 7.149478273188814
+    },
+    {
+      "epoch": 3,
+      "frames": 47,
+      "mean_pixel_loss_px": 3.593943268694776,
+      "mean_pose_reprojection_loss_px": 3.5169731594146567,
+      "mean_total_loss": 7.110916411623042
+    },
+    {
+      "epoch": 4,
+      "frames": 47,
+      "mean_pixel_loss_px": 3.6294640581658544,
+      "mean_pose_reprojection_loss_px": 3.5068179876246353,
+      "mean_total_loss": 7.136282088908743
+    },
+    {
+      "epoch": 5,
+      "frames": 47,
+      "mean_pixel_loss_px": 3.5785355491841093,
+      "mean_pose_reprojection_loss_px": 3.4969858920320553,
+      "mean_total_loss": 7.075521448825268
+    },
+    {
+      "epoch": 6,
+      "frames": 47,
+      "mean_pixel_loss_px": 3.612980155234641,
+      "mean_pose_reprojection_loss_px": 3.515169974337233,
+      "mean_total_loss": 7.128150123230954
+    },
+    {
+      "epoch": 7,
+      "frames": 47,
+      "mean_pixel_loss_px": 3.610751565466536,
+      "mean_pose_reprojection_loss_px": 3.5074710807901748,
+      "mean_total_loss": 7.118222612015744
+    },
+    {
+      "epoch": 8,
+      "frames": 47,
+      "mean_pixel_loss_px": 3.5587065574970653,
+      "mean_pose_reprojection_loss_px": 3.505417527036464,
+      "mean_total_loss": 7.064124102288104
+    }
+  ],
+  "checkpoint_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/highres_patch_pose_20260923/highres_patch_pose_head.pt",
+  "checkpoint_sha256": "271415f4f252b7960186b64f70adbc829c8916b2b7f16e2cdb3ca02768231399"
+}
