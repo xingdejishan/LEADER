@@ -1,0 +1,3852 @@
+{
+  "protocol": "train-only PixLoc multi-scale feature adaptation with LiDAR-fitted finite patches from the complete train visual map and a single shared six-DoF pose",
+  "training_split": "manifest split=train only; 47 train rows; query GT loaded only by pose loss",
+  "validation_gt_used_for_training": false,
+  "training_frames": 47,
+  "surface_materialization": {
+    "map_sha256": "ea2fccb4d41e2490f0c263e2207e0633322f6984d4067917c81aeaca281e8b15",
+    "visual_observation_map_sha256": "8df2130cb22e10836f8cc13556fa75dcc64fb75af9c1392c3f2484b77c6b12b4",
+    "surface_map_cache_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+    "surface_map_cache": {
+      "path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER-num1/research/results/pixloc_surface_direct_20260924/surface_map.npz",
+      "sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "source_observations": 40335,
+      "surface_patches": 2743,
+      "surface_samples": 19770,
+      "reused": true
+    },
+    "reference_feature_cache": {
+      "path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER-num1/research/results/pixloc_surface_direct_20260924/surface_map_pixloc_refs.npz",
+      "sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "reused": false,
+      "surface_patches": 2743
+    },
+    "neighbor_count": 16,
+    "max_neighbor_distance_m": 0.75,
+    "finite_patch_radius_m": 0.5,
+    "nearest_map_support_m": 0.25,
+    "max_plane_rmse_m": 0.08,
+    "patch_pixel_offsets": [
+      [
+        -4.0,
+        -4.0
+      ],
+      [
+        0.0,
+        -4.0
+      ],
+      [
+        4.0,
+        -4.0
+      ],
+      [
+        -4.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        4.0,
+        0.0
+      ],
+      [
+        -4.0,
+        4.0
+      ],
+      [
+        0.0,
+        4.0
+      ],
+      [
+        4.0,
+        4.0
+      ]
+    ],
+    "training_patch_total": 11282,
+    "training_sample_total": 75480,
+    "per_frame": [
+      {
+        "frame_id": "1329601360002721",
+        "baseline_input_sha256": "adc9cc77a54c6b1a88e2763e138d9b1549930affa196cdd4bd2e9c6a8901d03e",
+        "surface_patches": 157,
+        "surface_samples": 1057,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 2,
+            "selected_cells": 2
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 111,
+            "selected_cells": 40
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 30,
+            "selected_cells": 17
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 31,
+            "selected_cells": 20
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 1214,
+            "selected_cells": 36
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1853,
+            "selected_cells": 42
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601361402708",
+        "baseline_input_sha256": "711cb4e8f5977a3c9360d4a69133480618de22c9121e1466af5339002771c941",
+        "surface_patches": 166,
+        "surface_samples": 1083,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 3,
+            "selected_cells": 3
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 144,
+            "selected_cells": 42
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 50,
+            "selected_cells": 19
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 43,
+            "selected_cells": 22
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 377,
+            "selected_cells": 41
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1854,
+            "selected_cells": 39
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601363002701",
+        "baseline_input_sha256": "942191162ff96b9b077034231c17495e9f2238cf3e89af270cd7ceb5194b485c",
+        "surface_patches": 186,
+        "surface_samples": 1239,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 2,
+            "selected_cells": 1
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 160,
+            "selected_cells": 46
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 79,
+            "selected_cells": 32
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 67,
+            "selected_cells": 23
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 504,
+            "selected_cells": 41
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1818,
+            "selected_cells": 43
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601365002688",
+        "baseline_input_sha256": "a2d3c075c95c86b73751bd79cdaf9fa7357e8789946279f0415ebdf8890dafa8",
+        "surface_patches": 212,
+        "surface_samples": 1441,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 7,
+            "selected_cells": 6
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 158,
+            "selected_cells": 51
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 119,
+            "selected_cells": 34
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 91,
+            "selected_cells": 31
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 822,
+            "selected_cells": 47
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1736,
+            "selected_cells": 43
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601366402682",
+        "baseline_input_sha256": "f73091ba877d7dbed381fd72e823b1cfdf709648543fbb48f8d7e6c75f645e32",
+        "surface_patches": 210,
+        "surface_samples": 1406,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 13,
+            "selected_cells": 9
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 151,
+            "selected_cells": 51
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 145,
+            "selected_cells": 34
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 101,
+            "selected_cells": 30
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 1297,
+            "selected_cells": 44
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1637,
+            "selected_cells": 42
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601368002667",
+        "baseline_input_sha256": "cf1246ed5ad68333c70f199131edd00d4cca5d5631ccbbcec470f2d6439b3b3f",
+        "surface_patches": 234,
+        "surface_samples": 1609,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 27,
+            "selected_cells": 17
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 160,
+            "selected_cells": 58
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 170,
+            "selected_cells": 36
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 130,
+            "selected_cells": 29
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 266,
+            "selected_cells": 45
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1654,
+            "selected_cells": 49
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601369402661",
+        "baseline_input_sha256": "3e3e52fe494676016ac92108ac8ccf625361a5ff5724500135ca04227d489a7a",
+        "surface_patches": 258,
+        "surface_samples": 1747,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 34,
+            "selected_cells": 19
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 171,
+            "selected_cells": 60
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 196,
+            "selected_cells": 44
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 153,
+            "selected_cells": 29
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 200,
+            "selected_cells": 54
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1626,
+            "selected_cells": 52
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601371002903",
+        "baseline_input_sha256": "7ffe347cc34864499ed6972291d5f06bf65fc19689bc9a712fef4b50c4614aee",
+        "surface_patches": 276,
+        "surface_samples": 1869,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 44,
+            "selected_cells": 28
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 169,
+            "selected_cells": 57
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 239,
+            "selected_cells": 46
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 195,
+            "selected_cells": 33
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 165,
+            "selected_cells": 59
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1570,
+            "selected_cells": 53
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601372402637",
+        "baseline_input_sha256": "d6e4ee59a2861b55b2acea2d6a79024b2a3ce1fa1ba285ec0839d9b0a5328ea9",
+        "surface_patches": 265,
+        "surface_samples": 1791,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 40,
+            "selected_cells": 29
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 176,
+            "selected_cells": 55
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 276,
+            "selected_cells": 44
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 225,
+            "selected_cells": 35
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 162,
+            "selected_cells": 51
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1526,
+            "selected_cells": 51
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601374402652",
+        "baseline_input_sha256": "6f6a6e691cdd6935b7e64bb9584d35fec37dd84dc3b75613783edbea2e62ce70",
+        "surface_patches": 269,
+        "surface_samples": 1823,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 40,
+            "selected_cells": 27
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 186,
+            "selected_cells": 55
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 326,
+            "selected_cells": 44
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 292,
+            "selected_cells": 43
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 149,
+            "selected_cells": 52
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1466,
+            "selected_cells": 48
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601376002616",
+        "baseline_input_sha256": "8328f180274bc8d616b80c5875f9081ef2b3c62f238688896cd011d3b4174d1e",
+        "surface_patches": 271,
+        "surface_samples": 1856,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 43,
+            "selected_cells": 30
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 165,
+            "selected_cells": 55
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 364,
+            "selected_cells": 43
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 339,
+            "selected_cells": 42
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 138,
+            "selected_cells": 48
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1420,
+            "selected_cells": 53
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601377402601",
+        "baseline_input_sha256": "d464bddfd67090c4d8954fb933106211211790e89f13835715984fb5ab2a10b7",
+        "surface_patches": 262,
+        "surface_samples": 1815,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 39,
+            "selected_cells": 29
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 149,
+            "selected_cells": 54
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 404,
+            "selected_cells": 43
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 372,
+            "selected_cells": 41
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 133,
+            "selected_cells": 44
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1358,
+            "selected_cells": 51
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601379002599",
+        "baseline_input_sha256": "3029c7fcbc4521aef01113e9c38b0e00ef3c670194ce755bca951807a6b84343",
+        "surface_patches": 274,
+        "surface_samples": 1873,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 44,
+            "selected_cells": 31
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 173,
+            "selected_cells": 55
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 413,
+            "selected_cells": 46
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 453,
+            "selected_cells": 49
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 118,
+            "selected_cells": 42
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1312,
+            "selected_cells": 51
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601380402595",
+        "baseline_input_sha256": "ad91a30fbbc8c436ef6cc7500d33d9ca32779c5ad5783420827a8c0ef96933a0",
+        "surface_patches": 261,
+        "surface_samples": 1777,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 46,
+            "selected_cells": 32
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 183,
+            "selected_cells": 52
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 459,
+            "selected_cells": 47
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 464,
+            "selected_cells": 41
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 117,
+            "selected_cells": 36
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1276,
+            "selected_cells": 53
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601382002578",
+        "baseline_input_sha256": "a43f4105857acbfe72f4606a1415dfa1551aab117740d32a374c66c36c2826f9",
+        "surface_patches": 268,
+        "surface_samples": 1849,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 44,
+            "selected_cells": 26
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 191,
+            "selected_cells": 63
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 498,
+            "selected_cells": 49
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 479,
+            "selected_cells": 40
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 127,
+            "selected_cells": 37
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1202,
+            "selected_cells": 53
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601384002580",
+        "baseline_input_sha256": "ee3da73c2ac985624838947034f8ff0c8c5b98fce2682495e9f20f3cb375a8d2",
+        "surface_patches": 273,
+        "surface_samples": 1861,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 46,
+            "selected_cells": 30
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 172,
+            "selected_cells": 62
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 565,
+            "selected_cells": 52
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 499,
+            "selected_cells": 40
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 148,
+            "selected_cells": 38
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1117,
+            "selected_cells": 51
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601385402767",
+        "baseline_input_sha256": "571ace9c39695e98be8e0df0b0b1688c38dae24b239b548214af6bd28855789a",
+        "surface_patches": 258,
+        "surface_samples": 1708,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 42,
+            "selected_cells": 26
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 177,
+            "selected_cells": 50
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 590,
+            "selected_cells": 51
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 556,
+            "selected_cells": 36
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 151,
+            "selected_cells": 44
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1064,
+            "selected_cells": 51
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601387002543",
+        "baseline_input_sha256": "2411fb625a85d3ed1f35f003547c062734934f6f23fd540c5ce6b71c473a4e79",
+        "surface_patches": 277,
+        "surface_samples": 1820,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 46,
+            "selected_cells": 29
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 206,
+            "selected_cells": 58
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 613,
+            "selected_cells": 53
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 645,
+            "selected_cells": 44
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 150,
+            "selected_cells": 46
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 1007,
+            "selected_cells": 47
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601388402532",
+        "baseline_input_sha256": "0e7ef7247c969c83d4d5a1c26185585fda95f0be60e0c9800dbddffc1f6e6886",
+        "surface_patches": 265,
+        "surface_samples": 1714,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 38,
+            "selected_cells": 27
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 192,
+            "selected_cells": 55
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 601,
+            "selected_cells": 53
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 754,
+            "selected_cells": 45
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 143,
+            "selected_cells": 43
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 944,
+            "selected_cells": 42
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601390002526",
+        "baseline_input_sha256": "f74c17d1118b6449beeb9f8c5473362acdbfee7ae28cf03af8482537b30b9275",
+        "surface_patches": 248,
+        "surface_samples": 1639,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 23,
+            "selected_cells": 17
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 571,
+            "selected_cells": 52
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 331,
+            "selected_cells": 54
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 889,
+            "selected_cells": 44
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 118,
+            "selected_cells": 41
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 853,
+            "selected_cells": 40
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601391402635",
+        "baseline_input_sha256": "d33d8b5d948a30e8b402f1e95ef5bd368a50bff50ea6629aeedf73aedc68c82b",
+        "surface_patches": 257,
+        "surface_samples": 1675,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 34,
+            "selected_cells": 18
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 820,
+            "selected_cells": 45
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 265,
+            "selected_cells": 53
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 962,
+            "selected_cells": 43
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 118,
+            "selected_cells": 49
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 596,
+            "selected_cells": 49
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601393402503",
+        "baseline_input_sha256": "c37e6226a37f1301312845517708724c150aa6a74eeb98def3a00a1ff7935543",
+        "surface_patches": 238,
+        "surface_samples": 1564,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 26,
+            "selected_cells": 16
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 159,
+            "selected_cells": 46
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 971,
+            "selected_cells": 46
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 476,
+            "selected_cells": 52
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 82,
+            "selected_cells": 35
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 848,
+            "selected_cells": 43
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601395002495",
+        "baseline_input_sha256": "439954352452b1526d76a8a75502de107acb672b9c86b2f02bcf49866ffca7e3",
+        "surface_patches": 252,
+        "surface_samples": 1673,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 45,
+            "selected_cells": 25
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 343,
+            "selected_cells": 42
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 990,
+            "selected_cells": 50
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 107,
+            "selected_cells": 47
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 565,
+            "selected_cells": 43
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 799,
+            "selected_cells": 45
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601396402539",
+        "baseline_input_sha256": "0495ac8d6b727dfd4fcc0cd0b0a6960e3b844370a04ae867b932f7e227889697",
+        "surface_patches": 235,
+        "surface_samples": 1505,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 29,
+            "selected_cells": 19
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 961,
+            "selected_cells": 48
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 523,
+            "selected_cells": 48
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 83,
+            "selected_cells": 34
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 848,
+            "selected_cells": 40
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 155,
+            "selected_cells": 46
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601398002477",
+        "baseline_input_sha256": "c33c5d5c9c4338a3b11a48e16bec3ae7f60eb1ae91c68427a6ab17106145466b",
+        "surface_patches": 258,
+        "surface_samples": 1714,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 33,
+            "selected_cells": 24
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 1002,
+            "selected_cells": 47
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 127,
+            "selected_cells": 45
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 519,
+            "selected_cells": 45
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 800,
+            "selected_cells": 48
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 248,
+            "selected_cells": 49
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601399402470",
+        "baseline_input_sha256": "5bbd039bad24fa6a8565453e0569aa93afa68e3e3b0ab3c6784335fe01ab86d6",
+        "surface_patches": 235,
+        "surface_samples": 1532,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 31,
+            "selected_cells": 18
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 706,
+            "selected_cells": 45
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 111,
+            "selected_cells": 44
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 850,
+            "selected_cells": 37
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 138,
+            "selected_cells": 47
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 834,
+            "selected_cells": 44
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601401402448",
+        "baseline_input_sha256": "b815055d70a5ff8c51f6977a5ed28411b2e0640c533f7b417518d92e20f5c430",
+        "surface_patches": 251,
+        "surface_samples": 1631,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 34,
+            "selected_cells": 22
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 250,
+            "selected_cells": 48
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 282,
+            "selected_cells": 42
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 872,
+            "selected_cells": 44
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 155,
+            "selected_cells": 52
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 981,
+            "selected_cells": 43
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601403002483",
+        "baseline_input_sha256": "cd88ee7f643832383e5e8169df434b6a012cdb60e47eecd5407bff93c72215f4",
+        "surface_patches": 274,
+        "surface_samples": 1792,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 28,
+            "selected_cells": 19
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 131,
+            "selected_cells": 49
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 674,
+            "selected_cells": 44
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 860,
+            "selected_cells": 50
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 239,
+            "selected_cells": 62
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 917,
+            "selected_cells": 50
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601404402427",
+        "baseline_input_sha256": "92c15e108321a7624fa0f2fcab62ee404dff88f488304051314f47b14475aa34",
+        "surface_patches": 260,
+        "surface_samples": 1719,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 25,
+            "selected_cells": 19
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 120,
+            "selected_cells": 43
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 789,
+            "selected_cells": 37
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 878,
+            "selected_cells": 50
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 271,
+            "selected_cells": 62
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 845,
+            "selected_cells": 49
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601406002426",
+        "baseline_input_sha256": "fab672168b76996a8512614fe196241f456f20688fbf17b2e8dd86e7ab1e6cbe",
+        "surface_patches": 279,
+        "surface_samples": 1831,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 34,
+            "selected_cells": 23
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 135,
+            "selected_cells": 46
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 724,
+            "selected_cells": 53
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 949,
+            "selected_cells": 55
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 236,
+            "selected_cells": 54
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 811,
+            "selected_cells": 48
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601407402467",
+        "baseline_input_sha256": "c26f20885abd170d76726dd173ffc8bd53b1a9e2854f77d64c985aabcd5d7237",
+        "surface_patches": 265,
+        "surface_samples": 1766,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 34,
+            "selected_cells": 24
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 122,
+            "selected_cells": 43
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 786,
+            "selected_cells": 47
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1006,
+            "selected_cells": 49
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 247,
+            "selected_cells": 58
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 767,
+            "selected_cells": 44
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601409002400",
+        "baseline_input_sha256": "7eb5105c79bf2c6eb3cab693355548ab9abf181dd049e61ff38782ada78a151b",
+        "surface_patches": 258,
+        "surface_samples": 1725,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 26,
+            "selected_cells": 17
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 101,
+            "selected_cells": 45
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 915,
+            "selected_cells": 40
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1043,
+            "selected_cells": 52
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 228,
+            "selected_cells": 54
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 713,
+            "selected_cells": 50
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601411002392",
+        "baseline_input_sha256": "39f996c653511ff68c2c33a96c976f4261ad84c078e793a3aa73e69da4068173",
+        "surface_patches": 257,
+        "surface_samples": 1725,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 41,
+            "selected_cells": 27
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 118,
+            "selected_cells": 37
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 789,
+            "selected_cells": 37
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1150,
+            "selected_cells": 50
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 210,
+            "selected_cells": 54
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 659,
+            "selected_cells": 52
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601412402370",
+        "baseline_input_sha256": "26163ccf412bd39af2c51b525eb3b154e63a59bec5416be389144c5f9ba8b60a",
+        "surface_patches": 259,
+        "surface_samples": 1777,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 41,
+            "selected_cells": 34
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 106,
+            "selected_cells": 38
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 975,
+            "selected_cells": 39
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1154,
+            "selected_cells": 48
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 237,
+            "selected_cells": 51
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 605,
+            "selected_cells": 49
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601414002369",
+        "baseline_input_sha256": "95dc7fa0d854e4d4c6ade226be629931231c7d3184d3f711d329813ff3a814fa",
+        "surface_patches": 244,
+        "surface_samples": 1662,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 35,
+            "selected_cells": 27
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 97,
+            "selected_cells": 34
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1039,
+            "selected_cells": 36
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1173,
+            "selected_cells": 54
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 243,
+            "selected_cells": 49
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 538,
+            "selected_cells": 44
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601415402388",
+        "baseline_input_sha256": "6bad3a53bea299ee578964f0905d2def246b47cc0dedff9edcb4733895f280f0",
+        "surface_patches": 238,
+        "surface_samples": 1614,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 38,
+            "selected_cells": 26
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 104,
+            "selected_cells": 36
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1033,
+            "selected_cells": 34
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1250,
+            "selected_cells": 53
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 240,
+            "selected_cells": 49
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 485,
+            "selected_cells": 40
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601417002348",
+        "baseline_input_sha256": "492d7a6d3b53f7132673f530db04c69f1a09cadcafec90c3dee7d1246e48e1c8",
+        "surface_patches": 242,
+        "surface_samples": 1659,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 31,
+            "selected_cells": 25
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 139,
+            "selected_cells": 45
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1045,
+            "selected_cells": 39
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1299,
+            "selected_cells": 47
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 224,
+            "selected_cells": 44
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 431,
+            "selected_cells": 42
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601418402716",
+        "baseline_input_sha256": "84bbf13591e634d8c4fcb08c50c6c4057895e41209333b05d384d6fa70855b8e",
+        "surface_patches": 240,
+        "surface_samples": 1577,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 30,
+            "selected_cells": 22
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 126,
+            "selected_cells": 45
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1159,
+            "selected_cells": 40
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1281,
+            "selected_cells": 45
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 235,
+            "selected_cells": 46
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 388,
+            "selected_cells": 42
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601420402318",
+        "baseline_input_sha256": "a40b5567ca514d35e1a3278846f1f7b30b269d49a5e913c7cdfcccf62fc4a790",
+        "surface_patches": 245,
+        "surface_samples": 1646,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 33,
+            "selected_cells": 23
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 100,
+            "selected_cells": 48
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1358,
+            "selected_cells": 49
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 802,
+            "selected_cells": 42
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 280,
+            "selected_cells": 44
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 303,
+            "selected_cells": 39
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601422002318",
+        "baseline_input_sha256": "93d0a59cd4c744e848d06308492ed15e325fa101aadbec61e673f72e4ba8470a",
+        "surface_patches": 224,
+        "surface_samples": 1501,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 28,
+            "selected_cells": 20
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 104,
+            "selected_cells": 35
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1344,
+            "selected_cells": 45
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1125,
+            "selected_cells": 48
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 250,
+            "selected_cells": 45
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 255,
+            "selected_cells": 31
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601423402298",
+        "baseline_input_sha256": "0588b81f34ee1ce22cac63f37492225f3016a7a64ff658458a1c4dd0b0aeeddb",
+        "surface_patches": 218,
+        "surface_samples": 1452,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 22,
+            "selected_cells": 14
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 102,
+            "selected_cells": 36
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1392,
+            "selected_cells": 51
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1179,
+            "selected_cells": 48
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 230,
+            "selected_cells": 41
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 221,
+            "selected_cells": 28
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601425002298",
+        "baseline_input_sha256": "701ae6fa1f702b53dca2b70e2fb3abfad32a4426bccb62ee3da35f0b9758b8b7",
+        "surface_patches": 235,
+        "surface_samples": 1559,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 20,
+            "selected_cells": 14
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 103,
+            "selected_cells": 37
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1266,
+            "selected_cells": 54
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1568,
+            "selected_cells": 45
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 209,
+            "selected_cells": 51
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 184,
+            "selected_cells": 34
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601426402279",
+        "baseline_input_sha256": "c63bcc27b1dc8dd49df65d6fbc54878fc1234d443e58c52664605ed9e654ef02",
+        "surface_patches": 216,
+        "surface_samples": 1478,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 12,
+            "selected_cells": 8
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 97,
+            "selected_cells": 40
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1354,
+            "selected_cells": 43
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1581,
+            "selected_cells": 44
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 174,
+            "selected_cells": 48
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 142,
+            "selected_cells": 33
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601428402277",
+        "baseline_input_sha256": "277a9ad7aa9f47d607ba4d2263a113ba7130a45b006608c77f9e5d4eead45ea8",
+        "surface_patches": 195,
+        "surface_samples": 1295,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 4,
+            "selected_cells": 4
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 79,
+            "selected_cells": 32
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1544,
+            "selected_cells": 49
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 1143,
+            "selected_cells": 44
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 132,
+            "selected_cells": 42
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 85,
+            "selected_cells": 24
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601430002267",
+        "baseline_input_sha256": "610f9facca00d12697df69f9c41da261e8048042c294962898e4024340c92ca3",
+        "surface_patches": 187,
+        "surface_samples": 1217,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 2,
+            "selected_cells": 2
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 79,
+            "selected_cells": 35
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1711,
+            "selected_cells": 47
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 492,
+            "selected_cells": 42
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 105,
+            "selected_cells": 39
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 60,
+            "selected_cells": 22
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601431402252",
+        "baseline_input_sha256": "4465a313ee415cb24a8dcb95f30455a2d4628fd554970daa92f64bb18651e7de",
+        "surface_patches": 174,
+        "surface_samples": 1146,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 2,
+            "selected_cells": 2
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 86,
+            "selected_cells": 36
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1797,
+            "selected_cells": 42
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 331,
+            "selected_cells": 43
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 84,
+            "selected_cells": 35
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 39,
+            "selected_cells": 16
+          }
+        ]
+      },
+      {
+        "frame_id": "1329601433002245",
+        "baseline_input_sha256": "dccd3250d2885691c36fed3aef606fc7438165cd1182da3a1ebfd36e36483f76",
+        "surface_patches": 156,
+        "surface_samples": 1068,
+        "camera_patch_counts": [
+          {
+            "camera": 0,
+            "map_ids_in_frustum": 4,
+            "selected_cells": 4
+          },
+          {
+            "camera": 1,
+            "map_ids_in_frustum": 47,
+            "selected_cells": 27
+          },
+          {
+            "camera": 2,
+            "map_ids_in_frustum": 1822,
+            "selected_cells": 42
+          },
+          {
+            "camera": 3,
+            "map_ids_in_frustum": 367,
+            "selected_cells": 40
+          },
+          {
+            "camera": 4,
+            "map_ids_in_frustum": 61,
+            "selected_cells": 25
+          },
+          {
+            "camera": 5,
+            "map_ids_in_frustum": 33,
+            "selected_cells": 18
+          }
+        ]
+      }
+    ]
+  },
+  "pretrained_pixloc": {
+    "source": "official CVG PixLoc MegaDepth checkpoint",
+    "official_repository_commit": "6f7a943afc34183654754f9c4e90672e491a629b",
+    "checkpoint_sha256": "4718a885b3e0e8852157d57f82f3221fe971a8f6b8ac3a5a4681b677ccf05dc7",
+    "original_epoch": 5,
+    "trainable": "the three official feature adaptation layers only; VGG19 encoder, decoder and confidence layers frozen"
+  },
+  "optimizer": {
+    "name": "Adam",
+    "lr": 5e-06,
+    "epochs": 20,
+    "fixed_final_epoch": true,
+    "clip_grad_norm": 1.0
+  },
+  "pose_alignment": {
+    "multiscale_coarse_to_fine": [
+      16,
+      4,
+      1
+    ],
+    "training_steps_per_scale": 5,
+    "inference_steps_per_scale": 15,
+    "random_initial_pose_perturbation_normalized": [
+      -0.4,
+      0.4
+    ],
+    "pose_bounds": "\u00b10.1 m and \u00b11 degree about the LEADER pose",
+    "feature_loss": "PixLoc normalized descriptor residual with official scaled Barron alpha=0, c=0.1 form and frozen PixLoc uncertainty maps",
+    "surface_patch_normalization": "feature samples are averaged per patch so sample count does not multiply patch weight",
+    "lidar_prior": "single existing frame-level quadratic information prior; shared across all cameras and scales",
+    "visual_scales": [
+      123.61147595361417,
+      923.401769976494,
+      5525.865525795756
+    ],
+    "learned_pixloc_damping": [
+      [
+        0.0075223371386528015,
+        0.04603481665253639,
+        0.10710011422634125,
+        0.029397625476121902,
+        0.005802556872367859,
+        0.10944297909736633
+      ],
+      [
+        0.0023070063907653093,
+        0.017839115113019943,
+        0.06447374820709229,
+        0.0018738317303359509,
+        0.0013177810469642282,
+        0.3724580407142639
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        0.0809485986828804,
+        0.07561994343996048,
+        1.0
+      ]
+    ]
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.499476513345615,
+      "mean_normalized_translation_error": 0.7749763001437419,
+      "mean_normalized_rotation_error": 0.7245002132018732
+    },
+    {
+      "epoch": 2,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5017025302381506,
+      "mean_normalized_translation_error": 0.7792388459679601,
+      "mean_normalized_rotation_error": 0.7224636842701901
+    },
+    {
+      "epoch": 3,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5017567817320419,
+      "mean_normalized_translation_error": 0.7791536114341644,
+      "mean_normalized_rotation_error": 0.7226031702978768
+    },
+    {
+      "epoch": 4,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5043428677522586,
+      "mean_normalized_translation_error": 0.7809587050089928,
+      "mean_normalized_rotation_error": 0.7233841627432659
+    },
+    {
+      "epoch": 5,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5042784799495827,
+      "mean_normalized_translation_error": 0.7806030226893376,
+      "mean_normalized_rotation_error": 0.7236754572602446
+    },
+    {
+      "epoch": 6,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.503976054030741,
+      "mean_normalized_translation_error": 0.7807199788752774,
+      "mean_normalized_rotation_error": 0.7232560751554638
+    },
+    {
+      "epoch": 7,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.503349163870296,
+      "mean_normalized_translation_error": 0.7799954250460001,
+      "mean_normalized_rotation_error": 0.7233537388242965
+    },
+    {
+      "epoch": 8,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5020322005318008,
+      "mean_normalized_translation_error": 0.7800889563893942,
+      "mean_normalized_rotation_error": 0.7219432441424067
+    },
+    {
+      "epoch": 9,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.49859559288843,
+      "mean_normalized_translation_error": 0.7767706184247609,
+      "mean_normalized_rotation_error": 0.7218249744636693
+    },
+    {
+      "epoch": 10,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5015864407680433,
+      "mean_normalized_translation_error": 0.7789225205642877,
+      "mean_normalized_rotation_error": 0.7226639202037557
+    },
+    {
+      "epoch": 11,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5048245812835876,
+      "mean_normalized_translation_error": 0.7820213838733164,
+      "mean_normalized_rotation_error": 0.7228031974102712
+    },
+    {
+      "epoch": 12,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5037982947020343,
+      "mean_normalized_translation_error": 0.7809657818616574,
+      "mean_normalized_rotation_error": 0.7228325128403768
+    },
+    {
+      "epoch": 13,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.505623090487191,
+      "mean_normalized_translation_error": 0.781327740497668,
+      "mean_normalized_rotation_error": 0.724295349989523
+    },
+    {
+      "epoch": 14,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5044522528952529,
+      "mean_normalized_translation_error": 0.7810335845476726,
+      "mean_normalized_rotation_error": 0.7234186683475806
+    },
+    {
+      "epoch": 15,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.502537215111376,
+      "mean_normalized_translation_error": 0.7783357969929079,
+      "mean_normalized_rotation_error": 0.7242014181184677
+    },
+    {
+      "epoch": 16,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5010262617400874,
+      "mean_normalized_translation_error": 0.7778902126233834,
+      "mean_normalized_rotation_error": 0.7231360491167038
+    },
+    {
+      "epoch": 17,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.502658863466249,
+      "mean_normalized_translation_error": 0.7777149059230665,
+      "mean_normalized_rotation_error": 0.7249439575431823
+    },
+    {
+      "epoch": 18,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5015714898752237,
+      "mean_normalized_translation_error": 0.7790485095310824,
+      "mean_normalized_rotation_error": 0.722522980344141
+    },
+    {
+      "epoch": 19,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5010763986747868,
+      "mean_normalized_translation_error": 0.7789511990728101,
+      "mean_normalized_rotation_error": 0.7221251996019773
+    },
+    {
+      "epoch": 20,
+      "train_frames": 47,
+      "mean_normalized_pose_loss": 1.5006260379930931,
+      "mean_normalized_translation_error": 0.778192558356904,
+      "mean_normalized_rotation_error": 0.7224334796361895
+    }
+  ],
+  "training_inputs": [
+    {
+      "frame_id": "1329601360002721",
+      "baseline_input_sha256": "adc9cc77a54c6b1a88e2763e138d9b1549930affa196cdd4bd2e9c6a8901d03e",
+      "surface_patches": 157,
+      "surface_samples": 1057,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 2,
+          "selected_cells": 2
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 111,
+          "selected_cells": 40
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 30,
+          "selected_cells": 17
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 31,
+          "selected_cells": 20
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 1214,
+          "selected_cells": 36
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1853,
+          "selected_cells": 42
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601361402708",
+      "baseline_input_sha256": "711cb4e8f5977a3c9360d4a69133480618de22c9121e1466af5339002771c941",
+      "surface_patches": 166,
+      "surface_samples": 1083,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 3,
+          "selected_cells": 3
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 144,
+          "selected_cells": 42
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 50,
+          "selected_cells": 19
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 43,
+          "selected_cells": 22
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 377,
+          "selected_cells": 41
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1854,
+          "selected_cells": 39
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601363002701",
+      "baseline_input_sha256": "942191162ff96b9b077034231c17495e9f2238cf3e89af270cd7ceb5194b485c",
+      "surface_patches": 186,
+      "surface_samples": 1239,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 2,
+          "selected_cells": 1
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 160,
+          "selected_cells": 46
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 79,
+          "selected_cells": 32
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 67,
+          "selected_cells": 23
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 504,
+          "selected_cells": 41
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1818,
+          "selected_cells": 43
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601365002688",
+      "baseline_input_sha256": "a2d3c075c95c86b73751bd79cdaf9fa7357e8789946279f0415ebdf8890dafa8",
+      "surface_patches": 212,
+      "surface_samples": 1441,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 7,
+          "selected_cells": 6
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 158,
+          "selected_cells": 51
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 119,
+          "selected_cells": 34
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 91,
+          "selected_cells": 31
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 822,
+          "selected_cells": 47
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1736,
+          "selected_cells": 43
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601366402682",
+      "baseline_input_sha256": "f73091ba877d7dbed381fd72e823b1cfdf709648543fbb48f8d7e6c75f645e32",
+      "surface_patches": 210,
+      "surface_samples": 1406,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 13,
+          "selected_cells": 9
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 151,
+          "selected_cells": 51
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 145,
+          "selected_cells": 34
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 101,
+          "selected_cells": 30
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 1297,
+          "selected_cells": 44
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1637,
+          "selected_cells": 42
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601368002667",
+      "baseline_input_sha256": "cf1246ed5ad68333c70f199131edd00d4cca5d5631ccbbcec470f2d6439b3b3f",
+      "surface_patches": 234,
+      "surface_samples": 1609,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 27,
+          "selected_cells": 17
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 160,
+          "selected_cells": 58
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 170,
+          "selected_cells": 36
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 130,
+          "selected_cells": 29
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 266,
+          "selected_cells": 45
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1654,
+          "selected_cells": 49
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601369402661",
+      "baseline_input_sha256": "3e3e52fe494676016ac92108ac8ccf625361a5ff5724500135ca04227d489a7a",
+      "surface_patches": 258,
+      "surface_samples": 1747,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 34,
+          "selected_cells": 19
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 171,
+          "selected_cells": 60
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 196,
+          "selected_cells": 44
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 153,
+          "selected_cells": 29
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 200,
+          "selected_cells": 54
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1626,
+          "selected_cells": 52
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601371002903",
+      "baseline_input_sha256": "7ffe347cc34864499ed6972291d5f06bf65fc19689bc9a712fef4b50c4614aee",
+      "surface_patches": 276,
+      "surface_samples": 1869,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 44,
+          "selected_cells": 28
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 169,
+          "selected_cells": 57
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 239,
+          "selected_cells": 46
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 195,
+          "selected_cells": 33
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 165,
+          "selected_cells": 59
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1570,
+          "selected_cells": 53
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601372402637",
+      "baseline_input_sha256": "d6e4ee59a2861b55b2acea2d6a79024b2a3ce1fa1ba285ec0839d9b0a5328ea9",
+      "surface_patches": 265,
+      "surface_samples": 1791,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 40,
+          "selected_cells": 29
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 176,
+          "selected_cells": 55
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 276,
+          "selected_cells": 44
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 225,
+          "selected_cells": 35
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 162,
+          "selected_cells": 51
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1526,
+          "selected_cells": 51
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601374402652",
+      "baseline_input_sha256": "6f6a6e691cdd6935b7e64bb9584d35fec37dd84dc3b75613783edbea2e62ce70",
+      "surface_patches": 269,
+      "surface_samples": 1823,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 40,
+          "selected_cells": 27
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 186,
+          "selected_cells": 55
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 326,
+          "selected_cells": 44
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 292,
+          "selected_cells": 43
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 149,
+          "selected_cells": 52
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1466,
+          "selected_cells": 48
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601376002616",
+      "baseline_input_sha256": "8328f180274bc8d616b80c5875f9081ef2b3c62f238688896cd011d3b4174d1e",
+      "surface_patches": 271,
+      "surface_samples": 1856,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 43,
+          "selected_cells": 30
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 165,
+          "selected_cells": 55
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 364,
+          "selected_cells": 43
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 339,
+          "selected_cells": 42
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 138,
+          "selected_cells": 48
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1420,
+          "selected_cells": 53
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601377402601",
+      "baseline_input_sha256": "d464bddfd67090c4d8954fb933106211211790e89f13835715984fb5ab2a10b7",
+      "surface_patches": 262,
+      "surface_samples": 1815,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 39,
+          "selected_cells": 29
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 149,
+          "selected_cells": 54
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 404,
+          "selected_cells": 43
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 372,
+          "selected_cells": 41
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 133,
+          "selected_cells": 44
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1358,
+          "selected_cells": 51
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601379002599",
+      "baseline_input_sha256": "3029c7fcbc4521aef01113e9c38b0e00ef3c670194ce755bca951807a6b84343",
+      "surface_patches": 274,
+      "surface_samples": 1873,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 44,
+          "selected_cells": 31
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 173,
+          "selected_cells": 55
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 413,
+          "selected_cells": 46
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 453,
+          "selected_cells": 49
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 118,
+          "selected_cells": 42
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1312,
+          "selected_cells": 51
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601380402595",
+      "baseline_input_sha256": "ad91a30fbbc8c436ef6cc7500d33d9ca32779c5ad5783420827a8c0ef96933a0",
+      "surface_patches": 261,
+      "surface_samples": 1777,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 46,
+          "selected_cells": 32
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 183,
+          "selected_cells": 52
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 459,
+          "selected_cells": 47
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 464,
+          "selected_cells": 41
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 117,
+          "selected_cells": 36
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1276,
+          "selected_cells": 53
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601382002578",
+      "baseline_input_sha256": "a43f4105857acbfe72f4606a1415dfa1551aab117740d32a374c66c36c2826f9",
+      "surface_patches": 268,
+      "surface_samples": 1849,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 44,
+          "selected_cells": 26
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 191,
+          "selected_cells": 63
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 498,
+          "selected_cells": 49
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 479,
+          "selected_cells": 40
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 127,
+          "selected_cells": 37
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1202,
+          "selected_cells": 53
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601384002580",
+      "baseline_input_sha256": "ee3da73c2ac985624838947034f8ff0c8c5b98fce2682495e9f20f3cb375a8d2",
+      "surface_patches": 273,
+      "surface_samples": 1861,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 46,
+          "selected_cells": 30
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 172,
+          "selected_cells": 62
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 565,
+          "selected_cells": 52
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 499,
+          "selected_cells": 40
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 148,
+          "selected_cells": 38
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1117,
+          "selected_cells": 51
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601385402767",
+      "baseline_input_sha256": "571ace9c39695e98be8e0df0b0b1688c38dae24b239b548214af6bd28855789a",
+      "surface_patches": 258,
+      "surface_samples": 1708,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 42,
+          "selected_cells": 26
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 177,
+          "selected_cells": 50
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 590,
+          "selected_cells": 51
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 556,
+          "selected_cells": 36
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 151,
+          "selected_cells": 44
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1064,
+          "selected_cells": 51
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601387002543",
+      "baseline_input_sha256": "2411fb625a85d3ed1f35f003547c062734934f6f23fd540c5ce6b71c473a4e79",
+      "surface_patches": 277,
+      "surface_samples": 1820,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 46,
+          "selected_cells": 29
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 206,
+          "selected_cells": 58
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 613,
+          "selected_cells": 53
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 645,
+          "selected_cells": 44
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 150,
+          "selected_cells": 46
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1007,
+          "selected_cells": 47
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601388402532",
+      "baseline_input_sha256": "0e7ef7247c969c83d4d5a1c26185585fda95f0be60e0c9800dbddffc1f6e6886",
+      "surface_patches": 265,
+      "surface_samples": 1714,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 38,
+          "selected_cells": 27
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 192,
+          "selected_cells": 55
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 601,
+          "selected_cells": 53
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 754,
+          "selected_cells": 45
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 143,
+          "selected_cells": 43
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 944,
+          "selected_cells": 42
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601390002526",
+      "baseline_input_sha256": "f74c17d1118b6449beeb9f8c5473362acdbfee7ae28cf03af8482537b30b9275",
+      "surface_patches": 248,
+      "surface_samples": 1639,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 23,
+          "selected_cells": 17
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 571,
+          "selected_cells": 52
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 331,
+          "selected_cells": 54
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 889,
+          "selected_cells": 44
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 118,
+          "selected_cells": 41
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 853,
+          "selected_cells": 40
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601391402635",
+      "baseline_input_sha256": "d33d8b5d948a30e8b402f1e95ef5bd368a50bff50ea6629aeedf73aedc68c82b",
+      "surface_patches": 257,
+      "surface_samples": 1675,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 34,
+          "selected_cells": 18
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 820,
+          "selected_cells": 45
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 265,
+          "selected_cells": 53
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 962,
+          "selected_cells": 43
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 118,
+          "selected_cells": 49
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 596,
+          "selected_cells": 49
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601393402503",
+      "baseline_input_sha256": "c37e6226a37f1301312845517708724c150aa6a74eeb98def3a00a1ff7935543",
+      "surface_patches": 238,
+      "surface_samples": 1564,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 26,
+          "selected_cells": 16
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 159,
+          "selected_cells": 46
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 971,
+          "selected_cells": 46
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 476,
+          "selected_cells": 52
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 82,
+          "selected_cells": 35
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 848,
+          "selected_cells": 43
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601395002495",
+      "baseline_input_sha256": "439954352452b1526d76a8a75502de107acb672b9c86b2f02bcf49866ffca7e3",
+      "surface_patches": 252,
+      "surface_samples": 1673,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 45,
+          "selected_cells": 25
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 343,
+          "selected_cells": 42
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 990,
+          "selected_cells": 50
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 107,
+          "selected_cells": 47
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 565,
+          "selected_cells": 43
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 799,
+          "selected_cells": 45
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601396402539",
+      "baseline_input_sha256": "0495ac8d6b727dfd4fcc0cd0b0a6960e3b844370a04ae867b932f7e227889697",
+      "surface_patches": 235,
+      "surface_samples": 1505,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 29,
+          "selected_cells": 19
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 961,
+          "selected_cells": 48
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 523,
+          "selected_cells": 48
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 83,
+          "selected_cells": 34
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 848,
+          "selected_cells": 40
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 155,
+          "selected_cells": 46
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601398002477",
+      "baseline_input_sha256": "c33c5d5c9c4338a3b11a48e16bec3ae7f60eb1ae91c68427a6ab17106145466b",
+      "surface_patches": 258,
+      "surface_samples": 1714,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 33,
+          "selected_cells": 24
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 1002,
+          "selected_cells": 47
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 127,
+          "selected_cells": 45
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 519,
+          "selected_cells": 45
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 800,
+          "selected_cells": 48
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 248,
+          "selected_cells": 49
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601399402470",
+      "baseline_input_sha256": "5bbd039bad24fa6a8565453e0569aa93afa68e3e3b0ab3c6784335fe01ab86d6",
+      "surface_patches": 235,
+      "surface_samples": 1532,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 31,
+          "selected_cells": 18
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 706,
+          "selected_cells": 45
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 111,
+          "selected_cells": 44
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 850,
+          "selected_cells": 37
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 138,
+          "selected_cells": 47
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 834,
+          "selected_cells": 44
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601401402448",
+      "baseline_input_sha256": "b815055d70a5ff8c51f6977a5ed28411b2e0640c533f7b417518d92e20f5c430",
+      "surface_patches": 251,
+      "surface_samples": 1631,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 34,
+          "selected_cells": 22
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 250,
+          "selected_cells": 48
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 282,
+          "selected_cells": 42
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 872,
+          "selected_cells": 44
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 155,
+          "selected_cells": 52
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 981,
+          "selected_cells": 43
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601403002483",
+      "baseline_input_sha256": "cd88ee7f643832383e5e8169df434b6a012cdb60e47eecd5407bff93c72215f4",
+      "surface_patches": 274,
+      "surface_samples": 1792,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 28,
+          "selected_cells": 19
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 131,
+          "selected_cells": 49
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 674,
+          "selected_cells": 44
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 860,
+          "selected_cells": 50
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 239,
+          "selected_cells": 62
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 917,
+          "selected_cells": 50
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601404402427",
+      "baseline_input_sha256": "92c15e108321a7624fa0f2fcab62ee404dff88f488304051314f47b14475aa34",
+      "surface_patches": 260,
+      "surface_samples": 1719,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 25,
+          "selected_cells": 19
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 120,
+          "selected_cells": 43
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 789,
+          "selected_cells": 37
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 878,
+          "selected_cells": 50
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 271,
+          "selected_cells": 62
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 845,
+          "selected_cells": 49
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601406002426",
+      "baseline_input_sha256": "fab672168b76996a8512614fe196241f456f20688fbf17b2e8dd86e7ab1e6cbe",
+      "surface_patches": 279,
+      "surface_samples": 1831,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 34,
+          "selected_cells": 23
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 135,
+          "selected_cells": 46
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 724,
+          "selected_cells": 53
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 949,
+          "selected_cells": 55
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 236,
+          "selected_cells": 54
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 811,
+          "selected_cells": 48
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601407402467",
+      "baseline_input_sha256": "c26f20885abd170d76726dd173ffc8bd53b1a9e2854f77d64c985aabcd5d7237",
+      "surface_patches": 265,
+      "surface_samples": 1766,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 34,
+          "selected_cells": 24
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 122,
+          "selected_cells": 43
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 786,
+          "selected_cells": 47
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1006,
+          "selected_cells": 49
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 247,
+          "selected_cells": 58
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 767,
+          "selected_cells": 44
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601409002400",
+      "baseline_input_sha256": "7eb5105c79bf2c6eb3cab693355548ab9abf181dd049e61ff38782ada78a151b",
+      "surface_patches": 258,
+      "surface_samples": 1725,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 26,
+          "selected_cells": 17
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 101,
+          "selected_cells": 45
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 915,
+          "selected_cells": 40
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1043,
+          "selected_cells": 52
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 228,
+          "selected_cells": 54
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 713,
+          "selected_cells": 50
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601411002392",
+      "baseline_input_sha256": "39f996c653511ff68c2c33a96c976f4261ad84c078e793a3aa73e69da4068173",
+      "surface_patches": 257,
+      "surface_samples": 1725,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 41,
+          "selected_cells": 27
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 118,
+          "selected_cells": 37
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 789,
+          "selected_cells": 37
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1150,
+          "selected_cells": 50
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 210,
+          "selected_cells": 54
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 659,
+          "selected_cells": 52
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601412402370",
+      "baseline_input_sha256": "26163ccf412bd39af2c51b525eb3b154e63a59bec5416be389144c5f9ba8b60a",
+      "surface_patches": 259,
+      "surface_samples": 1777,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 41,
+          "selected_cells": 34
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 106,
+          "selected_cells": 38
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 975,
+          "selected_cells": 39
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1154,
+          "selected_cells": 48
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 237,
+          "selected_cells": 51
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 605,
+          "selected_cells": 49
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601414002369",
+      "baseline_input_sha256": "95dc7fa0d854e4d4c6ade226be629931231c7d3184d3f711d329813ff3a814fa",
+      "surface_patches": 244,
+      "surface_samples": 1662,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 35,
+          "selected_cells": 27
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 97,
+          "selected_cells": 34
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1039,
+          "selected_cells": 36
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1173,
+          "selected_cells": 54
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 243,
+          "selected_cells": 49
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 538,
+          "selected_cells": 44
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601415402388",
+      "baseline_input_sha256": "6bad3a53bea299ee578964f0905d2def246b47cc0dedff9edcb4733895f280f0",
+      "surface_patches": 238,
+      "surface_samples": 1614,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 38,
+          "selected_cells": 26
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 104,
+          "selected_cells": 36
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1033,
+          "selected_cells": 34
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1250,
+          "selected_cells": 53
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 240,
+          "selected_cells": 49
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 485,
+          "selected_cells": 40
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601417002348",
+      "baseline_input_sha256": "492d7a6d3b53f7132673f530db04c69f1a09cadcafec90c3dee7d1246e48e1c8",
+      "surface_patches": 242,
+      "surface_samples": 1659,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 31,
+          "selected_cells": 25
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 139,
+          "selected_cells": 45
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1045,
+          "selected_cells": 39
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1299,
+          "selected_cells": 47
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 224,
+          "selected_cells": 44
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 431,
+          "selected_cells": 42
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601418402716",
+      "baseline_input_sha256": "84bbf13591e634d8c4fcb08c50c6c4057895e41209333b05d384d6fa70855b8e",
+      "surface_patches": 240,
+      "surface_samples": 1577,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 30,
+          "selected_cells": 22
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 126,
+          "selected_cells": 45
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1159,
+          "selected_cells": 40
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1281,
+          "selected_cells": 45
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 235,
+          "selected_cells": 46
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 388,
+          "selected_cells": 42
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601420402318",
+      "baseline_input_sha256": "a40b5567ca514d35e1a3278846f1f7b30b269d49a5e913c7cdfcccf62fc4a790",
+      "surface_patches": 245,
+      "surface_samples": 1646,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 33,
+          "selected_cells": 23
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 100,
+          "selected_cells": 48
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1358,
+          "selected_cells": 49
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 802,
+          "selected_cells": 42
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 280,
+          "selected_cells": 44
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 303,
+          "selected_cells": 39
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601422002318",
+      "baseline_input_sha256": "93d0a59cd4c744e848d06308492ed15e325fa101aadbec61e673f72e4ba8470a",
+      "surface_patches": 224,
+      "surface_samples": 1501,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 28,
+          "selected_cells": 20
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 104,
+          "selected_cells": 35
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1344,
+          "selected_cells": 45
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1125,
+          "selected_cells": 48
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 250,
+          "selected_cells": 45
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 255,
+          "selected_cells": 31
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601423402298",
+      "baseline_input_sha256": "0588b81f34ee1ce22cac63f37492225f3016a7a64ff658458a1c4dd0b0aeeddb",
+      "surface_patches": 218,
+      "surface_samples": 1452,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 22,
+          "selected_cells": 14
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 102,
+          "selected_cells": 36
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1392,
+          "selected_cells": 51
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1179,
+          "selected_cells": 48
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 230,
+          "selected_cells": 41
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 221,
+          "selected_cells": 28
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601425002298",
+      "baseline_input_sha256": "701ae6fa1f702b53dca2b70e2fb3abfad32a4426bccb62ee3da35f0b9758b8b7",
+      "surface_patches": 235,
+      "surface_samples": 1559,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 20,
+          "selected_cells": 14
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 103,
+          "selected_cells": 37
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1266,
+          "selected_cells": 54
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1568,
+          "selected_cells": 45
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 209,
+          "selected_cells": 51
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 184,
+          "selected_cells": 34
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601426402279",
+      "baseline_input_sha256": "c63bcc27b1dc8dd49df65d6fbc54878fc1234d443e58c52664605ed9e654ef02",
+      "surface_patches": 216,
+      "surface_samples": 1478,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 12,
+          "selected_cells": 8
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 97,
+          "selected_cells": 40
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1354,
+          "selected_cells": 43
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1581,
+          "selected_cells": 44
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 174,
+          "selected_cells": 48
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 142,
+          "selected_cells": 33
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601428402277",
+      "baseline_input_sha256": "277a9ad7aa9f47d607ba4d2263a113ba7130a45b006608c77f9e5d4eead45ea8",
+      "surface_patches": 195,
+      "surface_samples": 1295,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 4,
+          "selected_cells": 4
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 79,
+          "selected_cells": 32
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1544,
+          "selected_cells": 49
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1143,
+          "selected_cells": 44
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 132,
+          "selected_cells": 42
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 85,
+          "selected_cells": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601430002267",
+      "baseline_input_sha256": "610f9facca00d12697df69f9c41da261e8048042c294962898e4024340c92ca3",
+      "surface_patches": 187,
+      "surface_samples": 1217,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 2,
+          "selected_cells": 2
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 79,
+          "selected_cells": 35
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1711,
+          "selected_cells": 47
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 492,
+          "selected_cells": 42
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 105,
+          "selected_cells": 39
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 60,
+          "selected_cells": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601431402252",
+      "baseline_input_sha256": "4465a313ee415cb24a8dcb95f30455a2d4628fd554970daa92f64bb18651e7de",
+      "surface_patches": 174,
+      "surface_samples": 1146,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 2,
+          "selected_cells": 2
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 86,
+          "selected_cells": 36
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1797,
+          "selected_cells": 42
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 331,
+          "selected_cells": 43
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 84,
+          "selected_cells": 35
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 39,
+          "selected_cells": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "1329601433002245",
+      "baseline_input_sha256": "dccd3250d2885691c36fed3aef606fc7438165cd1182da3a1ebfd36e36483f76",
+      "surface_patches": 156,
+      "surface_samples": 1068,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 4,
+          "selected_cells": 4
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 47,
+          "selected_cells": 27
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1822,
+          "selected_cells": 42
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 367,
+          "selected_cells": 40
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 61,
+          "selected_cells": 25
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 33,
+          "selected_cells": 18
+        }
+      ]
+    }
+  ],
+  "checkpoint_path": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/LEADER-num1/research/results/pixloc_surface_direct_20260924/pixloc_surface_adapters.pt",
+  "checkpoint_sha256": "c0430fbb95d6bab6dca1f6f844890ddff12e098947b2f6b75afaed698ecd2962"
+}

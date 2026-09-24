@@ -1,0 +1,5097 @@
+{
+  "protocol": {
+    "name": "train-map LiDAR surface patches with pretrained PixLoc multi-scale direct feature alignment",
+    "dataset_note": "32 validation frames from one repeatedly used development route; not an independent test sequence",
+    "baseline": "same frozen SC2-PCR plus two-stage full-pool-refinement initial pose; compared against frozen peak_then_pose",
+    "shared_pose": true,
+    "ground_truth_in_runner": false,
+    "validation_ground_truth_used_for_training": false,
+    "candidate_policy": "one direct shared pose per frame; insufficient visual support minimizes the single LiDAR-prior objective",
+    "map_observations": "all supported observations from the train-only visual map; no RoMa peak or correspondence offsets used by the candidate",
+    "feature_model": "official PixLoc MegaDepth VGG19 U-Net; encoder, decoder and uncertainty frozen; original multi-scale feature adaptation layers fine-tuned on train split only",
+    "scales_coarse_to_fine": [
+      16,
+      4,
+      1
+    ],
+    "feature_loss": "normalized learned feature residual, PixLoc scaled Barron alpha=0 c=0.1 form and frozen uncertainty maps",
+    "patch_support": "local PCA plane from 16 nearest train-map LiDAR points, 3x3 reference pixels at offsets -4/0/4, convex-hull support, nearest-map support <=0.25 m, maximum sample radius <=0.5 m",
+    "map_selection": "one reference view per map point, selected by baseline-viewpoint angular similarity; z-buffered and spatially sampled to one patch per 18x13 image grid cell per query camera",
+    "surface_patch_weighting": "each surface patch normalized by its currently valid sample count",
+    "lidar_prior": "single existing frame-level quadratic pose prior included once",
+    "reference_pose_source": "training-split LiDAR GT used only to lift known train-map reference pixels onto the map surface"
+  },
+  "settings": {
+    "manifest_sha256": "f97b04a1006b1b21032fef522778edf2de6cbfdbad651ca9111d7afc86ff7f12",
+    "checkpoint_sha256": "c0430fbb95d6bab6dca1f6f844890ddff12e098947b2f6b75afaed698ecd2962",
+    "pixloc_checkpoint_sha256": "4718a885b3e0e8852157d57f82f3221fe971a8f6b8ac3a5a4681b677ccf05dc7",
+    "visual_map_observation_sha256": "8df2130cb22e10836f8cc13556fa75dcc64fb75af9c1392c3f2484b77c6b12b4",
+    "reference_map_sha256": "ea2fccb4d41e2490f0c263e2207e0633322f6984d4067917c81aeaca281e8b15",
+    "surface_map_cache_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+    "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+    "reference_peak_run_sha256": "d6d5cfb7cf90e1fcb32b6fe7db821491ae21312b5737c6a4e4bc43ec6bf9bfd1",
+    "expected_frames": 32,
+    "actual_frames": 32,
+    "visual_scales": [
+      123.61147595361417,
+      923.401769976494,
+      5525.865525795756
+    ],
+    "damping": [
+      [
+        0.0075223371386528015,
+        0.04603481665253639,
+        0.10710011422634125,
+        0.029397625476121902,
+        0.005802556872367859,
+        0.10944297909736633
+      ],
+      [
+        0.0023070063907653093,
+        0.017839115113019943,
+        0.06447374820709229,
+        0.0018738317303359509,
+        0.0013177810469642282,
+        0.3724580407142639
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        0.0809485986828804,
+        0.07561994343996048,
+        1.0
+      ]
+    ],
+    "inference_steps_per_scale": 15,
+    "total_solver_wall_seconds": 103.81674150900062,
+    "device": "cuda"
+  },
+  "frames": 32,
+  "records": [
+    {
+      "frame_id": "1329604635582975",
+      "baseline_pose": [
+        [
+          -0.04775996133685112,
+          -0.9977765083312988,
+          -0.04648382589221001,
+          -77.86598205566406
+        ],
+        [
+          0.9976583123207092,
+          -0.04537001997232437,
+          -0.05118074268102646,
+          -336.08523178100586
+        ],
+        [
+          0.048957981169223785,
+          -0.04881936311721802,
+          0.9976069331169128,
+          8.251571655273438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.047947743385491355,
+          -0.9977747305538004,
+          -0.046328409087494575,
+          -77.86274321160138
+        ],
+        [
+          0.9976437615239881,
+          -0.04555979770921347,
+          -0.051295664887956664,
+          -336.09058183397053
+        ],
+        [
+          0.04907081582953619,
+          -0.04867875723808595,
+          0.997608260174812,
+          8.255397740735821
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          -0.04768808800155701,
+          -0.9977582412871764,
+          -0.04694740442953195,
+          -77.86187407503996
+        ],
+        [
+          0.9976319353384352,
+          -0.0452447095792731,
+          -0.051802056865058,
+          -336.08548061123054
+        ],
+        [
+          0.04956181822041521,
+          -0.04930656856714113,
+          0.9975531542808986,
+          8.239243073157029
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 311,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 310,
+            "feature_objective": 16.535196501270768
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 311,
+            "feature_objective": 6.730636876079213
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 311,
+            "feature_objective": 5.9866535526286615
+          }
+        ],
+        "normalized_update": [
+          0.04107980624097701,
+          -0.0024883022466003213,
+          -0.12328582116408035,
+          0.03593925001584438,
+          -0.026345321125757677,
+          -0.0054285900947592175
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 312,
+      "surface_samples": 2225,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 104,
+          "selected_cells": 64
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 153,
+          "selected_cells": 47
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 372,
+          "selected_cells": 38
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 521,
+          "selected_cells": 59
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 93,
+          "selected_cells": 41
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1293,
+          "selected_cells": 63
+        }
+      ],
+      "match_cache_sha256": "c9f78ce4b6fe062eb05ef6709cd5b4d0a8079055132a3c99f4977ec5e542ad56",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.9792810919998374
+    },
+    {
+      "frame_id": "1329604636982984",
+      "baseline_pose": [
+        [
+          -0.13233140110969543,
+          -0.9901928305625916,
+          -0.04479038715362549,
+          -77.85419464111328
+        ],
+        [
+          0.9878780245780945,
+          -0.12805306911468506,
+          -0.08773788064718246,
+          -334.9998321533203
+        ],
+        [
+          0.08114181458950043,
+          -0.055857717990875244,
+          0.9951350688934326,
+          8.340240478515625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.13202110122189803,
+          -0.9902003034942645,
+          -0.045534690881655016,
+          -77.85955056477103
+        ],
+        [
+          0.9878509207337197,
+          -0.12763086323415185,
+          -0.08865346652400807,
+          -335.0051085868855
+        ],
+        [
+          0.08197299846016178,
+          -0.05668541766951254,
+          0.9950201377977013,
+          8.318770295849573
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          -0.13220700891870932,
+          -0.990209495871254,
+          -0.04478929798184788,
+          -77.85520736863805
+        ],
+        [
+          0.9878892254361088,
+          -0.12792570821749535,
+          -0.0877975350912136,
+          -335.00119606945685
+        ],
+        [
+          0.08120819108232463,
+          -0.055854116498650984,
+          0.9951298565722807,
+          8.338733373044146
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 272,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 272,
+            "feature_objective": 14.550598851666894
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 272,
+            "feature_objective": 5.865714142714389
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 272,
+            "feature_objective": 5.04747699836412
+          }
+        ],
+        "normalized_update": [
+          -0.010127275247730562,
+          -0.013639161365526153,
+          -0.015071054714786961,
+          0.0037568192716468346,
+          0.0006939835373741949,
+          -0.007157536820508669
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 272,
+      "surface_samples": 1893,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 105,
+          "selected_cells": 61
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 175,
+          "selected_cells": 44
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 353,
+          "selected_cells": 32
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 606,
+          "selected_cells": 47
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 77,
+          "selected_cells": 33
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1234,
+          "selected_cells": 55
+        }
+      ],
+      "match_cache_sha256": "b52a04349572991687843db08b449a28965b3096a881ae87970c2d6bc7f6f780",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.4825025740001365
+    },
+    {
+      "frame_id": "1329604637982961",
+      "baseline_pose": [
+        [
+          0.007336132228374481,
+          -0.9985737800598145,
+          -0.052883416414260864,
+          -78.06354713439941
+        ],
+        [
+          0.9999290108680725,
+          0.007821828126907349,
+          -0.008984401822090149,
+          -333.60972595214844
+        ],
+        [
+          0.00938531756401062,
+          -0.05281385779380798,
+          0.9985605478286743,
+          8.284561157226562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.007252652545753948,
+          -0.9986101817720651,
+          -0.05220318761353463,
+          -78.05897579567558
+        ],
+        [
+          0.9999296481830335,
+          0.007732185980521902,
+          -0.008991064609352449,
+          -333.60389463234276
+        ],
+        [
+          0.009382297855902595,
+          -0.05213441238168839,
+          0.9985962802092864,
+          8.287924114941148
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.00723522837014779,
+          -0.9985704309894514,
+          -0.05296050025478133,
+          -78.06151161099163
+        ],
+        [
+          0.9999293856021886,
+          0.00772379044870919,
+          -0.009027409603054964,
+          -333.6094616072492
+        ],
+        [
+          0.009423644576962445,
+          -0.052891551384920354,
+          0.9985560746278944,
+          8.28250840878002
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 238,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 238,
+            "feature_objective": 11.89667415237431
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 238,
+            "feature_objective": 5.033269098388567
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 238,
+            "feature_objective": 4.218113903894966
+          }
+        ],
+        "normalized_update": [
+          0.020355234077816583,
+          0.0026434489924879226,
+          -0.020527484465425915,
+          0.0021635278753844253,
+          -0.004474720978367605,
+          0.0057396891559007845
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 238,
+      "surface_samples": 1635,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 93,
+          "selected_cells": 46
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 143,
+          "selected_cells": 38
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 460,
+          "selected_cells": 34
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 522,
+          "selected_cells": 34
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 85,
+          "selected_cells": 36
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1213,
+          "selected_cells": 50
+        }
+      ],
+      "match_cache_sha256": "a5fe182392a92330e5dc446ab38ccf7a513940551501ea33212611ba18f5d94e",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.4945913999999902
+    },
+    {
+      "frame_id": "1329604639582940",
+      "baseline_pose": [
+        [
+          0.13280418515205383,
+          -0.9903361797332764,
+          -0.03997260332107544,
+          -77.66648292541504
+        ],
+        [
+          0.9907054901123047,
+          0.13143976032733917,
+          0.035023123025894165,
+          -331.3846549987793
+        ],
+        [
+          -0.029430627822875977,
+          -0.04425239562988281,
+          0.9985872507095337,
+          8.43499755859375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.13308431458258546,
+          -0.9902775934491521,
+          -0.040489043987615,
+          -77.66671023478037
+        ],
+        [
+          0.99068384715997,
+          0.13172561994269638,
+          0.03455826532961678,
+          -331.3820730244211
+        ],
+        [
+          -0.0288887828579945,
+          -0.044711105621093095,
+          0.9985826400737963,
+          8.424359585226021
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.13267356722879003,
+          -0.9903580028019122,
+          -0.039865527530722124,
+          -77.66326043848527
+        ],
+        [
+          0.9907166431473214,
+          0.1313036508929906,
+          0.03521764088451013,
+          -331.3862913960532
+        ],
+        [
+          -0.029643534477217584,
+          -0.04416799238103675,
+          0.9985846899124795,
+          8.438976331538655
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 253,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 253,
+            "feature_objective": 12.222076113591616
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 253,
+            "feature_objective": 5.347809166150357
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 253,
+            "feature_objective": 4.506827251951528
+          }
+        ],
+        "normalized_update": [
+          0.032224869297760396,
+          -0.016363972739107148,
+          0.039787729449049854,
+          -0.011455179748795171,
+          0.006402640514478238,
+          0.007363136056537281
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 253,
+      "surface_samples": 1706,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 89,
+          "selected_cells": 36
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 116,
+          "selected_cells": 43
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 552,
+          "selected_cells": 49
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 451,
+          "selected_cells": 37
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 184,
+          "selected_cells": 41
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1175,
+          "selected_cells": 47
+        }
+      ],
+      "match_cache_sha256": "d5d9863117884c0d23884c9a8d3ea1b305b5fe5b3e6895db3d85219031229ee9",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.35886785699995
+    },
+    {
+      "frame_id": "1329604640582945",
+      "baseline_pose": [
+        [
+          0.1282036006450653,
+          -0.9909123182296753,
+          -0.040706828236579895,
+          -77.57785034179688
+        ],
+        [
+          0.9913533329963684,
+          0.12920284271240234,
+          -0.02292892336845398,
+          -329.9829750061035
+        ],
+        [
+          0.027980148792266846,
+          -0.03741535544395447,
+          0.9989083409309387,
+          8.454666137695312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.1293389834377075,
+          -0.9907188724771877,
+          -0.041808776080669,
+          -77.5910003013715
+        ],
+        [
+          0.9911483332590024,
+          0.13043867309392274,
+          -0.024723976749603603,
+          -329.97035055325523
+        ],
+        [
+          0.02994814900802999,
+          -0.03824100006928816,
+          0.9988200069029659,
+          8.41940072688943
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.12822098902013554,
+          -0.9909109085216554,
+          -0.040686371744839994,
+          -77.57810756221193
+        ],
+        [
+          0.9913506595253568,
+          0.12922030800112633,
+          -0.02294608456579553,
+          -329.9828161572074
+        ],
+        [
+          0.027995189250001506,
+          -0.0373923679399146,
+          0.9989087802850966,
+          8.454984890124537
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 261,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 261,
+            "feature_objective": 12.157717622824066
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 261,
+            "feature_objective": 5.343365579935335
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 261,
+            "feature_objective": 4.587807406653809
+          }
+        ],
+        "normalized_update": [
+          -0.002572204150556365,
+          0.0015884889609845314,
+          0.0031875242922526532,
+          0.0010239069022544597,
+          0.001195652894827496,
+          -0.0009712160465460353
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 261,
+      "surface_samples": 1813,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 83,
+          "selected_cells": 35
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 118,
+          "selected_cells": 39
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 614,
+          "selected_cells": 51
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 496,
+          "selected_cells": 54
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 205,
+          "selected_cells": 37
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1138,
+          "selected_cells": 45
+        }
+      ],
+      "match_cache_sha256": "b05c9f99a5de17da8925919c4f479f42f7bd32b93f61bea0dbee686dec65e110",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.3501672400002462
+    },
+    {
+      "frame_id": "1329604641982945",
+      "baseline_pose": [
+        [
+          0.100571408867836,
+          -0.9943434000015259,
+          -0.03416341543197632,
+          -77.37254905700684
+        ],
+        [
+          0.9944583773612976,
+          0.10152169317007065,
+          -0.027322247624397278,
+          -328.2214775085449
+        ],
+        [
+          0.030636131763458252,
+          -0.03122638165950775,
+          0.9990430474281311,
+          8.492950439453125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.10091444314133521,
+          -0.994279628594048,
+          -0.034997707227828474,
+          -77.37579405295702
+        ],
+        [
+          0.9943778864501296,
+          0.101933952669217,
+          -0.028682949660716793,
+          -328.2184213992103
+        ],
+        [
+          0.03208643419892949,
+          -0.03190654601127754,
+          0.9989760275758722,
+          8.472887915329816
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.10052472934163065,
+          -0.994345211481147,
+          -0.03424797112691824,
+          -77.3708389455873
+        ],
+        [
+          0.9944617567331193,
+          0.10147874627148498,
+          -0.027358767397292164,
+          -328.2213088590324
+        ],
+        [
+          0.030679607905326207,
+          -0.0313081887361494,
+          0.9990391529384144,
+          8.491594778948823
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 270,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 270,
+            "feature_objective": 12.304001738626
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 270,
+            "feature_objective": 5.53463966393807
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 270,
+            "feature_objective": 4.7887481096413325
+          }
+        ],
+        "normalized_update": [
+          0.017101114195345175,
+          0.0016864951255560643,
+          -0.013556605043022385,
+          0.002007546695809383,
+          -0.004918785801084017,
+          0.002537799583591136
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 270,
+      "surface_samples": 1825,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 66,
+          "selected_cells": 37
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 138,
+          "selected_cells": 42
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 634,
+          "selected_cells": 58
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 567,
+          "selected_cells": 49
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 225,
+          "selected_cells": 44
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1094,
+          "selected_cells": 40
+        }
+      ],
+      "match_cache_sha256": "151f103faaa1746d78ff472e2d311337c93dbf42ca7d694c0359162e1081ba0d",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.2205314660000113
+    },
+    {
+      "frame_id": "1329604642982934",
+      "baseline_pose": [
+        [
+          0.09948734939098358,
+          -0.994598925113678,
+          -0.029604196548461914,
+          -77.22160720825195
+        ],
+        [
+          0.9944462180137634,
+          0.10041061788797379,
+          -0.03154796361923218,
+          -326.76987075805664
+        ],
+        [
+          0.0343504399061203,
+          -0.026301458477973938,
+          0.9990650415420532,
+          8.498001098632812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.1004981080940487,
+          -0.9944564673088815,
+          -0.030945566051931373,
+          -77.22025009235269
+        ],
+        [
+          0.9942713344479158,
+          0.10151989648089187,
+          -0.033452486369693335,
+          -326.74934310827564
+        ],
+        [
+          0.03640892331754129,
+          -0.027406677763732967,
+          0.9989624331228055,
+          8.472244822654638
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.09952805199838959,
+          -0.994592598759622,
+          -0.029679830383491083,
+          -77.22191985809079
+        ],
+        [
+          0.9944383173055354,
+          0.10045661838783199,
+          -0.0316503952239063,
+          -326.76914221738025
+        ],
+        [
+          0.03446107764429837,
+          -0.026364958840474843,
+          0.9990595577060473,
+          8.4966671567022
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 253,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 253,
+            "feature_objective": 11.167807207540122
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 253,
+            "feature_objective": 5.035751214976209
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 253,
+            "feature_objective": 4.331790607549907
+          }
+        ],
+        "normalized_update": [
+          -0.0031264983883326682,
+          0.007285406763681533,
+          -0.013339419306122329,
+          0.00594835808677356,
+          -0.0042587330954664705,
+          -0.0024924650129863144
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 253,
+      "surface_samples": 1680,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 39,
+          "selected_cells": 27
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 141,
+          "selected_cells": 41
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 652,
+          "selected_cells": 45
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 598,
+          "selected_cells": 47
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 255,
+          "selected_cells": 48
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 1044,
+          "selected_cells": 45
+        }
+      ],
+      "match_cache_sha256": "29bba6acd6d53bc904b7bcaa40865e81aaa32842042d5a32d51089a0114fd0cf",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.131437872999868
+    },
+    {
+      "frame_id": "1329604644582931",
+      "baseline_pose": [
+        [
+          0.16431619226932526,
+          -0.9853332042694092,
+          -0.04603734612464905,
+          -76.95608329772949
+        ],
+        [
+          0.9839493632316589,
+          0.1670207530260086,
+          -0.0628332570195198,
+          -324.6396713256836
+        ],
+        [
+          0.06960099190473557,
+          -0.03497402369976044,
+          0.996962308883667,
+          8.528717041015625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.1643015244378382,
+          -0.9852540026166936,
+          -0.04775280854758801,
+          -76.94958678848899
+        ],
+        [
+          0.9838158459729834,
+          0.16718570965540677,
+          -0.06446409002715234,
+          -324.645554762362
+        ],
+        [
+          0.07149719434960594,
+          -0.03638854937682819,
+          0.9967774832595903,
+          8.496345706293733
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.16435712262517652,
+          -0.9853198308949408,
+          -0.04617725420816914,
+          -76.95685554205275
+        ],
+        [
+          0.9839394314140791,
+          0.16707205531652083,
+          -0.06285239160206527,
+          -324.6384870248097
+        ],
+        [
+          0.06964474187554746,
+          -0.035105510798537555,
+          0.9969546322798389,
+          8.526489793234516
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 255,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 255,
+            "feature_objective": 11.183626636051248
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 255,
+            "feature_objective": 5.224435849008885
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 255,
+            "feature_objective": 4.379257853401084
+          }
+        ],
+        "normalized_update": [
+          -0.0077224432326128585,
+          0.0118430087387413,
+          -0.02227247781108225,
+          0.0012356092967455942,
+          -0.007855324867921318,
+          -0.0029392381170044645
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 255,
+      "surface_samples": 1689,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 33,
+          "selected_cells": 21
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 129,
+          "selected_cells": 46
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 790,
+          "selected_cells": 42
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 560,
+          "selected_cells": 51
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 353,
+          "selected_cells": 49
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 977,
+          "selected_cells": 46
+        }
+      ],
+      "match_cache_sha256": "e2570b81af26b7f794963468eb1f011cb8ec07a7f94bbaf057b429528ad2a083",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.161555940999733
+    },
+    {
+      "frame_id": "1329604645582910",
+      "baseline_pose": [
+        [
+          0.17566172778606415,
+          -0.9831528663635254,
+          -0.05052584409713745,
+          -76.65946388244629
+        ],
+        [
+          0.9834377765655518,
+          0.17757712304592133,
+          -0.0362754762172699,
+          -323.04798889160156
+        ],
+        [
+          0.044636428356170654,
+          -0.04331664741039276,
+          0.9980631470680237,
+          8.556503295898438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.17535203035667554,
+          -0.9831341619358847,
+          -0.051945624416085114,
+          -76.64781770395362
+        ],
+        [
+          0.983411951508954,
+          0.17739964412538126,
+          -0.037811444034485366,
+          -323.0599766430552
+        ],
+        [
+          0.0463887141503122,
+          -0.04445347129046814,
+          0.997933245981862,
+          8.531057365910826
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.1756374390347318,
+          -0.983153113518646,
+          -0.0506054107446987,
+          -76.65961298177707
+        ],
+        [
+          0.983442117171384,
+          0.17755580726955522,
+          -0.0362621379084522,
+          -323.0475698437885
+        ],
+        [
+          0.044636374227345184,
+          -0.04339833976556344,
+          0.9980596006198799,
+          8.555087743080106
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 263,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 263,
+            "feature_objective": 11.57131698818688
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 263,
+            "feature_objective": 5.490568804816994
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 263,
+            "feature_objective": 4.525937267602728
+          }
+        ],
+        "normalized_update": [
+          -0.0014909933078446776,
+          0.0041904781304716,
+          -0.01415552818330551,
+          -0.0008268021555023916,
+          -0.0046115049002873705,
+          0.001205769564929758
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 263,
+      "surface_samples": 1729,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 35,
+          "selected_cells": 26
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 120,
+          "selected_cells": 46
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 820,
+          "selected_cells": 43
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 588,
+          "selected_cells": 52
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 387,
+          "selected_cells": 51
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 907,
+          "selected_cells": 45
+        }
+      ],
+      "match_cache_sha256": "8817b7f109d2e79a1e5a2d12060d728cd7c5481719d4875879c593259862479e",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.096396408000146
+    },
+    {
+      "frame_id": "1329604646982902",
+      "baseline_pose": [
+        [
+          0.1947888284921646,
+          -0.9804586172103882,
+          -0.02753204107284546,
+          -76.42869758605957
+        ],
+        [
+          0.9805669784545898,
+          0.19532528519630432,
+          -0.018338128924369812,
+          -321.12874603271484
+        ],
+        [
+          0.02335740625858307,
+          -0.023424848914146423,
+          0.9994524717330933,
+          8.517837524414062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.19361131455285732,
+          -0.9806889163808089,
+          -0.027635288988787886,
+          -76.4082195521118
+        ],
+        [
+          0.9807670530928787,
+          0.19418250337149517,
+          -0.019722991309322636,
+          -321.1481651318915
+        ],
+        [
+          0.024708334882531758,
+          -0.023285087888789285,
+          0.9994232526451402,
+          8.505762159321877
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.19480844746000817,
+          -0.9804510732399411,
+          -0.02766157738154342,
+          -76.42682102074062
+        ],
+        [
+          0.980562723811123,
+          0.19534767622487786,
+          -0.018327119486363057,
+          -321.1282478872632
+        ],
+        [
+          0.023372394793326402,
+          -0.023553535232803985,
+          0.999449096922685,
+          8.51497182739976
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 250,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 248,
+            "feature_objective": 11.103563755951548
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 250,
+            "feature_objective": 5.164239707656091
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 250,
+            "feature_objective": 4.129028779334893
+          }
+        ],
+        "normalized_update": [
+          0.018765653189586364,
+          0.004981454515877462,
+          -0.028656970143014823,
+          -0.0005946177357385953,
+          -0.0074016997610659285,
+          -0.001322731516794734
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 250,
+      "surface_samples": 1621,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 35,
+          "selected_cells": 23
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 105,
+          "selected_cells": 42
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 856,
+          "selected_cells": 39
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 603,
+          "selected_cells": 49
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 416,
+          "selected_cells": 53
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 849,
+          "selected_cells": 44
+        }
+      ],
+      "match_cache_sha256": "38330bfec1e31e2dbe60e25195d2902d40a7e0e50b1d279a9dae259bec11066d",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.1386161450000145
+    },
+    {
+      "frame_id": "1329604647983097",
+      "baseline_pose": [
+        [
+          0.16170629858970642,
+          -0.9867337346076965,
+          -0.014399334788322449,
+          -76.2175064086914
+        ],
+        [
+          0.9867943525314331,
+          0.1615431159734726,
+          0.011860430240631104,
+          -319.87776947021484
+        ],
+        [
+          -0.009376965463161469,
+          -0.01612706482410431,
+          0.9998257756233215,
+          8.571502685546875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.1609893950848837,
+          -0.9868735048073767,
+          -0.012760521666061904,
+          -76.2023904174251
+        ],
+        [
+          0.9869030097619191,
+          0.16083314193826134,
+          0.012453600106895698,
+          -319.8706640118732
+        ],
+        [
+          -0.010237805716050524,
+          -0.014598270944998574,
+          0.9998408219210712,
+          8.572652191696509
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.1616631811503159,
+          -0.9867384899457355,
+          -0.014556757265806158,
+          -76.21626953250355
+        ],
+        [
+          0.9868027742157144,
+          0.1615004866187713,
+          0.011739673533670676,
+          -319.87816353654614
+        ],
+        [
+          -0.009233056554610118,
+          -0.016262497736227795,
+          0.9998249212396352,
+          8.567842691529881
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 264,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 261,
+            "feature_objective": 11.664714176417935
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 264,
+            "feature_objective": 5.435742601450961
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 264,
+            "feature_objective": 4.456375372140428
+          }
+        ],
+        "normalized_update": [
+          0.012368761878655649,
+          -0.003940663312900751,
+          -0.03659994016994763,
+          0.006882578528307726,
+          -0.008990671990563283,
+          0.002588274536137545
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 264,
+      "surface_samples": 1691,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 31,
+          "selected_cells": 24
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 101,
+          "selected_cells": 42
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 876,
+          "selected_cells": 45
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 681,
+          "selected_cells": 48
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 401,
+          "selected_cells": 60
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 822,
+          "selected_cells": 45
+        }
+      ],
+      "match_cache_sha256": "686c3efb642c6691bf5b16d8aa6060af979d88877c23c5a716c106221e97d5d7",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.1297422369998458
+    },
+    {
+      "frame_id": "1329604649582929",
+      "baseline_pose": [
+        [
+          0.02101985737681389,
+          -0.9991621375083923,
+          -0.03511403873562813,
+          -76.14029693603516
+        ],
+        [
+          0.9985276460647583,
+          0.02273746393620968,
+          -0.04924730211496353,
+          -317.74237060546875
+        ],
+        [
+          0.050004422664642334,
+          -0.034027136862277985,
+          0.9981689453125,
+          8.497695922851562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.02019942137814923,
+          -0.9993456305457805,
+          -0.030001690308464803,
+          -76.12645723614584
+        ],
+        [
+          0.998635347191001,
+          0.021612524184557762,
+          -0.04754040975717265,
+          -317.74359891146554
+        ],
+        [
+          0.04815769266160762,
+          -0.02900042839446066,
+          0.998418421247802,
+          8.528325952172537
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.021041521272192915,
+          -0.9991748912235999,
+          -0.03473612323428072,
+          -76.13692350713329
+        ],
+        [
+          0.9985341758946571,
+          0.022735752950993976,
+          -0.049115517829249965,
+          -317.74078140344574
+        ],
+        [
+          0.04986472298853226,
+          -0.03365171059088982,
+          0.998188661285639,
+          8.500713198809617
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 279,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 278,
+            "feature_objective": 12.888702373267044
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 279,
+            "feature_objective": 5.694805336418059
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 279,
+            "feature_objective": 4.669447805534523
+          }
+        ],
+        "normalized_update": [
+          0.03373428901870426,
+          0.015892020230289853,
+          0.030172759580545938,
+          -0.007558935295906717,
+          0.02170024857755418,
+          -0.00015788906653550042
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 279,
+      "surface_samples": 1826,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 33,
+          "selected_cells": 24
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 91,
+          "selected_cells": 47
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 709,
+          "selected_cells": 47
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 954,
+          "selected_cells": 56
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 303,
+          "selected_cells": 57
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 793,
+          "selected_cells": 48
+        }
+      ],
+      "match_cache_sha256": "6a96b73933159b933303988bf848c7d75be38d4c361afb6665c09c3f2b1c4b33",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.2088096140000744
+    },
+    {
+      "frame_id": "1329604651582866",
+      "baseline_pose": [
+        [
+          0.08453744649887085,
+          -0.9956074953079224,
+          -0.04023605212569237,
+          -75.81900405883789
+        ],
+        [
+          0.9960100650787354,
+          0.08559238910675049,
+          -0.02525213733315468,
+          -314.84588623046875
+        ],
+        [
+          0.028585096821188927,
+          -0.03794075921177864,
+          0.9988711476325989,
+          8.601837158203125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.0844713968652825,
+          -0.9956430269773974,
+          -0.039488611318089076,
+          -75.82487940766248
+        ],
+        [
+          0.9960296939048026,
+          0.08548900796655332,
+          -0.02482449524073322,
+          -314.8361592979823
+        ],
+        [
+          0.028092157811501057,
+          -0.0372348673163008,
+          0.9989116947536608,
+          8.586794709467132
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.08457677976369529,
+          -0.9956189783734116,
+          -0.03986756409376141,
+          -75.81709127336825
+        ],
+        [
+          0.996008117594395,
+          0.08562049888663491,
+          -0.025233650545772764,
+          -314.84533932455713
+        ],
+        [
+          0.028536561983638718,
+          -0.037574234110229504,
+          0.9988863899947695,
+          8.603637189090065
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 256,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 256,
+            "feature_objective": 11.951912574678705
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 256,
+            "feature_objective": 5.200453914916421
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 256,
+            "feature_objective": 4.301427383269631
+          }
+        ],
+        "normalized_update": [
+          0.01912785469646868,
+          0.005469059115977028,
+          0.01800030886939806,
+          -0.0009940290375289231,
+          0.02117834081969571,
+          -0.0016553654762806133
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 257,
+      "surface_samples": 1672,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 29,
+          "selected_cells": 20
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 68,
+          "selected_cells": 38
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 895,
+          "selected_cells": 50
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1030,
+          "selected_cells": 56
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 357,
+          "selected_cells": 51
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 716,
+          "selected_cells": 42
+        }
+      ],
+      "match_cache_sha256": "eb694d07191beac2316f9da39e62c585582a6cb9b3f73302e5d58b2e82adc3b8",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.077662352000061
+    },
+    {
+      "frame_id": "1329604652583020",
+      "baseline_pose": [
+        [
+          0.04244526848196983,
+          -0.998677134513855,
+          -0.029017988592386246,
+          -75.59627914428711
+        ],
+        [
+          0.9987351894378662,
+          0.04319591075181961,
+          -0.02574223279953003,
+          -313.4092712402344
+        ],
+        [
+          0.026961641386151314,
+          -0.027888627722859383,
+          0.9992474317550659,
+          8.595489501953125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.04219183054168605,
+          -0.9987199994623521,
+          -0.02789042224317553,
+          -75.61597759616525
+        ],
+        [
+          0.9987417594765902,
+          0.04291768309878876,
+          -0.025951842272342568,
+          -313.40698402784017
+        ],
+        [
+          0.027115620173235117,
+          -0.026760351531685243,
+          0.9992741177026038,
+          8.578825820206497
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.04238047677018816,
+          -0.9986766223326916,
+          -0.029130099613275156,
+          -75.5980167087646
+        ],
+        [
+          0.9987339265095044,
+          0.04313821306300033,
+          -0.02588757353231701,
+          -313.4074724196516
+        ],
+        [
+          0.027109938617998774,
+          -0.02799606834263295,
+          0.9992404149721315,
+          8.595748258562688
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 240,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 240,
+            "feature_objective": 10.966571396037955
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 240,
+            "feature_objective": 4.92222404137094
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 240,
+            "feature_objective": 4.031821167119836
+          }
+        ],
+        "normalized_update": [
+          -0.017375644774881797,
+          0.01798820582813337,
+          0.002587566095629424,
+          0.008230696835038244,
+          -0.006519815550558255,
+          0.0035405035588676847
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 240,
+      "surface_samples": 1585,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 32,
+          "selected_cells": 20
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 70,
+          "selected_cells": 35
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 798,
+          "selected_cells": 41
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1073,
+          "selected_cells": 51
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 323,
+          "selected_cells": 47
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 699,
+          "selected_cells": 46
+        }
+      ],
+      "match_cache_sha256": "fef1d6dd00f51488dcbfa321943782c56c93238ff3352e2f92325e9d0971e85d",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.1023106100001314
+    },
+    {
+      "frame_id": "1329604653982864",
+      "baseline_pose": [
+        [
+          -0.052639201283454895,
+          -0.9982119202613831,
+          -0.028322413563728333,
+          -75.7154598236084
+        ],
+        [
+          0.998508095741272,
+          -0.05220041051506996,
+          -0.01602303981781006,
+          -311.4006576538086
+        ],
+        [
+          0.014515956863760948,
+          -0.02912360429763794,
+          0.9994704127311707,
+          8.6895751953125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.05274836565463034,
+          -0.9982300531795087,
+          -0.02746731115472,
+          -75.70367732698296
+        ],
+        [
+          0.9985054618864339,
+          -0.05232935805775035,
+          -0.01576448063178928,
+          -311.38494977480815
+        ],
+        [
+          0.0142992405398626,
+          -0.02825781576208581,
+          0.9994983895977194,
+          8.67264948851942
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          -0.052643641686165255,
+          -0.9982090535858354,
+          -0.028415043560721026,
+          -75.71521942666905
+        ],
+        [
+          0.9985071808960819,
+          -0.05220199334376297,
+          -0.016074809919962563,
+          -311.4006527682253
+        ],
+        [
+          0.01456270803352766,
+          -0.02921886663362202,
+          0.9994669522428313,
+          8.688629097103792
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 254,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 254,
+            "feature_objective": 11.89595399603224
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 254,
+            "feature_objective": 5.192342945742472
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 254,
+            "feature_objective": 4.223808752869976
+          }
+        ],
+        "normalized_update": [
+          0.002403969393514144,
+          4.885583292653498e-05,
+          -0.009460982087084865,
+          0.0029627489397459263,
+          -0.005312978381932666,
+          0.0001774339710745208
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 255,
+      "surface_samples": 1686,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 38,
+          "selected_cells": 30
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 85,
+          "selected_cells": 37
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 616,
+          "selected_cells": 40
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1156,
+          "selected_cells": 49
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 276,
+          "selected_cells": 48
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 678,
+          "selected_cells": 51
+        }
+      ],
+      "match_cache_sha256": "ec68d53c514ad7413dcf29a4e8bde5a61076a05fe25cb5938caf38c05b98ddae",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.1547332179998193
+    },
+    {
+      "frame_id": "1329604654982854",
+      "baseline_pose": [
+        [
+          -0.05566826090216637,
+          -0.9980331063270569,
+          -0.0288141667842865,
+          -75.84340476989746
+        ],
+        [
+          0.9982535243034363,
+          -0.055062826722860336,
+          -0.021385187283158302,
+          -309.8485565185547
+        ],
+        [
+          0.019756540656089783,
+          -0.02995433658361435,
+          0.9993554353713989,
+          8.701644897460938
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.055799364847771496,
+          -0.9980039743894875,
+          -0.029559953375958795,
+          -75.84083079500404
+        ],
+        [
+          0.9982377520024523,
+          -0.05516484045249972,
+          -0.021853390670734232,
+          -309.8702419407389
+        ],
+        [
+          0.020179105888873224,
+          -0.030727283842671694,
+          0.9993235247514042,
+          8.674923203535403
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          -0.05568634917906972,
+          -0.9980354936437472,
+          -0.028696284822666264,
+          -75.84343708958798
+        ],
+        [
+          0.9982514764213557,
+          -0.05508186114499598,
+          -0.02143171220766713,
+          -309.84998293161556
+        ],
+        [
+          0.019808970000702947,
+          -0.02983957928315296,
+          0.9993578306083316,
+          8.70254649888267
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 262,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 261,
+            "feature_objective": 12.460166487393934
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 262,
+            "feature_objective": 5.334199062606393
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 262,
+            "feature_objective": 4.347116259910458
+          }
+        ],
+        "normalized_update": [
+          -0.000323196905221317,
+          -0.014264130608729742,
+          0.009016014217320045,
+          0.0026336856298387313,
+          0.006733388037582116,
+          0.0011716343224476118
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 262,
+      "surface_samples": 1757,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 41,
+          "selected_cells": 33
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 97,
+          "selected_cells": 35
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 636,
+          "selected_cells": 39
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1189,
+          "selected_cells": 49
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 263,
+          "selected_cells": 51
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 644,
+          "selected_cells": 55
+        }
+      ],
+      "match_cache_sha256": "ac22495d78a6b5d1bb9b2ccb4373b392a6d4b4101413a2151a7e0deeb69b8368",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.1809141660000932
+    },
+    {
+      "frame_id": "1329604656582868",
+      "baseline_pose": [
+        [
+          -0.024378785863518715,
+          -0.9994841814041138,
+          -0.020901940762996674,
+          -75.87954902648926
+        ],
+        [
+          0.9994707703590393,
+          -0.023917514830827713,
+          -0.022044464945793152,
+          -307.7262649536133
+        ],
+        [
+          0.021533174440264702,
+          -0.02142830565571785,
+          0.9995384216308594,
+          8.744735717773438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.02374168039818688,
+          -0.9994996892876405,
+          -0.02089375540642675,
+          -75.86833075094664
+        ],
+        [
+          0.9994854054409752,
+          -0.023280193804188574,
+          -0.022063171925467116,
+          -307.7257473679011
+        ],
+        [
+          0.021565725726379412,
+          -0.02140682989979223,
+          0.9995381800153106,
+          8.719395247487135
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          -0.024390396424193262,
+          -0.9994807092532895,
+          -0.021053873621524964,
+          -75.88062008612661
+        ],
+        [
+          0.9994685199506607,
+          -0.02392380117085203,
+          -0.02213946970198936,
+          -307.7283797868201
+        ],
+        [
+          0.021624287124723775,
+          -0.021582683894463783,
+          0.9995331331004288,
+          8.744821096676835
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 238,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 238,
+            "feature_objective": 11.618516847957178
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 238,
+            "feature_objective": 4.942372687794943
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 238,
+            "feature_objective": 3.9622058856152336
+          }
+        ],
+        "normalized_update": [
+          -0.01071059637356772,
+          -0.021148332068122663,
+          0.0008537890339713396,
+          0.005435881642425097,
+          -0.008719704563174436,
+          0.00047732911918450566
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 238,
+      "surface_samples": 1584,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 40,
+          "selected_cells": 31
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 88,
+          "selected_cells": 32
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 771,
+          "selected_cells": 34
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1228,
+          "selected_cells": 49
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 277,
+          "selected_cells": 47
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 576,
+          "selected_cells": 45
+        }
+      ],
+      "match_cache_sha256": "88767e300a2d55a9ab8eeaa8e3f9778050185bd6d136cc15d88e7c18714d1794",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.133323836999807
+    },
+    {
+      "frame_id": "1329604657582841",
+      "baseline_pose": [
+        [
+          0.06441740691661835,
+          -0.9978123307228088,
+          -0.014843214303255081,
+          -75.83900451660156
+        ],
+        [
+          0.9974732398986816,
+          0.06482810527086258,
+          -0.029055694118142128,
+          -306.2379913330078
+        ],
+        [
+          0.029954416677355766,
+          -0.012934007681906223,
+          0.9994670152664185,
+          8.713150024414062
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.0636267828770669,
+          -0.9978340194764279,
+          -0.016681525575376655,
+          -75.85056633945821
+        ],
+        [
+          0.9975068044317847,
+          0.0640997195867275,
+          -0.02951578227411285,
+          -306.23397525896775
+        ],
+        [
+          0.030521161827791254,
+          -0.014761932618323209,
+          0.9994245415629575,
+          8.699067179508129
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.0643734634510766,
+          -0.9978159894681284,
+          -0.014787801219718899,
+          -75.83829717780515
+        ],
+        [
+          0.9974755757142587,
+          0.06478278581477309,
+          -0.0290765780085233,
+          -306.23849758764055
+        ],
+        [
+          0.02997109879760685,
+          -0.012878701566026848,
+          0.9994672293394631,
+          8.713923539256298
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 223,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 223,
+            "feature_objective": 10.526620442512513
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 223,
+            "feature_objective": 4.482465087247193
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 223,
+            "feature_objective": 3.636056747286097
+          }
+        ],
+        "normalized_update": [
+          0.007073387964226267,
+          -0.005062546327389097,
+          0.007735148422348263,
+          0.0011583996535798268,
+          0.0031005136404904147,
+          0.0026172852458400697
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 223,
+      "surface_samples": 1480,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 31,
+          "selected_cells": 24
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 75,
+          "selected_cells": 27
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1008,
+          "selected_cells": 33
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1205,
+          "selected_cells": 50
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 295,
+          "selected_cells": 46
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 511,
+          "selected_cells": 43
+        }
+      ],
+      "match_cache_sha256": "d07c1567e71cb166f1392718db45ab6ae16b6fa10fe3c807e600a27e54ecd0cd",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.1089337010002964
+    },
+    {
+      "frame_id": "1329604658983490",
+      "baseline_pose": [
+        [
+          0.13456043601036072,
+          -0.990677535533905,
+          -0.021263640373945236,
+          -75.64179611206055
+        ],
+        [
+          0.9904863834381104,
+          0.13509656488895416,
+          -0.026192039251327515,
+          -304.1961212158203
+        ],
+        [
+          0.028820516541600227,
+          -0.017536930739879608,
+          0.9994315505027771,
+          8.769454956054688
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.1337047645815905,
+          -0.9907353032260997,
+          -0.023816539148921116,
+          -75.64700428819768
+        ],
+        [
+          0.9905710752299679,
+          0.13432972452639771,
+          -0.0269230515319056,
+          -304.20093512114516
+        ],
+        [
+          0.029872892984393943,
+          -0.019992229646860975,
+          0.9993545473062395,
+          8.76005835900798
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.13452086774621988,
+          -0.9906821567333594,
+          -0.021298667039655644,
+          -75.64128646583232
+        ],
+        [
+          0.9904904329580055,
+          0.13505874986517635,
+          -0.026233887463794493,
+          -304.19613405715756
+        ],
+        [
+          0.028866022393067042,
+          -0.017567117324638226,
+          0.9994297070796682,
+          8.768221968754293
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 223,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 223,
+            "feature_objective": 10.6224474463828
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 223,
+            "feature_objective": 4.464509974467687
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 223,
+            "feature_objective": 3.5657405870347536
+          }
+        ],
+        "normalized_update": [
+          0.005096462282250246,
+          -0.00012841337246638593,
+          -0.012329873003950862,
+          0.0023516358351152434,
+          -0.0020664772494721354,
+          0.0022286889565316876
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 224,
+      "surface_samples": 1504,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 33,
+          "selected_cells": 28
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 69,
+          "selected_cells": 31
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1089,
+          "selected_cells": 31
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1203,
+          "selected_cells": 48
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 303,
+          "selected_cells": 44
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 452,
+          "selected_cells": 42
+        }
+      ],
+      "match_cache_sha256": "791e9ccf79314cb19ca4006f6c027cde9db3cd555a89727057fa76926aa13b0d",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.0936925670002893
+    },
+    {
+      "frame_id": "1329604659982823",
+      "baseline_pose": [
+        [
+          0.07671607285737991,
+          -0.9968717098236084,
+          -0.01900501362979412,
+          -75.51045799255371
+        ],
+        [
+          0.9967682957649231,
+          0.07713604718446732,
+          -0.02242865413427353,
+          -302.8437805175781
+        ],
+        [
+          0.023824457079172134,
+          -0.017222952097654343,
+          0.9995678663253784,
+          8.825469970703125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.07609428263277918,
+          -0.9968374947910594,
+          -0.022900257269697542,
+          -75.5104501171856
+        ],
+        [
+          0.996794889471107,
+          0.07661993683166712,
+          -0.023008324628316517,
+          -302.8466199258178
+        ],
+        [
+          0.02469017024591027,
+          -0.021076051799216088,
+          0.9994730359916635,
+          8.806897167439896
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.0767134258774479,
+          -0.996869538003434,
+          -0.01912921109785401,
+          -75.50838905479105
+        ],
+        [
+          0.996769085704317,
+          0.0771357679095623,
+          -0.022394482275988347,
+          -302.84339750762433
+        ],
+        [
+          0.02379991819755164,
+          -0.01734944410258377,
+          0.9995662633892648,
+          8.825186885770826
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 227,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 228,
+            "feature_objective": 10.86178717060776
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 228,
+            "feature_objective": 4.5597488504669546
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 227,
+            "feature_objective": 3.6697314857898693
+          }
+        ],
+        "normalized_update": [
+          0.020689377626577597,
+          0.0038300995379239523,
+          -0.002830849322988625,
+          -0.0019584096613673423,
+          -0.007118671307755105,
+          -1.7908225581483904e-05
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 228,
+      "surface_samples": 1534,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 31,
+          "selected_cells": 26
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 80,
+          "selected_cells": 37
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1046,
+          "selected_cells": 30
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1277,
+          "selected_cells": 47
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 291,
+          "selected_cells": 42
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 431,
+          "selected_cells": 46
+        }
+      ],
+      "match_cache_sha256": "212f74dbdd61c9fe5f56b3f85ff6cb44357b9260e24cb2d217db477ab1e1f1f5",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.0258072999999968
+    },
+    {
+      "frame_id": "1329604661582864",
+      "baseline_pose": [
+        [
+          0.024300159886479378,
+          -0.9996246695518494,
+          -0.012668699026107788,
+          -75.37560653686523
+        ],
+        [
+          0.9991627335548401,
+          0.024702347815036774,
+          -0.03261946886777878,
+          -300.5901184082031
+        ],
+        [
+          0.032920174300670624,
+          -0.011865377426147461,
+          0.9993879199028015,
+          8.881179809570312
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.02389223730489493,
+          -0.9995842657182035,
+          -0.01615335279256469,
+          -75.3656102137812
+        ],
+        [
+          0.9991247542657005,
+          0.02443007038164186,
+          -0.033960284347298926,
+          -300.58634957056677
+        ],
+        [
+          0.034340794710455695,
+          -0.015327770073691835,
+          0.9992930042847733,
+          8.850484420096059
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.024257225912789462,
+          -0.9996227293618454,
+          -0.012901924019993806,
+          -75.37542561691525
+        ],
+        [
+          0.9991650400749208,
+          0.024666585108238753,
+          -0.0325758519784279,
+          -300.5904626026812
+        ],
+        [
+          0.032881810387703984,
+          -0.012100895336973923,
+          0.9993863589004706,
+          8.88149135254715
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 242,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 241,
+            "feature_objective": 11.339726609297623
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 242,
+            "feature_objective": 4.818347740363298
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 242,
+            "feature_objective": 3.931303585204861
+          }
+        ],
+        "normalized_update": [
+          0.001809199499900203,
+          -0.003441944780700029,
+          0.003115429768365656,
+          -0.002526432430422633,
+          -0.013436874891388145,
+          0.0020195375222487356
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 242,
+      "surface_samples": 1581,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 31,
+          "selected_cells": 21
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 95,
+          "selected_cells": 40
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 982,
+          "selected_cells": 40
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1384,
+          "selected_cells": 49
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 269,
+          "selected_cells": 48
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 380,
+          "selected_cells": 44
+        }
+      ],
+      "match_cache_sha256": "cdb95bfe55dad122b3e560aabf8ea5c96d0aafb725643bfc0098e0c9258384cc",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.2345526740000423
+    },
+    {
+      "frame_id": "1329604662982805",
+      "baseline_pose": [
+        [
+          0.010595724917948246,
+          -0.999809741973877,
+          -0.016385942697525024,
+          -75.25103378295898
+        ],
+        [
+          0.9995639324188232,
+          0.011041888035833836,
+          -0.02739344909787178,
+          -298.6113052368164
+        ],
+        [
+          0.027569184079766273,
+          -0.016088511794805527,
+          0.9994907379150391,
+          8.92236328125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.009336801041523277,
+          -0.9998036850070569,
+          -0.017484389084404285,
+          -75.24970387538936
+        ],
+        [
+          0.9995419732925878,
+          0.00983479471968941,
+          -0.028626913765452615,
+          -298.5991751995727
+        ],
+        [
+          0.028793264188232002,
+          -0.017209064709299848,
+          0.9994375574772663,
+          8.89333157411863
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.010547707358608396,
+          -0.999811033028799,
+          -0.016338076162463074,
+          -75.25360004454924
+        ],
+        [
+          0.9995638263286636,
+          0.010992940288999309,
+          -0.02741699680782374,
+          -298.6093033240498
+        ],
+        [
+          0.02759143444297738,
+          -0.016041731412977652,
+          0.9994908758477302,
+          8.920018248432841
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 233,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 233,
+            "feature_objective": 11.168029404520667
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 233,
+            "feature_objective": 4.789983646762151
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 233,
+            "feature_objective": 3.9233698565922794
+          }
+        ],
+        "normalized_update": [
+          -0.02566261590263972,
+          0.02001912766635607,
+          -0.02345032817158469,
+          0.0013036095105299166,
+          0.0026664616301736144,
+          0.0028259777951190087
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 233,
+      "surface_samples": 1557,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 25,
+          "selected_cells": 21
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 115,
+          "selected_cells": 42
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 941,
+          "selected_cells": 40
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1434,
+          "selected_cells": 48
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 254,
+          "selected_cells": 42
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 327,
+          "selected_cells": 40
+        }
+      ],
+      "match_cache_sha256": "ca214c461719973344d54cfc520406c5d8dc2f8f94807e7e6fbcc8b87bbaf7a6",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.467541586000152
+    },
+    {
+      "frame_id": "1329604663982801",
+      "baseline_pose": [
+        [
+          -0.0032398835755884647,
+          -0.9997421503067017,
+          -0.0224892720580101,
+          -75.3419189453125
+        ],
+        [
+          0.9997300505638123,
+          -0.002720746211707592,
+          -0.02306922897696495,
+          -297.1383590698242
+        ],
+        [
+          0.023002086207270622,
+          -0.022557947784662247,
+          0.9994809627532959,
+          8.910354614257812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.0038463642965283935,
+          -0.9996987218790699,
+          -0.024254945945713174,
+          -75.32764960027004
+        ],
+        [
+          0.9997212460266388,
+          -0.003279139812933263,
+          -0.023376122417678,
+          -297.14621892952584
+        ],
+        [
+          0.023289537145158603,
+          -0.024338103531560223,
+          0.9994325420394466,
+          8.890260097323223
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          -0.0032867158844288647,
+          -0.9997407503090002,
+          -0.02254464429954945,
+          -75.34208015059319
+        ],
+        [
+          0.9997314270185552,
+          -0.002767782079836808,
+          -0.02300389065146724,
+          -297.1390874498361
+        ],
+        [
+          0.022935521488101105,
+          -0.02261420177737554,
+          0.9994812212432249,
+          8.910614111259257
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 226,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 226,
+            "feature_objective": 10.436260973862556
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 226,
+            "feature_objective": 4.465288479392291
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 226,
+            "feature_objective": 3.6179200310690227
+          }
+        ],
+        "normalized_update": [
+          -0.001612052806903174,
+          -0.007283800118928593,
+          0.0025949700144504593,
+          -0.003804347039924647,
+          -0.0032343927450621287,
+          0.0026097061993640208
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 226,
+      "surface_samples": 1512,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 22,
+          "selected_cells": 16
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 114,
+          "selected_cells": 40
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 920,
+          "selected_cells": 42
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1469,
+          "selected_cells": 47
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 237,
+          "selected_cells": 48
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 283,
+          "selected_cells": 33
+        }
+      ],
+      "match_cache_sha256": "2d1fe81b80212289dad7f9bbcd380a43a559e9d0fa105ce02d7fca640f5c0b7a",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.864823328000057
+    },
+    {
+      "frame_id": "1329604665582834",
+      "baseline_pose": [
+        [
+          -0.018042849376797676,
+          -0.9998356699943542,
+          -0.0017396286129951477,
+          -75.3221492767334
+        ],
+        [
+          0.9994481205940247,
+          -0.017987502738833427,
+          -0.02791913039982319,
+          -294.9818801879883
+        ],
+        [
+          0.027883248403668404,
+          -0.002242404967546463,
+          0.9996085166931152,
+          8.945755004882812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.017425569253440777,
+          -0.999836968904796,
+          -0.004724743266203129,
+          -75.32125541441651
+        ],
+        [
+          0.9994798932787895,
+          -0.017290975009681717,
+          -0.02721283982100103,
+          -294.9663156028009
+        ],
+        [
+          0.027126706060923603,
+          -0.005196481729196356,
+          0.9996183416411228,
+          8.930665892322276
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          -0.018032290997359705,
+          -0.9998357557708223,
+          -0.0017988006994616777,
+          -75.32239070114422
+        ],
+        [
+          0.9994480589096968,
+          -0.01797527535123829,
+          -0.027929211738118027,
+          -294.98147763219885
+        ],
+        [
+          0.027892288130018678,
+          -0.002301431318356168,
+          0.9996081303406522,
+          8.946729407081387
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 229,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 229,
+            "feature_objective": 10.531909996543941
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 229,
+            "feature_objective": 4.566421079934095
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 229,
+            "feature_objective": 3.7050613215813004
+          }
+        ],
+        "normalized_update": [
+          -0.002414244108169274,
+          0.004025557894551943,
+          0.009744021985742687,
+          0.0005790822968701824,
+          -0.00337210206926718,
+          -0.0006993769745056222
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 229,
+      "surface_samples": 1538,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 20,
+          "selected_cells": 15
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 116,
+          "selected_cells": 40
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 932,
+          "selected_cells": 49
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1525,
+          "selected_cells": 50
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 226,
+          "selected_cells": 46
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 245,
+          "selected_cells": 29
+        }
+      ],
+      "match_cache_sha256": "d0d2848bab52932e54a7622886555021e665cc5c48527ede306caab655aa07af",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.617060656999911
+    },
+    {
+      "frame_id": "1329604666582815",
+      "baseline_pose": [
+        [
+          -0.010023505426943302,
+          -0.999887228012085,
+          -0.011144325137138367,
+          -75.38371276855469
+        ],
+        [
+          0.9997716546058655,
+          -0.009811325930058956,
+          -0.018956534564495087,
+          -293.53572845458984
+        ],
+        [
+          0.018845025449991226,
+          -0.011331699788570404,
+          0.9997571706771851,
+          9.002899169921875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          -0.010544209847564542,
+          -0.9998718573871004,
+          -0.012009318195479643,
+          -75.37327326049001
+        ],
+        [
+          0.999750489150337,
+          -0.010305469682030591,
+          -0.01979218842777391,
+          -293.54844387072313
+        ],
+        [
+          0.019665860798784424,
+          -0.012214924404113708,
+          0.9997309598385091,
+          8.990139569765633
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          -0.010017975537718292,
+          -0.999886601690392,
+          -0.011205325793384506,
+          -75.38492035814532
+        ],
+        [
+          0.9997704410431627,
+          -0.009803875072645933,
+          -0.019024271945681064,
+          -293.5352347153816
+        ],
+        [
+          0.01891222834809206,
+          -0.011393246767051507,
+          0.9997552021653642,
+          9.001182512480822
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 229,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 229,
+            "feature_objective": 10.582760427776803
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 229,
+            "feature_objective": 4.4384450085278475
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 229,
+            "feature_objective": 3.609614360856069
+          }
+        ],
+        "normalized_update": [
+          -0.012075895906370118,
+          0.004937392082758143,
+          -0.01716657441053456,
+          0.0038862911751932293,
+          -0.0034886614308137303,
+          -0.00038278809124313415
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 229,
+      "surface_samples": 1532,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 20,
+          "selected_cells": 16
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 109,
+          "selected_cells": 33
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 978,
+          "selected_cells": 50
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1552,
+          "selected_cells": 54
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 217,
+          "selected_cells": 46
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 217,
+          "selected_cells": 30
+        }
+      ],
+      "match_cache_sha256": "36f94edb159c50f46b364d11d281051b05fb4344f07f8b9c2e09248f2a2290ab",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.104245095999886
+    },
+    {
+      "frame_id": "1329604667982805",
+      "baseline_pose": [
+        [
+          0.0375644825398922,
+          -0.9989940524101257,
+          -0.024470441043376923,
+          -75.29808807373047
+        ],
+        [
+          0.9990048408508301,
+          0.03813163936138153,
+          -0.023116568103432655,
+          -291.5313034057617
+        ],
+        [
+          0.024026423692703247,
+          -0.023577600717544556,
+          0.999432384967804,
+          9.063018798828125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.03638891344911119,
+          -0.999015164074348,
+          -0.025368482852110085,
+          -75.30418374047952
+        ],
+        [
+          0.9990427761661196,
+          0.0369831612689353,
+          -0.02334192961524383,
+          -291.5404111927972
+        ],
+        [
+          0.024257159677691254,
+          -0.024494686339021243,
+          0.9994047552057124,
+          9.04506140495821
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.03749398977906932,
+          -0.9989943542838373,
+          -0.024566044002111525,
+          -75.29845429592679
+        ],
+        [
+          0.9990082659730003,
+          0.038062631213389396,
+          -0.02308224943628324,
+          -291.531997573068
+        ],
+        [
+          0.023994096678349636,
+          -0.02367610907476298,
+          0.9994308328099641,
+          9.062401698748047
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 229,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 229,
+            "feature_objective": 10.422690970185831
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 229,
+            "feature_objective": 4.414408016280141
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 229,
+            "feature_objective": 3.58801385956604
+          }
+        ],
+        "normalized_update": [
+          -0.0036622219632346962,
+          -0.0069416730625927875,
+          -0.0061710008007828596,
+          -0.002063330778097885,
+          -0.005571109519649177,
+          0.003909057326766163
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 229,
+      "surface_samples": 1536,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 19,
+          "selected_cells": 12
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 106,
+          "selected_cells": 37
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1192,
+          "selected_cells": 51
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1597,
+          "selected_cells": 45
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 210,
+          "selected_cells": 49
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 180,
+          "selected_cells": 35
+        }
+      ],
+      "match_cache_sha256": "78638476b0be68882ff12df3521e86cbbfedbc87cd114331fd9973ca839683e9",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.103461007000078
+    },
+    {
+      "frame_id": "1329604668983281",
+      "baseline_pose": [
+        [
+          0.08766472339630127,
+          -0.9959278106689453,
+          -0.021061740815639496,
+          -75.26456260681152
+        ],
+        [
+          0.9955201148986816,
+          0.08834134787321091,
+          -0.033707741647958755,
+          -290.1130142211914
+        ],
+        [
+          0.03543112426996231,
+          -0.018012575805187225,
+          0.9992108345031738,
+          9.0484619140625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.08650275884873579,
+          -0.9960280412382451,
+          -0.021126232152920164,
+          -75.26560430466053
+        ],
+        [
+          0.9955767649021587,
+          0.0872049628807987,
+          -0.03497006107348912,
+          -290.1209530579624
+        ],
+        [
+          0.03667349671870833,
+          -0.018007948553220736,
+          0.999166091150644,
+          9.035566636079503
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.0876256210219433,
+          -0.995931714059102,
+          -0.021039870960877588,
+          -75.26410721855085
+        ],
+        [
+          0.9955231747910196,
+          0.08830172834495988,
+          -0.03372118045015961,
+          -290.1137055663093
+        ],
+        [
+          0.03544187435217842,
+          -0.017991008799496517,
+          0.9992108418050303,
+          9.049192914284268
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 213,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 212,
+            "feature_objective": 9.268956156035646
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 213,
+            "feature_objective": 4.045163388696885
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 213,
+            "feature_objective": 3.2769300402530446
+          }
+        ],
+        "normalized_update": [
+          0.0045538826067954485,
+          -0.006913451178920336,
+          0.007310002217681062,
+          0.0007223005305586105,
+          0.0011766931294130522,
+          0.0022923649288110184
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 213,
+      "surface_samples": 1414,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 14,
+          "selected_cells": 8
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 100,
+          "selected_cells": 36
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1331,
+          "selected_cells": 45
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 1596,
+          "selected_cells": 44
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 181,
+          "selected_cells": 49
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 146,
+          "selected_cells": 31
+        }
+      ],
+      "match_cache_sha256": "0628b87a1c6cc92856a9ba186e8b28dd65827f6d455371e2ecb1b359cb56c2dc",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.2139850330004265
+    },
+    {
+      "frame_id": "1329604670582822",
+      "baseline_pose": [
+        [
+          0.32327792048454285,
+          -0.9462862610816956,
+          -0.005810409784317017,
+          -74.73527145385742
+        ],
+        [
+          0.9444189667701721,
+          0.3230153024196625,
+          -0.06110492721199989,
+          -287.93409729003906
+        ],
+        [
+          0.05969960615038872,
+          0.014266446232795715,
+          0.9981144070625305,
+          9.064926147460938
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.32236271833273394,
+          -0.9465982877482382,
+          -0.005832864017400277,
+          -74.73746425035291
+        ],
+        [
+          0.9446876094883142,
+          0.3220930512455542,
+          -0.06181641475573404,
+          -287.93909796640105
+        ],
+        [
+          0.06039403903487838,
+          0.014417106810544797,
+          0.9980704640161104,
+          9.068826088054426
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.3232563911071594,
+          -0.9462938534881481,
+          -0.0057715776173683665,
+          -74.73531844402905
+        ],
+        [
+          0.9444259894490327,
+          0.3229912295935806,
+          -0.0611236335267087,
+          -287.93404009360114
+        ],
+        [
+          0.05970508943257888,
+          0.014307810927334862,
+          0.9981134869810806,
+          9.06594777334954
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 200,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 200,
+            "feature_objective": 8.91042674702009
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 200,
+            "feature_objective": 3.9141468068463965
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 200,
+            "feature_objective": 3.1885435876632946
+          }
+        ],
+        "normalized_update": [
+          -0.00046990171621288864,
+          0.0005719643789939173,
+          0.010216258886031816,
+          0.00106545484149945,
+          0.0021408626332792224,
+          0.0014414703339132317
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 200,
+      "surface_samples": 1339,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 3,
+          "selected_cells": 2
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 94,
+          "selected_cells": 40
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1603,
+          "selected_cells": 46
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 722,
+          "selected_cells": 46
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 136,
+          "selected_cells": 41
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 91,
+          "selected_cells": 25
+        }
+      ],
+      "match_cache_sha256": "6ae6de8c9e8072ef8fdb5c0f3ce39953f6b0294d0772fc9140b15e017b991e07",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.239415419999659
+    },
+    {
+      "frame_id": "1329604671582933",
+      "baseline_pose": [
+        [
+          0.4585183262825012,
+          -0.8880435228347778,
+          -0.033762067556381226,
+          -74.12417411804199
+        ],
+        [
+          0.885195791721344,
+          0.4597514569759369,
+          -0.07111552357673645,
+          -286.64505767822266
+        ],
+        [
+          0.07867586612701416,
+          0.0027216970920562744,
+          0.9968966841697693,
+          9.1053466796875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.4571965692590193,
+          -0.8887116619420883,
+          -0.03410439215231088,
+          -74.1375344007364
+        ],
+        [
+          0.885808152161467,
+          0.45845912665910016,
+          -0.071830055386915,
+          -286.65856270355755
+        ],
+        [
+          0.07947170409013099,
+          0.002630472669867332,
+          0.9968338012863478,
+          9.114215428616022
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.458536236105305,
+          -0.8880330481218173,
+          -0.0337943311715555,
+          -74.12375707396792
+        ],
+        [
+          0.8851814182679766,
+          0.45977171766800895,
+          -0.0711634312057483,
+          -286.64436698041374
+        ],
+        [
+          0.07873318271474081,
+          0.0027168642666534136,
+          0.9968921722270909,
+          9.105030544490107
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 198,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 198,
+            "feature_objective": 8.641531023748392
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 198,
+            "feature_objective": 3.8370814461498988
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 198,
+            "feature_objective": 3.1486164131523897
+          }
+        ],
+        "normalized_update": [
+          0.004170440740636302,
+          0.006906978089089231,
+          -0.003161351973930586,
+          0.0027980390540167516,
+          -0.001760432405952142,
+          -0.0013157775042069528
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 198,
+      "surface_samples": 1298,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 2,
+          "selected_cells": 1
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 92,
+          "selected_cells": 41
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1679,
+          "selected_cells": 48
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 459,
+          "selected_cells": 45
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 124,
+          "selected_cells": 40
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 72,
+          "selected_cells": 23
+        }
+      ],
+      "match_cache_sha256": "1f8add31957837fbf2b1561c1a47445372200bb8c25b54fe6b981bc45c1d21b0",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.111776539999937
+    },
+    {
+      "frame_id": "1329604672982737",
+      "baseline_pose": [
+        [
+          0.5021832585334778,
+          -0.8647602200508118,
+          0.0017765983939170837,
+          -73.17169189453125
+        ],
+        [
+          0.8645577430725098,
+          0.5020185708999634,
+          -0.022748220711946487,
+          -284.8283920288086
+        ],
+        [
+          0.018779801204800606,
+          0.012959547340869904,
+          0.999740719795227,
+          9.058074951171875
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.5017751660503047,
+          -0.8649985189098902,
+          -0.0008146613660836949,
+          -73.1630913998212
+        ],
+        [
+          0.8647700982701835,
+          0.5016634893753257,
+          -0.022508641279260513,
+          -284.8346652626971
+        ],
+        [
+          0.019878557900201443,
+          0.010589584010665022,
+          0.9997473891232282,
+          9.045949922837012
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.5021320474801892,
+          -0.8647901748363743,
+          0.0016673236848524877,
+          -73.171061642628
+        ],
+        [
+          0.8645862278443236,
+          0.5019693932892837,
+          -0.022750847031749857,
+          -284.83024654599996
+        ],
+        [
+          0.018837693768130208,
+          0.012865274397067798,
+          0.9997408482477643,
+          9.055688904770948
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 181,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 181,
+            "feature_objective": 7.58224657241861
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 181,
+            "feature_objective": 3.5201703016214734
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 181,
+            "feature_objective": 2.8641416233469688
+          }
+        ],
+        "normalized_update": [
+          0.006302519032392599,
+          -0.018545171913863068,
+          -0.02386046400926949,
+          0.000156124106782442,
+          -0.0063366932509581414,
+          0.0032559370395489735
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 181,
+      "surface_samples": 1186,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 2,
+          "selected_cells": 1
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 79,
+          "selected_cells": 39
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1722,
+          "selected_cells": 46
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 448,
+          "selected_cells": 38
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 107,
+          "selected_cells": 39
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 51,
+          "selected_cells": 18
+        }
+      ],
+      "match_cache_sha256": "55b7b3da148c0317a79cbe5fc23dff337b634f71076998fb8514d8419cca7524",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.0647711780002282
+    },
+    {
+      "frame_id": "1329604673982743",
+      "baseline_pose": [
+        [
+          0.4070669114589691,
+          -0.9132791757583618,
+          -0.014771997928619385,
+          -72.62267303466797
+        ],
+        [
+          0.9106923341751099,
+          0.40705180168151855,
+          -0.07034517824649811,
+          -283.71885681152344
+        ],
+        [
+          0.07025772333145142,
+          0.015182413160800934,
+          0.9974135756492615,
+          9.1011962890625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.40630129282421307,
+          -0.9136144775122496,
+          -0.015112287781231306,
+          -72.63547053563737
+        ],
+        [
+          0.911021411572896,
+          0.4063120481688888,
+          -0.07036084081773537,
+          -283.71555768556004
+        ],
+        [
+          0.0704229559367847,
+          0.014820046836975326,
+          0.9974073730187774,
+          9.08675040084405
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.40706189889373645,
+          -0.9132806994267559,
+          -0.014815860537476388,
+          -72.62267032665399
+        ],
+        [
+          0.9106941527971897,
+          0.4070500918438022,
+          -0.07033152685405314,
+          -283.7197348520082
+        ],
+        [
+          0.07026319198419034,
+          0.015136531305278155,
+          0.9974138877726194,
+          9.10084319116672
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 165,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 165,
+            "feature_objective": 6.867190143610644
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 165,
+            "feature_objective": 3.166881271919939
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 165,
+            "feature_objective": 2.6339622603298203
+          }
+        ],
+        "normalized_update": [
+          2.708013978625197e-05,
+          -0.008780404847309917,
+          -0.0035309789578125152,
+          -0.0007859798618550998,
+          -0.0025281436011803157,
+          0.00012031527262308355
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 165,
+      "surface_samples": 1079,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 3,
+          "selected_cells": 3
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 56,
+          "selected_cells": 28
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1689,
+          "selected_cells": 41
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 629,
+          "selected_cells": 42
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 103,
+          "selected_cells": 37
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 43,
+          "selected_cells": 14
+        }
+      ],
+      "match_cache_sha256": "66484cbcecd0caed35e3506fc6cfbec5c4bd23e8b6fe39d0edaad847a6f36627",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.0543842049996783
+    },
+    {
+      "frame_id": "1329604675582729",
+      "baseline_pose": [
+        [
+          0.45990297198295593,
+          -0.8873927593231201,
+          -0.03199591487646103,
+          -71.76338195800781
+        ],
+        [
+          0.883486807346344,
+          0.460900217294693,
+          -0.08379913866519928,
+          -281.7967224121094
+        ],
+        [
+          0.08910974115133286,
+          0.010271407663822174,
+          0.9959695339202881,
+          9.122024536132812
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "peak_pose": [
+        [
+          0.45998850303442723,
+          -0.8873647422990402,
+          -0.031540177509082154,
+          -71.75326799985072
+        ],
+        [
+          0.8834708800354855,
+          0.4609457062151339,
+          -0.08371681285714268,
+          -281.7915380784132
+        ],
+        [
+          0.08882572581927396,
+          0.010643846258857498,
+          0.9959909935109578,
+          9.111684106362162
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_direct_pose": [
+        [
+          0.4599492784429833,
+          -0.8873702801993956,
+          -0.031953694429671005,
+          -71.76164117134414
+        ],
+        [
+          0.8834627877166629,
+          0.46094233611766167,
+          -0.08382070269736958,
+          -281.7971547454629
+        ],
+        [
+          0.08910887913968352,
+          0.010323275160113011,
+          0.9959690747803475,
+          9.122084882510556
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "surface_solver": {
+        "success": true,
+        "valid_patches": 154,
+        "scale_steps": [
+          {
+            "level_index": 2,
+            "valid_patches": 154,
+            "feature_objective": 6.343503423034127
+          },
+          {
+            "level_index": 1,
+            "valid_patches": 154,
+            "feature_objective": 2.9379419142450054
+          },
+          {
+            "level_index": 0,
+            "valid_patches": 154,
+            "feature_objective": 2.4276840665152895
+          }
+        ],
+        "normalized_update": [
+          0.017407866636768937,
+          -0.004323333535206118,
+          0.0006034637774379547,
+          0.0013283303575308038,
+          0.002658983597606222,
+          -0.0027349105320743
+        ],
+        "initial_normalized_update": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "surface_patches": 154,
+      "surface_samples": 1025,
+      "surface_candidates_in_fov": 2097,
+      "camera_patch_counts": [
+        {
+          "camera": 0,
+          "map_ids_in_frustum": 3,
+          "selected_cells": 3
+        },
+        {
+          "camera": 1,
+          "map_ids_in_frustum": 44,
+          "selected_cells": 22
+        },
+        {
+          "camera": 2,
+          "map_ids_in_frustum": 1754,
+          "selected_cells": 39
+        },
+        {
+          "camera": 3,
+          "map_ids_in_frustum": 562,
+          "selected_cells": 42
+        },
+        {
+          "camera": 4,
+          "map_ids_in_frustum": 82,
+          "selected_cells": 32
+        },
+        {
+          "camera": 5,
+          "map_ids_in_frustum": 30,
+          "selected_cells": 16
+        }
+      ],
+      "match_cache_sha256": "5d86ae191d762bac80acd10ef0edf7417a5dd026fbee7a519496bd9910ef8aa9",
+      "surface_map_sha256": "8474b3ff35530db58dd78d93d6aee546a5ae18244c8c3ea2c26ee1e22755fa0b",
+      "reference_feature_cache_sha256": "c1af998c718fae7d3d1e416c9699ca827938bb38ebd971ee8de4fe6827b2773c",
+      "solver_wall_seconds": 3.1108471870002177
+    }
+  ]
+}
