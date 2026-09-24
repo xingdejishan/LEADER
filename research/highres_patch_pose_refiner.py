@@ -347,7 +347,8 @@ class HighResPatchPoseRefiner(nn.Module):
         nn.init.normal_(self.fusion[-1].weight, mean=0., std=1e-3)
         nn.init.zeros_(self.fusion[-1].bias)
 
-    def forward(self, reference_patches, query_patches, roma_channels, candidate_valid):
+    def forward(self, reference_patches, query_patches, roma_channels, candidate_valid,
+                return_features=False):
         n = len(reference_patches)
         ref = self.encoder(reference_patches)
         query = self.encoder(query_patches)
@@ -377,6 +378,40 @@ class HighResPatchPoseRefiner(nn.Module):
         probabilities = torch.softmax(logits.flatten(1), dim=1).reshape_as(logits)
         delta = torch.stack(((probabilities * shift_x).sum(dim=(1, 2)),
                              (probabilities * shift_y).sum(dim=(1, 2))), dim=1)
+        if return_features:
+            flat_probability = probabilities.flatten(1)
+            flat_query = query_candidates.flatten(2).transpose(1, 2)
+            query_mean = torch.bmm(flat_probability[:, None], flat_query).squeeze(1)
+            query_second = torch.bmm(flat_probability[:, None], flat_query.square()).squeeze(1)
+            query_variance = (query_second - query_mean.square()).clamp_min(0.)
+            flat_correlation = correlation.flatten(1)
+            correlation_mean = (flat_probability * flat_correlation).sum(dim=1, keepdim=True)
+            correlation_variance = (flat_probability *
+                                    (flat_correlation - correlation_mean).square()).sum(
+                                        dim=1, keepdim=True)
+            flat_roma = roma_channels.flatten(2).transpose(1, 2)
+            roma_mean = torch.bmm(flat_probability[:, None], flat_roma).squeeze(1)
+            entropy = -(flat_probability * flat_probability.clamp_min(1e-12).log()).sum(
+                dim=1, keepdim=True) / math.log(flat_probability.shape[1])
+            normalized_x = shift_x / max(self.radius, 1)
+            normalized_y = shift_y / max(self.radius, 1)
+            mean_x = delta[:, 0, None, None] / max(self.radius, 1)
+            mean_y = delta[:, 1, None, None] / max(self.radius, 1)
+            cov_xx = (probabilities * (normalized_x - mean_x).square()).sum((1, 2))
+            cov_yy = (probabilities * (normalized_y - mean_y).square()).sum((1, 2))
+            cov_xy = (probabilities * (normalized_x - mean_x) *
+                      (normalized_y - mean_y)).sum((1, 2))
+            features = {
+                "reference_descriptor": ref_center,
+                "query_descriptor_mean": query_mean,
+                "query_descriptor_variance": query_variance,
+                "roma_mean": roma_mean,
+                "probability_entropy": entropy,
+                "correlation_moments": torch.cat((correlation_mean, correlation_variance), dim=1),
+                "offset_covariance": torch.stack((cov_xx, cov_yy, cov_xy), dim=1),
+                "normalized_delta": delta / max(self.radius, 1),
+            }
+            return delta, probabilities, features
         return delta, probabilities
 
 

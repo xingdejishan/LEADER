@@ -51,8 +51,9 @@ def _implicit_pose_backward(ctx, grad_pose):
         return (None,) * 9
     with torch.enable_grad():
         pixels_var = pixels.detach().to(torch.float64).requires_grad_(True)
+        precision_var = precision.detach().to(torch.float64).requires_grad_(True)
         delta_var = delta_star.detach().to(torch.float64).requires_grad_(True)
-        objective = backend_objective(delta_var, pixels_var, points, precision,
+        objective = backend_objective(delta_var, pixels_var, points, precision_var,
                                       camera_to_body, calibration, baseline_pose,
                                       lidar_information)
         gradient = torch.autograd.grad(objective, delta_var, create_graph=True)[0]
@@ -67,6 +68,7 @@ def _implicit_pose_backward(ctx, grad_pose):
             pose, delta_var, grad_outputs=grad_pose.to(torch.float64), retain_graph=True)[0]
         if not bool(free.any()):
             pixel_gradient = torch.zeros_like(pixels_var)
+            precision_gradient = torch.zeros_like(precision_var)
             condition = 1.
         else:
             reduced_hessian = hessian[free][:, free]
@@ -77,15 +79,21 @@ def _implicit_pose_backward(ctx, grad_pose):
             adjoint = torch.linalg.solve(reduced_hessian.transpose(0, 1),
                                          output_delta_gradient[free])
             cross = torch.autograd.grad(gradient[free], pixels_var,
-                                        grad_outputs=adjoint, retain_graph=False)[0]
+                                        grad_outputs=adjoint, retain_graph=True)[0]
+            precision_cross = torch.autograd.grad(
+                gradient[free], precision_var, grad_outputs=adjoint,
+                retain_graph=False)[0]
             pixel_gradient = -cross
+            precision_gradient = -.5 * (precision_cross + precision_cross.transpose(-1, -2))
         _ImplicitBackendPose.last_backward = {
             "free_dimensions": int(free.sum().item()),
             "active_dimensions": int(active.sum().item()),
             "reduced_hessian_condition": condition,
             "pixel_gradient_norm": float(torch.linalg.vector_norm(pixel_gradient).detach().cpu()),
+            "precision_gradient_norm": float(torch.linalg.vector_norm(precision_gradient).detach().cpu()),
         }
-    return (pixel_gradient.to(dtype=pixels.dtype), None, None, None, None, None,
+    return (pixel_gradient.to(dtype=pixels.dtype), None,
+            precision_gradient.to(dtype=precision.dtype), None, None, None,
             None, None, None)
 
 
@@ -104,12 +112,14 @@ class _ImplicitBackendPose(Function):
         return _implicit_pose_backward(ctx, grad_pose)
 
 
-def solve_actual_backend(frame, row, pixels, geometry, device, objective_tolerance=1e-6):
+def solve_actual_backend(frame, row, pixels, geometry, device, precision=None,
+                         objective_tolerance=1e-6):
     corrected = pixels.detach().to(torch.float64).cpu().numpy()
     baseline = np.asarray(frame["baseline_pose"], dtype=np.float64)
     points = np.asarray(frame["points"], dtype=np.float64)
     cameras = np.asarray(frame["cameras"], dtype=np.int64)
-    precisions = np.asarray(frame["peak_precisions"], dtype=np.float64)
+    precision_tensor = geometry["precision"] if precision is None else precision
+    precisions = precision_tensor.detach().to(torch.float64).cpu().numpy()
     lidar_information = np.asarray(frame["lidar_information"], dtype=np.float64)
     optimized_pose, result, initial_value, final_value = nre.optimize_pose(
         baseline, points, cameras, row["views"], frame["cost_maps"], frame["map_valid"],
@@ -119,7 +129,7 @@ def solve_actual_backend(frame, row, pixels, geometry, device, objective_toleran
     delta = torch.as_tensor(delta_np, dtype=dtype, device=device)
     pixels64 = pixels.detach().to(dtype=dtype)
     torch_value = backend_objective(
-        delta, pixels64, geometry["points"], geometry["precision"],
+        delta, pixels64, geometry["points"], precision_tensor,
         geometry["camera_to_body"], geometry["calibration"],
         geometry["baseline_pose"], geometry["lidar_information"])
     objective_difference = abs(float(torch_value.detach().cpu()) - float(final_value))
@@ -130,7 +140,7 @@ def solve_actual_backend(frame, row, pixels, geometry, device, objective_toleran
 
     delta_probe = delta.detach().clone().requires_grad_(True)
     objective_probe = backend_objective(
-        delta_probe, pixels64, geometry["points"], geometry["precision"],
+        delta_probe, pixels64, geometry["points"], precision_tensor,
         geometry["camera_to_body"], geometry["calibration"],
         geometry["baseline_pose"], geometry["lidar_information"])
     objective_gradient = torch.autograd.grad(objective_probe, delta_probe)[0]
@@ -148,7 +158,7 @@ def solve_actual_backend(frame, row, pixels, geometry, device, objective_toleran
                                      projected_gradient)
     kkt_inf = float(projected_gradient.abs().max().detach().cpu())
     implicit_pose = _ImplicitBackendPose.apply(
-        pixels, geometry["points"], geometry["precision"], geometry["camera_to_body"],
+        pixels, geometry["points"], precision_tensor, geometry["camera_to_body"],
         geometry["calibration"], geometry["baseline_pose"], geometry["lidar_information"],
         delta, active)
     return implicit_pose, {
