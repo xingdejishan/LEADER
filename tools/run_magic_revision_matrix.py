@@ -40,6 +40,26 @@ def retire_resume_state(out):
         path.unlink()
 
 
+def retire_best(out):
+    if not (out / 'complete.json').exists():
+        raise ValueError(f'Cannot retire incomplete condition: {out}')
+    path = out / 'best.pt'
+    if path.exists():
+        path.unlink()
+
+
+def selected_learning_rates(calibration):
+    selected = {}
+    for condition in ('LFT', 'A', 'B', 'A-null', 'B-null'):
+        choices = []
+        for lr in FUSION_LRS:
+            values = [calibration['runs'][f's{seed}_lr{lr:g}'][condition]['best_j']
+                      for seed in SEEDS]
+            choices.append((sum(values) / len(values), lr))
+        selected[condition] = min(choices)[1]
+    return selected
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_root', type=Path, required=True)
@@ -52,7 +72,11 @@ def main():
     parser.add_argument('--gate_report', type=Path, required=True)
     parser.add_argument('--confirmation_protocol', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--phase', choices=('calibration', 'final'), required=True)
+    parser.add_argument('--calibration_report', type=Path)
     args = parser.parse_args()
+    if args.phase == 'final' and not args.calibration_report:
+        raise ValueError('Final refit requires completed calibration results')
     gate = json.loads(args.gate_report.read_text(encoding='utf-8'))
     if not gate['passed'] or gate['max_points'] != 0:
         raise ValueError('Pretraining gates failed')
@@ -66,7 +90,8 @@ def main():
     if not confirmation['date_selected_before_formal_training']:
         raise ValueError('Final confirmation interval was not predesignated')
     protocol = {
-        'protocol': 'magic_revision_full_grid_v1',
+        'protocol': 'magic_revision_full_grid_v2',
+        'phase': args.phase,
         'seeds': SEEDS, 'fusion_lr_grid': FUSION_LRS,
         'total_steps_per_condition': TOTAL_STEPS,
         'warmup_steps': TOTAL_STEPS // 10,
@@ -85,6 +110,8 @@ def main():
         'model_code_sha256': digest(Path('models/model_mink.py')),
         'fusion_code_sha256': digest(Path('models/magic_fusion.py')),
         'trainer_code_sha256': digest(Path('tools/train_magic_revision.py')),
+        'calibration_report_sha256': digest(args.calibration_report)
+        if args.calibration_report else None,
     }
     args.out.mkdir(parents=True, exist_ok=True)
     protocol_path = args.out / 'protocol.json'
@@ -93,6 +120,12 @@ def main():
             raise ValueError('Formal protocol changed during resume')
     else:
         protocol_path.write_text(json.dumps(protocol, indent=2) + '\n', encoding='utf-8')
+    calibration = (json.loads(args.calibration_report.read_text(encoding='utf-8'))
+                   if args.calibration_report else None)
+    selected = selected_learning_rates(calibration) if calibration else None
+    if calibration and calibration['protocol_sha256'] != digest(
+            args.calibration_report.parent / 'protocol.json'):
+        raise ValueError('Calibration protocol hash differs')
     for seed in SEEDS:
         init = args.seed37_init if seed == 37 else args.out / f'fusion_init_s{seed}.pt'
         if seed != 37 and not init.exists():
@@ -102,6 +135,8 @@ def main():
         if seed == 37 and digest(init) != gate['fusion_init_sha256']:
             raise ValueError('Formal seed-37 initialization differs from gate')
         for lr in FUSION_LRS:
+            if args.phase == 'final' and lr not in set(selected.values()):
+                continue
             name = f's{seed}_lr{lr:g}'
             common = [sys.executable, '-m', 'tools.train_magic_revision',
                       '--data_root', str(args.data_root), '--split', str(args.split),
@@ -114,23 +149,46 @@ def main():
                       '--batch_size', str(BATCH_SIZE),
                       '--eval_interval', str(EVAL_INTERVAL)]
             lft = args.out / name / 'LFT'
-            run(common + ['--stage', 'LFT', '--out', str(lft)], lft)
-            retire_resume_state(lft)
+            if args.phase == 'calibration' or selected['LFT'] == lr:
+                run(common + ['--stage', 'LFT', '--out', str(lft)], lft)
+                retire_resume_state(lft)
+                if args.phase == 'calibration':
+                    retire_best(lft)
             for is_null in (False, True):
                 suffix = '-null' if is_null else ''
+                stages = [stage for stage in ('A', 'B')
+                          if args.phase == 'calibration' or selected[stage + suffix] == lr]
+                if not stages:
+                    continue
                 extra = ['--null', '--null_template', str(args.null_template)] if is_null else []
                 warm = args.out / name / f'warmup{suffix}'
                 run(common + ['--stage', 'warmup', '--out', str(warm)] + extra, warm)
-                for stage in ('A', 'B'):
+                for stage in stages:
                     out = args.out / name / f'{stage}{suffix}'
                     run(common + ['--stage', stage, '--out', str(out),
                                   '--warmup_checkpoint', str(warm / 'last.pt')] + extra, out)
                     retire_resume_state(out)
+                    if args.phase == 'calibration':
+                        retire_best(out)
                 retire_resume_state(warm)
                 warm_best = warm / 'best.pt'
                 if warm_best.exists():
                     warm_best.unlink()
             print(json.dumps({'finished_seed': seed, 'fusion_lr': lr}), flush=True)
+    if args.phase == 'calibration':
+        runs = {}
+        for seed in SEEDS:
+            for lr in FUSION_LRS:
+                key = f's{seed}_lr{lr:g}'
+                runs[key] = {}
+                for condition in ('LFT', 'A', 'B', 'A-null', 'B-null'):
+                    path = args.out / key / condition / 'complete.json'
+                    runs[key][condition] = json.loads(path.read_text(encoding='utf-8'))
+        report = {'protocol': 'magic_revision_calibration_v1',
+                  'protocol_sha256': digest(protocol_path), 'runs': runs}
+        report['selected_learning_rates'] = selected_learning_rates(report)
+        (args.out / 'calibration_report.json').write_text(
+            json.dumps(report, indent=2) + '\n', encoding='utf-8')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,39 @@
+{
+  "protocol": "magic_revision_full_grid_v2",
+  "seeds": [
+    37,
+    53,
+    71
+  ],
+  "fusion_lr_grid": [
+    0.0001,
+    0.0003,
+    0.001
+  ],
+  "total_steps_per_condition": 690,
+  "warmup_steps": 69,
+  "leader_branch_steps": 621,
+  "batch_size": 8,
+  "eval_interval": 69,
+  "training_conditions": [
+    "LFT",
+    "A",
+    "B",
+    "A-null",
+    "B-null"
+  ],
+  "selection": "For each condition and each seed, choose minimum validation J over fixed checkpoints including epoch 0. For each condition choose LR by lowest mean seed J; break ties with lower LR. Report all same-LR paired A/B and A-null/B-null results and the selected-LR results. Do not use diagnostic313 or final confirmation to choose LR/checkpoint.",
+  "base_checkpoint_sha256": "49cf3085b507e2f67a0f250394cadd980b0f5da18eb00dcfe37a6c766d3f4d7a",
+  "seed37_init_sha256": "2e7a33aacb21b11079c656d28f05e99292e48957d57898f0a87ffcb877a9d29c",
+  "split_sha256": "948bcb0d81ea9be9d5627c7b00bab36efa8fcacec2a3027b256c9574308835ba",
+  "sam_manifest_sha256": "a0dec893d85b5d3904da043083c969de2692740a8584729e7dcf7b06e517adcc",
+  "null_template_sha256": "52c5604f9ee05f053c8fc9aeed4db46f17fe1f282fc64b8266afe61a59824dea",
+  "l0_val_report_sha256": "e217bb0104bf065a657b6e83b7f0e469410cfb5d4524acd4267f80ed2b90fb54",
+  "gate_report_sha256": "742f6998665e6c8c7ee028e42920c9f99eccde6cd2ddead20c597cfb1de26508",
+  "confirmation_protocol_sha256": "07bd4df5574f4295693e9444fb7d14fcffde9a4d63dfd6dd6371a2f11db48165",
+  "model_code_sha256": "3f27f48dd340309d8ceaa91fd850bffb665890524547aca37b169792b2bc6812",
+  "fusion_code_sha256": "efe064a10c140315fb390dea9bc168d713222bef234ae0f0d50cd4971b03727a",
+  "trainer_code_sha256": "31e2e1462ec3d209d1c2bb3f776018ab06b0f3dac1722f8a45e9819f238a075d",
+  "phase": "calibration",
+  "calibration_report_sha256": null
+}
