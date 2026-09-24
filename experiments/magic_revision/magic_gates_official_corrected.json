@@ -1,0 +1,29 @@
+{
+  "protocol": "official_full_points_magic_pretraining_gates_v1",
+  "base_checkpoint_sha256": "49cf3085b507e2f67a0f250394cadd980b0f5da18eb00dcfe37a6c766d3f4d7a",
+  "fusion_init_sha256": "2e7a33aacb21b11079c656d28f05e99292e48957d57898f0a87ffcb877a9d29c",
+  "sam_manifest_sha256": "a0dec893d85b5d3904da043083c969de2692740a8584729e7dcf7b06e517adcc",
+  "split_sha256": "948bcb0d81ea9be9d5627c7b00bab36efa8fcacec2a3027b256c9574308835ba",
+  "sample_raw_points": 51385,
+  "max_points": 0,
+  "identity": {
+    "voxel_coordinates_equal": true,
+    "feature_max_abs_difference": 0.0,
+    "same_model_repeat_feature_max_abs_difference": 0.0,
+    "same_sparse_repeat_feature_max_abs_difference": 0.0,
+    "original_feature_mutation_after_repeat": 0.0,
+    "world_coordinates_max_abs_difference": 0.0,
+    "reliability_max_abs_difference": 0.0,
+    "final_pose_max_abs_difference": 0.0,
+    "finite": true
+  },
+  "frozen_leader_parameters_and_buffers_unchanged_after_three_steps": true,
+  "fusion_parameters_changed_after_three_steps": true,
+  "attention_gradient_norms_after_second_step": {
+    "query": 6.32338284844991e-07,
+    "key": 2.1414539297381907e-07,
+    "value": 0.001420123371644877
+  },
+  "peak_allocated_mb": 948.923828125,
+  "passed": true
+}

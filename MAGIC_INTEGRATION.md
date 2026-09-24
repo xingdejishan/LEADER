@@ -69,3 +69,15 @@ WSL Ubuntu 的 `/home/zhang/.venvs/leader-magic/bin/python` 继承原 `egonn118`
 用户随后要求顺序比较 A：RPGE与MMRegressor以融合学习率0.1倍联合微调；B：两者连同BatchNorm状态冻结，仅训练VRA/MMA。原 LEADER 训练配置包含本次313帧测试日期2012-05-11，因此不能用原checkpoint宣称这313帧为留出测试。先用同一552帧训练一份不接触该日期的纯LiDAR LEADER，作为A/B共同预训练起点；这不是第三个融合版本。固定协议保存在分支外的 `work/magic-local905/ab_protocol.json`。
 
 A/B同用`split_masked.json`、原始扫描4096点、SAM ViT-L缓存、非矩形视野掩码、体素0.2 m、TRR、batch8、seed37、Adam、按帧加权验证TRR及完全相同的SC2-PCR和两阶段全池精修。`tools/prepare_local905_ab_init.py`只产生一份融合初始状态，聚合残差输出为零；`tools/train_local905_ab.py`在训练前检查初始多模态输出与同一纯LiDAR回归输出相同。A用RPGE/融合/MMRegressor学习率`1e-4/1e-3/1e-4`；B只优化融合层`1e-3`，且保持冻结模块的BatchNorm统计不变，回归头仍允许梯度传至融合特征。两版都按验证TRR改善0.2%、最少12轮、连续8轮未改善的同一早停规则选权重。最终独立GT评估须报告313帧完整分母上的mean、median、P90、旋转>10°及>90°，并与此纯LiDAR基线逐帧配对。该协议锁定后不根据313帧结果改模型或求解器。
+
+## 修订方案与前置门槛
+
+上一节是保留的历史设计，已经被用户的六条件方案取代。新矩阵为L0、LFT、A、B、A-null、B-null。A/B先共享10%冻结LEADER的融合预热，再分叉；null组各共享自己的预热。学习率网格为`1e-4/3e-4/1e-3`，A/LFT的LEADER学习率是融合学习率的0.1倍，至少3个配对种子；以实际优化步数匹配预算，按验证位姿指标选checkpoint。原LEADER的BatchNorm运行统计在A/B/LFT都固定。旧`train_local905_ab.py`只允许`--smoke_only`，不能执行正式长训练。
+
+`tools/audit_official_local905.py`的全313帧输入报告位于`work/magic-local905/official_input_audit_all313.json`：原NCLT解码与Local905无抽点解码逐项相同；原checkpoint中心与本地训练中心不同，必须保留原中心。`tools/prepare_official_local905.py`仅把原safetensors和extra.json包装为本地在线runner可读的L0，不更新参数。官方L0在313帧上为`0.098382m/1.052243°`，40帧验证为`0.079838m/0.615385°`，但两段日期都在原LEADER预训练日期列表中，仅供诊断。
+
+`tools/audit_magic_gates.py`初次报告`work/magic-local905/magic_gates_official.json`失败：同一原LEADER重复前向按voxel身份对齐仍有差异。`tools/debug_mink_repeat.py`定位为稀疏网络downsample/res两路坐标集合相同而行顺序不同，旧`MinkowskiSparseTensorCat`直接按行拼接导致错配。`models/model_mink.py`现按坐标对齐，`tests/test_sparse_cat_alignment.py`验证错序数值和梯度。修复后报告`work/magic-local905/magic_gates_official_corrected.json`通过：voxel、特征、世界坐标、可靠性和最终位姿跨原LEADER与零残差融合全为0差值，B三步冻结与Q/K/V梯度检查通过。修复改变了原LEADER前向语义，修复前313帧L0为`0.098382m/1.052243°`，修复后为`0.116609m/1.108210°`，两者必须作为不同版本保留。本地2012-02-12的148帧已出现于其他历史实验，不能充当全新独立确认；拒绝的候选清单保留为`rejected_feb12_*`。`tools/prepare_local905_null.py`已用552训练帧生成固定每相机SAM均值模板，未用验证或测试图像。
+
+`tools/train_magic_revision.py`与`tools/run_magic_revision_matrix.py`实现完整六条件网格：3个配对种子、3个相同融合学习率、每条件690个实际优化步、batch8、69步固定验证一次、冻结统计、真实/null各自共同69步预热、A/B分别分叉、LFT只跑对应621步LEADER更新段。每组按修复后L0归一化的验证位姿`J`选择权重，保留epoch0及末轮评估；最终LR按3种子的验证`J`平均值选，313帧和独立确认集不参与选择。正式协议JSON先于训练落盘。训练模型在验证子进程运行期间临时移至CPU，避免8GB显存同时容纳两套网络；10步LFT冒烟验证成功。首个未移出显存的`formal_grid_v1`在第138步验证时OOM，失败日志保留，未作为结果；修复后`formal_grid_v2`已启动，结果尚未完成。
+
+原checkpoint预训练日期包含本地40帧验证与313帧诊断日期，因此313帧不得称作未见测试。最终确认预先指定`2012-04-29`中与训练地图空间重叠的67秒窗口，选择仅依据GT轨迹和原训练日期，不依据模型误差；协议见`experiments/magic_revision/confirmation_protocol_2012-04-29.json`。官方图像约87GB、点云约8GB；本机C盘容量使整包下载不可持续，已停止不完整下载，最终确认集尚未准备好。`tools/eval_local905_online.py`已支持按体素身份保存全部坐标预测、可靠性、视觉有效标记、筛选索引与两级位姿，并支持同相机相隔至少3秒的固定图像置乱；`tools/eval_magic_correspondence_swaps.py`可严格按体素坐标对齐后离线互换坐标与可靠性。最终313帧与独立确认集评估、置乱、互换、耗时和配对统计仍待正式权重与数据完成后执行。

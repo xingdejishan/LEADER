@@ -1,0 +1,20 @@
+{
+  "protocol": "magic_revision_independent_confirmation_v1",
+  "date": "2012-04-29",
+  "date_selected_before_formal_training": true,
+  "selection_basis": "contiguous ground-truth trajectory segment with all 100 sampled positions within 20 m of the 552-frame training-map trajectory; no model predictions used",
+  "timestamp_start_us_inclusive": 1335705460970398,
+  "timestamp_end_us_inclusive": 1335705528390371,
+  "camera": "Cam5",
+  "query_rule": "For each integer UTC-second bin intersecting the locked interval, take the earliest Cam5 image in the interval; pair it with the nearest synchronized Velodyne scan if time separation is at most 100000 us. Use every paired bin without selecting on pose error.",
+  "minimum_usable_pairs": 50,
+  "input_spec": "Original full LiDAR scan, 1-100 m range, polar voxel size 0.2 m, no point cap; same Cam5 undistortion, half resolution, calibration and valid-view mask as training",
+  "groundtruth_sha256": "d60a6fcc62c5c2db789b54cb2d7ff5627ae2035a9e9dcb6da2b0b1aa3141bf96",
+  "groundtruth_source": "https://s3.us-east-2.amazonaws.com/nclt.perl.engin.umich.edu/ground_truth/groundtruth_2012-04-29.csv",
+  "image_archive_source": "https://s3.us-east-2.amazonaws.com/nclt.perl.engin.umich.edu/images/2012-04-29_lb3.tar.gz",
+  "velodyne_archive_source": "https://s3.us-east-2.amazonaws.com/nclt.perl.engin.umich.edu/velodyne_data/2012-04-29_vel.tar.gz",
+  "checkpoint_training_dates_from_loader": ["2012-01-22", "2012-02-02", "2012-02-18", "2012-05-11"],
+  "historical_record_search": "No 2012-04-29 mention in RESEARCH_HANDOFF.md, research/*.md/json, or work/*.md/json at designation time",
+  "test_use": "Run only after learning-rate selection and checkpoint choice have been frozen on validation. Do not tune from this interval's results.",
+  "failure_policy": "If source archives, camera processing, timestamp pairing, calibration, or minimum pair count fail, mark confirmation unavailable without replacing the interval after seeing model results."
+}

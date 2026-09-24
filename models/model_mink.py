@@ -66,14 +66,17 @@ class SparseConvPadding(nn.Module):
     
 
 def MinkowskiSparseTensorCat(sparse_tensors: List[ME.SparseTensor], extra_sparse_tensors: List[ME.SparseTensor] = []) -> ME.SparseTensor:
+    base = sparse_tensors[0]
     return ME.SparseTensor(
-        coordinates=sparse_tensors[0].C,
+        coordinates=base.C,
         features=torch.cat(
-            [sparse_tensors[0].F] + [st.F for st in sparse_tensors[1:]] + [st.features_at_coordinates(sparse_tensors[0].C.float()) for st in extra_sparse_tensors],
+            [base.F] + [st.F if torch.equal(st.C, base.C) else st.features_at_coordinates(base.C.float())
+                        for st in sparse_tensors[1:]] +
+            [st.features_at_coordinates(base.C.float()) for st in extra_sparse_tensors],
             dim=1
         ),
-        coordinate_manager=sparse_tensors[0].coordinate_manager,
-        tensor_stride=sparse_tensors[0].tensor_stride,
+        coordinate_manager=base.coordinate_manager,
+        tensor_stride=base.tensor_stride,
     )
 
 

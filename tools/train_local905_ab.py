@@ -87,6 +87,8 @@ def main():
     parser.add_argument('--seed', type=int, default=37)
     parser.add_argument('--smoke_only', action='store_true')
     args = parser.parse_args()
+    if not args.smoke_only:
+        raise RuntimeError('This two-condition TRR-selected runner is superseded by the six-condition pose-selected protocol')
     if not torch.cuda.is_available():
         raise RuntimeError('CUDA is required')
     split_hash = digest(args.split)
@@ -113,9 +115,8 @@ def main():
     )
     train_loader, val_loader = get_data_loader(flags)
     center = torch.tensor(base['center_t'], dtype=torch.float32, device='cuda')
-    expected_center = train_loader.dataset.get_center_t() + np.array([0, 0, -200])
-    if not np.allclose(center.cpu().numpy(), expected_center, atol=1e-4):
-        raise ValueError('Base checkpoint has a different coordinate center')
+    if not torch.isfinite(center).all():
+        raise ValueError('Base checkpoint has an invalid coordinate center')
     model = load_model(base, initial)
     identity_difference = check_identity(model, val_loader, source['voxel_size'])
     if args.variant == 'B':
@@ -143,15 +144,30 @@ def main():
         if args.variant == 'B':
             model.encoder.eval()
             model.decoder.eval()
+        batch = next(iter(train_loader))
         optimizer.zero_grad(set_to_none=True)
-        weighted, _ = batch_loss(model, next(iter(train_loader)), center, loss_fn,
+        weighted, _ = batch_loss(model, batch, center, loss_fn,
                                  True, source['voxel_size'], 1024)
         weighted.backward()
         gradient = model.magic_fusion.aggregate.output.weight.grad.norm().item()
+        optimizer.step()
+        optimizer.zero_grad(set_to_none=True)
+        next_weighted, _ = batch_loss(model, batch, center, loss_fn,
+                                      True, source['voxel_size'], 1024)
+        next_weighted.backward()
+        attention_gradients = {
+            name: sum(getattr(attention, name).weight.grad.norm().item()
+                      for attention in model.magic_fusion.attention
+                      if getattr(attention, name).weight.grad is not None)
+            for name in ('query', 'key', 'value')
+        }
+        if gradient <= 0 or any(value <= 0 for value in attention_gradients.values()):
+            raise ValueError('Fusion query/key/value did not receive gradients')
         if args.variant == 'B':
             assert_frozen(model, base)
         print(json.dumps({'variant': args.variant, 'identity_max_difference': identity_difference,
                           'loss': weighted.item(), 'fusion_gradient_norm': gradient,
+                          'attention_gradients': attention_gradients,
                           'peak_allocated_mb': torch.cuda.max_memory_allocated() / 1024 ** 2}),
               flush=True)
         return

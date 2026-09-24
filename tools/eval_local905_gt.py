@@ -50,11 +50,21 @@ def main():
         if row['status'] == 'ok':
             predicted = np.asarray(row['T_world_body'], dtype=np.float64)
             if predicted.shape != (4, 4) or not np.isfinite(predicted).all():
-                raise ValueError(f'Invalid predicted transform: {stem}')
-            translation = np.linalg.norm(predicted[:3, 3] - truth[:3, 3])
-            cosine = (np.trace(predicted[:3, :3].T @ truth[:3, :3]) - 1) / 2
-            rotation = np.degrees(np.arccos(np.clip(cosine, -1, 1)))
-            result.update({'mpe_m': float(translation), 'moe_deg': float(rotation)})
+                result.update({'status': 'invalid_transform', 'reason': 'shape_or_nonfinite'})
+            else:
+                rotation_matrix = predicted[:3, :3]
+                orthogonality_error = np.linalg.norm(
+                    rotation_matrix.T @ rotation_matrix - np.eye(3), ord='fro')
+                determinant = np.linalg.det(rotation_matrix)
+                if orthogonality_error > 0.01 or abs(determinant - 1) > 0.01:
+                    result.update({'status': 'invalid_rotation',
+                                   'orthogonality_error': float(orthogonality_error),
+                                   'rotation_determinant': float(determinant)})
+                else:
+                    translation = np.linalg.norm(predicted[:3, 3] - truth[:3, 3])
+                    cosine = (np.trace(rotation_matrix.T @ truth[:3, :3]) - 1) / 2
+                    rotation = np.degrees(np.arccos(np.clip(cosine, -1, 1)))
+                    result.update({'mpe_m': float(translation), 'moe_deg': float(rotation)})
         rows.append(result)
     successes = [row for row in rows if row['status'] == 'ok']
     errors_t = np.asarray([row['mpe_m'] for row in successes])
@@ -71,8 +81,12 @@ def main():
         'all_frame_moe_median_deg': float(np.median(errors_q)) if all_success else None,
         'all_frame_mpe_p90_m': float(np.percentile(errors_t, 90)) if all_success else None,
         'all_frame_moe_p90_deg': float(np.percentile(errors_q, 90)) if all_success else None,
+        'all_frame_mpe_p95_m': float(np.percentile(errors_t, 95)) if all_success else None,
+        'all_frame_moe_p95_deg': float(np.percentile(errors_q, 95)) if all_success else None,
         'all_frame_rotation_gt_10_deg': int((errors_q > 10).sum()) if all_success else None,
         'all_frame_rotation_gt_90_deg': int((errors_q > 90).sum()) if all_success else None,
+        'all_frame_joint_1m_2deg_count': int(((errors_t < 1) & (errors_q < 2)).sum()),
+        'all_frame_joint_1m_2deg_recall': float(((errors_t < 1) & (errors_q < 2)).sum() / len(rows)),
         'success_only_mpe_mean_m': float(errors_t.mean()) if len(successes) else None,
         'success_only_moe_mean_deg': float(errors_q.mean()) if len(successes) else None,
         'elapsed_online_seconds': data['elapsed_seconds'],

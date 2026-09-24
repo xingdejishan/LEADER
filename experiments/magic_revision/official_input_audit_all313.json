@@ -1,0 +1,3183 @@
+{
+  "protocol": "official_leader_local905_input_audit_v1",
+  "weights_sha256": "a78d5114bb908717676f7851399bdbb78943fd9e0170b1dd8eb592e0558fa028",
+  "extra_sha256": "5c217c84692a4da5640839e4849670e2931afa180659010c29365fe0133eafa6",
+  "split_sha256": "948bcb0d81ea9be9d5627c7b00bab36efa8fcacec2a3027b256c9574308835ba",
+  "original_training_dates_from_loader": [
+    "2012-01-22",
+    "2012-02-02",
+    "2012-02-18",
+    "2012-05-11"
+  ],
+  "validation_date_in_pretraining": true,
+  "diagnostic_313_date_in_pretraining": true,
+  "candidate_confirmation_date_in_pretraining": false,
+  "official_checkpoint_center_t": [
+    -104.24640471432245,
+    -381.28044425519795,
+    -203.66971518771015
+  ],
+  "local_train_center_t": [
+    -77.46186828613281,
+    -316.25103759765625,
+    -191.80051708221436
+  ],
+  "center_difference_m": 71.3240000671054,
+  "official_model_strict_load": true,
+  "actual_max_points": 0,
+  "voxel_size": 0.2,
+  "frames": [
+    {
+      "key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "raw_points": 68930,
+      "filtered_points": 68930,
+      "voxels": 35171,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-02-02/velodyne_sync/1328211997477531.bin",
+      "raw_points": 51385,
+      "filtered_points": 51385,
+      "voxels": 25862,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760518428505.bin",
+      "raw_points": 58428,
+      "filtered_points": 58428,
+      "voxels": 31626,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760519028523.bin",
+      "raw_points": 58661,
+      "filtered_points": 58661,
+      "voxels": 31516,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760519428493.bin",
+      "raw_points": 58148,
+      "filtered_points": 58148,
+      "voxels": 31529,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760520028479.bin",
+      "raw_points": 58408,
+      "filtered_points": 58408,
+      "voxels": 31614,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760520428484.bin",
+      "raw_points": 57097,
+      "filtered_points": 57097,
+      "voxels": 30867,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760521028473.bin",
+      "raw_points": 41419,
+      "filtered_points": 41419,
+      "voxels": 21308,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760521428475.bin",
+      "raw_points": 57131,
+      "filtered_points": 57131,
+      "voxels": 30743,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760522028465.bin",
+      "raw_points": 57715,
+      "filtered_points": 57715,
+      "voxels": 31114,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760522428486.bin",
+      "raw_points": 58402,
+      "filtered_points": 58402,
+      "voxels": 31313,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760523028456.bin",
+      "raw_points": 59321,
+      "filtered_points": 59321,
+      "voxels": 31770,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760523428463.bin",
+      "raw_points": 59257,
+      "filtered_points": 59257,
+      "voxels": 31808,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760524028448.bin",
+      "raw_points": 59852,
+      "filtered_points": 59852,
+      "voxels": 32100,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760524428473.bin",
+      "raw_points": 60462,
+      "filtered_points": 60462,
+      "voxels": 32230,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760525028448.bin",
+      "raw_points": 61504,
+      "filtered_points": 61504,
+      "voxels": 32845,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760525428447.bin",
+      "raw_points": 62191,
+      "filtered_points": 62191,
+      "voxels": 33368,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760526028444.bin",
+      "raw_points": 61992,
+      "filtered_points": 61992,
+      "voxels": 33080,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760526428438.bin",
+      "raw_points": 62908,
+      "filtered_points": 62908,
+      "voxels": 33585,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760527028475.bin",
+      "raw_points": 62558,
+      "filtered_points": 62558,
+      "voxels": 33241,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760527428432.bin",
+      "raw_points": 63239,
+      "filtered_points": 63239,
+      "voxels": 33514,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760528028427.bin",
+      "raw_points": 64295,
+      "filtered_points": 64295,
+      "voxels": 33767,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760528428431.bin",
+      "raw_points": 64278,
+      "filtered_points": 64278,
+      "voxels": 33580,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760529028424.bin",
+      "raw_points": 65245,
+      "filtered_points": 65245,
+      "voxels": 33795,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760529428420.bin",
+      "raw_points": 65369,
+      "filtered_points": 65369,
+      "voxels": 33957,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760530028403.bin",
+      "raw_points": 66924,
+      "filtered_points": 66924,
+      "voxels": 34149,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760530428411.bin",
+      "raw_points": 67543,
+      "filtered_points": 67543,
+      "voxels": 34446,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760531028432.bin",
+      "raw_points": 68184,
+      "filtered_points": 68184,
+      "voxels": 34629,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760531428403.bin",
+      "raw_points": 68351,
+      "filtered_points": 68351,
+      "voxels": 34782,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760532028388.bin",
+      "raw_points": 68512,
+      "filtered_points": 68512,
+      "voxels": 34292,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760532428400.bin",
+      "raw_points": 69120,
+      "filtered_points": 69120,
+      "voxels": 34658,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760533028433.bin",
+      "raw_points": 69234,
+      "filtered_points": 69234,
+      "voxels": 34475,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760533428375.bin",
+      "raw_points": 69351,
+      "filtered_points": 69351,
+      "voxels": 34282,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760534028395.bin",
+      "raw_points": 69612,
+      "filtered_points": 69612,
+      "voxels": 34022,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760534428378.bin",
+      "raw_points": 69215,
+      "filtered_points": 69215,
+      "voxels": 33682,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760535028376.bin",
+      "raw_points": 69471,
+      "filtered_points": 69471,
+      "voxels": 33865,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760535428375.bin",
+      "raw_points": 69734,
+      "filtered_points": 69734,
+      "voxels": 33392,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760536028366.bin",
+      "raw_points": 70062,
+      "filtered_points": 70062,
+      "voxels": 33268,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760536428364.bin",
+      "raw_points": 70278,
+      "filtered_points": 70278,
+      "voxels": 33160,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760537028359.bin",
+      "raw_points": 69659,
+      "filtered_points": 69659,
+      "voxels": 32686,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760537428356.bin",
+      "raw_points": 71449,
+      "filtered_points": 71449,
+      "voxels": 33473,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760538028343.bin",
+      "raw_points": 71271,
+      "filtered_points": 71271,
+      "voxels": 33756,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760538428349.bin",
+      "raw_points": 62482,
+      "filtered_points": 62482,
+      "voxels": 30131,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760539028335.bin",
+      "raw_points": 71302,
+      "filtered_points": 71302,
+      "voxels": 34337,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760539428342.bin",
+      "raw_points": 71980,
+      "filtered_points": 71980,
+      "voxels": 34429,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760540028338.bin",
+      "raw_points": 71346,
+      "filtered_points": 71346,
+      "voxels": 34424,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760540428334.bin",
+      "raw_points": 71606,
+      "filtered_points": 71606,
+      "voxels": 34425,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760541028320.bin",
+      "raw_points": 71782,
+      "filtered_points": 71782,
+      "voxels": 34395,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760541428325.bin",
+      "raw_points": 72533,
+      "filtered_points": 72533,
+      "voxels": 34736,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760542028312.bin",
+      "raw_points": 72609,
+      "filtered_points": 72609,
+      "voxels": 34861,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760542428376.bin",
+      "raw_points": 71946,
+      "filtered_points": 71946,
+      "voxels": 34501,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760543028308.bin",
+      "raw_points": 71687,
+      "filtered_points": 71687,
+      "voxels": 34525,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760543428302.bin",
+      "raw_points": 71895,
+      "filtered_points": 71895,
+      "voxels": 34495,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760544028297.bin",
+      "raw_points": 71671,
+      "filtered_points": 71671,
+      "voxels": 34514,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760544428339.bin",
+      "raw_points": 71283,
+      "filtered_points": 71283,
+      "voxels": 34410,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760545028290.bin",
+      "raw_points": 71495,
+      "filtered_points": 71495,
+      "voxels": 34324,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760545428286.bin",
+      "raw_points": 71065,
+      "filtered_points": 71065,
+      "voxels": 34307,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760546028282.bin",
+      "raw_points": 70660,
+      "filtered_points": 70660,
+      "voxels": 34363,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760546428277.bin",
+      "raw_points": 70494,
+      "filtered_points": 70494,
+      "voxels": 34546,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760547028274.bin",
+      "raw_points": 70455,
+      "filtered_points": 70455,
+      "voxels": 34815,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760547428273.bin",
+      "raw_points": 71072,
+      "filtered_points": 71072,
+      "voxels": 35122,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760548028267.bin",
+      "raw_points": 71336,
+      "filtered_points": 71336,
+      "voxels": 35782,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760548428265.bin",
+      "raw_points": 71751,
+      "filtered_points": 71751,
+      "voxels": 36145,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760549028260.bin",
+      "raw_points": 72389,
+      "filtered_points": 72389,
+      "voxels": 36540,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760549428256.bin",
+      "raw_points": 73374,
+      "filtered_points": 73374,
+      "voxels": 37017,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760550028252.bin",
+      "raw_points": 73355,
+      "filtered_points": 73355,
+      "voxels": 37190,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760550428249.bin",
+      "raw_points": 73217,
+      "filtered_points": 73217,
+      "voxels": 37349,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760551028244.bin",
+      "raw_points": 73103,
+      "filtered_points": 73103,
+      "voxels": 37701,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760551428243.bin",
+      "raw_points": 72756,
+      "filtered_points": 72756,
+      "voxels": 37854,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760552028276.bin",
+      "raw_points": 70615,
+      "filtered_points": 70615,
+      "voxels": 36819,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760552428254.bin",
+      "raw_points": 71064,
+      "filtered_points": 71064,
+      "voxels": 37102,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760553028229.bin",
+      "raw_points": 71491,
+      "filtered_points": 71491,
+      "voxels": 37139,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760553428226.bin",
+      "raw_points": 71870,
+      "filtered_points": 71870,
+      "voxels": 36993,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760554028296.bin",
+      "raw_points": 71821,
+      "filtered_points": 71821,
+      "voxels": 36967,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760554428258.bin",
+      "raw_points": 71979,
+      "filtered_points": 71979,
+      "voxels": 37153,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760555028214.bin",
+      "raw_points": 72347,
+      "filtered_points": 72347,
+      "voxels": 37371,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760555428210.bin",
+      "raw_points": 71499,
+      "filtered_points": 71499,
+      "voxels": 36885,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760556028207.bin",
+      "raw_points": 71581,
+      "filtered_points": 71581,
+      "voxels": 37111,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760556428204.bin",
+      "raw_points": 72061,
+      "filtered_points": 72061,
+      "voxels": 37497,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760557028199.bin",
+      "raw_points": 73203,
+      "filtered_points": 73203,
+      "voxels": 38098,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760557428196.bin",
+      "raw_points": 73257,
+      "filtered_points": 73257,
+      "voxels": 38019,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760558028191.bin",
+      "raw_points": 73055,
+      "filtered_points": 73055,
+      "voxels": 37810,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760558428188.bin",
+      "raw_points": 72889,
+      "filtered_points": 72889,
+      "voxels": 37498,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760559028183.bin",
+      "raw_points": 72656,
+      "filtered_points": 72656,
+      "voxels": 37833,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760559428183.bin",
+      "raw_points": 72958,
+      "filtered_points": 72958,
+      "voxels": 37262,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760560028177.bin",
+      "raw_points": 72661,
+      "filtered_points": 72661,
+      "voxels": 36902,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760560428173.bin",
+      "raw_points": 72480,
+      "filtered_points": 72480,
+      "voxels": 36804,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760561028169.bin",
+      "raw_points": 72179,
+      "filtered_points": 72179,
+      "voxels": 36415,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760561428167.bin",
+      "raw_points": 70990,
+      "filtered_points": 70990,
+      "voxels": 35349,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760562028165.bin",
+      "raw_points": 70565,
+      "filtered_points": 70565,
+      "voxels": 35176,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760562428158.bin",
+      "raw_points": 71234,
+      "filtered_points": 71234,
+      "voxels": 35503,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760563028153.bin",
+      "raw_points": 69728,
+      "filtered_points": 69728,
+      "voxels": 34937,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760563428206.bin",
+      "raw_points": 69224,
+      "filtered_points": 69224,
+      "voxels": 34316,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760564028147.bin",
+      "raw_points": 68712,
+      "filtered_points": 68712,
+      "voxels": 33670,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760564428144.bin",
+      "raw_points": 68889,
+      "filtered_points": 68889,
+      "voxels": 33863,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760565028149.bin",
+      "raw_points": 69126,
+      "filtered_points": 69126,
+      "voxels": 33925,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760565428135.bin",
+      "raw_points": 68887,
+      "filtered_points": 68887,
+      "voxels": 34055,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760566028132.bin",
+      "raw_points": 68826,
+      "filtered_points": 68826,
+      "voxels": 34131,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760566428193.bin",
+      "raw_points": 68594,
+      "filtered_points": 68594,
+      "voxels": 34400,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760567028126.bin",
+      "raw_points": 69384,
+      "filtered_points": 69384,
+      "voxels": 34850,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760567428123.bin",
+      "raw_points": 69579,
+      "filtered_points": 69579,
+      "voxels": 34884,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760568028116.bin",
+      "raw_points": 70004,
+      "filtered_points": 70004,
+      "voxels": 34984,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760568428113.bin",
+      "raw_points": 69938,
+      "filtered_points": 69938,
+      "voxels": 34835,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760569028110.bin",
+      "raw_points": 69887,
+      "filtered_points": 69887,
+      "voxels": 34892,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760569428107.bin",
+      "raw_points": 69803,
+      "filtered_points": 69803,
+      "voxels": 34912,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760570028100.bin",
+      "raw_points": 69536,
+      "filtered_points": 69536,
+      "voxels": 34571,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760570428096.bin",
+      "raw_points": 69549,
+      "filtered_points": 69549,
+      "voxels": 34598,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760571028127.bin",
+      "raw_points": 69627,
+      "filtered_points": 69627,
+      "voxels": 34586,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760571428156.bin",
+      "raw_points": 69328,
+      "filtered_points": 69328,
+      "voxels": 34687,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760572028097.bin",
+      "raw_points": 69168,
+      "filtered_points": 69168,
+      "voxels": 34363,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760572428101.bin",
+      "raw_points": 68507,
+      "filtered_points": 68507,
+      "voxels": 34045,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760573028078.bin",
+      "raw_points": 68953,
+      "filtered_points": 68953,
+      "voxels": 34101,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760573428075.bin",
+      "raw_points": 68093,
+      "filtered_points": 68093,
+      "voxels": 33686,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760574028111.bin",
+      "raw_points": 67880,
+      "filtered_points": 67880,
+      "voxels": 33396,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760574428121.bin",
+      "raw_points": 66515,
+      "filtered_points": 66515,
+      "voxels": 32985,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760575028095.bin",
+      "raw_points": 66024,
+      "filtered_points": 66024,
+      "voxels": 32507,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760575428060.bin",
+      "raw_points": 65007,
+      "filtered_points": 65007,
+      "voxels": 32324,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760576028055.bin",
+      "raw_points": 64861,
+      "filtered_points": 64861,
+      "voxels": 31921,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760576428085.bin",
+      "raw_points": 64495,
+      "filtered_points": 64495,
+      "voxels": 31764,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760577028052.bin",
+      "raw_points": 64602,
+      "filtered_points": 64602,
+      "voxels": 31874,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760577428067.bin",
+      "raw_points": 63914,
+      "filtered_points": 63914,
+      "voxels": 31870,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760578028039.bin",
+      "raw_points": 63923,
+      "filtered_points": 63923,
+      "voxels": 31579,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760578428046.bin",
+      "raw_points": 62733,
+      "filtered_points": 62733,
+      "voxels": 31455,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760579028032.bin",
+      "raw_points": 64730,
+      "filtered_points": 64730,
+      "voxels": 32000,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760579428044.bin",
+      "raw_points": 63949,
+      "filtered_points": 63949,
+      "voxels": 32054,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760580028034.bin",
+      "raw_points": 64661,
+      "filtered_points": 64661,
+      "voxels": 31972,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760580428035.bin",
+      "raw_points": 63517,
+      "filtered_points": 63517,
+      "voxels": 31811,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760581028019.bin",
+      "raw_points": 62903,
+      "filtered_points": 62903,
+      "voxels": 31359,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760581428024.bin",
+      "raw_points": 61643,
+      "filtered_points": 61643,
+      "voxels": 31145,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760582028011.bin",
+      "raw_points": 62905,
+      "filtered_points": 62905,
+      "voxels": 31727,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760582428017.bin",
+      "raw_points": 62604,
+      "filtered_points": 62604,
+      "voxels": 31720,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760583028014.bin",
+      "raw_points": 62374,
+      "filtered_points": 62374,
+      "voxels": 31376,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760583428007.bin",
+      "raw_points": 61641,
+      "filtered_points": 61641,
+      "voxels": 31134,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760584028004.bin",
+      "raw_points": 61232,
+      "filtered_points": 61232,
+      "voxels": 31172,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760584428005.bin",
+      "raw_points": 60869,
+      "filtered_points": 60869,
+      "voxels": 31202,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760585027998.bin",
+      "raw_points": 60440,
+      "filtered_points": 60440,
+      "voxels": 31098,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760585427992.bin",
+      "raw_points": 60528,
+      "filtered_points": 60528,
+      "voxels": 31154,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760586027984.bin",
+      "raw_points": 60219,
+      "filtered_points": 60219,
+      "voxels": 31454,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760586427986.bin",
+      "raw_points": 61203,
+      "filtered_points": 61203,
+      "voxels": 31947,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760587027984.bin",
+      "raw_points": 60948,
+      "filtered_points": 60948,
+      "voxels": 32264,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760587427984.bin",
+      "raw_points": 61004,
+      "filtered_points": 61004,
+      "voxels": 32336,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760588027975.bin",
+      "raw_points": 60446,
+      "filtered_points": 60446,
+      "voxels": 31988,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760588427984.bin",
+      "raw_points": 60791,
+      "filtered_points": 60791,
+      "voxels": 32009,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760589027959.bin",
+      "raw_points": 59911,
+      "filtered_points": 59911,
+      "voxels": 31832,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760589428002.bin",
+      "raw_points": 60116,
+      "filtered_points": 60116,
+      "voxels": 31752,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760590027985.bin",
+      "raw_points": 59391,
+      "filtered_points": 59391,
+      "voxels": 31472,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760590427971.bin",
+      "raw_points": 59084,
+      "filtered_points": 59084,
+      "voxels": 31358,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760591027977.bin",
+      "raw_points": 58642,
+      "filtered_points": 58642,
+      "voxels": 31110,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760591427967.bin",
+      "raw_points": 59247,
+      "filtered_points": 59247,
+      "voxels": 31312,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760592027943.bin",
+      "raw_points": 58039,
+      "filtered_points": 58039,
+      "voxels": 31119,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760592428021.bin",
+      "raw_points": 58203,
+      "filtered_points": 58203,
+      "voxels": 31060,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760593027927.bin",
+      "raw_points": 57601,
+      "filtered_points": 57601,
+      "voxels": 30976,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760593427927.bin",
+      "raw_points": 58324,
+      "filtered_points": 58324,
+      "voxels": 31193,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760594027928.bin",
+      "raw_points": 57435,
+      "filtered_points": 57435,
+      "voxels": 30900,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760594427917.bin",
+      "raw_points": 57608,
+      "filtered_points": 57608,
+      "voxels": 30772,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336760595027912.bin",
+      "raw_points": 56181,
+      "filtered_points": 56181,
+      "voxels": 30074,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763641006251.bin",
+      "raw_points": 75646,
+      "filtered_points": 75646,
+      "voxels": 28629,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763641406247.bin",
+      "raw_points": 76130,
+      "filtered_points": 76130,
+      "voxels": 27941,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763642006231.bin",
+      "raw_points": 76532,
+      "filtered_points": 76532,
+      "voxels": 27869,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763642406241.bin",
+      "raw_points": 76462,
+      "filtered_points": 76462,
+      "voxels": 27632,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763643006225.bin",
+      "raw_points": 76695,
+      "filtered_points": 76695,
+      "voxels": 27424,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763643406233.bin",
+      "raw_points": 75198,
+      "filtered_points": 75198,
+      "voxels": 27325,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763644006217.bin",
+      "raw_points": 74831,
+      "filtered_points": 74831,
+      "voxels": 27428,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763644406225.bin",
+      "raw_points": 75211,
+      "filtered_points": 75211,
+      "voxels": 27687,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763645006210.bin",
+      "raw_points": 74956,
+      "filtered_points": 74956,
+      "voxels": 27762,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763645406217.bin",
+      "raw_points": 74337,
+      "filtered_points": 74337,
+      "voxels": 27358,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763646006201.bin",
+      "raw_points": 74636,
+      "filtered_points": 74636,
+      "voxels": 27615,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763646406211.bin",
+      "raw_points": 75067,
+      "filtered_points": 75067,
+      "voxels": 27646,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763647006230.bin",
+      "raw_points": 77093,
+      "filtered_points": 77093,
+      "voxels": 27934,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763647406197.bin",
+      "raw_points": 77443,
+      "filtered_points": 77443,
+      "voxels": 27814,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763648006186.bin",
+      "raw_points": 75270,
+      "filtered_points": 75270,
+      "voxels": 27811,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763648406191.bin",
+      "raw_points": 74925,
+      "filtered_points": 74925,
+      "voxels": 27524,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763649006187.bin",
+      "raw_points": 74163,
+      "filtered_points": 74163,
+      "voxels": 26487,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763649406182.bin",
+      "raw_points": 74221,
+      "filtered_points": 74221,
+      "voxels": 26302,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763650006177.bin",
+      "raw_points": 74306,
+      "filtered_points": 74306,
+      "voxels": 26150,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763650406178.bin",
+      "raw_points": 75448,
+      "filtered_points": 75448,
+      "voxels": 26101,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763651006173.bin",
+      "raw_points": 74648,
+      "filtered_points": 74648,
+      "voxels": 26195,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763651406166.bin",
+      "raw_points": 75285,
+      "filtered_points": 75285,
+      "voxels": 26250,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763652006156.bin",
+      "raw_points": 75692,
+      "filtered_points": 75692,
+      "voxels": 25896,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763652406162.bin",
+      "raw_points": 75369,
+      "filtered_points": 75369,
+      "voxels": 25874,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763653006147.bin",
+      "raw_points": 74649,
+      "filtered_points": 74649,
+      "voxels": 25650,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763653406158.bin",
+      "raw_points": 74384,
+      "filtered_points": 74384,
+      "voxels": 25419,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763654006139.bin",
+      "raw_points": 72808,
+      "filtered_points": 72808,
+      "voxels": 24892,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763654406148.bin",
+      "raw_points": 71943,
+      "filtered_points": 71943,
+      "voxels": 24150,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763655006133.bin",
+      "raw_points": 72663,
+      "filtered_points": 72663,
+      "voxels": 23754,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763655406139.bin",
+      "raw_points": 70684,
+      "filtered_points": 70684,
+      "voxels": 22966,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763656006124.bin",
+      "raw_points": 68532,
+      "filtered_points": 68532,
+      "voxels": 22060,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763656406129.bin",
+      "raw_points": 67331,
+      "filtered_points": 67331,
+      "voxels": 21749,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763657006126.bin",
+      "raw_points": 64385,
+      "filtered_points": 64385,
+      "voxels": 21255,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763657406125.bin",
+      "raw_points": 63027,
+      "filtered_points": 63027,
+      "voxels": 20492,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763658006110.bin",
+      "raw_points": 59349,
+      "filtered_points": 59349,
+      "voxels": 20093,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763658406114.bin",
+      "raw_points": 58676,
+      "filtered_points": 58676,
+      "voxels": 19656,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763659006125.bin",
+      "raw_points": 58452,
+      "filtered_points": 58452,
+      "voxels": 19316,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763659406107.bin",
+      "raw_points": 61920,
+      "filtered_points": 61920,
+      "voxels": 20319,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763660006094.bin",
+      "raw_points": 61732,
+      "filtered_points": 61732,
+      "voxels": 21365,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763660406116.bin",
+      "raw_points": 62699,
+      "filtered_points": 62699,
+      "voxels": 22076,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763661006085.bin",
+      "raw_points": 61064,
+      "filtered_points": 61064,
+      "voxels": 22338,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763661406094.bin",
+      "raw_points": 60953,
+      "filtered_points": 60953,
+      "voxels": 22411,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763662006080.bin",
+      "raw_points": 58303,
+      "filtered_points": 58303,
+      "voxels": 21279,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763662406083.bin",
+      "raw_points": 56615,
+      "filtered_points": 56615,
+      "voxels": 20700,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763663006072.bin",
+      "raw_points": 55109,
+      "filtered_points": 55109,
+      "voxels": 19582,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763663406078.bin",
+      "raw_points": 54822,
+      "filtered_points": 54822,
+      "voxels": 19885,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763664006069.bin",
+      "raw_points": 53475,
+      "filtered_points": 53475,
+      "voxels": 19285,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763664406071.bin",
+      "raw_points": 53447,
+      "filtered_points": 53447,
+      "voxels": 19658,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763665006068.bin",
+      "raw_points": 53241,
+      "filtered_points": 53241,
+      "voxels": 18779,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763665406063.bin",
+      "raw_points": 51799,
+      "filtered_points": 51799,
+      "voxels": 18354,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763666006047.bin",
+      "raw_points": 49062,
+      "filtered_points": 49062,
+      "voxels": 17646,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763666406053.bin",
+      "raw_points": 48537,
+      "filtered_points": 48537,
+      "voxels": 17421,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763667006039.bin",
+      "raw_points": 49423,
+      "filtered_points": 49423,
+      "voxels": 17217,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763667406046.bin",
+      "raw_points": 46834,
+      "filtered_points": 46834,
+      "voxels": 16546,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763668006053.bin",
+      "raw_points": 40537,
+      "filtered_points": 40537,
+      "voxels": 14646,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763668406910.bin",
+      "raw_points": 37299,
+      "filtered_points": 37299,
+      "voxels": 13496,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763669006027.bin",
+      "raw_points": 35197,
+      "filtered_points": 35197,
+      "voxels": 12866,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763669406031.bin",
+      "raw_points": 35653,
+      "filtered_points": 35653,
+      "voxels": 12631,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763670006023.bin",
+      "raw_points": 35976,
+      "filtered_points": 35976,
+      "voxels": 12226,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763670406047.bin",
+      "raw_points": 36629,
+      "filtered_points": 36629,
+      "voxels": 12326,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763671006018.bin",
+      "raw_points": 35305,
+      "filtered_points": 35305,
+      "voxels": 12396,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763671406016.bin",
+      "raw_points": 33244,
+      "filtered_points": 33244,
+      "voxels": 11931,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763672006013.bin",
+      "raw_points": 31832,
+      "filtered_points": 31832,
+      "voxels": 11417,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763672406013.bin",
+      "raw_points": 31160,
+      "filtered_points": 31160,
+      "voxels": 10978,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763673005993.bin",
+      "raw_points": 32905,
+      "filtered_points": 32905,
+      "voxels": 11153,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763673405999.bin",
+      "raw_points": 33323,
+      "filtered_points": 33323,
+      "voxels": 11474,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763674405990.bin",
+      "raw_points": 35346,
+      "filtered_points": 35346,
+      "voxels": 12136,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763675005977.bin",
+      "raw_points": 36684,
+      "filtered_points": 36684,
+      "voxels": 12419,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763675406012.bin",
+      "raw_points": 37221,
+      "filtered_points": 37221,
+      "voxels": 12612,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763676005969.bin",
+      "raw_points": 38412,
+      "filtered_points": 38412,
+      "voxels": 13660,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763676406004.bin",
+      "raw_points": 40123,
+      "filtered_points": 40123,
+      "voxels": 14384,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763677005961.bin",
+      "raw_points": 40769,
+      "filtered_points": 40769,
+      "voxels": 14975,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763677405967.bin",
+      "raw_points": 40811,
+      "filtered_points": 40811,
+      "voxels": 15256,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763678005954.bin",
+      "raw_points": 42258,
+      "filtered_points": 42258,
+      "voxels": 16168,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763678405962.bin",
+      "raw_points": 46345,
+      "filtered_points": 46345,
+      "voxels": 17244,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763679005948.bin",
+      "raw_points": 44733,
+      "filtered_points": 44733,
+      "voxels": 16476,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763679405951.bin",
+      "raw_points": 43116,
+      "filtered_points": 43116,
+      "voxels": 15865,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763680005938.bin",
+      "raw_points": 44076,
+      "filtered_points": 44076,
+      "voxels": 16352,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763680405946.bin",
+      "raw_points": 46385,
+      "filtered_points": 46385,
+      "voxels": 17205,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763681005934.bin",
+      "raw_points": 51381,
+      "filtered_points": 51381,
+      "voxels": 18142,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763681405935.bin",
+      "raw_points": 58184,
+      "filtered_points": 58184,
+      "voxels": 21160,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763682005922.bin",
+      "raw_points": 67011,
+      "filtered_points": 67011,
+      "voxels": 25338,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763682405931.bin",
+      "raw_points": 68196,
+      "filtered_points": 68196,
+      "voxels": 26712,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763683005918.bin",
+      "raw_points": 70646,
+      "filtered_points": 70646,
+      "voxels": 28708,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763683405933.bin",
+      "raw_points": 70676,
+      "filtered_points": 70676,
+      "voxels": 28723,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763684005920.bin",
+      "raw_points": 70397,
+      "filtered_points": 70397,
+      "voxels": 28907,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763684405912.bin",
+      "raw_points": 70754,
+      "filtered_points": 70754,
+      "voxels": 29583,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763685005903.bin",
+      "raw_points": 71521,
+      "filtered_points": 71521,
+      "voxels": 30080,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763685405904.bin",
+      "raw_points": 71591,
+      "filtered_points": 71591,
+      "voxels": 30605,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763686005896.bin",
+      "raw_points": 71839,
+      "filtered_points": 71839,
+      "voxels": 31543,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763686405897.bin",
+      "raw_points": 71773,
+      "filtered_points": 71773,
+      "voxels": 32135,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763687005887.bin",
+      "raw_points": 71666,
+      "filtered_points": 71666,
+      "voxels": 32622,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763687405888.bin",
+      "raw_points": 71339,
+      "filtered_points": 71339,
+      "voxels": 32953,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763688005884.bin",
+      "raw_points": 70855,
+      "filtered_points": 70855,
+      "voxels": 33333,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763688405884.bin",
+      "raw_points": 70583,
+      "filtered_points": 70583,
+      "voxels": 33578,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763689005876.bin",
+      "raw_points": 70267,
+      "filtered_points": 70267,
+      "voxels": 33746,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763689405905.bin",
+      "raw_points": 69758,
+      "filtered_points": 69758,
+      "voxels": 33574,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763690005860.bin",
+      "raw_points": 69232,
+      "filtered_points": 69232,
+      "voxels": 33871,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763690405867.bin",
+      "raw_points": 69027,
+      "filtered_points": 69027,
+      "voxels": 34214,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763691005869.bin",
+      "raw_points": 68808,
+      "filtered_points": 68808,
+      "voxels": 34474,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763691405860.bin",
+      "raw_points": 69093,
+      "filtered_points": 69093,
+      "voxels": 34665,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763692005850.bin",
+      "raw_points": 69060,
+      "filtered_points": 69060,
+      "voxels": 34817,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763692405849.bin",
+      "raw_points": 69148,
+      "filtered_points": 69148,
+      "voxels": 34610,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763693005863.bin",
+      "raw_points": 69665,
+      "filtered_points": 69665,
+      "voxels": 34890,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763693405834.bin",
+      "raw_points": 69933,
+      "filtered_points": 69933,
+      "voxels": 34870,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763694005857.bin",
+      "raw_points": 70054,
+      "filtered_points": 70054,
+      "voxels": 35108,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763694405842.bin",
+      "raw_points": 70001,
+      "filtered_points": 70001,
+      "voxels": 35228,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763695005831.bin",
+      "raw_points": 69946,
+      "filtered_points": 69946,
+      "voxels": 34789,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763695405829.bin",
+      "raw_points": 69754,
+      "filtered_points": 69754,
+      "voxels": 34838,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763696005819.bin",
+      "raw_points": 69945,
+      "filtered_points": 69945,
+      "voxels": 34884,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763696405862.bin",
+      "raw_points": 69486,
+      "filtered_points": 69486,
+      "voxels": 34742,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763697005818.bin",
+      "raw_points": 68939,
+      "filtered_points": 68939,
+      "voxels": 34376,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763697405817.bin",
+      "raw_points": 68865,
+      "filtered_points": 68865,
+      "voxels": 34128,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763698005810.bin",
+      "raw_points": 68274,
+      "filtered_points": 68274,
+      "voxels": 33836,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763698405878.bin",
+      "raw_points": 67976,
+      "filtered_points": 67976,
+      "voxels": 33852,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763699005794.bin",
+      "raw_points": 67993,
+      "filtered_points": 67993,
+      "voxels": 33896,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763699405800.bin",
+      "raw_points": 67225,
+      "filtered_points": 67225,
+      "voxels": 33515,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763700005796.bin",
+      "raw_points": 66794,
+      "filtered_points": 66794,
+      "voxels": 32876,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763700405786.bin",
+      "raw_points": 66121,
+      "filtered_points": 66121,
+      "voxels": 32816,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763701005779.bin",
+      "raw_points": 65730,
+      "filtered_points": 65730,
+      "voxels": 32178,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763701405791.bin",
+      "raw_points": 65078,
+      "filtered_points": 65078,
+      "voxels": 32121,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763702005773.bin",
+      "raw_points": 64622,
+      "filtered_points": 64622,
+      "voxels": 31777,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763702405778.bin",
+      "raw_points": 64505,
+      "filtered_points": 64505,
+      "voxels": 31915,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763703005778.bin",
+      "raw_points": 63948,
+      "filtered_points": 63948,
+      "voxels": 31555,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763703405773.bin",
+      "raw_points": 63765,
+      "filtered_points": 63765,
+      "voxels": 32000,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763704005769.bin",
+      "raw_points": 64203,
+      "filtered_points": 64203,
+      "voxels": 31820,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763704405783.bin",
+      "raw_points": 63329,
+      "filtered_points": 63329,
+      "voxels": 31646,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763705005757.bin",
+      "raw_points": 63571,
+      "filtered_points": 63571,
+      "voxels": 31341,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763705405758.bin",
+      "raw_points": 62839,
+      "filtered_points": 62839,
+      "voxels": 31258,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763706005758.bin",
+      "raw_points": 63050,
+      "filtered_points": 63050,
+      "voxels": 31348,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763706405748.bin",
+      "raw_points": 61959,
+      "filtered_points": 61959,
+      "voxels": 31244,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763707005739.bin",
+      "raw_points": 61456,
+      "filtered_points": 61456,
+      "voxels": 30781,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763707405747.bin",
+      "raw_points": 61105,
+      "filtered_points": 61105,
+      "voxels": 30807,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763708005734.bin",
+      "raw_points": 61007,
+      "filtered_points": 61007,
+      "voxels": 30663,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763708405749.bin",
+      "raw_points": 60681,
+      "filtered_points": 60681,
+      "voxels": 30774,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763709005751.bin",
+      "raw_points": 60816,
+      "filtered_points": 60816,
+      "voxels": 30803,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763709405733.bin",
+      "raw_points": 59612,
+      "filtered_points": 59612,
+      "voxels": 30691,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763710005721.bin",
+      "raw_points": 57143,
+      "filtered_points": 57143,
+      "voxels": 29575,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763710405735.bin",
+      "raw_points": 57715,
+      "filtered_points": 57715,
+      "voxels": 30258,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763711005725.bin",
+      "raw_points": 60244,
+      "filtered_points": 60244,
+      "voxels": 31069,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763711405719.bin",
+      "raw_points": 60172,
+      "filtered_points": 60172,
+      "voxels": 31619,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763712005712.bin",
+      "raw_points": 60559,
+      "filtered_points": 60559,
+      "voxels": 32111,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763712405714.bin",
+      "raw_points": 59811,
+      "filtered_points": 59811,
+      "voxels": 31783,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763713005710.bin",
+      "raw_points": 59541,
+      "filtered_points": 59541,
+      "voxels": 31524,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763713405710.bin",
+      "raw_points": 59627,
+      "filtered_points": 59627,
+      "voxels": 31605,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763714005696.bin",
+      "raw_points": 58916,
+      "filtered_points": 58916,
+      "voxels": 31309,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763714405701.bin",
+      "raw_points": 58079,
+      "filtered_points": 58079,
+      "voxels": 31127,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763715005695.bin",
+      "raw_points": 59987,
+      "filtered_points": 59987,
+      "voxels": 31963,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763715405693.bin",
+      "raw_points": 59622,
+      "filtered_points": 59622,
+      "voxels": 31718,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763716005682.bin",
+      "raw_points": 60182,
+      "filtered_points": 60182,
+      "voxels": 31880,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763716405686.bin",
+      "raw_points": 60081,
+      "filtered_points": 60081,
+      "voxels": 31715,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763717005680.bin",
+      "raw_points": 58774,
+      "filtered_points": 58774,
+      "voxels": 31394,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763717405681.bin",
+      "raw_points": 58399,
+      "filtered_points": 58399,
+      "voxels": 31034,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763718005669.bin",
+      "raw_points": 57797,
+      "filtered_points": 57797,
+      "voxels": 30867,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763718405669.bin",
+      "raw_points": 57673,
+      "filtered_points": 57672,
+      "voxels": 30874,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763719005662.bin",
+      "raw_points": 57843,
+      "filtered_points": 57843,
+      "voxels": 30943,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763719405668.bin",
+      "raw_points": 57668,
+      "filtered_points": 57668,
+      "voxels": 30745,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763720005666.bin",
+      "raw_points": 57062,
+      "filtered_points": 57062,
+      "voxels": 30435,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    },
+    {
+      "key": "scans/2012-05-11/velodyne_sync/1336763720405653.bin",
+      "raw_points": 56370,
+      "filtered_points": 56370,
+      "voxels": 29875,
+      "raw_xyz_max_abs_difference": 0.0,
+      "intensity_max_abs_difference": 0.0,
+      "voxel_coordinates_equal": true,
+      "voxel_features_equal": true
+    }
+  ],
+  "audited_frame_count": 315,
+  "passed": true
+}

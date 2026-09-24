@@ -193,7 +193,7 @@ class MaGiCFusion(nn.Module):
 
     def forward(self, lidar, points, coordinates, stride, sam_features, intrinsics, camera_from_lidar,
                 recovery, image_bounds, stages=None, voxel_size=0.2, horizontal=1024,
-                image_valid_mask=None):
+                image_valid_mask=None, return_validity=False):
         points = points.to(lidar.device)
         coordinates = coordinates.to(lidar.device)
         stride = stride.to(lidar.device)
@@ -250,4 +250,5 @@ class MaGiCFusion(nn.Module):
                                      image_valid_mask=image_valid_mask)
                 fused.append(self._align_stage(attended, stage_coords, stage_stride, coordinates, stride))
         delta = self.aggregate(*fused)
-        return lidar + delta * fine_valid[:, None]
+        output = lidar + delta * fine_valid[:, None]
+        return (output, fine_valid) if return_validity else output
