@@ -1,0 +1,31 @@
+{
+  "name": "landmark_memory_v1",
+  "source_commit": "f5f7f4c2ef56040ebb6106f1d8576eda142f4b9e",
+  "source_sha256": {
+    "models/landmark_memory.py": "66f81f3760f1a6dd3769e00230fd6bb5981edfcc4ede888eaf377bec0e5b0fd1",
+    "tools/build_landmark_memory.py": "9f9845ef0cd6db04e89a3ab3daf171426a83d7ed5d24eb033e10ba1a03a6d7fe",
+    "tools/eval_landmark_memory.py": "92026998d6495649165e659ccb63afbc3b274d82c8afb5c30315154aff597b7a",
+    "tools/train_landmark_memory.py": "a0fae717203ed6cdfe96db072a9f736a81468c8e7feb07ef16fe2551dfae16fc",
+    "tests/test_landmark_memory.py": "cca1e09c0e729d3d2e42265cdccf3cc59eb2874e5486e4d83557ccb89cbe87bf",
+    "tools/eval_local905_gt.py": "26b35456a804b0bdd3364df0b13eef170b98888f1097dea9b6094bc62de56b73",
+    "models/sc2pcr.py": "36ac2860984d3eb8b4f223d099d1b08f6fac561f4307129fadd5eebbba4e17ee",
+    "utils/full_pool_robust_v1.py": "f68e5f69efd9d7729106f5c85296b8f8a65f3b26e1ea86cdc4db0107ae491cda",
+    "experiments/landmark_memory/PLAN.md": "2f0d1067046c36e1c6ee477ec72e8507a98eebd796e16c873ec9aa8fd17703f8",
+    "experiments/landmark_memory/audit.json": "f249d119da0f93a37f39546e3ff98779044874106a24f31b40a4e63f82f87d7e"
+  },
+  "cache_manifest_sha256": "4c4535516b359bdd27948667e1a3227d9aeaa80212320d96eb2abf0f442279d6",
+  "min_epochs": 40,
+  "initial_epoch_block": 160,
+  "patience_epochs": 30,
+  "validation_every": 5,
+  "minimum_lr_reductions": 2,
+  "optimizer": "AdamW",
+  "initial_lr": 0.0003,
+  "weight_decay": 0.0001,
+  "batch_size": 1024,
+  "lr_scheduler": "ReduceLROnPlateau factor=.5 patience=2 evaluations threshold=.001",
+  "seed": 37,
+  "selection": "Eligible both means <= L0: minimum normalized MPE or MOE",
+  "test_policy": "One frozen validation-selected checkpoint only; development data",
+  "baseline": "L0 official + SC2-PCR + two-stage full pool"
+}

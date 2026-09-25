@@ -1,0 +1,28 @@
+{
+  "epochs": 45,
+  "best_epoch": 15,
+  "plateau_criterion_met": true,
+  "lr_reductions": 2,
+  "gradient_evidence": {
+    "lidar.0.weight": 2.5932018616003916e-05,
+    "lidar.0.bias": 5.51782977709081e-05,
+    "lidar.1.weight": 0.0064145466312766075,
+    "lidar.1.bias": 2.663935265445616e-05,
+    "visual.0.weight": 1.5902718587312847e-05,
+    "visual.0.bias": 3.199728962499648e-05,
+    "visual.1.weight": 0.003040393814444542,
+    "visual.1.bias": 2.4827699235174805e-05,
+    "edge.0.weight": 0.007741048000752926,
+    "edge.0.bias": 0.0002348747366340831,
+    "edge.2.weight": 0.0023158700205385685,
+    "edge.2.bias": 0.0008535872912034392,
+    "score.weight": 3.555277032774029e-07,
+    "score.bias": 5.684341886080802e-14,
+    "output.weight": 0.23086445033550262,
+    "output.bias": 0.0929463654756546
+  },
+  "training_seconds": 33.82585335299996,
+  "real_images": true,
+  "peak_memory_mib": 643.5078125,
+  "query_GT_not_in_online_cache": true
+}
