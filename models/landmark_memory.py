@@ -16,7 +16,7 @@ class LandmarkMemory(nn.Module):
         nn.init.zeros_(self.output.bias)
 
     def forward(self, lidar, image, predicted, reference_lidar, reference_image,
-                reference_world, reference_error, reference_confidence, valid):
+                reference_world, reference_error, reference_confidence, valid, return_context=False):
         ql, qv = self.lidar(lidar), self.visual(image)
         rl, rv = self.lidar(reference_lidar), self.visual(reference_image)
         relative = (reference_world - predicted[:, None]) / 3.0
@@ -30,4 +30,5 @@ class LandmarkMemory(nn.Module):
         context = (edge * attention[..., None]).sum(1)
         transported = (reference_error * attention[..., None]).sum(1)
         delta = self.output(torch.cat((context, transported), dim=-1)).tanh()
-        return delta * valid.any(-1, keepdim=True)
+        delta = delta * valid.any(-1, keepdim=True)
+        return (delta, context) if return_context else delta
