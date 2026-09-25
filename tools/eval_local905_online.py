@@ -119,7 +119,9 @@ def main():
                 sparse = ME.SparseTensor(torch.as_tensor(frame['feats'], device='cuda'), coordinates)
                 torch.cuda.synchronize()
                 encoder_start = time.perf_counter()
-                if magic:
+                if model.interaction is not None:
+                    encoded = model.interaction.encode(model.encoder, sparse, frame)
+                elif magic:
                     encoded, stages = model.encoder(sparse, return_stages=True)
                 else:
                     encoded = model.encoder(sparse)
@@ -130,7 +132,7 @@ def main():
                 features = encoded.F
                 visual_valid = torch.zeros(len(encoded.F), dtype=torch.bool, device='cuda')
                 fusion_seconds = 0.0
-                if magic:
+                if magic and model.interaction is None:
                     identity = torch.eye(4, device='cuda')[None]
                     fusion_start = time.perf_counter()
                     surface_args = ({'raw_points': frame['points']}

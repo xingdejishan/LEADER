@@ -27,18 +27,21 @@ def digest(path):
 def batch_loss(model, batch, center, loss_fn, magic, voxel_size, horizontal_res):
     sparse = ME.SparseTensor(batch['feats'].cuda(non_blocking=True),
                              batch['coords'].cuda(non_blocking=True))
-    if magic:
+    interaction = getattr(model, 'interaction', None)
+    if interaction is not None:
+        encoded = interaction.encode(model.encoder, sparse, batch)
+    elif magic:
         encoded, stages = model.encoder(sparse, return_stages=True)
     else:
         encoded = model.encoder(sparse)
     stride = torch.tensor(encoded.tensor_stride, device='cuda', dtype=torch.float32)
     points = polar_voxel_centers(encoded.C, stride, voxel_size, horizontal_res)
     batch_index = encoded.C[:, 0].long()
-    poses = batch['T'].cuda(non_blocking=True)
+    poses = batch['T'].cuda(non_blocking=True) @ torch.linalg.inv(batch['T_corr'].cuda(non_blocking=True))
     targets = torch.bmm(poses[batch_index, :3, :3], points.unsqueeze(-1)).squeeze(-1)
     targets = targets + poses[batch_index, :3, 3] - center
     features = encoded.F
-    if magic:
+    if magic and interaction is None:
         sam = batch['sam_features'].cuda(non_blocking=True)
         intrinsics = batch['intrinsics'].cuda(non_blocking=True)
         extrinsics = batch['camera_from_lidar'].cuda(non_blocking=True)

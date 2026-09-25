@@ -1,0 +1,34 @@
+{
+  "projection": [
+    {
+      "scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "valid_points": 24806,
+      "raw_to_sam_max_pixel_error": 7.224308455988648e-05,
+      "inverse_augmentation_max_pixel_error": 3.410605131648481e-13
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328211881078990.bin",
+      "valid_points": 22619,
+      "raw_to_sam_max_pixel_error": 7.224299190511374e-05,
+      "inverse_augmentation_max_pixel_error": 3.410605131648481e-13
+    },
+    {
+      "scan": "scans/2012-05-11/velodyne_sync/1336760518428505.bin",
+      "valid_points": 20113,
+      "raw_to_sam_max_pixel_error": 7.225487388495822e-05,
+      "inverse_augmentation_max_pixel_error": 3.410605131648481e-13
+    }
+  ],
+  "initial_feature_max_difference": 0.0,
+  "initial_prediction_max_difference": 0.0,
+  "gradient_l1": {
+    "encoder": 4596.915581842884,
+    "decoder": 961.7276120558381,
+    "interaction.image_encoder": 0.017380731347657274,
+    "interaction.exchanges.1": 5.169194310734542,
+    "interaction.exchanges.3": 16.84511808227264
+  },
+  "two_updates_seconds": 5.506382473000002,
+  "peak_memory_mib": 2050.93212890625,
+  "scope": "Numerical actual pipeline check, not proof of physical calibration or synchronization accuracy"
+}

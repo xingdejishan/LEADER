@@ -391,6 +391,8 @@ class RPGE(nn.Module):
         encoders: nn.ModuleList,
         decoders: nn.ModuleList,
         stages=None,
+        interaction=None,
+        depth=0,
     ) -> ME.SparseTensor:
         if not encoders and not decoders:
             return x
@@ -401,6 +403,8 @@ class RPGE(nn.Module):
                 [encoders[0]["downsample"](x), encoders[0]["res"](x)], [encoders[0]["maxpool"](x)]
             )
         )
+        if interaction is not None:
+            xc = interaction(depth, xc)
         if stages is not None:
             stages.append(xc)
 
@@ -408,7 +412,7 @@ class RPGE(nn.Module):
         yd = self._unet_forward(xc,
                                 encoders[1:],
                                 decoders[:-1] if len(decoders) == len(encoders) else decoders,
-                                stages)
+                                stages, interaction, depth+1)
 
         # upsample and fuse
         if len(encoders) == len(decoders):
@@ -422,13 +426,13 @@ class RPGE(nn.Module):
 
         return y
 
-    def forward(self, x: ME.SparseTensor, return_stages=False):
+    def forward(self, x: ME.SparseTensor, return_stages=False, interaction=None):
         stem_x = self.stem(x)
         if return_stages:
             stages = []
             output = self._unet_forward(stem_x, self.encoders, self.decoders, stages)
             return output, (stages[0], stages[2], stages[4])
-        return self._unet_forward(stem_x, self.encoders, self.decoders)
+        return self._unet_forward(stem_x, self.encoders, self.decoders, interaction=interaction)
 
 
 class MMRegressor(nn.Module):
@@ -523,8 +527,12 @@ class LEADER(nn.Module):
             head_num=4,
             layers=5,
         )
-        self.magic_fusion = MaGiCFusion(feat_channels) if magic else None
-        if fusion_variant not in ('box', 'surface', 'spatial'):
+        self.magic_fusion = MaGiCFusion(feat_channels) if magic and fusion_variant != 'interaction' else None
+        self.interaction = None
+        if magic and fusion_variant == 'interaction':
+            from models.interaction_backbone import InterleavedInteraction
+            self.interaction = InterleavedInteraction()
+        if fusion_variant not in ('box', 'surface', 'spatial', 'interaction'):
             raise ValueError(f'Unknown fusion variant: {fusion_variant}')
         if magic and fusion_variant == 'surface':
             from models.surface_token_fusion import SurfaceMaGiCFusion
