@@ -1,0 +1,313 @@
+{
+  "date": "2026-09-25",
+  "scope": "Current local and cached remote refs; prior refresh evidence retained in surface_token/audit.json. No claim about inaccessible external artifacts.",
+  "refs": [
+    {
+      "ref": "refs/heads/main",
+      "commit": "4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/num1",
+      "commit": "7fd42d04c3275fd8f6c57f3449e9876fd13b21c2",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/anchored-contrastive-fusion",
+      "commit": "493bd47e69ad67a498cbc779610233fb09373acf",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/benefit-channel-modulation",
+      "commit": "5144c233a5b642ebb95082fc66fefcd73d91327c",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/certificate-supervised-fusion",
+      "commit": "befb9c1e54ebd64ec7396629ad709ebb8873f005",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/coh-rot-mini",
+      "commit": "95b752f1a6c5da0f6f52fecefde6399f01d27f4f",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/constrained-feature-reachability",
+      "commit": "f6b63e958f7956b163146e166838bbb3a60a63c6",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/crossframe-visual-probe",
+      "commit": "a349e8f66583c9c535e860db81a425cdc0e20653",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/dinov2-leader-feature-fusion",
+      "commit": "bcb5ede99bdb680d7a231373c134196f74d792b3",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/evidence-handoff-20260921",
+      "commit": "9a97c1b43cdb2c914b90a7f3c031b2ecaf045b5f",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/fixed-classifier-arbitration",
+      "commit": "faffffbd03032288a74f6a3309f97c43b0180076",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/glace-correspondence-improvement",
+      "commit": "87a7dfd6f94847e9fce2faaa0f4873f302b1120a",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/leader-image-gate",
+      "commit": "807c9ffb3fb5acea473aba5381117c8c0b5df30f",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/leader-query-backbone-factorial",
+      "commit": "4839d07c7a8257a0c777c91978622beca34281e3",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/leader-query-gaussian-fusion",
+      "commit": "b9ac7ee215d0432fd6f2493f4e3b128f16e66f95",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/leader-refinement-truth",
+      "commit": "4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/leader-six-camera-controlled",
+      "commit": "18f8c68ffc1c9dfff574801f76d76ecaee180288",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/magic-main-fusion",
+      "commit": "909c81df7a6e558ceeb2870bb63077af9ea82b36",
+      "relevant_files": [
+        "refs/heads/research/magic-main-fusion:models/magic_fusion.py",
+        "refs/heads/research/magic-main-fusion:models/model_mink.py",
+        "refs/heads/research/magic-main-fusion:tools/run_magic_revision_matrix.py"
+      ]
+    },
+    {
+      "ref": "refs/heads/research/magic-surface-token",
+      "commit": "f5f2238679dda8c567891fc09348caee0cdc528e",
+      "relevant_files": [
+        "refs/heads/research/magic-surface-token:experiments/surface_token/results/executed_sources.zip",
+        "refs/heads/research/magic-surface-token:experiments/surface_token/results/frozen_artifact_check.json",
+        "refs/heads/research/magic-surface-token:experiments/surface_token/results/protocol.json",
+        "refs/heads/research/magic-surface-token:models/magic_fusion.py",
+        "refs/heads/research/magic-surface-token:models/model_mink.py",
+        "refs/heads/research/magic-surface-token:models/surface_token_fusion.py",
+        "refs/heads/research/magic-surface-token:tools/run_magic_revision_matrix.py",
+        "refs/heads/research/magic-surface-token:tools/run_surface_trial.py",
+        "refs/heads/research/magic-surface-token:tools/train_surface_trial.py"
+      ]
+    },
+    {
+      "ref": "refs/heads/research/magic-training-refinement",
+      "commit": "f5f2238679dda8c567891fc09348caee0cdc528e",
+      "relevant_files": [
+        "refs/heads/research/magic-training-refinement:experiments/surface_token/results/executed_sources.zip",
+        "refs/heads/research/magic-training-refinement:experiments/surface_token/results/frozen_artifact_check.json",
+        "refs/heads/research/magic-training-refinement:experiments/surface_token/results/protocol.json",
+        "refs/heads/research/magic-training-refinement:models/magic_fusion.py",
+        "refs/heads/research/magic-training-refinement:models/model_mink.py",
+        "refs/heads/research/magic-training-refinement:models/surface_token_fusion.py",
+        "refs/heads/research/magic-training-refinement:tools/run_magic_revision_matrix.py",
+        "refs/heads/research/magic-training-refinement:tools/run_surface_trial.py",
+        "refs/heads/research/magic-training-refinement:tools/train_surface_trial.py"
+      ]
+    },
+    {
+      "ref": "refs/heads/research/output-subspace-reachability",
+      "commit": "c9ead275e1d4d0ff8321a0eaf6c96e17b3ca6b0d",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/protected-visual-reliability",
+      "commit": "a6e4bfaa09b07d38d6701f96d253b1853e9b1180",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/query-only-arbitration-probe",
+      "commit": "ca4f487ff1e09f7ebbddf33a6c74afe6b7cc3e4b",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/query-only-location-probe",
+      "commit": "3cc8e40269c8babd0a089d078b6e978392eee2ab",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/rscore-l-local",
+      "commit": "f84b5f122ef6f8d4e4de8c55fc9d5cacd9bc4fd9",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/teacher-realization-check",
+      "commit": "a1536edf4c34e2fe0bc84621f21465638cd595c1",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/v1-glace-independent",
+      "commit": "701e0e6b0a194da067030e1dcc64032384610441",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/v1-glace-lidar-supervised",
+      "commit": "0314745085218f6a854e4f27c77d1256e1bea9d1",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/research/visual-relation-supervision",
+      "commit": "26fca7867f44fb75482f9b237f3b11f0690501a5",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/heads/v1-residual-head",
+      "commit": "6debdf4d776a9e42721b0638b4210aa9c8f7f155",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/HEAD",
+      "commit": "6debdf4d776a9e42721b0638b4210aa9c8f7f155",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/num1",
+      "commit": "7fd42d04c3275fd8f6c57f3449e9876fd13b21c2",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/anchored-contrastive-fusion",
+      "commit": "493bd47e69ad67a498cbc779610233fb09373acf",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/benefit-channel-modulation",
+      "commit": "5144c233a5b642ebb95082fc66fefcd73d91327c",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/certificate-supervised-fusion",
+      "commit": "befb9c1e54ebd64ec7396629ad709ebb8873f005",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/coh-rot-mini",
+      "commit": "95b752f1a6c5da0f6f52fecefde6399f01d27f4f",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/constrained-feature-reachability",
+      "commit": "f6b63e958f7956b163146e166838bbb3a60a63c6",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/crossframe-visual-probe",
+      "commit": "a349e8f66583c9c535e860db81a425cdc0e20653",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/evidence-handoff-20260921",
+      "commit": "9a97c1b43cdb2c914b90a7f3c031b2ecaf045b5f",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/fixed-classifier-arbitration",
+      "commit": "faffffbd03032288a74f6a3309f97c43b0180076",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/glace-correspondence-improvement",
+      "commit": "87a7dfd6f94847e9fce2faaa0f4873f302b1120a",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/leader-image-gate",
+      "commit": "807c9ffb3fb5acea473aba5381117c8c0b5df30f",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/magic-main-fusion",
+      "commit": "909c81df7a6e558ceeb2870bb63077af9ea82b36",
+      "relevant_files": [
+        "refs/remotes/github/research/magic-main-fusion:models/magic_fusion.py",
+        "refs/remotes/github/research/magic-main-fusion:models/model_mink.py",
+        "refs/remotes/github/research/magic-main-fusion:tools/run_magic_revision_matrix.py"
+      ]
+    },
+    {
+      "ref": "refs/remotes/github/research/output-subspace-reachability",
+      "commit": "c9ead275e1d4d0ff8321a0eaf6c96e17b3ca6b0d",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/protected-visual-reliability",
+      "commit": "a6e4bfaa09b07d38d6701f96d253b1853e9b1180",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/query-only-arbitration-probe",
+      "commit": "ca4f487ff1e09f7ebbddf33a6c74afe6b7cc3e4b",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/query-only-location-probe",
+      "commit": "3cc8e40269c8babd0a089d078b6e978392eee2ab",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/teacher-realization-check",
+      "commit": "a1536edf4c34e2fe0bc84621f21465638cd595c1",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/v1-glace-independent",
+      "commit": "92bd9513c28bbad659cc33b6181e32e5860e9380",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/v1-glace-lidar-supervised",
+      "commit": "0314745085218f6a854e4f27c77d1256e1bea9d1",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/research/visual-relation-supervision",
+      "commit": "26fca7867f44fb75482f9b237f3b11f0690501a5",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/github/v1-residual-head",
+      "commit": "6debdf4d776a9e42721b0638b4210aa9c8f7f155",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/origin/v1-residual-head",
+      "commit": "6debdf4d776a9e42721b0638b4210aa9c8f7f155",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/upstream/HEAD",
+      "commit": "4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+      "relevant_files": []
+    },
+    {
+      "ref": "refs/remotes/upstream/main",
+      "commit": "4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+      "relevant_files": []
+    }
+  ],
+  "prior_completed": "surface-token-20260925: box and surface 138 steps with frozen predictions",
+  "prior_incomplete": "MaGiC formal matrix stopped before any complete B or A result; scratch v2 differs in initialization, points, and training",
+  "increment": "One real-image box model trained from saved 138-step weights for 552 additional updates, new Adam state, fixed cosine LR and validation-only selection",
+  "no_null_or_grid": true
+}
