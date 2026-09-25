@@ -6,3 +6,4 @@ experiments/rigid_landmark/results/** -text whitespace=cr-at-eol
 experiments/surface_registration/results/** -text whitespace=cr-at-eol
 experiments/gravity_fusion/results/** -text whitespace=cr-at-eol
 experiments/interaction/results/** -text whitespace=cr-at-eol
+experiments/relation_transport/results/** -text whitespace=cr-at-eol
