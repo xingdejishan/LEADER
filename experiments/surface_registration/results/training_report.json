@@ -1,0 +1,22 @@
+{
+  "epochs": 40,
+  "best_epoch": 5,
+  "plateau_criterion_met": true,
+  "lr_reductions": 2,
+  "gradient_evidence": {
+    "image.weight": 0.39000511169433594,
+    "match.0.weight": 0.00014281112817116082,
+    "match.0.bias": 2.3430040982930223e-06,
+    "match.2.weight": 0.004854144994169474,
+    "match.2.bias": 2.637534635141492e-10,
+    "confidence.0.weight": 0.000426083046477288,
+    "confidence.0.bias": 6.415435564122163e-06,
+    "confidence.2.weight": 0.013193361461162567,
+    "confidence.2.bias": 6.261980161070824e-07
+  },
+  "training_seconds": 63.718798510000084,
+  "real_images": true,
+  "peak_memory_mib": 331.70166015625,
+  "query_GT_not_in_online_cache": true,
+  "translation_frozen": true
+}

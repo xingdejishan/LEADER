@@ -3,3 +3,4 @@ experiments/magic_training/results/** -text whitespace=cr-at-eol
 experiments/spatial_decoder/results/** -text whitespace=cr-at-eol
 experiments/landmark_memory/results/** -text whitespace=cr-at-eol
 experiments/rigid_landmark/results/** -text whitespace=cr-at-eol
+experiments/surface_registration/results/** -text whitespace=cr-at-eol
