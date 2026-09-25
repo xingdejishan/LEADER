@@ -1,7 +1,6 @@
 import argparse
 import json
 import shutil
-import subprocess
 import time
 import zipfile
 from pathlib import Path
@@ -26,6 +25,7 @@ def main():
     parser.add_argument('--assets', type=Path, required=True)
     parser.add_argument('--previous', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--source_commit', required=True)
     args = parser.parse_args()
     if shutil.disk_usage(args.out.parent).free < 5 * 1024 ** 3:
         raise RuntimeError('Less than 5GiB free')
@@ -40,7 +40,7 @@ def main():
                       Path('experiments/spatial_decoder/PLAN.md'),
                       Path('experiments/spatial_decoder/audit.json')})
     protocol = dict(protocol='spatial_decoder_trial_v1', started_unix=time.time(),
-                    git_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+                    git_commit=args.source_commit,
                     trained_conditions=['spatial'], reused_conditions=['L0', 'box', 'surface'],
                     source_sha256={str(p): digest(p) for p in sources}, previous=str(args.previous),
                     development_only=True, steps=138, selection='fixed_final_step')
