@@ -55,9 +55,12 @@ class GeometryImageExchange(nn.Module):
             logits = (keys*self.query(features[rows])[:, None]).sum(-1)/math.sqrt(keys.shape[-1])
             weights = logits.masked_fill(~support[rows], -1e4).softmax(-1)
             visual[rows] = (weights[..., None]*values).sum(1)
-        output = features+self.output(visual)
+        output = self.geometry_update(features, visual, sparse, offsets, support)
         return ME.SparseTensor(output, coordinate_map_key=sparse.coordinate_map_key,
                                coordinate_manager=sparse.coordinate_manager), torch.cat(updated_images)
+
+    def geometry_update(self, features, visual, sparse, offsets, support):
+        return features+self.output(visual)
 
 
 class InterleavedInteraction(nn.Module):

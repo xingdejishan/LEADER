@@ -1,0 +1,36 @@
+{
+  "projection": [
+    {
+      "scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "valid_points": 24806,
+      "raw_to_sam_max_pixel_error": 7.224308455988648e-05,
+      "inverse_augmentation_max_pixel_error": 3.410605131648481e-13
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328211881078990.bin",
+      "valid_points": 22619,
+      "raw_to_sam_max_pixel_error": 7.224299190511374e-05,
+      "inverse_augmentation_max_pixel_error": 3.410605131648481e-13
+    },
+    {
+      "scan": "scans/2012-05-11/velodyne_sync/1336760518428505.bin",
+      "valid_points": 20113,
+      "raw_to_sam_max_pixel_error": 7.225487388495822e-05,
+      "inverse_augmentation_max_pixel_error": 3.410605131648481e-13
+    }
+  ],
+  "initial_feature_max_difference": 0.0,
+  "initial_prediction_max_difference": 0.0,
+  "gradient_l1": {
+    "encoder": 4597.578618550673,
+    "decoder": 965.2079642862082,
+    "interaction.image_encoder": 0.0009712358985325409,
+    "interaction.exchanges.1": 0.2756724186945963,
+    "interaction.exchanges.3": 0.901212970405844,
+    "interaction.exchanges.1.transport.edge": 0.00016452008139822283,
+    "interaction.exchanges.3.transport.edge": 0.001080041089153383
+  },
+  "two_updates_seconds": 5.929803789000005,
+  "peak_memory_mib": 2101.84130859375,
+  "scope": "Numerical actual pipeline check, not proof of physical calibration or synchronization accuracy"
+}

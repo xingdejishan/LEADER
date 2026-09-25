@@ -527,12 +527,15 @@ class LEADER(nn.Module):
             head_num=4,
             layers=5,
         )
-        self.magic_fusion = MaGiCFusion(feat_channels) if magic and fusion_variant != 'interaction' else None
+        self.magic_fusion = MaGiCFusion(feat_channels) if magic and fusion_variant not in ('interaction', 'relation') else None
         self.interaction = None
         if magic and fusion_variant == 'interaction':
             from models.interaction_backbone import InterleavedInteraction
             self.interaction = InterleavedInteraction()
-        if fusion_variant not in ('box', 'surface', 'spatial', 'interaction'):
+        if magic and fusion_variant == 'relation':
+            from models.relation_interaction import RelationalInteraction
+            self.interaction = RelationalInteraction()
+        if fusion_variant not in ('box', 'surface', 'spatial', 'interaction', 'relation'):
             raise ValueError(f'Unknown fusion variant: {fusion_variant}')
         if magic and fusion_variant == 'surface':
             from models.surface_token_fusion import SurfaceMaGiCFusion
