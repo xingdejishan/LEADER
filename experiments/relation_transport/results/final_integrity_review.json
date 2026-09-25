@@ -1,0 +1,8 @@
+{
+  "source_fingerprints_verified": true,
+  "checkpoint_prediction_evaluator_binding_verified": true,
+  "validation_best_epoch_verified": true,
+  "original_plateau_rule_superseded_by_user": true,
+  "checkpoint_sha256": "e369fd653badec1dccc8753e4521cfd63b263e1cb59e0b72c55762d2ef42502f",
+  "predictions_sha256": "5915d5f55f1605b96d163a6da7fdf4818df43214b10241daae619cd4d696e289"
+}

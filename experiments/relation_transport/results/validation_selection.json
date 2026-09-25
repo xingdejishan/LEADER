@@ -1,0 +1,25 @@
+{
+  "records": [
+    {
+      "epoch": 5,
+      "objective": 1.865453106486089,
+      "eligible": false,
+      "best_epoch": 5,
+      "mpe": 0.06384030569893535,
+      "moe": 0.6489003248634398,
+      "checkpoint_sha256": "e369fd653badec1dccc8753e4521cfd63b263e1cb59e0b72c55762d2ef42502f",
+      "lr_reductions": 0
+    },
+    {
+      "epoch": 10,
+      "objective": 1.8934152401638618,
+      "eligible": false,
+      "best_epoch": 5,
+      "mpe": 0.06530442144906945,
+      "moe": 0.6739674658038239,
+      "checkpoint_sha256": "da1e20d0bb94a22be14d7502be8934c978c6a73f72cac2314e70166b23fd0170",
+      "lr_reductions": 0
+    }
+  ],
+  "best_epoch": 5
+}

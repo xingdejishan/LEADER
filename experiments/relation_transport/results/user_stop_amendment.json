@@ -1,0 +1,9 @@
+{
+  "selection_policy_unchanged": true,
+  "completed_epochs": 10,
+  "partial_epoch": 11,
+  "selected_epoch": 5,
+  "original_protocol_preserved": true,
+  "plateau_criterion_met": false,
+  "reason": "User explicitly requested comparison at epoch10 and stopping if similar; epoch10 close and slightly worse than previous architecture"
+}
