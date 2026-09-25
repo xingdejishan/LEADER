@@ -71,6 +71,8 @@
 
 完整比较与六组逐帧预测/评价在`results/`；协议、训练历史、环境parity及哈希核验一并保存。模型权重保留在工作区外层：
 
+results目录禁止Git换行转换，避免重新检出改变冻结预测哈希；`executed_sources.zip`保存执行时的源码字节及计划，对应protocol中的源码/计划SHA-256，解决不同平台换行差异对源文件字节哈希的影响。
+
 - `work/surface-token-20260925/box/final.pt`：`1f2157fb405af8c7fa5112f44a0cd0c7f0bb59ef48fcb0af63d0a62ae4df1e3f`
 - `work/surface-token-20260925/surface/final.pt`：`947ba2a2736837b6cfaf3038d0f4d59a26daabd3da43236303deefc6442976e1`
 
