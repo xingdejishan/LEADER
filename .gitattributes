@@ -1,2 +1,2 @@
 experiments/surface_token/results/** -text
-experiments/magic_training/results/** -text
+experiments/magic_training/results/** -text whitespace=cr-at-eol
