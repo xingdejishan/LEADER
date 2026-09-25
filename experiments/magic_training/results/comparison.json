@@ -1,0 +1,128 @@
+{
+  "selected_step": 690,
+  "development_only": true,
+  "metrics": {
+    "selected": {
+      "protocol": "local905_gt_isolated_evaluator_v1",
+      "predictions_sha256": "2d7aef363b6977e18d3dcb2bc3f9459b2b0e56ccf475cc70fa24a2a23a7be347",
+      "subset": "test",
+      "frames": 313,
+      "successful_frames": 313,
+      "failed_frames": 0,
+      "all_frame_mpe_mean_m": 0.11368793509906834,
+      "all_frame_moe_mean_deg": 1.1127731411598063,
+      "all_frame_mpe_median_m": 0.10583981690584272,
+      "all_frame_moe_median_deg": 0.9912757658266699,
+      "all_frame_mpe_p90_m": 0.19116192788733838,
+      "all_frame_moe_p90_deg": 1.9198950331486897,
+      "all_frame_mpe_p95_m": 0.2164248165375774,
+      "all_frame_moe_p95_deg": 2.173131767858967,
+      "all_frame_rotation_gt_10_deg": 0,
+      "all_frame_rotation_gt_90_deg": 0,
+      "all_frame_joint_1m_2deg_count": 287,
+      "all_frame_joint_1m_2deg_recall": 0.9169329073482428,
+      "success_only_mpe_mean_m": 0.11368793509906834,
+      "success_only_moe_mean_deg": 1.1127731411598063,
+      "elapsed_online_seconds": 67.04536772899996
+    },
+    "old_box": {
+      "protocol": "local905_gt_isolated_evaluator_v1",
+      "predictions_sha256": "0876b02a9da230c03921a34adf72b0986f309ee760b1645f3393bef3df9f40cd",
+      "subset": "test",
+      "frames": 313,
+      "successful_frames": 313,
+      "failed_frames": 0,
+      "all_frame_mpe_mean_m": 0.11190484356956154,
+      "all_frame_moe_mean_deg": 1.1112798919529185,
+      "all_frame_mpe_median_m": 0.10400091585124407,
+      "all_frame_moe_median_deg": 1.0064287197908477,
+      "all_frame_mpe_p90_m": 0.18841001588319767,
+      "all_frame_moe_p90_deg": 1.931112518872819,
+      "all_frame_mpe_p95_m": 0.2134709786423787,
+      "all_frame_moe_p95_deg": 2.1739950669205204,
+      "all_frame_rotation_gt_10_deg": 0,
+      "all_frame_rotation_gt_90_deg": 0,
+      "all_frame_joint_1m_2deg_count": 288,
+      "all_frame_joint_1m_2deg_recall": 0.9201277955271565,
+      "success_only_mpe_mean_m": 0.11190484356956154,
+      "success_only_moe_mean_deg": 1.1112798919529185,
+      "elapsed_online_seconds": 62.818482904999996
+    },
+    "L0": {
+      "protocol": "local905_gt_isolated_evaluator_v1",
+      "predictions_sha256": "5629eb7fffd9f0c0055e11bc6a97d0a449cd272fd5090a022a11bf25cc3f0f6a",
+      "subset": "test",
+      "frames": 313,
+      "successful_frames": 313,
+      "failed_frames": 0,
+      "all_frame_mpe_mean_m": 0.11660947377561828,
+      "all_frame_moe_mean_deg": 1.1082095915488175,
+      "all_frame_mpe_median_m": 0.11011818673505741,
+      "all_frame_moe_median_deg": 1.0121920677855545,
+      "all_frame_mpe_p90_m": 0.19043887774893106,
+      "all_frame_moe_p90_deg": 1.8560973591266787,
+      "all_frame_mpe_p95_m": 0.22335266667517953,
+      "all_frame_moe_p95_deg": 2.221030587383199,
+      "all_frame_rotation_gt_10_deg": 0,
+      "all_frame_rotation_gt_90_deg": 0,
+      "all_frame_joint_1m_2deg_count": 287,
+      "all_frame_joint_1m_2deg_recall": 0.9169329073482428,
+      "success_only_mpe_mean_m": 0.11660947377561828,
+      "success_only_moe_mean_deg": 1.1082095915488175,
+      "elapsed_online_seconds": 49.77824130700003
+    }
+  },
+  "selected_minus_old_box": {
+    "paired_successes": 313,
+    "total_frames": 313,
+    "first_failures": 0,
+    "second_failures": 0,
+    "mpe_m": {
+      "mean_delta": 0.0017830915295068215,
+      "improved": 138,
+      "worsened": 175,
+      "block25_descriptive_interval": [
+        -0.0007671033731158791,
+        0.004627855015296746
+      ]
+    },
+    "moe_deg": {
+      "mean_delta": 0.0014932492068877065,
+      "improved": 161,
+      "worsened": 152,
+      "block25_descriptive_interval": [
+        -0.005787306290009239,
+        0.009069676625430192
+      ]
+    },
+    "both_improved": 82,
+    "both_worsened": 96
+  },
+  "selected_minus_L0": {
+    "paired_successes": 313,
+    "total_frames": 313,
+    "first_failures": 0,
+    "second_failures": 0,
+    "mpe_m": {
+      "mean_delta": -0.0029215386765499415,
+      "improved": 178,
+      "worsened": 135,
+      "block25_descriptive_interval": [
+        -0.00789566086060224,
+        0.002750512297652091
+      ]
+    },
+    "moe_deg": {
+      "mean_delta": 0.00456354961098893,
+      "improved": 135,
+      "worsened": 178,
+      "block25_descriptive_interval": [
+        -0.008998247411078504,
+        0.019537775262040636
+      ]
+    },
+    "both_improved": 84,
+    "both_worsened": 84
+  },
+  "elapsed_seconds": 949.694953652
+}

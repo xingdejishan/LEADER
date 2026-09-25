@@ -1,0 +1,43 @@
+{
+  "candidates": [
+    {
+      "step": 138,
+      "eligible": true,
+      "score": 0.9399776205666905
+    },
+    {
+      "step": 276,
+      "eligible": true,
+      "score": 0.9492551469794008,
+      "mpe": 0.08479277527742253,
+      "moe": 0.6105084337745341,
+      "checkpoint_sha256": "4720461783a7b449e3915ea9bb151c4fde2ea357f8eb7fb5b4255c3aa443825f"
+    },
+    {
+      "step": 414,
+      "eligible": true,
+      "score": 0.9397329607663976,
+      "mpe": 0.08217602068052995,
+      "moe": 0.6164880152877061,
+      "checkpoint_sha256": "b842d84ec4ff4c6eae652865b895bd3737aa19d760bddaaa94b0785a21c07850"
+    },
+    {
+      "step": 552,
+      "eligible": true,
+      "score": 0.9405243858474668,
+      "mpe": 0.08282548330538951,
+      "moe": 0.6130306868840127,
+      "checkpoint_sha256": "d83a752de2144dd0c85de44f6b2d5a455041fc36953f5ca8b9812014f7d20d8b"
+    },
+    {
+      "step": 690,
+      "eligible": true,
+      "score": 0.9357833097154054,
+      "mpe": 0.08226767253023456,
+      "moe": 0.6109019318205384,
+      "checkpoint_sha256": "a3e0e250f77bef256dafd89c7022252d4cb57ab370197bd44fa9c6a4a6c2ccbb"
+    }
+  ],
+  "best_step": 690,
+  "best_score": 0.9357833097154054
+}

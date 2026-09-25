@@ -1,0 +1,10 @@
+{
+  "completed_updates": 1,
+  "training_seconds": 2.5918314789999997,
+  "frozen_leader_exactly_unchanged": true,
+  "fusion_changed": true,
+  "peak_allocated_mb": 1032.48876953125,
+  "best_step": 138,
+  "best_validation_score": 0.9406811096788117,
+  "smoke": true
+}

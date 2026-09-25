@@ -1,0 +1,14 @@
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925/val_00138_online.log", "time": 1790335678.6932597}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925/val_00138_online.log", "time": 1790335696.0050418}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925/val_00138_gt.log", "time": 1790335696.00902}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925/val_00138_gt.log", "time": 1790335696.4933236}
+Traceback (most recent call last):
+  File "/home/zhang/miniconda3/envs/egonn118/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/zhang/miniconda3/envs/egonn118/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-refinement/tools/refine_magic_training.py", line 246, in <module>
+    main()
+  File "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-refinement/tools/refine_magic_training.py", line 107, in main
+    raise RuntimeError('Starting prediction rows differ from historical box')
+RuntimeError: Starting prediction rows differ from historical box

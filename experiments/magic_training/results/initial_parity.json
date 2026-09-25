@@ -1,0 +1,9 @@
+{
+  "frames": 40,
+  "exact_pose_parity": false,
+  "numeric_tolerance_passed": true,
+  "max_rotation_component": 1.3113021850585938e-06,
+  "max_translation_component_m": 3.0517578125e-05,
+  "old_predictions_sha256": "bd6e98ede947d8b75df3da8da4e1c5046c5492a9e4720621ba04cb43aee9c324",
+  "new_predictions_sha256": "18e0ab0fae569166fc4327dac33edc64f65f45e36b346fc59e5ed9809ec26f5f"
+}

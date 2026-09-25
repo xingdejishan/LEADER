@@ -1,0 +1,265 @@
+{
+  "protocol": "local905_gt_isolated_evaluator_v1",
+  "predictions_sha256": "eb3108c6c2c58861d341fdcdf705ef552570dbb558fc21d36b122d9a775eb80d",
+  "subset": "val",
+  "frames": 40,
+  "successful_frames": 40,
+  "failed_frames": 0,
+  "all_frame_mpe_mean_m": 0.08226767253023456,
+  "all_frame_moe_mean_deg": 0.6109019318205384,
+  "all_frame_mpe_median_m": 0.07705266336838895,
+  "all_frame_moe_median_deg": 0.37326980466073767,
+  "all_frame_mpe_p90_m": 0.1134049077111974,
+  "all_frame_moe_p90_deg": 1.5236370467727895,
+  "all_frame_mpe_p95_m": 0.121298412090569,
+  "all_frame_moe_p95_deg": 1.590026829476108,
+  "all_frame_rotation_gt_10_deg": 0,
+  "all_frame_rotation_gt_90_deg": 0,
+  "all_frame_joint_1m_2deg_count": 40,
+  "all_frame_joint_1m_2deg_recall": 1.0,
+  "success_only_mpe_mean_m": 0.08226767253023456,
+  "success_only_moe_mean_deg": 0.6109019318205384,
+  "elapsed_online_seconds": 10.386104141000033,
+  "rows": [
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328211997477531.bin",
+      "status": "ok",
+      "mpe_m": 0.056338078731027176,
+      "moe_deg": 0.2761812453697935
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328211998077535.bin",
+      "status": "ok",
+      "mpe_m": 0.06754958883513969,
+      "moe_deg": 0.13723056497444674
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328211998477510.bin",
+      "status": "ok",
+      "mpe_m": 0.08108582309037778,
+      "moe_deg": 0.22032697045700392
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328211999077514.bin",
+      "status": "ok",
+      "mpe_m": 0.10846290663411055,
+      "moe_deg": 0.45195583621672797
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328211999477508.bin",
+      "status": "ok",
+      "mpe_m": 0.06238227851404152,
+      "moe_deg": 0.29395212183569985
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212000077498.bin",
+      "status": "ok",
+      "mpe_m": 0.06834183718812425,
+      "moe_deg": 0.041923334427379555
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212000477496.bin",
+      "status": "ok",
+      "mpe_m": 0.05332551455526251,
+      "moe_deg": 0.25616131282309046
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212001077481.bin",
+      "status": "ok",
+      "mpe_m": 0.04523271356885885,
+      "moe_deg": 0.22749066110699348
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212001477482.bin",
+      "status": "ok",
+      "mpe_m": 0.06806182297425177,
+      "moe_deg": 0.08470900822125675
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212002077466.bin",
+      "status": "ok",
+      "mpe_m": 0.09512336148881867,
+      "moe_deg": 0.28466786027080426
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212002477490.bin",
+      "status": "ok",
+      "mpe_m": 0.08009572419771298,
+      "moe_deg": 0.3286602354928998
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212003077480.bin",
+      "status": "ok",
+      "mpe_m": 0.07416661292527951,
+      "moe_deg": 0.1945651204321424
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212003477459.bin",
+      "status": "ok",
+      "mpe_m": 0.10818745543251677,
+      "moe_deg": 0.3819901955799604
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212004077451.bin",
+      "status": "ok",
+      "mpe_m": 0.09216987683299345,
+      "moe_deg": 0.2274537033216396
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212004477444.bin",
+      "status": "ok",
+      "mpe_m": 0.06749914452783456,
+      "moe_deg": 0.24806226645905555
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212005077438.bin",
+      "status": "ok",
+      "mpe_m": 0.03185983483912974,
+      "moe_deg": 0.32613920743636243
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212005477434.bin",
+      "status": "ok",
+      "mpe_m": 0.04621316903195381,
+      "moe_deg": 0.2939353299740358
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212006077425.bin",
+      "status": "ok",
+      "mpe_m": 0.050859383258114906,
+      "moe_deg": 0.23425578390053195
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212006477417.bin",
+      "status": "ok",
+      "mpe_m": 0.06776738056563938,
+      "moe_deg": 0.23235369879032067
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212007077425.bin",
+      "status": "ok",
+      "mpe_m": 0.10130070922716397,
+      "moe_deg": 0.5132884323476162
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212007477407.bin",
+      "status": "ok",
+      "mpe_m": 0.08593624686703097,
+      "moe_deg": 0.5770551165964872
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212008077401.bin",
+      "status": "ok",
+      "mpe_m": 0.10839052738186924,
+      "moe_deg": 0.9297513192538539
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212008477395.bin",
+      "status": "ok",
+      "mpe_m": 0.19006900700097926,
+      "moe_deg": 0.9443732134652899
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212009077400.bin",
+      "status": "ok",
+      "mpe_m": 0.06784270058015107,
+      "moe_deg": 1.5199777736258022
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212009477373.bin",
+      "status": "ok",
+      "mpe_m": 0.07894172621236495,
+      "moe_deg": 1.3686671418863543
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212010077369.bin",
+      "status": "ok",
+      "mpe_m": 0.11941982311660164,
+      "moe_deg": 1.5869877364795058
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212010477394.bin",
+      "status": "ok",
+      "mpe_m": 0.06699115444240389,
+      "moe_deg": 1.6477695964115555
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212011077363.bin",
+      "status": "ok",
+      "mpe_m": 0.03842679017897946,
+      "moe_deg": 0.28307563707931904
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212011477358.bin",
+      "status": "ok",
+      "mpe_m": 0.15699160259595096,
+      "moe_deg": 1.556570505095676
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212012077348.bin",
+      "status": "ok",
+      "mpe_m": 0.09488106512823741,
+      "moe_deg": 1.7366849004969618
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212012477359.bin",
+      "status": "ok",
+      "mpe_m": 0.04983378195611667,
+      "moe_deg": 0.6196682938128771
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212013077328.bin",
+      "status": "ok",
+      "mpe_m": 0.07837216830548126,
+      "moe_deg": 0.8924960074984748
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212013477330.bin",
+      "status": "ok",
+      "mpe_m": 0.043230881332495516,
+      "moe_deg": 0.9389344500004979
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212014077317.bin",
+      "status": "ok",
+      "mpe_m": 0.1191983679328707,
+      "moe_deg": 0.7750266832927172
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212014477320.bin",
+      "status": "ok",
+      "mpe_m": 0.06979456783397243,
+      "moe_deg": 1.1626593886998509
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212015077313.bin",
+      "status": "ok",
+      "mpe_m": 0.11276118990878925,
+      "moe_deg": 0.22177151988353166
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212015477310.bin",
+      "status": "ok",
+      "mpe_m": 0.10417336906787507,
+      "moe_deg": 0.5219279134971476
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212016077299.bin",
+      "status": "ok",
+      "mpe_m": 0.07573315843129665,
+      "moe_deg": 0.798218600593032
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212016477294.bin",
+      "status": "ok",
+      "mpe_m": 0.10586345034397521,
+      "moe_deg": 0.7346091719733281
+    },
+    {
+      "scan": "scans/2012-02-02/velodyne_sync/1328212017077287.bin",
+      "status": "ok",
+      "mpe_m": 0.0978321061735892,
+      "moe_deg": 0.364549413741515
+    }
+  ]
+}

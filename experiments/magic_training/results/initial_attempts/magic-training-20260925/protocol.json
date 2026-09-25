@@ -1,0 +1,42 @@
+{
+  "name": "magic_real_training_refinement_v1",
+  "seed": 37,
+  "data_seed": 100037,
+  "initial_step": 138,
+  "additional_steps": 552,
+  "optimizer": "new Adam state",
+  "lr": "cosine 1e-4 to 1e-5",
+  "effective_batch": 8,
+  "microbatch": 2,
+  "source_checkpoint_sha256": "1f2157fb405af8c7fa5112f44a0cd0c7f0bb59ef48fcb0af63d0a62ae4df1e3f",
+  "sample_order_sha256": "4a8021a73272ec1df78364d094a0d0f32547616efebc03246b0bb80dacef028c",
+  "selection_steps": [
+    138,
+    276,
+    414,
+    552,
+    690
+  ],
+  "selection": "val40 minimum normalized MPE/MOE mean; both means and P90 <= L0",
+  "real_images_only": true,
+  "development_only": true,
+  "smoke": false,
+  "historical_evaluation_sha256": {
+    "box_val": "4f930758e72fbdfbefc9491c415f20007f1434a643a0a01e3f33e5bc3ca5f935",
+    "box_test": "e4e47ccc2b0ff5f791a9a9f968cd0c5a99aebb43716cd01aa4f4ba0e609d12cb",
+    "L0_val": "93ee1b4c2a8b84032dbe4570053dc2f5e91d135301afee797b28d064680e3dd8",
+    "L0_test": "862afed7f386b68ee6ca28638dd461fb1eccf8dca29c549a7727172be4924376"
+  },
+  "source_sha256": {
+    "tools/refine_magic_training.py": "7d9d0ad581f6371e4723889f00abf8cc6f385c22fc600e46dcb81d964e5f919f",
+    "tools/train_local905.py": "2f0c8708145f7b674b8daf9666e24945ae24182e18c4deed9ee940be9e550dda",
+    "tools/train_magic_revision.py": "d5da97091953e695334a8717f3f7c78b3ddb4ba0a30d980d22327fb7cc6a12e5",
+    "models/model_mink.py": "83f722a17b66ea4afccd476db32bc51e64024742a15c41adf50ca2c9e733ea68",
+    "models/magic_fusion.py": "416b9027ce0a05d7888e6e152910b24b9269f550313e7744c70bc60b27e4572d",
+    "run_mink.py": "c8cf2923e41549162a2ec865e5408c9148e04a6dcc092109fc3dd6331d5aeda0",
+    "tools/eval_local905_online.py": "631aa5043886b7ffde61d3009ca29286fb6ed629dcb88bdabf0a1b78aaf36c6e",
+    "tools/eval_local905_gt.py": "26b35456a804b0bdd3364df0b13eef170b98888f1097dea9b6094bc62de56b73",
+    "data/local905_query.py": "feaf4ca19c733e05fb1de72f3291f32a40d8882f941b903f866823f0c52f101f",
+    "experiments/magic_training/PLAN.md": "629c486b0c104d116d8205c15a544cd5208fb94c94d60903b24a8a871c781818"
+  }
+}

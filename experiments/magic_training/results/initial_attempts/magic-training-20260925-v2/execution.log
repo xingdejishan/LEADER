@@ -1,0 +1,18 @@
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v2/L0_val_online.log", "time": 1790335794.4116137}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v2/L0_val_online.log", "time": 1790335808.265252}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v2/L0_val_gt.log", "time": 1790335808.2680817}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v2/L0_val_gt.log", "time": 1790335808.6523194}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v2/val_00138_online.log", "time": 1790335808.6591432}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v2/val_00138_online.log", "time": 1790335823.8888822}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v2/val_00138_gt.log", "time": 1790335823.8925009}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v2/val_00138_gt.log", "time": 1790335824.2871065}
+Traceback (most recent call last):
+  File "/home/zhang/miniconda3/envs/egonn118/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/zhang/miniconda3/envs/egonn118/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-refinement/tools/refine_magic_training.py", line 255, in <module>
+    main()
+  File "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-refinement/tools/refine_magic_training.py", line 114, in main
+    raise RuntimeError('Starting prediction rows differ from same-runtime reference')
+RuntimeError: Starting prediction rows differ from same-runtime reference

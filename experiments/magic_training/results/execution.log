@@ -1,0 +1,57 @@
+{"step": 161, "phase_step": 23, "trr": 0.6329684257507324, "lr": 9.964644668252543e-05, "seconds": 1.1406566029999965, "peak_allocated_mb": 1169.66650390625}
+{"step": 184, "phase_step": 46, "trr": 0.6033412665128708, "lr": 9.852694036059514e-05, "seconds": 1.162542946000002, "peak_allocated_mb": 1169.66650390625}
+{"step": 207, "phase_step": 69, "trr": 0.6311586052179337, "lr": 9.665997415083564e-05, "seconds": 1.2166431750000015, "peak_allocated_mb": 1169.66650390625}
+{"step": 230, "phase_step": 92, "trr": 0.5401789844036102, "lr": 9.407760825187721e-05, "seconds": 1.0172945820000052, "peak_allocated_mb": 1169.66650390625}
+{"step": 253, "phase_step": 115, "trr": 0.5513644963502884, "lr": 9.082418795675397e-05, "seconds": 1.0649129480000283, "peak_allocated_mb": 1169.66650390625}
+{"step": 276, "phase_step": 138, "trr": 0.5564573854207993, "lr": 8.695558213997691e-05, "seconds": 1.107991376000001, "peak_allocated_mb": 1190.54052734375}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00276_online.log", "time": 1790336116.0916388}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00276_online.log", "time": 1790336133.465119}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00276_gt.log", "time": 1790336133.4680715}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00276_gt.log", "time": 1790336133.9019084}
+{"step": 276, "eligible": true, "score": 0.9492551469794008, "mpe": 0.08479277527742253, "moe": 0.6105084337745341, "checkpoint_sha256": "4720461783a7b449e3915ea9bb151c4fde2ea357f8eb7fb5b4255c3aa443825f"}
+{"step": 299, "phase_step": 161, "trr": 0.5788771510124207, "lr": 8.25382238576237e-05, "seconds": 1.1689404440000146, "peak_allocated_mb": 1190.54052734375}
+{"step": 322, "phase_step": 184, "trr": 0.6747966110706329, "lr": 7.764796953559688e-05, "seconds": 1.2029672689999984, "peak_allocated_mb": 1291.67919921875}
+{"step": 345, "phase_step": 207, "trr": 0.4855564087629318, "lr": 7.236879633647019e-05, "seconds": 1.2063195069999892, "peak_allocated_mb": 1291.67919921875}
+{"step": 368, "phase_step": 230, "trr": 0.6319100707769394, "lr": 6.679136007419608e-05, "seconds": 1.1865194199999678, "peak_allocated_mb": 1291.67919921875}
+{"step": 391, "phase_step": 253, "trr": 0.6603211462497711, "lr": 6.101143844066918e-05, "seconds": 1.2041015489999722, "peak_allocated_mb": 1291.67919921875}
+{"step": 414, "phase_step": 276, "trr": 0.5881148874759674, "lr": 5.512828627760519e-05, "seconds": 1.1865119340000092, "peak_allocated_mb": 1291.67919921875}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00414_online.log", "time": 1790336290.00856}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00414_online.log", "time": 1790336304.3413386}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00414_gt.log", "time": 1790336304.3442516}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00414_gt.log", "time": 1790336304.7845747}
+{"step": 414, "eligible": true, "score": 0.9397329607663976, "mpe": 0.08217602068052995, "moe": 0.6164880152877061, "checkpoint_sha256": "b842d84ec4ff4c6eae652865b895bd3737aa19d760bddaaa94b0785a21c07850"}
+{"step": 437, "phase_step": 299, "trr": 0.5848564058542252, "lr": 4.924293113758315e-05, "seconds": 1.1427174959999888, "peak_allocated_mb": 1291.67919921875}
+{"step": 460, "phase_step": 322, "trr": 0.5885826647281647, "lr": 4.3456438403475176e-05, "seconds": 1.1329345569999987, "peak_allocated_mb": 1291.67919921875}
+{"step": 483, "phase_step": 345, "trr": 0.5659399554133415, "lr": 3.786817575824107e-05, "seconds": 1.0869469649999814, "peak_allocated_mb": 1291.67919921875}
+{"step": 506, "phase_step": 368, "trr": 0.42943597584962845, "lr": 3.2574106808221207e-05, "seconds": 1.0623349619999658, "peak_allocated_mb": 1291.67919921875}
+{"step": 529, "phase_step": 391, "trr": 0.5310660600662231, "lr": 2.7665143162427422e-05, "seconds": 1.0997054839999691, "peak_allocated_mb": 1291.67919921875}
+{"step": 552, "phase_step": 414, "trr": 0.47198936343193054, "lr": 2.3225583266503803e-05, "seconds": 1.1309921139999233, "peak_allocated_mb": 1291.67919921875}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00552_online.log", "time": 1790336454.826776}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00552_online.log", "time": 1790336471.912699}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00552_gt.log", "time": 1790336471.9157507}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00552_gt.log", "time": 1790336472.3568835}
+{"step": 552, "eligible": true, "score": 0.9405243858474668, "mpe": 0.08282548330538951, "moe": 0.6130306868840127, "checkpoint_sha256": "d83a752de2144dd0c85de44f6b2d5a455041fc36953f5ca8b9812014f7d20d8b"}
+{"step": 575, "phase_step": 437, "trr": 0.48293618112802505, "lr": 1.9331664800248836e-05, "seconds": 1.3172404389999883, "peak_allocated_mb": 1291.67919921875}
+{"step": 598, "phase_step": 460, "trr": 0.6748920977115631, "lr": 1.6050255497435902e-05, "seconds": 1.194023322000021, "peak_allocated_mb": 1291.67919921875}
+{"step": 621, "phase_step": 483, "trr": 0.5792867839336395, "lr": 1.3437704869633771e-05, "seconds": 1.153233456999942, "peak_allocated_mb": 1291.67919921875}
+{"step": 644, "phase_step": 506, "trr": 0.7748913764953613, "lr": 1.1538876552628186e-05, "seconds": 1.1979460039999594, "peak_allocated_mb": 1304.638671875}
+{"step": 667, "phase_step": 529, "trr": 0.6418465673923492, "lr": 1.0386377892331293e-05, "seconds": 1.1572238300000208, "peak_allocated_mb": 1304.638671875}
+{"step": 690, "phase_step": 552, "trr": 0.48446544259786606, "lr": 1e-05, "seconds": 1.1420737820000113, "peak_allocated_mb": 1304.638671875}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00690_online.log", "time": 1790336624.2372472}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00690_online.log", "time": 1790336638.5336971}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00690_gt.log", "time": 1790336638.5366905}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/val_00690_gt.log", "time": 1790336638.9698486}
+{"step": 690, "eligible": true, "score": 0.9357833097154054, "mpe": 0.08226767253023456, "moe": 0.6109019318205384, "checkpoint_sha256": "a3e0e250f77bef256dafd89c7022252d4cb57ab370197bd44fa9c6a4a6c2ccbb"}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/selected_test_online.log", "time": 1790336647.5202255}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/selected_test_online.log", "time": 1790336716.120275}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/selected_test_gt.log", "time": 1790336716.1248617}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/selected_test_gt.log", "time": 1790336718.3793967}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/old_box_test_online.log", "time": 1790336718.3876295}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/old_box_test_online.log", "time": 1790336782.881358}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/old_box_test_gt.log", "time": 1790336782.8866484}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/old_box_test_gt.log", "time": 1790336785.0810852}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/L0_test_online.log", "time": 1790336785.0886147}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/L0_test_online.log", "time": 1790336836.5296643}
+{"started": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/L0_test_gt.log", "time": 1790336836.5346498}
+{"finished": "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-training-20260925-v3/L0_test_gt.log", "time": 1790336838.7741957}
+{"completed": true, "selected_step": 690, "mpe": 0.11368793509906834, "moe": 1.1127731411598063}
