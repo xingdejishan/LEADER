@@ -191,6 +191,12 @@ class MaGiCFusion(nn.Module):
         counts = torch.bincount(source_index, minlength=groups.shape[0]).to(features.dtype)
         return (pooled / counts.clamp_min(1)[:, None])[target_index]
 
+    def aggregate_stages(self, features, stages, coordinates, stride):
+        aligned = [self._align_stage(feature, stage.C.to(feature.device),
+                    torch.as_tensor(stage.tensor_stride, device=feature.device), coordinates, stride)
+                   for feature, stage in zip(features, stages)]
+        return self.aggregate(*aligned)
+
     def forward(self, lidar, points, coordinates, stride, sam_features, intrinsics, camera_from_lidar,
                 recovery, image_bounds, stages=None, voxel_size=0.2, horizontal=1024,
                 image_valid_mask=None, return_validity=False):
@@ -248,7 +254,8 @@ class MaGiCFusion(nn.Module):
                 attended = attention(stage_lidar, feature, pixels, stage_batch, valid & region_valid,
                                      1024, image_bounds, region_bounds=regions,
                                      image_valid_mask=image_valid_mask)
-                fused.append(self._align_stage(attended, stage_coords, stage_stride, coordinates, stride))
-        delta = self.aggregate(*fused)
+                fused.append(attended)
+        delta = (self.aggregate(*fused) if stages is None else
+                 self.aggregate_stages(fused, stages, coordinates, stride))
         output = lidar + delta * fine_valid[:, None]
         return (output, fine_valid) if return_validity else output

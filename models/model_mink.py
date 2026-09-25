@@ -524,11 +524,14 @@ class LEADER(nn.Module):
             layers=5,
         )
         self.magic_fusion = MaGiCFusion(feat_channels) if magic else None
-        if fusion_variant not in ('box', 'surface'):
+        if fusion_variant not in ('box', 'surface', 'spatial'):
             raise ValueError(f'Unknown fusion variant: {fusion_variant}')
         if magic and fusion_variant == 'surface':
             from models.surface_token_fusion import SurfaceMaGiCFusion
             self.magic_fusion = SurfaceMaGiCFusion(feat_channels)
+        if magic and fusion_variant == 'spatial':
+            from models.spatial_magic_fusion import SpatialMaGiCFusion
+            self.magic_fusion = SpatialMaGiCFusion(feat_channels, horizontal=width)
 
     def forward(self, input):
         raise NotImplementedError
