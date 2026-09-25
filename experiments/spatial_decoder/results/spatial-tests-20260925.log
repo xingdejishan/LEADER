@@ -1,0 +1,9 @@
+.........../home/zhang/miniconda3/envs/egonn118/lib/python3.9/site-packages/torch/autograd/function.py:445: DeprecationWarning: <class 'MinkowskiConvolution.MinkowskiConvolutionFunction'> should not be instantiated. Methods on autograd functionsare all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  warnings.warn(f"{cls} should not be instantiated. Methods on autograd functions"
+./home/zhang/miniconda3/envs/egonn118/lib/python3.9/site-packages/torch/autograd/function.py:445: DeprecationWarning: <class 'MinkowskiInterpolation.MinkowskiInterpolationFunction'> should not be instantiated. Methods on autograd functionsare all static, so you should invoke them on the class itself. Instantiating an autograd function will raise an error in a future version of PyTorch.
+  warnings.warn(f"{cls} should not be instantiated. Methods on autograd functions"
+..
+----------------------------------------------------------------------
+Ran 14 tests in 2.039s
+
+OK

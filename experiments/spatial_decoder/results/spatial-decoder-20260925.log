@@ -1,0 +1,15 @@
+fatal: not a git repository: /mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-spatial-decoder/C:/Users/zhang/Documents/ChatGPT/LEADER/LEADER/.git/worktrees/magic-spatial-decoder
+Traceback (most recent call last):
+  File "/home/zhang/miniconda3/envs/egonn118/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/zhang/miniconda3/envs/egonn118/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-spatial-decoder/tools/run_spatial_trial.py", line 92, in <module>
+    main()
+  File "/mnt/c/Users/zhang/Documents/ChatGPT/LEADER/work/magic-spatial-decoder/tools/run_spatial_trial.py", line 43, in main
+    git_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+  File "/home/zhang/miniconda3/envs/egonn118/lib/python3.9/subprocess.py", line 424, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/home/zhang/miniconda3/envs/egonn118/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'rev-parse', 'HEAD']' returned non-zero exit status 128.

@@ -1,0 +1,24 @@
+{
+  "variant": "spatial",
+  "completed_steps": 1,
+  "frames": 8,
+  "frozen_leader_exactly_unchanged": true,
+  "smoke": true,
+  "elapsed_seconds": 2.9028914260000036,
+  "peak_allocated_mb": 1396.32275390625,
+  "gradient_l1": {
+    "1": {
+      "image_encoder": 0.0,
+      "attention": 0.0,
+      "aggregate.native": 0.0,
+      "aggregate.decode": 0.0,
+      "aggregate.output": 63.87072277069092
+    }
+  },
+  "initial_feature_max_differences": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}

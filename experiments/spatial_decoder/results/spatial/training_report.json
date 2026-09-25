@@ -1,0 +1,33 @@
+{
+  "variant": "spatial",
+  "completed_steps": 138,
+  "frames": 1104,
+  "frozen_leader_exactly_unchanged": true,
+  "smoke": false,
+  "elapsed_seconds": 270.771450032,
+  "peak_allocated_mb": 1886.12451171875,
+  "gradient_l1": {
+    "1": {
+      "image_encoder": 0.0,
+      "attention": 0.0,
+      "aggregate.native": 0.0,
+      "aggregate.decode": 0.0,
+      "aggregate.output": 63.87071883678436
+    },
+    "2": {
+      "image_encoder": 0.011735439271433279,
+      "attention": 2.972814906347554,
+      "aggregate.native": 25.79798393556848,
+      "aggregate.decode": 36.05949636967853,
+      "aggregate.output": 114.96797156333923
+    },
+    "138": {
+      "image_encoder": 0.07209807739127427,
+      "attention": 9.853321638508932,
+      "aggregate.native": 45.335304671898484,
+      "aggregate.decode": 43.89583714189939,
+      "aggregate.output": 149.33212649822235
+    }
+  },
+  "checkpoint_sha256": "271a636350ba79048e8c13ccb5c84228de80390d604a57e9becac728889b4af4"
+}

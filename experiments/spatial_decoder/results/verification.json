@@ -1,0 +1,27 @@
+{
+  "checkpoint_sha256": {
+    "L0": "49cf3085b507e2f67a0f250394cadd980b0f5da18eb00dcfe37a6c766d3f4d7a",
+    "box": "1f2157fb405af8c7fa5112f44a0cd0c7f0bb59ef48fcb0af63d0a62ae4df1e3f",
+    "surface": "947ba2a2736837b6cfaf3038d0f4d59a26daabd3da43236303deefc6442976e1",
+    "spatial": "271a636350ba79048e8c13ccb5c84228de80390d604a57e9becac728889b4af4"
+  },
+  "frozen_prediction_evaluation_pairs": 8,
+  "archived_and_current_source_hashes_verified": 59,
+  "matched_training_settings": {
+    "sample_order_sha256": "641b6094a48082d2043003fea0b584a1aaf5cb9ddcc8a22038e92015bc3f3624",
+    "split_sha256": "948bcb0d81ea9be9d5627c7b00bab36efa8fcacec2a3027b256c9574308835ba",
+    "sam_manifest_sha256": "a0dec893d85b5d3904da043083c969de2692740a8584729e7dcf7b06e517adcc",
+    "base_checkpoint_sha256": "49cf3085b507e2f67a0f250394cadd980b0f5da18eb00dcfe37a6c766d3f4d7a",
+    "fusion_init_sha256": "2e7a33aacb21b11079c656d28f05e99292e48957d57898f0a87ffcb877a9d29c",
+    "effective_batch": 8,
+    "microbatch": 2,
+    "optimizer_steps": 138,
+    "fusion_lr": 0.0001,
+    "seed": 37,
+    "data_seed": 100037
+  },
+  "frozen_leader_exactly_unchanged": true,
+  "new_branch_gradient_groups_nonzero_at_step2": true,
+  "historical_predictions_and_evaluations_exactly_reused": true,
+  "first_launch_failed_before_training": true
+}
