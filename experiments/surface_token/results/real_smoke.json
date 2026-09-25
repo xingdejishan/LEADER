@@ -1,0 +1,15 @@
+{
+  "variant": "surface",
+  "completed_steps": 1,
+  "frames": 8,
+  "frozen_leader_exactly_unchanged": true,
+  "smoke": true,
+  "elapsed_seconds": 2.89800640999988,
+  "peak_allocated_mb": 982.81982421875,
+  "initial_feature_max_differences": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}

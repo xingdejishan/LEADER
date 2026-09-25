@@ -1,0 +1,44 @@
+[
+  {
+    "condition": "L0_val",
+    "frames": 40,
+    "failures": 0,
+    "predictions_sha256": "569960a6694360982590d08cc4bce86b9c4977e87f7df435425960ae1276063e",
+    "matches": true
+  },
+  {
+    "condition": "L0_test",
+    "frames": 313,
+    "failures": 0,
+    "predictions_sha256": "c536fdf3576226ca4d79392937ee745d23e27bebbbe625bef2f3576bde5b61da",
+    "matches": true
+  },
+  {
+    "condition": "box_val",
+    "frames": 40,
+    "failures": 0,
+    "predictions_sha256": "ab50b69d61a5398503ceca8e79a7db19600371c009506e3b3632c4d4f12959e9",
+    "matches": true
+  },
+  {
+    "condition": "box_test",
+    "frames": 313,
+    "failures": 0,
+    "predictions_sha256": "16d585d0e5a68792e1d5119cf186f6087ae8ffc9c3a67ef02599284bb5f5b5be",
+    "matches": true
+  },
+  {
+    "condition": "surface_val",
+    "frames": 40,
+    "failures": 0,
+    "predictions_sha256": "7cc76f61c4a8552181620b053dc63eb77b15ffb2213efd2fdfb16e0cc25caa60",
+    "matches": true
+  },
+  {
+    "condition": "surface_test",
+    "frames": 313,
+    "failures": 0,
+    "predictions_sha256": "161a4ba91052476335d92f34d8365197195966776b9b7799bcd23f78f316c75f",
+    "matches": true
+  }
+]

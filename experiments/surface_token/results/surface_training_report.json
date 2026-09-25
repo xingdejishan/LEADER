@@ -1,0 +1,10 @@
+{
+  "variant": "surface",
+  "completed_steps": 138,
+  "frames": 1104,
+  "frozen_leader_exactly_unchanged": true,
+  "smoke": false,
+  "elapsed_seconds": 170.35087727600012,
+  "peak_allocated_mb": 1256.328125,
+  "checkpoint_sha256": "947ba2a2736837b6cfaf3038d0f4d59a26daabd3da43236303deefc6442976e1"
+}

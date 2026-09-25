@@ -1,0 +1,27 @@
+{
+  "protocol": "surface_token_trial_v1",
+  "plan_sha256": "cf2c0536cdaef3ab7e5e3a0340f2e3e879a8b475ca1afbe48c69d7b121b7b95d",
+  "started_unix": 1790331365.31507,
+  "conditions": [
+    "L0",
+    "box",
+    "surface"
+  ],
+  "steps_per_trained_condition": 138,
+  "seed": 37,
+  "lr": 0.0001,
+  "effective_batch": 8,
+  "microbatch": 2,
+  "selection": "fixed_final_step",
+  "source_sha256": {
+    "tools/run_surface_trial.py": "01cb6b6142c61b496da0df53e0674a173e631c66fe975de249f34e3826a1e52d",
+    "tools/train_surface_trial.py": "23e86bfb9917b2c72797c1220cbb6c558b7c3dc8fb3183397b376dcbef8551d2",
+    "models/surface_token_fusion.py": "e7cb9cca15f5ffaa2400fc92324591716887c4cc3624e4f9804d1809f68efd70",
+    "models/magic_fusion.py": "416b9027ce0a05d7888e6e152910b24b9269f550313e7744c70bc60b27e4572d",
+    "models/model_mink.py": "83f722a17b66ea4afccd476db32bc51e64024742a15c41adf50ca2c9e733ea68",
+    "tools/eval_local905_online.py": "631aa5043886b7ffde61d3009ca29286fb6ed629dcb88bdabf0a1b78aaf36c6e",
+    "tools/eval_local905_gt.py": "26b35456a804b0bdd3364df0b13eef170b98888f1097dea9b6094bc62de56b73",
+    "tools/train_local905.py": "2f0c8708145f7b674b8daf9666e24945ae24182e18c4deed9ee940be9e550dda",
+    "data/local905_query.py": "feaf4ca19c733e05fb1de72f3291f32a40d8882f941b903f866823f0c52f101f"
+  }
+}

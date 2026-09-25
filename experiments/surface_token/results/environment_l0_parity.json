@@ -1,0 +1,5 @@
+{
+  "frames": 313,
+  "exactly_equal_poses": 313,
+  "note": "Compared pose matrices only; timing and prediction file hash differ by run."
+}

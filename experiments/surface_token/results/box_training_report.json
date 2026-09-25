@@ -1,0 +1,10 @@
+{
+  "variant": "box",
+  "completed_steps": 138,
+  "frames": 1104,
+  "frozen_leader_exactly_unchanged": true,
+  "smoke": false,
+  "elapsed_seconds": 161.97252000699996,
+  "peak_allocated_mb": 1290.67529296875,
+  "checkpoint_sha256": "1f2157fb405af8c7fa5112f44a0cd0c7f0bb59ef48fcb0af63d0a62ae4df1e3f"
+}

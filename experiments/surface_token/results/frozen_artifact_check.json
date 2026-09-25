@@ -1,0 +1,55 @@
+{
+  "source_commit": "4f34b3ae7c0ef77a1320c4067671df334c3c296b",
+  "source_files": [
+    {
+      "path": "tools/run_surface_trial.py",
+      "matches": true
+    },
+    {
+      "path": "tools/train_surface_trial.py",
+      "matches": true
+    },
+    {
+      "path": "models/surface_token_fusion.py",
+      "matches": true
+    },
+    {
+      "path": "models/magic_fusion.py",
+      "matches": true
+    },
+    {
+      "path": "models/model_mink.py",
+      "matches": true
+    },
+    {
+      "path": "tools/eval_local905_online.py",
+      "matches": true
+    },
+    {
+      "path": "tools/eval_local905_gt.py",
+      "matches": true
+    },
+    {
+      "path": "tools/train_local905.py",
+      "matches": true
+    },
+    {
+      "path": "data/local905_query.py",
+      "matches": true
+    }
+  ],
+  "checkpoints": [
+    {
+      "variant": "box",
+      "checkpoint_matches": true,
+      "completed_steps": 138,
+      "frozen": true
+    },
+    {
+      "variant": "surface",
+      "checkpoint_matches": true,
+      "completed_steps": 138,
+      "frozen": true
+    }
+  ]
+}
