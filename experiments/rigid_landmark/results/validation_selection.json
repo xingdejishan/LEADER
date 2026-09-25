@@ -1,0 +1,94 @@
+{
+  "records": [
+    {
+      "epoch": 5,
+      "objective": 1.9644535569698773,
+      "eligible": false,
+      "mpe": 0.08075282791740176,
+      "moe": 0.6572729430984042,
+      "checkpoint_sha256": "5ad90565497f207b62595fffe4d717a23dbb499402a276a8880c2355e67b67d1",
+      "best_epoch": 5,
+      "lr_reductions": 0,
+      "last_significant_epoch": 5
+    },
+    {
+      "epoch": 10,
+      "objective": 1.9461862888998032,
+      "eligible": false,
+      "mpe": 0.07530095052812558,
+      "moe": 0.6717040926170226,
+      "checkpoint_sha256": "8a4333a0b5a305b6eeef4b0b91ba6eed19ff53680310df07a2ad66f606e99e43",
+      "best_epoch": 10,
+      "lr_reductions": 0,
+      "last_significant_epoch": 10
+    },
+    {
+      "epoch": 15,
+      "objective": 1.9445771181378118,
+      "eligible": false,
+      "mpe": 0.077352080865963,
+      "moe": 0.6556275966301963,
+      "checkpoint_sha256": "eb8555ab14b115c86e4b65548a932724c7cc842c4f11906cd667981d259949df",
+      "best_epoch": 15,
+      "lr_reductions": 0,
+      "last_significant_epoch": 10
+    },
+    {
+      "epoch": 20,
+      "objective": 1.9877198772648321,
+      "eligible": false,
+      "mpe": 0.07970253348248912,
+      "moe": 0.6936768290610035,
+      "checkpoint_sha256": "cd4032d618025032dd518d69ed9307812fa3284b5f3fbc193e1c1b675d448b70",
+      "best_epoch": 15,
+      "lr_reductions": 0,
+      "last_significant_epoch": 10
+    },
+    {
+      "epoch": 25,
+      "objective": 1.9692478922368863,
+      "eligible": false,
+      "mpe": 0.07920987637803975,
+      "moe": 0.6738651922959551,
+      "checkpoint_sha256": "14f01a62effa45217db7a0e5d00f199ba3c9d897dbf2977993c1c37e6fa70f18",
+      "best_epoch": 15,
+      "lr_reductions": 1,
+      "last_significant_epoch": 10
+    },
+    {
+      "epoch": 30,
+      "objective": 1.9562184565263645,
+      "eligible": false,
+      "mpe": 0.07341444218720264,
+      "moe": 0.6972257947706624,
+      "checkpoint_sha256": "f340d83630e7367129b836d777afbb5d42920a961232f7cc98cd0e9ea0060316",
+      "best_epoch": 15,
+      "lr_reductions": 1,
+      "last_significant_epoch": 10
+    },
+    {
+      "epoch": 35,
+      "objective": 1.9697448348989943,
+      "eligible": false,
+      "mpe": 0.07762604609576254,
+      "moe": 0.6853430781481453,
+      "checkpoint_sha256": "80f9f785c9df5cae56f91eafa2ff00c750e1a6c1afdb2e939aa3f8dea56d9626",
+      "best_epoch": 15,
+      "lr_reductions": 1,
+      "last_significant_epoch": 10
+    },
+    {
+      "epoch": 40,
+      "objective": 2.0302678993647167,
+      "eligible": false,
+      "mpe": 0.0812802604389494,
+      "moe": 0.7362750202460413,
+      "checkpoint_sha256": "fd5439e53a903be3aaebeca9df73fabeef60fcb8b04a6de707c985deb6116357",
+      "best_epoch": 15,
+      "lr_reductions": 2,
+      "last_significant_epoch": 10
+    }
+  ],
+  "best_epoch": 15,
+  "best_objective": 1.9445771181378118
+}

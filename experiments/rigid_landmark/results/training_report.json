@@ -1,0 +1,30 @@
+{
+  "epochs": 40,
+  "best_epoch": 15,
+  "plateau_criterion_met": true,
+  "lr_reductions": 2,
+  "gradient_evidence": {
+    "memory.lidar.0.weight": 0.0007821773760952055,
+    "memory.lidar.0.bias": 0.0010783425532281399,
+    "memory.lidar.1.weight": 0.1805480718612671,
+    "memory.lidar.1.bias": 0.0005536725511774421,
+    "memory.visual.0.weight": 0.0003594825975596905,
+    "memory.visual.0.bias": 0.0008613957324996591,
+    "memory.visual.1.weight": 0.06157594919204712,
+    "memory.visual.1.bias": 0.000484266085550189,
+    "memory.edge.0.weight": 0.15508675575256348,
+    "memory.edge.0.bias": 0.0037435234989970922,
+    "memory.edge.2.weight": 0.047338929027318954,
+    "memory.edge.2.bias": 0.013442816212773323,
+    "memory.score.weight": 8.485791113344021e-06,
+    "memory.score.bias": 3.979039320256561e-13,
+    "memory.output.weight": 5.276777267456055,
+    "memory.output.bias": 2.107823371887207,
+    "weight.weight": 5.167961717233993e-06,
+    "weight.bias": 4.547473508864641e-13
+  },
+  "training_seconds": 61.92856014400009,
+  "real_images": true,
+  "peak_memory_mib": 905.83056640625,
+  "query_GT_not_in_online_cache": true
+}
