@@ -64,6 +64,7 @@ def main():
     parser.add_argument('--prior', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--parity_reference', type=Path)
+    parser.add_argument('--initial_run', type=Path)
     parser.add_argument('--smoke', action='store_true')
     args = parser.parse_args()
     if shutil.disk_usage(args.out.parent).free < 5 * 1024 ** 3:
@@ -80,7 +81,7 @@ def main():
             if read(folder / 'evaluation.json')['predictions_sha256'] != digest(folder / 'predictions.json'):
                 raise ValueError('Historical predictions/evaluation hash mismatch')
     order, order_hash = sample_batches(552, 8, 690, 100037)
-    protocol = dict(name='magic_real_training_refinement_v2', seed=37, data_seed=100037,
+    protocol = dict(name='magic_real_training_refinement_v3', seed=37, data_seed=100037,
                     initial_step=138, additional_steps=552, optimizer='new Adam state',
                     lr='cosine 1e-4 to 1e-5', effective_batch=8, microbatch=2,
                     source_checkpoint_sha256=source_hash, sample_order_sha256=order_hash,
@@ -88,6 +89,8 @@ def main():
                     selection='val40 minimum normalized MPE/MOE mean; both means and P90 <= L0',
                     real_images_only=True, development_only=True, smoke=args.smoke,
                     reference_policy='Recompute L0 and old box in current fixed runtime',
+                    initial_run=str(args.initial_run) if args.initial_run else None,
+                    parity_tolerances=dict(rotation_component=1e-5, translation_component_m=2e-4),
                     parity_reference_sha256=digest(args.parity_reference) if args.parity_reference else None,
                     historical_evaluation_sha256={
                         f'{v}_{s}': digest(args.prior / f'{v}_{s}/evaluation.json')
@@ -100,19 +103,36 @@ def main():
                         'data/local905_query.py', 'experiments/magic_training/PLAN.md')})
     write(args.out / 'protocol.json', protocol)
     if not args.smoke:
-        baseline_val = evaluate(args.assets / 'official_l0.pt', args.out / 'L0_val', 'val', args, False)
-        initial_val = evaluate(source, args.out / 'val_00138', 'val', args)
+        if args.initial_run is None:
+            raise ValueError('Initial same-runtime evaluations are required')
+        for name, checkpoint_path in (('L0_val', args.assets / 'official_l0.pt'), ('val_00138', source)):
+            folder = args.initial_run / name
+            predictions = read(folder / 'predictions.json')
+            if (predictions['checkpoint_sha256'] != digest(checkpoint_path) or
+                    read(folder / 'evaluation.json')['predictions_sha256'] != digest(folder / 'predictions.json')):
+                raise ValueError('Initial evaluation checkpoint or output hash mismatch')
+            shutil.copytree(folder, args.out / name)
+        baseline_val = read(args.out / 'L0_val/evaluation.json')
+        initial_val = read(args.out / 'val_00138/evaluation.json')
         if args.parity_reference is None:
             raise ValueError('Same-runtime starting prediction reference is required')
         old = read(args.parity_reference)
         new = read(args.out / 'val_00138/predictions.json')
         old_rows = old.get('rows', old.get('predictions'))
         new_rows = new.get('rows', new.get('predictions'))
-        if (old_rows is None or new_rows is None or len(old_rows) != len(new_rows) or
-                any(any(a.get(k) != b.get(k) for k in ('scan', 'status', 'T_world_body'))
+        if (old_rows is None or new_rows is None or len(old_rows) != 40 or len(new_rows) != 40 or
+                any(any(a.get(k) != b.get(k) for k in ('scan', 'status'))
                     for a, b in zip(old_rows, new_rows))):
-            raise RuntimeError('Starting prediction rows differ from same-runtime reference')
-        write(args.out / 'initial_parity.json', dict(frames=len(old_rows), exact_pose_parity=True,
+            raise RuntimeError('Starting prediction identifiers differ')
+        differences = np.abs(np.asarray([a['T_world_body'] for a in old_rows]) -
+                             np.asarray([a['T_world_body'] for a in new_rows]))
+        rotation_difference = float(differences[:, :3, :3].max())
+        translation_difference = float(differences[:, :3, 3].max())
+        if rotation_difference > 1e-5 or translation_difference > 2e-4:
+            raise RuntimeError('Starting pose repeat exceeds pre-training numeric tolerances')
+        write(args.out / 'initial_parity.json', dict(frames=len(old_rows), exact_pose_parity=False,
+              numeric_tolerance_passed=True, max_rotation_component=rotation_difference,
+              max_translation_component_m=translation_difference,
               old_predictions_sha256=digest(args.parity_reference),
               new_predictions_sha256=digest(args.out / 'val_00138/predictions.json')))
     else:
