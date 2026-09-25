@@ -1,0 +1,9 @@
+{
+  "date": "2026-09-25",
+  "scope": "All locally available heads/remotes in LEADER, root handoff and retrospective, existing surface/landmark/rigid sources and artifacts",
+  "query": "geocalib|gravity.fusion|vanishing.point|重力方向",
+  "matching_trained_architecture_found": false,
+  "limitation": "Cached refs only; keyword audit does not prove absence from every external or differently named experiment",
+  "near_precedent": "DINOv2 global pose regression failed; surface registration failed; actual gravity measurement plus semantic normal fusion is the increment",
+  "geocalib_source_commit": "97b8968e7798a66bf04fcf791fb535624241bda7"
+}
