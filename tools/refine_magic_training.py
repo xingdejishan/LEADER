@@ -25,11 +25,13 @@ def write(path, value):
     path.write_text(json.dumps(value, indent=2) + '\n', encoding='utf-8')
 
 
-def evaluate(checkpoint, directory, subset, args):
-    run(['tools.eval_local905_online', '--data_root', args.data_root,
+def evaluate(checkpoint, directory, subset, args, magic=True):
+    command = ['tools.eval_local905_online', '--data_root', args.data_root,
          '--split', args.assets / 'split_masked.json', '--checkpoint', checkpoint,
-         '--subset', subset, '--sam_manifest', args.assets / 'sam_cache/manifest_905.json',
-         '--out', directory], directory.parent / (directory.name + '_online.log'))
+         '--subset', subset, '--out', directory]
+    if magic:
+        command += ['--sam_manifest', args.assets / 'sam_cache/manifest_905.json']
+    run(command, directory.parent / (directory.name + '_online.log'))
     frozen_hash = digest(directory / 'predictions.json')
     run(['tools.eval_local905_gt', '--data_root', args.data_root,
          '--split', args.assets / 'split_masked.json',
@@ -61,6 +63,7 @@ def main():
     parser.add_argument('--assets', type=Path, required=True)
     parser.add_argument('--prior', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--parity_reference', type=Path)
     parser.add_argument('--smoke', action='store_true')
     args = parser.parse_args()
     if shutil.disk_usage(args.out.parent).free < 5 * 1024 ** 3:
@@ -77,13 +80,15 @@ def main():
             if read(folder / 'evaluation.json')['predictions_sha256'] != digest(folder / 'predictions.json'):
                 raise ValueError('Historical predictions/evaluation hash mismatch')
     order, order_hash = sample_batches(552, 8, 690, 100037)
-    protocol = dict(name='magic_real_training_refinement_v1', seed=37, data_seed=100037,
+    protocol = dict(name='magic_real_training_refinement_v2', seed=37, data_seed=100037,
                     initial_step=138, additional_steps=552, optimizer='new Adam state',
                     lr='cosine 1e-4 to 1e-5', effective_batch=8, microbatch=2,
                     source_checkpoint_sha256=source_hash, sample_order_sha256=order_hash,
                     selection_steps=[138, 276, 414, 552, 690],
                     selection='val40 minimum normalized MPE/MOE mean; both means and P90 <= L0',
                     real_images_only=True, development_only=True, smoke=args.smoke,
+                    reference_policy='Recompute L0 and old box in current fixed runtime',
+                    parity_reference_sha256=digest(args.parity_reference) if args.parity_reference else None,
                     historical_evaluation_sha256={
                         f'{v}_{s}': digest(args.prior / f'{v}_{s}/evaluation.json')
                         for v in ('box', 'L0') for s in ('val', 'test')},
@@ -94,21 +99,24 @@ def main():
                         'tools/eval_local905_online.py', 'tools/eval_local905_gt.py',
                         'data/local905_query.py', 'experiments/magic_training/PLAN.md')})
     write(args.out / 'protocol.json', protocol)
-    baseline_val = read(args.prior / 'L0_val/evaluation.json')
     if not args.smoke:
+        baseline_val = evaluate(args.assets / 'official_l0.pt', args.out / 'L0_val', 'val', args, False)
         initial_val = evaluate(source, args.out / 'val_00138', 'val', args)
-        old = read(args.prior / 'box_val/predictions.json')
+        if args.parity_reference is None:
+            raise ValueError('Same-runtime starting prediction reference is required')
+        old = read(args.parity_reference)
         new = read(args.out / 'val_00138/predictions.json')
         old_rows = old.get('rows', old.get('predictions'))
         new_rows = new.get('rows', new.get('predictions'))
         if (old_rows is None or new_rows is None or len(old_rows) != len(new_rows) or
                 any(any(a.get(k) != b.get(k) for k in ('scan', 'status', 'T_world_body'))
                     for a, b in zip(old_rows, new_rows))):
-            raise RuntimeError('Starting prediction rows differ from historical box')
+            raise RuntimeError('Starting prediction rows differ from same-runtime reference')
         write(args.out / 'initial_parity.json', dict(frames=len(old_rows), exact_pose_parity=True,
-              old_predictions_sha256=digest(args.prior / 'box_val/predictions.json'),
+              old_predictions_sha256=digest(args.parity_reference),
               new_predictions_sha256=digest(args.out / 'val_00138/predictions.json')))
     else:
+        baseline_val = read(args.prior / 'L0_val/evaluation.json')
         initial_val = read(args.prior / 'box_val/evaluation.json')
     eligible, best_score = score(initial_val, baseline_val)
     if not eligible:
@@ -134,7 +142,8 @@ def main():
     settings = dict(original['settings'])
     settings.update(protocol=protocol['name'], variant='B_real_refined', fusion_variant='box',
                     parent_checkpoint_sha256=source_hash, optimizer_state_restarted=True,
-                    additional_steps=552, training_protocol_sha256=digest(args.out / 'protocol.json'))
+                    additional_steps=552, optimizer_steps=690,
+                    training_protocol_sha256=digest(args.out / 'protocol.json'))
     flags = SimpleNamespace(dataset='Local905', dataset_folder=str(args.data_root),
                             local905_split=str(args.assets / 'split_masked.json'),
                             local905_max_points=0, voxel_size=0.2, horizontal_res=1024,
@@ -229,8 +238,8 @@ def main():
     write(args.out / 'selection_frozen.json', dict(step=best_step, score=best_score,
           checkpoint_sha256=digest(selected), source=str(best_path), before_test_evaluation=True))
     test = evaluate(selected, args.out / 'selected_test', 'test', args)
-    old_test = read(args.prior / 'box_test/evaluation.json')
-    baseline_test = read(args.prior / 'L0_test/evaluation.json')
+    old_test = evaluate(source, args.out / 'old_box_test', 'test', args)
+    baseline_test = evaluate(args.assets / 'official_l0.pt', args.out / 'L0_test', 'test', args, False)
     summary = dict(selected_step=best_step, development_only=True, metrics={
                    name: {k: v for k, v in data.items() if k != 'rows'}
                    for name, data in [('selected', test), ('old_box', old_test), ('L0', baseline_test)]},
