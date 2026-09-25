@@ -44,12 +44,14 @@ def batch_loss(model, batch, center, loss_fn, magic, voxel_size, horizontal_res)
         extrinsics = batch['camera_from_lidar'].cuda(non_blocking=True)
         bounds = batch['image_bounds'].cuda(non_blocking=True)
         recovery = torch.eye(4, device='cuda')[None].expand(poses.shape[0], -1, -1)
+        surface_args = ({'raw_points': batch['points']}
+                        if getattr(model.magic_fusion, 'requires_raw_points', False) else {})
         features = model.magic_fusion(features, points, encoded.C, stride, sam,
                                        intrinsics, extrinsics, recovery, bounds,
                                        stages=stages, voxel_size=voxel_size,
                                        horizontal=horizontal_res,
                                        image_valid_mask=batch['image_valid_mask'].cuda(non_blocking=True)
-                                       if 'image_valid_mask' in batch else None)
+                                       if 'image_valid_mask' in batch else None, **surface_args)
     predictions = model.decoder(features)
     weighted, raw = loss_fn(targets, predictions[:, :3], predictions[:, 3], batch_index)
     return weighted.mean(), raw

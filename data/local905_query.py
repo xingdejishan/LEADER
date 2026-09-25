@@ -15,7 +15,8 @@ RAW_DTYPE = np.dtype([('x', '<u2'), ('y', '<u2'), ('z', '<u2'),
                       ('intensity', 'u1'), ('ring', 'u1')])
 
 
-def load_sparse_scan(path, key, max_points, voxel_size=0.2, horizontal_res=1024):
+def load_sparse_scan(path, key, max_points, voxel_size=0.2, horizontal_res=1024,
+                     return_points=False):
     raw = np.fromfile(path, dtype=RAW_DTYPE)
     scan = np.column_stack((raw['x'], raw['y'], raw['z'])).astype(np.float32) * 0.005 - 100
     label = raw['intensity'].astype(np.float32)
@@ -33,7 +34,7 @@ def load_sparse_scan(path, key, max_points, voxel_size=0.2, horizontal_res=1024)
     features = np.column_stack((polar[:, 2], polar[:, 1], label)).astype(np.float32)
     coordinates, features = ME.utils.sparse_quantize(
         coordinates=polar, features=features, quantization_size=voxel_size)
-    return coordinates, features
+    return (coordinates, features, scan) if return_points else (coordinates, features)
 
 
 class Local905Query:
@@ -56,8 +57,9 @@ class Local905Query:
     def load(self, key, feature_key=None):
         if key not in self.keys:
             raise ValueError(f'Unknown query scan: {key}')
-        coordinates, features = load_sparse_scan(self.root / key, key, self.max_points)
-        result = {'coords': coordinates, 'feats': features}
+        coordinates, features, points = load_sparse_scan(
+            self.root / key, key, self.max_points, return_points=True)
+        result = {'coords': coordinates, 'feats': features, 'points': (points,)}
         if self.manifest is None:
             return result
         record = self.manifest['frames'][key]

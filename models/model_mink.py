@@ -505,6 +505,7 @@ class LEADER(nn.Module):
         feat_channels: int = 512,
         width: int = 1024,
         magic: bool = False,
+        fusion_variant: str = 'box',
     ) -> None:
         super().__init__()
         self.encoder = RPGE(
@@ -523,6 +524,11 @@ class LEADER(nn.Module):
             layers=5,
         )
         self.magic_fusion = MaGiCFusion(feat_channels) if magic else None
+        if fusion_variant not in ('box', 'surface'):
+            raise ValueError(f'Unknown fusion variant: {fusion_variant}')
+        if magic and fusion_variant == 'surface':
+            from models.surface_token_fusion import SurfaceMaGiCFusion
+            self.magic_fusion = SurfaceMaGiCFusion(feat_channels)
 
     def forward(self, input):
         raise NotImplementedError

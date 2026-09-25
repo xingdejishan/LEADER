@@ -89,7 +89,8 @@ def main():
         with np.load(args.null_template, allow_pickle=False) as archive:
             null_features = {name: torch.from_numpy(archive[name].copy())[None]
                              for name in archive.files}
-    model = LEADER(in_channels=3, out_channels=4, feat_channels=512, magic=magic).cuda()
+    model = LEADER(in_channels=3, out_channels=4, feat_channels=512, magic=magic,
+                   fusion_variant=settings.get('fusion_variant', 'box')).cuda()
     model.load_state_dict(checkpoint['model'])
     model.eval()
     center = torch.tensor(checkpoint['center_t'], dtype=torch.float32, device='cuda')
@@ -132,6 +133,8 @@ def main():
                 if magic:
                     identity = torch.eye(4, device='cuda')[None]
                     fusion_start = time.perf_counter()
+                    surface_args = ({'raw_points': frame['points']}
+                                    if getattr(model.magic_fusion, 'requires_raw_points', False) else {})
                     fused = model.magic_fusion(
                         features, points, encoded.C, stride,
                         frame['sam_features'].cuda(), frame['intrinsics'].cuda(),
@@ -140,7 +143,7 @@ def main():
                         voxel_size=settings['voxel_size'], horizontal=1024,
                         image_valid_mask=frame['image_valid_mask'].cuda()
                         if 'image_valid_mask' in frame else None,
-                        return_validity=args.save_correspondences)
+                        return_validity=args.save_correspondences, **surface_args)
                     if args.save_correspondences:
                         features, visual_valid = fused
                     else:
