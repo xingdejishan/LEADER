@@ -1,0 +1,7 @@
+{
+  "epoch": 5,
+  "checkpoint_sha256": "d0bf5413401ce016c9bcb138cf99dade44b0322fe19ad23f4e4c578b8256aa8c",
+  "before_313_evaluation": true,
+  "frozen_at_utc": "2026-09-25T15:01:23.0607165Z",
+  "selection_reason": "User explicitly requested epoch 5 after validation plateau; supersedes minimum40 rule"
+}

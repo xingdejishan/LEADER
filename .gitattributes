@@ -5,3 +5,4 @@ experiments/landmark_memory/results/** -text whitespace=cr-at-eol
 experiments/rigid_landmark/results/** -text whitespace=cr-at-eol
 experiments/surface_registration/results/** -text whitespace=cr-at-eol
 experiments/gravity_fusion/results/** -text whitespace=cr-at-eol
+experiments/interaction/results/** -text whitespace=cr-at-eol

@@ -1,0 +1,45 @@
+{
+  "records": [
+    {
+      "epoch": 5,
+      "objective": 1.86129235189758,
+      "eligible": false,
+      "best_epoch": 5,
+      "mpe": 0.06333269567130655,
+      "moe": 0.6471560177260085,
+      "checkpoint_sha256": "d0bf5413401ce016c9bcb138cf99dade44b0322fe19ad23f4e4c578b8256aa8c",
+      "lr_reductions": 0
+    },
+    {
+      "epoch": 10,
+      "objective": 1.8779537318797659,
+      "eligible": false,
+      "best_epoch": 5,
+      "mpe": 0.06327496195366042,
+      "moe": 0.6684666640658306,
+      "checkpoint_sha256": "3e01000fa916aa3d165e363e4f3698a3a515953d39f86a8d9035e9bd9de65c39",
+      "lr_reductions": 0
+    },
+    {
+      "epoch": 15,
+      "objective": 1.9491491315721605,
+      "eligible": false,
+      "best_epoch": 5,
+      "mpe": 0.07403114282037652,
+      "moe": 0.684125403655606,
+      "checkpoint_sha256": "c0fa46398d588ef6d05033faed9330b904c8bdf69eec549d7622861688dafabe",
+      "lr_reductions": 0
+    },
+    {
+      "epoch": 20,
+      "objective": 1.8718140639807823,
+      "eligible": false,
+      "best_epoch": 5,
+      "mpe": 0.06436958381507663,
+      "moe": 0.6532580493365515,
+      "checkpoint_sha256": "da549704095ffad32fd500197d6896cfb697a263c2157afe2df3193865949dca",
+      "lr_reductions": 1
+    }
+  ],
+  "best_epoch": 5
+}
