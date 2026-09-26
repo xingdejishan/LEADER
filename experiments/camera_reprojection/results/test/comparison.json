@@ -1,0 +1,87 @@
+{
+  "protocol": "camera_reprojection_paired_comparison_v1",
+  "subset": "test",
+  "baseline_predictions_sha256": "5915d5f55f1605b96d163a6da7fdf4818df43214b10241daae619cd4d696e289",
+  "refined_predictions_sha256": "bd24bece1dec486e39c29014bb705afaf3abf5cd20efaaa0bddb804e0fb9ae34",
+  "training_map_sha256": "4039067dde0a34d7851e28b5fa227f35b5708533867671b889e9e4fdc2d3acbc",
+  "comparison": {
+    "frames": 313,
+    "baseline_failures": 0,
+    "refined_failures": 0,
+    "mpe_m": {
+      "unit": "m",
+      "baseline_mean": 0.10757978261025467,
+      "refined_mean": 0.10694642527369577,
+      "mean_delta_refined_minus_baseline": -0.000633357336558879,
+      "relative_mean_change_percent": -0.5887326793115497,
+      "baseline_median": 0.09819833351703113,
+      "refined_median": 0.09770413372146412,
+      "baseline_p90": 0.17470633114729467,
+      "refined_p90": 0.17321388575302776,
+      "numerical_tolerance": 1e-09,
+      "improved_frames": 33,
+      "worsened_frames": 17,
+      "unchanged_frames": 263,
+      "block25_descriptive_95_interval": [
+        -0.0018360393699177115,
+        3.395567394029954e-05
+      ]
+    },
+    "moe_deg": {
+      "unit": "deg",
+      "baseline_mean": 1.1184227750328477,
+      "refined_mean": 1.115430546824872,
+      "mean_delta_refined_minus_baseline": -0.0029922282079758765,
+      "relative_mean_change_percent": -0.26753999245838433,
+      "baseline_median": 0.9793134087247728,
+      "refined_median": 0.9833444691368475,
+      "baseline_p90": 2.0084019787745375,
+      "refined_p90": 2.0084019787745375,
+      "numerical_tolerance": 1e-09,
+      "improved_frames": 30,
+      "worsened_frames": 20,
+      "unchanged_frames": 263,
+      "block25_descriptive_95_interval": [
+        -0.010602095885284189,
+        0.005729286489932717
+      ]
+    },
+    "both_improved": 17,
+    "both_worsened": 4
+  },
+  "visual_correspondence_coverage": {
+    "frames": 313,
+    "frames_with_any_selected_2d3d": 177,
+    "frames_with_at_least_6_correspondences": 53,
+    "frames_refined": 50,
+    "frames_fallback": 263,
+    "zero_correspondence_frames": 136,
+    "correspondences_total": 1030,
+    "correspondences_per_frame": {
+      "mean": 3.29073482428115,
+      "median": 1.0,
+      "p90": 8.0,
+      "max": 27,
+      "nonzero_median": 4.0,
+      "nonzero_p90": 17.400000000000006
+    },
+    "post_projection_matches_total": 1964,
+    "post_grid_cap_matches_total": 1030,
+    "reference_frames_used": {
+      "mean_per_query": 5.0,
+      "median_per_query": 5.0,
+      "max_per_query": 5
+    },
+    "fallback_reasons": {
+      "fewer_than_6_correspondences": 260,
+      "optimizer_failed": 3
+    },
+    "runtime_seconds": {
+      "total": 35.97143099999812,
+      "per_frame_mean": 0.11492469968050517,
+      "frame_p50": 0.09087230000295676,
+      "frame_p90": 0.19088867999671494
+    }
+  },
+  "interval_method": "fixed-order non-overlapping 25-frame blocks, resample blocks with replacement, 2000 replicates, seed 20; descriptive only"
+}

@@ -1,0 +1,59 @@
+{
+  "status": "invalidated_after_protocol_audit",
+  "reason": "Three test and one validation rows accepted a candidate from scipy minimize despite result.success=false; PLAN requires solver failure to return the exact frozen relation pose.",
+  "runs": {
+    "val": {
+      "prediction_sha256": "f4a3b22edf2b5444ec077cb29c7bf507757a440e0ed595c5b0e6f625802546fe",
+      "evaluation_sha256": "c8876e3406ee8a23609871a5649d4d8dd2611a015b4ec7beb0c69c5673a0fdf3",
+      "comparison_sha256": "6b06301ac2ca7403c050508ab7dbe7f8d3c05507701f422ea28f6b2cfa097942",
+      "optimizer_failed_rows": [
+        {
+          "scan": "scans/2012-02-02/velodyne_sync/1328212010077369.bin",
+          "objective_before": 1.3205815477025558,
+          "objective_after": 1.2865277528977448,
+          "optimizer_message": "ABNORMAL: "
+        }
+      ],
+      "optimizer_failed_but_accepted_count": 1
+    },
+    "test": {
+      "prediction_sha256": "a02131190f03d1f0cd9724beed281305ea5308364eb1c05e118e2d4ef1aa8d6f",
+      "evaluation_sha256": "b0453e7287bcebd701978364aafdd780860870af56c7bd6111a70a03aeeeb864",
+      "comparison_sha256": "cf940583c9401384451ddb496c3a62ce18a7483992d9bd3b11d5a7e03a6e440c",
+      "optimizer_failed_rows": [
+        {
+          "scan": "scans/2012-05-11/velodyne_sync/1336760578428046.bin",
+          "objective_before": 1.0318346275163233,
+          "objective_after": 0.7823973468487885,
+          "optimizer_message": "ABNORMAL: "
+        },
+        {
+          "scan": "scans/2012-05-11/velodyne_sync/1336760582428017.bin",
+          "objective_before": 0.4196515323531415,
+          "objective_after": 0.4137313679366848,
+          "optimizer_message": "ABNORMAL: "
+        },
+        {
+          "scan": "scans/2012-05-11/velodyne_sync/1336763645406217.bin",
+          "objective_before": 0.24339242385878734,
+          "objective_after": 0.22162931882780765,
+          "optimizer_message": "ABNORMAL: "
+        }
+      ],
+      "optimizer_failed_but_accepted_count": 3
+    }
+  },
+  "initial_run_camera_reprojection_source_sha256": "8d38272fcc1bcffd3930bbb0e722d7dde95af00c82cf1d209ca06c991ac14c6c",
+  "corrected_source_sha256": "b42e264e3a404bfd38759f90295e587cf0e496654f5c0f79c79a289b60f57f59",
+  "protocol_fix": "Reject every SciPy OptimizeResult with success=false before accepting any candidate transform; return a bitwise copy of frozen T_L.",
+  "corrected_full_rerun": {
+    "val": {
+      "predictions_sha256": "6e28b726131f7d9fd484ea4dfce3cc73f9150f3dc66064e3cc24041c1d3f1f5d",
+      "evaluation_sha256": "4230b0047a356ed819243e212ca0ea42884ef3a7ff94e7764b9e4ceec3029d94"
+    },
+    "test": {
+      "predictions_sha256": "bd24bece1dec486e39c29014bb705afaf3abf5cd20efaaa0bddb804e0fb9ae34",
+      "evaluation_sha256": "e636a92fd3913a7a35935c376978bb385a673ef4ed9d9496b01aef5b71c6ee7c"
+    }
+  }
+}

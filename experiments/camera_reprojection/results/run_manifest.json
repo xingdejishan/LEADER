@@ -1,0 +1,91 @@
+{
+  "protocol": "camera_reprojection_run_manifest_v1",
+  "date": "2026-09-26",
+  "branch": "research/leader-camera-reprojection",
+  "base_commit": "94c04308174c602aa9dcf5497c925c2c2e55d30b",
+  "copied_plan_sha256": "ff6dd53b535b7d6ae813b7d876a298ac63b25600ced22bf9a4ed65e160d11594",
+  "implementation": {
+    "camera_reprojection_py_sha256": "b42e264e3a404bfd38759f90295e587cf0e496654f5c0f79c79a289b60f57f59",
+    "comparison_py_sha256": "33a8e0f02c4844c69b8c2a3dc8fc8c4bd0137929b9ae16ed96eb41b276080941",
+    "tests_py_sha256": "de487eacb003e8eafdfe7f7621c4da98c8f2bbe536c6d3b322c131242a99e617",
+    "gt_evaluator_py_sha256": "26b35456a804b0bdd3364df0b13eef170b98888f1097dea9b6094bc62de56b73",
+    "tests": {
+      "command": "python -m unittest discover -s tests -p test_camera_reprojection.py -v",
+      "passed": 6,
+      "failed": 0,
+      "additional_regression": "optimizer success=false falls back exactly even when candidate objective decreases"
+    },
+    "compile_check": "python -m py_compile tools/camera_reprojection.py tools/summarize_camera_reprojection.py tests/test_camera_reprojection.py"
+  },
+  "environment": {
+    "python": "3.11.7",
+    "opencv": "4.12.0",
+    "opencv_sift_available": true,
+    "scipy": "1.17.1",
+    "numpy": "2.2.6"
+  },
+  "inputs": {
+    "split_sha256": "948bcb0d81ea9be9d5627c7b00bab36efa8fcacec2a3027b256c9574308835ba",
+    "raw_manifest_sha256": "d7b39417de4167b042d6f167aff4e0ab02621dcf1601a908770875a1e936f8a5",
+    "scene_meta_sha256": "122e1599c6f3f4c66fa54a94e44453554f21d40d64d29d5332c0ac998d154c9d",
+    "relation_checkpoint_sha256": "e369fd653badec1dccc8753e4521cfd63b263e1cb59e0b72c55762d2ef42502f",
+    "relation_checkpoint_bytes": 881295076,
+    "frozen_relation_val_predictions_sha256": "fd6691630832c65b474650f481924abed3f5e52b7b807228fd7ac17585a418fc",
+    "frozen_relation_test_predictions_sha256": "5915d5f55f1605b96d163a6da7fdf4818df43214b10241daae619cd4d696e289",
+    "train_frames": 552,
+    "val_frames": 40,
+    "test_frames": 313
+  },
+  "training_map": {
+    "workspace_path": "work/camera-reprojection-run-20260926/train_map/train_map.npz",
+    "bytes": 98345924,
+    "sha256": "4039067dde0a34d7851e28b5fa227f35b5708533867671b889e9e4fdc2d3acbc",
+    "manifest_sha256": "144c23b4f24dce068d8ee9ec94a70eb13adcbf03dc512ead3bab6a76476887c1",
+    "source_hashes_sha256": "f16c558b9883404b8b241dad6d9b43b29383e4876456fb4c2c876b1140c5de38",
+    "supported_sift_features": 170271,
+    "source_files_rechecked": 1656,
+    "source_hash_failures": 0,
+    "build_seconds": 59.0578058000101
+  },
+  "outputs": {
+    "val": {
+      "predictions_sha256": "6e28b726131f7d9fd484ea4dfce3cc73f9150f3dc66064e3cc24041c1d3f1f5d",
+      "evaluation_sha256": "4230b0047a356ed819243e212ca0ea42884ef3a7ff94e7764b9e4ceec3029d94",
+      "comparison_sha256": "d9efe6586c5e883aecbe96ffbcd32c24a23c701d0f85baf22f7d3b3a5b6cbfda",
+      "details_sha256": "0d1fcfaa905c07ee6bced54870a4d35c6daa4936db64cdbec434778cb472d2cc",
+      "frames": 40,
+      "successes": 40,
+      "refined_frames": 34,
+      "fallback_frames": 6,
+      "optimizer_failed_fallbacks": 1,
+      "elapsed_seconds": 3.5590418000065256
+    },
+    "test": {
+      "predictions_sha256": "bd24bece1dec486e39c29014bb705afaf3abf5cd20efaaa0bddb804e0fb9ae34",
+      "evaluation_sha256": "e636a92fd3913a7a35935c376978bb385a673ef4ed9d9496b01aef5b71c6ee7c",
+      "comparison_sha256": "5ea0a587ab50c6f6c332d118a063457d181a0f7607f23b21dc5c4a8f83a6c5d8",
+      "details_sha256": "5d3f22ec95e061c15dad299dbc44935c1a86f19e2eff84e578046bc59d28f46f",
+      "frames": 313,
+      "successes": 313,
+      "refined_frames": 50,
+      "fallback_frames": 263,
+      "optimizer_failed_fallbacks": 3,
+      "elapsed_seconds": 35.97143099999812
+    }
+  },
+  "evaluation_order": "Corrected online outputs and SHA sidecars were written first; the separate GT-isolated evaluator then verified each prediction SHA before reading query pose files.",
+  "no_training_or_checkpoint_changes": true,
+  "audit_correction": {
+    "initial_run_status": "invalidated_after_protocol_audit",
+    "initial_camera_reprojection_source_sha256": "8d38272fcc1bcffd3930bbb0e722d7dde95af00c82cf1d209ca06c991ac14c6c",
+    "corrected_camera_reprojection_source_sha256": "b42e264e3a404bfd38759f90295e587cf0e496654f5c0f79c79a289b60f57f59",
+    "initial_optimizer_failure_rows": {
+      "val": 1,
+      "test": 3
+    },
+    "archive": "experiments/camera_reprojection/results/pre_success_guard_invalidated/INVALIDATION.json",
+    "all_fixed_frames_rerun": true,
+    "fallback_predictions_exactly_match_frozen_baseline": true,
+    "thresholds_changed": false
+  }
+}
