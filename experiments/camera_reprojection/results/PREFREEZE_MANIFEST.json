@@ -1,0 +1,166 @@
+{
+  "protocol": "camera_mast3r_anchored_prefreeze_v1",
+  "frozen_before_query_subset_inference": true,
+  "created_utc": "2026-09-26T15:32:37.721409+00:00",
+  "branch": "research/leader-camera-mast3r-anchored",
+  "base_commit": "c92b5d7e2d757cd11a02ed841995553b224a02f5",
+  "source_sha256": {
+    "tools/camera_mast3r_anchored.py": "7d570c54f39134936cfa8e40a666ce319bbb3db7e3eed57a452ed23bc772ae21",
+    "tools/camera_reprojection.py": "f15b49d172bad174d5ceebda959d96bb6ad79aaee3695cac1175f220c17e4963",
+    "tests/test_camera_mast3r_anchored.py": "56e290a2400a77b91465f18e53984f1cbddc14f54eb85079d123ef0da50f9adb",
+    "experiments/camera_reprojection/PLAN_MAST3R_ANCHORED.md": "3967cb4d030a602da3a3f741b47c341f393640fcf13b3bc84a296508e5da0da2"
+  },
+  "test_gate": {
+    "command": "python -m unittest tests.test_camera_mast3r_anchored -v",
+    "passed": 9,
+    "failed": 0,
+    "covered": [
+      "LiDAR z-buffer nearest depth and original raw point identity",
+      "pixel-center scaling/crop transform round trip",
+      "geometry filter before two-endpoint cross-reference deduplication",
+      "invalid high-confidence duplicate does not suppress valid lower-confidence candidate",
+      "summed Huber objective plus normalized prior",
+      "exact baseline fallback on optimizer failure",
+      "bounded synthetic pose correction reduces the fixed summed objective",
+      "nonidentity camera extrinsics and pixel scaling Jacobian parity",
+      "online runner succeeds with query ground-truth pose file absent"
+    ]
+  },
+  "environment": {
+    "python": "3.11.7",
+    "torch": "2.7.1+cu118",
+    "torch_cuda_build": "11.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "cuda_rope_extension": false,
+    "runtime_note": "official PyTorch RoPE2D fallback used; model source and weights unchanged",
+    "opencv": "4.12.0",
+    "scipy": "1.17.1",
+    "numpy": "2.2.6",
+    "installed_ma3st3r_dependencies": {
+      "timm": "1.0.30",
+      "roma": "1.6.1",
+      "einops": "0.8.2",
+      "numpy-quaternion": "2024.0.13",
+      "safetensors": "0.8.0"
+    }
+  },
+  "inputs": {
+    "data_root": "glace-local/data",
+    "split_sha256": "948bcb0d81ea9be9d5627c7b00bab36efa8fcacec2a3027b256c9574308835ba",
+    "raw_manifest_sha256": "d7b39417de4167b042d6f167aff4e0ab02621dcf1601a908770875a1e936f8a5",
+    "relation_checkpoint_sha256": "e369fd653badec1dccc8753e4521cfd63b263e1cb59e0b72c55762d2ef42502f",
+    "frozen_relation_predictions": {
+      "val": {
+        "path": "work/leader-camera-reprojection/experiments/relation_transport/results/val_0005/predictions.json",
+        "sha256": "fd6691630832c65b474650f481924abed3f5e52b7b807228fd7ac17585a418fc"
+      },
+      "test": {
+        "path": "work/leader-camera-reprojection/experiments/relation_transport/results/selected_test/predictions.json",
+        "sha256": "5915d5f55f1605b96d163a6da7fdf4818df43214b10241daae619cd4d696e289"
+      }
+    }
+  },
+  "training_map": {
+    "protocol": "train_lidar_pixel_anchor_map_v1",
+    "frames": 552,
+    "anchors": 8325407,
+    "local_runtime_path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\mast3r-anchored-runtime\\training_map\\lidar_pixel_anchor_map.npz",
+    "bytes": 521851674,
+    "sha256": "47541eccff10e884d2f7b595c4b0ed44077b5d8036ccbe0d52c5839ec2517f2b",
+    "metadata_sha256": "a700509275ad31d038fac98dd7d401797e43ca1bdb872dffbdf03e27a4e3a62f",
+    "source_hashes_sha256": "0a115ce962e3e5b84c7463cd2904921e8357e963b86c15fd144653461e02e8ce",
+    "build_seconds": 53.88920600000711,
+    "query_keys_excluded": {
+      "val": 40,
+      "test": 313
+    }
+  },
+  "model": {
+    "name": "MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric",
+    "official_source": "https://github.com/naver/mast3r",
+    "official_source_commits": {
+      "mast3r": "f5209afc300cec36239a7ac992263f36847bbba0",
+      "dust3r": "3cc8c88c413bb9e34c41db0e0eef99c2ee010b12",
+      "croco": "d7de0705845239092414480bd829228723bf20de"
+    },
+    "checkpoint_url": "https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth",
+    "checkpoint_local_path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\mast3r-anchored-runtime\\checkpoints\\MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth",
+    "checkpoint_bytes": 2754910614,
+    "checkpoint_sha256": "e28f91b488554653e2b46ddae9c78c1143e0bcb2e27d3e26cdb0b717f1568eb2"
+  },
+  "fixed_parameters": {
+    "model_name": "MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric",
+    "coarse_resolution": "nearest official MASt3R 512 resolution by aspect ratio",
+    "coarse_mutual_nn_subsample": 8,
+    "coarse_descriptor_distance": "dot",
+    "coarse_border_px": 3,
+    "crop_maxdim": 512,
+    "crop_overlap": 0.5,
+    "minimum_coarse_matches_per_crop": 10,
+    "crop_homography": false,
+    "fine_mutual_nn_pixel_tolerance": 5,
+    "confidence_threshold": 1.001,
+    "confidence_comparison": "official MASt3R visloc >= threshold",
+    "fast_nn_block_size": 8192,
+    "fine_max_batch_size": 48,
+    "reference_distance_m": 20.0,
+    "max_references": 5,
+    "initial_reprojection_limit_px": 12.0,
+    "grid": [
+      8,
+      6
+    ],
+    "max_per_grid_cell": 3,
+    "max_correspondences": 128,
+    "min_correspondences": 6,
+    "duplicate_rank": "descending MASt3R confidence, ascending initial reprojection error, stable reference and LiDAR point IDs",
+    "optimizer": "L-BFGS-B on right-composed normalized SE(3) increment",
+    "translation_bound_m_per_axis": 0.1,
+    "rotation_bound_deg_per_axis": 1.0,
+    "huber_scale_px": 4.0,
+    "visual_objective_reduction": "sum over unique correspondences; no division by correspondence count",
+    "optimizer_iterations": 20,
+    "degeneracy_condition_limit": 100000000.0
+  },
+  "training_pair_identity_audit": {
+    "artifact": "experiments/camera_reprojection/results/identity_audit.json",
+    "artifact_sha256": "fd0fe99e04a8b643edf635b21a1f5c12e48361a3ee71766e8d29d30cf9a58c70",
+    "summary": {
+      "coarse_matches": 1659,
+      "crop_pairs": 4,
+      "raw_matches": 31604,
+      "confidence_kept": 29853,
+      "identity_mismatch": 0,
+      "anchor_identity_kept": 29853,
+      "anchor_identity_rejected": 0,
+      "coarse_elapsed_seconds": 1.6341626000066753,
+      "fine_elapsed_seconds": 3.0049025999906007,
+      "pair_elapsed_seconds": 4.979794600003515
+    },
+    "exact_anchor_identity": true
+  },
+  "frozen_reference_pair_counts_from_relation_predictions_only": {
+    "val": {
+      "frames": 40,
+      "reference_pairs": 200,
+      "per_frame_reference_count_min_median_max": [
+        5,
+        5.0,
+        5
+      ],
+      "estimated_matcher_seconds_at_training_pair_rate": 995.9589200007031
+    },
+    "test": {
+      "frames": 313,
+      "reference_pairs": 1565,
+      "per_frame_reference_count_min_median_max": [
+        5,
+        5.0,
+        5
+      ],
+      "estimated_matcher_seconds_at_training_pair_rate": 7793.378549005502
+    }
+  },
+  "query_ground_truth": "not accessed before this manifest was written; independent evaluator reads only after refined prediction SHA sidecars are written"
+}

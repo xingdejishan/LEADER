@@ -1,0 +1,1942 @@
+{
+  "protocol": "mast3r_anchored_training_pair_identity_audit_v1",
+  "query_training_scan": "scans/2012-01-22/velodyne_sync/1327251800999505.bin",
+  "reference_training_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+  "training_map_sha256": "47541eccff10e884d2f7b595c4b0ed44077b5d8036ccbe0d52c5839ec2517f2b",
+  "checkpoint_sha256": "e28f91b488554653e2b46ddae9c78c1143e0bcb2e27d3e26cdb0b717f1568eb2",
+  "summary": {
+    "coarse_matches": 1659,
+    "crop_pairs": 4,
+    "raw_matches": 31604,
+    "confidence_kept": 29853,
+    "identity_mismatch": 0,
+    "anchor_identity_kept": 29853,
+    "anchor_identity_rejected": 0,
+    "coarse_elapsed_seconds": 1.6341626000066753,
+    "fine_elapsed_seconds": 3.0049025999906007,
+    "pair_elapsed_seconds": 4.979794600003515
+  },
+  "all_reference_matches_resolve_to_exact_lidar_pixel_anchor": true,
+  "sample_correspondences": [
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3133,
+      "reference_pixel_xy": [
+        248,
+        116
+      ],
+      "reference_uv": [
+        248.0,
+        116.0
+      ],
+      "query_uv": [
+        237.0,
+        122.0
+      ],
+      "world_xyz": [
+        -66.7168468135188,
+        -299.8627585720532,
+        -8.007504194019218
+      ],
+      "body_xyz": [
+        15.415000000000006,
+        15.320000000000007,
+        -13.920000000000002
+      ],
+      "raw_point_index": 64477,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 10.112504005432129
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3134,
+      "reference_pixel_xy": [
+        257,
+        116
+      ],
+      "reference_uv": [
+        257.0,
+        116.0
+      ],
+      "query_uv": [
+        246.0,
+        122.0
+      ],
+      "world_xyz": [
+        -66.7476824390918,
+        -299.9235256275655,
+        -7.320640649086123
+      ],
+      "body_xyz": [
+        15.405000000000001,
+        15.305000000000007,
+        -13.230000000000004
+      ],
+      "raw_point_index": 64479,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 14.482409477233887
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3135,
+      "reference_pixel_xy": [
+        265,
+        116
+      ],
+      "reference_uv": [
+        265.0,
+        116.0
+      ],
+      "query_uv": [
+        254.0,
+        122.0
+      ],
+      "world_xyz": [
+        -66.78853320718248,
+        -299.9360868926572,
+        -6.628688028228382
+      ],
+      "body_xyz": [
+        15.36,
+        15.254999999999995,
+        -12.539999999999992
+      ],
+      "raw_point_index": 64481,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 16.793561935424805
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3136,
+      "reference_pixel_xy": [
+        274,
+        116
+      ],
+      "reference_uv": [
+        274.0,
+        116.0
+      ],
+      "query_uv": [
+        264.0,
+        123.0
+      ],
+      "world_xyz": [
+        -66.81381358324953,
+        -299.995118999648,
+        -5.981713443632039
+      ],
+      "body_xyz": [
+        15.350000000000009,
+        15.245000000000005,
+        -11.89
+      ],
+      "raw_point_index": 64483,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 23.116146087646484
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3137,
+      "reference_pixel_xy": [
+        282,
+        116
+      ],
+      "reference_uv": [
+        282.0,
+        116.0
+      ],
+      "query_uv": [
+        272.0,
+        123.0
+      ],
+      "world_xyz": [
+        -66.86066672633022,
+        -299.98780157136423,
+        -5.317935439826742
+      ],
+      "body_xyz": [
+        15.295000000000002,
+        15.180000000000007,
+        -11.230000000000004
+      ],
+      "raw_point_index": 64485,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 22.816455841064453
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3138,
+      "reference_pixel_xy": [
+        290,
+        116
+      ],
+      "reference_uv": [
+        290.0,
+        116.0
+      ],
+      "query_uv": [
+        280.0,
+        123.0
+      ],
+      "world_xyz": [
+        -66.89034628961289,
+        -300.0332814865454,
+        -4.704828025920754
+      ],
+      "body_xyz": [
+        15.280000000000001,
+        15.159999999999997,
+        -10.614999999999995
+      ],
+      "raw_point_index": 64487,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 28.044103622436523
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3139,
+      "reference_pixel_xy": [
+        297,
+        116
+      ],
+      "reference_uv": [
+        297.0,
+        116.0
+      ],
+      "query_uv": [
+        288.0,
+        124.0
+      ],
+      "world_xyz": [
+        -66.87312956689114,
+        -300.04419000826914,
+        -4.086192762767865
+      ],
+      "body_xyz": [
+        15.210000000000008,
+        15.159999999999997,
+        -10.0
+      ],
+      "raw_point_index": 64457,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 27.789352416992188
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3140,
+      "reference_pixel_xy": [
+        305,
+        116
+      ],
+      "reference_uv": [
+        305.0,
+        116.0
+      ],
+      "query_uv": [
+        296.0,
+        124.0
+      ],
+      "world_xyz": [
+        -66.90932886455099,
+        -300.0714713498433,
+        -3.4863633375396077
+      ],
+      "body_xyz": [
+        15.185000000000002,
+        15.125,
+        -9.399999999999991
+      ],
+      "raw_point_index": 64459,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 26.089054107666016
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3141,
+      "reference_pixel_xy": [
+        312,
+        116
+      ],
+      "reference_uv": [
+        312.0,
+        116.0
+      ],
+      "query_uv": [
+        303.0,
+        124.0
+      ],
+      "world_xyz": [
+        -66.94083517835011,
+        -300.0998179425102,
+        -2.901595158690279
+      ],
+      "body_xyz": [
+        15.159999999999997,
+        15.094999999999999,
+        -8.814999999999998
+      ],
+      "raw_point_index": 64461,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 24.250408172607422
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3142,
+      "reference_pixel_xy": [
+        320,
+        116
+      ],
+      "reference_uv": [
+        320.0,
+        116.0
+      ],
+      "query_uv": [
+        311.0,
+        125.0
+      ],
+      "world_xyz": [
+        -66.97068243070832,
+        -300.11601674321525,
+        -2.3254686617355365
+      ],
+      "body_xyz": [
+        15.125,
+        15.060000000000002,
+        -8.239999999999995
+      ],
+      "raw_point_index": 64463,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 29.240703582763672
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3143,
+      "reference_pixel_xy": [
+        327,
+        116
+      ],
+      "reference_uv": [
+        327.0,
+        116.0
+      ],
+      "query_uv": [
+        319.0,
+        125.0
+      ],
+      "world_xyz": [
+        -66.99686182179704,
+        -300.1616627208111,
+        -1.7726747721747351
+      ],
+      "body_xyz": [
+        15.115000000000009,
+        15.045000000000002,
+        -7.685000000000002
+      ],
+      "raw_point_index": 64465,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 29.711503982543945
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3144,
+      "reference_pixel_xy": [
+        334,
+        116
+      ],
+      "reference_uv": [
+        334.0,
+        116.0
+      ],
+      "query_uv": [
+        326.0,
+        125.0
+      ],
+      "world_xyz": [
+        -67.03019488611264,
+        -300.17287599096363,
+        -1.2162458283820357
+      ],
+      "body_xyz": [
+        15.079999999999998,
+        15.004999999999995,
+        -7.1299999999999955
+      ],
+      "raw_point_index": 64467,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 28.504497528076172
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3145,
+      "reference_pixel_xy": [
+        341,
+        116
+      ],
+      "reference_uv": [
+        341.0,
+        116.0
+      ],
+      "query_uv": [
+        333.0,
+        126.0
+      ],
+      "world_xyz": [
+        -67.06318304417013,
+        -300.18296918127055,
+        -0.6697479701724767
+      ],
+      "body_xyz": [
+        15.045000000000002,
+        14.965000000000003,
+        -6.584999999999994
+      ],
+      "raw_point_index": 64469,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 35.75953674316406
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3146,
+      "reference_pixel_xy": [
+        348,
+        116
+      ],
+      "reference_uv": [
+        348.0,
+        116.0
+      ],
+      "query_uv": [
+        340.0,
+        126.0
+      ],
+      "world_xyz": [
+        -67.09325385927039,
+        -300.1883611610271,
+        -0.1276532619123305
+      ],
+      "body_xyz": [
+        15.004999999999995,
+        14.924999999999997,
+        -6.045000000000002
+      ],
+      "raw_point_index": 64471,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 27.558778762817383
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3147,
+      "reference_pixel_xy": [
+        355,
+        116
+      ],
+      "reference_uv": [
+        355.0,
+        116.0
+      ],
+      "query_uv": [
+        347.0,
+        126.0
+      ],
+      "world_xyz": [
+        -67.07944788247335,
+        -300.2258532311929,
+        0.3922060842930426
+      ],
+      "body_xyz": [
+        14.969999999999999,
+        14.939999999999998,
+        -5.5249999999999915
+      ],
+      "raw_point_index": 64441,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 31.05663299560547
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3148,
+      "reference_pixel_xy": [
+        362,
+        116
+      ],
+      "reference_uv": [
+        362.0,
+        116.0
+      ],
+      "query_uv": [
+        354.0,
+        126.0
+      ],
+      "world_xyz": [
+        -67.10424764852966,
+        -300.2670188894061,
+        0.9052756315213086
+      ],
+      "body_xyz": [
+        14.960000000000008,
+        14.924999999999997,
+        -5.010000000000005
+      ],
+      "raw_point_index": 64443,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 26.2919921875
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3149,
+      "reference_pixel_xy": [
+        368,
+        116
+      ],
+      "reference_uv": [
+        368.0,
+        116.0
+      ],
+      "query_uv": [
+        360.0,
+        126.0
+      ],
+      "world_xyz": [
+        -67.17515173692433,
+        -300.27854550806904,
+        1.4251215195875302
+      ],
+      "body_xyz": [
+        14.950000000000003,
+        14.855000000000004,
+        -4.489999999999995
+      ],
+      "raw_point_index": 64478,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 29.992271423339844
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3150,
+      "reference_pixel_xy": [
+        375,
+        116
+      ],
+      "reference_uv": [
+        375.0,
+        116.0
+      ],
+      "query_uv": [
+        367.0,
+        127.0
+      ],
+      "world_xyz": [
+        -67.16106155966527,
+        -300.2785289512568,
+        1.9341170664880174
+      ],
+      "body_xyz": [
+        14.885000000000005,
+        14.850000000000009,
+        -3.9849999999999994
+      ],
+      "raw_point_index": 64448,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 32.05171585083008
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3151,
+      "reference_pixel_xy": [
+        382,
+        116
+      ],
+      "reference_uv": [
+        382.0,
+        116.0
+      ],
+      "query_uv": [
+        374.0,
+        127.0
+      ],
+      "world_xyz": [
+        -67.18420226428069,
+        -300.3075468175082,
+        2.4385449318216983
+      ],
+      "body_xyz": [
+        14.865000000000009,
+        14.829999999999998,
+        -3.480000000000004
+      ],
+      "raw_point_index": 64450,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 28.518930435180664
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3152,
+      "reference_pixel_xy": [
+        388,
+        116
+      ],
+      "reference_uv": [
+        388.0,
+        116.0
+      ],
+      "query_uv": [
+        380.0,
+        127.0
+      ],
+      "world_xyz": [
+        -67.21678004623051,
+        -300.3230673207029,
+        2.9340979584270626
+      ],
+      "body_xyz": [
+        14.840000000000003,
+        14.795000000000002,
+        -2.9849999999999994
+      ],
+      "raw_point_index": 64452,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 32.31211471557617
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3153,
+      "reference_pixel_xy": [
+        395,
+        116
+      ],
+      "reference_uv": [
+        395.0,
+        116.0
+      ],
+      "query_uv": [
+        387.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.23511118752262,
+        -300.3710646916517,
+        3.421448162846916
+      ],
+      "body_xyz": [
+        14.835000000000008,
+        14.790000000000006,
+        -2.4950000000000045
+      ],
+      "raw_point_index": 64454,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 27.33677864074707
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3154,
+      "reference_pixel_xy": [
+        401,
+        116
+      ],
+      "reference_uv": [
+        401.0,
+        116.0
+      ],
+      "query_uv": [
+        393.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.2634574713324,
+        -300.37085627218,
+        3.9138874431914177
+      ],
+      "body_xyz": [
+        14.795000000000002,
+        14.75,
+        -2.0049999999999955
+      ],
+      "raw_point_index": 64456,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 25.093795776367188
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3155,
+      "reference_pixel_xy": [
+        408,
+        116
+      ],
+      "reference_uv": [
+        408.0,
+        116.0
+      ],
+      "query_uv": [
+        400.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.29157059621704,
+        -300.4064763599178,
+        4.402293894466078
+      ],
+      "body_xyz": [
+        14.784999999999997,
+        14.730000000000004,
+        -1.5150000000000006
+      ],
+      "raw_point_index": 64458,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 21.174287796020508
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3156,
+      "reference_pixel_xy": [
+        414,
+        116
+      ],
+      "reference_uv": [
+        414.0,
+        116.0
+      ],
+      "query_uv": [
+        406.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.31676637814445,
+        -300.43739523710536,
+        4.886297195791338
+      ],
+      "body_xyz": [
+        14.769999999999996,
+        14.710000000000008,
+        -1.0300000000000011
+      ],
+      "raw_point_index": 64460,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 20.345516204833984
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3157,
+      "reference_pixel_xy": [
+        421,
+        116
+      ],
+      "reference_uv": [
+        421.0,
+        116.0
+      ],
+      "query_uv": [
+        413.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.35180484946046,
+        -300.4195482839495,
+        5.3704240302496675
+      ],
+      "body_xyz": [
+        14.719999999999999,
+        14.655000000000001,
+        -0.5499999999999972
+      ],
+      "raw_point_index": 64462,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 22.742374420166016
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3158,
+      "reference_pixel_xy": [
+        428,
+        116
+      ],
+      "reference_uv": [
+        428.0,
+        116.0
+      ],
+      "query_uv": [
+        420.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.3714501459354,
+        -300.47857336701446,
+        5.856484830980983
+      ],
+      "body_xyz": [
+        14.725000000000009,
+        14.655000000000001,
+        -0.060000000000002274
+      ],
+      "raw_point_index": 64464,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 14.969122886657715
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3159,
+      "reference_pixel_xy": [
+        434,
+        116
+      ],
+      "reference_uv": [
+        434.0,
+        116.0
+      ],
+      "query_uv": [
+        426.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.11179573311168,
+        -301.6945632204178,
+        6.2972776004222855
+      ],
+      "body_xyz": [
+        15.540000000000006,
+        15.525000000000006,
+        0.5049999999999955
+      ],
+      "raw_point_index": 64434,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 13.828780174255371
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3160,
+      "reference_pixel_xy": [
+        440,
+        116
+      ],
+      "reference_uv": [
+        440.0,
+        116.0
+      ],
+      "query_uv": [
+        432.0,
+        129.0
+      ],
+      "world_xyz": [
+        -67.1464381885566,
+        -301.68696304828757,
+        6.810470680783637
+      ],
+      "body_xyz": [
+        15.495000000000005,
+        15.475000000000009,
+        1.0150000000000006
+      ],
+      "raw_point_index": 64436,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 13.768939971923828
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3161,
+      "reference_pixel_xy": [
+        447,
+        116
+      ],
+      "reference_uv": [
+        447.0,
+        116.0
+      ],
+      "query_uv": [
+        439.0,
+        129.0
+      ],
+      "world_xyz": [
+        -67.18376966016324,
+        -301.6650297532572,
+        7.320152240046167
+      ],
+      "body_xyz": [
+        15.439999999999998,
+        15.415000000000006,
+        1.519999999999996
+      ],
+      "raw_point_index": 64438,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 9.580199241638184
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3162,
+      "reference_pixel_xy": [
+        467,
+        116
+      ],
+      "reference_uv": [
+        467.0,
+        116.0
+      ],
+      "query_uv": [
+        460.0,
+        124.0
+      ],
+      "world_xyz": [
+        -70.79439032922235,
+        -283.84454210944114,
+        7.165591415443239
+      ],
+      "body_xyz": [
+        2.680000000000007,
+        2.6200000000000045,
+        -0.5049999999999955
+      ],
+      "raw_point_index": 64600,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 3.6236801147460938
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3163,
+      "reference_pixel_xy": [
+        468,
+        116
+      ],
+      "reference_uv": [
+        468.0,
+        116.0
+      ],
+      "query_uv": [
+        460.0,
+        125.0
+      ],
+      "world_xyz": [
+        -70.83776425812131,
+        -283.64617337728356,
+        7.161284623188148
+      ],
+      "body_xyz": [
+        2.5400000000000063,
+        2.4750000000000085,
+        -0.5300000000000011
+      ],
+      "raw_point_index": 64632,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 3.733191728591919
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3166,
+      "reference_pixel_xy": [
+        248,
+        117
+      ],
+      "reference_uv": [
+        248.0,
+        117.0
+      ],
+      "query_uv": [
+        237.0,
+        123.0
+      ],
+      "world_xyz": [
+        -66.75676671155499,
+        -299.8774598722167,
+        -8.015583396684834
+      ],
+      "body_xyz": [
+        15.450000000000003,
+        15.295000000000002,
+        -13.924999999999997
+      ],
+      "raw_point_index": 64509,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 7.108750343322754
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3167,
+      "reference_pixel_xy": [
+        257,
+        117
+      ],
+      "reference_uv": [
+        257.0,
+        117.0
+      ],
+      "query_uv": [
+        246.0,
+        123.0
+      ],
+      "world_xyz": [
+        -66.78646063507422,
+        -299.9277592555357,
+        -7.322464905271641
+      ],
+      "body_xyz": [
+        15.430000000000007,
+        15.275000000000006,
+        -13.230000000000004
+      ],
+      "raw_point_index": 64511,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 10.259733200073242
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3168,
+      "reference_pixel_xy": [
+        266,
+        117
+      ],
+      "reference_uv": [
+        266.0,
+        117.0
+      ],
+      "query_uv": [
+        255.0,
+        123.0
+      ],
+      "world_xyz": [
+        -66.82891459093932,
+        -299.93399401906163,
+        -6.624819730775961
+      ],
+      "body_xyz": [
+        15.379999999999995,
+        15.219999999999999,
+        -12.534999999999997
+      ],
+      "raw_point_index": 64513,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 17.010038375854492
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3169,
+      "reference_pixel_xy": [
+        274,
+        117
+      ],
+      "reference_uv": [
+        274.0,
+        117.0
+      ],
+      "query_uv": [
+        264.0,
+        124.0
+      ],
+      "world_xyz": [
+        -66.86026281184598,
+        -299.9666000399435,
+        -5.9650060172109765
+      ],
+      "body_xyz": [
+        15.350000000000009,
+        15.189999999999998,
+        -11.875
+      ],
+      "raw_point_index": 64515,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 17.852657318115234
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3170,
+      "reference_pixel_xy": [
+        282,
+        117
+      ],
+      "reference_uv": [
+        282.0,
+        117.0
+      ],
+      "query_uv": [
+        272.0,
+        124.0
+      ],
+      "world_xyz": [
+        -66.89687248561349,
+        -299.98845406862984,
+        -5.314231760378522
+      ],
+      "body_xyz": [
+        15.314999999999998,
+        15.150000000000006,
+        -11.224999999999994
+      ],
+      "raw_point_index": 64517,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 25.241130828857422
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3171,
+      "reference_pixel_xy": [
+        290,
+        117
+      ],
+      "reference_uv": [
+        290.0,
+        117.0
+      ],
+      "query_uv": [
+        280.0,
+        124.0
+      ],
+      "world_xyz": [
+        -66.93233086114415,
+        -300.024862111384,
+        -4.695267174830395
+      ],
+      "body_xyz": [
+        15.295000000000002,
+        15.120000000000005,
+        -10.605000000000004
+      ],
+      "raw_point_index": 64519,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 31.288082122802734
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3172,
+      "reference_pixel_xy": [
+        298,
+        117
+      ],
+      "reference_uv": [
+        298.0,
+        117.0
+      ],
+      "query_uv": [
+        289.0,
+        125.0
+      ],
+      "world_xyz": [
+        -66.96659166095458,
+        -300.03232818841724,
+        -4.072996771058802
+      ],
+      "body_xyz": [
+        15.25,
+        15.075000000000003,
+        -9.985
+      ],
+      "raw_point_index": 64521,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 30.225954055786133
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3173,
+      "reference_pixel_xy": [
+        305,
+        117
+      ],
+      "reference_uv": [
+        305.0,
+        117.0
+      ],
+      "query_uv": [
+        296.0,
+        125.0
+      ],
+      "world_xyz": [
+        -66.96733571764344,
+        -300.02480864528474,
+        -3.45794156783424
+      ],
+      "body_xyz": [
+        15.174999999999997,
+        15.049999999999997,
+        -9.375
+      ],
+      "raw_point_index": 64491,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 30.11067771911621
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3174,
+      "reference_pixel_xy": [
+        313,
+        117
+      ],
+      "reference_uv": [
+        313.0,
+        117.0
+      ],
+      "query_uv": [
+        304.0,
+        125.0
+      ],
+      "world_xyz": [
+        -66.9895678110541,
+        -300.0922343271922,
+        -2.897397625229429
+      ],
+      "body_xyz": [
+        15.180000000000007,
+        15.049999999999997,
+        -8.810000000000002
+      ],
+      "raw_point_index": 64493,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 27.450151443481445
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3175,
+      "reference_pixel_xy": [
+        320,
+        117
+      ],
+      "reference_uv": [
+        320.0,
+        117.0
+      ],
+      "query_uv": [
+        311.0,
+        126.0
+      ],
+      "world_xyz": [
+        -67.0221599532405,
+        -300.11257429852475,
+        -2.3218335211168473
+      ],
+      "body_xyz": [
+        15.150000000000006,
+        15.015,
+        -8.235
+      ],
+      "raw_point_index": 64495,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 31.38133430480957
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3176,
+      "reference_pixel_xy": [
+        327,
+        117
+      ],
+      "reference_uv": [
+        327.0,
+        117.0
+      ],
+      "query_uv": [
+        319.0,
+        126.0
+      ],
+      "world_xyz": [
+        -67.04416371985565,
+        -300.16096564698177,
+        -1.7692042495602447
+      ],
+      "body_xyz": [
+        15.14,
+        15.004999999999995,
+        -7.679999999999993
+      ],
+      "raw_point_index": 64497,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 27.692636489868164
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3177,
+      "reference_pixel_xy": [
+        334,
+        117
+      ],
+      "reference_uv": [
+        334.0,
+        117.0
+      ],
+      "query_uv": [
+        326.0,
+        126.0
+      ],
+      "world_xyz": [
+        -67.080358253462,
+        -300.158405834157,
+        -1.2113212840748098
+      ],
+      "body_xyz": [
+        15.094999999999999,
+        14.954999999999998,
+        -7.125
+      ],
+      "raw_point_index": 64499,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 25.017292022705078
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3178,
+      "reference_pixel_xy": [
+        341,
+        117
+      ],
+      "reference_uv": [
+        341.0,
+        117.0
+      ],
+      "query_uv": [
+        333.0,
+        127.0
+      ],
+      "world_xyz": [
+        -67.11334641151949,
+        -300.1684990244639,
+        -0.6648234258652508
+      ],
+      "body_xyz": [
+        15.060000000000002,
+        14.915000000000006,
+        -6.579999999999998
+      ],
+      "raw_point_index": 64501,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 29.589750289916992
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3179,
+      "reference_pixel_xy": [
+        348,
+        117
+      ],
+      "reference_uv": [
+        348.0,
+        117.0
+      ],
+      "query_uv": [
+        340.0,
+        127.0
+      ],
+      "world_xyz": [
+        -67.14616211644795,
+        -300.178032174848,
+        -0.12329111044725316
+      ],
+      "body_xyz": [
+        15.025000000000006,
+        14.875,
+        -6.039999999999992
+      ],
+      "raw_point_index": 64503,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 29.20293617248535
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3180,
+      "reference_pixel_xy": [
+        355,
+        117
+      ],
+      "reference_uv": [
+        355.0,
+        117.0
+      ],
+      "query_uv": [
+        347.0,
+        127.0
+      ],
+      "world_xyz": [
+        -67.16810041321351,
+        -300.2329709160384,
+        0.38832441508827653
+      ],
+      "body_xyz": [
+        15.025000000000006,
+        14.870000000000005,
+        -5.5249999999999915
+      ],
+      "raw_point_index": 64505,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 24.1058406829834
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3181,
+      "reference_pixel_xy": [
+        362,
+        117
+      ],
+      "reference_uv": [
+        362.0,
+        117.0
+      ],
+      "query_uv": [
+        354.0,
+        127.0
+      ],
+      "world_xyz": [
+        -67.19290017926981,
+        -300.2741365742516,
+        0.9013939623165443
+      ],
+      "body_xyz": [
+        15.015,
+        14.855000000000004,
+        -5.010000000000005
+      ],
+      "raw_point_index": 64507,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 25.356239318847656
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3182,
+      "reference_pixel_xy": [
+        369,
+        117
+      ],
+      "reference_uv": [
+        369.0,
+        117.0
+      ],
+      "query_uv": [
+        361.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.21547724701469,
+        -300.25797834094584,
+        1.4260406887833028
+      ],
+      "body_xyz": [
+        14.954999999999998,
+        14.810000000000002,
+        -4.489999999999995
+      ],
+      "raw_point_index": 64510,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 21.716421127319336
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3183,
+      "reference_pixel_xy": [
+        375,
+        117
+      ],
+      "reference_uv": [
+        375.0,
+        117.0
+      ],
+      "query_uv": [
+        367.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.24868896781423,
+        -300.25726471030424,
+        1.9385067582982645
+      ],
+      "body_xyz": [
+        14.915000000000006,
+        14.765,
+        -3.980000000000004
+      ],
+      "raw_point_index": 64512,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 22.605127334594727
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3184,
+      "reference_pixel_xy": [
+        382,
+        117
+      ],
+      "reference_uv": [
+        382.0,
+        117.0
+      ],
+      "query_uv": [
+        374.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.23836880297455,
+        -300.2897712499175,
+        2.4386685513415793
+      ],
+      "body_xyz": [
+        14.879999999999995,
+        14.775000000000006,
+        -3.480000000000004
+      ],
+      "raw_point_index": 64482,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 21.300657272338867
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3185,
+      "reference_pixel_xy": [
+        388,
+        117
+      ],
+      "reference_uv": [
+        388.0,
+        117.0
+      ],
+      "query_uv": [
+        380.0,
+        128.0
+      ],
+      "world_xyz": [
+        -67.26259533597725,
+        -300.3107824948346,
+        2.9338923419385132
+      ],
+      "body_xyz": [
+        14.855000000000004,
+        14.75,
+        -2.9849999999999994
+      ],
+      "raw_point_index": 64484,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 22.94417381286621
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3186,
+      "reference_pixel_xy": [
+        395,
+        117
+      ],
+      "reference_uv": [
+        395.0,
+        117.0
+      ],
+      "query_uv": [
+        387.0,
+        129.0
+      ],
+      "world_xyz": [
+        -67.28498552228038,
+        -300.373948748527,
+        3.4193907498276674
+      ],
+      "body_xyz": [
+        14.865000000000009,
+        14.75,
+        -2.4950000000000045
+      ],
+      "raw_point_index": 64486,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 28.371091842651367
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3187,
+      "reference_pixel_xy": [
+        401,
+        117
+      ],
+      "reference_uv": [
+        401.0,
+        117.0
+      ],
+      "query_uv": [
+        393.0,
+        129.0
+      ],
+      "world_xyz": [
+        -67.31476254073554,
+        -300.3668537875667,
+        3.9125570410185446
+      ],
+      "body_xyz": [
+        14.820000000000007,
+        14.704999999999998,
+        -2.0049999999999955
+      ],
+      "raw_point_index": 64488,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 26.1505126953125
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3188,
+      "reference_pixel_xy": [
+        408,
+        117
+      ],
+      "reference_uv": [
+        408.0,
+        117.0
+      ],
+      "query_uv": [
+        400.0,
+        129.0
+      ],
+      "world_xyz": [
+        -67.34156151043736,
+        -300.3914461631884,
+        4.402252895981743
+      ],
+      "body_xyz": [
+        14.799999999999997,
+        14.680000000000007,
+        -1.5150000000000006
+      ],
+      "raw_point_index": 64490,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 23.304746627807617
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3189,
+      "reference_pixel_xy": [
+        414,
+        117
+      ],
+      "reference_uv": [
+        414.0,
+        117.0
+      ],
+      "query_uv": [
+        406.0,
+        129.0
+      ],
+      "world_xyz": [
+        -67.36532655771938,
+        -300.42925158186455,
+        4.885529186460625
+      ],
+      "body_xyz": [
+        14.790000000000006,
+        14.665000000000006,
+        -1.0300000000000011
+      ],
+      "raw_point_index": 64492,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 23.221872329711914
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3190,
+      "reference_pixel_xy": [
+        421,
+        117
+      ],
+      "reference_uv": [
+        421.0,
+        117.0
+      ],
+      "query_uv": [
+        413.0,
+        129.0
+      ],
+      "world_xyz": [
+        -67.40465723297154,
+        -300.3907450042427,
+        5.3718370534580835
+      ],
+      "body_xyz": [
+        14.725000000000009,
+        14.594999999999999,
+        -0.5499999999999972
+      ],
+      "raw_point_index": 64494,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 21.89733123779297
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3191,
+      "reference_pixel_xy": [
+        427,
+        117
+      ],
+      "reference_uv": [
+        427.0,
+        117.0
+      ],
+      "query_uv": [
+        419.0,
+        129.0
+      ],
+      "world_xyz": [
+        -67.41440396639138,
+        -300.4800616241235,
+        5.854825192799681
+      ],
+      "body_xyz": [
+        14.75,
+        14.620000000000005,
+        -0.060000000000002274
+      ],
+      "raw_point_index": 64496,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 23.432083129882812
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3192,
+      "reference_pixel_xy": [
+        434,
+        117
+      ],
+      "reference_uv": [
+        434.0,
+        117.0
+      ],
+      "query_uv": [
+        426.0,
+        129.0
+      ],
+      "world_xyz": [
+        -67.21303584306864,
+        -301.65705624554744,
+        6.292957071508431
+      ],
+      "body_xyz": [
+        15.564999999999998,
+        15.420000000000002,
+        0.5
+      ],
+      "raw_point_index": 64498,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 17.714303970336914
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3193,
+      "reference_pixel_xy": [
+        440,
+        117
+      ],
+      "reference_uv": [
+        440.0,
+        117.0
+      ],
+      "query_uv": [
+        432.0,
+        130.0
+      ],
+      "world_xyz": [
+        -67.23491826616772,
+        -301.6935206932103,
+        6.801623468787311
+      ],
+      "body_xyz": [
+        15.549999999999997,
+        15.405000000000001,
+        1.0100000000000051
+      ],
+      "raw_point_index": 64500,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 15.88446044921875
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3194,
+      "reference_pixel_xy": [
+        447,
+        117
+      ],
+      "reference_uv": [
+        447.0,
+        117.0
+      ],
+      "query_uv": [
+        439.0,
+        130.0
+      ],
+      "world_xyz": [
+        -67.26687170545092,
+        -301.7002536439802,
+        7.318328070247473
+      ],
+      "body_xyz": [
+        15.515,
+        15.365000000000009,
+        1.5250000000000057
+      ],
+      "raw_point_index": 64502,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 10.302885055541992
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3195,
+      "reference_pixel_xy": [
+        454,
+        117
+      ],
+      "reference_uv": [
+        454.0,
+        117.0
+      ],
+      "query_uv": [
+        446.0,
+        129.0
+      ],
+      "world_xyz": [
+        -70.83172356647503,
+        -283.6814348206444,
+        6.9913724674617335
+      ],
+      "body_xyz": [
+        2.585000000000008,
+        2.5049999999999955,
+        -0.6949999999999932
+      ],
+      "raw_point_index": 64660,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 7.057884693145752
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3196,
+      "reference_pixel_xy": [
+        467,
+        117
+      ],
+      "reference_uv": [
+        467.0,
+        117.0
+      ],
+      "query_uv": [
+        460.0,
+        125.0
+      ],
+      "world_xyz": [
+        -70.81109282711665,
+        -283.8335606259964,
+        7.166249887460099
+      ],
+      "body_xyz": [
+        2.680000000000007,
+        2.6000000000000085,
+        -0.5049999999999955
+      ],
+      "raw_point_index": 64664,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 3.733191728591919
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3199,
+      "reference_pixel_xy": [
+        249,
+        118
+      ],
+      "reference_uv": [
+        249.0,
+        118.0
+      ],
+      "query_uv": [
+        238.0,
+        124.0
+      ],
+      "world_xyz": [
+        -66.81162306276507,
+        -299.86192446431744,
+        -7.995597605998691
+      ],
+      "body_xyz": [
+        15.465000000000003,
+        15.240000000000009,
+        -13.905000000000001
+      ],
+      "raw_point_index": 64541,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 6.443747043609619
+    },
+    {
+      "reference_id": 0,
+      "reference_key": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "reference_map_index": 3200,
+      "reference_pixel_xy": [
+        257,
+        118
+      ],
+      "reference_uv": [
+        257.0,
+        118.0
+      ],
+      "query_uv": [
+        246.0,
+        124.0
+      ],
+      "world_xyz": [
+        -66.84228623520902,
+        -299.92213147990685,
+        -7.31369960385716
+      ],
+      "body_xyz": [
+        15.454999999999998,
+        15.225000000000009,
+        -13.219999999999999
+      ],
+      "raw_point_index": 64543,
+      "train_scan": "scans/2012-01-22/velodyne_sync/1327251800599458.bin",
+      "confidence": 9.160440444946289
+    }
+  ]
+}

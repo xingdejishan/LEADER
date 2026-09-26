@@ -7,7 +7,8 @@
 - 原分支的 SIFT＋5 px 邻近借点＋过滤前 `best_by_query`＋视觉残差均值已经在同一冻结关系版40/313帧运行。313帧仅50帧精修，MPE/MOE 为0.106946425m/1.115430547°，相对关系初值仅−0.633mm/−0.002992°，描述性区间跨零。保存其全部结果和作废首轮归档，不覆盖。
 - `research/cvpr_literature/mast3r_protocol.md` 的旧3560帧运行以 SuperPoint 地图位置读取 MASt3R 512分辨率描述子，未做本轮 LiDAR 原投影像素锚定的粗到细关系版精修。`research/visual_joint_refinement/` 在旧v1、旧日期、旧地图上运行过 MASt3R 联合优化；不能把其收益移植到当前口径。
 - `work/camera_recovery_probe/` 曾在旧v1 MASt3R缓存上测试 Camera 残差，视觉单项旋转恢复率为负；旧缓存约2.8m地图对应误差和oracle端点替换的失败记录必须保留，不将其误称为本轮结果，也不假设仅提高3D端点精度即可修正方向。
-- 已审计现有本地及已缓存远端refs的 `tools/`、`experiments/` 中 MASt3R/coarse-to-fine 代码，只有旧相机分支命中 `best_by_query`；`work/` 中未见本方案在冻结关系版313帧上的checkpoint以外的匹配缓存、预测或评价。此次唯一增量是对相同冻结初值，用真实训练 LiDAR 地标对应原参考像素，经 MASt3R 粗到细生成查询像素，几何先筛再去重，并对独立对应的Huber损失求和完成一次有界精修。代码存在与已运行结果严格分开记载。
+- 全仓还有近似但不等价的 `num1:research/pixloc_surface_direct.py`：读取训练LiDAR拟合有限表面，直接优化预训练PixLoc多尺度图像特征；其2026-09-24冻结的32帧单路线开发结果相对 `peak_then_pose` 的MPE/MOE均值分别差+2.199mm/+0.017544°，四帧块描述性区间跨零。它不是MASt3R、不是像素锚定的跨帧对应，也不是当前冻结关系版40/313输入，作为相邻负先例保留，不移植其结果。
+- 本轮执行前枚举了70个本地和缓存远端Git refs，并在所有refs的 `tools/`、`experiments/` 搜索MASt3R及coarse-to-fine：相关相机实现仅旧 `research/leader-camera-reprojection` 的SIFT代码/计划，本分支原方案只有计划；其他分支命中的是表面注册/刚性地标实验计划，没有同一MASt3R相机链路。逐文件检查 `work/camera_recovery_probe/` 的代码、缓存、逐帧结果与报告，确认为旧v1缓存上的负向残差/端点诊断；`work/leader-camera-reprojection/experiments/camera_reprojection/results/` 则有SIFT真实地图、冻结预测和独立评价，313帧仅50帧精修、MPE/MOE为0.106946425m/1.115430547°。未找到本冻结关系版本方案的匹配缓存、预测或评价运行产物。此次唯一增量是对相同冻结初值，用真实训练LiDAR地标对应原参考像素，经官方MASt3R粗到细生成查询像素，几何先筛再双端去重，并对独立对应的Huber损失求和完成一次有界精修。代码存在与已运行结果严格分开记载。
 
 ## 输入、隔离和固定链路
 
