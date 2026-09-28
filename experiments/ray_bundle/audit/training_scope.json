@@ -1,0 +1,128 @@
+{
+  "local_refs": 88,
+  "local_unique_commits": 59,
+  "new_refs": [
+    "refs/heads/research/leader-ray-bundle-20260928 9044d3325c2e1910d9402a02378bbe330dcccf50",
+    "refs/heads/research/magic-cmr-diagnosis-20260928 7d97ae52201ab143cf63e1453cab5709e6694a8a",
+    "refs/heads/research/magic-cmr-no-translation-20260928 53934e087e641c56bc72fd90e4ef671fd1078f66"
+  ],
+  "work_artifacts": 124,
+  "online_remote_status": {
+    "github": 128,
+    "upstream": 0,
+    "origin": 128
+  },
+  "remote_new_commits": [],
+  "ray_project_files": [
+    {
+      "path": "smoke-v2-launch.json",
+      "bytes": 480
+    },
+    {
+      "path": "smoke-v4-launch.json",
+      "bytes": 480
+    },
+    {
+      "path": "test-v3.json",
+      "bytes": 2081
+    },
+    {
+      "path": "cli-functional-v4.json",
+      "bytes": 1489
+    },
+    {
+      "path": "smoke-v3-exit.json",
+      "bytes": 17
+    },
+    {
+      "path": "test-v2.json",
+      "bytes": 2081
+    },
+    {
+      "path": "test-v4.json",
+      "bytes": 2180
+    },
+    {
+      "path": "test-v1.json",
+      "bytes": 1984
+    },
+    {
+      "path": "smoke-v4-exit.json",
+      "bytes": 17
+    },
+    {
+      "path": "smoke-v2-exit.json",
+      "bytes": 17
+    },
+    {
+      "path": "finalization.json",
+      "bytes": 1341
+    },
+    {
+      "path": "smoke-v3-launch.json",
+      "bytes": 480
+    },
+    {
+      "path": "smoke-v3/training_labels.json",
+      "bytes": 320
+    },
+    {
+      "path": "smoke-v3/report.json",
+      "bytes": 633
+    },
+    {
+      "path": "smoke-v3/correspondences.json",
+      "bytes": 128
+    },
+    {
+      "path": "smoke-v3/map.json",
+      "bytes": 173651
+    },
+    {
+      "path": "smoke-v3/query.json",
+      "bytes": 1070
+    },
+    {
+      "path": "cli-functional-v4-predict/00000.json",
+      "bytes": 414
+    },
+    {
+      "path": "cli-functional-v4-predict/manifest.json",
+      "bytes": 124
+    },
+    {
+      "path": "cli-functional-v4-train/history.json",
+      "bytes": 187
+    },
+    {
+      "path": "cli-functional-v4-train/last.pt",
+      "bytes": 797365
+    },
+    {
+      "path": "smoke-v4/training_labels.json",
+      "bytes": 320
+    },
+    {
+      "path": "smoke-v4/report.json",
+      "bytes": 637
+    },
+    {
+      "path": "smoke-v4/correspondences.json",
+      "bytes": 128
+    },
+    {
+      "path": "smoke-v4/map.json",
+      "bytes": 173651
+    },
+    {
+      "path": "smoke-v4/query.json",
+      "bytes": 1070
+    }
+  ],
+  "conclusion": "Prior audit plus refreshed refs/work/run records show functional checkpoints only for this mechanism; no formal run exists in the audited scope.",
+  "limits": "Fresh upstream heads succeeded; GitHub and origin unavailable on this refresh, cached refs inspected. No exhaustive external-remote claim.",
+  "original_sha256": {
+    "audit_training_local.json": "1407522758c2bb4d4a5a6466e68b39023810a1bb3080960c225aebe5b0c692f5",
+    "training-inventory.json": "aa015ba121a89b51cbe2d61007dae47bba667fda5800f84aa04dac864b42332c"
+  }
+}

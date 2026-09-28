@@ -11,9 +11,7 @@ from .mapping import read_records, build_map, sha256
 from .resources import ResourceBudget
 
 
-def train_step(model, optimizer, frame, ray_map, candidates, truth, associations=None):
-    model.train()
-    optimizer.zero_grad()
+def training_loss(model, frame, ray_map, candidates, truth, associations=None):
     result = model(frame, ray_map, candidates, hard=False)
     translation = (result['pose'][:3, 3] - truth[:3, 3]).square().sum()
     rotation = (result['pose'][:3, :3] - truth[:3, :3]).square().sum()
@@ -24,6 +22,13 @@ def train_step(model, optimizer, frame, ray_map, candidates, truth, associations
         loss = loss + sum(p.sum() * 0 for p in model.parameters())
     if not torch.isfinite(loss):
         raise FloatingPointError('nonfinite training loss')
+    return loss
+
+
+def train_step(model, optimizer, frame, ray_map, candidates, truth, associations=None):
+    model.train()
+    optimizer.zero_grad()
+    loss=training_loss(model,frame,ray_map,candidates,truth,associations)
     loss.backward()
     norm = torch.nn.utils.clip_grad_norm_(model.parameters(), 10.)
     if not torch.isfinite(norm):

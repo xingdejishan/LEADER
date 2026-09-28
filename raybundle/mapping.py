@@ -96,12 +96,17 @@ def fit_bundle(origins, directions, angular_sigma=.005):
     return fit.x, precision
 
 
-def build_map(records, max_features=512, max_tracks=20000, neighbors=4):
+def build_map(records, max_features=512, max_tracks=20000, neighbors=4, feature_cache=None, progress_callback=None):
     if not 2 <= len(records) <= 1200 or not 1 <= max_tracks <= 20000:
         raise ValueError('map construction resource budget exceeded')
     features, rays, poses = [], [], []
     for record in records:
-        pixels, descriptors = extract(record['image'], max_features, record['image_sha'])
+        cached = Path(feature_cache)/(record['image_sha']+'.npz') if feature_cache else None
+        if cached is not None:
+            with np.load(cached,allow_pickle=False) as z:
+                pixels,descriptors=z['pixels'].copy(),z['descriptors'].copy()
+        else:
+            pixels, descriptors = extract(record['image'], max_features, record['image_sha'])
         features.append((pixels, descriptors))
         pose = record['T_WC']
         poses.append(pose)
@@ -126,7 +131,9 @@ def build_map(records, max_features=512, max_tracks=20000, neighbors=4):
             pairs.add(tuple(sorted((i, int(j)))))
             if sum(i in pair for pair in pairs) >= neighbors:
                 break
-    for i, j in sorted(pairs):
+    for pair_number, (i, j) in enumerate(sorted(pairs)):
+        if progress_callback and pair_number % 100 == 0:
+            progress_callback('pairs',pair_number,len(pairs))
         a, b = features[i][1].astype(np.float32), features[j][1].astype(np.float32)
         if min(len(a), len(b)) < 2:
             continue
@@ -149,9 +156,14 @@ def build_map(records, max_features=512, max_tracks=20000, neighbors=4):
             frame_members[left].update(frame_members.pop(right))
     means, precisions, descriptors, observations, origin_list, direction_list, offsets = [], [], [], [], [], [], [0]
     reference_centers, reference_radii = [], []
-    for component in members.values():
+    components=list(members.values())
+    order=np.random.RandomState(20).permutation(len(components)) if len(components)>max_tracks else range(len(components))
+    for component_index in order:
+        component=components[component_index]
         if len(component) < 2 or len(means) >= max_tracks:
             continue
+        if progress_callback and len(means) % 1000 == 0:
+            progress_callback('landmarks',len(means),min(len(components),max_tracks))
         obs = sorted(component)
         origins = np.stack([centers[i] for i, _ in obs])
         directions = np.stack([rays[i][k] for i, k in obs])

@@ -48,7 +48,7 @@ def candidate_indices(model, frame, ray_map, frame_meta, map_meta, count=4, max_
         else:
             local = torch.ones(len(reference), dtype=torch.bool, device=reference.device)
         if int(local.sum()) == 0:
-            return torch.full((len(query), count), -1, dtype=torch.long)
+            return torch.full((len(query), count), -1, dtype=torch.long, device=query.device)
         scores[:, ~local] = -torch.inf
         values, ids = scores.topk(min(count, len(reference)), dim=-1)
         ids[~torch.isfinite(values)] = -1

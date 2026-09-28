@@ -1,0 +1,60 @@
+{
+  "launch.json": {
+    "child_pid": 964335,
+    "guard_pid": 963995,
+    "gpu": 3,
+    "checks": [
+      {
+        "time": 1790606552.8102767,
+        "uuid": "GPU-ba134650-773c-df34-5e38-9e2c8d1fa892",
+        "memory_mib": 0,
+        "utilization": 0,
+        "pids": []
+      },
+      {
+        "time": 1790606582.9233897,
+        "uuid": "GPU-ba134650-773c-df34-5e38-9e2c8d1fa892",
+        "memory_mib": 0,
+        "utilization": 0,
+        "pids": []
+      }
+    ],
+    "command": [
+      "/home/zhangcy/.conda/envs/leader/bin/python",
+      "-B",
+      "-u",
+      "-m",
+      "raybundle.gpu_probe",
+      "--output",
+      "/home/zhangcy/projects/leader-ray-bundle-20260928/gpu-probe-v3"
+    ],
+    "source": "/home/zhangcy/projects/leader-ray-bundle-20260928/source-gpu-probe-v3"
+  },
+  "probe.json": {
+    "status": "passed",
+    "updates": [
+      {
+        "loss": 0.08416703517560356,
+        "gradient": 0.01753410797963905
+      },
+      {
+        "loss": 0.0840447747167362,
+        "gradient": 0.01782382314568102
+      }
+    ],
+    "queries": 64,
+    "seconds": 3.8573296582326293,
+    "memory_allocated_mib": 393.8798828125,
+    "memory_reserved_mib": 432.0,
+    "peak_rss_mib": 3627.7421875,
+    "leader_unchanged": true,
+    "selected": 31,
+    "device": "NVIDIA GeForce RTX 4090",
+    "weights_saved": false
+  },
+  "exit.json": {
+    "code": 0,
+    "failure": null,
+    "time": 1790606603.728986
+  }
+}

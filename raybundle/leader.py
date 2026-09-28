@@ -13,7 +13,7 @@ from .mapping import sha256, extract, camera_rays
 L0_SHA = '49cf3085b507e2f67a0f250394cadd980b0f5da18eb00dcfe37a6c766d3f4d7a'
 
 
-def load_leader(path):
+def load_leader(path, device='cpu'):
     if sha256(path) != L0_SHA:
         raise ValueError('official L0 checkpoint SHA differs')
     checkpoint = torch.load(str(path), map_location='cpu')
@@ -21,19 +21,20 @@ def load_leader(path):
     missing, extra = model.load_state_dict(checkpoint['model'], strict=False)
     if extra or any(not x.endswith('num_batches_tracked') for x in missing):
         raise ValueError('LEADER architecture differs')
-    model.requires_grad_(False).eval()
-    center = torch.as_tensor(checkpoint['center_t'], dtype=torch.float32)
+    model.requires_grad_(False).eval().to(device)
+    center = torch.as_tensor(checkpoint['center_t'], dtype=torch.float32, device=device)
     return model, center
 
 
-def encode_frame(sample, record, model, center, noise, max_queries=64):
+def encode_frame(sample, record, model, center, noise, max_queries=64, features=None):
     torch.manual_seed(20)
+    device = next(model.parameters()).device
     with torch.no_grad():
         coordinates = ME.utils.batched_coordinates([sample['coords']])
-        sparse = ME.SparseTensor(torch.as_tensor(sample['feats']), coordinates)
+        sparse = ME.SparseTensor(torch.as_tensor(sample['feats']), coordinates, device=device)
         encoded = model.encoder(sparse)
-        stride = torch.as_tensor(encoded.tensor_stride, dtype=torch.float32)
-        polar = (encoded.C[:, 1:].float() + stride / 2) * .2
+        stride = torch.as_tensor(encoded.tensor_stride, dtype=torch.float32, device=device)
+        polar = (encoded.C[:, 1:].to(device).float() + stride / 2) * .2
         angle = polar[:, 0] * (2 * math.pi / (1024 * .2))
         source = torch.stack((polar[:, 1] * angle.cos(), polar[:, 1] * angle.sin(), polar[:, 2]), -1)
         prediction = model.decoder(encoded.F)
@@ -49,7 +50,7 @@ def encode_frame(sample, record, model, center, noise, max_queries=64):
         pose[:3, 3] += center
         residual = (source @ centered[:3, :3].T + centered[:3, 3] - predicted).norm(dim=-1)
         weights = torch.sigmoid(prediction[indices, 3]) * (1 - (residual / .6).square()).clamp_min(0).square()
-    pixels, desc = extract(record.image_path, max_features=512, expected_sha=record.image_sha256)
+    pixels, desc = extract(record.image_path, max_features=512, expected_sha=record.image_sha256) if features is None else features
     if len(desc) == 0:
         raise ValueError('no query image features')
     pixels, desc = pixels[:max_queries], desc[:max_queries]

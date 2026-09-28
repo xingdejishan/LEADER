@@ -87,7 +87,8 @@ def predictive_score(system, indices, residual, pose_jacobian, point_jacobian, v
     s = variance * eye + d @ c_inv[ids] @ d.transpose(-1, -2)
     s = s + effective_j @ covariance @ effective_j.transpose(-1, -2)
     mahalanobis = (predicted[..., None, :] @ torch.linalg.solve(s, predicted[..., None])).squeeze(-1).squeeze(-1)
-    sign, logdet = torch.linalg.slogdet(s)
-    if torch.any(sign <= 0):
+    determinant = s[...,0,0]*s[...,1,1]-s[...,0,1]*s[...,1,0]
+    if torch.any(determinant <= 0):
         raise FloatingPointError('non-positive predictive covariance')
+    logdet=determinant.log()
     return -.5 * (mahalanobis + logdet + 2 * torch.log(j.new_tensor(2 * torch.pi)))
