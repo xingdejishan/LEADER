@@ -1,0 +1,1670 @@
+{
+  "local_refs": [
+    "refs/heads/leader-deepfusion 094926b46c8605bfaada4c1ee462f2f9ecca6182",
+    "refs/heads/main 4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+    "refs/heads/num1 7fd42d04c3275fd8f6c57f3449e9876fd13b21c2",
+    "refs/heads/research/anchored-contrastive-fusion 493bd47e69ad67a498cbc779610233fb09373acf",
+    "refs/heads/research/benefit-channel-modulation 5144c233a5b642ebb95082fc66fefcd73d91327c",
+    "refs/heads/research/certificate-supervised-fusion befb9c1e54ebd64ec7396629ad709ebb8873f005",
+    "refs/heads/research/coh-rot-mini 95b752f1a6c5da0f6f52fecefde6399f01d27f4f",
+    "refs/heads/research/constrained-feature-reachability f6b63e958f7956b163146e166838bbb3a60a63c6",
+    "refs/heads/research/crossframe-visual-probe a349e8f66583c9c535e860db81a425cdc0e20653",
+    "refs/heads/research/dinov2-leader-feature-fusion bcb5ede99bdb680d7a231373c134196f74d792b3",
+    "refs/heads/research/evidence-handoff-20260921 9a97c1b43cdb2c914b90a7f3c031b2ecaf045b5f",
+    "refs/heads/research/fixed-classifier-arbitration faffffbd03032288a74f6a3309f97c43b0180076",
+    "refs/heads/research/glace-correspondence-improvement 87a7dfd6f94847e9fce2faaa0f4873f302b1120a",
+    "refs/heads/research/interaction-8dates-20260928 2e8287fac3fdb536159ec39dab9f38e051577206",
+    "refs/heads/research/interaction-single-attention-20260928 9dff1d12a44e82c9eb76ebc847d714cac23d5788",
+    "refs/heads/research/leader-angular-relation e2c2b551f2113e44777485c5329930674789e740",
+    "refs/heads/research/leader-camera-mast3r-anchored 298d6c45c4e4cfd82f3e86401dd7d1d2dcad7bee",
+    "refs/heads/research/leader-camera-reprojection 63ddf2e54e188f685fdafd094230d5f206780754",
+    "refs/heads/research/leader-cmr-20260927 a8bd5def8a9784dd01e7af9bfe2955bf07a9d462",
+    "refs/heads/research/leader-deepfusion-no-mma 3871faa5f7f0326d17179e7f12ac820467c66b50",
+    "refs/heads/research/leader-deepfusion-no-refine-20260928 f4e033f1d5d3d4e73a85ec2030a9e189d9c7aef2",
+    "refs/heads/research/leader-image-gate 807c9ffb3fb5acea473aba5381117c8c0b5df30f",
+    "refs/heads/research/leader-interaction-backbone 7ca09f6bf993300424931890e6d063142a160518",
+    "refs/heads/research/leader-magic-correspondence-feedback-20260928 b561258b6bb3b28566f9d2f21776205305aa0b87",
+    "refs/heads/research/leader-query-backbone-factorial 4839d07c7a8257a0c777c91978622beca34281e3",
+    "refs/heads/research/leader-query-gaussian-fusion b9ac7ee215d0432fd6f2493f4e3b128f16e66f95",
+    "refs/heads/research/leader-refinement-truth 4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+    "refs/heads/research/leader-relation-transport 94c04308174c602aa9dcf5497c925c2c2e55d30b",
+    "refs/heads/research/leader-rff-20260928 c9a685ba5c5484bd45385d415781241ee7ded0f8",
+    "refs/heads/research/leader-rff-joint-20260928 500cc8a323726f2f8d601ee170c09cc546379155",
+    "refs/heads/research/leader-six-camera-controlled 18f8c68ffc1c9dfff574801f76d76ecaee180288",
+    "refs/heads/research/leader-visual-topology 666853d2c484c7d717a1f984175bcbbf2599d050",
+    "refs/heads/research/magic-cmr-diagnosis-20260928 46d0078df580eb6498c0d8ad1b571fe6c709b302",
+    "refs/heads/research/magic-cmr-train-20260928 24c57b980237125d68d2541d2644162ee7801761",
+    "refs/heads/research/magic-cmr-transfer-20260928 94d70f11990b28dff37a6f16f48a0093ffbd4593",
+    "refs/heads/research/magic-leader-paper-eq 6768b20be9baec6e2f417b988b38958391c29620",
+    "refs/heads/research/magic-main-fusion 909c81df7a6e558ceeb2870bb63077af9ea82b36",
+    "refs/heads/research/magic-paper-repro-20260927 12d11c1056803bf90f92a40a3d7456f58aac1090",
+    "refs/heads/research/magic-spatial-decoder 7ed3a345b823b6cc9c3d20ac3c5ce916f08c0967",
+    "refs/heads/research/magic-surface-token f5f2238679dda8c567891fc09348caee0cdc528e",
+    "refs/heads/research/magic-training-refinement faa0db37fde83f20fe55fcfb35829befef53f12a",
+    "refs/heads/research/multimodal-gravity-fusion 7dc0a0d1c1d7014c134cead56ca1475d95c9b041",
+    "refs/heads/research/multimodal-landmark-memory d5a94c4fbf963ed10acbf226e20affb5d270888d",
+    "refs/heads/research/multimodal-surface-registration b37f2cb49d3318b401fbdc92f7523f566756be4e",
+    "refs/heads/research/multimodal-upright-constraints 7dc0a0d1c1d7014c134cead56ca1475d95c9b041",
+    "refs/heads/research/nclt-three-day-20260927 ec7dc3b3d489a24042a385ed82d4a1ac06dadd03",
+    "refs/heads/research/output-subspace-reachability c9ead275e1d4d0ff8321a0eaf6c96e17b3ca6b0d",
+    "refs/heads/research/protected-visual-reliability a6e4bfaa09b07d38d6701f96d253b1853e9b1180",
+    "refs/heads/research/query-only-arbitration-probe ca4f487ff1e09f7ebbddf33a6c74afe6b7cc3e4b",
+    "refs/heads/research/query-only-location-probe 3cc8e40269c8babd0a089d078b6e978392eee2ab",
+    "refs/heads/research/relation-decoder-lr-20260926 d17e9520b7a34d26fc38a9c23b95a436105c5759",
+    "refs/heads/research/rigid-landmark-fusion 9542a372acec35c84090677ac44327785ad8998c",
+    "refs/heads/research/rscore-l-local f84b5f122ef6f8d4e4de8c55fc9d5cacd9bc4fd9",
+    "refs/heads/research/teacher-realization-check a1536edf4c34e2fe0bc84621f21465638cd595c1",
+    "refs/heads/research/v1-glace-independent 701e0e6b0a194da067030e1dcc64032384610441",
+    "refs/heads/research/v1-glace-lidar-supervised 0314745085218f6a854e4f27c77d1256e1bea9d1",
+    "refs/heads/research/visual-relation-supervision 26fca7867f44fb75482f9b237f3b11f0690501a5",
+    "refs/heads/v1-residual-head 6debdf4d776a9e42721b0638b4210aa9c8f7f155",
+    "refs/remotes/github/HEAD 6debdf4d776a9e42721b0638b4210aa9c8f7f155",
+    "refs/remotes/github/num1 7fd42d04c3275fd8f6c57f3449e9876fd13b21c2",
+    "refs/remotes/github/research/anchored-contrastive-fusion 493bd47e69ad67a498cbc779610233fb09373acf",
+    "refs/remotes/github/research/benefit-channel-modulation 5144c233a5b642ebb95082fc66fefcd73d91327c",
+    "refs/remotes/github/research/certificate-supervised-fusion befb9c1e54ebd64ec7396629ad709ebb8873f005",
+    "refs/remotes/github/research/coh-rot-mini 95b752f1a6c5da0f6f52fecefde6399f01d27f4f",
+    "refs/remotes/github/research/constrained-feature-reachability f6b63e958f7956b163146e166838bbb3a60a63c6",
+    "refs/remotes/github/research/crossframe-visual-probe a349e8f66583c9c535e860db81a425cdc0e20653",
+    "refs/remotes/github/research/evidence-handoff-20260921 9a97c1b43cdb2c914b90a7f3c031b2ecaf045b5f",
+    "refs/remotes/github/research/fixed-classifier-arbitration faffffbd03032288a74f6a3309f97c43b0180076",
+    "refs/remotes/github/research/glace-correspondence-improvement 87a7dfd6f94847e9fce2faaa0f4873f302b1120a",
+    "refs/remotes/github/research/leader-camera-mast3r-anchored 298d6c45c4e4cfd82f3e86401dd7d1d2dcad7bee",
+    "refs/remotes/github/research/leader-camera-reprojection 63ddf2e54e188f685fdafd094230d5f206780754",
+    "refs/remotes/github/research/leader-image-gate 807c9ffb3fb5acea473aba5381117c8c0b5df30f",
+    "refs/remotes/github/research/leader-relation-transport 94c04308174c602aa9dcf5497c925c2c2e55d30b",
+    "refs/remotes/github/research/magic-main-fusion 909c81df7a6e558ceeb2870bb63077af9ea82b36",
+    "refs/remotes/github/research/output-subspace-reachability c9ead275e1d4d0ff8321a0eaf6c96e17b3ca6b0d",
+    "refs/remotes/github/research/protected-visual-reliability a6e4bfaa09b07d38d6701f96d253b1853e9b1180",
+    "refs/remotes/github/research/query-only-arbitration-probe ca4f487ff1e09f7ebbddf33a6c74afe6b7cc3e4b",
+    "refs/remotes/github/research/query-only-location-probe 3cc8e40269c8babd0a089d078b6e978392eee2ab",
+    "refs/remotes/github/research/teacher-realization-check a1536edf4c34e2fe0bc84621f21465638cd595c1",
+    "refs/remotes/github/research/v1-glace-independent 92bd9513c28bbad659cc33b6181e32e5860e9380",
+    "refs/remotes/github/research/v1-glace-lidar-supervised 0314745085218f6a854e4f27c77d1256e1bea9d1",
+    "refs/remotes/github/research/visual-relation-supervision 26fca7867f44fb75482f9b237f3b11f0690501a5",
+    "refs/remotes/github/v1-residual-head 6debdf4d776a9e42721b0638b4210aa9c8f7f155",
+    "refs/remotes/origin/v1-residual-head 6debdf4d776a9e42721b0638b4210aa9c8f7f155",
+    "refs/remotes/upstream/HEAD 4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+    "refs/remotes/upstream/main 4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf"
+  ],
+  "local_unique_commits": 57,
+  "online_remotes": {
+    "github": {
+      "exit_code": 0,
+      "heads": [
+        "7fd42d04c3275fd8f6c57f3449e9876fd13b21c2\trefs/heads/num1",
+        "493bd47e69ad67a498cbc779610233fb09373acf\trefs/heads/research/anchored-contrastive-fusion",
+        "5144c233a5b642ebb95082fc66fefcd73d91327c\trefs/heads/research/benefit-channel-modulation",
+        "befb9c1e54ebd64ec7396629ad709ebb8873f005\trefs/heads/research/certificate-supervised-fusion",
+        "95b752f1a6c5da0f6f52fecefde6399f01d27f4f\trefs/heads/research/coh-rot-mini",
+        "f6b63e958f7956b163146e166838bbb3a60a63c6\trefs/heads/research/constrained-feature-reachability",
+        "a349e8f66583c9c535e860db81a425cdc0e20653\trefs/heads/research/crossframe-visual-probe",
+        "9a97c1b43cdb2c914b90a7f3c031b2ecaf045b5f\trefs/heads/research/evidence-handoff-20260921",
+        "faffffbd03032288a74f6a3309f97c43b0180076\trefs/heads/research/fixed-classifier-arbitration",
+        "87a7dfd6f94847e9fce2faaa0f4873f302b1120a\trefs/heads/research/glace-correspondence-improvement",
+        "298d6c45c4e4cfd82f3e86401dd7d1d2dcad7bee\trefs/heads/research/leader-camera-mast3r-anchored",
+        "63ddf2e54e188f685fdafd094230d5f206780754\trefs/heads/research/leader-camera-reprojection",
+        "807c9ffb3fb5acea473aba5381117c8c0b5df30f\trefs/heads/research/leader-image-gate",
+        "94c04308174c602aa9dcf5497c925c2c2e55d30b\trefs/heads/research/leader-relation-transport",
+        "909c81df7a6e558ceeb2870bb63077af9ea82b36\trefs/heads/research/magic-main-fusion",
+        "c9ead275e1d4d0ff8321a0eaf6c96e17b3ca6b0d\trefs/heads/research/output-subspace-reachability",
+        "a6e4bfaa09b07d38d6701f96d253b1853e9b1180\trefs/heads/research/protected-visual-reliability",
+        "ca4f487ff1e09f7ebbddf33a6c74afe6b7cc3e4b\trefs/heads/research/query-only-arbitration-probe",
+        "3cc8e40269c8babd0a089d078b6e978392eee2ab\trefs/heads/research/query-only-location-probe",
+        "a1536edf4c34e2fe0bc84621f21465638cd595c1\trefs/heads/research/teacher-realization-check",
+        "92bd9513c28bbad659cc33b6181e32e5860e9380\trefs/heads/research/v1-glace-independent",
+        "0314745085218f6a854e4f27c77d1256e1bea9d1\trefs/heads/research/v1-glace-lidar-supervised",
+        "26fca7867f44fb75482f9b237f3b11f0690501a5\trefs/heads/research/visual-relation-supervision",
+        "6debdf4d776a9e42721b0638b4210aa9c8f7f155\trefs/heads/v1-residual-head"
+      ]
+    },
+    "upstream": {
+      "exit_code": 0,
+      "heads": [
+        "4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf\trefs/heads/main"
+      ]
+    },
+    "origin": {
+      "exit_code": 128,
+      "heads": []
+    }
+  },
+  "matched_commit_count": 21,
+  "work_artifact_count": 99,
+  "remote_projects": {
+    "LEADER": {
+      "refs": [
+        "refs/heads/main 4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+        "refs/remotes/origin/main 4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf"
+      ],
+      "records": [],
+      "map_files": []
+    },
+    "LEADER-magic-909c81d": {
+      "refs": [],
+      "records": [],
+      "map_files": []
+    },
+    "MinkowskiEngine-official-02fc608": {
+      "refs": [],
+      "records": [],
+      "map_files": []
+    },
+    "leader-cmr-20260928": {
+      "refs": [
+        "refs/heads/research/leader-cmr-20260927 a8bd5def8a9784dd01e7af9bfe2955bf07a9d462",
+        "refs/remotes/origin/research/leader-cmr-20260927 efccd73c6dff9d957d3ecad5e060909885cbb0e3"
+      ],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/leader-cmr-20260928/experiments/cmr_cam5/full_validation_metadata/selection_frozen.json",
+          "sha256": "b187adebc68b645fdb79499eb19ae71cb7b2142bc6aee4acdb13ef93275c6752"
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-cmr-20260928/experiments/cmr_cam5/full_validation_metadata/settings.json",
+          "sha256": "1c0a341ad90b1af85e0274925b2c5b0bd0e4c1ada9717ee24929c1685fa65882"
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-cmr-20260928/runs/cmr_cam5_full_validation_v1/selection_frozen.json",
+          "sha256": "b187adebc68b645fdb79499eb19ae71cb7b2142bc6aee4acdb13ef93275c6752"
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-cmr-20260928/runs/cmr_cam5_full_validation_v1/settings.json",
+          "sha256": "1c0a341ad90b1af85e0274925b2c5b0bd0e4c1ada9717ee24929c1685fa65882"
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-cmr-20260928/runs/cmr_cam5_v1/selection_frozen.json",
+          "sha256": "3e229f5877314e9510275f8103514b834d7699981cae7a132ff69628698c7d7c"
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-cmr-20260928/runs/cmr_cam5_v1/settings.json",
+          "sha256": "0e6b2fda679fd5eaa00c66a8ff79b908ac000b1b1d29eab53c6cb30f56ec8a7c"
+        }
+      ],
+      "map_files": []
+    },
+    "leader-deepfusion": {
+      "refs": [
+        "refs/heads/leader-deepfusion 094926b46c8605bfaada4c1ee462f2f9ecca6182"
+      ],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/leader-deepfusion/runs/leader-deepfusion-20260927-v2/training/settings.json",
+          "sha256": "151d5ca4118bff381b75502eac57d0fa8976fa13b7128ddc7f2eff974600bfd8"
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-deepfusion/runs/leader-deepfusion-20260927/training/settings.json",
+          "sha256": "146cb7cfa5fae72f3c053140f6a67d87005fee2557f6bbeeae98f803c1de0aa9"
+        }
+      ],
+      "map_files": []
+    },
+    "leader-deepfusion-no-mma": {
+      "refs": [
+        "refs/heads/research/leader-deepfusion-no-mma 3871faa5f7f0326d17179e7f12ac820467c66b50",
+        "refs/remotes/origin/research/leader-deepfusion-no-mma 2116f5f1de6259e2b153788d4f98f5d996e3abb7"
+      ],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/leader-deepfusion-no-mma/runs/leader-deepfusion-no-mma-20260928/training/settings.json",
+          "sha256": "b2f7ecf5dc5f7c90b83ccae071690ab0d395239018217b75458453fc9d72f9da"
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-deepfusion-no-mma/runs/leader-deepfusion-no-mma-20260928/failure-disk-20260928-0434/settings.json",
+          "sha256": "b2f7ecf5dc5f7c90b83ccae071690ab0d395239018217b75458453fc9d72f9da"
+        }
+      ],
+      "map_files": []
+    },
+    "leader-deepfusion-no-mma-upload": {
+      "refs": [],
+      "records": [],
+      "map_files": []
+    },
+    "leader-interaction-8dates-20260928": {
+      "refs": [],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/leader-interaction-8dates-20260928/run-v3/settings.json",
+          "sha256": "3daa68a548bfde7ab18b18d021062955e82c6fe1234d74d2529e66b48bba8814"
+        }
+      ],
+      "map_files": []
+    },
+    "leader-lidar-anchored-lines-20260927": {
+      "refs": [
+        "refs/heads/main 4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+        "refs/heads/research/lidar-anchored-3d-lines 4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+        "refs/remotes/origin/HEAD 4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+        "refs/remotes/origin/main 4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+        "refs/tags/v1.0 2513c56029f511749d41fe491dad9f15d35f5eb2"
+      ],
+      "records": [],
+      "map_files": [
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/docs/tutorials/triangulation.rst",
+          "bytes": 3857
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/docs/api/limap.triangulation.rst",
+          "bytes": 167
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/docs/api/limap.triangulation.triangulation.rst",
+          "bytes": 150
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/docs/api/limap.runners.line_triangulation.rst",
+          "bytes": 188
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/runners/bundler_triangulation.py",
+          "bytes": 3488
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/runners/visualsfm_triangulation.py",
+          "bytes": 3308
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/runners/colmap_triangulation.py",
+          "bytes": 3805
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/runners/hypersim/triangulation.py",
+          "bytes": 1805
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/runners/scannet/triangulation.py",
+          "bytes": 1583
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/runners/rome16k/triangulation.py",
+          "bytes": 3525
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/runners/eth3d/triangulation.py",
+          "bytes": 2054
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/limap/solvers/triangulation/triangulate_line_with_one_point.h",
+          "bytes": 1450
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/limap/solvers/triangulation/triangulate_line_with_one_point.cc",
+          "bytes": 25425
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/limap/triangulation/global_line_triangulator.h",
+          "bytes": 4429
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/limap/triangulation/triangulation.py",
+          "bytes": 4089
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/limap/triangulation/global_line_triangulator.cc",
+          "bytes": 20729
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/limap/triangulation/base_line_triangulator.h",
+          "bytes": 5271
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/limap/triangulation/base_line_triangulator.cc",
+          "bytes": 13402
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/sources/limap-cvpr23-2023-12/limap/runners/line_triangulation.py",
+          "bytes": 9484
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/native_build/limap-native-deps-20260927/src/colmap-3.8/src/base/triangulation.h",
+          "bytes": 5599
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/native_build/limap-native-deps-20260927/src/colmap-3.8/src/base/triangulation_test.cc",
+          "bytes": 3977
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/native_build/limap-native-deps-20260927/src/colmap-3.8/src/base/triangulation.cc",
+          "bytes": 7417
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/native_build/limap-native-deps-20260927/src/colmap-3.8/src/estimators/triangulation.h",
+          "bytes": 6085
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/native_build/limap-native-deps-20260927/src/colmap-3.8/src/estimators/triangulation.cc",
+          "bytes": 6338
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/native_build/limap-native-deps-20260927/src/colmap-3.8/src/sfm/incremental_triangulator.h",
+          "bytes": 9014
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-lidar-anchored-lines-20260927/experiments/lidar_anchored_lines/native_build/limap-native-deps-20260927/src/colmap-3.8/src/sfm/incremental_triangulator.cc",
+          "bytes": 27215
+        }
+      ]
+    },
+    "leader-magic-cmr-diagnosis-20260928": {
+      "refs": [],
+      "records": [],
+      "map_files": []
+    },
+    "leader-magic-cmr-train-20260928": {
+      "refs": [],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/leader-magic-cmr-train-20260928/run/settings.json",
+          "sha256": "f29b5c84884e220f659e91d94319501c8791edb4041b27372bd8c4f0c5181a56"
+        }
+      ],
+      "map_files": []
+    },
+    "leader-magic-cmr-transfer-20260928": {
+      "refs": [],
+      "records": [],
+      "map_files": []
+    },
+    "leader-magic-correspondence-feedback-20260928": {
+      "refs": [
+        "refs/heads/leader-deepfusion 094926b46c8605bfaada4c1ee462f2f9ecca6182",
+        "refs/heads/research/leader-magic-correspondence-feedback-20260928 b561258b6bb3b28566f9d2f21776205305aa0b87",
+        "refs/remotes/origin/HEAD 094926b46c8605bfaada4c1ee462f2f9ecca6182",
+        "refs/remotes/origin/leader-deepfusion 094926b46c8605bfaada4c1ee462f2f9ecca6182"
+      ],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/leader-magic-correspondence-feedback-20260928/run-v1/feedback/training/settings.json",
+          "sha256": "57267c44443a9682e0665eb1268b62a5589d143c9f3641455eecae6b886fd307"
+        },
+        {
+          "path": "/home/zhangcy/projects/leader-magic-correspondence-feedback-20260928/run-v1/parent/training/settings.json",
+          "sha256": "349c8804e0d190ddd94322ade99b546810759e2205d3ba31d94c3d01d25fc3db"
+        }
+      ],
+      "map_files": []
+    },
+    "leader-rff-20260928": {
+      "refs": [],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/leader-rff-20260928/run-b16-v1/settings.json",
+          "sha256": "19d9feb7f07c9f78304f85dda8468c2e91da09a720b58107e0f766566040f8ad"
+        }
+      ],
+      "map_files": []
+    },
+    "leader-rff-joint-20260928": {
+      "refs": [],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/leader-rff-joint-20260928/run-v1/settings.json",
+          "sha256": "141ed73aafd0bf8cd97c29294da2929b9b205861a0782f293601ba6d8c0585bc"
+        }
+      ],
+      "map_files": []
+    },
+    "leader-single-attention-20260928": {
+      "refs": [],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/leader-single-attention-20260928/run/settings.json",
+          "sha256": "ba36ed2556ab565a1e63345fe125dd0d9c1d0926244fe72aed705bd0491190d5"
+        }
+      ],
+      "map_files": []
+    },
+    "magic-paper-repro-20260927": {
+      "refs": [],
+      "records": [],
+      "map_files": []
+    },
+    "nclt-relation-compare-20260927-a": {
+      "refs": [],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/magic_training/results/selection_frozen.json",
+          "sha256": "5a430bb846151d2885eb364c6ccd78b16b6a2084ab6805c7b482b781ba755d0f"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/magic_training/results/training_report.json",
+          "sha256": "75375239b0b77e0ce4a7826b2dc2d56b1728b4df078aacddbe2a51ae58a08ebb"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/magic_training/results/protocol.json",
+          "sha256": "162e2c86c2e553ab6e0c6d1b8f8bb41042057975aad5b54227f9aec7c664d91e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/magic_training/results/initial_attempts/magic-training-20260925/protocol.json",
+          "sha256": "cd43f0874233d22e4d1d800f9b6f5d86ce8c07e10219b8a74fc70f69a85f234e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/magic_training/results/initial_attempts/magic-training-20260925-v2/protocol.json",
+          "sha256": "52343f5b34d08e68e5035ba2ed0b479a5e43b3c105bc13d1a130238322a1724d"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/rigid_landmark/results/selection_frozen.json",
+          "sha256": "b87c5bf02f962be2039017be48d6b72ae171f78cc8870ce87b8307bc09cf22aa"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/rigid_landmark/results/training_report.json",
+          "sha256": "24fa17c9a131126d6e662b1c68a080504b69c8cfaceeb88a9dee08f8139f150a"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/rigid_landmark/results/protocol.json",
+          "sha256": "fc4b751fd7063ab338a2940b8f589ac9b8cac7c87a70504f80279ff5564575be"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/landmark_memory/results/selection_frozen.json",
+          "sha256": "219acae153db08498ff1c50d9e01ded9840bff8b3b62a10262431434f67f76f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/landmark_memory/results/training_report.json",
+          "sha256": "3e05cd5f69af2008729733a9a54a3a92be234c3eeb3701760060330739b06bc0"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/landmark_memory/results/protocol.json",
+          "sha256": "db633115bc30b33a9314b4ce1369466a20f3070ee6a1ad94db912531dab886d9"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/gravity_fusion/results/selection_frozen.json",
+          "sha256": "68acded34948547fe17877b01f61c1918d2bb36a887aeb1107a1804cee301dc6"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/gravity_fusion/results/training_report.json",
+          "sha256": "256cd69007783e019b74ac49ba3bf4d95171a85a6957350a701622ea6ce6e8c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/gravity_fusion/results/protocol.json",
+          "sha256": "e515b3fbf41a3d94ffa49043b54092bfff5846e3d9a25f428ba3c0dea430e843"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/surface_token/results/protocol.json",
+          "sha256": "edcfcc0aadfa77b116cadac7d97563b2e95da0cdc020ad8d839fc1bc689874d3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/surface_registration/results/selection_frozen.json",
+          "sha256": "21ebc222eeceea67aa594dbcd372a39125c180fe86e18e512d680c5e66cc085e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/surface_registration/results/training_report.json",
+          "sha256": "2a1c570f7bdcc49469c0ac71cb887f550402139af31a45528cc9aac6a6b9a93b"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/surface_registration/results/protocol.json",
+          "sha256": "e8692e99318ec60505cb291f2cb6eb7f30ca57fbe616e77ee24c20885f82c99e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/spatial_decoder/results/protocol.json",
+          "sha256": "7cf8e741e87bab2edcf77f6d26a92486bf4ee97b23a41177eb1da3d71159cbe8"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/spatial_decoder/results/smoke/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/spatial_decoder/results/smoke/training_report.json",
+          "sha256": "3f137872f1cc1e75031820e3ae8ee5b76f5b16bbab3ec8c31403cbb4cec1f7e1"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/spatial_decoder/results/spatial/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/spatial_decoder/results/spatial/training_report.json",
+          "sha256": "97dd9be70f341d9e15a266c423ab2b322e0d70d41bddecb20155c6f130921c8e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/interaction/results/selection_frozen.json",
+          "sha256": "bf52e2e32bda0c0ab15fc27df6fb4a1d2c5b940c15cdee7e6583c94d026e63fc"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/interaction/results/training_report.json",
+          "sha256": "e4345d8765067c1eb5fd30c6339946133760668f8280b3abd3fae77295401ad3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/interaction/results/protocol.json",
+          "sha256": "30c5dc71ef9cb7838bb2bb3990987be4f068fc603283889ed4555c526e495214"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/relation_transport/results/selection_frozen.json",
+          "sha256": "37254065635094eedb780c50afffb1bc91391b015240fffe99cdf5b7bd141c62"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/relation_transport/results/training_report.json",
+          "sha256": "34e34661ed5b85af399ee77c7fea63ea099c1132ada1f4e455a11b1e7026402e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v4/experiments/relation_transport/results/protocol.json",
+          "sha256": "7c70376dfe3f0e62a595724226e429b0013a4abdf5788006a16a3948927d90ad"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/runs/relation_40ep_v1/selection_frozen.json",
+          "sha256": "513123934493258ef95fe064b861c1836fc2dcb85b62d992208268afc66d26bd"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/runs/relation_40ep_v1/training_report.json",
+          "sha256": "725a800be9ea32836654576a9d61cf5d41bc21725c6f71a8d5398beb0d70085c"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/runs/relation_40ep_v1/protocol.json",
+          "sha256": "e60567700ec80f4c2fc04355bb7b2eb425b32fe31c8a64ac1d842def0680d5a7"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/runs/lidar_40ep_v1/selection_frozen.json",
+          "sha256": "12cde59443a5e4ec639474f408aa1ba84a45a6c2834e97c424598b556061f94d"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/runs/lidar_40ep_v1/training_report.json",
+          "sha256": "2b0dc384376ff5bd7ce3de2665326d3137b8a204ffce758d103c8811efde81f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/runs/lidar_40ep_v1/protocol.json",
+          "sha256": "a26bd0f7e607509ea4e4e6c9831f6594a639001827e4855144d81f4767eabeaf"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/magic_training/results/selection_frozen.json",
+          "sha256": "5a430bb846151d2885eb364c6ccd78b16b6a2084ab6805c7b482b781ba755d0f"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/magic_training/results/training_report.json",
+          "sha256": "75375239b0b77e0ce4a7826b2dc2d56b1728b4df078aacddbe2a51ae58a08ebb"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/magic_training/results/protocol.json",
+          "sha256": "162e2c86c2e553ab6e0c6d1b8f8bb41042057975aad5b54227f9aec7c664d91e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/magic_training/results/initial_attempts/magic-training-20260925/protocol.json",
+          "sha256": "cd43f0874233d22e4d1d800f9b6f5d86ce8c07e10219b8a74fc70f69a85f234e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/magic_training/results/initial_attempts/magic-training-20260925-v2/protocol.json",
+          "sha256": "52343f5b34d08e68e5035ba2ed0b479a5e43b3c105bc13d1a130238322a1724d"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/rigid_landmark/results/selection_frozen.json",
+          "sha256": "b87c5bf02f962be2039017be48d6b72ae171f78cc8870ce87b8307bc09cf22aa"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/rigid_landmark/results/training_report.json",
+          "sha256": "24fa17c9a131126d6e662b1c68a080504b69c8cfaceeb88a9dee08f8139f150a"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/rigid_landmark/results/protocol.json",
+          "sha256": "fc4b751fd7063ab338a2940b8f589ac9b8cac7c87a70504f80279ff5564575be"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/landmark_memory/results/selection_frozen.json",
+          "sha256": "219acae153db08498ff1c50d9e01ded9840bff8b3b62a10262431434f67f76f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/landmark_memory/results/training_report.json",
+          "sha256": "3e05cd5f69af2008729733a9a54a3a92be234c3eeb3701760060330739b06bc0"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/landmark_memory/results/protocol.json",
+          "sha256": "db633115bc30b33a9314b4ce1369466a20f3070ee6a1ad94db912531dab886d9"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/gravity_fusion/results/selection_frozen.json",
+          "sha256": "68acded34948547fe17877b01f61c1918d2bb36a887aeb1107a1804cee301dc6"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/gravity_fusion/results/training_report.json",
+          "sha256": "256cd69007783e019b74ac49ba3bf4d95171a85a6957350a701622ea6ce6e8c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/gravity_fusion/results/protocol.json",
+          "sha256": "e515b3fbf41a3d94ffa49043b54092bfff5846e3d9a25f428ba3c0dea430e843"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/surface_token/results/protocol.json",
+          "sha256": "edcfcc0aadfa77b116cadac7d97563b2e95da0cdc020ad8d839fc1bc689874d3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/surface_registration/results/selection_frozen.json",
+          "sha256": "21ebc222eeceea67aa594dbcd372a39125c180fe86e18e512d680c5e66cc085e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/surface_registration/results/training_report.json",
+          "sha256": "2a1c570f7bdcc49469c0ac71cb887f550402139af31a45528cc9aac6a6b9a93b"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/surface_registration/results/protocol.json",
+          "sha256": "e8692e99318ec60505cb291f2cb6eb7f30ca57fbe616e77ee24c20885f82c99e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/spatial_decoder/results/protocol.json",
+          "sha256": "7cf8e741e87bab2edcf77f6d26a92486bf4ee97b23a41177eb1da3d71159cbe8"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/spatial_decoder/results/smoke/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/spatial_decoder/results/smoke/training_report.json",
+          "sha256": "3f137872f1cc1e75031820e3ae8ee5b76f5b16bbab3ec8c31403cbb4cec1f7e1"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/spatial_decoder/results/spatial/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/spatial_decoder/results/spatial/training_report.json",
+          "sha256": "97dd9be70f341d9e15a266c423ab2b322e0d70d41bddecb20155c6f130921c8e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/interaction/results/selection_frozen.json",
+          "sha256": "bf52e2e32bda0c0ab15fc27df6fb4a1d2c5b940c15cdee7e6583c94d026e63fc"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/interaction/results/training_report.json",
+          "sha256": "e4345d8765067c1eb5fd30c6339946133760668f8280b3abd3fae77295401ad3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/interaction/results/protocol.json",
+          "sha256": "30c5dc71ef9cb7838bb2bb3990987be4f068fc603283889ed4555c526e495214"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/relation_transport/results/selection_frozen.json",
+          "sha256": "37254065635094eedb780c50afffb1bc91391b015240fffe99cdf5b7bd141c62"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/relation_transport/results/training_report.json",
+          "sha256": "34e34661ed5b85af399ee77c7fea63ea099c1132ada1f4e455a11b1e7026402e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v6/experiments/relation_transport/results/protocol.json",
+          "sha256": "7c70376dfe3f0e62a595724226e429b0013a4abdf5788006a16a3948927d90ad"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/magic_training/results/selection_frozen.json",
+          "sha256": "5a430bb846151d2885eb364c6ccd78b16b6a2084ab6805c7b482b781ba755d0f"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/magic_training/results/training_report.json",
+          "sha256": "75375239b0b77e0ce4a7826b2dc2d56b1728b4df078aacddbe2a51ae58a08ebb"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/magic_training/results/protocol.json",
+          "sha256": "162e2c86c2e553ab6e0c6d1b8f8bb41042057975aad5b54227f9aec7c664d91e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/magic_training/results/initial_attempts/magic-training-20260925/protocol.json",
+          "sha256": "cd43f0874233d22e4d1d800f9b6f5d86ce8c07e10219b8a74fc70f69a85f234e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/magic_training/results/initial_attempts/magic-training-20260925-v2/protocol.json",
+          "sha256": "52343f5b34d08e68e5035ba2ed0b479a5e43b3c105bc13d1a130238322a1724d"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/rigid_landmark/results/selection_frozen.json",
+          "sha256": "b87c5bf02f962be2039017be48d6b72ae171f78cc8870ce87b8307bc09cf22aa"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/rigid_landmark/results/training_report.json",
+          "sha256": "24fa17c9a131126d6e662b1c68a080504b69c8cfaceeb88a9dee08f8139f150a"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/rigid_landmark/results/protocol.json",
+          "sha256": "fc4b751fd7063ab338a2940b8f589ac9b8cac7c87a70504f80279ff5564575be"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/landmark_memory/results/selection_frozen.json",
+          "sha256": "219acae153db08498ff1c50d9e01ded9840bff8b3b62a10262431434f67f76f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/landmark_memory/results/training_report.json",
+          "sha256": "3e05cd5f69af2008729733a9a54a3a92be234c3eeb3701760060330739b06bc0"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/landmark_memory/results/protocol.json",
+          "sha256": "db633115bc30b33a9314b4ce1369466a20f3070ee6a1ad94db912531dab886d9"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/gravity_fusion/results/selection_frozen.json",
+          "sha256": "68acded34948547fe17877b01f61c1918d2bb36a887aeb1107a1804cee301dc6"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/gravity_fusion/results/training_report.json",
+          "sha256": "256cd69007783e019b74ac49ba3bf4d95171a85a6957350a701622ea6ce6e8c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/gravity_fusion/results/protocol.json",
+          "sha256": "e515b3fbf41a3d94ffa49043b54092bfff5846e3d9a25f428ba3c0dea430e843"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/surface_token/results/protocol.json",
+          "sha256": "edcfcc0aadfa77b116cadac7d97563b2e95da0cdc020ad8d839fc1bc689874d3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/surface_registration/results/selection_frozen.json",
+          "sha256": "21ebc222eeceea67aa594dbcd372a39125c180fe86e18e512d680c5e66cc085e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/surface_registration/results/training_report.json",
+          "sha256": "2a1c570f7bdcc49469c0ac71cb887f550402139af31a45528cc9aac6a6b9a93b"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/surface_registration/results/protocol.json",
+          "sha256": "e8692e99318ec60505cb291f2cb6eb7f30ca57fbe616e77ee24c20885f82c99e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/spatial_decoder/results/protocol.json",
+          "sha256": "7cf8e741e87bab2edcf77f6d26a92486bf4ee97b23a41177eb1da3d71159cbe8"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/spatial_decoder/results/smoke/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/spatial_decoder/results/smoke/training_report.json",
+          "sha256": "3f137872f1cc1e75031820e3ae8ee5b76f5b16bbab3ec8c31403cbb4cec1f7e1"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/spatial_decoder/results/spatial/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/spatial_decoder/results/spatial/training_report.json",
+          "sha256": "97dd9be70f341d9e15a266c423ab2b322e0d70d41bddecb20155c6f130921c8e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/interaction/results/selection_frozen.json",
+          "sha256": "bf52e2e32bda0c0ab15fc27df6fb4a1d2c5b940c15cdee7e6583c94d026e63fc"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/interaction/results/training_report.json",
+          "sha256": "e4345d8765067c1eb5fd30c6339946133760668f8280b3abd3fae77295401ad3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/interaction/results/protocol.json",
+          "sha256": "30c5dc71ef9cb7838bb2bb3990987be4f068fc603283889ed4555c526e495214"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/relation_transport/results/selection_frozen.json",
+          "sha256": "37254065635094eedb780c50afffb1bc91391b015240fffe99cdf5b7bd141c62"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/relation_transport/results/training_report.json",
+          "sha256": "34e34661ed5b85af399ee77c7fea63ea099c1132ada1f4e455a11b1e7026402e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v8/experiments/relation_transport/results/protocol.json",
+          "sha256": "7c70376dfe3f0e62a595724226e429b0013a4abdf5788006a16a3948927d90ad"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/magic_training/results/selection_frozen.json",
+          "sha256": "5a430bb846151d2885eb364c6ccd78b16b6a2084ab6805c7b482b781ba755d0f"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/magic_training/results/training_report.json",
+          "sha256": "75375239b0b77e0ce4a7826b2dc2d56b1728b4df078aacddbe2a51ae58a08ebb"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/magic_training/results/protocol.json",
+          "sha256": "162e2c86c2e553ab6e0c6d1b8f8bb41042057975aad5b54227f9aec7c664d91e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/magic_training/results/initial_attempts/magic-training-20260925/protocol.json",
+          "sha256": "cd43f0874233d22e4d1d800f9b6f5d86ce8c07e10219b8a74fc70f69a85f234e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/magic_training/results/initial_attempts/magic-training-20260925-v2/protocol.json",
+          "sha256": "52343f5b34d08e68e5035ba2ed0b479a5e43b3c105bc13d1a130238322a1724d"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/rigid_landmark/results/selection_frozen.json",
+          "sha256": "b87c5bf02f962be2039017be48d6b72ae171f78cc8870ce87b8307bc09cf22aa"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/rigid_landmark/results/training_report.json",
+          "sha256": "24fa17c9a131126d6e662b1c68a080504b69c8cfaceeb88a9dee08f8139f150a"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/rigid_landmark/results/protocol.json",
+          "sha256": "fc4b751fd7063ab338a2940b8f589ac9b8cac7c87a70504f80279ff5564575be"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/landmark_memory/results/selection_frozen.json",
+          "sha256": "219acae153db08498ff1c50d9e01ded9840bff8b3b62a10262431434f67f76f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/landmark_memory/results/training_report.json",
+          "sha256": "3e05cd5f69af2008729733a9a54a3a92be234c3eeb3701760060330739b06bc0"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/landmark_memory/results/protocol.json",
+          "sha256": "db633115bc30b33a9314b4ce1369466a20f3070ee6a1ad94db912531dab886d9"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/gravity_fusion/results/selection_frozen.json",
+          "sha256": "68acded34948547fe17877b01f61c1918d2bb36a887aeb1107a1804cee301dc6"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/gravity_fusion/results/training_report.json",
+          "sha256": "256cd69007783e019b74ac49ba3bf4d95171a85a6957350a701622ea6ce6e8c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/gravity_fusion/results/protocol.json",
+          "sha256": "e515b3fbf41a3d94ffa49043b54092bfff5846e3d9a25f428ba3c0dea430e843"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/surface_token/results/protocol.json",
+          "sha256": "edcfcc0aadfa77b116cadac7d97563b2e95da0cdc020ad8d839fc1bc689874d3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/surface_registration/results/selection_frozen.json",
+          "sha256": "21ebc222eeceea67aa594dbcd372a39125c180fe86e18e512d680c5e66cc085e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/surface_registration/results/training_report.json",
+          "sha256": "2a1c570f7bdcc49469c0ac71cb887f550402139af31a45528cc9aac6a6b9a93b"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/surface_registration/results/protocol.json",
+          "sha256": "e8692e99318ec60505cb291f2cb6eb7f30ca57fbe616e77ee24c20885f82c99e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/spatial_decoder/results/protocol.json",
+          "sha256": "7cf8e741e87bab2edcf77f6d26a92486bf4ee97b23a41177eb1da3d71159cbe8"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/spatial_decoder/results/smoke/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/spatial_decoder/results/smoke/training_report.json",
+          "sha256": "3f137872f1cc1e75031820e3ae8ee5b76f5b16bbab3ec8c31403cbb4cec1f7e1"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/spatial_decoder/results/spatial/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/spatial_decoder/results/spatial/training_report.json",
+          "sha256": "97dd9be70f341d9e15a266c423ab2b322e0d70d41bddecb20155c6f130921c8e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/interaction/results/selection_frozen.json",
+          "sha256": "bf52e2e32bda0c0ab15fc27df6fb4a1d2c5b940c15cdee7e6583c94d026e63fc"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/interaction/results/training_report.json",
+          "sha256": "e4345d8765067c1eb5fd30c6339946133760668f8280b3abd3fae77295401ad3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/interaction/results/protocol.json",
+          "sha256": "30c5dc71ef9cb7838bb2bb3990987be4f068fc603283889ed4555c526e495214"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/relation_transport/results/selection_frozen.json",
+          "sha256": "37254065635094eedb780c50afffb1bc91391b015240fffe99cdf5b7bd141c62"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/relation_transport/results/training_report.json",
+          "sha256": "34e34661ed5b85af399ee77c7fea63ea099c1132ada1f4e455a11b1e7026402e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v7/experiments/relation_transport/results/protocol.json",
+          "sha256": "7c70376dfe3f0e62a595724226e429b0013a4abdf5788006a16a3948927d90ad"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/magic_training/results/selection_frozen.json",
+          "sha256": "5a430bb846151d2885eb364c6ccd78b16b6a2084ab6805c7b482b781ba755d0f"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/magic_training/results/training_report.json",
+          "sha256": "75375239b0b77e0ce4a7826b2dc2d56b1728b4df078aacddbe2a51ae58a08ebb"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/magic_training/results/protocol.json",
+          "sha256": "162e2c86c2e553ab6e0c6d1b8f8bb41042057975aad5b54227f9aec7c664d91e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/magic_training/results/initial_attempts/magic-training-20260925/protocol.json",
+          "sha256": "cd43f0874233d22e4d1d800f9b6f5d86ce8c07e10219b8a74fc70f69a85f234e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/magic_training/results/initial_attempts/magic-training-20260925-v2/protocol.json",
+          "sha256": "52343f5b34d08e68e5035ba2ed0b479a5e43b3c105bc13d1a130238322a1724d"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/rigid_landmark/results/selection_frozen.json",
+          "sha256": "b87c5bf02f962be2039017be48d6b72ae171f78cc8870ce87b8307bc09cf22aa"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/rigid_landmark/results/training_report.json",
+          "sha256": "24fa17c9a131126d6e662b1c68a080504b69c8cfaceeb88a9dee08f8139f150a"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/rigid_landmark/results/protocol.json",
+          "sha256": "fc4b751fd7063ab338a2940b8f589ac9b8cac7c87a70504f80279ff5564575be"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/landmark_memory/results/selection_frozen.json",
+          "sha256": "219acae153db08498ff1c50d9e01ded9840bff8b3b62a10262431434f67f76f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/landmark_memory/results/training_report.json",
+          "sha256": "3e05cd5f69af2008729733a9a54a3a92be234c3eeb3701760060330739b06bc0"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/landmark_memory/results/protocol.json",
+          "sha256": "db633115bc30b33a9314b4ce1369466a20f3070ee6a1ad94db912531dab886d9"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/gravity_fusion/results/selection_frozen.json",
+          "sha256": "68acded34948547fe17877b01f61c1918d2bb36a887aeb1107a1804cee301dc6"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/gravity_fusion/results/training_report.json",
+          "sha256": "256cd69007783e019b74ac49ba3bf4d95171a85a6957350a701622ea6ce6e8c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/gravity_fusion/results/protocol.json",
+          "sha256": "e515b3fbf41a3d94ffa49043b54092bfff5846e3d9a25f428ba3c0dea430e843"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/surface_token/results/protocol.json",
+          "sha256": "edcfcc0aadfa77b116cadac7d97563b2e95da0cdc020ad8d839fc1bc689874d3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/surface_registration/results/selection_frozen.json",
+          "sha256": "21ebc222eeceea67aa594dbcd372a39125c180fe86e18e512d680c5e66cc085e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/surface_registration/results/training_report.json",
+          "sha256": "2a1c570f7bdcc49469c0ac71cb887f550402139af31a45528cc9aac6a6b9a93b"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/surface_registration/results/protocol.json",
+          "sha256": "e8692e99318ec60505cb291f2cb6eb7f30ca57fbe616e77ee24c20885f82c99e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/spatial_decoder/results/protocol.json",
+          "sha256": "7cf8e741e87bab2edcf77f6d26a92486bf4ee97b23a41177eb1da3d71159cbe8"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/spatial_decoder/results/smoke/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/spatial_decoder/results/smoke/training_report.json",
+          "sha256": "3f137872f1cc1e75031820e3ae8ee5b76f5b16bbab3ec8c31403cbb4cec1f7e1"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/spatial_decoder/results/spatial/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/spatial_decoder/results/spatial/training_report.json",
+          "sha256": "97dd9be70f341d9e15a266c423ab2b322e0d70d41bddecb20155c6f130921c8e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/interaction/results/selection_frozen.json",
+          "sha256": "2fbb0ce058cc8accefdab5efa754d39231a52f57fe5ee501d33ca997f0d46c48"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/interaction/results/training_report.json",
+          "sha256": "e4345d8765067c1eb5fd30c6339946133760668f8280b3abd3fae77295401ad3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/interaction/results/protocol.json",
+          "sha256": "30c5dc71ef9cb7838bb2bb3990987be4f068fc603283889ed4555c526e495214"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/relation_transport/results/selection_frozen.json",
+          "sha256": "7a8479ecb56bbb11aa9828659786265cda79b29f3533ac2fa36816cc6eab3f3f"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/relation_transport/results/training_report.json",
+          "sha256": "34e34661ed5b85af399ee77c7fea63ea099c1132ada1f4e455a11b1e7026402e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source/experiments/relation_transport/results/protocol.json",
+          "sha256": "7c70376dfe3f0e62a595724226e429b0013a4abdf5788006a16a3948927d90ad"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/magic_training/results/selection_frozen.json",
+          "sha256": "5a430bb846151d2885eb364c6ccd78b16b6a2084ab6805c7b482b781ba755d0f"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/magic_training/results/training_report.json",
+          "sha256": "75375239b0b77e0ce4a7826b2dc2d56b1728b4df078aacddbe2a51ae58a08ebb"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/magic_training/results/protocol.json",
+          "sha256": "162e2c86c2e553ab6e0c6d1b8f8bb41042057975aad5b54227f9aec7c664d91e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/magic_training/results/initial_attempts/magic-training-20260925/protocol.json",
+          "sha256": "cd43f0874233d22e4d1d800f9b6f5d86ce8c07e10219b8a74fc70f69a85f234e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/magic_training/results/initial_attempts/magic-training-20260925-v2/protocol.json",
+          "sha256": "52343f5b34d08e68e5035ba2ed0b479a5e43b3c105bc13d1a130238322a1724d"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/rigid_landmark/results/selection_frozen.json",
+          "sha256": "b87c5bf02f962be2039017be48d6b72ae171f78cc8870ce87b8307bc09cf22aa"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/rigid_landmark/results/training_report.json",
+          "sha256": "24fa17c9a131126d6e662b1c68a080504b69c8cfaceeb88a9dee08f8139f150a"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/rigid_landmark/results/protocol.json",
+          "sha256": "fc4b751fd7063ab338a2940b8f589ac9b8cac7c87a70504f80279ff5564575be"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/landmark_memory/results/selection_frozen.json",
+          "sha256": "219acae153db08498ff1c50d9e01ded9840bff8b3b62a10262431434f67f76f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/landmark_memory/results/training_report.json",
+          "sha256": "3e05cd5f69af2008729733a9a54a3a92be234c3eeb3701760060330739b06bc0"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/landmark_memory/results/protocol.json",
+          "sha256": "db633115bc30b33a9314b4ce1369466a20f3070ee6a1ad94db912531dab886d9"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/gravity_fusion/results/selection_frozen.json",
+          "sha256": "68acded34948547fe17877b01f61c1918d2bb36a887aeb1107a1804cee301dc6"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/gravity_fusion/results/training_report.json",
+          "sha256": "256cd69007783e019b74ac49ba3bf4d95171a85a6957350a701622ea6ce6e8c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/gravity_fusion/results/protocol.json",
+          "sha256": "e515b3fbf41a3d94ffa49043b54092bfff5846e3d9a25f428ba3c0dea430e843"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/surface_token/results/protocol.json",
+          "sha256": "edcfcc0aadfa77b116cadac7d97563b2e95da0cdc020ad8d839fc1bc689874d3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/surface_registration/results/selection_frozen.json",
+          "sha256": "21ebc222eeceea67aa594dbcd372a39125c180fe86e18e512d680c5e66cc085e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/surface_registration/results/training_report.json",
+          "sha256": "2a1c570f7bdcc49469c0ac71cb887f550402139af31a45528cc9aac6a6b9a93b"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/surface_registration/results/protocol.json",
+          "sha256": "e8692e99318ec60505cb291f2cb6eb7f30ca57fbe616e77ee24c20885f82c99e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/spatial_decoder/results/protocol.json",
+          "sha256": "7cf8e741e87bab2edcf77f6d26a92486bf4ee97b23a41177eb1da3d71159cbe8"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/spatial_decoder/results/smoke/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/spatial_decoder/results/smoke/training_report.json",
+          "sha256": "3f137872f1cc1e75031820e3ae8ee5b76f5b16bbab3ec8c31403cbb4cec1f7e1"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/spatial_decoder/results/spatial/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/spatial_decoder/results/spatial/training_report.json",
+          "sha256": "97dd9be70f341d9e15a266c423ab2b322e0d70d41bddecb20155c6f130921c8e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/interaction/results/selection_frozen.json",
+          "sha256": "bf52e2e32bda0c0ab15fc27df6fb4a1d2c5b940c15cdee7e6583c94d026e63fc"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/interaction/results/training_report.json",
+          "sha256": "e4345d8765067c1eb5fd30c6339946133760668f8280b3abd3fae77295401ad3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/interaction/results/protocol.json",
+          "sha256": "30c5dc71ef9cb7838bb2bb3990987be4f068fc603283889ed4555c526e495214"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/relation_transport/results/selection_frozen.json",
+          "sha256": "37254065635094eedb780c50afffb1bc91391b015240fffe99cdf5b7bd141c62"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/relation_transport/results/training_report.json",
+          "sha256": "34e34661ed5b85af399ee77c7fea63ea099c1132ada1f4e455a11b1e7026402e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v3/experiments/relation_transport/results/protocol.json",
+          "sha256": "7c70376dfe3f0e62a595724226e429b0013a4abdf5788006a16a3948927d90ad"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/magic_training/results/selection_frozen.json",
+          "sha256": "5a430bb846151d2885eb364c6ccd78b16b6a2084ab6805c7b482b781ba755d0f"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/magic_training/results/training_report.json",
+          "sha256": "75375239b0b77e0ce4a7826b2dc2d56b1728b4df078aacddbe2a51ae58a08ebb"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/magic_training/results/protocol.json",
+          "sha256": "162e2c86c2e553ab6e0c6d1b8f8bb41042057975aad5b54227f9aec7c664d91e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/magic_training/results/initial_attempts/magic-training-20260925/protocol.json",
+          "sha256": "cd43f0874233d22e4d1d800f9b6f5d86ce8c07e10219b8a74fc70f69a85f234e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/magic_training/results/initial_attempts/magic-training-20260925-v2/protocol.json",
+          "sha256": "52343f5b34d08e68e5035ba2ed0b479a5e43b3c105bc13d1a130238322a1724d"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/rigid_landmark/results/selection_frozen.json",
+          "sha256": "b87c5bf02f962be2039017be48d6b72ae171f78cc8870ce87b8307bc09cf22aa"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/rigid_landmark/results/training_report.json",
+          "sha256": "24fa17c9a131126d6e662b1c68a080504b69c8cfaceeb88a9dee08f8139f150a"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/rigid_landmark/results/protocol.json",
+          "sha256": "fc4b751fd7063ab338a2940b8f589ac9b8cac7c87a70504f80279ff5564575be"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/landmark_memory/results/selection_frozen.json",
+          "sha256": "219acae153db08498ff1c50d9e01ded9840bff8b3b62a10262431434f67f76f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/landmark_memory/results/training_report.json",
+          "sha256": "3e05cd5f69af2008729733a9a54a3a92be234c3eeb3701760060330739b06bc0"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/landmark_memory/results/protocol.json",
+          "sha256": "db633115bc30b33a9314b4ce1369466a20f3070ee6a1ad94db912531dab886d9"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/gravity_fusion/results/selection_frozen.json",
+          "sha256": "68acded34948547fe17877b01f61c1918d2bb36a887aeb1107a1804cee301dc6"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/gravity_fusion/results/training_report.json",
+          "sha256": "256cd69007783e019b74ac49ba3bf4d95171a85a6957350a701622ea6ce6e8c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/gravity_fusion/results/protocol.json",
+          "sha256": "e515b3fbf41a3d94ffa49043b54092bfff5846e3d9a25f428ba3c0dea430e843"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/surface_token/results/protocol.json",
+          "sha256": "edcfcc0aadfa77b116cadac7d97563b2e95da0cdc020ad8d839fc1bc689874d3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/surface_registration/results/selection_frozen.json",
+          "sha256": "21ebc222eeceea67aa594dbcd372a39125c180fe86e18e512d680c5e66cc085e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/surface_registration/results/training_report.json",
+          "sha256": "2a1c570f7bdcc49469c0ac71cb887f550402139af31a45528cc9aac6a6b9a93b"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/surface_registration/results/protocol.json",
+          "sha256": "e8692e99318ec60505cb291f2cb6eb7f30ca57fbe616e77ee24c20885f82c99e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/spatial_decoder/results/protocol.json",
+          "sha256": "7cf8e741e87bab2edcf77f6d26a92486bf4ee97b23a41177eb1da3d71159cbe8"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/spatial_decoder/results/smoke/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/spatial_decoder/results/smoke/training_report.json",
+          "sha256": "3f137872f1cc1e75031820e3ae8ee5b76f5b16bbab3ec8c31403cbb4cec1f7e1"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/spatial_decoder/results/spatial/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/spatial_decoder/results/spatial/training_report.json",
+          "sha256": "97dd9be70f341d9e15a266c423ab2b322e0d70d41bddecb20155c6f130921c8e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/interaction/results/selection_frozen.json",
+          "sha256": "bf52e2e32bda0c0ab15fc27df6fb4a1d2c5b940c15cdee7e6583c94d026e63fc"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/interaction/results/training_report.json",
+          "sha256": "e4345d8765067c1eb5fd30c6339946133760668f8280b3abd3fae77295401ad3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/interaction/results/protocol.json",
+          "sha256": "30c5dc71ef9cb7838bb2bb3990987be4f068fc603283889ed4555c526e495214"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/relation_transport/results/selection_frozen.json",
+          "sha256": "37254065635094eedb780c50afffb1bc91391b015240fffe99cdf5b7bd141c62"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/relation_transport/results/training_report.json",
+          "sha256": "34e34661ed5b85af399ee77c7fea63ea099c1132ada1f4e455a11b1e7026402e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v2/experiments/relation_transport/results/protocol.json",
+          "sha256": "7c70376dfe3f0e62a595724226e429b0013a4abdf5788006a16a3948927d90ad"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/magic_training/results/selection_frozen.json",
+          "sha256": "5a430bb846151d2885eb364c6ccd78b16b6a2084ab6805c7b482b781ba755d0f"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/magic_training/results/training_report.json",
+          "sha256": "75375239b0b77e0ce4a7826b2dc2d56b1728b4df078aacddbe2a51ae58a08ebb"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/magic_training/results/protocol.json",
+          "sha256": "162e2c86c2e553ab6e0c6d1b8f8bb41042057975aad5b54227f9aec7c664d91e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/magic_training/results/initial_attempts/magic-training-20260925/protocol.json",
+          "sha256": "cd43f0874233d22e4d1d800f9b6f5d86ce8c07e10219b8a74fc70f69a85f234e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/magic_training/results/initial_attempts/magic-training-20260925-v2/protocol.json",
+          "sha256": "52343f5b34d08e68e5035ba2ed0b479a5e43b3c105bc13d1a130238322a1724d"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/rigid_landmark/results/selection_frozen.json",
+          "sha256": "b87c5bf02f962be2039017be48d6b72ae171f78cc8870ce87b8307bc09cf22aa"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/rigid_landmark/results/training_report.json",
+          "sha256": "24fa17c9a131126d6e662b1c68a080504b69c8cfaceeb88a9dee08f8139f150a"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/rigid_landmark/results/protocol.json",
+          "sha256": "fc4b751fd7063ab338a2940b8f589ac9b8cac7c87a70504f80279ff5564575be"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/landmark_memory/results/selection_frozen.json",
+          "sha256": "219acae153db08498ff1c50d9e01ded9840bff8b3b62a10262431434f67f76f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/landmark_memory/results/training_report.json",
+          "sha256": "3e05cd5f69af2008729733a9a54a3a92be234c3eeb3701760060330739b06bc0"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/landmark_memory/results/protocol.json",
+          "sha256": "db633115bc30b33a9314b4ce1369466a20f3070ee6a1ad94db912531dab886d9"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/gravity_fusion/results/selection_frozen.json",
+          "sha256": "68acded34948547fe17877b01f61c1918d2bb36a887aeb1107a1804cee301dc6"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/gravity_fusion/results/training_report.json",
+          "sha256": "256cd69007783e019b74ac49ba3bf4d95171a85a6957350a701622ea6ce6e8c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/gravity_fusion/results/protocol.json",
+          "sha256": "e515b3fbf41a3d94ffa49043b54092bfff5846e3d9a25f428ba3c0dea430e843"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/surface_token/results/protocol.json",
+          "sha256": "edcfcc0aadfa77b116cadac7d97563b2e95da0cdc020ad8d839fc1bc689874d3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/surface_registration/results/selection_frozen.json",
+          "sha256": "21ebc222eeceea67aa594dbcd372a39125c180fe86e18e512d680c5e66cc085e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/surface_registration/results/training_report.json",
+          "sha256": "2a1c570f7bdcc49469c0ac71cb887f550402139af31a45528cc9aac6a6b9a93b"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/surface_registration/results/protocol.json",
+          "sha256": "e8692e99318ec60505cb291f2cb6eb7f30ca57fbe616e77ee24c20885f82c99e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/spatial_decoder/results/protocol.json",
+          "sha256": "7cf8e741e87bab2edcf77f6d26a92486bf4ee97b23a41177eb1da3d71159cbe8"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/spatial_decoder/results/smoke/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/spatial_decoder/results/smoke/training_report.json",
+          "sha256": "3f137872f1cc1e75031820e3ae8ee5b76f5b16bbab3ec8c31403cbb4cec1f7e1"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/spatial_decoder/results/spatial/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/spatial_decoder/results/spatial/training_report.json",
+          "sha256": "97dd9be70f341d9e15a266c423ab2b322e0d70d41bddecb20155c6f130921c8e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/interaction/results/selection_frozen.json",
+          "sha256": "bf52e2e32bda0c0ab15fc27df6fb4a1d2c5b940c15cdee7e6583c94d026e63fc"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/interaction/results/training_report.json",
+          "sha256": "e4345d8765067c1eb5fd30c6339946133760668f8280b3abd3fae77295401ad3"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/interaction/results/protocol.json",
+          "sha256": "30c5dc71ef9cb7838bb2bb3990987be4f068fc603283889ed4555c526e495214"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/relation_transport/results/selection_frozen.json",
+          "sha256": "37254065635094eedb780c50afffb1bc91391b015240fffe99cdf5b7bd141c62"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/relation_transport/results/training_report.json",
+          "sha256": "34e34661ed5b85af399ee77c7fea63ea099c1132ada1f4e455a11b1e7026402e"
+        },
+        {
+          "path": "/home/zhangcy/projects/nclt-relation-compare-20260927-a/source-v5/experiments/relation_transport/results/protocol.json",
+          "sha256": "7c70376dfe3f0e62a595724226e429b0013a4abdf5788006a16a3948927d90ad"
+        }
+      ],
+      "map_files": []
+    },
+    "nclt-sixview-20260928": {
+      "refs": [],
+      "records": [],
+      "map_files": []
+    },
+    "nclt_official_300_20260926": {
+      "refs": [],
+      "records": [],
+      "map_files": []
+    },
+    "relation-transport-parent-repro-20260926-1743": {
+      "refs": [],
+      "records": [
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/relation-training-20260926-repro/protocol.json",
+          "sha256": "a077ae312e22af1c26b82d5b0d8eaea8bdc78acd346aeff99590f220aba18b16"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/relation-training-20260926-repro-detcpu/selection_frozen.json",
+          "sha256": "b2d960f8d6d72999e35fabdd495a9d06a4c82536d87d1b03ab0b33bf0ba5ba4b"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/relation-training-20260926-repro-detcpu/protocol.json",
+          "sha256": "4051183a61eb7522740714d2ec53082f19cefc6b1189d15748708ec17c4517c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/magic_training/results/selection_frozen.json",
+          "sha256": "5a430bb846151d2885eb364c6ccd78b16b6a2084ab6805c7b482b781ba755d0f"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/magic_training/results/training_report.json",
+          "sha256": "75375239b0b77e0ce4a7826b2dc2d56b1728b4df078aacddbe2a51ae58a08ebb"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/magic_training/results/protocol.json",
+          "sha256": "162e2c86c2e553ab6e0c6d1b8f8bb41042057975aad5b54227f9aec7c664d91e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/magic_training/results/initial_attempts/magic-training-20260925/protocol.json",
+          "sha256": "cd43f0874233d22e4d1d800f9b6f5d86ce8c07e10219b8a74fc70f69a85f234e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/magic_training/results/initial_attempts/magic-training-20260925-v2/protocol.json",
+          "sha256": "52343f5b34d08e68e5035ba2ed0b479a5e43b3c105bc13d1a130238322a1724d"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/rigid_landmark/results/selection_frozen.json",
+          "sha256": "b87c5bf02f962be2039017be48d6b72ae171f78cc8870ce87b8307bc09cf22aa"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/rigid_landmark/results/training_report.json",
+          "sha256": "24fa17c9a131126d6e662b1c68a080504b69c8cfaceeb88a9dee08f8139f150a"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/rigid_landmark/results/protocol.json",
+          "sha256": "fc4b751fd7063ab338a2940b8f589ac9b8cac7c87a70504f80279ff5564575be"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/landmark_memory/results/selection_frozen.json",
+          "sha256": "219acae153db08498ff1c50d9e01ded9840bff8b3b62a10262431434f67f76f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/landmark_memory/results/training_report.json",
+          "sha256": "3e05cd5f69af2008729733a9a54a3a92be234c3eeb3701760060330739b06bc0"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/landmark_memory/results/protocol.json",
+          "sha256": "db633115bc30b33a9314b4ce1369466a20f3070ee6a1ad94db912531dab886d9"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/gravity_fusion/results/selection_frozen.json",
+          "sha256": "68acded34948547fe17877b01f61c1918d2bb36a887aeb1107a1804cee301dc6"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/gravity_fusion/results/training_report.json",
+          "sha256": "256cd69007783e019b74ac49ba3bf4d95171a85a6957350a701622ea6ce6e8c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/gravity_fusion/results/protocol.json",
+          "sha256": "e515b3fbf41a3d94ffa49043b54092bfff5846e3d9a25f428ba3c0dea430e843"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/surface_token/results/protocol.json",
+          "sha256": "edcfcc0aadfa77b116cadac7d97563b2e95da0cdc020ad8d839fc1bc689874d3"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/surface_registration/results/selection_frozen.json",
+          "sha256": "21ebc222eeceea67aa594dbcd372a39125c180fe86e18e512d680c5e66cc085e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/surface_registration/results/training_report.json",
+          "sha256": "2a1c570f7bdcc49469c0ac71cb887f550402139af31a45528cc9aac6a6b9a93b"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/surface_registration/results/protocol.json",
+          "sha256": "e8692e99318ec60505cb291f2cb6eb7f30ca57fbe616e77ee24c20885f82c99e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/spatial_decoder/results/protocol.json",
+          "sha256": "7cf8e741e87bab2edcf77f6d26a92486bf4ee97b23a41177eb1da3d71159cbe8"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/spatial_decoder/results/smoke/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/spatial_decoder/results/smoke/training_report.json",
+          "sha256": "3f137872f1cc1e75031820e3ae8ee5b76f5b16bbab3ec8c31403cbb4cec1f7e1"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/spatial_decoder/results/spatial/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/spatial_decoder/results/spatial/training_report.json",
+          "sha256": "97dd9be70f341d9e15a266c423ab2b322e0d70d41bddecb20155c6f130921c8e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/interaction/results/selection_frozen.json",
+          "sha256": "2fbb0ce058cc8accefdab5efa754d39231a52f57fe5ee501d33ca997f0d46c48"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/interaction/results/training_report.json",
+          "sha256": "e4345d8765067c1eb5fd30c6339946133760668f8280b3abd3fae77295401ad3"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/interaction/results/protocol.json",
+          "sha256": "30c5dc71ef9cb7838bb2bb3990987be4f068fc603283889ed4555c526e495214"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/relation_transport/results/selection_frozen.json",
+          "sha256": "7a8479ecb56bbb11aa9828659786265cda79b29f3533ac2fa36816cc6eab3f3f"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/relation_transport/results/training_report.json",
+          "sha256": "34e34661ed5b85af399ee77c7fea63ea099c1132ada1f4e455a11b1e7026402e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/relation-transport-decoder-lr-source-20260926/experiments/relation_transport/results/protocol.json",
+          "sha256": "7c70376dfe3f0e62a595724226e429b0013a4abdf5788006a16a3948927d90ad"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/magic_training/results/selection_frozen.json",
+          "sha256": "5a430bb846151d2885eb364c6ccd78b16b6a2084ab6805c7b482b781ba755d0f"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/magic_training/results/training_report.json",
+          "sha256": "75375239b0b77e0ce4a7826b2dc2d56b1728b4df078aacddbe2a51ae58a08ebb"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/magic_training/results/protocol.json",
+          "sha256": "162e2c86c2e553ab6e0c6d1b8f8bb41042057975aad5b54227f9aec7c664d91e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/magic_training/results/initial_attempts/magic-training-20260925/protocol.json",
+          "sha256": "cd43f0874233d22e4d1d800f9b6f5d86ce8c07e10219b8a74fc70f69a85f234e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/magic_training/results/initial_attempts/magic-training-20260925-v2/protocol.json",
+          "sha256": "52343f5b34d08e68e5035ba2ed0b479a5e43b3c105bc13d1a130238322a1724d"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/rigid_landmark/results/selection_frozen.json",
+          "sha256": "b87c5bf02f962be2039017be48d6b72ae171f78cc8870ce87b8307bc09cf22aa"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/rigid_landmark/results/training_report.json",
+          "sha256": "24fa17c9a131126d6e662b1c68a080504b69c8cfaceeb88a9dee08f8139f150a"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/rigid_landmark/results/protocol.json",
+          "sha256": "fc4b751fd7063ab338a2940b8f589ac9b8cac7c87a70504f80279ff5564575be"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/landmark_memory/results/selection_frozen.json",
+          "sha256": "219acae153db08498ff1c50d9e01ded9840bff8b3b62a10262431434f67f76f3"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/landmark_memory/results/training_report.json",
+          "sha256": "3e05cd5f69af2008729733a9a54a3a92be234c3eeb3701760060330739b06bc0"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/landmark_memory/results/protocol.json",
+          "sha256": "db633115bc30b33a9314b4ce1369466a20f3070ee6a1ad94db912531dab886d9"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/gravity_fusion/results/selection_frozen.json",
+          "sha256": "68acded34948547fe17877b01f61c1918d2bb36a887aeb1107a1804cee301dc6"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/gravity_fusion/results/training_report.json",
+          "sha256": "256cd69007783e019b74ac49ba3bf4d95171a85a6957350a701622ea6ce6e8c7"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/gravity_fusion/results/protocol.json",
+          "sha256": "e515b3fbf41a3d94ffa49043b54092bfff5846e3d9a25f428ba3c0dea430e843"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/surface_token/results/protocol.json",
+          "sha256": "edcfcc0aadfa77b116cadac7d97563b2e95da0cdc020ad8d839fc1bc689874d3"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/surface_registration/results/selection_frozen.json",
+          "sha256": "21ebc222eeceea67aa594dbcd372a39125c180fe86e18e512d680c5e66cc085e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/surface_registration/results/training_report.json",
+          "sha256": "2a1c570f7bdcc49469c0ac71cb887f550402139af31a45528cc9aac6a6b9a93b"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/surface_registration/results/protocol.json",
+          "sha256": "e8692e99318ec60505cb291f2cb6eb7f30ca57fbe616e77ee24c20885f82c99e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/spatial_decoder/results/protocol.json",
+          "sha256": "7cf8e741e87bab2edcf77f6d26a92486bf4ee97b23a41177eb1da3d71159cbe8"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/spatial_decoder/results/smoke/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/spatial_decoder/results/smoke/training_report.json",
+          "sha256": "3f137872f1cc1e75031820e3ae8ee5b76f5b16bbab3ec8c31403cbb4cec1f7e1"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/spatial_decoder/results/spatial/settings.json",
+          "sha256": "7570c278791c4ce463e2097bee2e6941e765e43725b567efbb528654f6c48d03"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/spatial_decoder/results/spatial/training_report.json",
+          "sha256": "97dd9be70f341d9e15a266c423ab2b322e0d70d41bddecb20155c6f130921c8e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/interaction/results/selection_frozen.json",
+          "sha256": "2fbb0ce058cc8accefdab5efa754d39231a52f57fe5ee501d33ca997f0d46c48"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/interaction/results/training_report.json",
+          "sha256": "e4345d8765067c1eb5fd30c6339946133760668f8280b3abd3fae77295401ad3"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/interaction/results/protocol.json",
+          "sha256": "30c5dc71ef9cb7838bb2bb3990987be4f068fc603283889ed4555c526e495214"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/relation_transport/results/selection_frozen.json",
+          "sha256": "7a8479ecb56bbb11aa9828659786265cda79b29f3533ac2fa36816cc6eab3f3f"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/relation_transport/results/training_report.json",
+          "sha256": "34e34661ed5b85af399ee77c7fea63ea099c1132ada1f4e455a11b1e7026402e"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/work/leader-relation-transport/experiments/relation_transport/results/protocol.json",
+          "sha256": "7c70376dfe3f0e62a595724226e429b0013a4abdf5788006a16a3948927d90ad"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/relation-training-decoder-lr-20260926/selection_frozen.json",
+          "sha256": "b00c14c4ba824eed242ab272a8ad48dafef6a9cb955f19c1bbe96143a2f4ae53"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/relation-training-decoder-lr-20260926/training_report.json",
+          "sha256": "c7e1faea3e25ba060329e267e3ab8768df07f6797d57fffbb7fbcc25d1a2d238"
+        },
+        {
+          "path": "/home/zhangcy/projects/relation-transport-parent-repro-20260926-1743/relation-training-decoder-lr-20260926/protocol.json",
+          "sha256": "7d0fe571dd23dd5ab840417e25addb7e0cd8dc3e86650924002b3ecf75ee72f9"
+        }
+      ],
+      "map_files": []
+    }
+  },
+  "remote_unique_commits": 8,
+  "prefix": "/home/zhangcy/.conda/envs/leader",
+  "uid": 1003,
+  "proposal_sha256": "533e91a89648a5970bbdf9787f514bf020c20b59d28341d2f6dd3f0a0b1badfd",
+  "conclusion": "Audited scope contains prior triangulation/GLS and fixed matching refinements; no identical executed cavity reassociation plus shared-landmark run was identified. This is not a novelty or exhaustive external-remote claim.",
+  "limitations": [
+    "origin remote unavailable; cached refs inspected",
+    "first remote attempt timed out; second output truncated; valid v3 audit retained",
+    "large vendored line project separately searched over first-party paths"
+  ],
+  "evidence_sha256": {
+    "audit_local.json": "24b64b6804c7970814de0f6fe8bc335cc210929627a8c5014ea53f69488968ec",
+    "audit_remote_v3.json": "7e24928b3c9844c1bb72db0b87cc1a47b957a0710eb64857bcaf3905e687dbcf",
+    "prepare_remote.json": "951b3a125f08790c0e47a204cc263353e11d9b7ef11db49e173725cf3de5ac18"
+  }
+}
