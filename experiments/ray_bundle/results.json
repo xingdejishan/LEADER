@@ -1,0 +1,1301 @@
+{
+  "snapshot_utc": "2026-09-29T01:45:48.680094+00:00",
+  "baseline": {
+    "frames": 1200,
+    "success": 1200,
+    "failures": 0,
+    "mpe_mean_m": 0.20252501894885627,
+    "moe_mean_deg": 1.666125511210262,
+    "mpe_p90_m": 0.35750090650285893,
+    "moe_p90_deg": 2.8686914926440377,
+    "joint_1m_2deg": 834,
+    "per_date": {
+      "2012-02-12": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.1761626043494411,
+        "moe_mean_deg": 1.5940383473134694,
+        "mpe_p90_m": 0.2857748623422633,
+        "moe_p90_deg": 2.5965252209060457,
+        "joint_1m_2deg": 212
+      },
+      "2012-02-19": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.20378739678519356,
+        "moe_mean_deg": 1.6400233063798835,
+        "mpe_p90_m": 0.373363246171469,
+        "moe_p90_deg": 2.7912215220795265,
+        "joint_1m_2deg": 209
+      },
+      "2012-03-31": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.2144103677997136,
+        "moe_mean_deg": 1.7648512916460974,
+        "mpe_p90_m": 0.3541097029044059,
+        "moe_p90_deg": 3.024650629016116,
+        "joint_1m_2deg": 196
+      },
+      "2012-05-26": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.21573970686107685,
+        "moe_mean_deg": 1.665589099501597,
+        "mpe_p90_m": 0.4305449154695678,
+        "moe_p90_deg": 2.9436846935640864,
+        "joint_1m_2deg": 217
+      }
+    }
+  },
+  "variants": {
+    "original": {
+      "completed_epochs": 4,
+      "epochs": [
+        {
+          "epoch": 1,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.2573334716691699,
+          "moe_mean_deg": 2.340932299730966,
+          "mpe_p90_m": 0.4548456863912932,
+          "moe_p90_deg": 4.413880161105569,
+          "joint_1m_2deg": 659,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.23443668777216412,
+              "moe_mean_deg": 2.4459195524619775,
+              "mpe_p90_m": 0.38279586898231843,
+              "moe_p90_deg": 4.101168616020919,
+              "joint_1m_2deg": 131
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.26840283357554207,
+              "moe_mean_deg": 2.2333077159552697,
+              "mpe_p90_m": 0.48516890351284464,
+              "moe_p90_deg": 4.346033644782406,
+              "joint_1m_2deg": 178
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24236958769237518,
+              "moe_mean_deg": 2.1393991874219918,
+              "mpe_p90_m": 0.417198867341752,
+              "moe_p90_deg": 4.256488527146373,
+              "joint_1m_2deg": 184
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.28412477763659855,
+              "moe_mean_deg": 2.5451027430846254,
+              "mpe_p90_m": 0.5179253967834966,
+              "moe_p90_deg": 5.245324773465566,
+              "joint_1m_2deg": 166
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "fbce5400c3d4a08d04f63a2385620e088ec2de8e33c91ecda3a99219aa9011b2",
+            "evaluation_sha256": "273557b3ced0982e02dbb0ff818e375d1cb7775188fb1abfb51b6b8259ca0638",
+            "freeze_sha256": "30b20bc63bd6d7e7e4fb1c3285cfbae393267b7417e96a0c535e41e75e92facf",
+            "predictions_sha256": "7b6214c3f1871261fe5d9244094505c68ec180869f27c4176945f72d75363ddd"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 2,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.25636367198854154,
+          "moe_mean_deg": 2.349265305259477,
+          "mpe_p90_m": 0.4473492793088665,
+          "moe_p90_deg": 4.413880161100805,
+          "joint_1m_2deg": 653,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2344242046671473,
+              "moe_mean_deg": 2.454637768278416,
+              "mpe_p90_m": 0.3939922422110272,
+              "moe_p90_deg": 4.1111421932975505,
+              "joint_1m_2deg": 129
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.26379553877124795,
+              "moe_mean_deg": 2.2515371875552357,
+              "mpe_p90_m": 0.4652875964377613,
+              "moe_p90_deg": 4.245267556896055,
+              "joint_1m_2deg": 177
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24397270981408103,
+              "moe_mean_deg": 2.1537003208686194,
+              "mpe_p90_m": 0.41832075219792186,
+              "moe_p90_deg": 4.200975935068253,
+              "joint_1m_2deg": 182
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2832622347016899,
+              "moe_mean_deg": 2.5371859443356373,
+              "mpe_p90_m": 0.5177013086551384,
+              "moe_p90_deg": 5.241958254357951,
+              "joint_1m_2deg": 165
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "0cab0c863acd21282888a1352ba471b8243e3824967483654c060d10cd903a8b",
+            "evaluation_sha256": "49a2ab95675b5d6c51ff50cdf9ebe0cf4b83fe56f7bdccdef0c6d7bfea3183d7",
+            "freeze_sha256": "ddd3eac766a093575daf659f85ef6747b51257410d405fd2f5d4c386a4ab5407",
+            "predictions_sha256": "5888c2ddb7f6c5537e4dcbe9037a73004af823c1a0ac9fbaef65cadc05350857"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 3,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.25760164016032094,
+          "moe_mean_deg": 2.358076888984144,
+          "mpe_p90_m": 0.45425867497525874,
+          "moe_p90_deg": 4.465269794947792,
+          "joint_1m_2deg": 647,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.23726154258429138,
+              "moe_mean_deg": 2.492759830686948,
+              "mpe_p90_m": 0.3939922422110502,
+              "moe_p90_deg": 4.101168615838357,
+              "joint_1m_2deg": 130
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.26371125402695716,
+              "moe_mean_deg": 2.27677825326407,
+              "mpe_p90_m": 0.465281558521721,
+              "moe_p90_deg": 4.390030905328,
+              "joint_1m_2deg": 176
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2442804476104508,
+              "moe_mean_deg": 2.1399071235929616,
+              "mpe_p90_m": 0.42110919203764824,
+              "moe_p90_deg": 4.195209532486011,
+              "joint_1m_2deg": 179
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.28515331641958447,
+              "moe_mean_deg": 2.5228623483925974,
+              "mpe_p90_m": 0.4923171615608282,
+              "moe_p90_deg": 5.06042403148476,
+              "joint_1m_2deg": 162
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "dfa1ce15ba8656592c57a587a7bbad941fe320e2f8755ee3d63d6b66ace5787f",
+            "evaluation_sha256": "9d2555df00884b51deddb00081fd7fecfaf0ca5312e4407db04a4cf2aa09dd66",
+            "freeze_sha256": "6293a5ebc768ab2bcbe73ab313cf2d6517cc9a2e2f51eb03537acc274a61defa",
+            "predictions_sha256": "da0438997ea41db74f32745ddd400bd363d58c16b31a15df3b3f6b23af8c55f3"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 4,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.2544770510347732,
+          "moe_mean_deg": 2.353243702314437,
+          "mpe_p90_m": 0.44947577936917654,
+          "moe_p90_deg": 4.4617647041599495,
+          "joint_1m_2deg": 643,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.22585052414520934,
+              "moe_mean_deg": 2.411837000217617,
+              "mpe_p90_m": 0.3823689427267729,
+              "moe_p90_deg": 4.1139044942172385,
+              "joint_1m_2deg": 132
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.26398803844639224,
+              "moe_mean_deg": 2.3115626196239214,
+              "mpe_p90_m": 0.45700684766169797,
+              "moe_p90_deg": 4.484107013715307,
+              "joint_1m_2deg": 174
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.23732824356375035,
+              "moe_mean_deg": 2.1560783529000878,
+              "mpe_p90_m": 0.4140167822802159,
+              "moe_p90_deg": 4.063337078034693,
+              "joint_1m_2deg": 179
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.29074139798374077,
+              "moe_mean_deg": 2.5334968365161217,
+              "mpe_p90_m": 0.5520206601552232,
+              "moe_p90_deg": 5.374732037213406,
+              "joint_1m_2deg": 158
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "12dddd55b5ed6bb47d9ba9b6c4a131517c93c821b66860c8543c930112c1e0a8",
+            "evaluation_sha256": "d5dc126041dfabbd1db91591d8dc527971aedf6f80f79d49b43390796beae422",
+            "freeze_sha256": "c468eb849bd2a33c5bae5e4d8a282f6e3b304ce5dd21cbc4e80dfa284cdee357",
+            "predictions_sha256": "32b0725665fdf5560e0595cf72c2390a7eb81acc20156a78ac4610b70b12c6c9"
+          },
+          "verified": true
+        }
+      ],
+      "best": {
+        "mpe": {
+          "epoch": 4,
+          "value": 0.2544770510347732,
+          "checkpoint_sha256": "12dddd55b5ed6bb47d9ba9b6c4a131517c93c821b66860c8543c930112c1e0a8",
+          "mpe": 0.2544770510347732,
+          "moe": 2.353243702314437
+        },
+        "moe": {
+          "value": 2.340932299730966,
+          "epoch": 1,
+          "checkpoint_sha256": "fbce5400c3d4a08d04f63a2385620e088ec2de8e33c91ecda3a99219aa9011b2",
+          "mpe": 0.2573334716691699,
+          "moe": 2.340932299730966
+        },
+        "combined": {
+          "epoch": 4,
+          "value": 1.3344631856355234,
+          "checkpoint_sha256": "12dddd55b5ed6bb47d9ba9b6c4a131517c93c821b66860c8543c930112c1e0a8",
+          "mpe": 0.2544770510347732,
+          "moe": 2.353243702314437
+        }
+      },
+      "training": {
+        "epoch": 5,
+        "frames": 600,
+        "total": 1200,
+        "updates": 150,
+        "phase": "training",
+        "status": "stopped",
+        "stop_reason": "resource isolation guard detected another compute process"
+      },
+      "pending_validation": []
+    },
+    "repaired": {
+      "completed_epochs": 15,
+      "epochs": [
+        {
+          "epoch": 1,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.26279346989689384,
+          "moe_mean_deg": 2.8218149924710407,
+          "mpe_p90_m": 0.486593055822421,
+          "moe_p90_deg": 5.52721031810909,
+          "joint_1m_2deg": 580,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2415406458192256,
+              "moe_mean_deg": 3.3908766238891643,
+              "mpe_p90_m": 0.45151943123372207,
+              "moe_p90_deg": 6.575644296899221,
+              "joint_1m_2deg": 121
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2506725051212655,
+              "moe_mean_deg": 2.668044958167128,
+              "mpe_p90_m": 0.46275968949682555,
+              "moe_p90_deg": 5.435532559913947,
+              "joint_1m_2deg": 153
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2555369786619374,
+              "moe_mean_deg": 2.514667281143635,
+              "mpe_p90_m": 0.442597431308859,
+              "moe_p90_deg": 5.071869806990895,
+              "joint_1m_2deg": 163
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.30342374998514676,
+              "moe_mean_deg": 2.713671106684236,
+              "mpe_p90_m": 0.5784863933519191,
+              "moe_p90_deg": 5.2854612892788335,
+              "joint_1m_2deg": 143
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "a5cd1f1e86a843ad7b2bd58ff52f4f7d847e6004c0a47d43a5576b97c4843c4d",
+            "evaluation_sha256": "6bfd2ddc0d09fb34ceb8f25406ccdc6bf69036ea11ec375a30cd444c5fac6f3e",
+            "freeze_sha256": "0a40278d8b546998542bbaae2eb95ab765578c2dbf903f713a516d1131cd4abd",
+            "predictions_sha256": "a6f37bcfcea9891f056ec4fb52c84830bb310ceac5255849db356359119a06d6"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 2,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.2688591630314142,
+          "moe_mean_deg": 2.9148582160339083,
+          "mpe_p90_m": 0.5011332378462428,
+          "moe_p90_deg": 5.771170038774966,
+          "joint_1m_2deg": 565,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24312977085040102,
+              "moe_mean_deg": 3.432202390664388,
+              "mpe_p90_m": 0.44337499284190707,
+              "moe_p90_deg": 6.779147034649083,
+              "joint_1m_2deg": 110
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25947453937104675,
+              "moe_mean_deg": 2.901991465765619,
+              "mpe_p90_m": 0.5032797393321113,
+              "moe_p90_deg": 5.897939034932282,
+              "joint_1m_2deg": 150
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.26234530511847937,
+              "moe_mean_deg": 2.603431912506104,
+              "mpe_p90_m": 0.4791849560724599,
+              "moe_p90_deg": 5.665372803618845,
+              "joint_1m_2deg": 165
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.3104870367857299,
+              "moe_mean_deg": 2.721807095199522,
+              "mpe_p90_m": 0.5679006463659039,
+              "moe_p90_deg": 4.9634197225600865,
+              "joint_1m_2deg": 140
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "9a794383c4906403884ec76004da09635012f376b85c36de18848be3a8946abf",
+            "evaluation_sha256": "774c136774b3f926e7f3496140229eed2f4114922af4e3b9d676fc0cb7cb3e9b",
+            "freeze_sha256": "d4def00f0fdd9087d502e1d148d8a9ae7252a5979b17608ec0fd1f7658df22d2",
+            "predictions_sha256": "b9978e88eeccd5649a09ae78f2f863f9f2f2592f0122bda5840aea959114739c"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 3,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.26454999572699295,
+          "moe_mean_deg": 2.8657641672386207,
+          "mpe_p90_m": 0.49559636027260534,
+          "moe_p90_deg": 5.863066018620349,
+          "joint_1m_2deg": 574,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.23984699779162597,
+              "moe_mean_deg": 3.3701041283443383,
+              "mpe_p90_m": 0.45096151166581944,
+              "moe_p90_deg": 6.679648522905435,
+              "joint_1m_2deg": 110
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2544741917556797,
+              "moe_mean_deg": 2.6941696485968962,
+              "mpe_p90_m": 0.4921340577134838,
+              "moe_p90_deg": 5.6492850608439475,
+              "joint_1m_2deg": 157
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25724127425067206,
+              "moe_mean_deg": 2.602736172010606,
+              "mpe_p90_m": 0.44545615789876775,
+              "moe_p90_deg": 5.559658831339335,
+              "joint_1m_2deg": 168
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.30663751910999404,
+              "moe_mean_deg": 2.7960467200026438,
+              "mpe_p90_m": 0.5588899250327035,
+              "moe_p90_deg": 5.470734747494658,
+              "joint_1m_2deg": 139
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "bb00aa997a5b886fcd14c7c4374f1cec7c5d9bf45d659d02f2aa955b47d55e15",
+            "evaluation_sha256": "004facf07ba8e34a8362667ffdbc53d1f695ce2baf3f41483ee72577554602c7",
+            "freeze_sha256": "4661536e506a2541d82af710c96668de5708af09d37bb4627d839ce5f7943477",
+            "predictions_sha256": "41b558b6340464b275f57b9b8553da3bc84e7302efae7fed17b8eeef3c956729"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 4,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.27081574976922446,
+          "moe_mean_deg": 2.9310439276631377,
+          "mpe_p90_m": 0.49238984472940284,
+          "moe_p90_deg": 5.802242104363631,
+          "joint_1m_2deg": 548,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2517140320693262,
+              "moe_mean_deg": 3.655269407584389,
+              "mpe_p90_m": 0.45916626246937803,
+              "moe_p90_deg": 7.482825421993635,
+              "joint_1m_2deg": 106
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25119901961590935,
+              "moe_mean_deg": 2.7344140650176145,
+              "mpe_p90_m": 0.48260010105640666,
+              "moe_p90_deg": 5.838575707304929,
+              "joint_1m_2deg": 148
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2675434366536563,
+              "moe_mean_deg": 2.6760397720470457,
+              "mpe_p90_m": 0.4795225583144649,
+              "moe_p90_deg": 5.645354020434215,
+              "joint_1m_2deg": 155
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.312806510738006,
+              "moe_mean_deg": 2.658452466003502,
+              "mpe_p90_m": 0.5897690783934464,
+              "moe_p90_deg": 4.8373377053287365,
+              "joint_1m_2deg": 139
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "ddcfee4c71e7bf7355cbf3445e730a5ca4de9743ae6efa42bec5e87df2bb125d",
+            "evaluation_sha256": "a0230ed5aa42b9e9590101d5fb9e1a9fa4c8d53d64161dfcd33be4d633fbf28d",
+            "freeze_sha256": "13da80d248bcdb8f9862390565841c6a8346c2b3e3e35a88b55da959543051a0",
+            "predictions_sha256": "b43b183c4cefcb957c4fd4915496b414a8d3aeba56c04ecf6ab7968092cd2023"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 5,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.26519939263280584,
+          "moe_mean_deg": 2.84615321054326,
+          "mpe_p90_m": 0.4899579554629105,
+          "moe_p90_deg": 5.674009781880611,
+          "joint_1m_2deg": 571,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24485665614820817,
+              "moe_mean_deg": 3.4303535641565297,
+              "mpe_p90_m": 0.4580548254635083,
+              "moe_p90_deg": 6.332312433506401,
+              "joint_1m_2deg": 111
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24933208116061042,
+              "moe_mean_deg": 2.63146485456841,
+              "mpe_p90_m": 0.48425907126128676,
+              "moe_p90_deg": 5.483583863388488,
+              "joint_1m_2deg": 151
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25898001549701505,
+              "moe_mean_deg": 2.5644930794117853,
+              "mpe_p90_m": 0.44743671982984706,
+              "moe_p90_deg": 5.283386551404719,
+              "joint_1m_2deg": 168
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.3076288177253895,
+              "moe_mean_deg": 2.758301344036315,
+              "mpe_p90_m": 0.5801530040244648,
+              "moe_p90_deg": 5.274620268520535,
+              "joint_1m_2deg": 141
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "2ac968a3618a18c0c058982ae767cabd22e8637cd7a23e092f57b365ab119afd",
+            "evaluation_sha256": "155a4499f5550c0388c353dd83dd3a2b40e6d38e7826b0520d8ea3f048f4284a",
+            "freeze_sha256": "f8e7526b8b0b78233b3d3675c37726a848ae0171d3c009185b27b39b2ce21915",
+            "predictions_sha256": "4d77f4a28d792bb7d5afd064b23e3d6c849abf030d9e86c0c30fc098f49cc5db"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 6,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.26547772759064203,
+          "moe_mean_deg": 2.8665975833098565,
+          "mpe_p90_m": 0.5026332024854874,
+          "moe_p90_deg": 5.668320371312096,
+          "joint_1m_2deg": 572,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24255113332244535,
+              "moe_mean_deg": 3.4805252300609855,
+              "mpe_p90_m": 0.466243312537992,
+              "moe_p90_deg": 7.343913768014747,
+              "joint_1m_2deg": 112
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25063696144418285,
+              "moe_mean_deg": 2.6745644514121434,
+              "mpe_p90_m": 0.4986971604412211,
+              "moe_p90_deg": 5.739138264060077,
+              "joint_1m_2deg": 155
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25770895335336985,
+              "moe_mean_deg": 2.587608078116047,
+              "mpe_p90_m": 0.43727513641472276,
+              "moe_p90_deg": 4.95996939275531,
+              "joint_1m_2deg": 165
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.3110138622425701,
+              "moe_mean_deg": 2.7236925736502515,
+              "mpe_p90_m": 0.5873566860156537,
+              "moe_p90_deg": 5.0596190296796015,
+              "joint_1m_2deg": 140
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "f018163610b740cac08e055da8493cf4016b549d608dd193dd12272981f9a778",
+            "evaluation_sha256": "070069cb1f46ed44e33f2211501b66cb643672e0d97999d3b0f94af5808bdbd5",
+            "freeze_sha256": "6a1100faf5080eb9fdcb3e5016d15f8c39390a0fcf11e5eb1a028a5d3d1a27ad",
+            "predictions_sha256": "094534e3e9e81dd6885c37bfa0bac72817af2e9a31e41c35b8247ce73be37517"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 7,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.2646675993324229,
+          "moe_mean_deg": 2.81301304140265,
+          "mpe_p90_m": 0.49651181615541995,
+          "moe_p90_deg": 5.461769792043585,
+          "joint_1m_2deg": 569,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2459135981741457,
+              "moe_mean_deg": 3.4809189599023718,
+              "mpe_p90_m": 0.45973583114473326,
+              "moe_p90_deg": 7.3830378659972515,
+              "joint_1m_2deg": 110
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24969266650902086,
+              "moe_mean_deg": 2.6207320395530807,
+              "mpe_p90_m": 0.49721220777564595,
+              "moe_p90_deg": 5.5770836463371385,
+              "joint_1m_2deg": 152
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25853897058049247,
+              "moe_mean_deg": 2.5113942896801422,
+              "mpe_p90_m": 0.4399227321668021,
+              "moe_p90_deg": 5.1751547889137735,
+              "joint_1m_2deg": 164
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.3045251620660325,
+              "moe_mean_deg": 2.6390068764750043,
+              "mpe_p90_m": 0.5822689943605047,
+              "moe_p90_deg": 4.787269369824569,
+              "joint_1m_2deg": 143
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "03a2f398221416b350802f4fc314be86dc7f76cc12cce62bb90d82e988ea6d6d",
+            "evaluation_sha256": "b74441f4518c70b81e8fa761b9e331275539ac5ce555768e0300110bf1d6f2a8",
+            "freeze_sha256": "e312eb3fdcf7ee6560a59b545f7d67c52d715df5e17ce9fd9f7a4f9f3236d712",
+            "predictions_sha256": "b31db5e4cf8242fb69f0979ec31d066713329537f9312ea780e11702a9a5b210"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 8,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.2697240286158699,
+          "moe_mean_deg": 2.931444509077249,
+          "mpe_p90_m": 0.5033225766577898,
+          "moe_p90_deg": 5.592689396349758,
+          "joint_1m_2deg": 557,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24591273798765959,
+              "moe_mean_deg": 3.477479125433747,
+              "mpe_p90_m": 0.4618691642009756,
+              "moe_p90_deg": 5.897468055867911,
+              "joint_1m_2deg": 106
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2557262392221294,
+              "moe_mean_deg": 2.8006031815565575,
+              "mpe_p90_m": 0.5204257861157282,
+              "moe_p90_deg": 5.509944281243201,
+              "joint_1m_2deg": 148
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2639397052560217,
+              "moe_mean_deg": 2.5704510267917047,
+              "mpe_p90_m": 0.44646512472967465,
+              "moe_p90_deg": 5.525494647928789,
+              "joint_1m_2deg": 162
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.3133174319976689,
+              "moe_mean_deg": 2.8772447025269865,
+              "mpe_p90_m": 0.6130014241071818,
+              "moe_p90_deg": 5.000115887943152,
+              "joint_1m_2deg": 141
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "6634f3e91373265c765cb0993451b22bc066948d711ad1f0b40041d2488e28ce",
+            "evaluation_sha256": "870706df204173f91c9a9bfdbd140ae997de8f0e761fac0b1beda049900a24a6",
+            "freeze_sha256": "e31ebb4e25b18580ba8bc54ffe1970b814a86647df68999064c927bb415fbb57",
+            "predictions_sha256": "ab016e3d6eeadc6cb3c882f5e20ed2b827335690fc399c5bea172f03b3f338a5"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 9,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.2705403223424908,
+          "moe_mean_deg": 2.910551350247641,
+          "mpe_p90_m": 0.5051307364926155,
+          "moe_p90_deg": 5.721801363963359,
+          "joint_1m_2deg": 561,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2499411680264771,
+              "moe_mean_deg": 3.6336765123833703,
+              "mpe_p90_m": 0.45667368160001304,
+              "moe_p90_deg": 7.520887499513698,
+              "joint_1m_2deg": 105
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2556072820408349,
+              "moe_mean_deg": 2.751694869428833,
+              "mpe_p90_m": 0.5178057832945853,
+              "moe_p90_deg": 5.7299007097619485,
+              "joint_1m_2deg": 148
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.26461383125268784,
+              "moe_mean_deg": 2.578206214362455,
+              "mpe_p90_m": 0.4576455049527857,
+              "moe_p90_deg": 5.5930713831058085,
+              "joint_1m_2deg": 164
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.3119990080499636,
+              "moe_mean_deg": 2.6786278048159056,
+              "mpe_p90_m": 0.5891803576265995,
+              "moe_p90_deg": 4.8878141295487145,
+              "joint_1m_2deg": 144
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "a3b912f121a0af47afb58546802a1e3978bb9dada36da543344987d1826bb761",
+            "evaluation_sha256": "6ad7a97717de6d20f145e8962b6b4af7305e56088a6f4ef2f480df799f45b467",
+            "freeze_sha256": "b03902299295c230097b501d9dc079b91832565483fb8410fb7c3a055f813482",
+            "predictions_sha256": "6a1ca1f172a03c5ae21ba1926750c71d969fab68e22049e5b9700829409d85b9"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 10,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.2679413449549019,
+          "moe_mean_deg": 2.9238861684362716,
+          "mpe_p90_m": 0.49919028398501997,
+          "moe_p90_deg": 5.765128073990667,
+          "joint_1m_2deg": 560,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2427647693418758,
+              "moe_mean_deg": 3.5783560462462463,
+              "mpe_p90_m": 0.43967973215053896,
+              "moe_p90_deg": 7.920968949459052,
+              "joint_1m_2deg": 108
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25059536413103206,
+              "moe_mean_deg": 2.6837186646475906,
+              "mpe_p90_m": 0.48510945238503345,
+              "moe_p90_deg": 5.451524400886962,
+              "joint_1m_2deg": 152
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.26154542560317506,
+              "moe_mean_deg": 2.5174847238437428,
+              "mpe_p90_m": 0.45707809072166544,
+              "moe_p90_deg": 5.084968050959864,
+              "joint_1m_2deg": 164
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.31685982074352487,
+              "moe_mean_deg": 2.9159852390075085,
+              "mpe_p90_m": 0.600720304062047,
+              "moe_p90_deg": 5.362663122721891,
+              "joint_1m_2deg": 136
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "bb524f6afc19ed4a15e667b227995dc4466292ad7bd1fdbd22b7df9252d7e121",
+            "evaluation_sha256": "8a6080c266f1cde233aa7158c9d2b130f0409fd7553b02411d369ffc17fb1d47",
+            "freeze_sha256": "435262a9a5ad56da4e34b15240ec7abd38972ab73f351b22b5497c60314c0945",
+            "predictions_sha256": "4c98d05718f99ea6b46a56b3b09f176ea0d507e81fc9477a6b9634462f631229"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 11,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.2682564246261106,
+          "moe_mean_deg": 2.916409834364098,
+          "mpe_p90_m": 0.503752458085537,
+          "moe_p90_deg": 5.668449686916737,
+          "joint_1m_2deg": 550,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24831160732051616,
+              "moe_mean_deg": 3.6929361712948183,
+              "mpe_p90_m": 0.4583223383166287,
+              "moe_p90_deg": 7.3890193294866195,
+              "joint_1m_2deg": 95
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2521289909749707,
+              "moe_mean_deg": 2.6980327741792074,
+              "mpe_p90_m": 0.4812508322339877,
+              "moe_p90_deg": 5.161735495638257,
+              "joint_1m_2deg": 153
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25682878079977145,
+              "moe_mean_deg": 2.5425185597318256,
+              "mpe_p90_m": 0.44345752473614963,
+              "moe_p90_deg": 5.173796664028108,
+              "joint_1m_2deg": 168
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.3157563194091842,
+              "moe_mean_deg": 2.7321518322505427,
+              "mpe_p90_m": 0.5641445790774863,
+              "moe_p90_deg": 5.0497128039404,
+              "joint_1m_2deg": 134
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "816cb504723bb12e1f6f5061b65a51c2545d384ed27aad2483a487e8f580175b",
+            "evaluation_sha256": "bcd208f477f58fd7524663791e5709c0b42138b653d8f09dd87f2468daa1700e",
+            "freeze_sha256": "223fc27082e7b99820619cde739cee9c2769ac59044f443c7356f93dd1c2aeda",
+            "predictions_sha256": "b650d9fdcfd551d8462bd9183542a5b9324d8cfc67c4d50bc08dea3c31e38b3c"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 12,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.27087653363981756,
+          "moe_mean_deg": 2.9390671550950893,
+          "mpe_p90_m": 0.49918405029491114,
+          "moe_p90_deg": 5.744794839853219,
+          "joint_1m_2deg": 552,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24646079241622795,
+              "moe_mean_deg": 3.54642679923643,
+              "mpe_p90_m": 0.43801490426024664,
+              "moe_p90_deg": 6.699891010011163,
+              "joint_1m_2deg": 99
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25188341409403764,
+              "moe_mean_deg": 2.686259050415705,
+              "mpe_p90_m": 0.45591100867000955,
+              "moe_p90_deg": 5.645285739985554,
+              "joint_1m_2deg": 155
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.26402904593896787,
+              "moe_mean_deg": 2.654054318131618,
+              "mpe_p90_m": 0.4870089213383735,
+              "moe_p90_deg": 5.202541036894248,
+              "joint_1m_2deg": 162
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.32113288211003693,
+              "moe_mean_deg": 2.8695284525966045,
+              "mpe_p90_m": 0.6008006161173346,
+              "moe_p90_deg": 5.212288148277162,
+              "joint_1m_2deg": 136
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "9cc5c78b23adae3baddf9ff52aeab62b14022ae870c04a6384ec2e464f262def",
+            "evaluation_sha256": "2a548919c077630d14944283d4fc7917adba3215ef81f25e7b1cc15b3e7704e7",
+            "freeze_sha256": "af31d178a0f0e900a5e71262e115fadd9c65c7bafe89605c02e4803ffb409194",
+            "predictions_sha256": "736ff344b2e05dc1d4bd2e5869308222e155e055dd9819241b55f4046f7abfc7"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 13,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.2711479478638167,
+          "moe_mean_deg": 2.9748219742171007,
+          "mpe_p90_m": 0.5042304208348304,
+          "moe_p90_deg": 5.711947415554441,
+          "joint_1m_2deg": 549,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2452133746973119,
+              "moe_mean_deg": 3.6864683075389286,
+              "mpe_p90_m": 0.44667477146167006,
+              "moe_p90_deg": 7.5241453770014,
+              "joint_1m_2deg": 98
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2519266932506332,
+              "moe_mean_deg": 2.694878314627818,
+              "mpe_p90_m": 0.4664479149608371,
+              "moe_p90_deg": 5.386813067605603,
+              "joint_1m_2deg": 155
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.26763113545374323,
+              "moe_mean_deg": 2.6765217511970234,
+              "mpe_p90_m": 0.4954627840806628,
+              "moe_p90_deg": 5.533179063019635,
+              "joint_1m_2deg": 163
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.3198205880535786,
+              "moe_mean_deg": 2.8414195235046327,
+              "mpe_p90_m": 0.577249358923565,
+              "moe_p90_deg": 5.407013128037582,
+              "joint_1m_2deg": 133
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "f407d8c02477ad3a69b5a6cdfe05193fbf95708f23e9f994138b21a449634203",
+            "evaluation_sha256": "ad248e0757dcccc5379a37354795ed970f57c9885ab7da1d008e64c006d040d3",
+            "freeze_sha256": "b0469f1a4f84d0e99efbd13b4edec23d652f856ba0cb6411591bb3b9dd936bfc",
+            "predictions_sha256": "2bd8530e8c73ebf7b193af09bfa7e328f8325dea408d3630481533ade5eb3ee6"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 14,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.2697344817994555,
+          "moe_mean_deg": 2.951483383797114,
+          "mpe_p90_m": 0.4923539255625302,
+          "moe_p90_deg": 5.678255314865232,
+          "joint_1m_2deg": 545,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25023653618920827,
+              "moe_mean_deg": 3.756829819480601,
+              "mpe_p90_m": 0.43923057293860224,
+              "moe_p90_deg": 7.39848114136926,
+              "joint_1m_2deg": 98
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24667900760185682,
+              "moe_mean_deg": 2.683459622798511,
+              "mpe_p90_m": 0.45063866621973814,
+              "moe_p90_deg": 5.381655324886663,
+              "joint_1m_2deg": 150
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.2635524546478431,
+              "moe_mean_deg": 2.5963474633551127,
+              "mpe_p90_m": 0.4515392045301602,
+              "moe_p90_deg": 5.230662903450869,
+              "joint_1m_2deg": 162
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.318469928758914,
+              "moe_mean_deg": 2.7692966295542307,
+              "mpe_p90_m": 0.5847790660406823,
+              "moe_p90_deg": 4.893110802144865,
+              "joint_1m_2deg": 135
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "4ca527192c05d4bfd3581d6856e9828a0d271b2140f4ad834b3021e769827a67",
+            "evaluation_sha256": "a4a30f5ec1607491d5847e00b7c82da508b33645ee52b9029aebb8aa16730c6e",
+            "freeze_sha256": "0ba253c9d82b2c50d5ac5976a3a299ece267b53716b4c33d6c817bcd901f9090",
+            "predictions_sha256": "5486bc8808ec85d378e1abc4b844e202464e19eedca3a80a08350c0a7745602f"
+          },
+          "verified": true
+        },
+        {
+          "epoch": 15,
+          "frames": 1200,
+          "success": 1200,
+          "failures": 0,
+          "mpe_mean_m": 0.271060201827208,
+          "moe_mean_deg": 3.0021874412654057,
+          "mpe_p90_m": 0.5111682628450176,
+          "moe_p90_deg": 5.842584282705939,
+          "joint_1m_2deg": 545,
+          "per_date": {
+            "2012-02-12": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.24632407226875339,
+              "moe_mean_deg": 3.718573330873375,
+              "mpe_p90_m": 0.47648790238315636,
+              "moe_p90_deg": 7.1083461014763545,
+              "joint_1m_2deg": 99
+            },
+            "2012-02-19": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.25796621326073754,
+              "moe_mean_deg": 2.880639330849718,
+              "mpe_p90_m": 0.4877029295865009,
+              "moe_p90_deg": 6.169535157092254,
+              "joint_1m_2deg": 151
+            },
+            "2012-03-31": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.26121653519792926,
+              "moe_mean_deg": 2.586602787627149,
+              "mpe_p90_m": 0.44921500300048073,
+              "moe_p90_deg": 5.22982098406302,
+              "joint_1m_2deg": 159
+            },
+            "2012-05-26": {
+              "frames": 300,
+              "success": 300,
+              "failures": 0,
+              "mpe_mean_m": 0.31873398658141183,
+              "moe_mean_deg": 2.822934315711381,
+              "mpe_p90_m": 0.5827858534192911,
+              "moe_p90_deg": 5.255500126528752,
+              "joint_1m_2deg": 136
+            }
+          },
+          "artifacts": {
+            "checkpoint_sha256": "f8760666109ed11e948409a253fe163539073a8378aad101a9df9482f6b3933d",
+            "evaluation_sha256": "df411799b2838ee564b0de9e0cdb45473fe1d0341509c5acb11d75bc529496b6",
+            "freeze_sha256": "036910f546af320a1db8208a3baf106636960212d6f5be3fcbaf9d83e8941c6b",
+            "predictions_sha256": "59e3fb7a303ad4ceb4f93ac3ff1ac3dfcf8a6a4f6a4ab6511d3b2dea36864d99"
+          },
+          "verified": true
+        }
+      ],
+      "best": {
+        "mpe": {
+          "epoch": 1,
+          "value": 0.26279346989689384,
+          "checkpoint_sha256": "a5cd1f1e86a843ad7b2bd58ff52f4f7d847e6004c0a47d43a5576b97c4843c4d",
+          "mpe": 0.26279346989689384,
+          "moe": 2.8218149924710407
+        },
+        "moe": {
+          "epoch": 7,
+          "value": 2.81301304140265,
+          "checkpoint_sha256": "03a2f398221416b350802f4fc314be86dc7f76cc12cce62bb90d82e988ea6d6d",
+          "mpe": 0.2646675993324229,
+          "moe": 2.81301304140265
+        },
+        "combined": {
+          "epoch": 1,
+          "value": 1.4956120609366292,
+          "checkpoint_sha256": "a5cd1f1e86a843ad7b2bd58ff52f4f7d847e6004c0a47d43a5576b97c4843c4d",
+          "mpe": 0.26279346989689384,
+          "moe": 2.8218149924710407
+        }
+      },
+      "training": {
+        "epoch": 17,
+        "frames": 700,
+        "total": 1200,
+        "updates": 175,
+        "phase": "training",
+        "status": "running"
+      },
+      "pending_validation": [
+        16
+      ]
+    }
+  },
+  "configuration": {
+    "train_frames": 1200,
+    "dev_frames": 1200,
+    "epochs_planned": 40,
+    "seed": 20,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "physical_batch": 1,
+    "gradient_accumulation": 4,
+    "updates_per_epoch": 300,
+    "query_features": 64,
+    "candidates": 4,
+    "identity_loss_weight": 0.1,
+    "identity_labels": 1940,
+    "frames_with_identity_labels": 515,
+    "reference_maps": "opposite parity for training; all training reference frames for dev",
+    "camera": "Cam5",
+    "baseline": "same-code frozen LEADER L0",
+    "selection": "development set; not independent test performance"
+  },
+  "method_source_sha256": {
+    "raybundle/repaired.py": "65827a3cf32b4c80ba07eae605133cacdbcfc012a05bdbc59a9cd5f294762838",
+    "raybundle/geometry.py": "b825b84464e80836b6a56bb7bde2c5a2f3b9aab550e7681f903042702fa48460",
+    "raybundle/model.py": "cee293e96d0b7b47aa7695f29a9f401104325c20a8aedada7e5755e4c1bfb1eb",
+    "raybundle/identity_labels.py": "3552eb46de06b7c653f800ff4e6239333f933537357803c9fea312113325c534",
+    "raybundle/repair_train.py": "e8dc60271370cca09f35ac74e9ecda9dfc8e047f8c8434df3e535bfc72f734e4"
+  }
+}

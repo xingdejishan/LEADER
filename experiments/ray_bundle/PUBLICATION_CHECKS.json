@@ -1,0 +1,81 @@
+{
+  "cpu_tests_passed": 18,
+  "tests": [
+    {
+      "name": "test_queue_rejects_changed_and_duplicate_checkpoints",
+      "case": "test_async_runtime.AsyncRuntimeTests"
+    },
+    {
+      "name": "test_resume_preserves_next_update_and_random_order",
+      "case": "test_async_runtime.AsyncRuntimeTests"
+    },
+    {
+      "name": "test_bearing_jacobians_and_camera_origin",
+      "case": "test_raybundle.RayBundleTests"
+    },
+    {
+      "name": "test_far_landmark_retrieval_uses_reference_camera_location",
+      "case": "test_raybundle.RayBundleTests"
+    },
+    {
+      "name": "test_finite_gradients_two_updates",
+      "case": "test_raybundle.RayBundleTests"
+    },
+    {
+      "name": "test_leave_group_out_removes_all_own_messages",
+      "case": "test_raybundle.RayBundleTests"
+    },
+    {
+      "name": "test_missing_candidates_and_gt_isolation",
+      "case": "test_raybundle.RayBundleTests"
+    },
+    {
+      "name": "test_reassociate_and_output_real_identities",
+      "case": "test_raybundle.RayBundleTests"
+    },
+    {
+      "name": "test_shared_lidar_error_does_not_shrink_with_duplicate_points",
+      "case": "test_raybundle.RayBundleTests"
+    },
+    {
+      "name": "test_unlabelled_or_missing_candidates_training_is_finite",
+      "case": "test_raybundle.RayBundleTests"
+    },
+    {
+      "name": "test_weak_depth_reduces_directional_information",
+      "case": "test_raybundle.RayBundleTests"
+    },
+    {
+      "name": "test_recovers_fifth_candidate_behind_appearance_top_four",
+      "case": "test_repaired.RepairTests"
+    },
+    {
+      "name": "test_soft_capacity_and_identity_loss_have_finite_gradients",
+      "case": "test_repaired.RepairTests"
+    },
+    {
+      "name": "test_three_soft_updates_then_one_hard_update_and_refresh",
+      "case": "test_repaired.RepairTests"
+    },
+    {
+      "name": "test_zero_visual_preserves_leader_even_with_asymmetric_targets",
+      "case": "test_repaired.RepairTests"
+    },
+    {
+      "name": "test_configuration_required",
+      "case": "test_runtime_config.RuntimeConfigTests"
+    },
+    {
+      "name": "test_existing_environment_and_owned_directory",
+      "case": "test_runtime_config.RuntimeConfigTests"
+    },
+    {
+      "name": "test_other_environment_rejected",
+      "case": "test_runtime_config.RuntimeConfigTests"
+    }
+  ],
+  "gpu_retrained_for_publication": false,
+  "core_method_files_match_experiment_hashes": true,
+  "private_execution_logs_omitted": true,
+  "history": "independent root commit; no private ancestor history"
+}
