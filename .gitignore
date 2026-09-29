@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.pt
+*.pth
+*.safetensors
+.env
+.env.*
+runs/
+outputs/
+NCLT/
+*.log
