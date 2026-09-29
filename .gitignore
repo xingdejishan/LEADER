@@ -9,3 +9,6 @@ runs/
 outputs/
 NCLT/
 *.log
+configs/local/
+*.pem
+*.key
