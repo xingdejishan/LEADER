@@ -1,0 +1,27 @@
+{
+  "files": {
+    "bind_parent.py": "1b5f5eae9c8b4bd267fde1089a2a9e5f701df9604143372940a8e4e48d3e7ab8",
+    "checks.py": "6bdc9e81ec9de763a9824ffd84c9265ced62029ba18984100aa525488449274e",
+    "common.py": "6a274fdd25aa02beefa946e97d0e5c03558bbbbdcb03c96c09f57f41435d704c",
+    "compat_det.py": "3a35731658d8c29f4cc7d83c3737489583c63931a7c93693396afc0783f7d317",
+    "cpu_checks.py": "06b46d29c7805586e02aa14a259c3202449f2004ab061e826fd24269f1276ca7",
+    "diagnose_epoch.py": "d17b51e413b42cdfa0b01124741b4f1151fc3451999e065908ecbfe41675ec80",
+    "fov_visibility_v2.py": "3b2c442a27a377bd7095082b84b88aa9dab244d747be93cb585cf0052f5bee48",
+    "predict_epoch.py": "1b6ab623d5454f9c8553c8d52d810016732a616127e0f543ed81e974113049a8",
+    "predict_epoch_compat.py": "b2eba982ff123062471370bb4bf87540889cb4c8a76d69c48000758f8f0dc330",
+    "run.py": "91148853b8b66932bd7e73d9e4cd8761a16f56c9e04db215f42b6944e5663c9b",
+    "runtime.py": "eb0c16bec27a9c49422c9db8637112dd30cb9b334b249dfc7affc5fba606dadf",
+    "score_epoch.py": "403a28c188a0b5491ecfb8dcb28bcca290ef43a41424541bc6aab13e94ead2fd",
+    "trained_checks.py": "8f734513bea15d03e6fc52cfa79a90a278219ae038ad364a6c1956f04bbeac08",
+    "train_to.py": "b387a9cfcc0859594867c7990aa36a417fe4fd81f7806cd9a35a86760d1572d3",
+    "vera.py": "4e6d94ffd7428c64bb54bcc46ca0bc20e955f851fcaf14a98b240a8b5c0c471f"
+  },
+  "plan_sha256": "b05a355cb673c3ad93f526c34c84662c5549e09e0c7aeada753ae365e9cedc67",
+  "status": "independent bounded FOV adaptation, queued after intact support-v1 pipeline",
+  "active_parent_unchanged": true,
+  "requires_gpu_checks_before_training": true,
+  "phase_epochs": 20,
+  "control": "reuse original frozen pure LEADER predictions; no control training",
+  "diagnostic_version": 6,
+  "previous_deployment_sha256": "885057882e6175da4093d0b5b0fbe99f8ca3d0272463e8d385f303e9326de530"
+}

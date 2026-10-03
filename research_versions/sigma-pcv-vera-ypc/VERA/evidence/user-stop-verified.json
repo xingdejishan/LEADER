@@ -1,0 +1,5 @@
+{
+  "status": 0,
+  "stdout": "{\"verified_time\": 1791011891.0328846, \"all_four_owned_vera_versions_terminal\": true, \"remaining_vera_workers\": [], \"stop_request_persisted\": true, \"checkpoint_and_results_preserved\": true, \"resume_or_new_attempts_authorized\": false, \"other_tasks_signaled\": false}\n",
+  "stderr": ""
+}

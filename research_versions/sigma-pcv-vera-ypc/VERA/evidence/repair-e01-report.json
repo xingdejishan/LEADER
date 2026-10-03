@@ -1,0 +1,107 @@
+{
+  "version": "cam5-repair-v2",
+  "epoch": 1,
+  "protocol": "Original main unchanged, Cam5, 1200 Train / 1200 Dev, historical pure LEADER finetune reused",
+  "results": {
+    "vera": {
+      "frames": 1200,
+      "failures": 0,
+      "mpe_m": 0.4221042016841225,
+      "moe_deg": 2.1731199071731733,
+      "mpe_p90_m": 0.7787659987932892,
+      "moe_p90_deg": 3.803120141421461,
+      "joint_1m_2deg": 646,
+      "historical_reuse": false,
+      "prediction_sha256": "ec3ecce676433d7f59503c4f90b8b44b2b1bfad1cd9ee2b3b46b88a5621946c3",
+      "freeze_sha256": "46268067fa2de9c8b6e614605eaf798ab2c4608f6aae2c57efd9f51ce0d2d94c",
+      "dates": {
+        "2012-02-12": {
+          "frames": 300,
+          "mpe_m": 0.37182363531452395,
+          "moe_deg": 1.8068652143891542
+        },
+        "2012-02-19": {
+          "frames": 300,
+          "mpe_m": 0.41524738658723287,
+          "moe_deg": 2.080781765550485
+        },
+        "2012-03-31": {
+          "frames": 300,
+          "mpe_m": 0.43488389790964305,
+          "moe_deg": 2.3067849108317726
+        },
+        "2012-05-26": {
+          "frames": 300,
+          "mpe_m": 0.46646188692509005,
+          "moe_deg": 2.49804773792128
+        }
+      }
+    },
+    "leader_finetune": {
+      "frames": 1200,
+      "failures": 0,
+      "mpe_m": 0.17949788079580942,
+      "moe_deg": 1.6242310898570118,
+      "mpe_p90_m": 0.32117946111380624,
+      "moe_p90_deg": 2.802495610391081,
+      "joint_1m_2deg": 849,
+      "historical_reuse": true,
+      "prediction_sha256": "7373c77211917eb3c17f6846cca51a831fe473ba41291ac975d175e1506036f8",
+      "freeze_sha256": "3322dbaa689b78d819bbd60c9d6ee1fe4ed1db865d9e1748fbf7981cd17b95c5",
+      "dates": {
+        "2012-02-12": {
+          "frames": 300,
+          "mpe_m": 0.1479096549977146,
+          "moe_deg": 1.552514438528163
+        },
+        "2012-02-19": {
+          "frames": 300,
+          "mpe_m": 0.18325844580533907,
+          "moe_deg": 1.6022074544832323
+        },
+        "2012-03-31": {
+          "frames": 300,
+          "mpe_m": 0.1870336387172175,
+          "moe_deg": 1.7405428884113539
+        },
+        "2012-05-26": {
+          "frames": 300,
+          "mpe_m": 0.19978978366296649,
+          "moe_deg": 1.6016595780052978
+        }
+      }
+    }
+  },
+  "paired": {
+    "mean_delta": [
+      0.2426063208883133,
+      0.5488888173161616
+    ],
+    "position_improved": 135,
+    "position_worsened": 1065,
+    "rotation_improved": 365,
+    "rotation_worsened": 835
+  },
+  "admission": {
+    "mean_admitted": 58.03916666666667,
+    "mean_admitted_in_pool": 43.766666666666666,
+    "mean_pool_swaps": 14.195833333333333
+  },
+  "plan_sha256": "7f678315852a1e6de746da33a9d78a02dadae29bbe1b61630a81a0367e53bb44",
+  "inputs_sha256": "8d44a1191b0d8a103d8dc0c3e3c48c9bbaf1d25a63208bcbb9ce21cef9d6c35e",
+  "truth_manifest_sha256": {
+    "2012-02-12": "8bef4abd01547b6d5443ad5fd107968438d686d20cff2ef0fd51183dd8e641ee",
+    "2012-02-19": "858ead1028ea15b3885a75e6b2cb529b2f282393d64c58f68bcfb2a65c69c626",
+    "2012-03-31": "693567160a6a64de987d5fd2976155b1ceb1b0ba74c9d7f1c612264b99e88c42",
+    "2012-05-26": "52d3100e5a8dc91bfbe8f46ac7ce7231b1d653c12895be0d465b8d3ee66557db"
+  },
+  "paired_errors_sha256": "19fd52d22f2c28e9e5c1a429a05381e5e44456dd698b70e8957993740132c26e",
+  "independent_test": false,
+  "limitations": [
+    "Repeated previously-used Dev dates; no independent test or training-seed evidence",
+    "Historical finetune trained full RPGE/head and fixed concat; repair uses original-main frozen official-L0 backbone/head, new module only; whole-system comparison, not an isolated VERA ablation",
+    "New module is discrete candidate selection with internal predicted rotation transport and protected pool; does not claim unchanged VERA architecture",
+    "Frozen original-main concatenation may remain nondeterministic; no coordinate repair or CPU/CUDA parity claim",
+    "Short bounded trial does not establish full convergence or global mechanism invalidity"
+  ]
+}

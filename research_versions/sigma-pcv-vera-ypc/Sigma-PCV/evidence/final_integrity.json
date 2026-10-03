@@ -1,0 +1,22 @@
+{
+  "hash_chain_verified": true,
+  "original_v2_source_unchanged": true,
+  "stage2_leader_exactly_frozen": true,
+  "stage2_covariance_and_far_changed": true,
+  "stage2_pcv_temperature_frozen": true,
+  "train_dev_keys_disjoint": true,
+  "all_1200_unique_predictions": true,
+  "evaluation_sha256": "8cd7196f637be5f39616c956bc1d59e29fb49c48221545ec82f3f49094eea47b",
+  "checkpoint_sha256": "81e25fabe8f1fa4615b9c5326ac8d06e5e5f9f50a37f2144a652291f310486c5",
+  "summary": {
+    "position_relative_change_percent": 2.10957462992718,
+    "rotation_relative_change_percent": 0.7783992851577048,
+    "mean_position_delta_mm": 2.929391921969188,
+    "mean_rotation_delta_deg": 0.010929140024161255,
+    "median_position_delta_mm": 4.190503626946687,
+    "median_rotation_delta_deg": -0.000603709137491748,
+    "both_improved_frames": 297,
+    "pcv_correction_mean_m": 0.13390456553238134,
+    "pcv_supported_mean": 245.5525
+  }
+}

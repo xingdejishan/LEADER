@@ -1,0 +1,25 @@
+{
+  "files": {
+    "common.py": "46040b06a36f394e353cb163b7a950d2083238b8b721f3804e86d00c012572c8",
+    "score_epoch.py": "702e0b0433c306b8afa377af21fb758a42476f37cba9588525d98ecc9351a658",
+    "diagnose_epoch.py": "c85e3410daae8f55dab0b4c0aee67d3b85bea96c376975b31eef045eebdea47d",
+    "compat_det.py": "3a35731658d8c29f4cc7d83c3737489583c63931a7c93693396afc0783f7d317",
+    "predict_epoch_compat.py": "b2eba982ff123062471370bb4bf87540889cb4c8a76d69c48000758f8f0dc330",
+    "vera.py": "db24449538a823d4f3b2003d838035ff06fabf1159ec939aa15cf4dcb9757f66",
+    "train_to.py": "d218f23281705202e4d1b4505d2948b422a76dd78c825372f76181ff5d3b950d",
+    "cpu_checks.py": "c5c46725568ed19fb6097859e4509fda1cf2c98f1432d595f0c835785be3844a",
+    "predict_epoch.py": "1b6ab623d5454f9c8553c8d52d810016732a616127e0f543ed81e974113049a8",
+    "runtime.py": "b81f2d34b6816bc2154ceff1db9bf17518161fa33c2c43113aeb692c41c5bb29",
+    "run.py": "cd036af44dff594c48dfa3e6635e3822951aabc7176a0726095b987fa39a3446",
+    "checks.py": "6bdc9e81ec9de763a9824ffd84c9265ced62029ba18984100aa525488449274e",
+    "reuse_control.py": "b237a907e0408bf6558b194141e07ae915ab7326334504baba5b7e9cc48567c1"
+  },
+  "time": 1790960103.6184962,
+  "parent_unchanged": true,
+  "source_unchanged": true,
+  "diagnostic_version": 4,
+  "previous_deployment_sha256": "c50e485ee5a881df5541d4d4103a2e78ef679243321520a79d14830957d17f6c",
+  "change": "queued diagnostic only: add actual backend u-ranked active pool/TRR mass, fitted-plane residuals and gradient snapshot; no training or mechanism change",
+  "prediction_compatibility": "process-local CUDA 3x3 determinant evaluated on CPU; no environment/source/coordinate change",
+  "parent_e4_checkpoint_sha256": "03b58906e9f9bd6f5e4a00c471cc777beb0ff31c4e46db26d84c99a0ec9f9958"
+}

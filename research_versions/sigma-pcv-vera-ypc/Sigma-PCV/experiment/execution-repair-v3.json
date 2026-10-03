@@ -1,0 +1,18 @@
+{
+  "reason": "JSON list versus dataset tuple caused false ordered-key assertion before first stage2 update",
+  "correction": "normalize dataset.keys to list preserving exact values and order; no model, loss, data or training budget changes",
+  "config_sha256": "f343f6b4312c5a90a7b023d6fa936c052b1224e12f0e31859a758b4b4049cf76",
+  "stage1_checkpoint_sha256": "e8e793e3427091a5a2803b96415b46ccfe83da25b6dfb0f73d6ab6598ae626da",
+  "initial_manifest_sha256": "3cd395fa039c096c712b8ac41131b29e721502520257e098e78da0feaf84dbb3",
+  "all_1200_cache_hashes_verified": true,
+  "resumed_phases": [
+    "stage2",
+    "predict",
+    "score"
+  ],
+  "previous_stage2_updates": 0,
+  "execution_sha256": {
+    "run_repair_v3.py": "7752879809ce01091f92f1159f1013f31dc2408231339d20ceee3586d171cfc3",
+    "supervisor-repair-v3.py": "7b300546dcd9e16b85c8c673891d56dedfbecac8ec3336d5d6e7dff32c642ea7"
+  }
+}

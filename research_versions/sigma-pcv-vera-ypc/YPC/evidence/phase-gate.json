@@ -1,0 +1,17 @@
+{
+  "passed": false,
+  "gate": "heldout all-frame yaw RMSE <=0.8*zero-correction RMSE AND in-grid top1>=3/21 AND better than deterministic wrong-image/pixel intervention",
+  "measured_rmse_deg": 0.955344687284821,
+  "zero_rmse_deg": 0.6414805541094973,
+  "wrong_image_rmse_deg": 0.9638118351511578,
+  "top1_in_grid": 0.24583333333333332,
+  "chance_top1": 0.047619047619047616,
+  "variance_scale_squared": 1.4451744907648643,
+  "actual_updates": 3836,
+  "checkpoint_sha256": "4b04e077e5a293bc652b6472e5d4bcaad33c4dff45c5a7ecf19953b55a1d53a6",
+  "fit_frames": 960,
+  "calibration_frames": 240,
+  "outside_grid_fit": 1,
+  "outside_grid_calibration": 0,
+  "result_scope": "phase measurement gate only; no YPC development pose result and no frontend-conditioned training"
+}

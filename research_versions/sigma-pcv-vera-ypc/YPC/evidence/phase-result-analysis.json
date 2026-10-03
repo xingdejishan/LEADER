@@ -1,0 +1,107 @@
+{
+  "scope": "coarse21 phase measurement, four fixed epochs; training-side heldout only, no new development pose evaluation",
+  "train_frames": 1200,
+  "fit_frames": 960,
+  "fit_in_grid": 959,
+  "calibration_frames": 240,
+  "uniform_top1": 0.047619047619047616,
+  "learned_top1": 0.24583333333333332,
+  "constant_zero_top1": 0.29583333333333334,
+  "fit_majority_class": 10,
+  "fit_majority_angle_deg": 0.0,
+  "fit_majority_top1": 0.29583333333333334,
+  "fit_class_histogram": [
+    0,
+    0,
+    1,
+    0,
+    4,
+    9,
+    13,
+    51,
+    82,
+    200,
+    300,
+    175,
+    75,
+    31,
+    13,
+    2,
+    2,
+    0,
+    1,
+    0,
+    0
+  ],
+  "fit_class_prior_calibration_ce": 1.9226971502929038,
+  "fit_smoothed_prior_mean_deg": -0.05959183673469368,
+  "fit_prior_mean_calibration_rmse_deg": 0.6389441303723489,
+  "measured_rmse_deg": 0.955344687284821,
+  "zero_rmse_deg": 0.6414805541094973,
+  "argmax_phase_rmse_deg": 1.0060504277315994,
+  "per_date": {
+    "2012-01-22": {
+      "frames": 60,
+      "zero_rmse_deg": 0.8238847080799708,
+      "measured_rmse_deg": 1.1662808190341305
+    },
+    "2012-02-02": {
+      "frames": 60,
+      "zero_rmse_deg": 0.4669194085450513,
+      "measured_rmse_deg": 0.7403726945048995
+    },
+    "2012-02-18": {
+      "frames": 60,
+      "zero_rmse_deg": 0.5121064201499234,
+      "measured_rmse_deg": 0.878484014782729
+    },
+    "2012-05-11": {
+      "frames": 60,
+      "zero_rmse_deg": 0.6978083356908696,
+      "measured_rmse_deg": 0.9852091383301217
+    }
+  },
+  "original1200_final_pose_decomposition": {
+    "frames": 1200,
+    "frame": "body frame; frozen 8x300 T_corr=I, no ground rectification",
+    "decomposition": "right relative rotation R_pred.T @ R_GT; principal rotation-vector XYZ; best pure right-Rz angle maximizes trace",
+    "component_rmse_deg": {
+      "roll_x": 1.0000588388185916,
+      "pitch_y": 0.655437311303178,
+      "yaw_z": 1.0871820275592246
+    },
+    "component_mean_abs_deg": {
+      "roll_x": 0.7666973584754951,
+      "pitch_y": 0.4761242227649666,
+      "yaw_z": 0.807582418285133
+    },
+    "yaw_squared_fraction": 0.45256866449825645,
+    "best_yaw_rmse_deg": 1.0872318514972548,
+    "best_yaw_abs_p90_deg": 1.7751480051110375,
+    "best_yaw_outside4": 5,
+    "pure_yaw_oracle_remaining_moe_deg": 1.0013985747925145,
+    "pure_yaw_oracle_remaining_p90_deg": 1.8735846380152292,
+    "original_moe_deg": 1.4040531938498806,
+    "original_mpe_m": 0.13886173451329006,
+    "baseline_sha256": "83b2c96da793c60a47e200baa2112802a2179be6ddb7973a37712b5b1e81e05e",
+    "manifests": {
+      "2012-02-12": "7e0369a8cf90be044650daa5f0f0e90923b674d7ca08724c122ab96e0e3a06ad",
+      "2012-02-19": "3d91e68296357b64c10128f8156b14374b7b1564bc7289a174367c2e1308b458",
+      "2012-03-31": "b5a8d08517269891dfa001cf6812d45cf3c63adda47d3d75b04374973e088064",
+      "2012-05-26": "9442142a38347c4ea984367dcb0d9bf11504382ed6cecc414b669dce865401f8"
+    },
+    "GT_manifest_sha256": {
+      "2012-02-12": "8bef4abd01547b6d5443ad5fd107968438d686d20cff2ef0fd51183dd8e641ee",
+      "2012-02-19": "858ead1028ea15b3885a75e6b2cb529b2f282393d64c58f68bcfb2a65c69c626",
+      "2012-03-31": "693567160a6a64de987d5fd2976155b1ceb1b0ba74c9d7f1c612264b99e88c42",
+      "2012-05-26": "52d3100e5a8dc91bfbe8f46ac7ce7231b1d653c12895be0d465b8d3ee66557db"
+    },
+    "scope": "existing development predictions only; no new YPC prediction, no training-side gate labels here",
+    "components_sha256": "4d05dc47fa4d44a8582eae9f22e51823d90714f25be45636dc4de45eafc6419f"
+  },
+  "source_inputs_sha256": {
+    "train-freeze.json": "1506d91633a4b373755d30186d46530172d855691ceb016bdb2070c3ea317319",
+    "calibration-e04.json": "812a4d48f730c85dd48b6a75c3b67d54c6bfc0438a1521d16918ff45058a4f7a",
+    "baseline-rotation-components.npz": "4d05dc47fa4d44a8582eae9f22e51823d90714f25be45636dc4de45eafc6419f"
+  }
+}

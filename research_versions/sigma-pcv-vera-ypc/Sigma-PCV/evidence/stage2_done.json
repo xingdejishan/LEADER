@@ -1,0 +1,30 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "frames": 1200,
+      "updates": 300,
+      "loss": 4.6217992029587425,
+      "seconds": 1261.6627424494363,
+      "checkpoint_sha256": "3d09a85b91d621765f98be0ece1506121c9261a5f2587d940d30b0729419a936"
+    },
+    {
+      "epoch": 2,
+      "frames": 1200,
+      "updates": 300,
+      "loss": 4.52004912674427,
+      "seconds": 1257.2953278138302,
+      "checkpoint_sha256": "0adba9c0a25d22ff4519c1ecd8d759e353b9c2c12cf34eb845bd6daf04fb6699"
+    },
+    {
+      "epoch": 3,
+      "frames": 1200,
+      "updates": 300,
+      "loss": 4.506393415530523,
+      "seconds": 1253.6284492160194,
+      "checkpoint_sha256": "81e25fabe8f1fa4615b9c5326ac8d06e5e5f9f50a37f2144a652291f310486c5"
+    }
+  ],
+  "final_checkpoint_sha256": "81e25fabe8f1fa4615b9c5326ac8d06e5e5f9f50a37f2144a652291f310486c5",
+  "leader_frozen": true
+}

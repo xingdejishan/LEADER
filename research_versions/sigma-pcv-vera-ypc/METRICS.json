@@ -1,0 +1,344 @@
+{
+  "metric_definitions": {
+    "MPE": "mean position error, m",
+    "MOE": "mean orientation error, degrees",
+    "phase_RMSE": "1D yaw phase RMSE, degrees",
+    "joint": "position<1m AND orientation<2deg, count"
+  },
+  "Sigma-PCV": {
+    "version": "stage1-03 + stage2-03, execution-repair-v3",
+    "scope": "1200 repeatedly used development frames",
+    "baseline": {
+      "frames": 1200,
+      "success": 1200,
+      "failures": 0,
+      "mpe_mean_m": 0.13886173451329006,
+      "moe_mean_deg": 1.4040531938498806,
+      "mpe_p90_m": 0.23027577119107479,
+      "moe_p90_deg": 2.4422664995442305,
+      "joint_1m_2deg": 957
+    },
+    "candidate": {
+      "frames": 1200,
+      "success": 1200,
+      "failures": 0,
+      "mpe_mean_m": 0.14179112643525926,
+      "moe_mean_deg": 1.414982333874042,
+      "mpe_p90_m": 0.234094625426631,
+      "moe_p90_deg": 2.4778767535549013,
+      "joint_1m_2deg": 957
+    },
+    "status": "negative; finite3+3 epochs do not establish convergence"
+  },
+  "VERA": {
+    "main-e04": {
+      "scope": "1200 repeatedly used development frames; whole-system comparison",
+      "candidate": {
+        "frames": 1200,
+        "failures": 0,
+        "mpe_m": 0.2854644240298241,
+        "moe_deg": 1.8202286986062954,
+        "mpe_p90_m": 0.493749763338009,
+        "moe_p90_deg": 3.104745169155687,
+        "joint_1m_2deg": 789,
+        "inference_seconds": 1266.6000837180763,
+        "prediction_sha256": "b62a1565a6f13a72ceafc469efc397319340a328bca0584b819bfc33dd17eda8",
+        "freeze_sha256": "69f8e9e2827c3281f137f2c4c9d1850556a13bcb77dca79d5c8db704571e6577",
+        "historical_reuse": false,
+        "dates": {
+          "2012-02-12": {
+            "frames": 300,
+            "mpe_m": 0.2717321481314088,
+            "moe_deg": 1.6602116338714477
+          },
+          "2012-02-19": {
+            "frames": 300,
+            "mpe_m": 0.2755383252901743,
+            "moe_deg": 1.7939507487785478
+          },
+          "2012-03-31": {
+            "frames": 300,
+            "mpe_m": 0.2751332868572727,
+            "moe_deg": 1.8795879929864494
+          },
+          "2012-05-26": {
+            "frames": 300,
+            "mpe_m": 0.3194539358404406,
+            "moe_deg": 1.9471644187887371
+          }
+        }
+      },
+      "baseline": {
+        "frames": 1200,
+        "failures": 0,
+        "mpe_m": 0.17949788079580942,
+        "moe_deg": 1.6242310898570118,
+        "mpe_p90_m": 0.32117946111380624,
+        "moe_p90_deg": 2.802495610391081,
+        "joint_1m_2deg": 849,
+        "inference_seconds": 0,
+        "prediction_sha256": "7373c77211917eb3c17f6846cca51a831fe473ba41291ac975d175e1506036f8",
+        "freeze_sha256": "3322dbaa689b78d819bbd60c9d6ee1fe4ed1db865d9e1748fbf7981cd17b95c5",
+        "historical_reuse": true,
+        "dates": {
+          "2012-02-12": {
+            "frames": 300,
+            "mpe_m": 0.1479096549977146,
+            "moe_deg": 1.552514438528163
+          },
+          "2012-02-19": {
+            "frames": 300,
+            "mpe_m": 0.18325844580533907,
+            "moe_deg": 1.6022074544832323
+          },
+          "2012-03-31": {
+            "frames": 300,
+            "mpe_m": 0.1870336387172175,
+            "moe_deg": 1.7405428884113539
+          },
+          "2012-05-26": {
+            "frames": 300,
+            "mpe_m": 0.19978978366296649,
+            "moe_deg": 1.6016595780052978
+          }
+        }
+      },
+      "epoch": 4,
+      "status": "negative; stopped by user"
+    },
+    "support-e30": {
+      "scope": "1200 repeatedly used development frames; whole-system comparison",
+      "candidate": {
+        "frames": 1200,
+        "failures": 0,
+        "mpe_m": 0.2306666256527169,
+        "moe_deg": 1.6882972973118213,
+        "mpe_p90_m": 0.39780995479483117,
+        "moe_p90_deg": 2.9139563315578245,
+        "joint_1m_2deg": 842,
+        "inference_seconds": 630.3517000400461,
+        "prediction_sha256": "47aeb58f8e7d695e2bfb37fab7a07d86f22ec45c5f18a1629be1f545bf7f345c",
+        "freeze_sha256": "e9e6a694e132471d231aa78aa602589cf471b6d2d6f46d2db54fecf7529c2793",
+        "historical_reuse": false,
+        "dates": {
+          "2012-02-12": {
+            "frames": 300,
+            "mpe_m": 0.20099866568340952,
+            "moe_deg": 1.5969883605266633
+          },
+          "2012-02-19": {
+            "frames": 300,
+            "mpe_m": 0.22608333370940575,
+            "moe_deg": 1.6810722325512122
+          },
+          "2012-03-31": {
+            "frames": 300,
+            "mpe_m": 0.23166133153860793,
+            "moe_deg": 1.747896068778875
+          },
+          "2012-05-26": {
+            "frames": 300,
+            "mpe_m": 0.2639231716794444,
+            "moe_deg": 1.7272325273905342
+          }
+        }
+      },
+      "baseline": {
+        "frames": 1200,
+        "failures": 0,
+        "mpe_m": 0.17949788079580942,
+        "moe_deg": 1.6242310898570118,
+        "mpe_p90_m": 0.32117946111380624,
+        "moe_p90_deg": 2.802495610391081,
+        "joint_1m_2deg": 849,
+        "inference_seconds": 0,
+        "prediction_sha256": "7373c77211917eb3c17f6846cca51a831fe473ba41291ac975d175e1506036f8",
+        "freeze_sha256": "3322dbaa689b78d819bbd60c9d6ee1fe4ed1db865d9e1748fbf7981cd17b95c5",
+        "historical_reuse": true,
+        "dates": {
+          "2012-02-12": {
+            "frames": 300,
+            "mpe_m": 0.1479096549977146,
+            "moe_deg": 1.552514438528163
+          },
+          "2012-02-19": {
+            "frames": 300,
+            "mpe_m": 0.18325844580533907,
+            "moe_deg": 1.6022074544832323
+          },
+          "2012-03-31": {
+            "frames": 300,
+            "mpe_m": 0.1870336387172175,
+            "moe_deg": 1.7405428884113539
+          },
+          "2012-05-26": {
+            "frames": 300,
+            "mpe_m": 0.19978978366296649,
+            "moe_deg": 1.6016595780052978
+          }
+        }
+      },
+      "epoch": 30,
+      "status": "negative; stopped by user"
+    },
+    "fov-e10": {
+      "scope": "1200 repeatedly used development frames; whole-system comparison",
+      "candidate": {
+        "frames": 1200,
+        "failures": 0,
+        "mpe_m": 0.2203022342315836,
+        "moe_deg": 1.6759712896859753,
+        "mpe_p90_m": 0.3823453383937853,
+        "moe_p90_deg": 2.8470893405043434,
+        "joint_1m_2deg": 846,
+        "inference_seconds": 1788.57050413033,
+        "prediction_sha256": "126accd43bb697e4e24368589d54c82707fec14ef3e09cfd5a50e6be8fdb94c8",
+        "freeze_sha256": "c13b33626d4b2201201df17dd5602e3395c069680b003afe6987acea8491702b",
+        "historical_reuse": false,
+        "dates": {
+          "2012-02-12": {
+            "frames": 300,
+            "mpe_m": 0.18787754176143814,
+            "moe_deg": 1.5881738137282033
+          },
+          "2012-02-19": {
+            "frames": 300,
+            "mpe_m": 0.21323656323813536,
+            "moe_deg": 1.652488670067204
+          },
+          "2012-03-31": {
+            "frames": 300,
+            "mpe_m": 0.22241650304273888,
+            "moe_deg": 1.7336331082499965
+          },
+          "2012-05-26": {
+            "frames": 300,
+            "mpe_m": 0.2576783288840221,
+            "moe_deg": 1.7295895666984977
+          }
+        }
+      },
+      "baseline": {
+        "frames": 1200,
+        "failures": 0,
+        "mpe_m": 0.17949788079580942,
+        "moe_deg": 1.6242310898570118,
+        "mpe_p90_m": 0.32117946111380624,
+        "moe_p90_deg": 2.802495610391081,
+        "joint_1m_2deg": 849,
+        "inference_seconds": 0,
+        "prediction_sha256": "7373c77211917eb3c17f6846cca51a831fe473ba41291ac975d175e1506036f8",
+        "freeze_sha256": "3322dbaa689b78d819bbd60c9d6ee1fe4ed1db865d9e1748fbf7981cd17b95c5",
+        "historical_reuse": true,
+        "dates": {
+          "2012-02-12": {
+            "frames": 300,
+            "mpe_m": 0.1479096549977146,
+            "moe_deg": 1.552514438528163
+          },
+          "2012-02-19": {
+            "frames": 300,
+            "mpe_m": 0.18325844580533907,
+            "moe_deg": 1.6022074544832323
+          },
+          "2012-03-31": {
+            "frames": 300,
+            "mpe_m": 0.1870336387172175,
+            "moe_deg": 1.7405428884113539
+          },
+          "2012-05-26": {
+            "frames": 300,
+            "mpe_m": 0.19978978366296649,
+            "moe_deg": 1.6016595780052978
+          }
+        }
+      },
+      "epoch": 10,
+      "status": "negative; stopped by user"
+    },
+    "repair-e01": {
+      "scope": "1200 repeatedly used development frames; whole-system comparison",
+      "candidate": {
+        "frames": 1200,
+        "failures": 0,
+        "mpe_m": 0.4221042016841225,
+        "moe_deg": 2.1731199071731733,
+        "mpe_p90_m": 0.7787659987932892,
+        "moe_p90_deg": 3.803120141421461,
+        "joint_1m_2deg": 646,
+        "historical_reuse": false,
+        "prediction_sha256": "ec3ecce676433d7f59503c4f90b8b44b2b1bfad1cd9ee2b3b46b88a5621946c3",
+        "freeze_sha256": "46268067fa2de9c8b6e614605eaf798ab2c4608f6aae2c57efd9f51ce0d2d94c",
+        "dates": {
+          "2012-02-12": {
+            "frames": 300,
+            "mpe_m": 0.37182363531452395,
+            "moe_deg": 1.8068652143891542
+          },
+          "2012-02-19": {
+            "frames": 300,
+            "mpe_m": 0.41524738658723287,
+            "moe_deg": 2.080781765550485
+          },
+          "2012-03-31": {
+            "frames": 300,
+            "mpe_m": 0.43488389790964305,
+            "moe_deg": 2.3067849108317726
+          },
+          "2012-05-26": {
+            "frames": 300,
+            "mpe_m": 0.46646188692509005,
+            "moe_deg": 2.49804773792128
+          }
+        }
+      },
+      "baseline": {
+        "frames": 1200,
+        "failures": 0,
+        "mpe_m": 0.17949788079580942,
+        "moe_deg": 1.6242310898570118,
+        "mpe_p90_m": 0.32117946111380624,
+        "moe_p90_deg": 2.802495610391081,
+        "joint_1m_2deg": 849,
+        "historical_reuse": true,
+        "prediction_sha256": "7373c77211917eb3c17f6846cca51a831fe473ba41291ac975d175e1506036f8",
+        "freeze_sha256": "3322dbaa689b78d819bbd60c9d6ee1fe4ed1db865d9e1748fbf7981cd17b95c5",
+        "dates": {
+          "2012-02-12": {
+            "frames": 300,
+            "mpe_m": 0.1479096549977146,
+            "moe_deg": 1.552514438528163
+          },
+          "2012-02-19": {
+            "frames": 300,
+            "mpe_m": 0.18325844580533907,
+            "moe_deg": 1.6022074544832323
+          },
+          "2012-03-31": {
+            "frames": 300,
+            "mpe_m": 0.1870336387172175,
+            "moe_deg": 1.7405428884113539
+          },
+          "2012-05-26": {
+            "frames": 300,
+            "mpe_m": 0.19978978366296649,
+            "moe_deg": 1.6016595780052978
+          }
+        }
+      },
+      "epoch": 1,
+      "status": "negative; stopped by user"
+    }
+  },
+  "YPC": {
+    "version": "coarse21, fixed e04",
+    "scope": "240 training-side calibration frames, not development pose evaluation",
+    "phase_rmse_deg": 0.955344687284821,
+    "zero_phase_rmse_deg": 0.6414805541094973,
+    "top1": 0.24583333333333332,
+    "constant_zero_top1": 0.29583333333333334,
+    "mpe_m": null,
+    "moe_deg": null,
+    "status": "phase gate failed; full-pose evaluation not run"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "baseline": {
+    "frames": 1200,
+    "success": 1200,
+    "failures": 0,
+    "mpe_mean_m": 0.13886173451329006,
+    "moe_mean_deg": 1.4040531938498806,
+    "mpe_p90_m": 0.23027577119107479,
+    "moe_p90_deg": 2.4422664995442305,
+    "joint_1m_2deg": 957
+  },
+  "candidate": {
+    "frames": 1200,
+    "success": 1200,
+    "failures": 0,
+    "mpe_mean_m": 0.14179112643525926,
+    "moe_mean_deg": 1.414982333874042,
+    "mpe_p90_m": 0.234094625426631,
+    "moe_p90_deg": 2.4778767535549013,
+    "joint_1m_2deg": 957
+  },
+  "candidate_minus_baseline": {
+    "mpe_m": 0.002929391921969188,
+    "moe_deg": 0.010929140024161255
+  },
+  "improved_frames": {
+    "position": 545,
+    "rotation": 601
+  },
+  "per_date": {
+    "2012-02-12": {
+      "baseline": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.13049267700588513,
+        "moe_mean_deg": 1.4286327124866463,
+        "mpe_p90_m": 0.21235092027504793,
+        "moe_p90_deg": 2.6455398719795493,
+        "joint_1m_2deg": 235
+      },
+      "candidate": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.13630124795160906,
+        "moe_mean_deg": 1.4151404732127257,
+        "mpe_p90_m": 0.2267030898682602,
+        "moe_p90_deg": 2.704904712355487,
+        "joint_1m_2deg": 238
+      }
+    },
+    "2012-02-19": {
+      "baseline": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.14325778757749855,
+        "moe_mean_deg": 1.3851929819792794,
+        "mpe_p90_m": 0.2523186466805362,
+        "moe_p90_deg": 2.3374831673019547,
+        "joint_1m_2deg": 241
+      },
+      "candidate": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.15063313679427903,
+        "moe_mean_deg": 1.38840415087795,
+        "mpe_p90_m": 0.26346199152965893,
+        "moe_p90_deg": 2.3424713465078457,
+        "joint_1m_2deg": 241
+      }
+    },
+    "2012-03-31": {
+      "baseline": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.13780113553214032,
+        "moe_mean_deg": 1.4486540475982148,
+        "mpe_p90_m": 0.2222129097051394,
+        "moe_p90_deg": 2.468294908060226,
+        "joint_1m_2deg": 230
+      },
+      "candidate": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.1316078054556123,
+        "moe_mean_deg": 1.4680524907910764,
+        "mpe_p90_m": 0.2016918597647934,
+        "moe_p90_deg": 2.544967437062517,
+        "joint_1m_2deg": 228
+      }
+    },
+    "2012-05-26": {
+      "baseline": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.14389533793763631,
+        "moe_mean_deg": 1.3537330333353828,
+        "mpe_p90_m": 0.26995134414573607,
+        "moe_p90_deg": 2.304734219891722,
+        "joint_1m_2deg": 251
+      },
+      "candidate": {
+        "frames": 300,
+        "success": 300,
+        "failures": 0,
+        "mpe_mean_m": 0.14862231553953664,
+        "moe_mean_deg": 1.3883322206144162,
+        "mpe_p90_m": 0.2666579497483328,
+        "moe_p90_deg": 2.370721421354568,
+        "joint_1m_2deg": 250
+      }
+    }
+  },
+  "config_sha256": "f343f6b4312c5a90a7b023d6fa936c052b1224e12f0e31859a758b4b4049cf76",
+  "prediction_sha256": "85d1a4e97580982eced2e4a446f5705a925c61aa0f435954a859f0df185588b7",
+  "freeze_sha256": "fdc84857d1731ff0552d2ffa4bac8af4891cbc515649466856a318dd636b3b69",
+  "checkpoint_sha256": "81e25fabe8f1fa4615b9c5326ac8d06e5e5f9f50a37f2144a652291f310486c5",
+  "baseline_checkpoint_sha256": "26f58b13afd58d0b1beec2c39cd2d4f1c33f11d8a8792bd7f5b6765a60182408",
+  "baseline_prediction_sha256": "83b2c96da793c60a47e200baa2112802a2179be6ddb7973a37712b5b1e81e05e",
+  "GT_manifest_sha256": {
+    "2012-02-12": "8bef4abd01547b6d5443ad5fd107968438d686d20cff2ef0fd51183dd8e641ee",
+    "2012-02-19": "858ead1028ea15b3885a75e6b2cb529b2f282393d64c58f68bcfb2a65c69c626",
+    "2012-03-31": "693567160a6a64de987d5fd2976155b1ceb1b0ba74c9d7f1c612264b99e88c42",
+    "2012-05-26": "52d3100e5a8dc91bfbe8f46ac7ce7231b1d653c12895be0d465b8d3ee66557db"
+  },
+  "scorer_sha256": "ae5e8e4bac5444dedbe4c3d5d396a20fab2395eb6908127c36dd97feaa088355",
+  "independent_test": false,
+  "limitations": [
+    "single seed; fixed last epoch",
+    "bounded three plus three epochs, not a convergence claim",
+    "joint backbone, covariance, descriptor and field updates; cannot attribute improvement solely to vision",
+    "shared local supports create correlated evidence; no statistical independence claim",
+    "reused development set"
+  ],
+  "execution_repair_sha256": "1038dd0b068a9d8b54ee6599ac809110b4f0ccea1429ef57ab9d47c588dad50f"
+}

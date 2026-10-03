@@ -1,0 +1,2042 @@
+{
+  "Sigma-PCV/experiment/source-v2/data/Enhanced_OxfordVelodyne_datagenerator_mink.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/Enhanced_OxfordVelodyne_datagenerator_mink.py",
+    "sha256": "c915dc99b0b35c22435f015c633862dea43557e910af035e2803e128ff30a7de",
+    "bytes": 6869
+  },
+  "Sigma-PCV/experiment/source-v2/data/NCLTVelodyne_datagenerator_mink.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/NCLTVelodyne_datagenerator_mink.py",
+    "sha256": "4d04ab9e24fd29a16c78cb1192719a60497c3230096f321f8fb70e9c97467fb9",
+    "bytes": 6620
+  },
+  "Sigma-PCV/experiment/source-v2/data/base_loader.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/base_loader.py",
+    "sha256": "c4f21e8b4c8ef2488f13b5c4e55a1ea1432843ec7d915a56c8948aa47a5cf3eb",
+    "bytes": 2958
+  },
+  "Sigma-PCV/experiment/source-v2/data/dataset_loader.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/dataset_loader.py",
+    "sha256": "1c777610c5f2819b33a3a7781756aeac3dbf59aff204946739f87251750c6fa2",
+    "bytes": 2643
+  },
+  "Sigma-PCV/experiment/source-v2/data/leader_nclt_manifest.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/leader_nclt_manifest.py",
+    "sha256": "d6392e2b4be94c92bd39c9608aba4a1c7d7cfa85e089db933db8b3c5dd6158c4",
+    "bytes": 25280
+  },
+  "Sigma-PCV/experiment/source-v2/data/local905_mask.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/local905_mask.py",
+    "sha256": "fe62e76412699f1b07d9e0964b223dfe70e91cbc08dd9d99ed7a8d385c3bd4e2",
+    "bytes": 1207
+  },
+  "Sigma-PCV/experiment/source-v2/data/local905_mink.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/local905_mink.py",
+    "sha256": "1ebe2ed67737c2ccf7a6ff4ade70add4a6371bcef5248133a6f108279296a32e",
+    "bytes": 3499
+  },
+  "Sigma-PCV/experiment/source-v2/data/local905_query.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/local905_query.py",
+    "sha256": "b4406e874386ea32ba51120c337929db67cb760e3d22cc18fc2e808de4469b30",
+    "bytes": 4479
+  },
+  "Sigma-PCV/experiment/source-v2/data/magic_data.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/magic_data.py",
+    "sha256": "b41693ebd521316fc51e10336b69c9a905a7b2a2e8362a549b940907506f9f26",
+    "bytes": 5041
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/__init__.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/__init__.py",
+    "sha256": "e2f3a6aab6c01b7c9bb78f4b09f26d7d7c13513247d86ebf2556dfdab5b897d9",
+    "bytes": 23
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/build_pointcloud.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/build_pointcloud.py",
+    "sha256": "a85c66db8077ba5494022f67c7316875ed9e47e7454cac39d307b72b6f1cfa39",
+    "bytes": 7685
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/camera_model.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/camera_model.py",
+    "sha256": "26bcb7a9c6031cb324688b50f0f971ae7266a3cc68cfaa31b2a3506b485bef72",
+    "bytes": 6221
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/image.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/image.py",
+    "sha256": "68ea69076eea6f9132907ef3df81bfd7a13baf447d83a564bc15e42ead512d24",
+    "bytes": 1508
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/interpolate_poses.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/interpolate_poses.py",
+    "sha256": "c6397092e1ffb3b553b01e1f642b65343554db09fbfae35eb0a28b784720bbc5",
+    "bytes": 11047
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/play_images.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/play_images.py",
+    "sha256": "413c4097ba63391b32594ca0c71eaaae0bfe6d7ed2de12614a83e715cd264276",
+    "bytes": 2351
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/play_radar.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/play_radar.py",
+    "sha256": "242dd96368d03a977561f06bf5fe22d02a908e74b89e11012b9f8fea0986ecd6",
+    "bytes": 2532
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/play_velodyne.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/play_velodyne.py",
+    "sha256": "0f29500ffe238de4554ee25163e5e14f24bf6f2f86e7a757ed055dc23586a6be",
+    "bytes": 6252
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/project_laser_into_camera.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/project_laser_into_camera.py",
+    "sha256": "bd663513eb72838a9a2bf40b0b3b8cfe4fcaad8a973554199cd14571d843e67d",
+    "bytes": 3307
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/radar.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/radar.py",
+    "sha256": "f61f2c2811a10ef4133f317c18765d06281bb46584d11c448e4ffe872e564e71",
+    "bytes": 7134
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/transform.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/transform.py",
+    "sha256": "feb9e59a219bafc5137a5eeeb8a13d889457a3a32c7abb2f69868cb2eb8b4675",
+    "bytes": 5505
+  },
+  "Sigma-PCV/experiment/source-v2/data/robotcar_sdk/python/velodyne.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::data/robotcar_sdk/python/velodyne.py",
+    "sha256": "c9e49e5d71f43ae072fff125c888c79dc93d3a62cd6b44754531f3f918285457",
+    "bytes": 7284
+  },
+  "Sigma-PCV/experiment/source-v2/models/far.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::models/far.py",
+    "sha256": "01c178080bfb985ea6a3acb8e38629853857955a6bffbd72da6b7e1c86633048",
+    "bytes": 7714
+  },
+  "Sigma-PCV/experiment/source-v2/models/far_covolume.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::models/far_covolume.py",
+    "sha256": "17aa27af2309ae296b0a8971274daa0fb7628f666868bb60cfe8df9773484f51",
+    "bytes": 11906
+  },
+  "Sigma-PCV/experiment/source-v2/models/far_covolume_standard.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::models/far_covolume_standard.py",
+    "sha256": "3898e796e8697ab93a00c6888ecba0043c658a1ff50268e03164d79a5a44cdbe",
+    "bytes": 12176
+  },
+  "Sigma-PCV/experiment/source-v2/models/magic_fusion.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::models/magic_fusion.py",
+    "sha256": "416b9027ce0a05d7888e6e152910b24b9269f550313e7744c70bc60b27e4572d",
+    "bytes": 14676
+  },
+  "Sigma-PCV/experiment/source-v2/models/magic_paper_fusion.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::models/magic_paper_fusion.py",
+    "sha256": "c6d67f52d9ab384b9f61a35928f80962e2cff0a54879969a62aa48d449837ccd",
+    "bytes": 23014
+  },
+  "Sigma-PCV/experiment/source-v2/models/model_mink.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::models/model_mink.py",
+    "sha256": "6ec46596b8b0c40fcff2cfe31088d00a20057db1fd3babe271c25d0a5aa6186d",
+    "bytes": 19518
+  },
+  "Sigma-PCV/experiment/source-v2/models/sc2pcr.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::models/sc2pcr.py",
+    "sha256": "36ac2860984d3eb8b4f223d099d1b08f6fac561f4307129fadd5eebbba4e17ee",
+    "bytes": 18401
+  },
+  "Sigma-PCV/experiment/source-v2/run_mink.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::run_mink.py",
+    "sha256": "c8cf2923e41549162a2ec865e5408c9148e04a6dcc092109fc3dd6331d5aeda0",
+    "bytes": 23615
+  },
+  "Sigma-PCV/experiment/source-v2/tests/test_far.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tests/test_far.py",
+    "sha256": "f0deb00a9f7393e37944b2ab8e4751851703b228b43431458a91d2c522ff2061",
+    "bytes": 2413
+  },
+  "Sigma-PCV/experiment/source-v2/tests/test_far_covolume.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tests/test_far_covolume.py",
+    "sha256": "816c17613b3da603e1c6059b560f213377260b418f592cb1513b3adddd6566a4",
+    "bytes": 5474
+  },
+  "Sigma-PCV/experiment/source-v2/tests/test_far_covolume_standard.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tests/test_far_covolume_standard.py",
+    "sha256": "b54b25d3089dbb3cb826688e25c4813625360cd7399c410e0abce701568c46e5",
+    "bytes": 8615
+  },
+  "Sigma-PCV/experiment/source-v2/tests/test_leader_nclt_manifest.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tests/test_leader_nclt_manifest.py",
+    "sha256": "36a25ebdefe231febf226e5d1f4aa8511a7b35c78af7d5b8106a97cbe049fdb0",
+    "bytes": 17617
+  },
+  "Sigma-PCV/experiment/source-v2/tests/test_local905_evaluator.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tests/test_local905_evaluator.py",
+    "sha256": "a2f304180e6e375b85fadbf65f6d9f4391e636e3bdd9939b5e6730bf5794857c",
+    "bytes": 3129
+  },
+  "Sigma-PCV/experiment/source-v2/tests/test_magic_equation_fusion.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tests/test_magic_equation_fusion.py",
+    "sha256": "ce8caea851775a638c24967b566de12f2959af48d64eebc6d1b91484c0abe1b0",
+    "bytes": 11478
+  },
+  "Sigma-PCV/experiment/source-v2/tests/test_magic_fusion.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tests/test_magic_fusion.py",
+    "sha256": "fa5b14b4e27199b5f6e0d581f19c93cf33799969b002fa30c1665fd615af507c",
+    "bytes": 9750
+  },
+  "Sigma-PCV/experiment/source-v2/tests/test_magic_nclt_runner.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tests/test_magic_nclt_runner.py",
+    "sha256": "07b07f09dfad4f8edf887ca6896cdbe9f126d07a44399e520ebaa70d25ce4def",
+    "bytes": 19948
+  },
+  "Sigma-PCV/experiment/source-v2/tests/test_magic_protocol.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tests/test_magic_protocol.py",
+    "sha256": "44749b50ca5de75f954d74a089f2c178c321a8fd74eb0f989f4ea53ef785fcef",
+    "bytes": 1848
+  },
+  "Sigma-PCV/experiment/source-v2/tests/test_sparse_cat_alignment.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tests/test_sparse_cat_alignment.py",
+    "sha256": "47256b526f0d89a7462f34b4964ac12bc49fcc285588027978aacaf4755da761",
+    "bytes": 1322
+  },
+  "Sigma-PCV/experiment/source-v2/tools/audit_confirmation_overlap.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/audit_confirmation_overlap.py",
+    "sha256": "2bdb5154412b3136707c04b89c23d9f6efddd22b2cb22201c7fca4d63987c3e9",
+    "bytes": 2154
+  },
+  "Sigma-PCV/experiment/source-v2/tools/audit_local905_eval_trr.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/audit_local905_eval_trr.py",
+    "sha256": "fe8b9fd32bcf17652178e8fb8b85581dfb1bf11445d309e3456dadcdf67a582b",
+    "bytes": 4669
+  },
+  "Sigma-PCV/experiment/source-v2/tools/audit_magic_gates.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/audit_magic_gates.py",
+    "sha256": "6b87e621895efc402463a8329c0e44f416c594be005f4787efe0eff36893dfed",
+    "bytes": 9751
+  },
+  "Sigma-PCV/experiment/source-v2/tools/audit_official_local905.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/audit_official_local905.py",
+    "sha256": "fa37f586c5ea9fb9d31bb393ccb52f7ff0ab942ef91ab76af8198b86c215fcea",
+    "bytes": 4861
+  },
+  "Sigma-PCV/experiment/source-v2/tools/cache_far_covolume_initial.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/cache_far_covolume_initial.py",
+    "sha256": "6ffdaa14729cafb450142d4d01483a7e8f2d92e1de2add39c418f35f63a24f6e",
+    "bytes": 2854
+  },
+  "Sigma-PCV/experiment/source-v2/tools/cache_far_v3_initial.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/cache_far_v3_initial.py",
+    "sha256": "6c787c46d1f426c91e36da650ed3ad6d8c3820ab634fa3e417073281564ada5f",
+    "bytes": 2673
+  },
+  "Sigma-PCV/experiment/source-v2/tools/cache_sam_l_features.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/cache_sam_l_features.py",
+    "sha256": "0b2ac636ee5b93fd13cd6636fbc00d086a33929c66cd69cd083efbf4c6f54ce2",
+    "bytes": 4656
+  },
+  "Sigma-PCV/experiment/source-v2/tools/compare_local905.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/compare_local905.py",
+    "sha256": "b6ed78bcc3662328460aaf72645b101384bbc6b4375d23b67fd521423bfce8bf",
+    "bytes": 3212
+  },
+  "Sigma-PCV/experiment/source-v2/tools/debug_mink_repeat.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/debug_mink_repeat.py",
+    "sha256": "16614e8fbc8ae40c9a7dcaf6032b75f3d20e100107673978b793bd92c6c41d6d",
+    "bytes": 3050
+  },
+  "Sigma-PCV/experiment/source-v2/tools/eval_local905_gt.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/eval_local905_gt.py",
+    "sha256": "26b35456a804b0bdd3364df0b13eef170b98888f1097dea9b6094bc62de56b73",
+    "bytes": 5680
+  },
+  "Sigma-PCV/experiment/source-v2/tools/eval_local905_online.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/eval_local905_online.py",
+    "sha256": "5d2b8583399f1867251159cfc5773c08814f524b4db69ead95464f443ce763af",
+    "bytes": 12400
+  },
+  "Sigma-PCV/experiment/source-v2/tools/eval_magic_correspondence_swaps.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/eval_magic_correspondence_swaps.py",
+    "sha256": "eda96b9bd1f7fe85f5563a66b3c43ad95cb7d7e2984e7ad02188ec7b6f34890f",
+    "bytes": 7374
+  },
+  "Sigma-PCV/experiment/source-v2/tools/evaluate_far.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/evaluate_far.py",
+    "sha256": "3c92eec8390b9b0923f8764c085712d4e2adfd402c4d3b31f50a5a1193653a4d",
+    "bytes": 2125
+  },
+  "Sigma-PCV/experiment/source-v2/tools/evaluate_far_covolume.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/evaluate_far_covolume.py",
+    "sha256": "aee6c6f9eaf9ea20058ed196edaae2793b2b1386b6020d960b69993bdd12f2a5",
+    "bytes": 2200
+  },
+  "Sigma-PCV/experiment/source-v2/tools/evaluate_far_covolume_standard.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/evaluate_far_covolume_standard.py",
+    "sha256": "d8531f9133dc217377ea04643084a20b25240a9ad4d37ce8d3c8dcbee7aabb68",
+    "bytes": 2198
+  },
+  "Sigma-PCV/experiment/source-v2/tools/evaluate_magic_nclt_dev.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/evaluate_magic_nclt_dev.py",
+    "sha256": "254a3db4be60d966acdf664a151fbeac2f844ff32e18032a27064f0923e5b999",
+    "bytes": 19528
+  },
+  "Sigma-PCV/experiment/source-v2/tools/far_covolume_budget.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/far_covolume_budget.py",
+    "sha256": "d566119f6ea5c8e20e55293422e733bde531e4e16b5c2ada19add6cbc609871b",
+    "bytes": 836
+  },
+  "Sigma-PCV/experiment/source-v2/tools/far_covolume_runtime.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/far_covolume_runtime.py",
+    "sha256": "716b7996bccf6f8e35ca3afca54309e65dc19b2b06ce91d4ebdaaafc2a937ecb",
+    "bytes": 7920
+  },
+  "Sigma-PCV/experiment/source-v2/tools/far_covolume_standard_runtime.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/far_covolume_standard_runtime.py",
+    "sha256": "14a9becddb3c5150920dceab681cd6c736bd215504bb5113ab4c4576f36b1ac1",
+    "bytes": 139
+  },
+  "Sigma-PCV/experiment/source-v2/tools/far_runtime.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/far_runtime.py",
+    "sha256": "a8980a85afe46e68a9e36853bcc867423474ef2a528ac92d9d167b8a766f3444",
+    "bytes": 3889
+  },
+  "Sigma-PCV/experiment/source-v2/tools/far_scoring.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/far_scoring.py",
+    "sha256": "a452567d1b16e0ad4a7bc07c89ad33eaa8b6941978eb27e98e3ad3df2bbfa9d9",
+    "bytes": 5911
+  },
+  "Sigma-PCV/experiment/source-v2/tools/far_v3_budget.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/far_v3_budget.py",
+    "sha256": "ba390549495b145bed82dc299aa4962f38941c26c5076c65dfd88b2eb112f816",
+    "bytes": 794
+  },
+  "Sigma-PCV/experiment/source-v2/tools/far_v3_runtime.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/far_v3_runtime.py",
+    "sha256": "0bf1b9ff150c8a5a51f1a7cd857187912fd9a3303d9a7f8187f20dd7696bdddb",
+    "bytes": 3482
+  },
+  "Sigma-PCV/experiment/source-v2/tools/guarded_run.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/guarded_run.py",
+    "sha256": "dc3f828558ca9cc2e93dfc2e66e207b46f17c9d536d67d6bf1ce16d1cea3d9f9",
+    "bytes": 5256
+  },
+  "Sigma-PCV/experiment/source-v2/tools/magic_nclt_runtime.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/magic_nclt_runtime.py",
+    "sha256": "ca05639ccee8dd78b4a09077a778d78287470ad15cc89de72e437d74a62cedac",
+    "bytes": 14720
+  },
+  "Sigma-PCV/experiment/source-v2/tools/predict_far.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/predict_far.py",
+    "sha256": "50e30095b84f2a3fb526bf4315e969290bc43707f77b2cbc6c2568c90062f99f",
+    "bytes": 5298
+  },
+  "Sigma-PCV/experiment/source-v2/tools/predict_far_covolume.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/predict_far_covolume.py",
+    "sha256": "75886862224d59b8cd8bb6517f8a2920cc10c1ddd451403e1faca62d2133a2cd",
+    "bytes": 4988
+  },
+  "Sigma-PCV/experiment/source-v2/tools/predict_far_covolume_standard.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/predict_far_covolume_standard.py",
+    "sha256": "8dc7ceb1152415cfe3f9d039edc01ab8e99d465c1038f0bc974af4ca4f174934",
+    "bytes": 4960
+  },
+  "Sigma-PCV/experiment/source-v2/tools/predict_magic_nclt.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/predict_magic_nclt.py",
+    "sha256": "8a199e586cd9614140e3ee4b08dc8148f137a659ab18324e9f6a2679645f1300",
+    "bytes": 10486
+  },
+  "Sigma-PCV/experiment/source-v2/tools/prepare_local905.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/prepare_local905.py",
+    "sha256": "f2163baf0931f71d23367de64c2e49378dcb15cb4f68f948d5a7bcdc707c9011",
+    "bytes": 3783
+  },
+  "Sigma-PCV/experiment/source-v2/tools/prepare_local905_ab_init.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/prepare_local905_ab_init.py",
+    "sha256": "08fd0f3d493df5dc5716f4615d1af557cccfffbed65090e5d2b1980300d577f8",
+    "bytes": 1219
+  },
+  "Sigma-PCV/experiment/source-v2/tools/prepare_local905_mask.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/prepare_local905_mask.py",
+    "sha256": "f58f10a9527b7f577502357d9ec043b10e19791b11cf170da284b45714054913",
+    "bytes": 1330
+  },
+  "Sigma-PCV/experiment/source-v2/tools/prepare_local905_null.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/prepare_local905_null.py",
+    "sha256": "0272358f62a01d687acf1176dcb936d51a1e15b4884d94c2fe47810dddd8a1bf",
+    "bytes": 2540
+  },
+  "Sigma-PCV/experiment/source-v2/tools/prepare_local905_same_domain.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/prepare_local905_same_domain.py",
+    "sha256": "6a50904fac144550b04593de0965bada9745e6779c5b6c505237c520a592f4c7",
+    "bytes": 2082
+  },
+  "Sigma-PCV/experiment/source-v2/tools/prepare_magic_dev_sam.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/prepare_magic_dev_sam.py",
+    "sha256": "2536d7798dd58e38298ed8d2eb592c1ca2bcae9664dd7852cbc0a47c11bb057b",
+    "bytes": 4137
+  },
+  "Sigma-PCV/experiment/source-v2/tools/prepare_official_local905.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/prepare_official_local905.py",
+    "sha256": "cd92f19cf0fe24614d0f4b4321cd4ec8650fe6fd3155a2120bf88d7b63b0dddd",
+    "bytes": 1416
+  },
+  "Sigma-PCV/experiment/source-v2/tools/report_local905_ab.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/report_local905_ab.py",
+    "sha256": "67ae2bac0a0d8f731f8523e438820aa67de510c06717db1c0fdbd075b22832a9",
+    "bytes": 2503
+  },
+  "Sigma-PCV/experiment/source-v2/tools/resource_guard.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/resource_guard.py",
+    "sha256": "eeb97de1dc94a3e89c6bd59ac1966e2789f6c56a6c356e680aca535c746e57ff",
+    "bytes": 1394
+  },
+  "Sigma-PCV/experiment/source-v2/tools/run_magic_revision_matrix.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/run_magic_revision_matrix.py",
+    "sha256": "b8fd81003af7fdccf8dff6918654121c1f69e2fa5a0b6b0ca4e333a86c9cf785",
+    "bytes": 9718
+  },
+  "Sigma-PCV/experiment/source-v2/tools/sam_cache_frozen.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/sam_cache_frozen.py",
+    "sha256": "32ba3bade4c71c4c34418aae5b91e35e5e60ecc93c371101cee05ee1317c2cea",
+    "bytes": 29931
+  },
+  "Sigma-PCV/experiment/source-v2/tools/smoke_far_backend.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/smoke_far_backend.py",
+    "sha256": "ee8e6717a8065a960e975b4ebf53633af149fe28928cfe179fae7e4c78f01fa8",
+    "bytes": 2740
+  },
+  "Sigma-PCV/experiment/source-v2/tools/smoke_magic_full.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/smoke_magic_full.py",
+    "sha256": "83f68fd54c2a2dc8b688188fdf428d9f80d62a8527d07c292ef908efbcd7b67e",
+    "bytes": 1945
+  },
+  "Sigma-PCV/experiment/source-v2/tools/smoke_magic_nclt.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/smoke_magic_nclt.py",
+    "sha256": "0aab7736a849c277d19ff827a8ffaeb0ac56bd32a374644fee67c5642634fdea",
+    "bytes": 4995
+  },
+  "Sigma-PCV/experiment/source-v2/tools/smoke_magic_paper.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/smoke_magic_paper.py",
+    "sha256": "0bb46d0703dd6ab52e24524f863285f1d58ef92be991a33acdcbc2082bdd0374",
+    "bytes": 6329
+  },
+  "Sigma-PCV/experiment/source-v2/tools/train_far.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/train_far.py",
+    "sha256": "9c8a868cc0cd58a9da95569c69ffde4f7fb5cffdcd03e7b16dfba80a6bcb2588",
+    "bytes": 6888
+  },
+  "Sigma-PCV/experiment/source-v2/tools/train_far_covolume.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/train_far_covolume.py",
+    "sha256": "443ddc3022e62f05439149aa1455cba13b46922e820d9f61d72950bd74d0ee9f",
+    "bytes": 11473
+  },
+  "Sigma-PCV/experiment/source-v2/tools/train_far_covolume_standard.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/train_far_covolume_standard.py",
+    "sha256": "2ccfc801c87cdc2fabe23ebf91a9343df6ea747c700484a4d0b7ac28544c0d63",
+    "bytes": 11604
+  },
+  "Sigma-PCV/experiment/source-v2/tools/train_local905.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/train_local905.py",
+    "sha256": "4db2bf64bbc0b07e103e0db505cd93d669d51ec33b937742941272365b315e67",
+    "bytes": 12282
+  },
+  "Sigma-PCV/experiment/source-v2/tools/train_local905_ab.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/train_local905_ab.py",
+    "sha256": "067be24fc4206bfc819136acb63e938392c269b7ff26aa75f2a2cbdc0c23f8fd",
+    "bytes": 13237
+  },
+  "Sigma-PCV/experiment/source-v2/tools/train_magic_nclt.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/train_magic_nclt.py",
+    "sha256": "dbf4d58a972bc1ad1fca6aa6bedd093682855dae9c7dcbaad87b0848b46764f1",
+    "bytes": 37377
+  },
+  "Sigma-PCV/experiment/source-v2/tools/train_magic_revision.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/train_magic_revision.py",
+    "sha256": "d5da97091953e695334a8717f3f7c78b3ddb4ba0a30d980d22327fb7cc6a12e5",
+    "bytes": 16770
+  },
+  "Sigma-PCV/experiment/source-v2/tools/validate_far.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/validate_far.py",
+    "sha256": "c4308b7eab71345b49921375af92745480317f13480dd9a6b5d2d1edafbf5cff",
+    "bytes": 4329
+  },
+  "Sigma-PCV/experiment/source-v2/tools/validate_far_covolume.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/validate_far_covolume.py",
+    "sha256": "e72a28843b8c1e5d2ac65c0816c9ca67256c75ce6c2221a8250b9f278a1b5869",
+    "bytes": 5331
+  },
+  "Sigma-PCV/experiment/source-v2/tools/validate_far_covolume_standard.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/validate_far_covolume_standard.py",
+    "sha256": "5483199bee779056360eeb187eeca4627823bca7c95497bb90775c6c00457965",
+    "bytes": 5286
+  },
+  "Sigma-PCV/experiment/source-v2/tools/visualize_local905_projection.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/visualize_local905_projection.py",
+    "sha256": "c3a2a5a6f2af56455f939ed952f05dd98e908e55a8bbb3cb504a46aaa58fab83",
+    "bytes": 2243
+  },
+  "Sigma-PCV/experiment/source-v2/utils/__init__.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::utils/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "Sigma-PCV/experiment/source-v2/utils/full_pool_robust_v1.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::utils/full_pool_robust_v1.py",
+    "sha256": "b7befc3cd53e5d6bcf3c7685516061d29fcb4319362a4fc504151c3dc7f2e6fe",
+    "bytes": 1699
+  },
+  "Sigma-PCV/experiment/source-v2/utils/pose_util.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::utils/pose_util.py",
+    "sha256": "4690680881b3f3f61036901bdf3075ba44a78aee765b6d99a4862c5af5f591aa",
+    "bytes": 48887
+  },
+  "Sigma-PCV/experiment/source-v2/models/sigma_pcv.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::models/sigma_pcv.py",
+    "sha256": "8fe4542ddbb4f2722e62dd0b08e6c27a0f7c5c69493f3ada8d89b1d0397385f0",
+    "bytes": 6769
+  },
+  "Sigma-PCV/experiment/source-v2/models/sigma_far.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::models/sigma_far.py",
+    "sha256": "d89e5ad09e0fa5f92d40dff9751836e4180c7603026f16f74a59bd4060d9c408",
+    "bytes": 4102
+  },
+  "Sigma-PCV/experiment/source-v2/tools/sigma_runtime.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/sigma_runtime.py",
+    "sha256": "99ab4cc1890c1d8651eeb6485b9ae718f3e22a697056fd1d7839c83afa529696",
+    "bytes": 8396
+  },
+  "Sigma-PCV/experiment/source-v2/tools/run_sigma.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/run_sigma.py",
+    "sha256": "3333a6c31e44c91b4e5f361d4acfa06cb20eb9439f75410d367bff8a3cd590df",
+    "bytes": 16537
+  },
+  "Sigma-PCV/experiment/source-v2/tools/score_sigma.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/score_sigma.py",
+    "sha256": "ae5e8e4bac5444dedbe4c3d5d396a20fab2395eb6908127c36dd97feaa088355",
+    "bytes": 3029
+  },
+  "Sigma-PCV/experiment/source-v2/tools/sigma_pipeline.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/source-v2.zip::tools/sigma_pipeline.py",
+    "sha256": "a8b4f9b2a1ecdbb825edd79f8fdcf57817086215b76b98681083fad1325a2f7d",
+    "bytes": 4223
+  },
+  "Sigma-PCV/experiment/run_repair_v3.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/run_repair_v3.py",
+    "sha256": "7752879809ce01091f92f1159f1013f31dc2408231339d20ceee3586d171cfc3",
+    "bytes": 1881
+  },
+  "Sigma-PCV/experiment/supervisor-repair-v3.py": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/supervisor-repair-v3.py",
+    "sha256": "7b300546dcd9e16b85c8c673891d56dedfbecac8ec3336d5d6e7dff32c642ea7",
+    "bytes": 4178
+  },
+  "Sigma-PCV/experiment/config-v2.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/config-v2.json",
+    "sha256": "f343f6b4312c5a90a7b023d6fa936c052b1224e12f0e31859a758b4b4049cf76",
+    "bytes": 27693
+  },
+  "Sigma-PCV/experiment/baseline-config.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/baseline-config.json",
+    "sha256": "bd71d55b1ddec6b18fe11ace7e34c1057ea75fcda2ab809fd80071e99be0492d",
+    "bytes": 13498
+  },
+  "Sigma-PCV/experiment/execution-repair-v3.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/execution-repair-v3.json",
+    "sha256": "1038dd0b068a9d8b54ee6599ac809110b4f0ccea1429ef57ab9d47c588dad50f",
+    "bytes": 886
+  },
+  "Sigma-PCV/experiment/experiment-plan.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/root/experiment-plan.json",
+    "sha256": "37c3b2ee6537b85bab9be9eb349b8aefbe89087f43342078e36acdfee89c0949",
+    "bytes": 72591
+  },
+  "Sigma-PCV/evidence/evaluation.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/results/evaluation.json",
+    "sha256": "8cd7196f637be5f39616c956bc1d59e29fb49c48221545ec82f3f49094eea47b",
+    "bytes": 4715
+  },
+  "Sigma-PCV/evidence/prediction_freeze.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/results/prediction_freeze.json",
+    "sha256": "fdc84857d1731ff0552d2ffa4bac8af4891cbc515649466856a318dd636b3b69",
+    "bytes": 54012
+  },
+  "Sigma-PCV/evidence/final_integrity.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/results/final_integrity.json",
+    "sha256": "c4e62735856608d4ad8bfd04727e33cfdc20002bf527b459b45396f76c282372",
+    "bytes": 920
+  },
+  "Sigma-PCV/evidence/stage1_history.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/results/stage1_history.json",
+    "sha256": "938e79804e6906f7833abf18c263b13734209b80434deb8a67901b6297f8e8ca",
+    "bytes": 672
+  },
+  "Sigma-PCV/evidence/stage2_history.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/results/stage2_history.json",
+    "sha256": "1a449eac3406c2e892e55aa3a8944f9a5818d96103582a1774510aa51c653746",
+    "bytes": 672
+  },
+  "Sigma-PCV/evidence/stage1_done.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/results/stage1_done.json",
+    "sha256": "5e38a4e8e1d03f7991ae010cfcc974bdbcab074ec89c381f559bf197ebff00a0",
+    "bytes": 862
+  },
+  "Sigma-PCV/evidence/stage2_done.json": {
+    "source": "work/sigma-pcv-v2-20261001/final-results/results/stage2_done.json",
+    "sha256": "6e6414bd1595b221c7fcc352d5a20a943d7d1a66eebdf1a146e6d6d3a847132b",
+    "bytes": 861
+  },
+  "Sigma-PCV/PROPOSAL.md": {
+    "source": "work/openrouter-batch/leader-frontend-open-backbone-zh-max-web-20261001-answer.md",
+    "sha256": "65edef650008b5f1e359503b6bb7d46ec4d2546cf6c71740e73dff78286149ec",
+    "bytes": 7104
+  },
+  "VERA/full-standard-v2/baseline_check.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/baseline_check.py",
+    "sha256": "a80207151fa2ee3b0b14a22c2c1b0bdd0d3d1b61b75bfae3c2f028c75400ac7b",
+    "bytes": 2693
+  },
+  "VERA/full-standard-v2/checks.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/checks.py",
+    "sha256": "5bc42d6a421be072a2753ebb94fe360df7fc773a7f3639d8f2027bb318e69a69",
+    "bytes": 4260
+  },
+  "VERA/full-standard-v2/common.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/common.py",
+    "sha256": "7c733bb756e208de77b8d1c443854b732b66734670e9344a5ffa9b2b30d6c590",
+    "bytes": 2206
+  },
+  "VERA/full-standard-v2/extract_images.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/extract_images.py",
+    "sha256": "095eb5692fd3468ed3bb1a883d7a318f1b84b8b49433a0d31b4de1b06989c57a",
+    "bytes": 6984
+  },
+  "VERA/full-standard-v2/main_coordinate_adapter.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/main_coordinate_adapter.py",
+    "sha256": "e5cf183845bb907410e19aa5d88f01d135acc8b4403dff9d3d98c528c0ef335d",
+    "bytes": 663
+  },
+  "VERA/full-standard-v2/predict.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/predict.py",
+    "sha256": "44ae3894ff6e09966b806b65283921dd9f6fe0f50ecf960337a08d4788d1405f",
+    "bytes": 2884
+  },
+  "VERA/full-standard-v2/prepare_assets.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/prepare_assets.py",
+    "sha256": "0e31c8a67366b09b0860d777085c7f3a241833ac51a0b5127d869dfc9b8dff0f",
+    "bytes": 6585
+  },
+  "VERA/full-standard-v2/resume_tar_stream.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/resume_tar_stream.py",
+    "sha256": "a20c01d4a301da219d4352a7dc6407ea1929dd7123fed8a16186d5285cb5d417",
+    "bytes": 4711
+  },
+  "VERA/full-standard-v2/run.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/run.py",
+    "sha256": "7297d13d1b43a537de5a368cb0503b05925e8f3f97d7fe0811212bf0a1b19b65",
+    "bytes": 4350
+  },
+  "VERA/full-standard-v2/runtime.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/runtime.py",
+    "sha256": "8241388b48180fed6ddbdcf5f0eda34490bb1696638bc99a10fa43fea0db8607",
+    "bytes": 5757
+  },
+  "VERA/full-standard-v2/score.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/score.py",
+    "sha256": "ebda5217a0d676e7c41645a559e131f9f8d3e252b77a70b028672ca8e705a8c1",
+    "bytes": 4406
+  },
+  "VERA/full-standard-v2/train.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/train.py",
+    "sha256": "8002f95b99013bc5df4b0f7c62508ae620926c06cd51e280e9a992190ce4e9bb",
+    "bytes": 4227
+  },
+  "VERA/full-standard-v2/vera.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/vera.py",
+    "sha256": "3278007da2f1aaeae3b5f73a9de5a58b90b4858a0e0d3f1221017623d8438c4b",
+    "bytes": 7028
+  },
+  "VERA/full-standard-v2/wait_prepared.py": {
+    "source": "work/vera-main-20261002/full-standard-v2/wait_prepared.py",
+    "sha256": "588f11ab3e5989a27930e95d941a70420d5273acd7893656a33cb87087b525b6",
+    "bytes": 2613
+  },
+  "VERA/full-standard-v2/plan.json": {
+    "source": "work/vera-main-20261002/full-standard-v2/plan.json",
+    "sha256": "22786eb7bc61294c82771f424274e5d7bd99b354c78ed54f9f7f6da7147ec723",
+    "bytes": 15036
+  },
+  "VERA/full-standard-v2/source/data/base_loader.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/base_loader.py",
+    "sha256": "c4f21e8b4c8ef2488f13b5c4e55a1ea1432843ec7d915a56c8948aa47a5cf3eb",
+    "bytes": 2958
+  },
+  "VERA/full-standard-v2/source/data/dataset_loader.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/dataset_loader.py",
+    "sha256": "1d206970cf2e4ef2149a43bde752920aa51ff930bd30ee40959d03c6b116a895",
+    "bytes": 2576
+  },
+  "VERA/full-standard-v2/source/data/Enhanced_OxfordVelodyne_datagenerator_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/Enhanced_OxfordVelodyne_datagenerator_mink.py",
+    "sha256": "c915dc99b0b35c22435f015c633862dea43557e910af035e2803e128ff30a7de",
+    "bytes": 6869
+  },
+  "VERA/full-standard-v2/source/data/leader_nclt_manifest.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/leader_nclt_manifest.py",
+    "sha256": "d6392e2b4be94c92bd39c9608aba4a1c7d7cfa85e089db933db8b3c5dd6158c4",
+    "bytes": 25280
+  },
+  "VERA/full-standard-v2/source/data/NCLTVelodyne_datagenerator_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/NCLTVelodyne_datagenerator_mink.py",
+    "sha256": "4d04ab9e24fd29a16c78cb1192719a60497c3230096f321f8fb70e9c97467fb9",
+    "bytes": 6620
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/__init__.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/__init__.py",
+    "sha256": "e2f3a6aab6c01b7c9bb78f4b09f26d7d7c13513247d86ebf2556dfdab5b897d9",
+    "bytes": 23
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/build_pointcloud.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/build_pointcloud.py",
+    "sha256": "2a18d00eae2e701b054e8ea37c0adc69feadb9f047f05b7f084adb11ff771e3e",
+    "bytes": 7516
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/camera_model.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/camera_model.py",
+    "sha256": "eb6f9250f4bc4a9a914e202c6da79f1ec615fac70d1879aceec0b3bda242afd6",
+    "bytes": 6072
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/image.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/image.py",
+    "sha256": "12a290ca4009b801ce822775049bc2fcc6becfb80966f8f2c689b235bda3e852",
+    "bytes": 1458
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/interpolate_poses.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/interpolate_poses.py",
+    "sha256": "14e6a2bd2788aca7515ed26117498e07932cfdd6cbb949a8cf75ebeade075dce",
+    "bytes": 10786
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/play_images.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_images.py",
+    "sha256": "344fedba7af4b3b71d13b0b6fbccc93e68aab9798bbfa7fbb1ae34520983a418",
+    "bytes": 2287
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/play_radar.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_radar.py",
+    "sha256": "2376ad8f7682e599ad3def301443fc4a6b063e8c80ff8a078a2809987dd4addb",
+    "bytes": 2472
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/play_velodyne.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_velodyne.py",
+    "sha256": "53aaecfd1d77d7ff4ab3d9fa4bafabf33897b0903cd6ec8a9ea0db0f9bb5caf4",
+    "bytes": 6127
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/project_laser_into_camera.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/project_laser_into_camera.py",
+    "sha256": "cea9d8a002d519ebcddd29cfaa00635780a95a5b2fa047843e057c3a4200bb8d",
+    "bytes": 3226
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/radar.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/radar.py",
+    "sha256": "016b64d9e32b86feba65860e374f1a500d83a18e47479a210f72dc8ee108ee26",
+    "bytes": 6990
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/transform.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/transform.py",
+    "sha256": "61c42b93075ab64e1b58193a2aa0f35332d59bca334e762c0cfb1b067aadcfb4",
+    "bytes": 5322
+  },
+  "VERA/full-standard-v2/source/data/robotcar_sdk/python/velodyne.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/velodyne.py",
+    "sha256": "e537db5d1ecd742c411c95514832c52cf272086af077705616f77d931c5ba143",
+    "bytes": 7130
+  },
+  "VERA/full-standard-v2/source/models/magic_fusion.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/magic_fusion.py",
+    "sha256": "416b9027ce0a05d7888e6e152910b24b9269f550313e7744c70bc60b27e4572d",
+    "bytes": 14676
+  },
+  "VERA/full-standard-v2/source/models/model_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/model_mink.py",
+    "sha256": "395a8fe73d78f74e8479dbc487de4bf9bf4fa965ffc26aa4a8dfbe87e1d0bb68",
+    "bytes": 18018
+  },
+  "VERA/full-standard-v2/source/models/sc2pcr.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/sc2pcr.py",
+    "sha256": "a3c995f94b3cb1cac5d5f05c822bc9b752a5bab3318cbe9930bbd3164a6f4c3d",
+    "bytes": 18018
+  },
+  "VERA/full-standard-v2/source/run_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/run_mink.py",
+    "sha256": "7b85fe06c568440757f0ae844507a4d8d7193bcd1519f222c5490a74e401dad0",
+    "bytes": 19005
+  },
+  "VERA/full-standard-v2/source/tools/magic_nclt_runtime.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/tools/magic_nclt_runtime.py",
+    "sha256": "ca05639ccee8dd78b4a09077a778d78287470ad15cc89de72e437d74a62cedac",
+    "bytes": 14720
+  },
+  "VERA/full-standard-v2/source/tools/sam_cache_frozen.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/tools/sam_cache_frozen.py",
+    "sha256": "32ba3bade4c71c4c34418aae5b91e35e5e60ecc93c371101cee05ee1317c2cea",
+    "bytes": 29931
+  },
+  "VERA/full-standard-v2/source/utils/__init__.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "VERA/full-standard-v2/source/utils/full_pool_robust_v1.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/full_pool_robust_v1.py",
+    "sha256": "b7befc3cd53e5d6bcf3c7685516061d29fcb4319362a4fc504151c3dc7f2e6fe",
+    "bytes": 1699
+  },
+  "VERA/full-standard-v2/source/utils/pose_util.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/pose_util.py",
+    "sha256": "43a0c16b15f8739bf3a978c347736c0a744b11d6158bda9c651c7a330ff2916c",
+    "bytes": 48868
+  },
+  "VERA/cam5-support-v1/checks.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/checks.py",
+    "sha256": "6bdc9e81ec9de763a9824ffd84c9265ced62029ba18984100aa525488449274e",
+    "bytes": 4326
+  },
+  "VERA/cam5-support-v1/common.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/common.py",
+    "sha256": "46040b06a36f394e353cb163b7a950d2083238b8b721f3804e86d00c012572c8",
+    "bytes": 2445
+  },
+  "VERA/cam5-support-v1/compat_det.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/compat_det.py",
+    "sha256": "3a35731658d8c29f4cc7d83c3737489583c63931a7c93693396afc0783f7d317",
+    "bytes": 732
+  },
+  "VERA/cam5-support-v1/cpu_checks.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/cpu_checks.py",
+    "sha256": "c5c46725568ed19fb6097859e4509fda1cf2c98f1432d595f0c835785be3844a",
+    "bytes": 1876
+  },
+  "VERA/cam5-support-v1/diagnose_epoch.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/diagnose_epoch.py",
+    "sha256": "c85e3410daae8f55dab0b4c0aee67d3b85bea96c376975b31eef045eebdea47d",
+    "bytes": 13086
+  },
+  "VERA/cam5-support-v1/predict_epoch.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/predict_epoch.py",
+    "sha256": "1b6ab623d5454f9c8553c8d52d810016732a616127e0f543ed81e974113049a8",
+    "bytes": 3500
+  },
+  "VERA/cam5-support-v1/predict_epoch_compat.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/predict_epoch_compat.py",
+    "sha256": "b2eba982ff123062471370bb4bf87540889cb4c8a76d69c48000758f8f0dc330",
+    "bytes": 197
+  },
+  "VERA/cam5-support-v1/reuse_control.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/reuse_control.py",
+    "sha256": "b237a907e0408bf6558b194141e07ae915ab7326334504baba5b7e9cc48567c1",
+    "bytes": 1446
+  },
+  "VERA/cam5-support-v1/run.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/run.py",
+    "sha256": "cd036af44dff594c48dfa3e6635e3822951aabc7176a0726095b987fa39a3446",
+    "bytes": 7038
+  },
+  "VERA/cam5-support-v1/runtime.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/runtime.py",
+    "sha256": "b81f2d34b6816bc2154ceff1db9bf17518161fa33c2c43113aeb692c41c5bb29",
+    "bytes": 5866
+  },
+  "VERA/cam5-support-v1/score_epoch.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/score_epoch.py",
+    "sha256": "702e0b0433c306b8afa377af21fb758a42476f37cba9588525d98ecc9351a658",
+    "bytes": 6015
+  },
+  "VERA/cam5-support-v1/train_to.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/train_to.py",
+    "sha256": "d218f23281705202e4d1b4505d2948b422a76dd78c825372f76181ff5d3b950d",
+    "bytes": 6502
+  },
+  "VERA/cam5-support-v1/vera.py": {
+    "source": "work/vera-main-20261002/cam5-support-v1/vera.py",
+    "sha256": "db24449538a823d4f3b2003d838035ff06fabf1159ec939aa15cf4dcb9757f66",
+    "bytes": 7537
+  },
+  "VERA/cam5-support-v1/plan.json": {
+    "source": "work/vera-main-20261002/cam5-support-v1/plan.json",
+    "sha256": "a35a49d954742365c8ea902294d5f74dac56f9b6b65e55925e725c4dde72c7c7",
+    "bytes": 19516
+  },
+  "VERA/cam5-support-v1/deployment.json": {
+    "source": "work/vera-main-20261002/cam5-support-v1/deployment.json",
+    "sha256": "8e5ab82fc5035b08df24b5b8587e29f90232bf44abbeb5d440d6eb9badba4095",
+    "bytes": 1778
+  },
+  "VERA/cam5-support-v1/source/data/base_loader.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/base_loader.py",
+    "sha256": "c4f21e8b4c8ef2488f13b5c4e55a1ea1432843ec7d915a56c8948aa47a5cf3eb",
+    "bytes": 2958
+  },
+  "VERA/cam5-support-v1/source/data/dataset_loader.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/dataset_loader.py",
+    "sha256": "1d206970cf2e4ef2149a43bde752920aa51ff930bd30ee40959d03c6b116a895",
+    "bytes": 2576
+  },
+  "VERA/cam5-support-v1/source/data/Enhanced_OxfordVelodyne_datagenerator_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/Enhanced_OxfordVelodyne_datagenerator_mink.py",
+    "sha256": "c915dc99b0b35c22435f015c633862dea43557e910af035e2803e128ff30a7de",
+    "bytes": 6869
+  },
+  "VERA/cam5-support-v1/source/data/leader_nclt_manifest.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/leader_nclt_manifest.py",
+    "sha256": "d6392e2b4be94c92bd39c9608aba4a1c7d7cfa85e089db933db8b3c5dd6158c4",
+    "bytes": 25280
+  },
+  "VERA/cam5-support-v1/source/data/NCLTVelodyne_datagenerator_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/NCLTVelodyne_datagenerator_mink.py",
+    "sha256": "4d04ab9e24fd29a16c78cb1192719a60497c3230096f321f8fb70e9c97467fb9",
+    "bytes": 6620
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/__init__.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/__init__.py",
+    "sha256": "e2f3a6aab6c01b7c9bb78f4b09f26d7d7c13513247d86ebf2556dfdab5b897d9",
+    "bytes": 23
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/build_pointcloud.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/build_pointcloud.py",
+    "sha256": "2a18d00eae2e701b054e8ea37c0adc69feadb9f047f05b7f084adb11ff771e3e",
+    "bytes": 7516
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/camera_model.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/camera_model.py",
+    "sha256": "eb6f9250f4bc4a9a914e202c6da79f1ec615fac70d1879aceec0b3bda242afd6",
+    "bytes": 6072
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/image.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/image.py",
+    "sha256": "12a290ca4009b801ce822775049bc2fcc6becfb80966f8f2c689b235bda3e852",
+    "bytes": 1458
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/interpolate_poses.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/interpolate_poses.py",
+    "sha256": "14e6a2bd2788aca7515ed26117498e07932cfdd6cbb949a8cf75ebeade075dce",
+    "bytes": 10786
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/play_images.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_images.py",
+    "sha256": "344fedba7af4b3b71d13b0b6fbccc93e68aab9798bbfa7fbb1ae34520983a418",
+    "bytes": 2287
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/play_radar.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_radar.py",
+    "sha256": "2376ad8f7682e599ad3def301443fc4a6b063e8c80ff8a078a2809987dd4addb",
+    "bytes": 2472
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/play_velodyne.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_velodyne.py",
+    "sha256": "53aaecfd1d77d7ff4ab3d9fa4bafabf33897b0903cd6ec8a9ea0db0f9bb5caf4",
+    "bytes": 6127
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/project_laser_into_camera.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/project_laser_into_camera.py",
+    "sha256": "cea9d8a002d519ebcddd29cfaa00635780a95a5b2fa047843e057c3a4200bb8d",
+    "bytes": 3226
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/radar.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/radar.py",
+    "sha256": "016b64d9e32b86feba65860e374f1a500d83a18e47479a210f72dc8ee108ee26",
+    "bytes": 6990
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/transform.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/transform.py",
+    "sha256": "61c42b93075ab64e1b58193a2aa0f35332d59bca334e762c0cfb1b067aadcfb4",
+    "bytes": 5322
+  },
+  "VERA/cam5-support-v1/source/data/robotcar_sdk/python/velodyne.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/velodyne.py",
+    "sha256": "e537db5d1ecd742c411c95514832c52cf272086af077705616f77d931c5ba143",
+    "bytes": 7130
+  },
+  "VERA/cam5-support-v1/source/models/magic_fusion.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/magic_fusion.py",
+    "sha256": "416b9027ce0a05d7888e6e152910b24b9269f550313e7744c70bc60b27e4572d",
+    "bytes": 14676
+  },
+  "VERA/cam5-support-v1/source/models/model_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/model_mink.py",
+    "sha256": "395a8fe73d78f74e8479dbc487de4bf9bf4fa965ffc26aa4a8dfbe87e1d0bb68",
+    "bytes": 18018
+  },
+  "VERA/cam5-support-v1/source/models/sc2pcr.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/sc2pcr.py",
+    "sha256": "a3c995f94b3cb1cac5d5f05c822bc9b752a5bab3318cbe9930bbd3164a6f4c3d",
+    "bytes": 18018
+  },
+  "VERA/cam5-support-v1/source/run_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/run_mink.py",
+    "sha256": "7b85fe06c568440757f0ae844507a4d8d7193bcd1519f222c5490a74e401dad0",
+    "bytes": 19005
+  },
+  "VERA/cam5-support-v1/source/tools/magic_nclt_runtime.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/tools/magic_nclt_runtime.py",
+    "sha256": "ca05639ccee8dd78b4a09077a778d78287470ad15cc89de72e437d74a62cedac",
+    "bytes": 14720
+  },
+  "VERA/cam5-support-v1/source/tools/sam_cache_frozen.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/tools/sam_cache_frozen.py",
+    "sha256": "32ba3bade4c71c4c34418aae5b91e35e5e60ecc93c371101cee05ee1317c2cea",
+    "bytes": 29931
+  },
+  "VERA/cam5-support-v1/source/utils/__init__.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "VERA/cam5-support-v1/source/utils/full_pool_robust_v1.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/full_pool_robust_v1.py",
+    "sha256": "b7befc3cd53e5d6bcf3c7685516061d29fcb4319362a4fc504151c3dc7f2e6fe",
+    "bytes": 1699
+  },
+  "VERA/cam5-support-v1/source/utils/pose_util.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/pose_util.py",
+    "sha256": "43a0c16b15f8739bf3a978c347736c0a744b11d6158bda9c651c7a330ff2916c",
+    "bytes": 48868
+  },
+  "VERA/cam5-support-fov-v1/bind_parent.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/bind_parent.py",
+    "sha256": "1b5f5eae9c8b4bd267fde1089a2a9e5f701df9604143372940a8e4e48d3e7ab8",
+    "bytes": 3488
+  },
+  "VERA/cam5-support-fov-v1/checks.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/checks.py",
+    "sha256": "6bdc9e81ec9de763a9824ffd84c9265ced62029ba18984100aa525488449274e",
+    "bytes": 4326
+  },
+  "VERA/cam5-support-fov-v1/common.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/common.py",
+    "sha256": "6a274fdd25aa02beefa946e97d0e5c03558bbbbdcb03c96c09f57f41435d704c",
+    "bytes": 2641
+  },
+  "VERA/cam5-support-fov-v1/compat_det.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/compat_det.py",
+    "sha256": "3a35731658d8c29f4cc7d83c3737489583c63931a7c93693396afc0783f7d317",
+    "bytes": 732
+  },
+  "VERA/cam5-support-fov-v1/cpu_checks.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/cpu_checks.py",
+    "sha256": "06b46d29c7805586e02aa14a259c3202449f2004ab061e826fd24269f1276ca7",
+    "bytes": 1973
+  },
+  "VERA/cam5-support-fov-v1/diagnose_epoch.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/diagnose_epoch.py",
+    "sha256": "d17b51e413b42cdfa0b01124741b4f1151fc3451999e065908ecbfe41675ec80",
+    "bytes": 18048
+  },
+  "VERA/cam5-support-fov-v1/fov_visibility_v2.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/fov_visibility_v2.py",
+    "sha256": "3b2c442a27a377bd7095082b84b88aa9dab244d747be93cb585cf0052f5bee48",
+    "bytes": 5348
+  },
+  "VERA/cam5-support-fov-v1/predict_epoch.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/predict_epoch.py",
+    "sha256": "1b6ab623d5454f9c8553c8d52d810016732a616127e0f543ed81e974113049a8",
+    "bytes": 3500
+  },
+  "VERA/cam5-support-fov-v1/predict_epoch_compat.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/predict_epoch_compat.py",
+    "sha256": "b2eba982ff123062471370bb4bf87540889cb4c8a76d69c48000758f8f0dc330",
+    "bytes": 197
+  },
+  "VERA/cam5-support-fov-v1/run.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/run.py",
+    "sha256": "91148853b8b66932bd7e73d9e4cd8761a16f56c9e04db215f42b6944e5663c9b",
+    "bytes": 7866
+  },
+  "VERA/cam5-support-fov-v1/runtime.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/runtime.py",
+    "sha256": "eb0c16bec27a9c49422c9db8637112dd30cb9b334b249dfc7affc5fba606dadf",
+    "bytes": 6053
+  },
+  "VERA/cam5-support-fov-v1/score_epoch.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/score_epoch.py",
+    "sha256": "403a28c188a0b5491ecfb8dcb28bcca290ef43a41424541bc6aab13e94ead2fd",
+    "bytes": 6568
+  },
+  "VERA/cam5-support-fov-v1/train_to.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/train_to.py",
+    "sha256": "b387a9cfcc0859594867c7990aa36a417fe4fd81f7806cd9a35a86760d1572d3",
+    "bytes": 7547
+  },
+  "VERA/cam5-support-fov-v1/trained_checks.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/trained_checks.py",
+    "sha256": "8f734513bea15d03e6fc52cfa79a90a278219ae038ad364a6c1956f04bbeac08",
+    "bytes": 2580
+  },
+  "VERA/cam5-support-fov-v1/vera.py": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/vera.py",
+    "sha256": "4e6d94ffd7428c64bb54bcc46ca0bc20e955f851fcaf14a98b240a8b5c0c471f",
+    "bytes": 8146
+  },
+  "VERA/cam5-support-fov-v1/plan.json": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/plan.json",
+    "sha256": "b05a355cb673c3ad93f526c34c84662c5549e09e0c7aeada753ae365e9cedc67",
+    "bytes": 20781
+  },
+  "VERA/cam5-support-fov-v1/deployment.json": {
+    "source": "work/vera-main-20261002/cam5-support-fov-v1/deployment.json",
+    "sha256": "e30c89d848637b3e1619962e0562f7b83a7faac8cfacac7451aab44c6cd5a6e0",
+    "bytes": 1849
+  },
+  "VERA/cam5-support-fov-v1/source/data/base_loader.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/base_loader.py",
+    "sha256": "c4f21e8b4c8ef2488f13b5c4e55a1ea1432843ec7d915a56c8948aa47a5cf3eb",
+    "bytes": 2958
+  },
+  "VERA/cam5-support-fov-v1/source/data/dataset_loader.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/dataset_loader.py",
+    "sha256": "1d206970cf2e4ef2149a43bde752920aa51ff930bd30ee40959d03c6b116a895",
+    "bytes": 2576
+  },
+  "VERA/cam5-support-fov-v1/source/data/Enhanced_OxfordVelodyne_datagenerator_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/Enhanced_OxfordVelodyne_datagenerator_mink.py",
+    "sha256": "c915dc99b0b35c22435f015c633862dea43557e910af035e2803e128ff30a7de",
+    "bytes": 6869
+  },
+  "VERA/cam5-support-fov-v1/source/data/leader_nclt_manifest.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/leader_nclt_manifest.py",
+    "sha256": "d6392e2b4be94c92bd39c9608aba4a1c7d7cfa85e089db933db8b3c5dd6158c4",
+    "bytes": 25280
+  },
+  "VERA/cam5-support-fov-v1/source/data/NCLTVelodyne_datagenerator_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/NCLTVelodyne_datagenerator_mink.py",
+    "sha256": "4d04ab9e24fd29a16c78cb1192719a60497c3230096f321f8fb70e9c97467fb9",
+    "bytes": 6620
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/__init__.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/__init__.py",
+    "sha256": "e2f3a6aab6c01b7c9bb78f4b09f26d7d7c13513247d86ebf2556dfdab5b897d9",
+    "bytes": 23
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/build_pointcloud.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/build_pointcloud.py",
+    "sha256": "2a18d00eae2e701b054e8ea37c0adc69feadb9f047f05b7f084adb11ff771e3e",
+    "bytes": 7516
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/camera_model.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/camera_model.py",
+    "sha256": "eb6f9250f4bc4a9a914e202c6da79f1ec615fac70d1879aceec0b3bda242afd6",
+    "bytes": 6072
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/image.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/image.py",
+    "sha256": "12a290ca4009b801ce822775049bc2fcc6becfb80966f8f2c689b235bda3e852",
+    "bytes": 1458
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/interpolate_poses.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/interpolate_poses.py",
+    "sha256": "14e6a2bd2788aca7515ed26117498e07932cfdd6cbb949a8cf75ebeade075dce",
+    "bytes": 10786
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/play_images.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_images.py",
+    "sha256": "344fedba7af4b3b71d13b0b6fbccc93e68aab9798bbfa7fbb1ae34520983a418",
+    "bytes": 2287
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/play_radar.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_radar.py",
+    "sha256": "2376ad8f7682e599ad3def301443fc4a6b063e8c80ff8a078a2809987dd4addb",
+    "bytes": 2472
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/play_velodyne.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_velodyne.py",
+    "sha256": "53aaecfd1d77d7ff4ab3d9fa4bafabf33897b0903cd6ec8a9ea0db0f9bb5caf4",
+    "bytes": 6127
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/project_laser_into_camera.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/project_laser_into_camera.py",
+    "sha256": "cea9d8a002d519ebcddd29cfaa00635780a95a5b2fa047843e057c3a4200bb8d",
+    "bytes": 3226
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/radar.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/radar.py",
+    "sha256": "016b64d9e32b86feba65860e374f1a500d83a18e47479a210f72dc8ee108ee26",
+    "bytes": 6990
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/transform.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/transform.py",
+    "sha256": "61c42b93075ab64e1b58193a2aa0f35332d59bca334e762c0cfb1b067aadcfb4",
+    "bytes": 5322
+  },
+  "VERA/cam5-support-fov-v1/source/data/robotcar_sdk/python/velodyne.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/velodyne.py",
+    "sha256": "e537db5d1ecd742c411c95514832c52cf272086af077705616f77d931c5ba143",
+    "bytes": 7130
+  },
+  "VERA/cam5-support-fov-v1/source/models/magic_fusion.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/magic_fusion.py",
+    "sha256": "416b9027ce0a05d7888e6e152910b24b9269f550313e7744c70bc60b27e4572d",
+    "bytes": 14676
+  },
+  "VERA/cam5-support-fov-v1/source/models/model_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/model_mink.py",
+    "sha256": "395a8fe73d78f74e8479dbc487de4bf9bf4fa965ffc26aa4a8dfbe87e1d0bb68",
+    "bytes": 18018
+  },
+  "VERA/cam5-support-fov-v1/source/models/sc2pcr.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/sc2pcr.py",
+    "sha256": "a3c995f94b3cb1cac5d5f05c822bc9b752a5bab3318cbe9930bbd3164a6f4c3d",
+    "bytes": 18018
+  },
+  "VERA/cam5-support-fov-v1/source/run_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/run_mink.py",
+    "sha256": "7b85fe06c568440757f0ae844507a4d8d7193bcd1519f222c5490a74e401dad0",
+    "bytes": 19005
+  },
+  "VERA/cam5-support-fov-v1/source/tools/magic_nclt_runtime.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/tools/magic_nclt_runtime.py",
+    "sha256": "ca05639ccee8dd78b4a09077a778d78287470ad15cc89de72e437d74a62cedac",
+    "bytes": 14720
+  },
+  "VERA/cam5-support-fov-v1/source/tools/sam_cache_frozen.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/tools/sam_cache_frozen.py",
+    "sha256": "32ba3bade4c71c4c34418aae5b91e35e5e60ecc93c371101cee05ee1317c2cea",
+    "bytes": 29931
+  },
+  "VERA/cam5-support-fov-v1/source/utils/__init__.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "VERA/cam5-support-fov-v1/source/utils/full_pool_robust_v1.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/full_pool_robust_v1.py",
+    "sha256": "b7befc3cd53e5d6bcf3c7685516061d29fcb4319362a4fc504151c3dc7f2e6fe",
+    "bytes": 1699
+  },
+  "VERA/cam5-support-fov-v1/source/utils/pose_util.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/pose_util.py",
+    "sha256": "43a0c16b15f8739bf3a978c347736c0a744b11d6158bda9c651c7a330ff2916c",
+    "bytes": 48868
+  },
+  "VERA/cam5-repair-v2/check_repair.py": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/check_repair.py",
+    "sha256": "6da694eefecbdcf03b4474ed7d3fc7d819b2427fb89b04fd0e429fd9da610a44",
+    "bytes": 5472
+  },
+  "VERA/cam5-repair-v2/repair.py": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/repair.py",
+    "sha256": "70d8ff1091861bc72bae161861e10316604f7f3cb6377e40e42f0c11f4b55890",
+    "bytes": 10718
+  },
+  "VERA/cam5-repair-v2/repair_runtime.py": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/repair_runtime.py",
+    "sha256": "652aba18c590409ccc8f5579722c479914f2cbd8c7bd88cdcfea94a4392b4ee4",
+    "bytes": 3916
+  },
+  "VERA/cam5-repair-v2/tokens_geometry.py": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/tokens_geometry.py",
+    "sha256": "2fa1b78464cb2dcc2ee242af283139abcdc2332e4ad5b949a20e0b8324a20753",
+    "bytes": 3082
+  },
+  "VERA/cam5-repair-v2/trial_common.py": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/trial_common.py",
+    "sha256": "d3caee3a060ef5e1398e41110aa1643581a5e027579cdee87b4153928dbb75a9",
+    "bytes": 3727
+  },
+  "VERA/cam5-repair-v2/trial_predict.py": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/trial_predict.py",
+    "sha256": "957a12a65ba4411dd2f601f3cb345e54dbe86c216f5dfeb1b9c92b072222d3e1",
+    "bytes": 4036
+  },
+  "VERA/cam5-repair-v2/trial_probe.py": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/trial_probe.py",
+    "sha256": "b0ba2a5de513ef06b643af28f00df8682f9534b60e94315aae34bb986937e24e",
+    "bytes": 3199
+  },
+  "VERA/cam5-repair-v2/trial_run.py": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/trial_run.py",
+    "sha256": "9e4e584c02017c42e4fcebeef61e9f2b3734d6c88b964ce3e6361b27b6ca13d8",
+    "bytes": 6563
+  },
+  "VERA/cam5-repair-v2/trial_score.py": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/trial_score.py",
+    "sha256": "93b2d61bd0034e5a057740646c8236e90fdfcfde4098851fe59a544cca5548ff",
+    "bytes": 5569
+  },
+  "VERA/cam5-repair-v2/trial_train.py": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/trial_train.py",
+    "sha256": "5e8b3863d0cef7a9cfdc8c86fd93d6abc55b8813e3d25e6674ae8a7c057f7bfe",
+    "bytes": 6940
+  },
+  "VERA/cam5-repair-v2/deployment.json": {
+    "source": "work/vera-main-20261002/cam5-repair-v2/deployment.json",
+    "sha256": "58ddedd4c80bc73c8451097b4e6268891362e669e4c0494f00804c746eb01ff1",
+    "bytes": 419
+  },
+  "VERA/cam5-repair-v2/source/data/base_loader.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/base_loader.py",
+    "sha256": "c4f21e8b4c8ef2488f13b5c4e55a1ea1432843ec7d915a56c8948aa47a5cf3eb",
+    "bytes": 2958
+  },
+  "VERA/cam5-repair-v2/source/data/dataset_loader.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/dataset_loader.py",
+    "sha256": "1d206970cf2e4ef2149a43bde752920aa51ff930bd30ee40959d03c6b116a895",
+    "bytes": 2576
+  },
+  "VERA/cam5-repair-v2/source/data/Enhanced_OxfordVelodyne_datagenerator_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/Enhanced_OxfordVelodyne_datagenerator_mink.py",
+    "sha256": "c915dc99b0b35c22435f015c633862dea43557e910af035e2803e128ff30a7de",
+    "bytes": 6869
+  },
+  "VERA/cam5-repair-v2/source/data/leader_nclt_manifest.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/leader_nclt_manifest.py",
+    "sha256": "d6392e2b4be94c92bd39c9608aba4a1c7d7cfa85e089db933db8b3c5dd6158c4",
+    "bytes": 25280
+  },
+  "VERA/cam5-repair-v2/source/data/NCLTVelodyne_datagenerator_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/NCLTVelodyne_datagenerator_mink.py",
+    "sha256": "4d04ab9e24fd29a16c78cb1192719a60497c3230096f321f8fb70e9c97467fb9",
+    "bytes": 6620
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/__init__.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/__init__.py",
+    "sha256": "e2f3a6aab6c01b7c9bb78f4b09f26d7d7c13513247d86ebf2556dfdab5b897d9",
+    "bytes": 23
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/build_pointcloud.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/build_pointcloud.py",
+    "sha256": "2a18d00eae2e701b054e8ea37c0adc69feadb9f047f05b7f084adb11ff771e3e",
+    "bytes": 7516
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/camera_model.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/camera_model.py",
+    "sha256": "eb6f9250f4bc4a9a914e202c6da79f1ec615fac70d1879aceec0b3bda242afd6",
+    "bytes": 6072
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/image.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/image.py",
+    "sha256": "12a290ca4009b801ce822775049bc2fcc6becfb80966f8f2c689b235bda3e852",
+    "bytes": 1458
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/interpolate_poses.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/interpolate_poses.py",
+    "sha256": "14e6a2bd2788aca7515ed26117498e07932cfdd6cbb949a8cf75ebeade075dce",
+    "bytes": 10786
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/play_images.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_images.py",
+    "sha256": "344fedba7af4b3b71d13b0b6fbccc93e68aab9798bbfa7fbb1ae34520983a418",
+    "bytes": 2287
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/play_radar.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_radar.py",
+    "sha256": "2376ad8f7682e599ad3def301443fc4a6b063e8c80ff8a078a2809987dd4addb",
+    "bytes": 2472
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/play_velodyne.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/play_velodyne.py",
+    "sha256": "53aaecfd1d77d7ff4ab3d9fa4bafabf33897b0903cd6ec8a9ea0db0f9bb5caf4",
+    "bytes": 6127
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/project_laser_into_camera.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/project_laser_into_camera.py",
+    "sha256": "cea9d8a002d519ebcddd29cfaa00635780a95a5b2fa047843e057c3a4200bb8d",
+    "bytes": 3226
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/radar.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/radar.py",
+    "sha256": "016b64d9e32b86feba65860e374f1a500d83a18e47479a210f72dc8ee108ee26",
+    "bytes": 6990
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/transform.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/transform.py",
+    "sha256": "61c42b93075ab64e1b58193a2aa0f35332d59bca334e762c0cfb1b067aadcfb4",
+    "bytes": 5322
+  },
+  "VERA/cam5-repair-v2/source/data/robotcar_sdk/python/velodyne.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/data/robotcar_sdk/python/velodyne.py",
+    "sha256": "e537db5d1ecd742c411c95514832c52cf272086af077705616f77d931c5ba143",
+    "bytes": 7130
+  },
+  "VERA/cam5-repair-v2/source/models/magic_fusion.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/magic_fusion.py",
+    "sha256": "416b9027ce0a05d7888e6e152910b24b9269f550313e7744c70bc60b27e4572d",
+    "bytes": 14676
+  },
+  "VERA/cam5-repair-v2/source/models/model_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/model_mink.py",
+    "sha256": "395a8fe73d78f74e8479dbc487de4bf9bf4fa965ffc26aa4a8dfbe87e1d0bb68",
+    "bytes": 18018
+  },
+  "VERA/cam5-repair-v2/source/models/sc2pcr.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/models/sc2pcr.py",
+    "sha256": "a3c995f94b3cb1cac5d5f05c822bc9b752a5bab3318cbe9930bbd3164a6f4c3d",
+    "bytes": 18018
+  },
+  "VERA/cam5-repair-v2/source/run_mink.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/run_mink.py",
+    "sha256": "7b85fe06c568440757f0ae844507a4d8d7193bcd1519f222c5490a74e401dad0",
+    "bytes": 19005
+  },
+  "VERA/cam5-repair-v2/source/tools/magic_nclt_runtime.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/tools/magic_nclt_runtime.py",
+    "sha256": "ca05639ccee8dd78b4a09077a778d78287470ad15cc89de72e437d74a62cedac",
+    "bytes": 14720
+  },
+  "VERA/cam5-repair-v2/source/tools/sam_cache_frozen.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/tools/sam_cache_frozen.py",
+    "sha256": "32ba3bade4c71c4c34418aae5b91e35e5e60ecc93c371101cee05ee1317c2cea",
+    "bytes": 29931
+  },
+  "VERA/cam5-repair-v2/source/utils/__init__.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "VERA/cam5-repair-v2/source/utils/full_pool_robust_v1.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/full_pool_robust_v1.py",
+    "sha256": "b7befc3cd53e5d6bcf3c7685516061d29fcb4319362a4fc504151c3dc7f2e6fe",
+    "bytes": 1699
+  },
+  "VERA/cam5-repair-v2/source/utils/pose_util.py": {
+    "source": "work/vera-main-20261002/pretraining-evidence/source/utils/pose_util.py",
+    "sha256": "43a0c16b15f8739bf3a978c347736c0a744b11d6158bda9c651c7a330ff2916c",
+    "bytes": 48868
+  },
+  "VERA/evidence/main-e04-report.json": {
+    "source": "work/vera-main-20261002/parent-e4-vs-leader/report.json",
+    "sha256": "80ef2e245ff683efc6677d8c0142e24aba073c761638c4459f1ef1d382babdb1",
+    "bytes": 6323
+  },
+  "VERA/evidence/support-e30-report.json": {
+    "source": "work/vera-main-20261002/completed-evidence/cam5-support-v1/e30/report.json",
+    "sha256": "2f4ec9e408cee7208390b4c264bebb2b78aa2b968d48f379e60180a4c7bbafc0",
+    "bytes": 5987
+  },
+  "VERA/evidence/fov-e10-report.json": {
+    "source": "work/vera-main-20261002/completed-evidence/cam5-support-fov-v1/e10/report.json",
+    "sha256": "9c57598d59d302e3dd7f4c262f252e22f7e7380b02de3fdfb67fc5836d450725",
+    "bytes": 7635
+  },
+  "VERA/evidence/repair-e01-report.json": {
+    "source": "work/vera-main-20261002/repair-trial-evidence/e01/report.json",
+    "sha256": "7043c486765316704bac3f2815880cdbbfec7c62d388763412f043ae6db84e85",
+    "bytes": 3995
+  },
+  "VERA/evidence/repair-trial-plan.json": {
+    "source": "work/vera-main-20261002/repair-trial-plan.json",
+    "sha256": "469a14d14ffe06f1ddfd1cd1ddf4bb469f964b71fd4bd53c99f5de390a39e6a5",
+    "bytes": 3820
+  },
+  "VERA/evidence/user-stop-receipt.json": {
+    "source": "work/vera-main-20261002/repair-trial-user-stop-receipt.json",
+    "sha256": "10402204a04398a6f4917bcc48772ef5516bd1a79c397326437a8bf2f79e9583",
+    "bytes": 1949
+  },
+  "VERA/evidence/user-stop-verified.json": {
+    "source": "work/vera-main-20261002/repair-trial-user-stop-verified.json",
+    "sha256": "da7d374ff26c4c399b42200a65dc5fa3f47d5e6136c8f0665d020e44eb410a14",
+    "bytes": 332
+  },
+  "VERA/evidence/support-fov-local-verification.json": {
+    "source": "work/vera-main-20261002/completed-evidence/local-verification.json",
+    "sha256": "e2ed97532d8c86f20b74b0c2fc9d13dfd1c82ef49fc046945f612203a3dbffe4",
+    "bytes": 9375
+  },
+  "VERA/evidence/repair-acceptance.json": {
+    "source": "work/vera-main-20261002/repair-acceptance.json",
+    "sha256": "333159b24b7ff4ce98d3247ae43c50a8da181bf0d4f185934c45426aa3563792",
+    "bytes": 1714
+  },
+  "VERA/cam5-repair-v2/historical-trial-plan.json": {
+    "source": "work/vera-main-20261002/repair-trial-plan.json",
+    "sha256": "469a14d14ffe06f1ddfd1cd1ddf4bb469f964b71fd4bd53c99f5de390a39e6a5",
+    "bytes": 3820
+  },
+  "VERA/PROPOSAL.md": {
+    "source": "work/openrouter-batch/leader-internal-fusion-math-max-web-20261002-answer.md",
+    "sha256": "6c6814e0b2d965319e836240b9401cfada3e59520ade44525408f13db80b26d0",
+    "bytes": 10654
+  },
+  "YPC/experiment/source/data/base_loader.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/base_loader.py",
+    "sha256": "c4f21e8b4c8ef2488f13b5c4e55a1ea1432843ec7d915a56c8948aa47a5cf3eb",
+    "bytes": 2958
+  },
+  "YPC/experiment/source/data/dataset_loader.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/dataset_loader.py",
+    "sha256": "1c777610c5f2819b33a3a7781756aeac3dbf59aff204946739f87251750c6fa2",
+    "bytes": 2643
+  },
+  "YPC/experiment/source/data/Enhanced_OxfordVelodyne_datagenerator_mink.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/Enhanced_OxfordVelodyne_datagenerator_mink.py",
+    "sha256": "c915dc99b0b35c22435f015c633862dea43557e910af035e2803e128ff30a7de",
+    "bytes": 6869
+  },
+  "YPC/experiment/source/data/leader_nclt_manifest.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/leader_nclt_manifest.py",
+    "sha256": "d6392e2b4be94c92bd39c9608aba4a1c7d7cfa85e089db933db8b3c5dd6158c4",
+    "bytes": 25280
+  },
+  "YPC/experiment/source/data/local905_mask.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/local905_mask.py",
+    "sha256": "fe62e76412699f1b07d9e0964b223dfe70e91cbc08dd9d99ed7a8d385c3bd4e2",
+    "bytes": 1207
+  },
+  "YPC/experiment/source/data/local905_mink.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/local905_mink.py",
+    "sha256": "1ebe2ed67737c2ccf7a6ff4ade70add4a6371bcef5248133a6f108279296a32e",
+    "bytes": 3499
+  },
+  "YPC/experiment/source/data/local905_query.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/local905_query.py",
+    "sha256": "b4406e874386ea32ba51120c337929db67cb760e3d22cc18fc2e808de4469b30",
+    "bytes": 4479
+  },
+  "YPC/experiment/source/data/magic_data.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/magic_data.py",
+    "sha256": "b41693ebd521316fc51e10336b69c9a905a7b2a2e8362a549b940907506f9f26",
+    "bytes": 5041
+  },
+  "YPC/experiment/source/data/NCLTVelodyne_datagenerator_mink.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/NCLTVelodyne_datagenerator_mink.py",
+    "sha256": "4d04ab9e24fd29a16c78cb1192719a60497c3230096f321f8fb70e9c97467fb9",
+    "bytes": 6620
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/__init__.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/__init__.py",
+    "sha256": "e2f3a6aab6c01b7c9bb78f4b09f26d7d7c13513247d86ebf2556dfdab5b897d9",
+    "bytes": 23
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/build_pointcloud.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/build_pointcloud.py",
+    "sha256": "a85c66db8077ba5494022f67c7316875ed9e47e7454cac39d307b72b6f1cfa39",
+    "bytes": 7685
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/camera_model.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/camera_model.py",
+    "sha256": "26bcb7a9c6031cb324688b50f0f971ae7266a3cc68cfaa31b2a3506b485bef72",
+    "bytes": 6221
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/image.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/image.py",
+    "sha256": "68ea69076eea6f9132907ef3df81bfd7a13baf447d83a564bc15e42ead512d24",
+    "bytes": 1508
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/interpolate_poses.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/interpolate_poses.py",
+    "sha256": "c6397092e1ffb3b553b01e1f642b65343554db09fbfae35eb0a28b784720bbc5",
+    "bytes": 11047
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/play_images.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/play_images.py",
+    "sha256": "413c4097ba63391b32594ca0c71eaaae0bfe6d7ed2de12614a83e715cd264276",
+    "bytes": 2351
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/play_radar.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/play_radar.py",
+    "sha256": "242dd96368d03a977561f06bf5fe22d02a908e74b89e11012b9f8fea0986ecd6",
+    "bytes": 2532
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/play_velodyne.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/play_velodyne.py",
+    "sha256": "0f29500ffe238de4554ee25163e5e14f24bf6f2f86e7a757ed055dc23586a6be",
+    "bytes": 6252
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/project_laser_into_camera.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/project_laser_into_camera.py",
+    "sha256": "bd663513eb72838a9a2bf40b0b3b8cfe4fcaad8a973554199cd14571d843e67d",
+    "bytes": 3307
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/radar.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/radar.py",
+    "sha256": "f61f2c2811a10ef4133f317c18765d06281bb46584d11c448e4ffe872e564e71",
+    "bytes": 7134
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/transform.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/transform.py",
+    "sha256": "feb9e59a219bafc5137a5eeeb8a13d889457a3a32c7abb2f69868cb2eb8b4675",
+    "bytes": 5505
+  },
+  "YPC/experiment/source/data/robotcar_sdk/python/velodyne.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/data/robotcar_sdk/python/velodyne.py",
+    "sha256": "c9e49e5d71f43ae072fff125c888c79dc93d3a62cd6b44754531f3f918285457",
+    "bytes": 7284
+  },
+  "YPC/experiment/source/models/far.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/models/far.py",
+    "sha256": "01c178080bfb985ea6a3acb8e38629853857955a6bffbd72da6b7e1c86633048",
+    "bytes": 7714
+  },
+  "YPC/experiment/source/models/far_covolume.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/models/far_covolume.py",
+    "sha256": "17aa27af2309ae296b0a8971274daa0fb7628f666868bb60cfe8df9773484f51",
+    "bytes": 11906
+  },
+  "YPC/experiment/source/models/far_covolume_standard.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/models/far_covolume_standard.py",
+    "sha256": "3898e796e8697ab93a00c6888ecba0043c658a1ff50268e03164d79a5a44cdbe",
+    "bytes": 12176
+  },
+  "YPC/experiment/source/models/magic_fusion.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/models/magic_fusion.py",
+    "sha256": "416b9027ce0a05d7888e6e152910b24b9269f550313e7744c70bc60b27e4572d",
+    "bytes": 14676
+  },
+  "YPC/experiment/source/models/magic_paper_fusion.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/models/magic_paper_fusion.py",
+    "sha256": "c6d67f52d9ab384b9f61a35928f80962e2cff0a54879969a62aa48d449837ccd",
+    "bytes": 23014
+  },
+  "YPC/experiment/source/models/model_mink.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/models/model_mink.py",
+    "sha256": "6ec46596b8b0c40fcff2cfe31088d00a20057db1fd3babe271c25d0a5aa6186d",
+    "bytes": 19518
+  },
+  "YPC/experiment/source/models/sc2pcr.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/models/sc2pcr.py",
+    "sha256": "36ac2860984d3eb8b4f223d099d1b08f6fac561f4307129fadd5eebbba4e17ee",
+    "bytes": 18401
+  },
+  "YPC/experiment/source/models/sigma_far.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/models/sigma_far.py",
+    "sha256": "d89e5ad09e0fa5f92d40dff9751836e4180c7603026f16f74a59bd4060d9c408",
+    "bytes": 4102
+  },
+  "YPC/experiment/source/models/sigma_pcv.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/models/sigma_pcv.py",
+    "sha256": "8fe4542ddbb4f2722e62dd0b08e6c27a0f7c5c69493f3ada8d89b1d0397385f0",
+    "bytes": 6769
+  },
+  "YPC/experiment/source/run_mink.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/run_mink.py",
+    "sha256": "c8cf2923e41549162a2ec865e5408c9148e04a6dcc092109fc3dd6331d5aeda0",
+    "bytes": 23615
+  },
+  "YPC/experiment/source/tests/test_far.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tests/test_far.py",
+    "sha256": "f0deb00a9f7393e37944b2ab8e4751851703b228b43431458a91d2c522ff2061",
+    "bytes": 2413
+  },
+  "YPC/experiment/source/tests/test_far_covolume.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tests/test_far_covolume.py",
+    "sha256": "816c17613b3da603e1c6059b560f213377260b418f592cb1513b3adddd6566a4",
+    "bytes": 5474
+  },
+  "YPC/experiment/source/tests/test_far_covolume_standard.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tests/test_far_covolume_standard.py",
+    "sha256": "b54b25d3089dbb3cb826688e25c4813625360cd7399c410e0abce701568c46e5",
+    "bytes": 8615
+  },
+  "YPC/experiment/source/tests/test_leader_nclt_manifest.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tests/test_leader_nclt_manifest.py",
+    "sha256": "36a25ebdefe231febf226e5d1f4aa8511a7b35c78af7d5b8106a97cbe049fdb0",
+    "bytes": 17617
+  },
+  "YPC/experiment/source/tests/test_local905_evaluator.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tests/test_local905_evaluator.py",
+    "sha256": "a2f304180e6e375b85fadbf65f6d9f4391e636e3bdd9939b5e6730bf5794857c",
+    "bytes": 3129
+  },
+  "YPC/experiment/source/tests/test_magic_equation_fusion.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tests/test_magic_equation_fusion.py",
+    "sha256": "ce8caea851775a638c24967b566de12f2959af48d64eebc6d1b91484c0abe1b0",
+    "bytes": 11478
+  },
+  "YPC/experiment/source/tests/test_magic_fusion.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tests/test_magic_fusion.py",
+    "sha256": "fa5b14b4e27199b5f6e0d581f19c93cf33799969b002fa30c1665fd615af507c",
+    "bytes": 9750
+  },
+  "YPC/experiment/source/tests/test_magic_nclt_runner.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tests/test_magic_nclt_runner.py",
+    "sha256": "07b07f09dfad4f8edf887ca6896cdbe9f126d07a44399e520ebaa70d25ce4def",
+    "bytes": 19948
+  },
+  "YPC/experiment/source/tests/test_magic_protocol.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tests/test_magic_protocol.py",
+    "sha256": "44749b50ca5de75f954d74a089f2c178c321a8fd74eb0f989f4ea53ef785fcef",
+    "bytes": 1848
+  },
+  "YPC/experiment/source/tests/test_sparse_cat_alignment.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tests/test_sparse_cat_alignment.py",
+    "sha256": "47256b526f0d89a7462f34b4964ac12bc49fcc285588027978aacaf4755da761",
+    "bytes": 1322
+  },
+  "YPC/experiment/source/tools/audit_confirmation_overlap.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/audit_confirmation_overlap.py",
+    "sha256": "2bdb5154412b3136707c04b89c23d9f6efddd22b2cb22201c7fca4d63987c3e9",
+    "bytes": 2154
+  },
+  "YPC/experiment/source/tools/audit_local905_eval_trr.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/audit_local905_eval_trr.py",
+    "sha256": "fe8b9fd32bcf17652178e8fb8b85581dfb1bf11445d309e3456dadcdf67a582b",
+    "bytes": 4669
+  },
+  "YPC/experiment/source/tools/audit_magic_gates.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/audit_magic_gates.py",
+    "sha256": "6b87e621895efc402463a8329c0e44f416c594be005f4787efe0eff36893dfed",
+    "bytes": 9751
+  },
+  "YPC/experiment/source/tools/audit_official_local905.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/audit_official_local905.py",
+    "sha256": "fa37f586c5ea9fb9d31bb393ccb52f7ff0ab942ef91ab76af8198b86c215fcea",
+    "bytes": 4861
+  },
+  "YPC/experiment/source/tools/cache_far_covolume_initial.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/cache_far_covolume_initial.py",
+    "sha256": "6ffdaa14729cafb450142d4d01483a7e8f2d92e1de2add39c418f35f63a24f6e",
+    "bytes": 2854
+  },
+  "YPC/experiment/source/tools/cache_far_v3_initial.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/cache_far_v3_initial.py",
+    "sha256": "6c787c46d1f426c91e36da650ed3ad6d8c3820ab634fa3e417073281564ada5f",
+    "bytes": 2673
+  },
+  "YPC/experiment/source/tools/cache_sam_l_features.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/cache_sam_l_features.py",
+    "sha256": "0b2ac636ee5b93fd13cd6636fbc00d086a33929c66cd69cd083efbf4c6f54ce2",
+    "bytes": 4656
+  },
+  "YPC/experiment/source/tools/compare_local905.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/compare_local905.py",
+    "sha256": "b6ed78bcc3662328460aaf72645b101384bbc6b4375d23b67fd521423bfce8bf",
+    "bytes": 3212
+  },
+  "YPC/experiment/source/tools/debug_mink_repeat.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/debug_mink_repeat.py",
+    "sha256": "16614e8fbc8ae40c9a7dcaf6032b75f3d20e100107673978b793bd92c6c41d6d",
+    "bytes": 3050
+  },
+  "YPC/experiment/source/tools/eval_local905_gt.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/eval_local905_gt.py",
+    "sha256": "26b35456a804b0bdd3364df0b13eef170b98888f1097dea9b6094bc62de56b73",
+    "bytes": 5680
+  },
+  "YPC/experiment/source/tools/eval_local905_online.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/eval_local905_online.py",
+    "sha256": "5d2b8583399f1867251159cfc5773c08814f524b4db69ead95464f443ce763af",
+    "bytes": 12400
+  },
+  "YPC/experiment/source/tools/eval_magic_correspondence_swaps.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/eval_magic_correspondence_swaps.py",
+    "sha256": "eda96b9bd1f7fe85f5563a66b3c43ad95cb7d7e2984e7ad02188ec7b6f34890f",
+    "bytes": 7374
+  },
+  "YPC/experiment/source/tools/evaluate_far.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/evaluate_far.py",
+    "sha256": "3c92eec8390b9b0923f8764c085712d4e2adfd402c4d3b31f50a5a1193653a4d",
+    "bytes": 2125
+  },
+  "YPC/experiment/source/tools/evaluate_far_covolume.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/evaluate_far_covolume.py",
+    "sha256": "aee6c6f9eaf9ea20058ed196edaae2793b2b1386b6020d960b69993bdd12f2a5",
+    "bytes": 2200
+  },
+  "YPC/experiment/source/tools/evaluate_far_covolume_standard.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/evaluate_far_covolume_standard.py",
+    "sha256": "d8531f9133dc217377ea04643084a20b25240a9ad4d37ce8d3c8dcbee7aabb68",
+    "bytes": 2198
+  },
+  "YPC/experiment/source/tools/evaluate_magic_nclt_dev.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/evaluate_magic_nclt_dev.py",
+    "sha256": "254a3db4be60d966acdf664a151fbeac2f844ff32e18032a27064f0923e5b999",
+    "bytes": 19528
+  },
+  "YPC/experiment/source/tools/far_covolume_budget.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/far_covolume_budget.py",
+    "sha256": "d566119f6ea5c8e20e55293422e733bde531e4e16b5c2ada19add6cbc609871b",
+    "bytes": 836
+  },
+  "YPC/experiment/source/tools/far_covolume_runtime.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/far_covolume_runtime.py",
+    "sha256": "716b7996bccf6f8e35ca3afca54309e65dc19b2b06ce91d4ebdaaafc2a937ecb",
+    "bytes": 7920
+  },
+  "YPC/experiment/source/tools/far_covolume_standard_runtime.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/far_covolume_standard_runtime.py",
+    "sha256": "14a9becddb3c5150920dceab681cd6c736bd215504bb5113ab4c4576f36b1ac1",
+    "bytes": 139
+  },
+  "YPC/experiment/source/tools/far_runtime.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/far_runtime.py",
+    "sha256": "a8980a85afe46e68a9e36853bcc867423474ef2a528ac92d9d167b8a766f3444",
+    "bytes": 3889
+  },
+  "YPC/experiment/source/tools/far_scoring.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/far_scoring.py",
+    "sha256": "a452567d1b16e0ad4a7bc07c89ad33eaa8b6941978eb27e98e3ad3df2bbfa9d9",
+    "bytes": 5911
+  },
+  "YPC/experiment/source/tools/far_v3_budget.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/far_v3_budget.py",
+    "sha256": "ba390549495b145bed82dc299aa4962f38941c26c5076c65dfd88b2eb112f816",
+    "bytes": 794
+  },
+  "YPC/experiment/source/tools/far_v3_runtime.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/far_v3_runtime.py",
+    "sha256": "0bf1b9ff150c8a5a51f1a7cd857187912fd9a3303d9a7f8187f20dd7696bdddb",
+    "bytes": 3482
+  },
+  "YPC/experiment/source/tools/guarded_run.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/guarded_run.py",
+    "sha256": "dc3f828558ca9cc2e93dfc2e66e207b46f17c9d536d67d6bf1ce16d1cea3d9f9",
+    "bytes": 5256
+  },
+  "YPC/experiment/source/tools/magic_nclt_runtime.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/magic_nclt_runtime.py",
+    "sha256": "ca05639ccee8dd78b4a09077a778d78287470ad15cc89de72e437d74a62cedac",
+    "bytes": 14720
+  },
+  "YPC/experiment/source/tools/predict_far.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/predict_far.py",
+    "sha256": "50e30095b84f2a3fb526bf4315e969290bc43707f77b2cbc6c2568c90062f99f",
+    "bytes": 5298
+  },
+  "YPC/experiment/source/tools/predict_far_covolume.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/predict_far_covolume.py",
+    "sha256": "75886862224d59b8cd8bb6517f8a2920cc10c1ddd451403e1faca62d2133a2cd",
+    "bytes": 4988
+  },
+  "YPC/experiment/source/tools/predict_far_covolume_standard.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/predict_far_covolume_standard.py",
+    "sha256": "8dc7ceb1152415cfe3f9d039edc01ab8e99d465c1038f0bc974af4ca4f174934",
+    "bytes": 4960
+  },
+  "YPC/experiment/source/tools/predict_magic_nclt.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/predict_magic_nclt.py",
+    "sha256": "8a199e586cd9614140e3ee4b08dc8148f137a659ab18324e9f6a2679645f1300",
+    "bytes": 10486
+  },
+  "YPC/experiment/source/tools/prepare_local905.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/prepare_local905.py",
+    "sha256": "f2163baf0931f71d23367de64c2e49378dcb15cb4f68f948d5a7bcdc707c9011",
+    "bytes": 3783
+  },
+  "YPC/experiment/source/tools/prepare_local905_ab_init.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/prepare_local905_ab_init.py",
+    "sha256": "08fd0f3d493df5dc5716f4615d1af557cccfffbed65090e5d2b1980300d577f8",
+    "bytes": 1219
+  },
+  "YPC/experiment/source/tools/prepare_local905_mask.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/prepare_local905_mask.py",
+    "sha256": "f58f10a9527b7f577502357d9ec043b10e19791b11cf170da284b45714054913",
+    "bytes": 1330
+  },
+  "YPC/experiment/source/tools/prepare_local905_null.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/prepare_local905_null.py",
+    "sha256": "0272358f62a01d687acf1176dcb936d51a1e15b4884d94c2fe47810dddd8a1bf",
+    "bytes": 2540
+  },
+  "YPC/experiment/source/tools/prepare_local905_same_domain.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/prepare_local905_same_domain.py",
+    "sha256": "6a50904fac144550b04593de0965bada9745e6779c5b6c505237c520a592f4c7",
+    "bytes": 2082
+  },
+  "YPC/experiment/source/tools/prepare_magic_dev_sam.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/prepare_magic_dev_sam.py",
+    "sha256": "2536d7798dd58e38298ed8d2eb592c1ca2bcae9664dd7852cbc0a47c11bb057b",
+    "bytes": 4137
+  },
+  "YPC/experiment/source/tools/prepare_official_local905.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/prepare_official_local905.py",
+    "sha256": "cd92f19cf0fe24614d0f4b4321cd4ec8650fe6fd3155a2120bf88d7b63b0dddd",
+    "bytes": 1416
+  },
+  "YPC/experiment/source/tools/report_local905_ab.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/report_local905_ab.py",
+    "sha256": "67ae2bac0a0d8f731f8523e438820aa67de510c06717db1c0fdbd075b22832a9",
+    "bytes": 2503
+  },
+  "YPC/experiment/source/tools/resource_guard.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/resource_guard.py",
+    "sha256": "eeb97de1dc94a3e89c6bd59ac1966e2789f6c56a6c356e680aca535c746e57ff",
+    "bytes": 1394
+  },
+  "YPC/experiment/source/tools/run_magic_revision_matrix.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/run_magic_revision_matrix.py",
+    "sha256": "b8fd81003af7fdccf8dff6918654121c1f69e2fa5a0b6b0ca4e333a86c9cf785",
+    "bytes": 9718
+  },
+  "YPC/experiment/source/tools/run_sigma.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/run_sigma.py",
+    "sha256": "3333a6c31e44c91b4e5f361d4acfa06cb20eb9439f75410d367bff8a3cd590df",
+    "bytes": 16537
+  },
+  "YPC/experiment/source/tools/sam_cache_frozen.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/sam_cache_frozen.py",
+    "sha256": "32ba3bade4c71c4c34418aae5b91e35e5e60ecc93c371101cee05ee1317c2cea",
+    "bytes": 29931
+  },
+  "YPC/experiment/source/tools/score_sigma.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/score_sigma.py",
+    "sha256": "ae5e8e4bac5444dedbe4c3d5d396a20fab2395eb6908127c36dd97feaa088355",
+    "bytes": 3029
+  },
+  "YPC/experiment/source/tools/sigma_pipeline.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/sigma_pipeline.py",
+    "sha256": "a8b4f9b2a1ecdbb825edd79f8fdcf57817086215b76b98681083fad1325a2f7d",
+    "bytes": 4223
+  },
+  "YPC/experiment/source/tools/sigma_runtime.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/sigma_runtime.py",
+    "sha256": "99ab4cc1890c1d8651eeb6485b9ae718f3e22a697056fd1d7839c83afa529696",
+    "bytes": 8396
+  },
+  "YPC/experiment/source/tools/smoke_far_backend.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/smoke_far_backend.py",
+    "sha256": "ee8e6717a8065a960e975b4ebf53633af149fe28928cfe179fae7e4c78f01fa8",
+    "bytes": 2740
+  },
+  "YPC/experiment/source/tools/smoke_magic_full.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/smoke_magic_full.py",
+    "sha256": "83f68fd54c2a2dc8b688188fdf428d9f80d62a8527d07c292ef908efbcd7b67e",
+    "bytes": 1945
+  },
+  "YPC/experiment/source/tools/smoke_magic_nclt.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/smoke_magic_nclt.py",
+    "sha256": "0aab7736a849c277d19ff827a8ffaeb0ac56bd32a374644fee67c5642634fdea",
+    "bytes": 4995
+  },
+  "YPC/experiment/source/tools/smoke_magic_paper.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/smoke_magic_paper.py",
+    "sha256": "0bb46d0703dd6ab52e24524f863285f1d58ef92be991a33acdcbc2082bdd0374",
+    "bytes": 6329
+  },
+  "YPC/experiment/source/tools/train_far.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/train_far.py",
+    "sha256": "9c8a868cc0cd58a9da95569c69ffde4f7fb5cffdcd03e7b16dfba80a6bcb2588",
+    "bytes": 6888
+  },
+  "YPC/experiment/source/tools/train_far_covolume.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/train_far_covolume.py",
+    "sha256": "443ddc3022e62f05439149aa1455cba13b46922e820d9f61d72950bd74d0ee9f",
+    "bytes": 11473
+  },
+  "YPC/experiment/source/tools/train_far_covolume_standard.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/train_far_covolume_standard.py",
+    "sha256": "2ccfc801c87cdc2fabe23ebf91a9343df6ea747c700484a4d0b7ac28544c0d63",
+    "bytes": 11604
+  },
+  "YPC/experiment/source/tools/train_local905.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/train_local905.py",
+    "sha256": "4db2bf64bbc0b07e103e0db505cd93d669d51ec33b937742941272365b315e67",
+    "bytes": 12282
+  },
+  "YPC/experiment/source/tools/train_local905_ab.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/train_local905_ab.py",
+    "sha256": "067be24fc4206bfc819136acb63e938392c269b7ff26aa75f2a2cbdc0c23f8fd",
+    "bytes": 13237
+  },
+  "YPC/experiment/source/tools/train_magic_nclt.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/train_magic_nclt.py",
+    "sha256": "dbf4d58a972bc1ad1fca6aa6bedd093682855dae9c7dcbaad87b0848b46764f1",
+    "bytes": 37377
+  },
+  "YPC/experiment/source/tools/train_magic_revision.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/train_magic_revision.py",
+    "sha256": "d5da97091953e695334a8717f3f7c78b3ddb4ba0a30d980d22327fb7cc6a12e5",
+    "bytes": 16770
+  },
+  "YPC/experiment/source/tools/validate_far.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/validate_far.py",
+    "sha256": "c4308b7eab71345b49921375af92745480317f13480dd9a6b5d2d1edafbf5cff",
+    "bytes": 4329
+  },
+  "YPC/experiment/source/tools/validate_far_covolume.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/validate_far_covolume.py",
+    "sha256": "e72a28843b8c1e5d2ac65c0816c9ca67256c75ce6c2221a8250b9f278a1b5869",
+    "bytes": 5331
+  },
+  "YPC/experiment/source/tools/validate_far_covolume_standard.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/validate_far_covolume_standard.py",
+    "sha256": "5483199bee779056360eeb187eeca4627823bca7c95497bb90775c6c00457965",
+    "bytes": 5286
+  },
+  "YPC/experiment/source/tools/visualize_local905_projection.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/tools/visualize_local905_projection.py",
+    "sha256": "c3a2a5a6f2af56455f939ed952f05dd98e908e55a8bbb3cb504a46aaa58fab83",
+    "bytes": 2243
+  },
+  "YPC/experiment/source/utils/__init__.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/utils/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "YPC/experiment/source/utils/full_pool_robust_v1.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/utils/full_pool_robust_v1.py",
+    "sha256": "b7befc3cd53e5d6bcf3c7685516061d29fcb4319362a4fc504151c3dc7f2e6fe",
+    "bytes": 1699
+  },
+  "YPC/experiment/source/utils/pose_util.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/source/utils/pose_util.py",
+    "sha256": "4690680881b3f3f61036901bdf3075ba44a78aee765b6d99a4862c5af5f591aa",
+    "bytes": 48887
+  },
+  "YPC/experiment/entry.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/entry.py",
+    "sha256": "5dc6fd99f5aa5d12a24f1066ff14a03533de6305d67f25c20b89aecac9af1172",
+    "bytes": 16853
+  },
+  "YPC/experiment/ypc_head.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/ypc_head.py",
+    "sha256": "42d94bb98635d0f63365042f3109eaa204a3bc3a1712c17f67a815720cfe2dc2",
+    "bytes": 2543
+  },
+  "YPC/experiment/supervisor.py": {
+    "source": "work/ypc-v2-20261003/phase-results/root/supervisor.py",
+    "sha256": "c7919d7dae8c7ee68e552a8218baa5bed49b4ba6487f5f45795a48e8452d287b",
+    "bytes": 4972
+  },
+  "YPC/experiment/config.json": {
+    "source": "work/ypc-v2-20261003/phase-results/root/config.json",
+    "sha256": "73aeb1f1b76637d608e4cbaf41ab8ee4c2d995413dd046fdcfc57b8688bda3b2",
+    "bytes": 18506
+  },
+  "YPC/analyze_phase.py": {
+    "source": "work/ypc-v2-20261003/analyze_phase.py",
+    "sha256": "5cc74d735803415902b2a736fcf6042134f616746e5f7f651ef1d7805f64bff2",
+    "bytes": 2990
+  },
+  "YPC/evidence/calibration-e04.json": {
+    "source": "work/ypc-v2-20261003/phase-results/run/calibration-e04.json",
+    "sha256": "812a4d48f730c85dd48b6a75c3b67d54c6bfc0438a1521d16918ff45058a4f7a",
+    "bytes": 70825
+  },
+  "YPC/evidence/training-history.json": {
+    "source": "work/ypc-v2-20261003/phase-results/run/training-history.json",
+    "sha256": "e4324c4c864a1131aa1c8b6533419d969ce832f85135b94becb89af238fd9f87",
+    "bytes": 2254
+  },
+  "YPC/evidence/phase-gate.json": {
+    "source": "work/ypc-v2-20261003/phase-results/run/phase-gate.json",
+    "sha256": "4250c2b36a9406f9d1edccf69b3fdf1225cf17a9d3949f6e2469a1efc6633202",
+    "bytes": 769
+  },
+  "YPC/evidence/train-freeze.json": {
+    "source": "work/ypc-v2-20261003/phase-results/run/train-freeze.json",
+    "sha256": "1506d91633a4b373755d30186d46530172d855691ceb016bdb2070c3ea317319",
+    "bytes": 402672
+  },
+  "YPC/evidence/initial-phase-diagnostic.json": {
+    "source": "work/ypc-v2-20261003/phase-results/run/initial-phase-diagnostic.json",
+    "sha256": "7801a0589427579115320c6bb6692b5f77bbd5d19078edecf813ad7d4c7ecfee",
+    "bytes": 70857
+  },
+  "YPC/evidence/wrong-image-phase-diagnostic.json": {
+    "source": "work/ypc-v2-20261003/phase-results/run/wrong-image-phase-diagnostic.json",
+    "sha256": "702e5a0a6e390c3be3094937e5cb57f425a85be4a8c47adc23d0158fd007619b",
+    "bytes": 70768
+  },
+  "YPC/evidence/pipeline-complete.json": {
+    "source": "work/ypc-v2-20261003/phase-results/run/pipeline-complete.json",
+    "sha256": "3511e49a4b938f11df516f0bca177d0b18d34458b0ce9b9b91191938337a1d8f",
+    "bytes": 123
+  },
+  "YPC/evidence/phase-result-analysis.json": {
+    "source": "work/ypc-v2-20261003/phase-result-analysis.json",
+    "sha256": "f19ca5fbd8418483b63566dc41ca8a38a20c6b2fd0c33518dbd92b2c292c341c",
+    "bytes": 3944
+  },
+  "YPC/evidence/local-integrity.json": {
+    "source": "work/ypc-v2-20261003/local-integrity.json",
+    "sha256": "fb3d1ea5574d04ab959d126bc96023f2ede8d03d490879fe132245b0c95269a6",
+    "bytes": 2357
+  },
+  "BASE_LICENSE": {
+    "source": "GitHub default branch v1-residual-head:LICENSE",
+    "sha256": "a36ce7878f9cbed1a8881b70f394ab8a7e65aea6fe6c1c95e485787ba9cf3b32",
+    "bytes": 11314
+  }
+}

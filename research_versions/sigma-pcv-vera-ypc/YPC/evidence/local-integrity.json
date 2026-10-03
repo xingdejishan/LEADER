@@ -1,0 +1,76 @@
+{
+  "archive_sha256": "4c9772ab023ca0ab35a3ce8b799ee6b94dc3632ef2a77f9ba001a8d403e30f8c",
+  "all_files_verified": true,
+  "updates": 3836,
+  "counts": {
+    "fit": 960,
+    "calibration": 240
+  },
+  "gate_recomputed_matches": true,
+  "gate_passed": false,
+  "head_changed_tensors": [
+    "raw_tau",
+    "stem.0.weight",
+    "stem.0.bias",
+    "stem.1.weight",
+    "stem.1.bias",
+    "stem.3.weight",
+    "stem.3.bias",
+    "stem.4.weight",
+    "stem.4.bias",
+    "stem.6.weight",
+    "stem.6.bias",
+    "image_adapter.weight",
+    "field_adapter.weight",
+    "weight.0.weight",
+    "weight.0.bias",
+    "weight.2.weight",
+    "weight.2.bias"
+  ],
+  "CPU_forward_samples": 8,
+  "CPU_GPU_mean_max_abs_deg": 2.384185791015625e-07,
+  "independently_recomputed": {
+    "initial-phase-diagnostic.json": {
+      "zero_rmse_deg": 0.6414805541094973,
+      "measured_rmse_deg": 0.9760847360880018,
+      "top1_in_grid": 0.24583333333333332,
+      "mean_rank_in_grid": 4.108333333333333,
+      "ce_in_grid": 2.45768065409114
+    },
+    "calibration-e01.json": {
+      "zero_rmse_deg": 0.6414805541094973,
+      "measured_rmse_deg": 0.9643697997610823,
+      "top1_in_grid": 0.24583333333333332,
+      "mean_rank_in_grid": 4.104166666666667,
+      "ce_in_grid": 2.321885088660444
+    },
+    "calibration-e02.json": {
+      "zero_rmse_deg": 0.6414805541094973,
+      "measured_rmse_deg": 0.958744668601176,
+      "top1_in_grid": 0.25,
+      "mean_rank_in_grid": 4.108333333333333,
+      "ce_in_grid": 2.2837907932698727
+    },
+    "calibration-e03.json": {
+      "zero_rmse_deg": 0.6414805541094973,
+      "measured_rmse_deg": 0.957015736056242,
+      "top1_in_grid": 0.24583333333333332,
+      "mean_rank_in_grid": 4.079166666666667,
+      "ce_in_grid": 2.287524964318921
+    },
+    "calibration-e04.json": {
+      "zero_rmse_deg": 0.6414805541094973,
+      "measured_rmse_deg": 0.955344687284821,
+      "top1_in_grid": 0.24583333333333332,
+      "mean_rank_in_grid": 4.145833333333333,
+      "ce_in_grid": 2.2991992268711328
+    },
+    "wrong-image-phase-diagnostic.json": {
+      "zero_rmse_deg": 0.6414805541094973,
+      "measured_rmse_deg": 0.9638118351511578,
+      "top1_in_grid": 0.21666666666666667,
+      "mean_rank_in_grid": 4.275,
+      "ce_in_grid": 2.3221171769003073
+    }
+  }
+}

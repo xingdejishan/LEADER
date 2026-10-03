@@ -1,0 +1,152 @@
+{
+  "protocol": "Cam5 official-FOV and learned-anchor visibility VERA adaptation vs historical pure LEADER fine-tune; 1200 train / 1200 dev",
+  "epoch": 10,
+  "comparison_scope": "whole-system comparison, not an isolated VERA ablation",
+  "baseline_coordinate_alignment": "original_main_unchanged",
+  "leader_finetune_reuse": {
+    "root": "/home/zhangcy/projects/leader-mma-only-20260929/run-v1/lidar_finetune/training",
+    "completed_epochs": 30,
+    "best_checkpoint": "/home/zhangcy/projects/leader-mma-only-20260929/run-v1/lidar_finetune/training/best.pt",
+    "best_checkpoint_sha256": "e0f6e7cf34417e8763f0844d0eb3753f34d14581cfc5eda030cc54bfb88b940e",
+    "prediction": "/home/zhangcy/projects/leader-mma-only-20260929/run-v1/lidar_finetune/training/validation/epoch_014_attempt_01/predictions.jsonl",
+    "prediction_sha256": "8559f65ad7790b31acfd444418ea81ee7fb2bb197703fc6078f97467e3b656c4",
+    "freeze_path": "/home/zhangcy/projects/leader-mma-only-20260929/run-v1/lidar_finetune/training/validation/epoch_014_attempt_01/prediction_freeze.json",
+    "freeze_sha256": "bfcabe0fe8d3a91e160fa5f7750c1641bbcaa4a834877c37de630734eadbc49a",
+    "evaluation_path": "/home/zhangcy/projects/leader-mma-only-20260929/run-v1/lidar_finetune/training/validation/epoch_014_attempt_01/evaluation.json",
+    "best_epoch": 14,
+    "evaluation_sha256": "0b3d3356b12c57031a376a0c859e036cc221caf2c3588a363599f75b9ff2a771"
+  },
+  "independent_test": false,
+  "pretrained_source_overlap_unresolved": true,
+  "results": {
+    "leader_finetune": {
+      "frames": 1200,
+      "failures": 0,
+      "mpe_m": 0.17949788079580942,
+      "moe_deg": 1.6242310898570118,
+      "mpe_p90_m": 0.32117946111380624,
+      "moe_p90_deg": 2.802495610391081,
+      "joint_1m_2deg": 849,
+      "inference_seconds": 0,
+      "prediction_sha256": "7373c77211917eb3c17f6846cca51a831fe473ba41291ac975d175e1506036f8",
+      "freeze_sha256": "3322dbaa689b78d819bbd60c9d6ee1fe4ed1db865d9e1748fbf7981cd17b95c5",
+      "historical_reuse": true,
+      "dates": {
+        "2012-02-12": {
+          "frames": 300,
+          "mpe_m": 0.1479096549977146,
+          "moe_deg": 1.552514438528163
+        },
+        "2012-02-19": {
+          "frames": 300,
+          "mpe_m": 0.18325844580533907,
+          "moe_deg": 1.6022074544832323
+        },
+        "2012-03-31": {
+          "frames": 300,
+          "mpe_m": 0.1870336387172175,
+          "moe_deg": 1.7405428884113539
+        },
+        "2012-05-26": {
+          "frames": 300,
+          "mpe_m": 0.19978978366296649,
+          "moe_deg": 1.6016595780052978
+        }
+      }
+    },
+    "vera": {
+      "frames": 1200,
+      "failures": 0,
+      "mpe_m": 0.2203022342315836,
+      "moe_deg": 1.6759712896859753,
+      "mpe_p90_m": 0.3823453383937853,
+      "moe_p90_deg": 2.8470893405043434,
+      "joint_1m_2deg": 846,
+      "inference_seconds": 1788.57050413033,
+      "prediction_sha256": "126accd43bb697e4e24368589d54c82707fec14ef3e09cfd5a50e6be8fdb94c8",
+      "freeze_sha256": "c13b33626d4b2201201df17dd5602e3395c069680b003afe6987acea8491702b",
+      "historical_reuse": false,
+      "dates": {
+        "2012-02-12": {
+          "frames": 300,
+          "mpe_m": 0.18787754176143814,
+          "moe_deg": 1.5881738137282033
+        },
+        "2012-02-19": {
+          "frames": 300,
+          "mpe_m": 0.21323656323813536,
+          "moe_deg": 1.652488670067204
+        },
+        "2012-03-31": {
+          "frames": 300,
+          "mpe_m": 0.22241650304273888,
+          "moe_deg": 1.7336331082499965
+        },
+        "2012-05-26": {
+          "frames": 300,
+          "mpe_m": 0.2576783288840221,
+          "moe_deg": 1.7295895666984977
+        }
+      }
+    }
+  },
+  "paired": {
+    "leader_finetune": {
+      "mean_delta": [
+        0.040804353435774245,
+        0.05174019982896331
+      ],
+      "descriptive_30s_block_bootstrap_95": [
+        [
+          0.031497295970387994,
+          0.011746029991972903
+        ],
+        [
+          0.05077437335404147,
+          0.09437395960871178
+        ]
+      ],
+      "position_improved": 426,
+      "position_worsened": 774,
+      "rotation_improved": 557,
+      "rotation_worsened": 643
+    }
+  },
+  "plan_sha256": "b05a355cb673c3ad93f526c34c84662c5549e09e0c7aeada753ae365e9cedc67",
+  "input_sha256": "8d44a1191b0d8a103d8dc0c3e3c48c9bbaf1d25a63208bcbb9ce21cef9d6c35e",
+  "truth_manifest_sha256": {
+    "2012-02-12": "8bef4abd01547b6d5443ad5fd107968438d686d20cff2ef0fd51183dd8e641ee",
+    "2012-02-19": "858ead1028ea15b3885a75e6b2cb529b2f282393d64c58f68bcfb2a65c69c626",
+    "2012-03-31": "693567160a6a64de987d5fd2976155b1ceb1b0ba74c9d7f1c612264b99e88c42",
+    "2012-05-26": "52d3100e5a8dc91bfbe8f46ac7ce7231b1d653c12895be0d465b8d3ee66557db"
+  },
+  "paired_errors_sha256": "db824911b243e83887fffaedab5e1ab4dc289767ccac9b27328706b9152221c4",
+  "limitations": [
+    "four previously used development dates, fixed historical frame identities",
+    "Historical LEADER best selected over30 epochs; support-v1 initially reset Adam after e4, this FOV stage restores selected complete support-v1 Adam/RNG and uses an explicit new LR schedule; same frame identities, different implementation/history",
+    "30-second block bootstrap is descriptive, not independent-test or training-seed evidence",
+    "plane support and pixel repeatability assumptions are not guaranteed",
+    "VERA and historical LEADER differ in backbone runtime, model architecture, training and backend; comparison cannot isolate re-anchoring or visual causality",
+    "Nearest measured support is an explicit geometry adaptation; zero initialization no longer preserves original source coordinates at active voxels, so gains cannot all be called visual gains",
+    "Twenty additional FOV epochs are a bounded adaptation stage, not proof of global optimum or complete convergence",
+    "Official FOV plus support/anchor depth safeguards and a new bounded LR stage change together; not an isolated visual or visibility ablation",
+    "Original main sparse concatenation kept by explicit user instruction; repeated encodings previously showed different aligned outputs. Conditional new-module parity does not establish original-main end-to-end repeatability or isolate visual causality."
+  ],
+  "parent_binding": {
+    "parent_root": "/home/zhangcy/projects/leader-vera-main-20261002/cam5-support-v1",
+    "parent_plan_sha256": "a35a49d954742365c8ea902294d5f74dac56f9b6b65e55925e725c4dde72c7c7",
+    "parent_comparison_sha256": "bf3bc6e3ca305b79680d91af548fb88f3d2631749010b388d199d9237afa82fd",
+    "parent_completed_epochs": 30,
+    "selected_epoch": 30,
+    "checkpoint": "/home/zhangcy/projects/leader-vera-main-20261002/cam5-support-fov-v1/storage/parent-checkpoint.pt",
+    "checkpoint_sha256": "271c502d300662e05c994ee117f355c572a7dcff007e00f2636214239bf63ad5",
+    "parent_receipt_sha256": "31c7d732c3fa21692399caac9bac7a2f47ea312d79900a1c077d52a89f8469bf",
+    "prediction_freeze_sha256": "e9e6a694e132471d231aa78aa602589cf471b6d2d6f46d2db54fecf7529c2793",
+    "model_state_sha256": "b39a7394486480ba94b926be4c5ff163e4a076d3aa20ff25148a9532b30b0c7e",
+    "inputs_sha256": "8d44a1191b0d8a103d8dc0c3e3c48c9bbaf1d25a63208bcbb9ce21cef9d6c35e",
+    "selection_scope": "previously used development set; selected support-v1 weights and Adam/RNG, not fresh independent test",
+    "phase_epoch_semantics": "additional FOV adaptation epochs, not original total epochs"
+  },
+  "epoch_semantics": "additional FOV adaptation epochs, not original total epochs",
+  "historical_leader_coordinate_alignment": "fixed in the historical pure LEADER baseline; current VERA remains original main unchanged"
+}

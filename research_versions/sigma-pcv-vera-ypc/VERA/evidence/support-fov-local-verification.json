@@ -1,0 +1,182 @@
+{
+  "passed": true,
+  "scope": "Local byte hashes and independently recomputed frozen error/diagnostic statistics; no local GT pose evaluation or retraining",
+  "files": [
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-v1\\e20\\report.json",
+      "sha256": "63a911e9f71cac5f1d05d83c9b0d765201d8c74e2cdb88b88de7051ce0d4918c",
+      "bytes": 5988
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-v1\\e20\\paired-errors.npz",
+      "sha256": "8cee28c197a906b19b0b7cdee4ce2845c447954973e5d51e4e00b32704b51a2b",
+      "bytes": 156721
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-v1\\e20\\prediction-freeze.json",
+      "sha256": "ac3bd362777ea125d2d0fae8c37b8aafe128852961bdb50fd2cb288e45cf7792",
+      "bytes": 525
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-v1\\e20\\epoch-20-receipt.json",
+      "sha256": "f699d7493e5ddba1e2e1c4b60697ef6a8052e79227693d7649e19fa62157219b",
+      "bytes": 11061
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-v1\\e20\\e20.json",
+      "sha256": "db5c98518547046bed8134837e5edb6c995b7aa7ff79a31fa395087f76bf6021",
+      "bytes": 148994
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-v1\\e30\\report.json",
+      "sha256": "2f4ec9e408cee7208390b4c264bebb2b78aa2b968d48f379e60180a4c7bbafc0",
+      "bytes": 5987
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-v1\\e30\\paired-errors.npz",
+      "sha256": "9c1f53c05968916be5ad2b052c9fa8c7a1991daf5f076524ce1c2fd454252718",
+      "bytes": 156733
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-v1\\e30\\prediction-freeze.json",
+      "sha256": "e9e6a694e132471d231aa78aa602589cf471b6d2d6f46d2db54fecf7529c2793",
+      "bytes": 525
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-v1\\e30\\epoch-30-receipt.json",
+      "sha256": "31c7d732c3fa21692399caac9bac7a2f47ea312d79900a1c077d52a89f8469bf",
+      "bytes": 17790
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-v1\\e30\\e30.json",
+      "sha256": "ed59555b59103ceeebcbfa57c72532efb0153969e9fd03780fc0f9b95cf2ebdc",
+      "bytes": 149102
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\e05\\report.json",
+      "sha256": "e70b3a774478e91f45c6a2b8b0709bad01a3149cbcb06a4b98fea973eb12b3b4",
+      "bytes": 7635
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\e05\\paired-errors.npz",
+      "sha256": "68da8adcf8360e4377e658d5a8932ebd2156e7dc7911ff6e878747393c59a7de",
+      "bytes": 156720
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\e05\\prediction-freeze.json",
+      "sha256": "35a917eb9b8df54ea0b3cb700999fe5a578d99f98da5977c5063aae644c9130e",
+      "bytes": 526
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\e05\\epoch-05-receipt.json",
+      "sha256": "357c7dff98387e22f8ff5d1508a6bc9bb4f951ab726b939ab73305ec921b9b92",
+      "bytes": 4323
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\e05\\e05.json",
+      "sha256": "56cb3c93119b8c14edf885e26c02ce0b40a530ed41b347e84e92ee81aad75d11",
+      "bytes": 184456
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\e10\\report.json",
+      "sha256": "9c57598d59d302e3dd7f4c262f252e22f7e7380b02de3fdfb67fc5836d450725",
+      "bytes": 7635
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\e10\\paired-errors.npz",
+      "sha256": "db824911b243e83887fffaedab5e1ab4dc289767ccac9b27328706b9152221c4",
+      "bytes": 156704
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\e10\\prediction-freeze.json",
+      "sha256": "c13b33626d4b2201201df17dd5602e3395c069680b003afe6987acea8491702b",
+      "bytes": 524
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\e10\\epoch-10-receipt.json",
+      "sha256": "b8bc7fd10591f281ce4124b42221f58a36ceeca1336a71a48220ebd465545149",
+      "bytes": 8383
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\e10\\e10.json",
+      "sha256": "91a184b32143eb77533dd07cac6821e99cbe285c666ef746bde20b964c9bc01b",
+      "bytes": 184545
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\binding\\parent-binding.json",
+      "sha256": "9b4de73dc583cd57b709e5073a148f65d3fb94ee23f70b956ab473af93f4c813",
+      "bytes": 1130
+    },
+    {
+      "path": "C:\\Users\\zhang\\Documents\\ChatGPT\\LEADER\\work\\vera-main-20261002\\completed-evidence\\cam5-support-fov-v1\\binding\\trained-checks.json",
+      "sha256": "04fe56e646b29f8956b50d785da538f1f1dd6bffa3b6ae99e4a54bee71843b6b",
+      "bytes": 6184
+    }
+  ],
+  "summary": [
+    {
+      "version": "cam5-support-v1",
+      "epoch": 20,
+      "mpe_m": 0.26489994114540943,
+      "moe_deg": 1.6848860616934058,
+      "joint_1m_2deg": 848,
+      "mpe_relative_worse_percent": 47.57831121513376,
+      "moe_relative_worse_percent": 3.734380668808268,
+      "all_four_dates_position_worse": true,
+      "position_better_frames": 324,
+      "position_worse_frames": 876,
+      "checkpoint_sha256": "659957429a30e1a54fe1b8aa88af72f57d7054e663edc04b537cb0cb74a08df1",
+      "prediction_sha256": "0c082d186998bd2c6aab937d71d0c76669d19ff96d9c1e2ac7d4b61ad6856fee",
+      "report_sha256": "63a911e9f71cac5f1d05d83c9b0d765201d8c74e2cdb88b88de7051ce0d4918c",
+      "diagnostic_sha256": "db5c98518547046bed8134837e5edb6c995b7aa7ff79a31fa395087f76bf6021"
+    },
+    {
+      "version": "cam5-support-v1",
+      "epoch": 30,
+      "mpe_m": 0.2306666256527169,
+      "moe_deg": 1.6882972973118213,
+      "joint_1m_2deg": 842,
+      "mpe_relative_worse_percent": 28.506601097488883,
+      "moe_relative_worse_percent": 3.9444022377659094,
+      "all_four_dates_position_worse": true,
+      "position_better_frames": 382,
+      "position_worse_frames": 818,
+      "checkpoint_sha256": "271c502d300662e05c994ee117f355c572a7dcff007e00f2636214239bf63ad5",
+      "prediction_sha256": "47aeb58f8e7d695e2bfb37fab7a07d86f22ec45c5f18a1629be1f545bf7f345c",
+      "report_sha256": "2f4ec9e408cee7208390b4c264bebb2b78aa2b968d48f379e60180a4c7bbafc0",
+      "diagnostic_sha256": "ed59555b59103ceeebcbfa57c72532efb0153969e9fd03780fc0f9b95cf2ebdc"
+    },
+    {
+      "version": "cam5-support-fov-v1",
+      "epoch": 5,
+      "mpe_m": 0.24710297615662227,
+      "moe_deg": 1.67090047442882,
+      "joint_1m_2deg": 847,
+      "mpe_relative_worse_percent": 37.663450432441635,
+      "moe_relative_worse_percent": 2.8733217128553257,
+      "all_four_dates_position_worse": true,
+      "position_better_frames": 330,
+      "position_worse_frames": 870,
+      "checkpoint_sha256": "0c073d4bdf739c476b8837e5c9ff60f44bfa63db37ecfccb392cbb24464916d3",
+      "prediction_sha256": "a545cc2f014504675914613ce1322186b049866ee989872c10e7403d3c2f1237",
+      "report_sha256": "e70b3a774478e91f45c6a2b8b0709bad01a3149cbcb06a4b98fea973eb12b3b4",
+      "diagnostic_sha256": "56cb3c93119b8c14edf885e26c02ce0b40a530ed41b347e84e92ee81aad75d11"
+    },
+    {
+      "version": "cam5-support-fov-v1",
+      "epoch": 10,
+      "mpe_m": 0.2203022342315836,
+      "moe_deg": 1.6759712896859753,
+      "joint_1m_2deg": 846,
+      "mpe_relative_worse_percent": 22.732498709659875,
+      "moe_relative_worse_percent": 3.1855196069124903,
+      "all_four_dates_position_worse": true,
+      "position_better_frames": 426,
+      "position_worse_frames": 774,
+      "checkpoint_sha256": "044e9bbc6de4d26135c2ed2239f6fea313012e699b08ee373bfff49b7803437d",
+      "prediction_sha256": "126accd43bb697e4e24368589d54c82707fec14ef3e09cfd5a50e6be8fdb94c8",
+      "report_sha256": "9c57598d59d302e3dd7f4c262f252e22f7e7380b02de3fdfb67fc5836d450725",
+      "diagnostic_sha256": "91a184b32143eb77533dd07cac6821e99cbe285c666ef746bde20b964c9bc01b"
+    }
+  ]
+}

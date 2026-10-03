@@ -1,0 +1,74 @@
+[
+  {
+    "epoch": 1,
+    "updates": 959,
+    "mean_ce": 2.3476696187383626,
+    "checkpoint": "ypc-coarse-e01.pt",
+    "checkpoint_sha256": "ae3221c77b29f8d7aab976bd7b92c1e2c2184c4d31f1b4f70b73c601d4b27ea5",
+    "calibration": {
+      "frames": 240,
+      "in_grid_frames": 240,
+      "outside_grid_frames": 0,
+      "zero_rmse_deg": 0.6414805541094973,
+      "measured_rmse_deg": 0.9643697997610823,
+      "top1_in_grid": 0.24583333333333332,
+      "mean_rank_in_grid": 4.104166666666667,
+      "ce_in_grid": 2.321885088660444,
+      "wrong_image": false
+    }
+  },
+  {
+    "epoch": 2,
+    "updates": 1918,
+    "mean_ce": 2.2934078975727274,
+    "checkpoint": "ypc-coarse-e02.pt",
+    "checkpoint_sha256": "756adf7fa8ad57b6906a329b11c46a8e8d5c1957a5461d0046e8f3142d594274",
+    "calibration": {
+      "frames": 240,
+      "in_grid_frames": 240,
+      "outside_grid_frames": 0,
+      "zero_rmse_deg": 0.6414805541094973,
+      "measured_rmse_deg": 0.958744668601176,
+      "top1_in_grid": 0.25,
+      "mean_rank_in_grid": 4.108333333333333,
+      "ce_in_grid": 2.2837907932698727,
+      "wrong_image": false
+    }
+  },
+  {
+    "epoch": 3,
+    "updates": 2877,
+    "mean_ce": 2.2834502832208514,
+    "checkpoint": "ypc-coarse-e03.pt",
+    "checkpoint_sha256": "4ac8c5403f400c01ccc914672639402d48d991af57589a65ab09107dd4a5be8e",
+    "calibration": {
+      "frames": 240,
+      "in_grid_frames": 240,
+      "outside_grid_frames": 0,
+      "zero_rmse_deg": 0.6414805541094973,
+      "measured_rmse_deg": 0.957015736056242,
+      "top1_in_grid": 0.24583333333333332,
+      "mean_rank_in_grid": 4.079166666666667,
+      "ce_in_grid": 2.287524964318921,
+      "wrong_image": false
+    }
+  },
+  {
+    "epoch": 4,
+    "updates": 3836,
+    "mean_ce": 2.2706322903017493,
+    "checkpoint": "ypc-coarse-e04.pt",
+    "checkpoint_sha256": "4b04e077e5a293bc652b6472e5d4bcaad33c4dff45c5a7ecf19953b55a1d53a6",
+    "calibration": {
+      "frames": 240,
+      "in_grid_frames": 240,
+      "outside_grid_frames": 0,
+      "zero_rmse_deg": 0.6414805541094973,
+      "measured_rmse_deg": 0.955344687284821,
+      "top1_in_grid": 0.24583333333333332,
+      "mean_rank_in_grid": 4.145833333333333,
+      "ce_in_grid": 2.2991992268711328,
+      "wrong_image": false
+    }
+  }
+]
