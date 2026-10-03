@@ -1,0 +1,22 @@
+{
+  "complete": true,
+  "frames": 107339,
+  "actual_full_epoch_seconds": 5570.998259544373,
+  "epoch_hours": 1.5474995165401035,
+  "active_seconds": 5570.949990737252,
+  "fps": 19.26746249042605,
+  "startup_seconds": 113.17324158269912,
+  "loader_wait_seconds": 1.7980710486881435,
+  "transfer_seconds": 102.97992434166372,
+  "compute_seconds": 5400.588024316356,
+  "checkpoint_seconds": 30.795980719383806,
+  "dataset_order_sha256": "143e5b3d3aaa3246864625bf1265c4bcec590a3f3d02035c0462ab04183524f5",
+  "weights_sha256": "ab02c0463eb068b2f7168b19d4a91c69684019c6707512b328151f68d1defe39",
+  "latest_sha256": "a3cd541a8e085a59914dff746dc7e4288ae5a1354a95e6864bec2193325ef48d",
+  "last_batch_frames": 3,
+  "plan_sha256": "5ca9dabc46601101670d06a3559c6190646ef77396a688644912ebff38cc391f",
+  "all_updates_retained_in_own_checkpoint": true,
+  "role": "V2 epoch-40 continuation; not V5 scratch stage 1",
+  "batch": 8,
+  "actual_updates": 13418
+}

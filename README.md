@@ -1,3 +1,9 @@
+# LEADER + V5
+
+This branch publishes the accelerated Co-Volume FAR backend, its fixed scratch-training protocol, portable training/evaluation entrypoints and verified accelerator evidence. The new 50-epoch scratch training is ongoing; final V5 accuracy and subsequent LEADER fine-tuning are not certified complete.
+
+See [V5 documentation and run commands](experiments/v5/README.md). The earlier FAR publication below is retained as history and uses a different cascade.
+
 # LEADER + Forward Appearance Registration (FAR)
 
 原版 FAR：冻结纯 LiDAR LEADER 与 SAM，以训练场景的多分辨率哈希外观场和图像观测做局部三维相关，求共享6DoF修正。保留 LiDAR 初值精修和 FAR 后的原对应后端。

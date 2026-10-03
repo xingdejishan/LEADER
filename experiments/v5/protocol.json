@@ -1,0 +1,64 @@
+{
+  "version": "V5",
+  "name": "validated V2 accelerated backend, scratch LEADER-style training",
+  "created_at": 1791006341.5278141,
+  "epochs": 50,
+  "batch": 25,
+  "last_batch": 14,
+  "seed": 20,
+  "optimizer": "Adam",
+  "initial_learning_rate": 0.001,
+  "StepLR": {
+    "step_size": 1,
+    "gamma": 0.9
+  },
+  "loss": "original V2 CE plus full-scan Huber; clip_grad_norm 10",
+  "evaluation_every_epochs": 5,
+  "evaluation_systems": [
+    "LEADER+V5"
+  ],
+  "standalone_LEADER_evaluation": false,
+  "stage2_LEADER_finetune_requested": true,
+  "stage2_settings_not_finalized": true,
+  "train_frames": 107339,
+  "frames": 104732,
+  "full_LiDAR_frames": 104735,
+  "missing_exact_Cam5": 3,
+  "parent_config_sha256": "bd71d55b1ddec6b18fe11ace7e34c1057ea75fcda2ab809fd80071e99be0492d",
+  "frozen_LEADER_sha256": "49cf3085b507e2f67a0f250394cadd980b0f5da18eb00dcfe37a6c766d3f4d7a",
+  "catalog_sha256": "0c3303c80203a70e059abc36f98cbe5eb285858b779e70f88c2279d207423d56",
+  "public_manifest_sha256": {
+    "2012-02-12": "b8f5d99badb695bbeba1b9406dea65fd70fd802514e4f03aa6ec3d67ad307b94",
+    "2012-02-19": "1819b8f575a3f4112e4b221909d0cc83a6e27ec7844afe3af6e58702092e76c5",
+    "2012-03-31": "28889ce3c34f893c4595a54999738097b2d9e6bf0583768f8516632ab6567915",
+    "2012-05-26": "af324b8c23f42971a0f280ea6317e0d0c20036b1dfe96981fe3f78152411062f"
+  },
+  "sam_manifest_sha256": {
+    "2012-02-12": "d8a207fe3b18f3a2eb117118c11c37e3a7ced869fa5d9cbaab132f55ce1769ba",
+    "2012-02-19": "c61d5a61e0f049966237b29871ddb5f021434fcf3cd89548ce4a36f9947f4a7a",
+    "2012-03-31": "9a29da332bc59ef2ecd33d0b72a0298db2b6ed50c1dc47ce3ef86a0645195760",
+    "2012-05-26": "ea4ba833557ceccd8b5ff8afdab9298362cbc8ef3647367624f0de20c9ae473b"
+  },
+  "sources": {
+    "train_v5.py": "85850e2161f77908ab9ab34fb9356b18ddd1b6d0137d382280ddcadbf8b5ee15",
+    "predict_v5.py": "29b1041f6c067dbee0d7579a58dcede168bc90ba5c6a80521f55da9e2e836675",
+    "score_v5.py": "34581d09f6aca07e7f81a06f726275363b935e86cddceddb3eb101cd6858a3e1"
+  },
+  "dependencies": {
+    "fused_field.py": "2b1ff4301543511f756164632240fe33f4e58e31b893cb7f4ae8027d6f5a6e5c",
+    "batched_solver.py": "3286a8862f0b241f0f9b284c0dc0ecfd750d01f5266c5eacad71299a305f6e41",
+    "hash_fused.cu": "951d2686f9109b2d44f5a5297a6d6f3c6b36db1351176c497add291bcabbd309",
+    "full_loader.py": "7e9faac7deb5cc167d48724e335dd4404449ab337370f9e746eb04371e1da7e6",
+    "geometry_cache.py": "6ec87a966ce8d04060550e115ba6dace89f87b2bc55db5c7fb2307bc3facc64c",
+    "field_index_select.py": "4c26c9c66d21eb8959a15f6017bbb65720c46fb205ac79b2cde1212562feef53",
+    "backend_runtime.py": "cab2778dab50daf79da286ade9e600f464dbe9331651ff29121918721719a79d"
+  },
+  "probe_sha256": "c1afdfe2d281145667ec87e8364ade0ae24bed41e6f29d4f2512b55905e49603",
+  "scratch_initial_weights_sha256": "0ee74d70a2a76253c7a3fe7b6b3cab22f94816698dd9d388fe570f2f627315d5",
+  "prior_e40_not_initialization": true,
+  "GT_policy": "train nearest labels only; online development GT denied, freeze predictions before separate CPU evaluator",
+  "comparison_reference": "existing LEADER results only; compatible scope and metric protocol required",
+  "independent_test": false,
+  "publication_status": "scratch stage 1 started; 50 epochs and full stage 1 evaluation not yet verified complete",
+  "publication_original_plan_sha256": "44fc260fd6b234c6430e8caeed3dd70bfc828f9bc8feafeb20d76f3abe766843"
+}

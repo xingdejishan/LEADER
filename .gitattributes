@@ -1,0 +1,4 @@
+experiments/v5/** text eol=lf
+experiments/v5/source/** -text
+experiments/v5/runtime/*.py -text
+experiments/v5/runtime/*.cu -text

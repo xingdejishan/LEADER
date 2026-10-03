@@ -12,3 +12,8 @@ NCLT/
 configs/local/
 *.pem
 *.key
+
+/experiments/v5/local/
+/experiments/v5/v5-training-plan.json
+/experiments/v5/runtime/*.so
+/experiments/v5/runtime/*.o

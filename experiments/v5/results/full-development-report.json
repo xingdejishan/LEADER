@@ -1,0 +1,170 @@
+{
+  "statistics": {
+    "reference": {
+      "frames": 104732,
+      "success": 104732,
+      "failures": 0,
+      "mpe_mean_m": 0.2993054215386317,
+      "moe_mean_deg": 1.674953802567509,
+      "mpe_p90_m": 0.47009619820299603,
+      "moe_p90_deg": 2.929106253598156,
+      "joint_1m_2deg": 74352
+    },
+    "candidate": {
+      "frames": 104732,
+      "success": 104732,
+      "failures": 0,
+      "mpe_mean_m": 0.29930542232529506,
+      "moe_mean_deg": 1.674953832774102,
+      "mpe_p90_m": 0.47009619820299603,
+      "moe_p90_deg": 2.9291062153832965,
+      "joint_1m_2deg": 74352
+    },
+    "trained": {
+      "frames": 104732,
+      "success": 104732,
+      "failures": 0,
+      "mpe_mean_m": 0.2796335140472015,
+      "moe_mean_deg": 1.625088848262506,
+      "mpe_p90_m": 0.43976603032602213,
+      "moe_p90_deg": 2.8343940678436192,
+      "joint_1m_2deg": 75898
+    }
+  },
+  "per_date": {
+    "2012-02-12": {
+      "reference": {
+        "frames": 25546,
+        "success": 25546,
+        "failures": 0,
+        "mpe_mean_m": 0.34671758092579746,
+        "moe_mean_deg": 1.7630806499651257,
+        "mpe_p90_m": 0.49164809693766076,
+        "moe_p90_deg": 3.1583605238084793,
+        "joint_1m_2deg": 17119
+      },
+      "candidate": {
+        "frames": 25546,
+        "success": 25546,
+        "failures": 0,
+        "mpe_mean_m": 0.34671758492716503,
+        "moe_mean_deg": 1.763080661147135,
+        "mpe_p90_m": 0.49164809693766076,
+        "moe_p90_deg": 3.1583605238084793,
+        "joint_1m_2deg": 17119
+      },
+      "trained": {
+        "frames": 25546,
+        "success": 25546,
+        "failures": 0,
+        "mpe_mean_m": 0.3250110893459167,
+        "moe_mean_deg": 1.7168322144087196,
+        "mpe_p90_m": 0.4520030283835715,
+        "moe_p90_deg": 3.042561146075972,
+        "joint_1m_2deg": 17370
+      }
+    },
+    "2012-02-19": {
+      "reference": {
+        "frames": 26543,
+        "success": 26543,
+        "failures": 0,
+        "mpe_mean_m": 0.24282394086691028,
+        "moe_mean_deg": 1.6126674739184221,
+        "mpe_p90_m": 0.40841774029982136,
+        "moe_p90_deg": 2.8221988686251174,
+        "joint_1m_2deg": 19621
+      },
+      "candidate": {
+        "frames": 26543,
+        "success": 26543,
+        "failures": 0,
+        "mpe_mean_m": 0.24282393812104727,
+        "moe_mean_deg": 1.6126674515690695,
+        "mpe_p90_m": 0.40841774029982136,
+        "moe_p90_deg": 2.8221988794196404,
+        "joint_1m_2deg": 19621
+      },
+      "trained": {
+        "frames": 26543,
+        "success": 26543,
+        "failures": 0,
+        "mpe_mean_m": 0.22669231625569627,
+        "moe_mean_deg": 1.5675824209068001,
+        "mpe_p90_m": 0.38154820885089485,
+        "moe_p90_deg": 2.7458210650901975,
+        "joint_1m_2deg": 19905
+      }
+    },
+    "2012-03-31": {
+      "reference": {
+        "frames": 26205,
+        "success": 26205,
+        "failures": 0,
+        "mpe_mean_m": 0.26968133303435676,
+        "moe_mean_deg": 1.6785427798425296,
+        "mpe_p90_m": 0.47043865717781824,
+        "moe_p90_deg": 2.899969413238427,
+        "joint_1m_2deg": 18575
+      },
+      "candidate": {
+        "frames": 26205,
+        "success": 26205,
+        "failures": 0,
+        "mpe_mean_m": 0.26968133977325826,
+        "moe_mean_deg": 1.6785428620687142,
+        "mpe_p90_m": 0.47043865717781824,
+        "moe_p90_deg": 2.8999694009840833,
+        "joint_1m_2deg": 18575
+      },
+      "trained": {
+        "frames": 26205,
+        "success": 26205,
+        "failures": 0,
+        "mpe_mean_m": 0.2507094652915763,
+        "moe_mean_deg": 1.6249308079354072,
+        "mpe_p90_m": 0.44005620889491764,
+        "moe_p90_deg": 2.80729061381312,
+        "joint_1m_2deg": 19228
+      }
+    },
+    "2012-05-26": {
+      "reference": {
+        "frames": 26438,
+        "success": 26438,
+        "failures": 0,
+        "mpe_mean_m": 0.339561725231025,
+        "moe_mean_deg": 1.6487766495385845,
+        "mpe_p90_m": 0.5092956467159906,
+        "moe_p90_deg": 2.829713622986406,
+        "joint_1m_2deg": 19037
+      },
+      "candidate": {
+        "frames": 26438,
+        "success": 26438,
+        "failures": 0,
+        "mpe_mean_m": 0.33956172055822165,
+        "moe_mean_deg": 1.64877669933142,
+        "mpe_p90_m": 0.5092956467159906,
+        "moe_p90_deg": 2.8297141124431673,
+        "joint_1m_2deg": 19037
+      },
+      "trained": {
+        "frames": 26438,
+        "success": 26438,
+        "failures": 0,
+        "mpe_mean_m": 0.3176075427952195,
+        "moe_mean_deg": 1.5943323052752516,
+        "mpe_p90_m": 0.48639076909223544,
+        "moe_p90_deg": 2.731399729916225,
+        "joint_1m_2deg": 19395
+      }
+    }
+  },
+  "independent_test": false,
+  "frames": 104732,
+  "GT_protocol": "official nearest full trajectory; separate from the 1200-frame SLERP subset",
+  "role": "same e40 checkpoint runtime precision comparison; trained arm has one extra continuation epoch",
+  "acceleration_gain_is_runtime_only": true,
+  "trained_arm_accuracy_gain_is_extra_training_budget": true
+}

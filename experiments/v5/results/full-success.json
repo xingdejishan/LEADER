@@ -1,0 +1,17 @@
+{
+  "objective_achieved": true,
+  "train_frames": 107339,
+  "development_frames": 104732,
+  "actual_updates": 13418,
+  "epoch_seconds": 5570.998259544373,
+  "startup_seconds": 113.17324158269912,
+  "epoch_with_startup_hours": 1.5789365280908532,
+  "runtime_precision_pass": true,
+  "full_trained_checkpoint_no_regression": true,
+  "all_GT_errors_independently_recomputed": true,
+  "archive_sha256": "1811cacab5fbc53e8bb16518465067cf41aa4a11fc13978d10de52def0c7f3b1",
+  "formal_parent_weights_modified": false,
+  "geometry_cache_once_seconds": 4944.589838413056,
+  "same_weights_comparison_not_bitwise_equivalence": true,
+  "extra_full_training_improvement_not_attributed_to_speed_modules": true
+}
