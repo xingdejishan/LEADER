@@ -1,0 +1,333 @@
+{
+  "complete": true,
+  "cold_start": true,
+  "frames": 256,
+  "pose_max_abs_difference": 0.0,
+  "all_traces_identical": true,
+  "rows": [
+    {
+      "offset": 28352,
+      "seconds": 0.7469213511794806,
+      "frames": 4
+    },
+    {
+      "offset": 28356,
+      "seconds": 0.224028873257339,
+      "frames": 4
+    },
+    {
+      "offset": 28360,
+      "seconds": 0.2460171547718346,
+      "frames": 4
+    },
+    {
+      "offset": 28364,
+      "seconds": 0.23320953408256173,
+      "frames": 4
+    },
+    {
+      "offset": 28368,
+      "seconds": 0.21857410203665495,
+      "frames": 4
+    },
+    {
+      "offset": 28372,
+      "seconds": 0.21309277694672346,
+      "frames": 4
+    },
+    {
+      "offset": 28376,
+      "seconds": 0.22782978089526296,
+      "frames": 4
+    },
+    {
+      "offset": 28380,
+      "seconds": 0.20456079300493002,
+      "frames": 4
+    },
+    {
+      "offset": 28384,
+      "seconds": 0.21161426603794098,
+      "frames": 4
+    },
+    {
+      "offset": 28388,
+      "seconds": 0.26215061778202653,
+      "frames": 4
+    },
+    {
+      "offset": 28392,
+      "seconds": 0.2582278880290687,
+      "frames": 4
+    },
+    {
+      "offset": 28396,
+      "seconds": 0.24830000288784504,
+      "frames": 4
+    },
+    {
+      "offset": 28400,
+      "seconds": 0.2179534020833671,
+      "frames": 4
+    },
+    {
+      "offset": 28404,
+      "seconds": 0.26418228494003415,
+      "frames": 4
+    },
+    {
+      "offset": 28408,
+      "seconds": 0.21467357221990824,
+      "frames": 4
+    },
+    {
+      "offset": 28412,
+      "seconds": 0.22066172119230032,
+      "frames": 4
+    },
+    {
+      "offset": 28416,
+      "seconds": 0.2560119410045445,
+      "frames": 4
+    },
+    {
+      "offset": 28420,
+      "seconds": 0.24423168506473303,
+      "frames": 4
+    },
+    {
+      "offset": 28424,
+      "seconds": 0.20425646798685193,
+      "frames": 4
+    },
+    {
+      "offset": 28428,
+      "seconds": 0.26557860104367137,
+      "frames": 4
+    },
+    {
+      "offset": 28432,
+      "seconds": 0.20666441228240728,
+      "frames": 4
+    },
+    {
+      "offset": 28436,
+      "seconds": 0.24812569562345743,
+      "frames": 4
+    },
+    {
+      "offset": 28440,
+      "seconds": 0.27603614795953035,
+      "frames": 4
+    },
+    {
+      "offset": 28444,
+      "seconds": 0.2154552349820733,
+      "frames": 4
+    },
+    {
+      "offset": 28448,
+      "seconds": 0.16899946564808488,
+      "frames": 4
+    },
+    {
+      "offset": 28452,
+      "seconds": 0.22385287005454302,
+      "frames": 4
+    },
+    {
+      "offset": 28456,
+      "seconds": 0.2672395519912243,
+      "frames": 4
+    },
+    {
+      "offset": 28460,
+      "seconds": 0.25271818693727255,
+      "frames": 4
+    },
+    {
+      "offset": 28464,
+      "seconds": 0.3310418729670346,
+      "frames": 4
+    },
+    {
+      "offset": 28468,
+      "seconds": 0.23970191413536668,
+      "frames": 4
+    },
+    {
+      "offset": 28472,
+      "seconds": 0.2237124666571617,
+      "frames": 4
+    },
+    {
+      "offset": 28476,
+      "seconds": 0.2846210519783199,
+      "frames": 4
+    },
+    {
+      "offset": 28480,
+      "seconds": 0.224965485278517,
+      "frames": 4
+    },
+    {
+      "offset": 28484,
+      "seconds": 0.2089603329077363,
+      "frames": 4
+    },
+    {
+      "offset": 28488,
+      "seconds": 0.1977294348180294,
+      "frames": 4
+    },
+    {
+      "offset": 28492,
+      "seconds": 0.2068468709476292,
+      "frames": 4
+    },
+    {
+      "offset": 28496,
+      "seconds": 0.20869031688198447,
+      "frames": 4
+    },
+    {
+      "offset": 28500,
+      "seconds": 0.21301969699561596,
+      "frames": 4
+    },
+    {
+      "offset": 28504,
+      "seconds": 0.19459886103868484,
+      "frames": 4
+    },
+    {
+      "offset": 28508,
+      "seconds": 0.20495881466194987,
+      "frames": 4
+    },
+    {
+      "offset": 28512,
+      "seconds": 0.22041048295795918,
+      "frames": 4
+    },
+    {
+      "offset": 28516,
+      "seconds": 0.24549367371946573,
+      "frames": 4
+    },
+    {
+      "offset": 28520,
+      "seconds": 0.2038232358172536,
+      "frames": 4
+    },
+    {
+      "offset": 28524,
+      "seconds": 0.2135807373560965,
+      "frames": 4
+    },
+    {
+      "offset": 28528,
+      "seconds": 0.19370192708447576,
+      "frames": 4
+    },
+    {
+      "offset": 28532,
+      "seconds": 0.20967617398127913,
+      "frames": 4
+    },
+    {
+      "offset": 28536,
+      "seconds": 0.21957190660759807,
+      "frames": 4
+    },
+    {
+      "offset": 28540,
+      "seconds": 0.2209475920535624,
+      "frames": 4
+    },
+    {
+      "offset": 28544,
+      "seconds": 0.21106935385614634,
+      "frames": 4
+    },
+    {
+      "offset": 28548,
+      "seconds": 0.25409745797514915,
+      "frames": 4
+    },
+    {
+      "offset": 28552,
+      "seconds": 0.2389743751846254,
+      "frames": 4
+    },
+    {
+      "offset": 28556,
+      "seconds": 0.23185955407097936,
+      "frames": 4
+    },
+    {
+      "offset": 28560,
+      "seconds": 0.2507516690529883,
+      "frames": 4
+    },
+    {
+      "offset": 28564,
+      "seconds": 0.242998369038105,
+      "frames": 4
+    },
+    {
+      "offset": 28568,
+      "seconds": 0.24853107193484902,
+      "frames": 4
+    },
+    {
+      "offset": 28572,
+      "seconds": 0.23814077116549015,
+      "frames": 4
+    },
+    {
+      "offset": 28576,
+      "seconds": 0.2433603429235518,
+      "frames": 4
+    },
+    {
+      "offset": 28580,
+      "seconds": 0.26512734731659293,
+      "frames": 4
+    },
+    {
+      "offset": 28584,
+      "seconds": 0.2539486628957093,
+      "frames": 4
+    },
+    {
+      "offset": 28588,
+      "seconds": 0.3487434587441385,
+      "frames": 4
+    },
+    {
+      "offset": 28592,
+      "seconds": 0.21441580215469003,
+      "frames": 4
+    },
+    {
+      "offset": 28596,
+      "seconds": 0.20308272074908018,
+      "frames": 4
+    },
+    {
+      "offset": 28600,
+      "seconds": 0.2462500799447298,
+      "frames": 4
+    },
+    {
+      "offset": 28604,
+      "seconds": 0.27247454412281513,
+      "frames": 4
+    }
+  ],
+  "optimizer_updates": 0,
+  "GT_online_attempts": 0,
+  "scope": "Two independent cold processes; 256 actual continuation frames per process, production prefetch/H2D/parallel4 and exact serial per-frame comparison.",
+  "original_artifact_sha256": "859e21c9f38fc15e9c787beafac54e26e3b7ebabeed2f798cac087c468d31fcf"
+}

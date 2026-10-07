@@ -17,3 +17,7 @@ configs/local/
 /experiments/v5/v5-training-plan.json
 /experiments/v5/runtime/*.so
 /experiments/v5/runtime/*.o
+
+/experiments/v7/local/
+/experiments/v7/runtime/*.so
+/experiments/v7/runtime/*.o

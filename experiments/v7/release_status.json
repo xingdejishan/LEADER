@@ -1,0 +1,29 @@
+{
+  "version": "V7",
+  "registered_baseline": {
+    "MPE_m": 0.11894434413636086,
+    "MOE_deg": 1.4115913623050553,
+    "frames": 1200,
+    "independent_test": false
+  },
+  "full_experiment": {
+    "train_frames": 107339,
+    "test_frames": 104732,
+    "evaluate_after": [
+      3,
+      5
+    ],
+    "status": "ongoing_at_snapshot",
+    "full_test_metrics_certified": false
+  },
+  "checkpoint_assets_external": true,
+  "weights_uploaded": false,
+  "training_inference_distinction": true,
+  "private_runtime_not_modified": true,
+  "portable_adapters_GPU_rerun": false,
+  "rejected_optimizations": [
+    "cooperative field batching changed controls and poses"
+  ],
+  "engineering_fix": "Serial CUDA/linalg initialization before parallel inference; two independent cold-start exact-parity proofs",
+  "timing_scope": "Frozen frontend caches; inference compute and input-load sums exclude cache creation/startup/save; mixed serial prefix and optimized continuation are not optimized-from-start full wall"
+}

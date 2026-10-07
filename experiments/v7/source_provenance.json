@@ -1,0 +1,140 @@
+{
+  "runtime/adaptive_solver.py": {
+    "origin_filename": "adaptive_solver.py",
+    "origin_sha256": "f65cc6c54de4497581be4b2fe872dfd26c7d38614c6dc11cedf19adbddc22b7b",
+    "published_sha256": "f65cc6c54de4497581be4b2fe872dfd26c7d38614c6dc11cedf19adbddc22b7b",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/selfverify.py": {
+    "origin_filename": "selfverify.py",
+    "origin_sha256": "7a0712eaf3a979623cf751d58baa318316c46337f0f9899c89ad895ab5d13f07",
+    "published_sha256": "7a0712eaf3a979623cf751d58baa318316c46337f0f9899c89ad895ab5d13f07",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/reference_solver.py": {
+    "origin_filename": "reference_solver.py",
+    "origin_sha256": "26c2a3525346a8f28a0d1109ec34ac6ef0b80f38903c6d469dd04b34d00a89b1",
+    "published_sha256": "26c2a3525346a8f28a0d1109ec34ac6ef0b80f38903c6d469dd04b34d00a89b1",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/mixed_field.py": {
+    "origin_filename": "mixed_field.py",
+    "origin_sha256": "e0afaf247108613295279facb169c9c32e80830a0ee2a7fe07321aacf2812c8f",
+    "published_sha256": "e0afaf247108613295279facb169c9c32e80830a0ee2a7fe07321aacf2812c8f",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/scheduled_replica_solver_v1.py": {
+    "origin_filename": "scheduled_replica_solver_v1.py",
+    "origin_sha256": "491b1cd0c22e1bd6fb6fd5afa0b7daf17240d8cba428c6a06ae2531fe0580448",
+    "published_sha256": "491b1cd0c22e1bd6fb6fd5afa0b7daf17240d8cba428c6a06ae2531fe0580448",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/replica_training_loop_v1.py": {
+    "origin_filename": "replica_training_loop_v1.py",
+    "origin_sha256": "cbf8cf972a5fe6636f83f0813dcc1df5188cce104811bd85c7859d6aac6512b9",
+    "published_sha256": "cbf8cf972a5fe6636f83f0813dcc1df5188cce104811bd85c7859d6aac6512b9",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/analytic_pose_gradient_v1.py": {
+    "origin_filename": "analytic_pose_gradient_v1.py",
+    "origin_sha256": "5b542232484d96e7cb596a4e71952079d5788159bd6d877661e46a3441b498c2",
+    "published_sha256": "5b542232484d96e7cb596a4e71952079d5788159bd6d877661e46a3441b498c2",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/compact_so3_backward_v1.py": {
+    "origin_filename": "compact_so3_backward_v1.py",
+    "origin_sha256": "8e3bedf2a182fea353ad254d5ae4d9146c50d9627e35b174de1321926cd0f1db",
+    "published_sha256": "8e3bedf2a182fea353ad254d5ae4d9146c50d9627e35b174de1321926cd0f1db",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/complete_mixed_backward_v1.py": {
+    "origin_filename": "complete_mixed_backward_v1.py",
+    "origin_sha256": "22f3d92b1568f73346f4940c008a248908aa370283be841fc8295c7142ea9a22",
+    "published_sha256": "22f3d92b1568f73346f4940c008a248908aa370283be841fc8295c7142ea9a22",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/lean_mixed_hash.py": {
+    "origin_filename": "lean_mixed_hash.py",
+    "origin_sha256": "f1a4cf6df129987abd03c4a08970f24d052a74021f25341a7cabccb14f5c0d53",
+    "published_sha256": "f1a4cf6df129987abd03c4a08970f24d052a74021f25341a7cabccb14f5c0d53",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/mixed_point_gradient.py": {
+    "origin_filename": "mixed_point_gradient.py",
+    "origin_sha256": "00488dbffc891955b71d642fa5bd05fd245059015d9e7cb4fa92bb8fe3b7d4fe",
+    "published_sha256": "00488dbffc891955b71d642fa5bd05fd245059015d9e7cb4fa92bb8fe3b7d4fe",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/fused_mixed_point.py": {
+    "origin_filename": "fused_mixed_point.py",
+    "origin_sha256": "dfd94011fb01afd9f7f503df2c26ef3b3bc2a0c666bfb49c22f4876b09d1a6c2",
+    "published_sha256": "dfd94011fb01afd9f7f503df2c26ef3b3bc2a0c666bfb49c22f4876b09d1a6c2",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/template_moment_inverse.py": {
+    "origin_filename": "template_moment_inverse.py",
+    "origin_sha256": "e08d1234948137384f1b81507fe23383420b0262550c12ce8f2923a4b880a698",
+    "published_sha256": "e08d1234948137384f1b81507fe23383420b0262550c12ce8f2923a4b880a698",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/target_mixed_gradient_v1.py": {
+    "origin_filename": "target_mixed_gradient_v1.py",
+    "origin_sha256": "8d690a6cb3cc5c96be6fe4a79522b3e00ef4f630c32c7c9f3c64a2fd07c8def3",
+    "published_sha256": "8d690a6cb3cc5c96be6fe4a79522b3e00ef4f630c32c7c9f3c64a2fd07c8def3",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/target_mixed_backward_v1.cu": {
+    "origin_filename": "target_mixed_backward_v1.cu",
+    "origin_sha256": "65f41d1220155eb1619bf1d8f6ab35f3b4bd5456f32bcba2901683ad858c8242",
+    "published_sha256": "65f41d1220155eb1619bf1d8f6ab35f3b4bd5456f32bcba2901683ad858c8242",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/mixed_backward_complete_v1.cu": {
+    "origin_filename": "mixed_backward_complete_v1.cu",
+    "origin_sha256": "ef44d18ba46cc57f11d8b22e27404be1f3ce5ba8c224642ec325ffbe0300f8b6",
+    "published_sha256": "ef44d18ba46cc57f11d8b22e27404be1f3ce5ba8c224642ec325ffbe0300f8b6",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/mixed_gradient_terms.cu": {
+    "origin_filename": "mixed_gradient_terms.cu",
+    "origin_sha256": "fc86768451126bb25289d3a0c80a05a927c9a95b492bcc0568e981c23cf1def3",
+    "published_sha256": "fc86768451126bb25289d3a0c80a05a927c9a95b492bcc0568e981c23cf1def3",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "runtime/target_derivative_engine_v2.py": {
+    "origin_filename": "target_derivative_engine_v2.py",
+    "origin_sha256": "b38a2deed2c5353ee88dc15ad1537dc777c13e37b4f36b442dacaab05d537ba0",
+    "published_sha256": "a406912a3c5f38a8676ac8a3644c29559bb249801f05dcfe7d9289210bcb6874",
+    "adaptation": "Local source path resolution only"
+  },
+  "runtime/parallel_inference.py": {
+    "origin_filename": "infer_batch_engine_v2.py",
+    "origin_sha256": "ad1374e7d455ad544011ca1687df7e7dc391fda6ec7a35545ee835ab56b6e178",
+    "published_sha256": "acd21772f7d5401bf2f67ee910d7efc8c6fc0865bd2c6413c41ce65f83dc66e1",
+    "adaptation": "Exact ParallelFrames class extracted; rejected cooperative-field batching omitted"
+  },
+  "train_v7.py": {
+    "origin_filename": "worker_replica24_v6.py",
+    "origin_sha256": "d207b9cf2ed2f05e8b8c4f83824eebe5d890230dc982e1d3a67143b768c3aa80",
+    "published_sha256": "f06681b4ca765f7a0117dd35d216637ff6d50843e633d7e4640dd1a1e28bffaf",
+    "adaptation": "Exact setup/train functions; private smoke-receipt precondition removed, portable runtime/configuration and CLI substituted; optimization/math/order/state logic retained"
+  },
+  "evaluation/nclt_reference_policy.py": {
+    "origin_filename": "nclt_reference_policy.py",
+    "origin_sha256": "c1f5ca48759acd79d2bfc1bea1e6671b059d686da279c97682e939986058a4b1",
+    "published_sha256": "c1f5ca48759acd79d2bfc1bea1e6671b059d686da279c97682e939986058a4b1",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "evaluation/nclt-reference-policy.json": {
+    "origin_filename": "nclt-reference-policy.json",
+    "origin_sha256": "3e36356edb50284a3cde017188b3283bd01fb41bfe41fb1ddd201b01a0114a4a",
+    "published_sha256": "3e36356edb50284a3cde017188b3283bd01fb41bfe41fb1ddd201b01a0114a4a",
+    "adaptation": "Byte-identical scientific/execution source"
+  },
+  "evaluation/nclt-2012-02-12-suspect255-odometry.npz": {
+    "origin_filename": "nclt-2012-02-12-suspect255-odometry.npz",
+    "origin_sha256": "07416ebc5791d631ffb82db10cde577d209878a6cfe8a781810537e23c9aa2f4",
+    "published_sha256": "07416ebc5791d631ffb82db10cde577d209878a6cfe8a781810537e23c9aa2f4",
+    "adaptation": "Byte-identical scientific/execution source"
+  }
+}

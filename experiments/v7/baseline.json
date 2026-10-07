@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "version": "V7",
+  "status": "frozen_user_selected_research_baseline",
+  "selected_on": "2026-10-06",
+  "name_zh": "LWV训练新权重＋原V6求解器",
+  "parent_version": "V6",
+  "selection": "User explicitly named new weights plus original V6 solver as V7.",
+  "scope": "Future research default; existing frozen/running plans keep their original comparator.",
+  "model": {
+    "remote_checkpoint": "external/adapted-latest.pt",
+    "file_sha256": "d541c41f02968ea1e9ccf8cce59a4d3e07e2e9e626ce0bd23c10166f8798fc7d",
+    "body_sha256": "0ecb4dd67eb8eb97e3468f2012c618a9d0ffddc200f1a2bb48c7fa0739858071",
+    "local_bytes_present": false,
+    "verification": "Previously completed remote CPU checkpoint verification and local full evidence audit; administrative registration does not claim a local checkpoint byte load."
+  },
+  "inference": {
+    "solver": "selfverify.refine",
+    "source_local": "work\\v5-selfverify-small-20261005\\evidence\\sources\\selfverify.py",
+    "source_remote": "external/selfverify.py",
+    "source_sha256": "7a0712eaf3a979623cf751d58baa318316c46337f0f9899c89ad895ab5d13f07",
+    "method": {
+      "tau_t": 0.3,
+      "tau_R": 0.05235987755982988,
+      "geometry_weight": 0.1,
+      "robust_delta": 0.6,
+      "shape_weight": 0.1,
+      "shape_beta": 1.0,
+      "initial_spacing": 0.4,
+      "min_spacing": 0.025,
+      "max_spacing": 0.8,
+      "max_rounds": 12,
+      "max_rejects": 3,
+      "accept_ratio": 0.1,
+      "shrink_ratio": 0.25,
+      "expand_ratio": 0.75,
+      "gradient_tolerance": 0.001,
+      "model_tolerance": 0.25,
+      "predicted_floor": 1e-12,
+      "point_chunk": 2048
+    },
+    "main_rounds_max": 12,
+    "warm_rounds": 2,
+    "original_V6_rules_unchanged": true,
+    "LWV_online_query": false,
+    "repaired_LWV_controller": false
+  },
+  "training": {
+    "origin": "LWV adaptive scratch small final epoch10, frozen LEADER/SAM,1200Train/480Adam; no trainedV5 initialization.",
+    "source_remote": "external/v6-lwv-adaptive-scratch-small-20261006",
+    "source_local": "work/v6-lwv-adaptive-scratch-small-20261006/evidence/sources",
+    "origin_plan_sha256": "055d65e8624c2b0bca130a085283830ed2cace075366fb4a2b9f37dd24707cf5",
+    "checkpoint_fixed_final_epoch": 10,
+    "method": {
+      "tau_t": 0.3,
+      "tau_R": 0.05235987755982988,
+      "geometry_weight": 0.1,
+      "robust_delta": 0.6,
+      "shape_weight": 0.1,
+      "shape_beta": 1.0,
+      "initial_spacing": 0.4,
+      "min_spacing": 0.025,
+      "max_spacing": 0.8,
+      "max_rounds": 12,
+      "max_rejects": 3,
+      "accept_ratio": 0.1,
+      "shrink_ratio": 0.25,
+      "expand_ratio": 0.75,
+      "gradient_tolerance": 0.001,
+      "model_tolerance": 0.25,
+      "predicted_floor": 1e-12,
+      "point_chunk": 2048,
+      "lwv_initial_stretch": 1.0,
+      "lwv_radius_m": 7.064248616917454,
+      "lwv_decay": 0.5,
+      "lwv_min_stretch": 0.0625
+    },
+    "loss": "CE + final scan Huber(delta0.2) + shape0.1",
+    "inference_training_solver_distinction": "Training uses original adaptive LWV query/trust/controller, inference uses unchanged original V6 cubic solver."
+  },
+  "evaluation": {
+    "metrics": {
+      "frames": 1200,
+      "MPE_m": 0.11894434413636086,
+      "MOE_deg": 1.4115913623050553,
+      "position_P90_m": 0.1940212173607436,
+      "angle_P90_deg": 2.470528591967197,
+      "joint_1m_2deg": 960,
+      "per_date": {
+        "2012-02-12": {
+          "frames": 300,
+          "MPE_m": 0.11607945856991549,
+          "MOE_deg": 1.4508822012529787,
+          "position_P90_m": 0.19209809963438304,
+          "angle_P90_deg": 2.6801409536861023,
+          "joint_1m_2deg": 240
+        },
+        "2012-02-19": {
+          "frames": 300,
+          "MPE_m": 0.12191979372049955,
+          "MOE_deg": 1.407935464298483,
+          "position_P90_m": 0.20666202040467507,
+          "angle_P90_deg": 2.3492349494074793,
+          "joint_1m_2deg": 238
+        },
+        "2012-03-31": {
+          "frames": 300,
+          "MPE_m": 0.11326329199272052,
+          "MOE_deg": 1.4543320434442686,
+          "position_P90_m": 0.17182054290988738,
+          "angle_P90_deg": 2.513739454379483,
+          "joint_1m_2deg": 233
+        },
+        "2012-05-26": {
+          "frames": 300,
+          "MPE_m": 0.12451483226230788,
+          "MOE_deg": 1.3332157402244913,
+          "position_P90_m": 0.1973727669570034,
+          "angle_P90_deg": 2.289259799862826,
+          "joint_1m_2deg": 249
+        }
+      }
+    },
+    "frames": 1200,
+    "report_local": "work/v6-lwv-adaptive-scratch-small-20261006/evidence/report.json",
+    "report_sha256": "3ea1dea3287dafcfaeade5d41d0ad28b2ad318feeabe89c7b601f445eb571205",
+    "arm": "adaptive_trained_original_solver",
+    "reference": {
+      "reference_protocol": "nclt-official-gt-with-Feb12-suspect255-official100hz-odometry-v1",
+      "reference_policy_sha256": "3e36356edb50284a3cde017188b3283bd01fb41bfe41fb1ddd201b01a0114a4a",
+      "reference_replaced_frames": 0,
+      "reference_original_gt_frames": 1200,
+      "official_gt_benchmark_compatible": false
+    },
+    "independent_test": false,
+    "full_NCLT_validation": false,
+    "reused_frozen_result": true
+  },
+  "evidence": {
+    "training_completed_sha256": "ec755c795baa712d3ae52e41f1e761692c98c0c5b06936a27ff544aec5bd9d0d",
+    "local_integrity_sha256": "14f61134d1c49c479bb9cc34c0428114dada43e20088c1cf53582d2615ead010"
+  },
+  "previous_current_baseline": {
+    "schema_version": 1,
+    "current_baseline": "V6",
+    "manifest": "research/baselines/V6.json",
+    "manifest_sha256": "5f5d46339afb90127e74a49f66addca6be563d411cdb33902055b48cc189fd62",
+    "selected_on": "2026-10-06",
+    "scope": "Future research default. Existing frozen or running V5 experiments retain their original plans and must name their actual comparator."
+  }
+}
