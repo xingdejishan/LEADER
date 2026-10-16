@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "strict_checkpoint_load": true,
+  "sha_verified": true,
+  "reference_sizes": [
+    11,
+    17,
+    7
+  ],
+  "matches": [
+    1,
+    0,
+    1
+  ]
+}

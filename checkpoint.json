@@ -1,0 +1,9 @@
+{
+  "repository": "xingdejishan/LEADER",
+  "release_tag": "lightglue-v8-strong-20261016",
+  "asset_name": "strong-interaction-lightglue.pt",
+  "kind": "strong-interaction",
+  "sha256": "c6977947545c62411a90ba4f530c2e75e294343eed65b0154e349866a5b629b8",
+  "bytes": 97358177,
+  "training_step": 60
+}

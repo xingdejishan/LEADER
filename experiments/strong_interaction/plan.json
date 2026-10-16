@@ -1,0 +1,42 @@
+{
+  "name": "Fixed full-strength collaborative V8 pilot",
+  "project": "/home/zhangcy/projects/comatcher-v8-dominant-20261016-v2",
+  "store": "/data2/zhangcy/comatcher-v8-dominant-20261016-v2",
+  "v8_project": "/home/zhangcy/projects/sp-lightglue-hard1502-20261013-v1",
+  "v8_store": "/data2/zhangcy/sp-lightglue-hard1502-20261013-v1",
+  "v8_checkpoint": "/data2/zhangcy/sp-lightglue-hard1502-20261013-v1/lightglue-finetune/best-lightglue.pt",
+  "v8_sha": "00d2306ef3d90ed8ec01ec2990a6eef5d27a5d3f4c449677b15420a1d75d8692",
+  "vendor": "/home/zhangcy/projects/sp-lightglue-four-20261013-v1/vendor",
+  "vendor_py": "/home/zhangcy/projects/sp-lightglue-four-20261013-v1/vendor-py",
+  "hub": "/home/zhangcy/projects/sp-lightglue-four-20261013-v1/torch_hub",
+  "train_dates": [
+    "2012-01-22",
+    "2012-02-02",
+    "2012-02-18"
+  ],
+  "validation_date": "2012-05-11",
+  "learning_rate": 1e-05,
+  "warmup_steps": 5,
+  "gpu": 3,
+  "resources": {
+    "CUDA_fraction": 0.32,
+    "CPU_threads": 1,
+    "RSS_limit_gib": 8,
+    "available_RAM_floor_gib": 24,
+    "disk_floor_gib": 12,
+    "timeout_hours": 6
+  },
+  "scope": "3 or 10 reference views plus one query; common model trained alternating3/10; positive-only independent continuation as exposure-matched control; all training completes and checkpoints freeze before heldout48-query evaluation; no localisation scoring",
+  "training_groups": 60,
+  "test_queries": 48,
+  "lr": 1e-05,
+  "upstream_commit": "becf52c9a916c90c6c17946d52897368b40a4695",
+  "primary": "geometrically evaluable precision, correct pair count and unique query-keypoint count; unknown predictions reported separately",
+  "migration": "Fixed1 source/target/propagation; target excludes own branch; geometry-linked attention75%borrowed25%own",
+  "training_note": "60 query groups, one Adam update/group alternating 3/10 references, same groups/exposure/order/lr for control and collaborative; positive pair NLL unchanged plus CoMatcher confidence auxiliary BCE0.5 only in collaborative",
+  "new_parameter_lr": 0.0001,
+  "residual_gate_lr": 0.01,
+  "preflight_failure": "dominant-v1 exited1 before Adam: baseline-reuse block accidentally inserted inside independent_scores; corrected scope in v2; failed project/store preserved",
+  "prior_store": "/data2/zhangcy/comatcher-v8-20261016-v5",
+  "gpu_uuid": "GPU-ba134650-773c-df34-5e38-9e2c8d1fa892"
+}
