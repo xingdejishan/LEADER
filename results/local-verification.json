@@ -1,0 +1,275 @@
+{
+  "complete": true,
+  "queries": 48,
+  "verified_predictions": 80570,
+  "blocks120s": 40,
+  "comparisons": {
+    "collaborative3-minus-v8": {
+      "precision": {
+        "mean": -0.022264553750168104,
+        "ci95": [
+          -0.05291138864591212,
+          0.007039559504593308
+        ]
+      },
+      "correct": {
+        "mean": -21.4375,
+        "ci95": [
+          -29.959223689475788,
+          -14.439096153846158
+        ]
+      },
+      "unique_correct": {
+        "mean": -16.604166666666668,
+        "ci95": [
+          -22.977285353535354,
+          -11.330978260869578
+        ]
+      },
+      "covered_cells": {
+        "mean": -3.3541666666666665,
+        "ci95": [
+          -4.2381211180124225,
+          -2.479979166666667
+        ]
+      },
+      "pooled_precision": {
+        "mean": 0.01989324214588503,
+        "ci95": [
+          -0.031453920132389325,
+          0.06091950510843532
+        ]
+      }
+    },
+    "collaborative3-minus-positive_control": {
+      "precision": {
+        "mean": -0.026278273932077535,
+        "ci95": [
+          -0.05971220274402628,
+          0.0057786636408732935
+        ]
+      },
+      "correct": {
+        "mean": -23.020833333333332,
+        "ci95": [
+          -31.845151515151514,
+          -15.063275709219862
+        ]
+      },
+      "unique_correct": {
+        "mean": -17.666666666666668,
+        "ci95": [
+          -24.25556882327399,
+          -11.917857142857146
+        ]
+      },
+      "covered_cells": {
+        "mean": -3.5416666666666665,
+        "ci95": [
+          -4.460202127659574,
+          -2.6040625000000004
+        ]
+      },
+      "pooled_precision": {
+        "mean": 0.019154902549287006,
+        "ci95": [
+          -0.03539433411635491,
+          0.0582569577757472
+        ]
+      }
+    },
+    "collaborative3-minus-weak": {
+      "precision": {
+        "mean": -0.03170547936130149,
+        "ci95": [
+          -0.0701243306872309,
+          0.0037039647109721385
+        ]
+      },
+      "correct": {
+        "mean": -22.958333333333332,
+        "ci95": [
+          -31.580806122448976,
+          -15.270312500000003
+        ]
+      },
+      "unique_correct": {
+        "mean": -17.604166666666668,
+        "ci95": [
+          -24.93926445578231,
+          -11.699891304347826
+        ]
+      },
+      "covered_cells": {
+        "mean": -3.4583333333333335,
+        "ci95": [
+          -4.348837209302325,
+          -2.586865942028986
+        ]
+      },
+      "pooled_precision": {
+        "mean": 0.020039136657028528,
+        "ci95": [
+          -0.02942250287482127,
+          0.05748027841911012
+        ]
+      }
+    },
+    "collaborative10-minus-v8": {
+      "precision": {
+        "mean": 0.010572003945878072,
+        "ci95": [
+          -0.014724688707190672,
+          0.03491235538826073
+        ]
+      },
+      "correct": {
+        "mean": -49.270833333333336,
+        "ci95": [
+          -62.91277777777778,
+          -36.21734867860188
+        ]
+      },
+      "unique_correct": {
+        "mean": -27.3125,
+        "ci95": [
+          -34.256322533849136,
+          -20.85348557692308
+        ]
+      },
+      "covered_cells": {
+        "mean": -4.625,
+        "ci95": [
+          -5.442474489795918,
+          -3.8541666666666665
+        ]
+      },
+      "pooled_precision": {
+        "mean": 0.06525241675617616,
+        "ci95": [
+          0.021550894313876613,
+          0.1079139563760259
+        ]
+      }
+    },
+    "collaborative10-minus-positive_control": {
+      "precision": {
+        "mean": 0.01155508031424099,
+        "ci95": [
+          -0.015098879238883459,
+          0.03635485762748239
+        ]
+      },
+      "correct": {
+        "mean": -53.291666666666664,
+        "ci95": [
+          -68.97873448581561,
+          -38.97951960784314
+        ]
+      },
+      "unique_correct": {
+        "mean": -28.8125,
+        "ci95": [
+          -37.391304347826086,
+          -21.791262755102043
+        ]
+      },
+      "covered_cells": {
+        "mean": -4.770833333333333,
+        "ci95": [
+          -5.565217391304348,
+          -3.956497584541063
+        ]
+      },
+      "pooled_precision": {
+        "mean": 0.0668177000254894,
+        "ci95": [
+          0.022626948350041597,
+          0.10967567448559219
+        ]
+      }
+    },
+    "collaborative10-minus-weak": {
+      "precision": {
+        "mean": 0.009679335128373876,
+        "ci95": [
+          -0.016406644105340516,
+          0.03506221289307826
+        ]
+      },
+      "correct": {
+        "mean": -53.5,
+        "ci95": [
+          -69.79208776595745,
+          -38.28750000000001
+        ]
+      },
+      "unique_correct": {
+        "mean": -28.875,
+        "ci95": [
+          -37.27103924418605,
+          -21.825543478260872
+        ]
+      },
+      "covered_cells": {
+        "mean": -4.708333333333333,
+        "ci95": [
+          -5.530612244897959,
+          -3.89119155045119
+        ]
+      },
+      "pooled_precision": {
+        "mean": 0.06643101319475159,
+        "ci95": [
+          0.02284502499447948,
+          0.11237561657055663
+        ]
+      }
+    }
+  },
+  "note": "geometric proxy; same-route/date holdout, shared training-date references; block bootstrap descriptive",
+  "same_first3_reference_context_diagnostic": {
+    "v8": {
+      "first3_with10_context": {
+        "matches": 9786,
+        "evaluable": 5316,
+        "correct": 1175,
+        "unique_correct": 913,
+        "precision": 0.2210308502633559,
+        "mean_correct": 24.479166666666668,
+        "mean_unique_correct": 19.020833333333332
+      },
+      "changed_match_entries": 0,
+      "affected_queries": 0,
+      "correct_delta_vs3": 0
+    },
+    "positive_control": {
+      "first3_with10_context": {
+        "matches": 10282,
+        "evaluable": 5641,
+        "correct": 1251,
+        "unique_correct": 964,
+        "precision": 0.22176918985995392,
+        "mean_correct": 26.0625,
+        "mean_unique_correct": 20.083333333333332
+      },
+      "changed_match_entries": 0,
+      "affected_queries": 0,
+      "correct_delta_vs3": 0
+    },
+    "collaborative": {
+      "first3_with10_context": {
+        "matches": 1124,
+        "evaluable": 601,
+        "correct": 177,
+        "unique_correct": 142,
+        "precision": 0.2945091514143095,
+        "mean_correct": 3.6875,
+        "mean_unique_correct": 2.9583333333333335
+      },
+      "changed_match_entries": 1083,
+      "affected_queries": 48,
+      "correct_delta_vs3": 31
+    }
+  }
+}

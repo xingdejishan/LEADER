@@ -1,0 +1,9 @@
+{
+  "repository": "xingdejishan/LEADER",
+  "release_tag": "lightglue-v8-20261016",
+  "asset_name": "best-lightglue.pt",
+  "kind": "v8",
+  "sha256": "00d2306ef3d90ed8ec01ec2990a6eef5d27a5d3f4c449677b15420a1d75d8692",
+  "bytes": 47500169,
+  "training_step": 200
+}

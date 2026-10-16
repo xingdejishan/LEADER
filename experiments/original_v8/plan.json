@@ -1,0 +1,226 @@
+{
+  "scope": "Full 1502-frame hard set: SuperPoint+LightGlue candidates replacing the DINOv2 patch matcher, then the same GT-free independent LiDAR geometric verification, then GT-offline comparison of the tiered rule and the fallback-relative rule",
+  "cohort": "frozen historical V7 epoch10 T>0.5m 1502 frames",
+  "inputs": {
+    "cls_top5": "/data2/zhangcy/rpge-crossvote-hard1502-20261012-v1/cls-top5.npz",
+    "cls_top5_sha256": "ebf55df8b237893ff9f60496e86c96273a62d77b3a4304e4c36a4563d69b99fa",
+    "selection": "/data2/zhangcy/rpge-crossvote-hard1502-20261012-v1/selection.json",
+    "selection_sha256": "678467bf54964ed91b042d6ce65266e4b7d37e2a863f9f3b333a3a9c5dc9d792",
+    "predictions": "/data2/zhangcy/rpge-crossvote-hard1502-20261012-v1/predictions.json",
+    "predictions_sha256": "904b0aec8d5083f1884c4fcc8f0091435dde869c35b8c395d24e555923194b75",
+    "scored": "/data2/zhangcy/rpge-crossvote-hard1502-20261012-v1/scored.npz",
+    "scored_sha256": "5819910ce34fae8949918018fd5eb6e0ab03f5bbf85c7b9c7d98c05e3c92075f",
+    "image_plan": "/data2/zhangcy/v7-dinov2-recall-20261012-v1/image-plan.json",
+    "image_plan_sha256": "ef2045743b1373e3cfc2ce52f294473b58cef9c6a57b62c70241bd648ec2bc88",
+    "library_plan": "/data2/zhangcy/dino-grid-fix-four-20261013-v1/input-plan.json",
+    "library_plan_sha256": "585c4ff9d8be9629b8743720be1758c33c2f0f93e417bec44e9e2031ef69e5ba"
+  },
+  "expected": {
+    "frames": 1502,
+    "library_references": 4752,
+    "match_references": 1018,
+    "pair_references_per_frame": 5
+  },
+  "matcher": {
+    "extractor": "SuperPoint(max_num_keypoints=1024)",
+    "max_num_keypoints": 1024,
+    "association_radius_px": 3.5,
+    "matcher": "LightGlue(features=superpoint, flash=False)",
+    "image_pipeline": "identical to the frozen four-frame run: RGB, ROTATE_270, longest edge <=560 bicubic, centre crop to multiple of 14",
+    "association": "nearest LiDAR return in model-pixel space, keep if distance <= 3.5 px",
+    "dedup": "one correspondence per query keypoint, highest LightGlue score wins",
+    "local_region_radius_m": 25.0,
+    "determinism": {
+      "torch_num_threads": 1,
+      "torch_manual_seed": 20,
+      "cv2_num_threads": 1
+    },
+    "training": false
+  },
+  "PnP": {
+    "iterations": 2000,
+    "reprojection_px": 12.0,
+    "confidence": 0.999,
+    "min_inliers": 15,
+    "min_4x4_cells": 6,
+    "min_inlier_ratio": 0.2,
+    "consensus_translation_m": 5.0,
+    "consensus_rotation_deg": 10.0,
+    "min_supporting_reference_images": 2
+  },
+  "verification": {
+    "map_radius_m": 25.0,
+    "map_voxel_m": 0.25,
+    "query_voxel_m": 0.2,
+    "query_range_m": 50.0,
+    "nn_thresholds_m": [
+      0.2,
+      0.3,
+      0.5,
+      1.0
+    ],
+    "primary_nn_threshold_m": 0.3,
+    "azimuth_bins": 36,
+    "min_points_per_bin": 50,
+    "bin_support_overlap": 0.5,
+    "min_supported_bins": 12,
+    "residual_window_m": 0.5,
+    "residual_median_max_m": 0.3,
+    "residual_p90_max_m": 0.5,
+    "max_top_bin_share": 0.5,
+    "reverse_subsample_points": 10000,
+    "observability_offset_m": 5.0,
+    "observability_azimuths_deg": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "observability_max_score": 0.5,
+    "map_excludes_frame_cls_top5": true
+  },
+  "observability": {
+    "note": "label-free LiDAR travel-axis observability; reads only the frame's own raw scan, no pose and no GT and no error label",
+    "range_m": 50.0,
+    "points": 8000,
+    "neighbours": 20,
+    "axes": [
+      "x_forward",
+      "y_left",
+      "z_up"
+    ],
+    "statistic": "share of planarity-weighted surface-normal energy along each body axis"
+  },
+  "query_depth": {
+    "note": "feasibility of Query-side ray casting: project the frame's own scan into the camera (pose-free, both live in the body frame) and read a depth for every SuperPoint keypoint from the nearest projected return; no GT, no estimate pose",
+    "max_num_keypoints": 1024,
+    "image_edge": 560,
+    "model_width": 420,
+    "model_height": 560,
+    "min_depth_m": 0.5,
+    "max_depth_m": 120.0,
+    "radii_px": [
+      1.0,
+      2.0,
+      3.5
+    ],
+    "incidence_min": 0.5,
+    "neighbours": 20,
+    "statistic": "count of keypoints with a projected return inside the model-pixel radius, and of those how many have |normal dot ray| >= incidence_min"
+  },
+  "aggressive": {
+    "note": "aggressive reselection: several correspondence candidates per query keypoint across the provider references, reselected by pose-free cross-side rigid invariants; no GT and no estimated pose is an input to the selection",
+    "provider": "/data2/zhangcy/sp-provider-cls5-sc2pos5-20261015-v1/provider.npz",
+    "output_dir": "aggressive",
+    "ablation_dir": "ablation-2d3d",
+    "max_num_keypoints": 1024,
+    "image_edge": 560,
+    "model_width": 420,
+    "model_height": 560,
+    "min_depth_m": 0.5,
+    "max_depth_m": 120.0,
+    "binding_radius_px": 3.5,
+    "incidence_min": 0.5,
+    "neighbours": 20,
+    "candidates_per_keypoint": 3,
+    "rigidity_abs_m": 1.0,
+    "rigidity_rel": 0.05,
+    "leader_repo": "/home/zhangcy/projects/LEADER",
+    "sc2_inlier_threshold": 2.0,
+    "sc2_d_thre": 2.0,
+    "solver": "frozen LEADER backend models/sc2pcr.py Matcher.estimator on 3D-3D correspondences, same parameters as run_mink.py (inlier_threshold=2.0, d_thre=2); source is this frame's ray-cast body 3D, target is the reference scan's real world 3D",
+    "min_selected": 15,
+    "arms": [
+      "best_one",
+      "aggressive"
+    ]
+  },
+  "label_yield": {
+    "note": "label yield for LiDAR-reprojection 2D-2D supervision; uses only the library's own mapping poses on the four training dates, no test GT",
+    "output_dir": "label-yield",
+    "seed": 20,
+    "queries_per_date": 15,
+    "references_per_query": 3,
+    "overlap_radius_m": 20.0,
+    "pool_radius_m": 60.0,
+    "pool_size": 40,
+    "min_depth_m": 0.5,
+    "max_depth_m": 120.0,
+    "model_width": 420,
+    "model_height": 560,
+    "image_edge": 560,
+    "max_num_keypoints": 1024,
+    "binding_radius_px": 3.5,
+    "depth_tolerance_m": 0.6,
+    "keypoint_radius_px": 3.5
+  },
+  "label_dataset": {
+    "note": "materialise the LiDAR-reprojection supervision as (query keypoint index, reference keypoint index) pairs; pairing score is the number of labels surviving all checks",
+    "output_dir": "label-dataset",
+    "shortlist": 40,
+    "references_per_query": 8,
+    "min_labels_per_pair": 30
+  },
+  "lightglue_finetune": {
+    "note": "step 5: fine-tune LightGlue on the LiDAR-reprojection supervision with SuperPoint frozen; unlabelled keypoints are ignored rather than treated as no-match, because most of them do have a true correspondence that this construction could not resolve",
+    "output_dir": "lightglue-finetune",
+    "seed": 20,
+    "steps": 300,
+    "min_labels_per_pair": 20,
+    "learning_rate": 5e-05,
+    "warmup_steps": 200,
+    "accumulate": 8,
+    "cosine_decay": true,
+    "dataset_dir": "label-dataset",
+    "gradient_clip": 1.0,
+    "validation_modulus": 10,
+    "validation_residue": 7,
+    "validation_pairs": 24,
+    "validate_every": 100,
+    "max_num_keypoints": 1024,
+    "image_edge": 560,
+    "report_every": 50,
+    "train_dates": [
+      "2012-01-22",
+      "2012-02-02",
+      "2012-02-18"
+    ],
+    "validation_dates": [
+      "2012-05-11"
+    ],
+    "version_name": "v8",
+    "version_definition": "V8 = LightGlue fine-tuned on LiDAR-reprojection 2D-2D supervision with SuperPoint frozen; supervision labels come from ground-truth poses plus LiDAR reprojection and never from LightGlue output; unlabelled keypoints are ignored rather than treated as no-match",
+    "checkpoint": "lightglue-finetune/best-lightglue.pt",
+    "frames_per_date": 300
+  },
+  "label_dataset_hard": {
+    "note": "labels for the 1502 hard frames, split by DATE because adjacent frames on one date see the same road; the query side is a hard frame with its own scan and ground-truth pose, the reference side is exactly the deployed provider list",
+    "output_dir": "label-dataset-hard",
+    "dates": [
+      "2012-02-12",
+      "2012-03-31"
+    ],
+    "test_dates": [
+      "2012-02-19",
+      "2012-05-26"
+    ],
+    "policy_project": "/home/zhangcy/projects/v7-moe-oneepoch-20261011-v3",
+    "scored": "/data2/zhangcy/rpge-crossvote-hard1502-20261012-v1/scored.npz",
+    "min_labels_per_pair": 20
+  },
+  "rules": {
+    "tiered": "candidate must pass geometry_verified AND be directionally observable, else keep the frozen V7 baseline output",
+    "relative_v7": "per frame take the highest-scoring candidate; accept it iff its GT-free score exceeds the score of that frame's frozen V7 output; else keep the V7 output",
+    "relative_v7_margin_0.1": "same as relative_v7 but the candidate must exceed the V7 score by at least 0.1",
+    "relative_sc2": "same but compared against the raw SC2 initial, which is the weaker bar and is reported only for continuity with the four-frame study",
+    "note": "the pipeline's real fallback is SC2 followed by V7 refinement, so the frozen V7 output is the pose a rule has to beat"
+  },
+  "reference_assets": {
+    "nclt_reference_policy.py": "c1f5ca48759acd79d2bfc1bea1e6671b059d686da279c97682e939986058a4b1",
+    "nclt-reference-policy.json": "3e36356edb50284a3cde017188b3283bd01fb41bfe41fb1ddd201b01a0114a4a",
+    "nclt-2012-02-12-suspect255-odometry.npz": "07416ebc5791d631ffb82db10cde577d209878a6cfe8a781810537e23c9aa2f4"
+  },
+  "workers": 8,
+  "no_GT_during_match_or_verify": true,
+  "no_parameter_selection_from_GT": true
+}

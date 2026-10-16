@@ -1,0 +1,191 @@
+{
+  "complete": true,
+  "verified_predictions": 182155,
+  "primary_predictions_exact": true,
+  "summaries": [
+    {
+      "arm": "v8",
+      "references": 3,
+      "summaries": [
+        {
+          "threshold": 0.0,
+          "matches": 24969,
+          "evaluable": 9267,
+          "correct": 1351,
+          "unique_correct": 1057,
+          "precision": 0.14578612280133807
+        },
+        {
+          "threshold": 0.001,
+          "matches": 22736,
+          "evaluable": 9231,
+          "correct": 1351,
+          "unique_correct": 1057,
+          "precision": 0.14635467446647168
+        },
+        {
+          "threshold": 0.01,
+          "matches": 18120,
+          "evaluable": 8630,
+          "correct": 1344,
+          "unique_correct": 1050,
+          "precision": 0.15573580533024334
+        },
+        {
+          "threshold": 0.03,
+          "matches": 14721,
+          "evaluable": 7571,
+          "correct": 1308,
+          "unique_correct": 1019,
+          "precision": 0.17276449610355304
+        },
+        {
+          "threshold": 0.1,
+          "matches": 9786,
+          "evaluable": 5316,
+          "correct": 1175,
+          "unique_correct": 913,
+          "precision": 0.2210308502633559
+        }
+      ]
+    },
+    {
+      "arm": "v8",
+      "references": 10,
+      "summaries": [
+        {
+          "threshold": 0.0,
+          "matches": 78450,
+          "evaluable": 27330,
+          "correct": 3271,
+          "unique_correct": 1827,
+          "precision": 0.11968532747896085
+        },
+        {
+          "threshold": 0.001,
+          "matches": 70310,
+          "evaluable": 27140,
+          "correct": 3270,
+          "unique_correct": 1826,
+          "precision": 0.12048636698599853
+        },
+        {
+          "threshold": 0.01,
+          "matches": 53283,
+          "evaluable": 24738,
+          "correct": 3243,
+          "unique_correct": 1811,
+          "precision": 0.1310938636914868
+        },
+        {
+          "threshold": 0.03,
+          "matches": 41674,
+          "evaluable": 21138,
+          "correct": 3153,
+          "unique_correct": 1759,
+          "precision": 0.14916264547260857
+        },
+        {
+          "threshold": 0.1,
+          "matches": 26297,
+          "evaluable": 14112,
+          "correct": 2784,
+          "unique_correct": 1562,
+          "precision": 0.19727891156462585
+        }
+      ]
+    },
+    {
+      "arm": "collaborative",
+      "references": 3,
+      "summaries": [
+        {
+          "threshold": 0.0,
+          "matches": 17698,
+          "evaluable": 5400,
+          "correct": 477,
+          "unique_correct": 382,
+          "precision": 0.08833333333333333
+        },
+        {
+          "threshold": 0.001,
+          "matches": 16430,
+          "evaluable": 5344,
+          "correct": 476,
+          "unique_correct": 381,
+          "precision": 0.08907185628742514
+        },
+        {
+          "threshold": 0.01,
+          "matches": 8645,
+          "evaluable": 3747,
+          "correct": 414,
+          "unique_correct": 327,
+          "precision": 0.11048839071257005
+        },
+        {
+          "threshold": 0.03,
+          "matches": 4146,
+          "evaluable": 2041,
+          "correct": 306,
+          "unique_correct": 242,
+          "precision": 0.1499265066144047
+        },
+        {
+          "threshold": 0.1,
+          "matches": 1099,
+          "evaluable": 606,
+          "correct": 146,
+          "unique_correct": 116,
+          "precision": 0.24092409240924093
+        }
+      ]
+    },
+    {
+      "arm": "collaborative",
+      "references": 10,
+      "summaries": [
+        {
+          "threshold": 0.0,
+          "matches": 61038,
+          "evaluable": 18355,
+          "correct": 1397,
+          "unique_correct": 836,
+          "precision": 0.07611005175701444
+        },
+        {
+          "threshold": 0.001,
+          "matches": 56610,
+          "evaluable": 18185,
+          "correct": 1393,
+          "unique_correct": 832,
+          "precision": 0.07660159472092384
+        },
+        {
+          "threshold": 0.01,
+          "matches": 28648,
+          "evaluable": 12113,
+          "correct": 1229,
+          "unique_correct": 717,
+          "precision": 0.1014612399900933
+        },
+        {
+          "threshold": 0.03,
+          "matches": 12855,
+          "evaluable": 6084,
+          "correct": 895,
+          "unique_correct": 518,
+          "precision": 0.14710716633793558
+        },
+        {
+          "threshold": 0.1,
+          "matches": 3152,
+          "evaluable": 1596,
+          "correct": 419,
+          "unique_correct": 251,
+          "precision": 0.262531328320802
+        }
+      ]
+    }
+  ]
+}

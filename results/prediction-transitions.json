@@ -1,0 +1,125 @@
+{
+  "strong3-minus-v8": {
+    "transitions": {
+      "unknown->absent": 4186,
+      "unknown->unknown": 267,
+      "wrong->wrong": 247,
+      "wrong->absent": 3880,
+      "correct->absent": 1015,
+      "absent->unknown": 218,
+      "correct->correct": 126,
+      "absent->wrong": 165,
+      "wrong->correct": 9,
+      "unknown->wrong": 17,
+      "correct->wrong": 31,
+      "wrong->unknown": 5,
+      "absent->correct": 11,
+      "correct->unknown": 3
+    },
+    "changed_query_reference_predictions": 9680,
+    "correct_delta": -1029
+  },
+  "strong3-minus-positive_control": {
+    "transitions": {
+      "unknown->absent": 4352,
+      "unknown->unknown": 274,
+      "wrong->wrong": 254,
+      "wrong->absent": 4121,
+      "correct->absent": 1092,
+      "correct->correct": 125,
+      "absent->wrong": 160,
+      "absent->unknown": 210,
+      "wrong->correct": 9,
+      "unknown->wrong": 15,
+      "correct->wrong": 31,
+      "wrong->unknown": 6,
+      "absent->correct": 12,
+      "correct->unknown": 3
+    },
+    "changed_query_reference_predictions": 10158,
+    "correct_delta": -1105
+  },
+  "strong3-minus-weak": {
+    "transitions": {
+      "unknown->absent": 4345,
+      "unknown->unknown": 272,
+      "wrong->wrong": 253,
+      "wrong->absent": 4137,
+      "correct->absent": 1083,
+      "absent->unknown": 212,
+      "correct->correct": 130,
+      "absent->wrong": 162,
+      "wrong->correct": 6,
+      "correct->wrong": 32,
+      "unknown->wrong": 13,
+      "absent->correct": 10,
+      "wrong->unknown": 6,
+      "correct->unknown": 3
+    },
+    "changed_query_reference_predictions": 10153,
+    "correct_delta": -1102
+  },
+  "strong10-minus-v8": {
+    "transitions": {
+      "unknown->absent": 11269,
+      "unknown->unknown": 891,
+      "wrong->wrong": 679,
+      "wrong->absent": 10610,
+      "correct->absent": 2397,
+      "absent->unknown": 649,
+      "correct->correct": 355,
+      "absent->wrong": 445,
+      "unknown->wrong": 22,
+      "absent->correct": 37,
+      "unknown->correct": 3,
+      "wrong->correct": 24,
+      "wrong->unknown": 15,
+      "correct->wrong": 31,
+      "correct->unknown": 1
+    },
+    "changed_query_reference_predictions": 25837,
+    "correct_delta": -2365
+  },
+  "strong10-minus-positive_control": {
+    "transitions": {
+      "unknown->absent": 11817,
+      "unknown->unknown": 917,
+      "wrong->wrong": 702,
+      "wrong->absent": 11497,
+      "correct->absent": 2579,
+      "correct->correct": 365,
+      "absent->wrong": 422,
+      "absent->unknown": 626,
+      "unknown->wrong": 21,
+      "absent->correct": 29,
+      "wrong->correct": 23,
+      "wrong->unknown": 12,
+      "correct->wrong": 32,
+      "unknown->correct": 2,
+      "correct->unknown": 1
+    },
+    "changed_query_reference_predictions": 27405,
+    "correct_delta": -2558
+  },
+  "strong10-minus-weak": {
+    "transitions": {
+      "unknown->absent": 11680,
+      "unknown->unknown": 911,
+      "wrong->wrong": 701,
+      "wrong->absent": 11507,
+      "correct->absent": 2590,
+      "absent->unknown": 630,
+      "correct->correct": 365,
+      "absent->wrong": 425,
+      "unknown->wrong": 20,
+      "absent->correct": 29,
+      "wrong->correct": 23,
+      "wrong->unknown": 14,
+      "correct->wrong": 31,
+      "unknown->correct": 2,
+      "correct->unknown": 1
+    },
+    "changed_query_reference_predictions": 27287,
+    "correct_delta": -2568
+  }
+}
