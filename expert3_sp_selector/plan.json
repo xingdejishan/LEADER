@@ -1,0 +1,83 @@
+{
+  "scope": "Full 1502-frame hard set: SuperPoint+LightGlue candidates replacing the DINOv2 patch matcher, then the same GT-free independent LiDAR geometric verification, then GT-offline comparison of the tiered rule and the fallback-relative rule",
+  "cohort": "frozen historical V7 epoch10 T>0.5m 1502 frames",
+  "inputs": {
+    "cls_top5": "/data2/zhangcy/rpge-crossvote-hard1502-20261012-v1/cls-top5.npz",
+    "cls_top5_sha256": "ebf55df8b237893ff9f60496e86c96273a62d77b3a4304e4c36a4563d69b99fa",
+    "selection": "/data2/zhangcy/rpge-crossvote-hard1502-20261012-v1/selection.json",
+    "selection_sha256": "678467bf54964ed91b042d6ce65266e4b7d37e2a863f9f3b333a3a9c5dc9d792",
+    "predictions": "/data2/zhangcy/rpge-crossvote-hard1502-20261012-v1/predictions.json",
+    "predictions_sha256": "904b0aec8d5083f1884c4fcc8f0091435dde869c35b8c395d24e555923194b75",
+    "scored": "/data2/zhangcy/rpge-crossvote-hard1502-20261012-v1/scored.npz",
+    "scored_sha256": "5819910ce34fae8949918018fd5eb6e0ab03f5bbf85c7b9c7d98c05e3c92075f",
+    "image_plan": "/data2/zhangcy/v7-dinov2-recall-20261012-v1/image-plan.json",
+    "image_plan_sha256": "ef2045743b1373e3cfc2ce52f294473b58cef9c6a57b62c70241bd648ec2bc88",
+    "library_plan": "/data2/zhangcy/dino-grid-fix-four-20261013-v1/input-plan.json",
+    "library_plan_sha256": "585c4ff9d8be9629b8743720be1758c33c2f0f93e417bec44e9e2031ef69e5ba"
+  },
+  "expected": {
+    "frames": 1502,
+    "library_references": 4752,
+    "match_references": 1018,
+    "pair_references_per_frame": 5
+  },
+  "matcher": {
+    "extractor": "SuperPoint(max_num_keypoints=1024)",
+    "max_num_keypoints": 1024,
+    "association_radius_px": 3.5,
+    "matcher": "LightGlue(features=superpoint, flash=False)",
+    "image_pipeline": "identical to the frozen four-frame run: RGB, ROTATE_270, longest edge <=560 bicubic, centre crop to multiple of 14",
+    "association": "nearest LiDAR return in model-pixel space, keep if distance <= 3.5 px",
+    "dedup": "one correspondence per query keypoint, highest LightGlue score wins",
+    "local_region_radius_m": 25.0,
+    "determinism": {"torch_num_threads": 1, "torch_manual_seed": 20, "cv2_num_threads": 1},
+    "training": false
+  },
+  "PnP": {
+    "iterations": 2000,
+    "reprojection_px": 12.0,
+    "confidence": 0.999,
+    "min_inliers": 15,
+    "min_4x4_cells": 6,
+    "min_inlier_ratio": 0.2,
+    "consensus_translation_m": 5.0,
+    "consensus_rotation_deg": 10.0,
+    "min_supporting_reference_images": 2
+  },
+  "verification": {
+    "map_radius_m": 25.0,
+    "map_voxel_m": 0.25,
+    "query_voxel_m": 0.2,
+    "query_range_m": 50.0,
+    "nn_thresholds_m": [0.2, 0.3, 0.5, 1.0],
+    "primary_nn_threshold_m": 0.3,
+    "azimuth_bins": 36,
+    "min_points_per_bin": 50,
+    "bin_support_overlap": 0.5,
+    "min_supported_bins": 12,
+    "residual_window_m": 0.5,
+    "residual_median_max_m": 0.3,
+    "residual_p90_max_m": 0.5,
+    "max_top_bin_share": 0.5,
+    "reverse_subsample_points": 10000,
+    "observability_offset_m": 5.0,
+    "observability_azimuths_deg": [0, 90, 180, 270],
+    "observability_max_score": 0.5,
+    "map_excludes_frame_cls_top5": true
+  },
+  "rules": {
+    "tiered": "candidate must pass geometry_verified AND be directionally observable, else keep the frozen V7 baseline output",
+    "relative_v7": "per frame take the highest-scoring candidate; accept it iff its GT-free score exceeds the score of that frame's frozen V7 output; else keep the V7 output",
+    "relative_v7_margin_0.1": "same as relative_v7 but the candidate must exceed the V7 score by at least 0.1",
+    "relative_sc2": "same but compared against the raw SC2 initial, which is the weaker bar and is reported only for continuity with the four-frame study",
+    "note": "the pipeline's real fallback is SC2 followed by V7 refinement, so the frozen V7 output is the pose a rule has to beat"
+  },
+  "reference_assets": {
+    "nclt_reference_policy.py": "c1f5ca48759acd79d2bfc1bea1e6671b059d686da279c97682e939986058a4b1",
+    "nclt-reference-policy.json": "3e36356edb50284a3cde017188b3283bd01fb41bfe41fb1ddd201b01a0114a4a",
+    "nclt-2012-02-12-suspect255-odometry.npz": "07416ebc5791d631ffb82db10cde577d209878a6cfe8a781810537e23c9aa2f4"
+  },
+  "workers": 8,
+  "no_GT_during_match_or_verify": true,
+  "no_parameter_selection_from_GT": true
+}
