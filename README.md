@@ -14,8 +14,10 @@ incoming pose, so it cannot recover a globally wrong retrieval.
 src/fast_lib.py        the pieces: scan decode, voxel, map cache, query, solve()
 src/pipeline.py        the chain: record + initial pose -> corrected pose
 src/run_frames.py      CLI driver over a frame list
+distance_field/        GPU truncated-distance-field alternatives (all rejected, see docs)
 experiments/           the scripts that produced the numbers in docs/RESULTS.md
 docs/RESULTS.md        every sweep result and its conclusion
+docs/DISTANCE_FIELD.md GPU distance field: what worked, what did not
 ```
 
 ## The chain
@@ -126,6 +128,18 @@ server:
 
 They issue shell heredocs; `ssh_exec.py` streams them to the host. Adapt the
 paths before running elsewhere.
+
+## GPU distance field (rejected)
+
+A truncated distance field over the local map, sampled on the GPU, makes the
+scoring 10–18× faster (coarse 27 ms → 1.5 ms, fine 234 ms → 24 ms). But every
+way of using it to *reduce the number of exact evaluations* lost accuracy: the
+field error (0.05–0.08 m) is larger than the cost differences between
+neighbouring poses, so the field's ranking cannot replace the exact comparison.
+The only change that holds accuracy is moving the **coarse stage** to the GPU,
+which takes the chain from ~162 ms to ~132 ms. Details, including the axis-order
+bug that made the first field silently useless, are in
+[docs/DISTANCE_FIELD.md](docs/DISTANCE_FIELD.md).
 
 ## Caveats
 
