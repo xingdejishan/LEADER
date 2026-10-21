@@ -38,8 +38,8 @@ def solve_adaptive(map_points, scan, initial, direction, thresh=None,
                    n_coarse=1500, n_fine=4000, workers=4):
     """Same inputs and outputs as fast_lib.solve, adaptive expansion inside."""
     thresh = THRESH if thresh is None else thresh
-    qc = scan[:min(n_coarse, len(scan))]
-    qf = scan[:min(n_fine, len(scan))]
+    qc = F.spread_subset(scan, n_coarse)
+    qf = F.spread_subset(scan, n_fine)
     tree = cKDTree(map_points)
     rot = initial[:3, :3]
     origin = initial[:3, 3]

@@ -133,6 +133,17 @@ server:
 They issue shell heredocs; `ssh_exec.py` streams them to the host. Adapt the
 paths before running elsewhere.
 
+## Sampling defect (fixed) — read this before quoting any number
+
+Every figure below was produced with `scan[:N]` as the point subset. Because the
+voxelised scan is still in acquisition (azimuthal) order, that keeps a
+~70-degree wedge rather than a sample: a 4000-point budget covered 7 of 36
+azimuth cells, against 35 of 36 for the whole scan. Replacing it with an evenly
+strided subset is free (0.00 ms) and improves MPE from 1.5638 to **1.5166**,
+median from 0.3513 to **0.3020**, at 1.41 instead of 1.64 expanded windows. See
+[docs/SAMPLING.md](docs/SAMPLING.md); the older numbers in RESULTS.md and
+ADAPTIVE.md are pessimistic and were computed on the wedge.
+
 ## Adaptive expansion (recommended)
 
 Scoring the six candidate centres at the full point budget, then expanding a

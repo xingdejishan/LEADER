@@ -102,6 +102,19 @@ class MapSource:
         return merged[np.linalg.norm(merged - centre, axis=1) <= self.radius]
 
 
+def spread_subset(points, n):
+    """Evenly strided subset, used instead of a raw prefix.
+
+    The scan array is in acquisition order, which is azimuthal for a spinning
+    LiDAR, so a stride spreads the subset over the full sweep while a prefix
+    keeps only a ~70-degree wedge. Measured on 4000 points: the prefix covers
+    7/36 azimuth cells, the stride 35/36. See docs/SAMPLING.md.
+    """
+    if len(points) <= n:
+        return points
+    return points[::max(1, len(points) // n)][:n]
+
+
 def query_dist(tree, points, workers=4, trunc=TRUNC):
     """Nearest-map-point distance, capped at the truncation radius.
 
@@ -119,8 +132,8 @@ def solve(map_points, scan, initial, direction, workers=4, n_coarse=1500, n_fine
     `direction` is the along-track unit vector (taken from the initial pose's
     forward axis). Rotation is held fixed at `initial`.
     """
-    q_coarse = scan[:min(n_coarse, len(scan))]
-    q_fine = scan[:min(n_fine, len(scan))]
+    q_coarse = spread_subset(scan, n_coarse)
+    q_fine = spread_subset(scan, n_fine)
     tree = cKDTree(map_points)
     rot = initial[:3, :3]
     origin = initial[:3, 3]
