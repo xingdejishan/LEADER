@@ -1,0 +1,105 @@
+# Coarse-to-fine along-track search for LiDAR re-localisation
+
+A training-free module that corrects the **along-track and lateral translation
+error** of a localisation pose. It starts from an upstream pose (LEADER/V7 after
+one local refinement pass), enumerates candidate positions on a static LiDAR
+reference map, and returns a translation correction.
+
+Rotation is **not** touched. The module only ever searches within ±8 m of the
+incoming pose, so it cannot recover a globally wrong retrieval.
+
+## Files
+
+```
+src/fast_lib.py        the implementation (single file, no trainable parameters)
+experiments/           the scripts that produced the numbers in docs/RESULTS.md
+docs/RESULTS.md        every sweep result and its conclusion
+```
+
+## How it works
+
+Given the current scan `q`, an initial pose `T0 = (R0, t0)`, and a local
+reference cloud `M` built from three other-date reference scans:
+
+1. **Anchor.** Scan the lateral offset `d ∈ [-1, 1]` in 0.25 m steps at
+   `s = 0`, keep the best. Cheap and only used to centre the coarse grid.
+2. **Coarse grid.** 17 along-track positions `s ∈ [-8, 8]` at 1 m × 3 lateral
+   values `d_home + {-0.5, 0, 0.5}`, each scored with **1500** query points.
+   Keep the best 6 cells, requiring them to be ≥1.5 m apart along-track so the
+   six represent six distinct hypotheses rather than one peak.
+3. **Fine grid.** For each candidate, a local 5 × 9 grid (along-track ±0.5 m at
+   0.25 m, lateral ±0.4 m at 0.1 m) scored with **4000** query points.
+   Candidates are processed cheapest-coarse-first; a **gradient lower bound**
+   skips a candidate whose region provably cannot beat the incumbent.
+4. Optionally hand the winner to an external local refiner (CoFAR).
+
+The score is the mean over query points of `min(nearest-neighbour distance,
+1.0 m)`.
+
+### Why this shape
+
+- **Lateral and along-track are handled asymmetrically.** Along-track is
+  enumerated and compared; lateral is optimised within each hypothesis. They are
+  never solved jointly — a joint 2-D argmax collapses onto the lateral zero
+  (established separately: 58.1 % of frames pick lateral 0, gradient/sign
+  agreement 0.073). Along-track identification improves from 46.2 % to 62.7 %
+  once the lateral offset is known, which is why the lateral anchor exists at
+  all.
+- **The fine stage is not merely precision.** Replacing it with a single
+  centre re-score costs 3.8 % MPE and 21 % median error even *after* the local
+  refiner runs. Its real job is to re-rank candidates with 4× the query points;
+  1500 points are enough to shortlist but not to decide.
+- **Along-track step 1 m is a plateau.** Coarser steps force a wider fine
+  window, and the fine stage costs ~2.7× more per evaluation, so total work
+  grows while accuracy does not improve (see RESULTS).
+
+## Lossless accelerations (verified bit-identical)
+
+| change | effect |
+|---|---|
+| packed-key voxel downsampling | 6× faster than `np.unique(axis=0)`, identical output |
+| reference-triple map cache | map build 205 ms → 2.8 ms on a hit |
+| `distance_upper_bound=1.0` on the tree query | ~20 % end-to-end, identical cost |
+| gradient lower bound in the fine stage | 270 → ~110 fine evaluations, identical pose |
+
+Full-set check: MPE 1.5693, median 0.3528, 83 % within 1 m — unchanged by all
+four, on all 1502 frames.
+
+## Measured behaviour (1502 hard frames, NCLT dev dates)
+
+| deploy error | frames | before | after (search only) | after (+ refiner) |
+|---|---|---|---|---|
+| 3–5 m | 49 | 3.56 m | 0.49 m | 0.23 m |
+| 5–8 m | 24 | 6.02 m | 0.46 m | 0.33 m |
+| > 8 m | 12 | 10.30 m | 10.81 m | 10.81 m |
+
+All of the value is in the 1–8 m range. Beyond 8 m the cost surface has a
+strong spurious minimum and this module makes things slightly worse; those
+frames need global retrieval instead.
+
+## Running it
+
+The scripts under `experiments/` were run against this layout on the research
+server:
+
+```
+/data2/zhangcy/v7-raw-geometry-hard1502-20261013-v1/
+    scored.npz        # keys, reference poses (GT), deployed baseline poses
+    selection.json    # reference and query scan lists with paths
+```
+
+They issue shell heredocs; `ssh_exec.py` streams them to the host. Adapt the
+paths before running elsewhere.
+
+## Caveats
+
+- Hyper-parameters (ranges, steps, point counts) were selected **on the same
+  1502 frames** used for evaluation. That is tuning on the test set; treat the
+  absolute numbers accordingly and re-validate on unseen dates.
+- The reference map is posed with ground-truth reference poses (offline
+  assumption) and does not include reference-registration error.
+- The along-track direction is taken from the incoming pose's own forward axis.
+  It is single-frame and training-free, but inherits that pose's orientation
+  error (median 1.3°).
+- The 1502-frame set is not contiguous; frame ordering matters only for the
+  map cache hit rate, never for the result.
