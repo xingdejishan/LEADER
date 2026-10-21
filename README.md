@@ -11,10 +11,46 @@ incoming pose, so it cannot recover a globally wrong retrieval.
 ## Files
 
 ```
-src/fast_lib.py        the implementation (single file, no trainable parameters)
+src/fast_lib.py        the pieces: scan decode, voxel, map cache, query, solve()
+src/pipeline.py        the chain: record + initial pose -> corrected pose
+src/run_frames.py      CLI driver over a frame list
 experiments/           the scripts that produced the numbers in docs/RESULTS.md
 docs/RESULTS.md        every sweep result and its conclusion
 ```
+
+## The chain
+
+```
+record ──► scan decode ──► range filter ──► voxel ─┐
+                                                   ├─► solve() ──► pose ──► refiner? ──► pose
+initial pose ──► along-track dir ─────────────────┘        ▲
+                                                           │
+reference library ──► MapSource (triple cache) ────────────┘
+```
+
+Eight stages, all in `pipeline.localize`:
+
+1. **reference triple** — three other-date references nearest the initial position
+2. **map assembly** — the triple's merged cloud, built once, cropped per frame
+3. **scan preparation** — decode, range filter, 0.3 m voxel downsample
+4. **direction** — along-track unit vector from the initial pose's x axis
+5. **coarse grid** — 17 along-track × 3 lateral, 1500 query points
+6. **candidate NMS** — best 6 cells, ≥1.5 m apart along-track
+7. **fine grid** — 5 × 9 per candidate, 4000 query points, gradient bound
+8. **refine** — optional external local refiner
+
+Minimal use:
+
+```python
+import fast_lib as F, pipeline as P
+
+maps = F.MapSource(refs, positions)          # refs: rows with scan_path + world_from_body
+cfg  = P.Config()
+pose, diag = P.localize(record, initial_pose, maps, cfg)
+# diag: s, d, cost, evals, triple, map_points, scan_points
+```
+
+Over many frames: `python src/run_frames.py --frames ... --refs ... --poses ... --out ...`.
 
 ## How it works
 
