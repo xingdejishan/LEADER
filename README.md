@@ -12,11 +12,15 @@ incoming pose, so it cannot recover a globally wrong retrieval.
 
 ```
 src/fast_lib.py        the pieces: scan decode, voxel, map cache, query, solve()
+src/adaptive.py        adaptive fine-window expansion (recommended; replaces the pruning)
 src/pipeline.py        the chain: record + initial pose -> corrected pose
 src/run_frames.py      CLI driver over a frame list
+src/exact_gpu.py       shared-neighbourhood exact scorer (rejected: gather too slow)
+analysis/              scripts behind the statistics in docs/ADAPTIVE.md
 distance_field/        GPU truncated-distance-field alternatives (all rejected, see docs)
 experiments/           the scripts that produced the numbers in docs/RESULTS.md
 docs/RESULTS.md        every sweep result and its conclusion
+docs/ADAPTIVE.md       candidate ranking statistics, the pruning bug, the adaptive rule
 docs/DISTANCE_FIELD.md GPU distance field: what worked, what did not
 ```
 
@@ -128,6 +132,21 @@ server:
 
 They issue shell heredocs; `ssh_exec.py` streams them to the host. Adapt the
 paths before running elsewhere.
+
+## Adaptive expansion (recommended)
+
+Scoring the six candidate centres at the full point budget, then expanding a
+window only while its centre is within 0.10 m of the best centre, reproduces the
+six-window result exactly: **MPE 1.5638, median 0.3513, 83 % within 1 m** — with
+1.64 windows and 79 exact evaluations instead of 6 windows and 270 evaluations.
+End to end that is ~146 ms (or ~116 ms with the GPU coarse stage), against 162 ms
+before, at zero accuracy cost.
+
+It also fixes a correctness problem: the previous gradient pruning used a bound
+that is not valid. A sound Lipschitz bound would prune nothing at all on this
+data, because the largest candidate gap is far below the window radius. The
+adaptive rule is an explicit heuristic rather than a claimed bound. See
+[docs/ADAPTIVE.md](docs/ADAPTIVE.md).
 
 ## GPU distance field (rejected)
 

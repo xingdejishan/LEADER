@@ -165,6 +165,13 @@ def solve(map_points, scan, initial, direction, workers=4, n_coarse=1500, n_fine
         dist = np.where(np.isfinite(dist), dist, TRUNC)
         evals += 1
         if prune:
+            # WARNING: this bound is not valid. The distance function is not
+            # linear over a 0.64 m step, and points beyond the 1 m truncation
+            # are counted as a constant contribution of 1 even though they can
+            # move inside 1 m. A valid Lipschitz bound (centre - rho) would
+            # prune nothing at all, since the largest observed gap between
+            # candidates is far below rho. See docs/ADAPTIVE.md; use
+            # src/adaptive.py instead.
             inside = np.isfinite(dist) & (dist > 1e-9) & (dist < TRUNC)
             if inside.any():
                 grad = centre_pts[inside] - map_points[idx[inside]]
