@@ -98,3 +98,14 @@ The diagnostic scripts expect the project tree at
 `/home/zhangcy/projects/e2e-moe-20261020-v1` and the frozen artefacts under
 `/data2/zhangcy/...` as referenced in each file header. CPU only. The coh-rot scripts
 need a GPU and the LEADER repo.
+
+
+## Prior evidence - read before proposing another rotation loss
+
+The frame-level rotation term has already been tried in the fine-tuning setting, on this
+machine, and it did not transfer: on the V7 baseline the training frames improved by 10.2 %
+in MOE while the held-out dates moved by 0.1 % with a confidence interval straddling zero
+(transfer ratio about 1 %), and held-out MPE got 0.5 % worse. See `NEXT.md` for the table and
+for what it does and does not settle. The short version: on V7 the weighted Kabsch degenerates
+into a pose loss, so that experiment constrains the pose; whether constraining MMRegressor's
+per-point field helps is still open, but the 1 % transfer ratio is a strong prior against it.
