@@ -1,0 +1,20 @@
+{
+  "l_trr": 3.4293689727783203,
+  "l_coh": 1.3012478351593018,
+  "l2_raw": 23.2817325592041,
+  "grad_trr_norm": 76.77750488575265,
+  "grad_coh_norm": 24.49328937464023,
+  "grad_ratio": 3.134634295597971,
+  "lam_for_15pct_grad_share": 0.47019514433969567,
+  "lam_for_50pct_grad_share": 1.5673171477989856,
+  "reference_lam": 0.1,
+  "coh_grad_share_at_reference_lam": 0.030915395949424787,
+  "coherent_rotation_stats": {
+    "valid": 4,
+    "skipped_gate": 0,
+    "skipped_degenerate": 0,
+    "angle_mean": 7.73842479288578,
+    "angle_max": 16.20203971862793,
+    "omega_mean_deg": 1.988050281739745
+  }
+}

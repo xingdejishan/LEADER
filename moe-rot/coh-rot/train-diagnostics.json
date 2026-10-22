@@ -1,0 +1,38 @@
+{
+  "base": {
+    "frames": 1445,
+    "point_error_m": 6.041253967557399,
+    "trr": 1.3511435657081023,
+    "field_rotation_deg": 3.973849565881243,
+    "field_rotation_median_deg": 1.6821411848068237,
+    "field_omega_deg": 1.5466354336525123,
+    "seconds": 76.77023834129795
+  },
+  "A": {
+    "frames": 1445,
+    "point_error_m": 2.5681834990384256,
+    "trr": 0.7915941782254541,
+    "field_rotation_deg": 1.3583984081075884,
+    "field_rotation_median_deg": 0.9061183929443359,
+    "field_omega_deg": 1.035713093307604,
+    "seconds": 73.5369053510949
+  },
+  "B": {
+    "frames": 1445,
+    "point_error_m": 2.6806614097633163,
+    "trr": 0.7999270296557832,
+    "field_rotation_deg": 1.019233000195975,
+    "field_rotation_median_deg": 0.6578965783119202,
+    "field_omega_deg": 0.7308047312972454,
+    "seconds": 73.85014467872679
+  },
+  "C": {
+    "frames": 1445,
+    "point_error_m": 3.31376171448239,
+    "trr": 0.8757587705857187,
+    "field_rotation_deg": 1.6354370738202415,
+    "field_rotation_median_deg": 0.5496522188186646,
+    "field_omega_deg": 0.6005062378285563,
+    "seconds": 74.41872845776379
+  }
+}
