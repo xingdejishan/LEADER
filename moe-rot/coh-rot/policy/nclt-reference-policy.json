@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "protocol": "nclt-official-gt-with-Feb12-suspect255-official100hz-odometry-v1",
+  "effective_date": "2026-10-05",
+  "scope": "Future workspace evaluations only; preserve historical frozen runs and raw GT files.",
+  "outside_segments": "Original evaluation GT reference unchanged.",
+  "official_gt_benchmark_compatible": false,
+  "segments": [
+    {
+      "date": "2012-02-12",
+      "status": "GT_quality_suspect_local_translation_deformation",
+      "start_utime_inclusive": 1329071302733069,
+      "end_utime_inclusive": 1329071353938079,
+      "frame_count": 255,
+      "reference_type": "official_odometry_mu_100hz",
+      "reference_file": "nclt-2012-02-12-suspect255-odometry.npz",
+      "reference_sha256": "07416ebc5791d631ffb82db10cde577d209878a6cfe8a781810537e23c9aa2f4",
+      "source_member": "2012-02-12/odometry_mu_100hz.csv",
+      "source_member_sha256": "b32ed837346dbfff2b04a0ef7275e6dca2eb039148b2f7c70a14ac46950f480e",
+      "source_context_sha256": "a3124b2379c9dfb2a2af250d18f394645b75e86c4adee8dc97bf37f3cefa1fa8",
+      "source_url": "https://s3.us-east-2.amazonaws.com/nclt.perl.engin.umich.edu/sensor_data/2012-02-12_sen.tar.gz",
+      "anchor_utime_us": 1329071292532065,
+      "alignment": "One fixed SE3: GT(anchor) @ inverse(official_odometry(anchor)); no later GT or prediction alignment, no scale fitting.",
+      "sampling": "Linear interpolation of official XYZ and SLERP of xyz Euler rotations at exact scan timestamps.",
+      "metrics": [
+        "MPE_3D_m",
+        "MOE_SO3_geodesic_deg"
+      ],
+      "GT_fallback_allowed": false,
+      "limitations": "Odometry can drift; this replacement is a diagnostic evaluation convention, not independently surveyed truth.",
+      "evidence": [
+        "work/v5-data-alignment-audit-20261005/REPORT_ROOT_CAUSE.md",
+        "work/v5-GT-recheck-20261005/REPORT_RECHECK.md"
+      ]
+    }
+  ]
+}
