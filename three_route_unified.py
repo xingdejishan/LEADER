@@ -143,7 +143,7 @@ def build_expert():
     if EXPERT.get('branch') is not None:
         return EXPERT['branch']
     import torch
-    from visual_expert import OrderedBranch
+    from visual_ordered import OrderedBranch
     if torch.cuda.is_available():
         torch.cuda.set_per_process_memory_fraction(float(_OPT.get('gpu_fraction', 0.15)))
     identity = current_process()._identity

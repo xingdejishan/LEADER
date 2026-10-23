@@ -2,11 +2,11 @@
 
 One frame in, one row out: the retrieved reference list, every PnP candidate the frozen
 three channels produce, its fair (laser) score, and the wall-clock cost of each stage.
-Nothing is decided here; the arbitration in parallel_hypo.py consumes the row the same
-way the cascade consumes the frozen table.
+Nothing is decided here; the parallel arbitration consumes the row the same way the cascade
+consumes the frozen table.
 
 The implementation is not new. `visual_branch.VisualBranch` is the reconstruction of the
-producer that wrote the cascade's table, `visual_expert.OrderedBranch` is that same class
+producer that wrote the cascade's table, `visual_ordered.OrderedBranch` is that same class
 with its two caches actually usable, and this module only adds two memoisations that
 reuse the producer's own caching policy (`verify_prov.cluster_cloud`, one labelled tree
 per reference set) so that a frame with 14 candidates does not rebuild the same 25 m
@@ -34,7 +34,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
 import visual_branch as VB                     # noqa: E402
-from visual_expert import OrderedBranch        # noqa: E402
+from visual_ordered import OrderedBranch        # noqa: E402
 
 _G = {}
 _OPT = {}
