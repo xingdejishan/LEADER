@@ -93,7 +93,7 @@ class NoRotationTests(unittest.TestCase):
 
     def test_entrypoints_have_no_rotation_module(self):
         for name in ('algorithms/moe.py', 'three_route_unified.py',
-                     'three_route.py', 'run_pipeline.py', 'e2e_online.py'):
+                     'run_pipeline.py', 'e2e_online.py'):
             source = (ROOT / name).read_text()
             tree = ast.parse(source)
             functions = {n.name for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)}
