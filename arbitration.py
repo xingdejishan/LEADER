@@ -258,3 +258,35 @@ def decide(hypotheses, evidence, k, scan=None, points=None):
         'chosen': sel.source,
     }
     return sel, diag
+
+
+class RouterArbiter(object):
+    """Three-way learned arbitration: keep T0, take T_geo, or take T_vis.
+
+    Replaces the k * sigma_C switching test for the frames where a third arm exists.
+    The choice is discrete -- argmax of a three-class softmax over cross-modal
+    evidence -- and the chosen 4x4 is returned as it came in: the arms are never
+    blended, and T0 (the front-end pose the search started from) is a real option
+    rather than an implicit fallback.
+
+    Every input is a number the two experts already produce on this frame; nothing
+    here touches the ground truth.
+    """
+
+    def __init__(self, path=None):
+        import router as RT
+        self.RT = RT
+        self.model = RT.Router(path if path else RT.WEIGHTS)
+
+    def decide(self, t0, geo, vis, diag, vis_ok):
+        """(pose, arm_name, info). vis is None when the visual expert produced nothing."""
+        k, prob, info = self.model.decide(diag, bool(vis_ok) and vis is not None)
+        arm = self.RT.ARMS[k]
+        pose = {'T0': t0, 'T_geo': geo, 'T_vis': vis}[arm]
+        info['router_nparam'] = self.model.nparam
+        return np.array(pose, dtype=np.float64), arm, info
+
+
+def decide_router(t0, geo, vis, diag, vis_ok, path=None):
+    """Module-level entry point, same shape as decide(): one pose plus diagnostics."""
+    return RouterArbiter(path).decide(t0, geo, vis, diag, vis_ok)
