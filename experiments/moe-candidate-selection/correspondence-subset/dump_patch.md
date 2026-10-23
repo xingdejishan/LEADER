@@ -54,3 +54,31 @@ solve reached.
 
 Not measured: whether this holds on a stratified sample, on other dates, or with the
 deterministic solver called on the same numbers in the same way.
+
+# Strict solver comparison on identical correspondences
+
+Same `(world, pixels, ids)` per frame, same intrinsics, same extrinsics, same
+qualification bar (15 unique inliers, 6 coverage cells, ratio 0.2). A = the deterministic
+fast solver from `match_prov.py`; B = EPnP + RANSAC 2000 + LM (`common.solve_pnp`).
+
+| | solutions | qualified | correct (1 m / 2 deg) | median per call | total |
+|---|---|---|---|---|---|
+| A fast | 29 / 40 | 4 | 0 | 2.5 ms | 92 ms |
+| B RANSAC | 31 / 40 | 6 | 2 | 10.2 ms | 693 ms |
+
+Correct poses: both 0, only B 2, only A 0, neither 38.
+
+Per-frame detail on the two B-correct frames:
+
+- frame 1: A produced a **qualified** solution (64 inliers, 7 cells) that is not correct.
+- frame 5: A produced a solution that is **not qualified** (22 inliers, 5 cells).
+
+B across seeds 20 / 7 / 99: correct on 3 of 3 seeds for those 2 frames, 0 of 3 for the
+other 38.
+
+# Confound that remains
+
+The correspondence dump was produced with `--arm v8_noprune`; the frozen candidate table
+compared against earlier is `match-frozen_nopruneopt`. The comparison above is
+solver-vs-solver on one and the same correspondence set, so it is internally consistent;
+the earlier baseline (0/40) was measured against a table built from a different arm.
