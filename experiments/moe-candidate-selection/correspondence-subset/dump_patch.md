@@ -26,3 +26,31 @@ qualification bar (15 unique inliers, 6 coverage cells, inlier ratio 0.2). So th
 cut measures cluster starvation, not the hypothesis. The next version must either relax
 the per-subset qualification or use fewer, larger clusters, and must run on a stratified
 sample rather than the first 40 frames of a single date.
+
+# Attribution of the 2 hits (added after review)
+
+The first cut mixed two sources: one PnP per DBSCAN cluster, and one PnP over all
+correspondences. Re-ran with a per-source label.
+
+| source | frames with a qualified solution | correct poses (1 m / 2 deg) |
+|---|---|---|
+| per-cluster PnP | 0 / 40 | 0 |
+| global PnP | 6 / 40 | 2 |
+
+Attribution of the correct poses: cluster only 0, global only 2, both 0, neither 38.
+
+So the 2/40 reported earlier belongs entirely to the global solve; the clustered solve
+produced no qualified solution on any of the 40 frames.
+
+# Open item: solver used
+
+The frozen pipeline produced these candidate lists with the deterministic solver
+(`--fast-pnp 1`). The attribution run called `common.solve_pnp`, which is EPnP +
+RANSAC 2000 + LM refinement. Same correspondences, different solver. The 24-frame
+bit-identical check between the two solvers is recorded in
+`sp-v11-accelerated-20261017-v1/FREEZE.md`; the two disagree on this 40-frame sample in
+the sense that the frozen candidate list contains none of the 2 poses that the RANSAC
+solve reached.
+
+Not measured: whether this holds on a stratified sample, on other dates, or with the
+deterministic solver called on the same numbers in the same way.
