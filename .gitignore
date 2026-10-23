@@ -1,0 +1,9 @@
+inputs/
+results/*
+!results/*.md
+__pycache__/
+*.pyc
+*.npz
+*.jsonl
+*.npy
+.backups/
