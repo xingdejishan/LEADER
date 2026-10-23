@@ -82,3 +82,28 @@ The correspondence dump was produced with `--arm v8_noprune`; the frozen candida
 compared against earlier is `match-frozen_nopruneopt`. The comparison above is
 solver-vs-solver on one and the same correspondence set, so it is internally consistent;
 the earlier baseline (0/40) was measured against a table built from a different arm.
+
+# Hybrid candidate generator (per-reference fast PnP + global RANSAC), same 40 frames
+
+Inputs: both halves from the same run (`--arm v8_noprune --fast-pnp 1`), so matches,
+binding and intrinsics are identical. The pool is the matcher's per-reference candidates
+plus one global RANSAC+LM solution, deduped at 1.5 m / 3 deg and capped at 13.
+
+| pool | Oracle Recall@13 (1 m / 2 deg) | frames where the RANSAC pose entered the pool |
+|---|---|---|
+| matcher pool only | 2 / 40 = 5% | — |
+| + global RANSAC | 2 / 40 = 5% | **0** |
+
+Global RANSAC produced a qualified solution on 6 of 40 frames (previous section), and in
+all 6 it was within 1.5 m / 3 deg of an existing candidate and was removed by the dedupe.
+
+Two facts that constrain reading of this result:
+
+1. The dedupe radius (1.5 m / 3 deg) is looser than the correctness radius (1 m / 2 deg),
+   so a distinct-at-dedupe pose is not necessarily a better one.
+2. The 2 correct poses that RANSAC reached on the global correspondences are already
+   present among the per-reference candidates of this same arm: the matcher pool hits
+   2/40 on these frames. The earlier comparison that reported 0 vs 2 was fast-vs-RANSAC
+   on the *global* correspondences only, not against the whole candidate pool.
+
+Per-frame cost of the global RANSAC+LM solve: median 9.6 ms, mean 17.2 ms.
