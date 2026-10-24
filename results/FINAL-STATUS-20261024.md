@@ -40,8 +40,8 @@
 - 即在此数据上，**一半的跨地点错位帧是可造的，但不可判**。
 
 ## 待修（不影响历史结论）
-1. `band5_nopose.py` 源码已不在工作树（未提交），仅存字节码。
-2. `visual_branch.py` 切 SALAD 后，`SaladBranch.hypothesize` 若仍传 `pose_prior` 会 TypeError。
+1. `band5_nopose.py` 源码已不在工作树（未提交），仅存字节码。 → 已由字节码还原，见 `results/compat-band5-20261024.md`。
+2. `visual_branch.py` 切 SALAD 后，`SaladBranch.hypothesize` 若仍传 `pose_prior` 会 TypeError。 → 已核实：本分支无 `SaladBranch` 类，视觉链路 `pose_prior` 命中为 0；见同文。
 3. SALAD 权重（352 MB）与参考特征（160 MB）在 .gitignore 内；克隆后需先跑 `python -B salad/make_features.py` 重建（91 秒）。
 
 ## 口径提醒
