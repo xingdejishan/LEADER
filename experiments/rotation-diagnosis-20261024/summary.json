@@ -1,0 +1,52 @@
+{
+ "date": "2026-10-24",
+ "base_branch": "hypothesis-arbitration",
+ "base_commit": "5a767d5",
+ "clean_frames": 104473,
+ "frames_t0_rot_gt3": 4622,
+ "distribution_file_note": "v7_rotation_distribution_clean_20261024.json reports 4,624; this recomputation yields 4,622",
+ "sample": {
+  "high": 30,
+  "control": 10,
+  "seed": 20261024,
+  "allocation_high": {
+   "2012-02-12": 11,
+   "2012-02-19": 6,
+   "2012-03-31": 7,
+   "2012-05-26": 6
+  }
+ },
+ "run": {
+  "command": "python e2e_online.py --keys-file pilot_keys.json --out results/pilot40.jsonl --gpu 1 --shard 0/1",
+  "defaults": "parallel experts, k=8.4, visual_budget=8, fast_pnp=1, verify_cache=1, verify_backend=kernel, selection_mode=full",
+  "succeeded": 40,
+  "failed": 2
+ },
+ "counts": {
+  "high_with_visual_pose": 28,
+  "high_without_visual_pose": 2,
+  "visual_rot_better_by_0p5": 14,
+  "visual_rot_better_median_gain_deg": 0.958,
+  "visual_rot_worse_by_0p5": 10,
+  "visual_rot_worse_median_loss_deg": 1.884,
+  "chosen_visual": 0,
+  "final_rot_equals_t0": 40,
+  "geo_rot_equals_t0": 40,
+  "visual_trans_le_1m": 24,
+  "visual_trans_le_1m_among_better": 12,
+  "cost_gap_median": 0.0775,
+  "cost_gap_negative": 3,
+  "cost_gap_n": 28,
+  "control_final_equals_t0": 10,
+  "control_n": 10
+ },
+ "limits": {
+  "rotation_range_sampled": [
+   3.005,
+   6.551
+  ],
+  "frames_above_5deg_in_sample": 1,
+  "frames_5_to_10deg_in_full_set": 292,
+  "per_candidate_poses_stored": false
+ }
+}
