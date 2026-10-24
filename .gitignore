@@ -7,3 +7,7 @@ __pycache__/
 *.jsonl
 *.npy
 .backups/
+
+.runtime/
+salad/weights/
+*.so

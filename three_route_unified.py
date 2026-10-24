@@ -9,7 +9,6 @@ cloud (truncation 1 m). Everything below reads that one number.
                    +- descent depth  g = C(T_leader) - min C       -> compute gate
                    +- ambiguity ratio rho = (C_far - C_0) / C_0    -> proposal gate
                    +- fine grid (5 x 9 per candidate, adaptive)    -> T3
-                   +- rotation block (translation frozen, held	out) -> T3
     visual branch ---------------------> Tvis (Hypothesis, source='visual')
 
 The two branch outputs are now Hypothesis objects handed to arbitration.decide(),
@@ -19,14 +18,14 @@ built) and switches only when
     C_route3 - C_visual > k * sigma_C
 
 with sigma_C calibrated per frame from 12 tiny perturbations of the incumbent pose.
-The ambiguity ratio rho is demoted to a proposal gate: it only decides whether the
-other modality is asked at all, it no longer takes part in the final choice.
+Parallel experts are the default: rho is diagnostic only. Cascade mode is retained
+for explicit ablations; the final choice always uses the calibrated test.
 
 The coarse surface is built once per frame and both the compute gate and the fine
 stage read it; the fine stage is never charged for it a second time.
 
 Modes (so the ablation is a one-line switch):
-    --mode route3    no visual hypothesis: gate -> search -> rotation
+    --mode route3    no visual hypothesis: gate -> search
     --mode frozen    previous arbitration: rho < 0.21 and an external score margin > 0.10
     --mode unified   hypothesis generator + shared evidence + calibrated switch test
 
@@ -37,6 +36,7 @@ The ambiguity ratio has two sources, also one flag:
     python three_route_unified.py --mode unified --gate merged --workers 7
 """
 import argparse
+import cProfile
 import json
 import os
 import sys
@@ -48,7 +48,6 @@ for _k in ('OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'OPENBLAS_NUM_THREADS'):
 
 import numpy as np
 from scipy.spatial import cKDTree
-from scipy.spatial.transform import Rotation
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, 'stages/fast_search'))
@@ -86,7 +85,7 @@ def init():
                    workers=_OPT.get('threads', 4))
     _G.update(frames=frames, cfg=cfg, poses=np.asarray(z['poses'], float),
               maps=F.MapSource(refs, np.asarray([r['world_from_body'] for r in refs])[:, :3, 3],
-                               radius=cfg.crop_radius))
+                               radius=cfg.crop_radius, max_refs=12, max_maps=4))
     if _OPT['mode'] != 'route3' and _OPT['gate'] == 'frozen':
         import gate as G1
         _G['gate'] = G1
@@ -156,7 +155,7 @@ def build_expert():
     # no constant, no solver, and the cached values are identical.
     branch = OrderedBranch(device='cuda' if torch.cuda.is_available() else 'cpu',
                              arm=_OPT.get('visual_arm', VIS_ARM),
-                             scratch=os.path.join(_OPT.get('scratch', '/tmp/dsh-vb-live'),
+                             scratch=os.path.join(_OPT.get('scratch', os.path.join(HERE, '.runtime/offline-visual')),
                                                   'w%d' % wid))
     EXPERT['branch'] = branch
     return branch
@@ -166,8 +165,10 @@ def live_hypothesis(i):
     """One frame in, one visual hypothesis out: exactly the online cascade's call.
 
     Same function, same arguments as the gated path in the online driver:
-    budget 8 candidates, pose prior = the front-end pose T0 of this frame.  Every
-    constant the expert uses is read from the frozen plan inside visual_branch.py.
+    budget 8 candidates and nothing else -- the reference list is SALAD global
+    cosine top-5, which is pose-free, so the front-end pose T0 is not passed and
+    could not be used.  Every constant the expert uses is read from the frozen plan
+    inside visual_branch.py.
     """
     rec = _G['frames'][i]
     key = str(rec['key'])
@@ -177,8 +178,7 @@ def live_hypothesis(i):
     started = time.monotonic()
     try:
         hypothesis = build_expert().hypothesize(
-            key, image, budget=int(_OPT.get('visual_budget', VIS_BUDGET)),
-            pose_prior=_G['poses'][i])
+            key, image, budget=int(_OPT.get('visual_budget', VIS_BUDGET)))
     except BaseException as exc:                 # a visual failure never voids the frame
         info['visual_seconds'] = round(time.monotonic() - started, 4)
         info['visual_error'] = '%s: %s' % (type(exc).__name__, exc)
@@ -229,43 +229,6 @@ def cost_at(pose, q, maps, cfg):
     return cost(cKDTree(mp), q @ pose[:3, :3].T + centre)
 
 
-def rot_only(tree, geom, q, T, eps=1e-6):
-    """Rotation block: translation frozen, step accepted on a held-out half."""
-    par = (np.floor(q / 1.0).astype(np.int64) @ np.array([73856093, 19349663, 83492791])) % 2
-    train, val = q[par == 0], q[par == 1]
-
-    def obj(M):
-        W = val @ M[:3, :3].T + M[:3, 3]
-        d = tree.query(W, k=1)[0]
-        return float(np.minimum(d, 1.2).mean()), int((d < 0.6).sum())
-
-    t = np.array(T, float)
-    centre = t[:3, 3].copy()
-    value, hit = obj(t)
-    for _ in range(6):
-        W = train @ t[:3, :3].T + centre
-        dist, idx = tree.query(W, k=1)
-        ok = dist < 1.2
-        if ok.sum() < 30:
-            break
-        A, B = W[ok] - centre, geom[idx[ok]] - centre
-        a, b = A.mean(0), B.mean(0)
-        U, s, Vt = np.linalg.svd((A - a).T @ (B - b))
-        if s[1] < 1e-8:
-            break
-        corr = np.eye(3)
-        corr[-1, -1] = np.linalg.det(Vt.T @ U.T)
-        R = Vt.T @ corr @ U.T
-        vec = Rotation.from_matrix(R).as_rotvec()
-        scale = min(1.0, np.deg2rad(0.5) / max(np.linalg.norm(vec), 1e-12))
-        cand = t.copy()
-        cand[:3, :3] = Rotation.from_rotvec(vec * scale).as_matrix() @ t[:3, :3]
-        cand[:3, 3] = centre
-        nv, nh = obj(cand)
-        if not (nv < value - eps and nh >= hit):
-            break
-        t, value, hit = cand, nv, nh
-    return t
 
 
 def one(i):
@@ -296,13 +259,6 @@ def one(i):
         ran = True
 
     rotated = False
-    if _OPT['rot']:
-        q = scan[np.linalg.norm(scan, axis=1) <= 50]
-        cells = np.floor(q / 0.3).astype(np.int64)
-        _, ids = np.unique(cells, axis=0, return_index=True)
-        T_rot = rot_only(tree, mp, q[np.sort(ids)], T3)
-        rotated = bool(np.abs(T_rot[:3, :3] - T3[:3, :3]).max() > 1e-12)
-        T3 = T_rot
 
     diag = dict(key=rec['key'], gain=float(gain), ran_fine=bool(ran), rotated=rotated)
 
@@ -398,34 +354,39 @@ def main():
     ap.add_argument('--solver', choices=('adaptive', 'prune', 'full'), default='adaptive')
     ap.add_argument('--coarse-points', type=int, default=1000)
     ap.add_argument('--fine-points', type=int, default=1500)
-    ap.add_argument('--threads', type=int, default=4,
+    ap.add_argument('--threads', type=int, default=1,
                     help='KD-tree query threads inside one frame')
-    ap.add_argument('--workers', type=int, default=8)
+    ap.add_argument('--workers', type=int, default=1)
     ap.add_argument('--gate2', type=float, default=-1.0,
                     help='descent threshold; -1 disables the gate (default, see README)')
     ap.add_argument('--k', type=float, default=DEFAULT_K,
                     help='switching threshold in units of sigma_C (metres of cost)')
-    ap.add_argument('--experts', choices=('cascade', 'parallel'), default='cascade',
+    ap.add_argument('--experts', choices=('cascade', 'parallel'), default='parallel',
                     help='cascade: ask the visual expert only where the proposal gate '
                          'fires (the current structure); parallel: both experts answer '
                          'on every frame and rho becomes a report field')
     ap.add_argument('--visual-source', choices=('frozen', 'live', 'none'),
-                    default='frozen',
+                    default='live',
                     dest='visual_source',
                     help='frozen: the frozen visual table; live: the online driver\'s '
                          'VisualBranch, same call and same constants, on the GPU; '
                          'none: geometry only (the ablation)')
     ap.add_argument('--visual-arm', default=VIS_ARM)
     ap.add_argument('--visual-budget', type=int, default=VIS_BUDGET)
-    ap.add_argument('--scratch', default='/tmp/dsh-vb-live')
+    ap.add_argument('--scratch', default=os.path.join(HERE, '.runtime/offline-visual'))
     ap.add_argument('--gpu-fraction', type=float, default=0.15)
+    ap.add_argument('--gpu', default='3')
     ap.add_argument('--shard', default='0/1', help='i/n stripes, one per GPU')
     ap.add_argument('--stride', type=int, default=1)
-    ap.add_argument('--rot', action='store_true', default=True)
     ap.add_argument('--limit', type=int, default=0, help='0 = all frames')
     ap.add_argument('--out', default=None)
     a = ap.parse_args()
-    _OPT.update(mode=a.mode, gate=a.gate, gate2=a.gate2, k=a.k, rot=a.rot,
+    if a.visual_source == 'live' and a.workers != 1:
+        ap.error('live visual mode requires --workers 1; use separate GPU shards instead')
+    if not 0 < a.gpu_fraction <= 0.15 or not 1 <= a.threads <= 4 or not a.gpu.isdigit():
+        ap.error('invalid GPU, GPU fraction or thread safety limit')
+    os.environ['CUDA_VISIBLE_DEVICES'] = a.gpu
+    _OPT.update(mode=a.mode, gate=a.gate, gate2=a.gate2, k=a.k,
                 solver=a.solver, coarse_points=a.coarse_points,
                 fine_points=a.fine_points, threads=a.threads,
                 experts=a.experts, visual_source=a.visual_source,

@@ -122,14 +122,12 @@ def one(i):
     clock['decode'] = time.time() - a
 
     a = time.time()
-    refs, retrieval = expert.retrieve(image_of(key), T0)
+    refs, retrieval = expert.retrieve(image_of(key))
     clock['retrieve'] = time.time() - a
     row['references'] = [int(x) for x in refs]
     row['retrieval'] = dict(visual=[int(x) for x in retrieval['visual']],
-                            position=[int(x) for x in retrieval['position']],
                             visual_cosine=[float(x) for x in retrieval['visual_cosine']],
-                            position_distance_m=[float(x) for x in
-                                                 retrieval.get('position_distance_m', [])])
+                            mode=retrieval.get('mode'))
     if not refs:
         row['candidates'] = []
         row['seconds'] = clock

@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/JiansW/LEADER",
+  "commit": "4a1bde8466fbe9af995d9ee8e1fd35fb65a4adbf",
+  "sources_sha256": {
+    "run_mink.py": "7b85fe06c568440757f0ae844507a4d8d7193bcd1519f222c5490a74e401dad0",
+    "models/model_mink.py": "395a8fe73d78f74e8479dbc487de4bf9bf4fa965ffc26aa4a8dfbe87e1d0bb68",
+    "data/NCLTVelodyne_datagenerator_mink.py": "4d04ab9e24fd29a16c78cb1192719a60497c3230096f321f8fb70e9c97467fb9",
+    "utils/pose_util.py": "43a0c16b15f8739bf3a978c347736c0a744b11d6158bda9c651c7a330ff2916c",
+    "data/robotcar_sdk/python/velodyne.py": "e537db5d1ecd742c411c95514832c52cf272086af077705616f77d931c5ba143",
+    "models/sc2pcr.py": "a3c995f94b3cb1cac5d5f05c822bc9b752a5bab3318cbe9930bbd3164a6f4c3d"
+  }
+}

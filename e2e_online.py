@@ -1,80 +1,28 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""e2e_online.py -- single-file ONLINE end-to-end driver, three-stage software pipeline.
-
-Per frame, one pass, everything in memory, no pose table and no frame cache:
-
-    raw sensors (velodyne .bin | cam5 .jpg | SAM cache)
-      T1  decode .......... one .bin read+decode (shared), cam5 jpg, SAM lookup, scan prep
-      T2  GPU ............. LEADER forward -> refine -> T0
-      T3  geometric ....... along-track search (V7 rotation preserved) -> final pose -> jsonl/npz
-      (f) arbitration ..... only on gated frames (--ratio 1 plus an ambiguity ratio below
-                            the threshold): a live visual hypothesis (visual_branch.py:
-                            image -> retrieval -> SuperPoint/LightGlue -> pose -> laser
-                            score) replaces the geometric pose only if its truncated
-                            scan-to-map cost is lower by --delta; default off (--visual 0)
-
-T1/T2/T3 run as three threads with bounded queues (depth 2-4).  Frame i+1 is
-decoded while frame i is on the GPU, and frame i's geometric stage runs while
-frame i+1 is on the GPU, so neither the GPU nor the CPUs sit idle waiting for
-each other.  The GPU stage stays on the main thread; T1 and T3 are workers.
-`--queue 0` runs the three stages inline in one thread (the old serial control).
-
-`inputs/initial.npz` never feeds a stage in `--mode online`; it is opened after
-the loop to score the result, and keys missing from it are skipped (the full
-104,732-frame set mostly is not in that file).
-
-Modes
-  --mode online       the loop above (needs GPU)
-  --mode integration  stages (d)+(e) only, T0 from inputs/initial.npz, compared
-                      bit-exactly with the translation-only search pipeline (no GPU)
-
-Two script-local shims, in memory for the life of this process only:
-  1. data.leader_nclt_manifest._safe_child() is replaced by a resolver that keeps
-     every lexical rule and the containment rule, but evaluates containment
-     against the two declared real dataset roots after resolving symlinks.  Since
-     2026-10-15 <date>/velodyne_sync is a symlink into /data2/dataset/NCLT while
-     cam5 and the SAM store live in the leader tree, and no single data_root holds
-     both, the literal frozen check rejects every scan path.  Containment is not
-     dropped: a resolved path outside those two roots still raises.
-  2. get_velo() and ManifestLEADERDataset._verify_file() read from a one-frame
-     memo, so the .bin is read and decoded exactly once per frame; the digest
-     compared against the frozen manifest is the sha256 of those exact bytes.
-"""
 import argparse
 import hashlib
 import json
 import math
 import os
-import queue
-import resource
 import sys
-import threading
 import time
-import traceback
+from pathlib import Path
 
-PROJECT = '/home/zhangcy/projects/e2e-moe-20261020-v1'
-SCRATCH = '/home/zhangcy/.dsh_scratch'
-EVAL = '/home/zhangcy/projects/leader-v5-eval-throughput-20261003'
-V7FULL = '/home/zhangcy/projects/v7-full-20261006'
-V7PLAN = '/data2/zhangcy/v7-full-20261006/plan.json'
-CKPT = '/data2/zhangcy/v7-scratch-continue-20261009-v1/checkpoints/full-epoch7.pt'
-CKPT_SHA = '4df0c1c98292edec43acde531bd57d0dfbea9db2c0c4530bba9c5aff78a939d8'
-DATA = '/data2/zhangcy/leader-v2-full-trajectory-20261001'
-REAL_DATASET_ROOTS = (os.path.join(DATA, 'NCLT'), '/data2/dataset/NCLT')
-
-FRAMES_JSON = os.path.join(PROJECT, 'inputs', 'frames.json')
-REFS_JSON = os.path.join(PROJECT, 'inputs', 'refs.json')
-INITIAL_NPZ = os.path.join(PROJECT, 'inputs', 'initial.npz')
-STAGES = ('decode', 'leader', 'refine', 'geometric')
+PROJECT = Path(__file__).resolve().parent
+DATA = Path('/data2/zhangcy/leader-v2-full-trajectory-20261001')
+ENVIRONMENT = '/home/zhangcy/.conda/envs/leader'
+DEV_DATES = ('2012-02-12', '2012-02-19', '2012-03-31', '2012-05-26')
 
 
-# --------------------------------------------------------------------------- #
-def set_env(gpu='2'):
-    os.environ['CUDA_VISIBLE_DEVICES'] = gpu
-    for key in ('OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'OPENBLAS_NUM_THREADS'):
-        os.environ[key] = '1'
-    os.chdir(SCRATCH)
+def valid_pose(value):
+    import numpy as np
+
+    pose = np.asarray(value, dtype=np.float64)
+    if (pose.shape != (4, 4) or not np.isfinite(pose).all()
+            or not np.allclose(pose[3], [0, 0, 0, 1], atol=1e-6)
+            or not np.allclose(pose[:3, :3].T @ pose[:3, :3], np.eye(3), atol=1e-3)
+            or not np.isclose(np.linalg.det(pose[:3, :3]), 1, atol=1e-3)):
+        raise ValueError('expected a finite rigid world_from_body 4x4 transform')
+    return pose.copy()
 
 
 def sha_file(path):
@@ -85,967 +33,608 @@ def sha_file(path):
     return digest.hexdigest()
 
 
-def jnum(value):
-    value = float(value)
-    return value if math.isfinite(value) else None
+def within(path, root):
+    path, root = Path(path).resolve(), Path(root).resolve()
+    return path == root or root in path.parents
 
 
-def median(values):
-    values = sorted(values)
-    n = len(values)
-    if not n:
-        return float('nan')
-    return values[n // 2] if n % 2 else 0.5 * (values[n // 2 - 1] + values[n // 2])
+def output_path(path):
+    if not within(PROJECT / 'results', PROJECT):
+        raise ValueError('results directory escapes this project')
+    path = Path(path)
+    path = (path if path.is_absolute() else PROJECT / path).resolve()
+    if not within(path, PROJECT / 'results') or path == PROJECT / 'results':
+        raise ValueError('output must be inside this project results directory')
+    return path
 
 
-def rss_mib():
-    with open('/proc/self/statm') as stream:
-        return int(stream.read().split()[1]) * (os.sysconf('SC_PAGE_SIZE') / 2. ** 20)
-
-
-def peak_rss_mib():
-    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024.
-
-
-# --------------------------------------------------------------------------- #
-# script-local shims over the frozen loader                                     #
-# --------------------------------------------------------------------------- #
-def install_loader_shims():
-    """Containment-preserving path resolver + one-read decode memo (in memory)."""
-    from pathlib import Path, PurePosixPath
-    import data.leader_nclt_manifest as lnm
-
-    allowed = []
-    for root in REAL_DATASET_ROOTS:
-        try:
-            allowed.append(Path(root).resolve(strict=True))
-        except OSError:
-            pass
-
-    def safe_child(root, date, relative_path):
-        value = str(relative_path)
-        relative = PurePosixPath(value)
-        if ('\\' in value or ':' in value or '\x00' in value or relative.is_absolute()
-                or not relative.parts or any(p in ('', '.', '..') for p in relative.parts)):
-            raise ValueError('manifest paths must be clean relative paths')
-        base = Path(root).resolve(strict=True)
-        date_root = (base / date).resolve(strict=True)
-        if date_root != base and base not in date_root.parents:
-            raise ValueError('date path escapes the dataset root')
-        target = date_root.joinpath(*relative.parts).resolve(strict=True)
-        if not any(target == r or r in target.parents for r in [base] + allowed):
-            raise ValueError('manifest path escapes the dataset roots')
-        return target
-
-    memo = {'velo': {}, 'sha256': {}}
-    frozen_get_velo = lnm.get_velo
-    frozen_verify = lnm.ManifestLEADERDataset._verify_file
-
-    def get_velo(path):
-        entry = memo['velo'].get(os.path.realpath(str(path)))
-        return frozen_get_velo(path) if entry is None else entry
-
-    def verify_file(self, path, expected_sha):
-        key = os.path.realpath(str(path))
-        digest = memo['sha256'].get(key)
-        if digest is None:
-            return frozen_verify(self, path, expected_sha)
-        if digest != expected_sha:
-            raise ValueError('NCLT input SHA-256 mismatch: {}'.format(path))
-        stat = Path(path).stat()
-        self._validated_files[str(path)] = (stat.st_size, stat.st_mtime_ns)
-
-    lnm._safe_child = safe_child
-    lnm.get_velo = get_velo
-    lnm.ManifestLEADERDataset._verify_file = verify_file
-    return memo
-
-
-# --------------------------------------------------------------------------- #
-# stage (a): decode the raw inputs, once                                        #
-# --------------------------------------------------------------------------- #
-def decode_raw(scan_path, memo, F):
-    """One read + one decode of the .bin, shared by T1 and T3.
-
-    Returns the float64 cloud that fast_lib.decode() would have produced, and
-    publishes the same bytes to the loader memo as the float32 cloud that
-    get_velo() returns, together with their digest.
-    """
+def read_scan(path, max_points=2000000):
     import numpy as np
-    with open(scan_path, 'rb') as stream:
-        blob = stream.read()
-    size = F.SCAN_DTYPE.itemsize
-    raw = np.frombuffer(blob, dtype=F.SCAN_DTYPE, count=len(blob) // size)
 
-    # float64 metres -- bit-identical to fast_lib.decode(np.fromfile(path))
-    points = np.empty((len(raw), 3), np.float64)
-    for col, name in enumerate(('x', 'y', 'z')):
-        np.multiply(raw[name], 0.005, out=points[:, col])
-        points[:, col] -= 100.0
-
-    # float32 XYI -- bit-identical to data2xyzi()/get_velo() over the same bytes
-    xyz = np.hstack([raw[axis].reshape([-1, 1]) for axis in ('x', 'y', 'z')])
-    key = os.path.realpath(scan_path)
-    memo['velo'][key] = (xyz.astype(np.float32) * 0.005 - 100.0, raw['i'])
-    memo['sha256'][key] = hashlib.sha256(blob).hexdigest()
-    del blob, raw, xyz
-    return points
+    path = Path(path)
+    if path.suffix == '.bin':
+        size = path.stat().st_size
+        if size == 0 or size % 8 or size // 8 > max_points:
+            raise ValueError('invalid or oversized NCLT packed uint16 XYZI scan')
+        dtype = np.dtype([('x', '<u2'), ('y', '<u2'), ('z', '<u2'), ('i', 'u1'), ('l', 'u1')])
+        raw = np.fromfile(str(path), dtype=dtype)
+        xyz = np.column_stack([raw[a] for a in ('x', 'y', 'z')])
+        return (xyz.astype(np.float64) * 0.005 - 100.0,
+                xyz.astype(np.float32) * 0.005 - 100.0, raw['i'].copy())
+    if path.suffix == '.npy':
+        if path.stat().st_size > max_points * 4 * 8 + 4096:
+            raise ValueError('oversized XYZI array')
+        values = np.load(str(path), mmap_mode='r', allow_pickle=False)
+        if (values.ndim != 2 or values.shape[1] != 4 or not 0 < len(values) <= max_points
+                or values.dtype.kind not in 'fiu' or not np.isfinite(values).all()):
+            raise ValueError('npy input must be a finite Nx4 XYZI array in metres')
+        return (np.asarray(values[:, :3], dtype=np.float64).copy(),
+                np.asarray(values[:, :3], dtype=np.float32).copy(),
+                np.asarray(values[:, 3], dtype=np.float32).copy())
+    raise ValueError('supported point clouds: NCLT .bin or Nx4 XYZI .npy')
 
 
 def prepare_scan(points, cfg, F):
-    """pipeline.prepare_scan()'s post-decode half (range annulus + voxel)."""
     import numpy as np
-    radius = np.linalg.norm(points, axis=1)
-    kept = points[(radius > cfg.min_scan_range) & (radius < cfg.max_scan_range)]
+
+    ranges = np.linalg.norm(points, axis=1)
+    kept = points[(ranges > cfg.min_scan_range) & (ranges < cfg.max_scan_range)]
+    if not len(kept):
+        raise ValueError('no query points inside the geometry range')
     return F.voxel(kept, cfg.voxel)
 
 
-# --------------------------------------------------------------------------- #
-# stages (d)+(e): geometric branch (V7 rotation preserved)                   #
-# --------------------------------------------------------------------------- #
-def cost(tree, points, np, trunc=1.0):
-    distance = tree.query(points, k=1, workers=1, distance_upper_bound=trunc)[0]
-    return float(np.where(np.isfinite(distance), distance, trunc).mean())
-
-
-def geometric_branch(T0, scan, record, maps, cfg, gate2, F, P, rot_only=None,
-                     min_refs=2, min_map=500, gate_on=False):
-    """three_route_unified.one() without rotation-only refinement.
-
-    Coverage guard: the reference library was selected around the 1502 hard frames,
-    so a frame far from all of them can have an empty or very thin local map. Scoring
-    against that yields a correction that is worse than no correction, and an empty
-    triple would crash np.concatenate. In that case keep the front-end pose and flag
-    the frame, so the trigger rate can be counted instead of guessed.
-    """
+def geometric_branch(T0, scan, record, maps, cfg, gate2, F, P,
+                     min_refs=2, min_map=500):
     import numpy as np
 
     centre = T0[:3, 3]
     triple = maps.nearby(centre)[:cfg.reference_count]
+    out = dict(pose=np.array(T0, dtype=np.float64), tree=None, u=None,
+               gain=None, ran_fine=False, s=None, d=None, expanded=None, evals=None,
+               rotated=False, triple=list(triple), map_points=0, scan_points=len(scan))
     if len(triple) < min_refs:
-        return dict(pose=np.array(T0, dtype=np.float64), tree=None, u=None,
-                    gain=float('nan'), ran_fine=False, s=None, d=None, expanded=None,
-                    evals=None, rotated=False, triple=list(triple), map_points=0,
-                    scan_points=int(len(scan)), skipped='no_reference')
-    map_points = maps.local(centre, triple)
-    if len(map_points) < min_map:
-        return dict(pose=np.array(T0, dtype=np.float64), tree=None, u=None,
-                    gain=float('nan'), ran_fine=False, s=None, d=None, expanded=None,
-                    evals=None, rotated=False, triple=list(triple),
-                    map_points=int(len(map_points)), scan_points=int(len(scan)),
-                    skipped='thin_map')
+        out['skipped'] = 'no_reference'
+        return out
+    points = maps.local(centre, triple)
+    out['map_points'] = len(points)
+    if len(points) < min_map:
+        out['skipped'] = 'thin_map'
+        return out
     u = P.along_track_direction(T0)
-
-    coarse = F.coarse_stage(map_points, scan, T0, u, workers=1,
+    coarse = F.coarse_stage(points, scan, T0, u, workers=cfg.workers if hasattr(cfg, 'workers') else 1,
                             n_coarse=cfg.coarse_points, topk=cfg.topk)
-    gain = cost(coarse['tree'], coarse['base_c'] + centre, np) - float(coarse['surface'].min())
-
-    pose = np.array(T0, dtype=np.float64)
-    ran_fine, s_value, d_value, expanded, evals = False, None, None, None, None
+    distances = coarse['tree'].query(coarse['base_c'] + centre, k=1, workers=1,
+                                      distance_upper_bound=1.0)[0]
+    gain = float(np.where(np.isfinite(distances), distances, 1.0).mean() - coarse['surface'].min())
+    out.update(tree=coarse['tree'], u=u, gain=gain)
     if gain > gate2:
         pose, diag = P.localize(record, T0, maps, cfg, coarse=coarse, scan=scan)
-        pose = np.asarray(pose, dtype=np.float64)
-        ran_fine = True
-        s_value = float(diag['s'])
-        d_value = float(diag['d'])
-        expanded = diag['expanded']
-        evals = int(diag['evals'])
-
-    # rotation-only refinement: translation frozen, step accepted on the held-out half
-    # only when the improvement exceeds eps. Applied only to frames that actually ran
-    # the search (that is the configuration measured best on the full set: the search
-    # fixes the translation, which is what makes the rotation fit informative).
-    rotated = False
-    rotated_pose = pose
-    if rot_only is not None and ran_fine:
-        q = scan[np.linalg.norm(scan, axis=1) <= 50]
-        cells = np.floor(q / 0.3).astype(np.int64)
-        _, ids = np.unique(cells, axis=0, return_index=True)
-        rotated_pose = rot_only(coarse['tree'], map_points, q[np.sort(ids)], pose)
-        rotated = bool(np.abs(rotated_pose[:3, :3] - pose[:3, :3]).max() > 1e-12)
-
-    # confidence gate: keep the rotation, decide the translation
-    confidence = None
-    if gate_on and ran_fine:
-        try:
-            import confidence as CONF
-            lat = np.cross(u, [0.0, 0.0, 1.0])
-            lat /= np.linalg.norm(lat)
-            clouds = []
-            for j in triple:
-                c = maps._ref_cloud(j)
-                clouds.append(c[np.linalg.norm(c - centre, axis=1) <= maps.radius])
-            accept_c, score_c, _ = CONF.decide(
-                coarse['tree'], map_points, scan, T0, rotated_pose, u, lat,
-                surface=coarse['surface'], s=s_value, d=d_value, refs=clouds)
-            confidence = dict(score=float(score_c), accept=bool(accept_c))
-            if not accept_c:
-                rotated_pose = np.array(rotated_pose, dtype=np.float64)
-                rotated_pose[:3, 3] = T0[:3, 3]
-        except Exception as exc:                       # never fail a frame on the gate
-            confidence = dict(error=repr(exc))
-
-    return dict(pose=rotated_pose, tree=coarse['tree'], u=u, gain=float(gain),
-                ran_fine=bool(ran_fine), s=s_value, d=d_value, expanded=expanded,
-                evals=evals, rotated=rotated, triple=list(triple),
-                map_points=int(len(map_points)), scan_points=int(len(scan)),
-                confidence=confidence)
+        out.update(pose=np.asarray(pose, dtype=np.float64), ran_fine=True,
+                   s=float(diag['s']), d=float(diag['d']),
+                   expanded=diag['expanded'], evals=int(diag['evals']))
+    return out
 
 
-def load_geometry():
-    """The project's own verified geometric code (nothing reimplemented)."""
-    if PROJECT not in sys.path:
-        sys.path.insert(0, PROJECT)
-    from three_route_unified import cost_at, cost, rot_only
-    sys.path.insert(0, os.path.join(PROJECT, 'stages', 'fast_search'))
-    sys.path.insert(0, os.path.join(PROJECT, 'stages'))
-    import fast_lib as F
-    import pipeline as P
-    import ambiguity as A
-    return F, P, A, cost_at, cost, rot_only
-
-
-# --------------------------------------------------------------------------- #
-# mode: integration check (no GPU)                                              #
-# --------------------------------------------------------------------------- #
-def mode_integration(args):
+def shared_arbitration(geometry, visual, scan, maps, cfg, k):
     import numpy as np
-    F, P, A, cost_at, cost, rot_only = load_geometry()
-    cfg = P.Config(solver='adaptive', coarse_points=1000, fine_points=1500,
-                   workers=args.threads)
-    refs = json.load(open(REFS_JSON))
-    for row in refs:
-        row['scan_path'] = os.path.realpath(row['scan_path'])
-    maps = F.MapSource(refs, np.asarray([r['world_from_body'] for r in refs])[:, :3, 3],
-                       radius=cfg.crop_radius)
+    import arbitration as ARB
 
-    frames = {row['key']: row for row in json.load(open(FRAMES_JSON))}
-    with np.load(INITIAL_NPZ, allow_pickle=False) as archive:
-        keys = [str(k) for k in archive['keys']]
-        t0s = np.asarray(archive['poses'], np.float64)
-
-    worst = 0.0
-    scan_worst = 0.0
-    rows = []
-    for i in range(args.check_keys):
-        key = keys[i]
-        scan_path = os.path.realpath(frames[key]['scan_path'])
-        record = {'key': key, 'scan_path': scan_path}
-        T0 = np.array(t0s[i], np.float64)
-
-        reference_scan = P.prepare_scan(record, cfg)          # frozen decoder
-        shared = prepare_scan(decode_raw(scan_path, {'velo': {}, 'sha256': {}}, F),
-                              cfg, F)                          # driver's one-read decode
-        if shared.shape != reference_scan.shape:
-            scan_worst = float('inf')
-        else:
-            scan_worst = max(scan_worst, float(np.abs(shared - reference_scan).max()))
-
-        out = geometric_branch(T0, reference_scan, record, maps, cfg, args.gate2,
-                               F, P, gate_on=bool(getattr(args, 'confidence_gate', 0)))
-        expected = (P.localize(record, T0, maps, cfg, scan=reference_scan)[0]
-                    if out['ran_fine'] else T0)
-        diff = float(np.abs(out['pose'] - expected).max())
-        if not np.array_equal(out['pose'][:3, :3], T0[:3, :3]):
-            raise AssertionError('geometric branch changed the V7 rotation')
-        worst = max(worst, diff)
-        rows.append(dict(key=key, max_abs_diff=diff, bit_exact=bool(diff == 0.0),
-                         gain=round(out['gain'], 9), s=out['s'], d=out['d'],
-                         expanded=out['expanded'], rotated=out['rotated'],
-                         shift_m=round(float(np.linalg.norm(out['pose'][:3, 3] - T0[:3, 3])), 6),
-                         shared_scan_max_abs_diff=scan_worst))
-        print('[integration] ' + json.dumps(rows[-1], sort_keys=True), flush=True)
-
-    ok = (worst == 0.0) and (scan_worst == 0.0) and len(rows) == args.check_keys
-    print('[integration-summary] ' + json.dumps(
-        dict(frames=len(rows), max_abs_diff=worst, shared_scan_max_abs_diff=scan_worst,
-             bit_exact=bool(worst == 0.0), passed=bool(ok),
-             against='translation-only pipeline.localize',
-             stages='(d)+(e) only, T0 from inputs/initial.npz'), sort_keys=True))
-    return 0 if ok else 1
+    geo_pose = valid_pose(geometry['pose'])
+    diag = dict(chosen='route3', decided=False, visual_available=visual is not None,
+                k=float(k), sigma_c=None, thresh=None, costs={}, switched=False)
+    if visual is None:
+        diag['note'] = 'visual_no_hypothesis'
+        return geo_pose, diag
+    visual_pose = valid_pose(visual['pose'])
+    if not maps.nearby(visual_pose[:3, 3]):
+        diag['note'] = 'no_reference_near_visual'
+        return geo_pose, diag
+    clouds = []
+    geometry_tree = geometry.get('tree')
+    if geometry_tree is not None:
+        clouds.append(geometry_tree.data)
+    for pose in ((visual_pose,) if geometry_tree is not None else (geo_pose, visual_pose)):
+        ids = maps.nearby(pose[:3, 3])[:cfg.reference_count]
+        if ids:
+            cloud = maps.local(pose[:3, 3], ids)
+            if len(cloud):
+                clouds.append(cloud)
+    if not clouds or sum(len(c) for c in clouds) < 500:
+        diag['note'] = 'insufficient_shared_map'
+        return geo_pose, diag
+    evidence = ARB.Evidence(ARB.union_maps(*clouds), scan, n_points=4000)
+    hypotheses = [ARB.Hypothesis(geo_pose, 'route3', {'incumbent': True}),
+                  ARB.Hypothesis(visual_pose, 'visual')]
+    chosen, arb = ARB.decide(hypotheses, evidence, k, scan=scan)
+    if not all(math.isfinite(c) for c in arb['costs'].values()):
+        raise ValueError('nonfinite arbitration cost')
+    arb.update(visual_available=True, n_map=evidence.n_map, n_query=evidence.n_query)
+    return valid_pose(chosen.pose), arb
 
 
-# --------------------------------------------------------------------------- #
-def boot_online():
-    """LEADER forward + appearance-field refine, bootstrapped as smoke_stage12.py."""
-    import torch
+def dataset_path(date, relative):
+    from pathlib import PurePosixPath
 
-    torch.set_num_threads(1)
-    torch.cuda.set_device(0)
-    torch.cuda.set_per_process_memory_fraction(0.15)
-
-    sys.path.insert(0, EVAL)
-    from runtime import Runtime
-    sys.path.insert(0, V7FULL)
-    import v7_runtime as vr
-    import cache_runtime_v2
-
-    memo = install_loader_shims()
-    c, parent, config, adaptive, Loader = vr.imports()
-    denied = c.deny_test(config)
-
-    class _NoCache(object):
-        """No InputCache: no directory, no read, no write, ever."""
-
-        def __init__(self, *a, **k):
-            self.directory = None
-
-        def load(self, *a, **k):
-            raise AssertionError('InputCache disabled: the driver is online')
-
-        def read(self, *a, **k):
-            return None
-
-        def write(self, *a, **k):
-            raise AssertionError('InputCache disabled: the driver is online')
-
-    cache_runtime_v2.InputCache = _NoCache
-    testloader = vr.TestLoader(c, config)
-    if len(testloader.records) != 104732:
-        raise AssertionError('unexpected record count %d' % len(testloader.records))
-
-    runtime = Runtime.__new__(Runtime)          # no Runtime.__init__ (no epoch models)
-    runtime.config = config
-    runtime.plan = testloader.plan
-    runtime.datasets = testloader.datasets
-    runtime.records = testloader.records
-    runtime.denied = denied
-
-    assert sha_file(config['base_checkpoint']) == runtime.plan['frozen_LEADER_sha256']
-    from tools.magic_nclt_runtime import load_pretrained_model
-    runtime.leader, saved = load_pretrained_model(config['base_checkpoint'], False,
-                                                 torch.device('cuda:0'))
-    runtime.leader.eval().requires_grad_(False)
-    runtime.center = torch.as_tensor(saved['center_t'], device='cuda',
-                                     dtype=torch.float32).reshape(3)
-    del saved
-
-    assert sha_file(CKPT) == CKPT_SHA, 'deployed checkpoint sha256 mismatch'
-    state = torch.load(CKPT, map_location='cpu')
-    model = vr.model(c, config, state['model'], False)
-    with open(V7PLAN) as stream:
-        inference_method = json.load(stream)['inference_method']
-    return dict(c=c, config=config, runtime=runtime, model=model, memo=memo,
-                denied=denied, inference_method=inference_method, torch=torch,
-                state=state, vr=vr)
+    value = str(relative)
+    rel = PurePosixPath(value)
+    if (rel.is_absolute() or not rel.parts or any(p in ('', '.', '..') for p in rel.parts)
+            or '\\' in value or ':' in value or '\x00' in value):
+        raise ValueError('invalid manifest sensor path')
+    path = DATA / 'NCLT' / date / rel
+    if not any(within(path, root) for root in (DATA / 'NCLT', Path('/data2/dataset/NCLT'))):
+        raise ValueError('sensor path escapes declared NCLT roots')
+    return str(path.resolve())
 
 
-# --------------------------------------------------------------------------- #
-# the three pipeline stages                                                     #
-# --------------------------------------------------------------------------- #
-def stage_decode(key, gid, ctx):
-    """T1: one .bin read+decode (shared), cam5 jpg + SAM via the frozen loader."""
-    import numpy as np
-    started, t0 = time.time(), time.monotonic()
-    rec = ctx['runtime'].records[gid]
-    dsrec = ctx['runtime'].datasets[rec[0]].records[rec[1]]
-    scan_path = os.path.realpath(str(dsrec.scan_path))
-    image_path = os.path.realpath(str(dsrec.image_path))
-    memo = ctx['memo']
-    memo['velo'].clear()
-    memo['sha256'].clear()
-
-    points = decode_raw(scan_path, memo, ctx['F'])
-    probe = ctx['probe']
-    if probe is not None and probe.get('decode') is None:
-        reference = ctx['F'].decode(scan_path)
-        probe['decode'] = dict(max_abs_diff=float(np.abs(points - reference).max()),
-                               same_shape=bool(points.shape == reference.shape),
-                               image_resolved=os.path.isfile(image_path))
-        del reference
-    scan = prepare_scan(points, ctx['cfg'], ctx['F'])
-    del points
-    loaded = ctx['runtime'].load(rec)
-    return dict(key=key, scan_path=scan_path, image_path=image_path, loaded=loaded, scan=scan,
-                wall_start=started, decode=time.monotonic() - t0)
-
-
-def stage_gpu(item, ctx):
-    """T2: LEADER forward -> appearance-field refine -> T0.  GPU thread only."""
-    torch = ctx['torch']
-    runtime = ctx['runtime']
-    t0 = time.monotonic()
-    initial = runtime.initial(item['loaded'])
-    geometry = runtime.geometry(item['loaded'], initial[1].detach().cpu())
-    frame = runtime.frame(item['loaded'], *initial, geometry)
-    item['loaded'] = None                       # drop the CPU sample as early as possible
-    torch.cuda.synchronize()
-    t_leader = time.monotonic() - t0
-
-    t1 = time.monotonic()
-    observed = ctx['model'].observation_batch([frame['sam']], [frame['rgb']],
-                                              [frame['pixels']], [frame['hw']])[0]
-    refined, _, _, info = ctx['c'].selfverify.refine(ctx['model'], frame, observed,
-                                                     ctx['inference'])
-    torch.cuda.synchronize()
-    t_refine = time.monotonic() - t1
-
-    T0 = refined.detach().cpu().double().numpy().copy()
-    T0[:3, 3] += ctx['center']
-    item.update(T0=T0, leader=t_leader, refine=t_refine, info=info)
-    del initial, geometry, frame, observed, refined
-    return item
-
-
-def stage_gpu_batch(items, ctx):
-    """T2 with N refine replicas: leader per frame, then N-way parallel refine."""
-    torch = ctx['torch']
-    runtime = ctx['runtime']
-    frames = []
-    for item in items:
-        t0 = time.monotonic()
-        initial = runtime.initial(item['loaded'])
-        geometry = runtime.geometry(item['loaded'], initial[1].detach().cpu())
-        frame = runtime.frame(item['loaded'], *initial, geometry)
-        item['loaded'] = None
-        torch.cuda.synchronize()
-        item['leader'] = time.monotonic() - t0
-        frames.append(frame)
-        del initial, geometry
-    t0 = time.monotonic()
-    results = ctx['parallel'].run(frames)
-    torch.cuda.synchronize()
-    share = (time.monotonic() - t0) / len(items)
-    for item, result in zip(items, results):
-        refined, _, _, info = result
-        T0 = refined.detach().cpu().double().numpy().copy()
-        T0[:3, 3] += ctx['center']
-        item.update(T0=T0, refine=share, info=info)
-    del frames, results
-    return items
+def select_inputs(args):
+    requested = None
+    if args.key:
+        requested = [args.key]
+    elif args.keys_file:
+        requested = json.loads(Path(args.keys_file).read_text())
+    elif args.keys_from == 'frames' and not args.scan:
+        requested = [r['key'] for r in json.loads((PROJECT / 'inputs/frames.json').read_text())]
+    if requested is not None:
+        if not isinstance(requested, list) or any(not isinstance(k, str) for k in requested):
+            raise ValueError('keys file must be a JSON list of strings')
+        if len(requested) != len(set(requested)):
+            raise ValueError('duplicate frame keys')
+    if args.scan:
+        if not args.image or not args.key or not args.calibration:
+            raise ValueError('--scan requires --image, --key and --calibration (T_BC JSON)')
+        parts = args.key.split('/')
+        if len(parts) != 2 or not parts[1].isdigit():
+            raise ValueError('--key must be date/timestamp_us')
+        payload = json.loads(Path(args.calibration).read_text())
+        T_BC = payload['T_BC'] if isinstance(payload, dict) else payload
+        return [dict(key=args.key, scan_path=str(Path(args.scan).resolve(strict=True)),
+                     image_path=str(Path(args.image).resolve(strict=True)), T_BC=T_BC,
+                     canonical_index=args.canonical_index, scan_sha256=None, image_sha256=None)]
+    dates = [d for d in args.dates.split(',') if d] if args.dates else list(DEV_DATES)
+    if any(d not in DEV_DATES for d in dates) or len(dates) != len(set(dates)):
+        raise ValueError('--dates must select unique configured test dates')
+    wanted = None if requested is None else set(requested)
+    records, canonical = [], 0
+    for date in DEV_DATES:
+        payload = json.loads((DATA / 'NCLT' / date / 'manifest.json').read_text())
+        if payload.get('split') != 'test' or payload.get('date') != date or not payload.get('complete'):
+            raise ValueError('invalid public test manifest: ' + date)
+        for row in payload['frames']:
+            key = '%s/%s' % (date, row['timestamp_us'])
+            if any(n in row for n in ('T_WC', 'T_WB', 'groundtruth', 'pose')):
+                raise ValueError('test manifest must not contain query ground truth')
+            if date in dates and (wanted is None or key in wanted):
+                if row.get('camera_id') != 5 or row['scan']['timestamp_us'] != row['timestamp_us']:
+                    raise ValueError('expected synchronized Cam5/LiDAR input')
+                records.append(dict(key=key, canonical_index=canonical,
+                                    scan_path=row['scan']['path'],
+                                    image_path=row['image']['path'],
+                                    scan_sha256=row['scan']['sha256'], image_sha256=row['image']['sha256'],
+                                    T_BC=payload['roi']['T_BC']))
+            canonical += 1
+    if requested is not None:
+        index = {r['key']: r for r in records}
+        missing = [k for k in requested if k not in index]
+        if missing:
+            raise ValueError('unknown or excluded query keys: %r' % missing[:5])
+        records = [index[k] for k in requested]
+    if len({r['key'] for r in records}) != len(records):
+        raise ValueError('duplicate test manifest keys')
+    records = records[args.shard_index::args.shard_count][::args.stride]
+    records = records[:args.limit] if args.limit else records
+    for record in records:
+        date = record['key'].split('/')[0]
+        for name in ('scan_path', 'image_path'):
+            record[name] = dataset_path(date, record[name])
+    return records
 
 
-def stage_geom(item, ctx):
-    """T3: geometric branch, with the V7 rotation preserved."""
-    t0 = time.monotonic()
-    out = geometric_branch(item['T0'], item['scan'],
-                           {'key': item['key'], 'scan_path': item['scan_path']},
-                           ctx['maps'], ctx['cfg'], ctx['gate2'], ctx['F'], ctx['P'],
-                           rot_only=(lambda t, g, q, T: ctx['rot_only'](t, g, q, T, eps=ctx['rot_eps']))
-                           if ctx.get('use_rot') else None,
-                           gate_on=bool(ctx.get('confidence_gate', False)))
-    item['geometric'] = time.monotonic() - t0
-    item['out'] = out
-    return item
+def input_signature(spec):
+    value = dict(spec)
+    for name in ('scan_path', 'image_path'):
+        stat = Path(spec[name]).stat()
+        value[name + '_stat'] = (stat.st_size, stat.st_mtime_ns)
+    return hashlib.sha256(json.dumps(value, sort_keys=True).encode()).hexdigest()
 
 
-def make_visual_branch(ctx):
-    """Load retrieval + matcher + verifier once, on the first gated frame."""
-    import torch
-    from visual_branch import VisualBranch
-    before = torch.cuda.memory_allocated() / 2. ** 20
-    branch = VisualBranch(device='cuda', arm=ctx['visual_arm'],
-                          scratch=os.path.join(SCRATCH, 'vb'))
-    after = torch.cuda.memory_allocated() / 2. ** 20
-    ctx['branch'] = branch
-    print('[visual] branch ready arm=%s gpu_allocated=%.0f MiB (+%.0f) cap=%.0f MiB'
-          % (ctx['visual_arm'], after, after - before,
-             0.15 * torch.cuda.get_device_properties(0).total_memory / 2. ** 20), flush=True)
-    return branch
+def configure(args):
+    if os.path.realpath(sys.prefix) != os.path.realpath(ENVIRONMENT):
+        raise RuntimeError('use only ' + ENVIRONMENT + '/bin/python')
+    if PROJECT.stat().st_uid != os.getuid():
+        raise RuntimeError('project is not owned by the current user')
+    os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
+    for name in ('OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'NUMEXPR_NUM_THREADS'):
+        os.environ[name] = str(args.threads)
+    sys.dont_write_bytecode = True
+    runtime = PROJECT / '.runtime'
+    if not within(runtime, PROJECT) or not within(PROJECT / 'results', PROJECT):
+        raise RuntimeError('runtime/results directory escapes project')
+    runtime.mkdir(mode=0o700, exist_ok=True)
+    os.environ['TMPDIR'] = str(runtime)
+    os.environ['XDG_CACHE_HOME'] = str(runtime / 'cache')
+    os.environ['MPLCONFIGDIR'] = str(runtime / 'matplotlib')
+    os.environ['CUDA_CACHE_PATH'] = str(runtime / 'cuda-cache')
+    os.chdir(str(runtime))
+    os.nice(max(0, 15 - os.nice(0)))
+
+    def audit(event, values):
+        target = None
+        if event == 'open' and values and isinstance(values[0], (str, bytes, os.PathLike)):
+            flags = values[2] if len(values) > 2 else 0
+            mode = values[1] if len(values) > 1 else None
+            if (isinstance(flags, int) and flags & (os.O_WRONLY | os.O_RDWR | os.O_CREAT | os.O_TRUNC)
+                    or isinstance(mode, str) and any(c in mode for c in 'wax+')):
+                target = values[0]
+        elif event in ('os.remove', 'os.rmdir', 'os.mkdir', 'os.chmod', 'os.truncate'):
+            target = values[0]
+            if event == 'os.mkdir' and Path(os.fsdecode(target)).is_dir():
+                return
+        elif event in ('os.rename', 'os.link', 'os.symlink'):
+            for value in values[:2]:
+                if not any(within(os.fsdecode(value), root) for root in (PROJECT / 'results', runtime)):
+                    raise PermissionError('write outside project prohibited')
+        elif event == 'socket.connect':
+            raise PermissionError('runtime network downloads prohibited; use existing weights')
+        if target is not None:
+            decoded = os.fsdecode(target)
+            if decoded != '/dev/null' and not any(within(decoded, root) for root in (PROJECT / 'results', runtime)):
+                raise PermissionError('write outside project results/.runtime prohibited: ' + decoded)
+
+    sys.addaudithook(audit)
+    return runtime
 
 
-def visual_arbitration(item, ctx):
-    """Ambiguity gate -> live visual hypothesis -> the same-cost arbitration.
+class ResourceGuard:
+    def __init__(self, args):
+        import threading
 
-    Same rule as the offline three_route_unified `--mode unified`: the frame's truncated
-    scan-to-map cost is measured for both poses on each pose's own local map, and the visual
-    pose replaces the geometric one only if it is cheaper by `delta`.
-    """
-    import numpy as np
-    record = dict(ratio=None, gated=False, attempted=False, accepted=False, chosen='route3',
-                  score=None, verified=None, n_candidates=None, channel=None, refs=None,
-                  c_route3=None, c_visual=None, dcost=None, seconds=0.0, note='')
-    ratio = None
-    if ctx['ratio_gate']:                      # --ratio 1: the gate diagnostic on its own
-        _, ambiguity = ctx['A'].decide(item['out']['tree'], item['scan'], item['T0'],
-                                       item['out']['u'])
-        ratio = jnum(ambiguity['ratio'])
-        record['ratio'] = ratio
-    if not ctx['visual']:
-        return record
-    if ratio is None or not np.isfinite(ratio) or ratio >= ctx['amb_threshold']:
-        return record
-    record['gated'] = True
-    branch = ctx['branch'] or make_visual_branch(ctx)
-    started = time.monotonic()
-    try:
-        hypothesis = branch.hypothesize(item['key'], item['image_path'],
-                                        budget=ctx['visual_budget'],
-                                        pose_prior=item['T0'])
-    except BaseException as exc:                    # a visual failure never voids the frame
-        record['seconds'] = time.monotonic() - started
-        record['note'] = 'error:%s' % type(exc).__name__
-        return record
-    record['seconds'] = time.monotonic() - started
-    if hypothesis is None:
-        record['note'] = 'no_hypothesis'
-        return record
-    record['attempted'] = True
-    record['score'] = float(hypothesis['score'])
-    record['verified'] = bool(hypothesis.get('verified'))
-    record['n_candidates'] = int(hypothesis['n_candidates'])
-    record['channel'] = hypothesis.get('channel')
-    record['refs'] = [int(x) for x in (hypothesis.get('reference_ids') or [])]
-    query = item['scan'][:min(ctx['arb_points'], len(item['scan']))]
-    c3 = float(ctx['cost_at'](item['out']['pose'], query, ctx['maps'], ctx['cfg']))
-    cv = float(ctx['cost_at'](hypothesis['pose'], query, ctx['maps'], ctx['cfg']))
-    record['c_route3'] = c3
-    record['c_visual'] = cv
-    record['dcost'] = cv - c3
-    if cv < c3 - ctx['delta']:
-        record['accepted'] = True
-        record['chosen'] = 'visual'
-        item['final_pose'] = np.asarray(hypothesis['pose'], dtype=np.float64)
-    return record
+        self.args = args
+        self.stop = threading.Event()
+        self.thread = threading.Thread(target=self.watch, daemon=True)
+        self.check()
+        self.thread.start()
 
+    def check(self):
+        pages = int(Path('/proc/self/statm').read_text().split()[1])
+        if pages * os.sysconf('SC_PAGE_SIZE') > self.args.max_rss_gib * 2 ** 30:
+            raise MemoryError('process RSS safety limit reached')
+        available = int(next(l for l in Path('/proc/meminfo').read_text().splitlines()
+                             if l.startswith('MemAvailable:')).split()[1]) * 1024
+        if available < 32 * 2 ** 30:
+            raise MemoryError('server available RAM below 32 GiB safety floor')
+        stat = os.statvfs(str(PROJECT))
+        if stat.f_bavail * stat.f_frsize < self.args.min_free_gib * 2 ** 30:
+            raise OSError('actual filesystem free space below safety floor')
 
-def make_row(item, ctx):
-    out = item['out']
-    info = item['info']
-    seconds = {'decode': item['decode'], 'leader': item['leader'],
-               'refine': item['refine'], 'geometric': item['geometric']}
-    visual = item.get('visual') or {}
-    final = item.get('final_pose')
-    final = out['pose'] if final is None else final
-    return dict(key=item['key'], pose=[float(x) for x in final.ravel()],
-                route3_pose=[float(x) for x in out['pose'].ravel()],
-                t0=[float(x) for x in item['T0'].ravel()],
-                seconds=dict((k, round(v, 6)) for k, v in seconds.items()),
-                total=round(sum(seconds.values()), 6),
-                t_start=round(item['wall_start'], 3), t_end=round(time.time(), 3),
-                rss_MiB=round(rss_mib(), 1),
-                gain=jnum(out['gain']), ratio=visual.get('ratio'),
-                s=None if out['s'] is None else jnum(out['s']),
-                d=None if out['d'] is None else jnum(out['d']),
-                expanded=out['expanded'], rotated=bool(out['rotated']),
-                ran_fine=out['ran_fine'], solver=ctx['cfg'].solver,
-                confidence=(out.get('confidence') or {}).get('score'),
-                confidence_accept=(out.get('confidence') or {}).get('accept'),
-                chosen=visual.get('chosen', 'route3'), visual=bool(visual.get('accepted')),
-                visual_gated=bool(visual.get('gated')),
-                visual_attempted=bool(visual.get('attempted')),
-                visual_score=visual.get('score'), visual_verified=visual.get('verified'),
-                visual_candidates=visual.get('n_candidates'),
-                visual_channel=visual.get('channel'), visual_refs=visual.get('refs'),
-                visual_note=visual.get('note'),
-                visual_seconds=round(float(visual.get('seconds') or 0.0), 6),
-                c_route3=visual.get('c_route3'), c_visual=visual.get('c_visual'),
-                dcost=visual.get('dcost'), delta=ctx['delta'],
-                gate2=ctx['gate2'], rounds=int(info['rounds']),
-                accepted=int(info['accepted']), status=str(info['status']),
-                map_points=out['map_points'], scan_points=out['scan_points'],
-                skipped=out.get('skipped'))
-
-
-# --------------------------------------------------------------------------- #
-# mode: online loop                                                             #
-# --------------------------------------------------------------------------- #
-def resolve_out(prefix):
-    if not os.path.isabs(prefix):
-        prefix = os.path.join(PROJECT, prefix)
-    prefix = os.path.abspath(prefix)
-    allowed = (os.path.join(PROJECT, 'results'), SCRATCH)
-    if not any(prefix.startswith(root + os.sep) for root in allowed):
-        raise SystemExit('refusing to write outside results/ or the scratch dir: ' + prefix)
-    os.makedirs(os.path.dirname(prefix), exist_ok=True)
-    return prefix
-
-
-def select_pairs(args, runtime):
-    """[(key, record index)] in canonical order, already sharded and limited."""
-    dates = [d for d in (args.dates or '').split(',') if d]
-    if args.keys_file:
-        index = {rec[2]: i for i, rec in enumerate(runtime.records)}
-        wanted = [str(k) for k in json.load(open(args.keys_file))]
-        pairs = [(k, index[k]) for k in wanted if k in index]
-        pairs = pairs[args.shard_index::args.shard_count]
-        return pairs[:args.limit] if args.limit > 0 else pairs
-    if args.keys_from == 'records':
-        pairs = [(rec[2], i) for i, rec in enumerate(runtime.records)
-                 if not dates or rec[0] in dates]
-    else:
-        index = {rec[2]: i for i, rec in enumerate(runtime.records)}
-        pairs = [(row['key'], index[row['key']]) for row in json.load(open(FRAMES_JSON))
-                 if (not dates or row['key'].split('/')[0] in dates)]
-    pairs = pairs[args.shard_index::args.shard_count]
-    return pairs[:args.limit] if args.limit > 0 else pairs
-
-
-def read_done(jsonl_path):
-    done = {}
-    if not os.path.exists(jsonl_path):
-        return done
-    with open(jsonl_path) as stream:
-        for line in stream:
-            line = line.strip()
-            if not line:
-                continue
+    def watch(self):
+        while not self.stop.wait(0.25):
             try:
-                row = json.loads(line)
-            except ValueError:
-                continue                       # torn tail after a kill
-            seconds = row.get('seconds') or {}
-            if 'key' in row and 'pose' in row and not (set(STAGES) - set(seconds)):
-                done[row['key']] = row
+                self.check()
+            except Exception as exc:
+                os.write(2, ('resource safety stop: %s\n' % exc).encode())
+                os._exit(75)
+
+    def close(self):
+        self.stop.set()
+        self.thread.join()
+
+
+class ParallelLocalizer:
+    def __init__(self, args, runtime_dir):
+        import numpy as np
+        from online_frontend import OnlineFrontend
+
+        self.args = args
+        for path in (PROJECT, PROJECT / 'stages', PROJECT / 'stages/fast_search'):
+            sys.path.insert(0, str(path))
+        import fast_lib as F
+        import pipeline as P
+        from visual_ordered import OrderedBranch
+        from visual_accelerated import AcceleratedBranch
+        from light_selection import ProposalBranch, LightSelector, SparseSelector
+
+        self.F, self.P = F, P
+        self.cfg = P.Config(workers=args.threads)
+        refs = json.loads(Path(args.refs).read_text())
+        if not refs:
+            raise ValueError('empty reference library')
+        if any(r.get('key', '').split('/')[0] in DEV_DATES for r in refs):
+            raise ValueError('reference library must not use test-date query poses')
+        positions = np.asarray([valid_pose(r['world_from_body'])[:3, 3] for r in refs])
+        self.maps = F.MapSource(refs, positions, radius=self.cfg.crop_radius,
+                                max_refs=12, max_maps=4)
+        self.frontend = OnlineFrontend(args)
+        light = args.selection_mode in ('light', 'sparse', 'gpu_sparse')
+        branch_class = ProposalBranch if light else (AcceleratedBranch if args.verify_cache else OrderedBranch)
+        branch_options = dict(verify_backend=args.verify_backend) if args.verify_cache and not light else {}
+        self.visual = branch_class(device='cuda', arm=args.visual_arm, fast_pnp=bool(args.fast_pnp),
+                                   torch_threads=args.threads,
+                                   scratch=str(runtime_dir / ('visual-s%d' % args.shard_index)), **branch_options)
+        if args.selection_mode == 'gpu_sparse':
+            from gpu_selection import GpuSelector
+            selector_class = GpuSelector
+        else:
+            selector_class = SparseSelector if args.selection_mode == 'sparse' else LightSelector
+        self.light_selector = (selector_class(refs, self.visual.references, points=args.selection_points,
+                                             map_points_per_ref=args.selection_map_points, k=args.k)
+                               if light else None)
+
+    def prepare_many(self, specs):
+        prepared = []
+        for spec in specs:
+            started = time.monotonic()
+            for name in ('scan', 'image'):
+                expected = spec.get(name + '_sha256')
+                if expected and sha_file(spec[name + '_path']) != expected:
+                    raise ValueError(name + ' input SHA-256 mismatch')
+            spec = dict(spec, T_BC=valid_pose(spec['T_BC']))
+            points, points32, intensity = read_scan(spec['scan_path'])
+            scan = prepare_scan(points, self.cfg, self.F)
+            loaded = self.frontend.prepare(spec, points32, intensity)
+            prepared.append((spec, points, scan, loaded, started))
+        return prepared
+
+    def predict_many(self, prepared):
+        started = time.monotonic()
+        predictions = self.frontend.predict_many([(p[0], p[3]) for p in prepared])
+        rows = [self.predict(p[0], prepared=p, prediction=prediction)
+                for p, prediction in zip(prepared, predictions)]
+        elapsed = time.monotonic() - started
+        finished = time.monotonic()
+        for row in rows:
+            row['batch_compute_seconds'] = elapsed
+            row['batch_size'] = len(rows)
+            row['batch_started_at'] = started
+            row['batch_finished_at'] = finished
+        return rows
+
+    def predict(self, spec, prepared=None, prediction=None):
+        import numpy as np
+
+        if prepared is None:
+            started = time.monotonic()
+            for name in ('scan', 'image'):
+                expected = spec.get(name + '_sha256')
+                if expected and sha_file(spec[name + '_path']) != expected:
+                    raise ValueError(name + ' input SHA-256 mismatch')
+            spec = dict(spec, T_BC=valid_pose(spec['T_BC']))
+            points, points32, intensity = read_scan(spec['scan_path'])
+            scan = prepare_scan(points, self.cfg, self.F)
+            T0, seconds, info = self.frontend.predict(spec, points32, intensity)
+        else:
+            spec, points, scan, loaded, started = prepared
+            T0, seconds, info = prediction
+        T0 = valid_pose(T0)
+        tick = time.monotonic()
+        geometry = geometric_branch(T0, scan, spec, self.maps, self.cfg,
+                                    self.args.gate2, self.F, self.P)
+        seconds['geometry'] = time.monotonic() - tick
+        tick = time.monotonic()
+        with self.frontend.torch.no_grad():
+            if getattr(self.args, 'selection_mode', 'full') in ('light', 'sparse', 'gpu_sparse'):
+                proposal = self.visual.propose(spec['key'], spec['image_path'])
+                visual = None
+            else:
+                proposal = None
+                visual = self.visual.hypothesize(spec['key'], spec['image_path'],
+                                                budget=self.args.visual_budget,
+                                                scan=points, scan_path=spec['scan_path'])
+        seconds['visual'] = time.monotonic() - tick
+        tick = time.monotonic()
+        if proposal is not None:
+            final, arb, visual = self.light_selector.select(geometry, proposal, scan)
+            prefilter_seconds = proposal.get('prefilter_seconds', 0.0)
+        else:
+            final, arb = shared_arbitration(geometry, visual, scan, self.maps, self.cfg, self.args.k)
+            prefilter_seconds = (((visual or {}).get('detail') or {}).get('seconds') or {}).get('verify', 0.0)
+        seconds['arbitration'] = time.monotonic() - tick
+        if self.frontend.runtime.denied:
+            raise RuntimeError('test ground truth accessed')
+        degraded = geometry.get('skipped') or arb.get('note')
+        return dict(key=spec['key'], T=final.tolist(), convention='world_from_body',
+                    status='degraded' if degraded else 'success', note=degraded,
+                    T0=T0.tolist(), T_geometry=valid_pose(geometry['pose']).tolist(),
+                    T_visual=None if visual is None else valid_pose(visual['pose']).tolist(),
+                    experts='parallel', visual_source='live', upstream='live',
+                    sam_source=self.args.sam_source, arbitration=arb, visual_attempted=True,
+                    execution=dict(frontend_workers=getattr(self.args, 'frontend_workers', 1),
+                                   fast_pnp=bool(getattr(self.args, 'fast_pnp', 0)),
+                                   verify_cache=bool(getattr(self.args, 'verify_cache', 0)),
+                                   verify_backend=getattr(self.args, 'verify_backend', 'tree'),
+                                   selection_mode=getattr(self.args, 'selection_mode', 'full')),
+                    geometry=dict(skipped=geometry.get('skipped'), ran_fine=geometry['ran_fine'],
+                                  rotated=False, map_points=geometry['map_points'],
+                                  scan_points=len(scan), gain=geometry['gain']),
+                    visual=None if visual is None else dict(score=None if visual.get('score') is None else float(visual['score']),
+                            verified=visual.get('verified'), candidates=int(visual['n_candidates']),
+                            detail=visual.get('detail')),
+                    proposal=proposal,
+                    selection_seconds=float(prefilter_seconds + seconds['arbitration']),
+                    seconds=seconds, total_seconds=time.monotonic() - started)
+
+
+def read_done(stream):
+    done, end = {}, 0
+    stream.seek(0)
+    while True:
+        line = stream.readline()
+        if not line:
+            break
+        if not line.endswith('\n'):
+            stream.seek(end)
+            stream.truncate()
+            break
+        row = json.loads(line)
+        if row.get('status') in ('success', 'degraded'):
+            valid_pose(row['T'])
+            done[row['key']] = row['input_signature']
+        end = stream.tell()
+    stream.seek(0, os.SEEK_END)
     return done
 
 
-def mode_online(args):
-    import numpy as np
+def parser():
+    from online_frontend import SAM_CHECKPOINT
 
-    boot = boot_online()
-    torch = boot['torch']
-    runtime = boot['runtime']
-    F, P, A, cost_at, cost, rot_only = load_geometry()
+    ap = argparse.ArgumentParser(description='live LEADER/V7 + parallel geometry/visual experts -> T_WB')
+    group = ap.add_mutually_exclusive_group()
+    group.add_argument('--key')
+    group.add_argument('--keys-file')
+    ap.add_argument('--scan')
+    ap.add_argument('--image')
+    ap.add_argument('--calibration', help='JSON 4x4 T_BC or {"T_BC": [...]} for explicit sensor paths')
+    ap.add_argument('--canonical-index', type=int, default=0)
+    ap.add_argument('--keys-from', choices=('records', 'frames'), default='records')
+    ap.add_argument('--dates', default='')
+    ap.add_argument('--limit', type=int, default=0)
+    ap.add_argument('--stride', type=int, default=1)
+    ap.add_argument('--shard', default='0/1')
+    ap.add_argument('--out', default='results/online_parallel.jsonl')
+    ap.add_argument('--resume', action='store_true')
+    ap.add_argument('--check-inputs', action='store_true', help='validate selected sensor paths without models or CUDA')
+    ap.add_argument('--refs', default=str(PROJECT / 'inputs/refs.json'))
+    ap.add_argument('--gpu', default='3')
+    ap.add_argument('--gpu-fraction', type=float, default=0.15)
+    ap.add_argument('--threads', type=int, default=1)
+    ap.add_argument('--max-rss-gib', type=float, default=12)
+    ap.add_argument('--min-free-gib', type=float, default=1)
+    ap.add_argument('--sam-checkpoint', default=SAM_CHECKPOINT)
+    ap.add_argument('--sam-source', choices=('cached', 'live'), default='cached')
+    ap.add_argument('--sam-cache-root', default=str(DATA / 'sam'))
+    ap.add_argument('--sam-device', choices=('cuda',), default='cuda')
+    ap.add_argument('--visual-arm', default='frozen_noprune')
+    ap.add_argument('--visual-budget', type=int, default=8)
+    ap.add_argument('--frontend-workers', type=int, choices=(1, 4), default=4)
+    ap.add_argument('--fast-pnp', type=int, choices=(0, 1), default=1)
+    ap.add_argument('--verify-cache', type=int, choices=(0, 1), default=1)
+    ap.add_argument('--verify-backend', choices=('tree', 'kernel'), default='kernel')
+    ap.add_argument('--selection-mode', choices=('full', 'light', 'sparse', 'gpu_sparse'), default='full')
+    ap.add_argument('--selection-points', type=int, choices=(500, 1000, 2000), default=1000)
+    ap.add_argument('--selection-map-points', type=int, choices=(6000, 10000, 15000), default=15000)
+    ap.add_argument('--gate2', type=float, default=-1)
+    ap.add_argument('--k', type=float, default=8.4)
+    return ap
 
-    cfg = P.Config(solver='adaptive', coarse_points=1000, fine_points=1500,
-                   workers=args.threads)
-    refs = json.load(open(REFS_JSON))
-    for row in refs:
-        row['scan_path'] = os.path.realpath(row['scan_path'])
-    maps = F.MapSource(refs, np.asarray([r['world_from_body'] for r in refs])[:, :3, 3],
-                       radius=cfg.crop_radius)
 
-    pairs = select_pairs(args, runtime)
-    prefix = resolve_out(args.out_prefix) + ('' if getattr(args, 'rot_only', 1) else '-no-rotation')
-    npz_path = '%s-shard%d.npz' % (prefix, args.shard_index)
-    jsonl_path = '%s-shard%d.jsonl' % (prefix, args.shard_index)
-    done = read_done(jsonl_path)
-    todo = [p for p in pairs if p[0] not in done]
-
-    ctx = dict(runtime=runtime, model=boot['model'], c=boot['c'], torch=torch,
-               memo=boot['memo'], F=F, P=P, A=A, maps=maps,
-               cost_at=cost_at, arb_points=4000, amb_threshold=A.THRESHOLD,
-               visual=bool(args.visual), ratio_gate=bool(args.ratio),
-               visual_arm=args.visual_arm, visual_budget=args.visual_budget,
-               branch=None, rot_only=rot_only, use_rot=bool(getattr(args, 'rot_only', 0)),
-   rot_eps=float(getattr(args, 'rot_eps', 0.01)),
-               cfg=cfg, gate2=args.gate2, delta=args.delta,
-               confidence_gate=bool(getattr(args, 'confidence_gate', 0)),
-               center=runtime.center.double().cpu().numpy(),
-               inference=boot['inference_method'],
-               probe=dict(decode=None) if args.check_decode else None,
-               error=None, parallel=None)
-    if args.refine_replicas > 1:
-        import infer_batch_engine_v2 as engine
-        del boot['model']
-        ctx['model'] = None
-        torch.cuda.empty_cache()
-        ctx['parallel'] = engine.ParallelFrames(
-            lambda: boot['vr'].model(boot['c'], boot['config'], boot['state']['model'], False),
-            boot['c'].selfverify.refine, boot['inference_method'], args.refine_replicas)
-        print('[boot] refine replicas=%d  gpu_allocated=%.0f MiB (cap %.0f)'
-              % (args.refine_replicas, torch.cuda.memory_allocated() / 2. ** 20,
-                 0.15 * torch.cuda.get_device_properties(0).total_memory / 2. ** 20),
-              flush=True)
-    print('[boot] refs=%d records=%d threads=%d gpu=%s mem_fraction=0.15 pipeline=%s depth=%d'
-          % (len(refs), len(runtime.records), args.threads,
-             os.environ['CUDA_VISIBLE_DEVICES'], 'on' if args.queue > 0 else 'off',
-             args.queue), flush=True)
-    print('[plan] keys-from=%s shard=%d/%d dates=%s selected=%d done=%d todo=%d -> %s'
-          % (args.keys_from, args.shard_index, args.shard_count, args.dates or 'all',
-             len(pairs), len(done), len(todo), jsonl_path), flush=True)
-
-    def put_block(target, item, raise_on_error=True):
-        while True:
-            try:
-                target.put(item, timeout=0.2)
-                return True
-            except queue.Full:
-                if raise_on_error and ctx['error']:
-                    return False
-
-    def write_skip(key, reason, note=''):
-        """Record a frame that could not be produced, so the shard moves on."""
-        row = dict(key=str(key), pose=[0.0] * 16, t0=[0.0] * 16, seconds={},
-                   total=0.0, skipped=reason, note=str(note)[:200])
-        sink.write(json.dumps(row) + '\n')
-        sink.flush()
-        done[row['key']] = row
-        finished.append(row)
-        print('[skip] %s %s' % (key, reason), flush=True)
-
-    def decode_worker():
-        try:
-            for key, gid in todo:
-                try:
-                    item = stage_decode(key, gid, ctx)
-                except BaseException as exc:
-                    write_skip(key, 'decode:%s' % type(exc).__name__, exc)
-                    continue
-                if not put_block(q1, item):
-                    break
-        except BaseException:
-            ctx['error'] = traceback.format_exc()
-        finally:
-            put_block(q1, None, raise_on_error=False)
-
-    def geom_worker():
-        while True:
-            item = q2.get()
-            if item is None:
-                break
-            try:
-                stage_geom(item, ctx)
-                item['visual'] = visual_arbitration(item, ctx)
-                row = make_row(item, ctx)
-                sink.write(json.dumps(row) + '\n')
-                sink.flush()
-                done[row['key']] = row
-                finished.append(row)
-                if len(finished) % 20 == 0:
-                    print('[frame] %d/%d %s serial=%.3fs window=%.3fs'
-                          % (len(finished), len(todo), row['key'], row['total'],
-                             row['t_end'] - finished[0]['t_end']), flush=True)
-            except BaseException as exc:
-                write_skip(item.get('key', '?'), 'geom:%s' % type(exc).__name__, exc)
-
-    finished = []
-    q1 = queue.Queue(maxsize=max(1, args.queue))
-    q2 = queue.Queue(maxsize=max(1, args.queue))
-    threads = []
-
-    with open(jsonl_path, 'a') as sink, torch.no_grad():
-        if args.queue <= 0:
-            # serial control: the same three stages, inline, no overlap.
-            # A frame that raises (empty point set, corrupt scan, CUDA hiccup) is
-            # recorded as skipped and the shard keeps going: one bad frame must not
-            # cost the remaining tens of thousands.
-            for key, gid in todo:
-                try:
-                    item = stage_decode(key, gid, ctx)
-                    if ctx['parallel'] is None:
-                        item = stage_gpu(item, ctx)
-                    else:
-                        stage_gpu_batch([item], ctx)
-                    stage_geom(item, ctx)
-                    item['visual'] = visual_arbitration(item, ctx)
-                    row = make_row(item, ctx)
-                except BaseException as exc:
-                    row = dict(key=key, pose=[0.0] * 16, t0=[0.0] * 16,
-                               seconds={}, total=0.0,
-                               skipped='error:%s' % type(exc).__name__,
-                               note=str(exc)[:200])
-                    print('[skip] %s %s' % (key, type(exc).__name__), flush=True)
-                sink.write(json.dumps(row) + '\n')
-                sink.flush()
-                done[row['key']] = row
-                finished.append(row)
-                if len(finished) % 20 == 0:
-                    print('[frame] %d/%d %s serial=%.3fs'
-                          % (len(finished), len(todo), row['key'], row.get('total', 0.0)),
-                          flush=True)
+def main(argv=None):
+    ap = parser()
+    args = ap.parse_args(argv)
+    try:
+        args.shard_index, args.shard_count = map(int, args.shard.split('/'))
+        if not 0 <= args.shard_index < args.shard_count:
+            raise ValueError('invalid shard')
+        if (args.limit < 0 or args.stride < 1 or not 1 <= args.threads <= 4
+                or not 0 < args.gpu_fraction <= 0.15 or not 0 < args.max_rss_gib <= 12
+                or not math.isfinite(args.min_free_gib) or args.min_free_gib < 1
+                or args.visual_budget < 1 or args.canonical_index < 0
+                or not math.isfinite(args.k) or args.k < 0 or not math.isfinite(args.gate2)
+                or not args.gpu.isdigit()):
+            raise ValueError('invalid arguments or resource limit exceeds safety policy')
+        for name in ('scan', 'image', 'calibration', 'keys_file', 'refs', 'sam_checkpoint', 'sam_cache_root'):
+            value = getattr(args, name)
+            if name == 'sam_checkpoint' and args.sam_source != 'live':
+                continue
+            if name == 'sam_cache_root' and args.sam_source != 'cached':
+                continue
+            if value:
+                setattr(args, name, str(Path(value).resolve(strict=True)))
+        runtime_dir = configure(args)
+        selected = select_inputs(args)
+        if not selected:
+            raise ValueError('no selected frames')
+        if args.check_inputs:
+            missing = []
+            for spec in selected:
+                valid_pose(spec['T_BC'])
+                for name in ('scan_path', 'image_path'):
+                    if not Path(spec[name]).is_file():
+                        missing.append(dict(key=spec['key'], path=spec[name]))
+            print(json.dumps(dict(frames=len(selected), missing_count=len(missing),
+                                  missing=missing[:20], models_loaded=False, upstream='live',
+                                  experts='parallel', dates=sorted({r['key'].split('/')[0] for r in selected}))))
+            return 1 if missing else 0
+        path = output_path(args.out)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        meta_path = path.with_suffix(path.suffix + '.meta.json')
+        config = {k: v for k, v in vars(args).items() if k not in ('resume', 'check_inputs')}
+        config['code_sha256'] = {name: sha_file(PROJECT / name) for name in
+                                ('e2e_online.py', 'online_frontend.py', 'arbitration.py',
+                                 'visual_branch.py', 'visual_ordered.py', 'visual_accelerated.py', 'stages/fast_search/fast_lib.py',
+                                 'bounded_kernel.py', 'kernels/libgrid.so',
+                                 'light_selection.py', 'gpu_selection.py',
+                                 'stages/fast_search/pipeline.py', 'stages/fast_search/adaptive.py')}
+        config['refs_sha256'] = sha_file(args.refs)
+        if args.sam_source == 'live':
+            config['sam_sha256'] = sha_file(args.sam_checkpoint)
         else:
-            threads = [threading.Thread(target=decode_worker, name='T1-decode'),
-                       threading.Thread(target=geom_worker, name='T3-geometric')]
-            for thread in threads:
-                thread.daemon = True
-                thread.start()
-            width = max(1, args.refine_replicas)
+            config['sam_cache_manifests'] = {date: sha_file(Path(args.sam_cache_root) / date / 'cache_manifest.json')
+                                           for date in sorted({r['key'].split('/')[0] for r in selected})}
+        if args.resume:
+            if json.loads(meta_path.read_text()) != config:
+                raise ValueError('resume configuration differs; use a new output path')
+        elif path.exists() or meta_path.exists():
+            raise ValueError('output exists; use --resume or a new --out')
+        guard = ResourceGuard(args)
+        localizer = None
+        try:
+            import fcntl
+            with path.open('r+' if args.resume else 'x+', encoding='utf-8') as sink:
+                fcntl.flock(sink.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                if not args.resume:
+                    with meta_path.open('x', encoding='utf-8') as meta:
+                        json.dump(config, meta, sort_keys=True, allow_nan=False)
+                done = read_done(sink)
+                localizer = None
+                failures = 0
+                todo = []
+                for spec in selected:
+                    signature = input_signature(spec)
+                    if spec['key'] in done:
+                        if done[spec['key']] != signature:
+                            raise ValueError('completed input changed: ' + spec['key'])
+                    else:
+                        todo.append((spec, signature))
+                if todo:
+                    from concurrent.futures import ThreadPoolExecutor
+
+                    localizer = ParallelLocalizer(args, runtime_dir)
+                    width = args.frontend_workers
+                    batches = [todo[i:i + width] for i in range(0, len(todo), width)]
+                    with ThreadPoolExecutor(max_workers=1) as prefetch:
+                        pending = prefetch.submit(localizer.prepare_many, [r[0] for r in batches[0]])
+                        for index, batch in enumerate(batches):
+                            guard.check()
+                            try:
+                                prepared = pending.result()
+                                if index + 1 < len(batches):
+                                    pending = prefetch.submit(localizer.prepare_many,
+                                                              [r[0] for r in batches[index + 1]])
+                                rows = localizer.predict_many(prepared)
+                            except Exception as exc:
+                                for spec, signature in batch:
+                                    row = dict(key=spec['key'], status='error', T=None,
+                                               input_signature=signature,
+                                               error='%s: %s' % (type(exc).__name__, exc))
+                                    sink.write(json.dumps(row, allow_nan=False) + '\n')
+                                sink.flush()
+                                raise
+                            for row, (spec, signature) in zip(rows, batch):
+                                row['input_signature'] = signature
+                                sink.write(json.dumps(row, allow_nan=False) + '\n')
+                                sink.flush()
+                                print(json.dumps(dict(key=row['key'], status=row['status'], T=row['T'],
+                                                      chosen=row['arbitration']['chosen'])), flush=True)
+                return 1 if failures else 0
+        finally:
             try:
-                stop = False
-                while not stop:
-                    item = q1.get()
-                    if item is None:
-                        break
-                    batch, sentinel = [item], False
-                    while len(batch) < width and not ctx['error']:
-                        try:
-                            nxt = q1.get(timeout=0.05)
-                        except queue.Empty:
-                            break
-                        if nxt is None:
-                            sentinel = True
-                            break
-                        batch.append(nxt)
-                    try:
-                        if ctx['parallel'] is None:
-                            batch = [stage_gpu(one, ctx) for one in batch]
-                        else:
-                            stage_gpu_batch(batch, ctx)
-                    except BaseException as exc:
-                        # one bad frame must not stall the whole pipeline: record it
-                        # and keep the queues moving
-                        for one in batch:
-                            write_skip(one.get('key', '?'),
-                                       'gpu:%s' % type(exc).__name__, exc)
-                        continue
-                    for one in batch:
-                        if not put_block(q2, one):
-                            stop = True
-                            break
-                    stop = stop or sentinel
-            except BaseException:
-                ctx['error'] = traceback.format_exc()
+                if localizer is not None:
+                    localizer.frontend.close()
             finally:
-                put_block(q2, None, raise_on_error=False)
-                for thread in threads:
-                    thread.join()
-    if ctx['parallel'] is not None:
-        ctx['parallel'].close()
-    if ctx['error']:
-        raise RuntimeError('pipeline failed:\n' + ctx['error'])
-
-    # ---- (g) npz for the whole shard (resumed keys come from the jsonl)
-    shard_keys = [k for k, _ in pairs if k in done]
-    poses = (np.stack([np.asarray(done[k]['pose'], np.float64).reshape(4, 4)
-                       for k in shard_keys]) if shard_keys
-             else np.zeros((0, 4, 4), np.float64))
-    np.savez(npz_path, keys=np.array(shard_keys), poses=poses)
-
-    # ---- scoring against inputs/initial.npz (measurement only, never an input)
-    with np.load(INITIAL_NPZ, allow_pickle=False) as archive:
-        ref_poses = np.asarray(archive['poses'], np.float64)
-        lag = {str(k): i for i, k in enumerate(archive['keys'])}
-    t0_error, final_error = [], []
-    for key in shard_keys:
-        if key not in lag:
-            continue                           # keys outside the scored subset
-        i = lag[key]
-        t0_error.append(float(np.linalg.norm(
-            np.asarray(done[key]['t0'], np.float64).reshape(4, 4)[:3, 3] - ref_poses[i][:3, 3])))
-        final_error.append(float(np.linalg.norm(
-            np.asarray(done[key]['pose'], np.float64).reshape(4, 4)[:3, 3]
-            - ref_poses[i][:3, 3])))
-
-    rows = [done[k] for k in shard_keys]
-    steady = rows[1:]                          # drop frame 0: pipeline fill + CUDA warm-up
-    totals = {name: 0.0 for name in STAGES}
-    per_frame, rss_trace = [], []
-    for row in (steady or rows):
-        if not row.get('seconds'):             # a skipped frame has no stage timings
-            continue
-        for name in STAGES:
-            totals[name] += float(row['seconds'].get(name, 0.0))
-        per_frame.append(float(row['total']))
-        rss_trace.append(float(row['rss_MiB']))
-    count = len([r for r in (steady or rows) if r.get('seconds')])
-    gated = [r for r in rows if r.get('visual_gated')]
-    attempted = [r for r in gated if r.get('visual_attempted')]
-    accepted = [r for r in gated if r.get('visual')]
-    visual_seconds = sorted(float(r.get('visual_seconds') or 0.0) for r in gated)
-    visual_summary = dict(
-        gated=len(gated), attempted=len(attempted), accepted=len(accepted),
-        seconds_median=(round(median(visual_seconds), 4) if visual_seconds else None),
-        seconds_p90=(round(visual_seconds[min(len(visual_seconds) - 1,
-                                              int(0.9 * (len(visual_seconds) - 1)))], 4)
-                     if visual_seconds else None),
-        decisions=[dict(key=r['key'], ratio=r.get('ratio'), c_route3=r.get('c_route3'),
-                        c_visual=r.get('c_visual'), dcost=r.get('dcost'),
-                        chosen=r.get('chosen'), score=r.get('visual_score'),
-                        seconds=r.get('visual_seconds'), note=r.get('visual_note'))
-                   for r in gated])
-    if count:
-        mean = {name: totals[name] / count for name in STAGES}
-        # steady state = wall clock between the first and the last completed frame
-        ends = sorted(row['t_end'] for row in (steady or rows))
-        span = ends[-1] - ends[0]
-        span = span if span > 0 else sum(per_frame)
-        period = span / (count - 1) if count > 1 else sum(mean.values())
-        util = {name: round(mean[name] / period, 3) for name in STAGES}
-        report = dict(
-            mode='online', frames=count, resumed=len(pairs) - len(todo),
-            keys_from=args.keys_from, shard='%d/%d' % (args.shard_index, args.shard_count),
-            dates=args.dates, threads=args.threads, gate2=args.gate2, delta=args.delta,
-            pipeline_depth=args.queue, ratio_diagnostic=bool(args.ratio),
-            visual=bool(args.visual), visual_budget=args.visual_budget,
-            visual_arm=args.visual_arm,
-            stage_seconds_mean={k: round(v, 6) for k, v in mean.items()},
-            serial_work_mean=round(sum(mean.values()), 6),
-            stage_utilization=util,
-            steady_span_seconds=round(span, 3),
-            steady_ms_per_frame=round(1000.0 * period, 1),
-            steady_frames_per_second=round(1.0 / period, 4),
-            per_frame_total_median=round(median(per_frame), 6),
-            per_frame_total_p90=round(sorted(per_frame)[min(count - 1, int(0.9 * (count - 1)))], 6),
-            peak_gpu_allocated_MiB=round(torch.cuda.max_memory_allocated() / 2. ** 20, 1),
-            peak_gpu_reserved_MiB=round(torch.cuda.max_memory_reserved() / 2. ** 20, 1),
-            rss_MiB=dict(first=round(rss_trace[0], 1), mid=round(rss_trace[count // 2], 1),
-                         last=round(rss_trace[-1], 1), peak=round(peak_rss_mib(), 1)),
-            scored_against_initial=len(t0_error),
-            skipped_not_in_initial=len(rows) - len(t0_error),
-            t0_position_error_m=dict(mean=round(sum(t0_error) / len(t0_error), 4),
-                                     median=round(median(t0_error), 4))
-            if t0_error else None,
-            final_position_error_m=dict(mean=round(sum(final_error) / len(final_error), 4),
-                                        median=round(median(final_error), 4))
-            if final_error else None,
-            visual_summary=visual_summary,
-            decode_identity=ctx['probe']['decode'] if ctx['probe'] else None,
-            gt_online_attempts=len(runtime.denied), npz=npz_path, jsonl=jsonl_path)
-    else:
-        report = dict(mode='online', frames=0, note='all keys already done',
-                      npz=npz_path, jsonl=jsonl_path)
-    print('[report] ' + json.dumps(report, sort_keys=True))
-    if runtime.denied:
-        raise AssertionError('test GT was touched: %r' % (runtime.denied,))
-    return 0
-
-
-# --------------------------------------------------------------------------- #
-def main():
-    parser = argparse.ArgumentParser(description='online single-file e2e relocalisation driver')
-    parser.add_argument('--mode', choices=('online', 'integration'), default='online')
-    parser.add_argument('--shard', default='0/1', help='i/n')
-    parser.add_argument('--limit', type=int, default=0, help='0 = all selected frames')
-    parser.add_argument('--dates', default='2012-02-12,2012-02-19')
-    parser.add_argument('--keys-from', choices=('frames', 'records'), default='frames',
-                        help='frames: inputs/frames.json (1502); records: all 104732')
-    parser.add_argument('--out-prefix', default='results/online')
-    parser.add_argument('--threads', type=int, default=4)
-    parser.add_argument('--queue', type=int, default=3,
-                        help='pipeline queue depth; 0 = serial (no overlap)')
-    parser.add_argument('--refine-replicas', type=int, default=1,
-                        help='>1 drives the refine stage with the project%ss ParallelFrames'
-                             ' (N model replicas, N streams); changes T0 by 3-5 cm' % "'")
-    parser.add_argument('--gate2', type=float, default=0.01,
-                        help='descent depth needed before the search runs; 0.01 is the full-set working point')
-    parser.add_argument('--confidence-gate', type=int, default=0,
-                        help='1 = decide the translation with the cross-view consistency score '
-                             '(rotation is kept either way); off by default until certified')
-    parser.add_argument('--delta', type=float, default=0.05)
-    parser.add_argument('--visual', type=int, default=0,
-                        help='1 = live visual branch on gated frames (needs --ratio 1)')
-    parser.add_argument('--visual-budget', type=int, default=8,
-                        help='visual hypotheses laser-scored per gated frame')
-    parser.add_argument('--visual-arm', default='frozen_noprune',
-                        help='LightGlue arm: frozen_noprune (as the frozen table) or v8_noprune')
-    parser.add_argument('--keys-file', default='',
-                        help='JSON list of frame keys to run, in that order')
-    parser.add_argument('--ratio', type=int, default=0,
-                        help='1 = also run the ambiguity sweep (diagnostic only; off when'
-                             ' the visual branch is disabled)')
-    parser.add_argument('--check-decode', type=int, default=1,
-                        help='1 = prove the shared decode equals fast_lib.decode() once')
-    parser.add_argument('--rot-eps', type=float, default=0.01,
-                        help='cost improvement needed to accept a rotation step')
-    parser.add_argument('--rot-only', type=int, default=1,
-                        help='1 = also run the rotation-only block (the completed full '
-                             'run used 1; off by default because it costs orientation)')
-    parser.add_argument('--check-keys', type=int, default=5)
-    parser.add_argument('--gpu', default='2')
-    args = parser.parse_args()
-    args.shard_index, args.shard_count = (int(x) for x in args.shard.split('/'))
-    if not 0 <= args.shard_index < args.shard_count:
-        parser.error('--shard must be i/n with 0 <= i < n')
-    if args.visual and not args.ratio:
-        parser.error('--visual 1 needs --ratio 1: the visual branch is only queried on frames'
-                     ' the ambiguity gate flags')
-
-    set_env(args.gpu)
-    return mode_integration(args) if args.mode == 'integration' else mode_online(args)
+                guard.close()
+    except (ValueError, RuntimeError) as exc:
+        ap.error(str(exc))
 
 
 if __name__ == '__main__':
-    try:
-        sys.exit(main())
-    except Exception:
-        traceback.print_exc()
-        sys.exit(1)
-
-
-
-
-
-
-
+    sys.exit(main())

@@ -14,9 +14,11 @@ and `--score-voxel 0.4` matches the recorded `fair.geometry_score` exactly.
 Nothing is read from that pose table here.  Every call re-derives the hypothesis from the
 frame's own image and scan:
 
-    retrieval        DINOv2 ViT-B/14 CLS cosine top5  union  the 5 library references
-                     nearest to the pose prior (offline the prior was the frame's own
-                     SC2 initial pose; online it is the driver's geometric pose T0)
+    retrieval        SALAD (DINOv2 ViT-B/14 backbone + SALAD head, GSV-Cities
+                     weights) global cosine top-5 over the whole library.  ONE
+                     channel, no pose: `retrieve` takes an image path and nothing
+                     else, and refuses a 4x4 pose, a 3-vector position or a 3x3
+                     rotation handed to it.  See `salad_retrieval.py`.
     matching         SuperPoint(max_num_keypoints=256, threshold 1e-4) once, then ONE
                      batched LightGlue pass (early stop / width filter disabled) over the
                      frame's whole reference list; per-reference passes are the fallback
@@ -44,7 +46,7 @@ references the Oct-13 run never needed).
 Usage
     from visual_branch import VisualBranch
     branch = VisualBranch()                       # loads retrieval + matcher once
-    hyp = branch.hypothesize(key, image_path, pose_prior=T0)
+    hyp = branch.hypothesize(key, image_path)      # image only: retrieval is pose-free
     if hyp:  hyp['pose'], hyp['score'], hyp['n_candidates'], hyp['seconds'], hyp['detail']
 """
 import os
@@ -53,15 +55,14 @@ import time
 
 import numpy as np
 
+# --- reference selection: SALAD, one channel, no pose --------------------------
+from salad_retrieval import TOP_K_REFERENCES, SaladRetrieval, reject_pose_like
+
 # --- frozen producer project (geometry, PnP, camera model, plan) ---------------
 SP_PROJECT = '/home/zhangcy/projects/sp-lightglue-hard1502-20261013-v1'
 SP_VENDOR = '/home/zhangcy/projects/sp-lightglue-four-20261013-v1/vendor'
 SP_VENDOR_PY = '/home/zhangcy/projects/sp-lightglue-four-20261013-v1/vendor-py'
 SP_HUB = '/home/zhangcy/projects/sp-lightglue-four-20261013-v1/torch_hub'
-CLS_ROOT = '/home/zhangcy/projects/v7-dinov2-recall-20261012-v1'
-CLS_DATA = '/data2/zhangcy/v7-dinov2-recall-20261012-v1'
-REFERENCE_CLS = os.path.join(CLS_DATA, 'reference-cls.npy')
-DINOV2_WEIGHTS = os.path.join(CLS_DATA, 'dinov2_vitb14_pretrain.pth')
 DATA = '/data2/zhangcy/leader-v2-full-trajectory-20261001'
 SCRATCH = '/home/zhangcy/.dsh_scratch/vb'
 IMAGE_EDGE = 560
@@ -69,7 +70,6 @@ KEYPOINT_BUDGET = 256      # producer `--budget 256`
 DETECTION_THRESHOLD = 1e-4  # producer `--threshold` (used only with the fixed budget)
 PER_KEYPOINT = 3           # capped candidates per query keypoint (`--per-keypoint 3`)
 ASSOC_RADIUS_PX = 3.5      # `association_radius_px`
-TOP_K_REFERENCES = 5       # provider: 5 per channel
 NEIGHBOURS = 16            # filtered NN escalation base (verify_prov `--neighbours`)
 SCORE_VOXEL = 0.4          # scoring-time query coarsening (--score-voxel 0.4 in the REF run)
 PNP_TRIALS = 8             # the producer's optional `--fast-pnp` trial count
@@ -87,10 +87,6 @@ def _model_image(path):
         left, top = (rw - cw) // 2, (rh - ch) // 2
         image = image.crop((left, top, left + cw, top + ch))
         return np.asarray(image).copy()
-
-
-def _unit(a):
-    return a / np.maximum(np.linalg.norm(a, axis=-1, keepdims=True), 1e-12)
 
 
 def _kdtree(points):
@@ -136,7 +132,6 @@ class VisualBranch(object):
         self.score_voxel = score_voxel
         self.fast_pnp = bool(fast_pnp)
 
-        self.reference_cls = _unit(np.load(REFERENCE_CLS).astype(np.float32))
         self.device = device
 
         import torch
@@ -173,32 +168,13 @@ class VisualBranch(object):
             torch.cuda.set_device(0)
             self.extractor = self.extractor.cuda()
             self.matcher = self.matcher.cuda()
+        # the reference-selection rule: SALAD weights and the reference descriptor
+        # matrix, both read from fixed paths inside this checkout
+        self.salad = SaladRetrieval(device)
         self._features = {}
         self._projections = {}
-        self._cls = None
 
     # ------------------------------------------------------------------ models
-    def _cls_model(self):
-        if self._cls is None:
-            torch = self.torch
-            model = torch.hub.load(os.path.join(CLS_ROOT, 'dinov2-source'), 'dinov2_vitb14',
-                                   source='local', pretrained=False)
-            model.load_state_dict(torch.load(DINOV2_WEIGHTS, map_location='cpu'))
-            model = model.eval().requires_grad_(False)
-            self._cls = model.cuda() if self.device == 'cuda' else model
-        return self._cls
-
-    def embed(self, image_path):
-        """DINOv2 CLS embedding, the frozen image pipeline plus the frozen normalisation."""
-        torch = self.torch
-        model = self._cls_model()
-        x = torch.from_numpy(_model_image(image_path)).permute(2, 0, 1).float() / 255
-        x = ((x - torch.tensor([.485, .456, .406])[:, None, None])
-             / torch.tensor([.229, .224, .225])[:, None, None])
-        with torch.inference_mode():
-            g = model.forward_features(x[None].to(self.device))['x_norm_clstoken'][0]
-        return _unit(g.float().cpu().numpy())
-
     def extract(self, image_path):
         """SuperPoint features, the producer's extractor and image pipeline."""
         torch = self.torch
@@ -281,19 +257,21 @@ class VisualBranch(object):
                 row['body_position_world'], dtype=np.float64)
 
     # ------------------------------------------------------------- retrieval
-    def retrieve(self, image_path, pose_prior=None, channels=TOP_K_REFERENCES):
-        """CLS cosine top-k union position-nearest-k, the frozen provider rule."""
-        similarity = self.reference_cls @ self.embed(image_path).astype(np.float32)
-        visual = [int(i) for i in np.argsort(-similarity)[:channels]]
-        detail = dict(visual=visual, visual_cosine=[float(similarity[i]) for i in visual],
-                      position=[])
-        if pose_prior is not None:
-            prior = np.asarray(pose_prior, dtype=np.float64)
-            distance = np.linalg.norm(self.positions - prior[:3, 3], axis=1)
-            detail['position'] = [int(i) for i in np.argsort(distance)[:channels]]
-            detail['position_distance_m'] = [float(distance[i]) for i in detail['position']]
-        merged = list(dict.fromkeys(detail['visual'] + detail['position']))
-        return merged, detail
+    def retrieve(self, image_path, *extra):
+        """SALAD global cosine top-`TOP_K_REFERENCES`.  This is the whole rule.
+
+        The signature is the contract: one image path, then the reference ids.  There
+        is no pose argument, no position argument, no channel count and no second
+        channel.  Anything extra handed in is refused rather than ignored, so a caller
+        still written against the old two-channel rule fails loudly instead of silently
+        getting a different reference list.
+        """
+        if extra:
+            for value in extra:
+                reject_pose_like(value, 'retrieve')
+            raise TypeError('retrieve takes one image path, got %d extra arguments'
+                            % len(extra))
+        return self.salad.topk(image_path, TOP_K_REFERENCES)
 
     # ------------------------------------------------------------- matching
     def _match_frame(self, image_path, reference_ids):
@@ -632,8 +610,7 @@ class VisualBranch(object):
         return out
 
     # ------------------------------------------------------------- one frame
-    def hypothesize(self, key, image_path, budget=8, pose_prior=None, scan=None,
-                    scan_path=None):
+    def hypothesize(self, key, image_path, budget=8, scan=None, scan_path=None):
         """Return the best verified visual pose for this frame, or None.
 
         budget = how many qualified hypotheses are laser-scored (the expensive part);
@@ -650,7 +627,7 @@ class VisualBranch(object):
         if len(query_cloud) < 500:
             return None
 
-        references, retrieval = self.retrieve(image_path, pose_prior)
+        references, retrieval = self.retrieve(image_path)
         if not references:
             return None
         t_retrieval = time.monotonic() - started
