@@ -124,3 +124,12 @@ class LinearHead(nn.Module):
         flat = code[0].permute(1, 2, 0).reshape(-1, code.shape[1])
         out = flat @ self.weight.t() + self.mean
         return out.t().reshape(1, self.weight.shape[0], code.shape[2], code.shape[3])
+
+
+def expand_with(code, weight, mean):
+    """Expand a 64-d code with an external basis: x = code @ weight^T + mean."""
+    if code.dim() == 3:
+        code = code.unsqueeze(0)
+    flat = code[0].permute(1, 2, 0).reshape(-1, code.shape[1])
+    out = flat @ weight.t() + mean
+    return out.t().reshape(1, weight.shape[0], code.shape[2], code.shape[3])

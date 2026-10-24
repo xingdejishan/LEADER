@@ -31,7 +31,8 @@ def check_environment(output):
     if os.getuid() != 1003 or sys.prefix != "/home/zhangcy/.conda/envs/leader":
         raise RuntimeError("Use the zhangcy-owned leader environment")
     output = Path(output).resolve()
-    if Path("/home/zhangcy/projects").resolve() not in output.parents:
+    if (Path("/home/zhangcy/projects").resolve() not in output.parents
+            and Path("/data2/zhangcy").resolve() not in output.parents):
         raise ValueError("Output is outside own projects")
     parent = output
     while not parent.exists():
@@ -45,7 +46,7 @@ def check_environment(output):
     return output
 
 
-def predict(output, gpu, shard, shards, encoder_path, width):
+def predict(output, gpu, shard, shards, encoder_path, width, learned_adapter=False, sparse=False):
     os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu)
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     status = subprocess.check_output([
@@ -109,11 +110,31 @@ def predict(output, gpu, shard, shards, encoder_path, width):
             with torch.no_grad():
                 code = encoder(sam_preprocess(frame["rgb"], frame["hw"]))[0].float()
             variants = {"fp16": sam}
+            pixels = frame["pixels"].detach().cpu().numpy().astype(np.float64)
+            hw = frame["hw"]
+            valid_h = int(np.ceil(hw[0] / 16.0))
+            valid_w = int(np.ceil(hw[1] / 16.0))
+            cells = np.zeros((64, 64), dtype=bool)
+            for gx, gy in pixels * np.array([hw[1] / 1024.0, hw[0] / 1024.0])[None, :] * (64.0 / 1024.0):
+                x = int(np.clip(np.floor(gx), 0, 63))
+                y = int(np.clip(np.floor(gy), 0, 63))
+                cells[y, x] = True
+                cells[y, min(x + 1, 63)] = True
+                cells[min(y + 1, 63), x] = True
+                cells[min(y + 1, 63), min(x + 1, 63)] = True
+            mask = torch.from_numpy(cells[:valid_h, :valid_w]).cuda()
             for bits in BITS:
                 levels = float(2 ** (bits - 1) - 1)
                 scale = code.abs().amax(dim=(1, 2), keepdim=True).clamp_min(1e-8) / levels
                 quantised = torch.clamp(torch.round(code / scale), -levels, levels) * scale
-                variants["student_b%d" % bits] = expand(quantised)
+                if sparse:
+                    kept = quantised[:, :valid_h, :valid_w] * mask
+                    quantised = torch.zeros_like(quantised)
+                    quantised[:, :valid_h, :valid_w] = kept
+                if learned_adapter:
+                    variants["student_b%d" % bits] = encoder.expand(quantised.unsqueeze(0))[0]
+                else:
+                    variants["student_b%d" % bits] = expand(quantised)
             for name, features in variants.items():
                 frame["sam"] = features
                 tick = time.monotonic()
@@ -213,10 +234,12 @@ def main():
     parser.add_argument("--shards", type=int, default=1)
     parser.add_argument("--encoder", default="")
     parser.add_argument("--width", type=int, default=128)
+    parser.add_argument("--learned-adapter", action="store_true")
+    parser.add_argument("--sparse", action="store_true")
     args = parser.parse_args()
     output = check_environment(args.output)
     if args.mode == "predict":
-        predict(output, args.gpu, args.shard, args.shards, args.encoder, args.width)
+        predict(output, args.gpu, args.shard, args.shards, args.encoder, args.width, args.learned_adapter, args.sparse)
     else:
         score(output)
 

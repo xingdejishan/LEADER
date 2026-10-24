@@ -1,0 +1,10 @@
+{
+ "frames": 160,
+ "mean_coverage": 0.1140605070153061,
+ "median_coverage": 0.10682397959183673,
+ "p10": 0.09103954081632652,
+ "p90": 0.1486926020408163,
+ "max_coverage": 0.17665816326530612,
+ "mean_pixels": 1994.2875,
+ "grid": "64x64, valid rows up to ceil(hw/16)"
+}

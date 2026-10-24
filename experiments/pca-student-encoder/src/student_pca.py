@@ -52,6 +52,10 @@ def main():
     parser.add_argument("--w-code", type=float, default=1.0)
     parser.add_argument("--w-desc", type=float, default=2.0)
     parser.add_argument("--w-energy", type=float, default=1.0)
+    parser.add_argument("--w-margin", type=float, default=0.0)
+    parser.add_argument("--w-rot", type=float, default=0.0)
+    parser.add_argument("--learned-adapter", action="store_true",
+                        help="ablation: keep the 256-d learned adapter instead of the fixed PCA expansion")
     parser.add_argument("--resume", default="")
     args = parser.parse_args()
 
@@ -161,14 +165,20 @@ def main():
                     x = sam_preprocess(rgb, hw)
                     with torch.cuda.amp.autocast():
                         code = encoder(x)[0]
+                    if args.learned_adapter:
+                        restored = encoder.expand(code.float().unsqueeze(0))[0]
+                        code_for_loss = to_code(restored.float())
+                    else:
+                        restored = from_code(code.float())
+                        code_for_loss = code.float()
                     observed_student = model.observation_batch(
-                        [from_code(code.float())], [rgb], [frame["pixels"]], [hw])[0]
+                        [restored], [rgb], [frame["pixels"]], [hw])[0]
                     loss_desc = 1.0 - F.cosine_similarity(
                         observed_student, observed_teacher, dim=-1).mean()
 
                     scale = teacher_code.float().abs().amax(dim=(1, 2), keepdim=True).clamp_min(1e-6)
-                    loss_code = F.l1_loss(code.float() / scale, teacher_code.float() / scale) + \
-                        (1.0 - F.cosine_similarity(code.float().permute(1, 2, 0).reshape(-1, 64),
+                    loss_code = F.l1_loss(code_for_loss / scale, teacher_code.float() / scale) + \
+                        (1.0 - F.cosine_similarity(code_for_loss.permute(1, 2, 0).reshape(-1, 64),
                                                    teacher_code.float().permute(1, 2, 0).reshape(-1, 64),
                                                    dim=-1)).mean()
 
@@ -205,8 +215,58 @@ def main():
                     loss_rank = torch.stack(terms).mean() if terms else e_s.sum() * 0
                     loss_energy = F.smooth_l1_loss(e_s / spread, e_t / spread)
 
+                    # decision-boundary decoys: the metric calls a frame a success at 1 m / 2 deg,
+                    # so what must be rejected are the poses just past that line, not the far
+                    # ones (a pose 8 m away already produces a much higher energy).
+                    track = gt_local[:3, 0] / gt_local[:3, 0].norm().clamp_min(1e-6)
+                    lateral = torch.cross(track, torch.tensor([0.0, 0.0, 1.0],
+                                                             dtype=track.dtype, device=track.device))
+                    lateral = lateral / lateral.norm().clamp_min(1e-6)
+                    decoys = []
+                    for offset in (-0.4, -0.7, -1.0, -1.5, 0.4, 0.7, 1.0, 1.5):
+                        decoy = gt_local.clone()
+                        decoy[:3, 3] = decoy[:3, 3] + offset * track
+                        decoys.append(decoy)
+                    for offset in (-1.0, -0.5, 0.5, 1.0):
+                        decoy = gt_local.clone()
+                        decoy[:3, 3] = decoy[:3, 3] + offset * lateral
+                        decoys.append(decoy)
+                    from models.far import so3_exp
+                    for degrees in (-3.0, -1.5, 1.5, 3.0):
+                        decoy = gt_local.clone()
+                        axis = torch.tensor([0.0, 0.0, degrees * np.pi / 180], dtype=torch.float64,
+                                            device=track.device)
+                        decoy[:3, :3] = so3_exp(axis) @ gt_local[:3, :3]
+                        decoys.append(decoy)
+                    e_true = selfverify.energy(model, gt_local, context_student)[0]
+                    e_decoys = torch.stack([
+                        selfverify.energy(model, d, context_student)[0] for d in decoys])
+                    floor = 0.1 * spread
+                    loss_margin = torch.stack([
+                        torch.clamp(floor - (d - e_true), min=0.0) / spread
+                        for d in e_decoys]).mean()
+
+                    # rotation direction: require the energy at the true rotation to beat poses
+                    # rotated away from it, one axis at a time and at the scale that matters
+                    # (1 to 4 degrees).  The refiner currently rotates in a direction that is
+                    # only weakly correlated with the true correction, so this term targets the
+                    # direction of the gradient rather than the value of the energy.
+                    rotation_terms = []
+                    for axis_index in range(3):
+                        for degrees in (1.0, 2.0, 4.0):
+                            axis = torch.zeros(3, dtype=torch.float64, device=track.device)
+                            axis[axis_index] = degrees * np.pi / 180
+                            away = gt_local.clone()
+                            away[:3, :3] = so3_exp(axis) @ gt_local[:3, :3]
+                            away_value = selfverify.energy(model, away, context_student)[0]
+                            rotation_terms.append(torch.clamp(
+                                0.1 * spread - (away_value - e_true), min=0.0) / spread)
+                    loss_rotation = torch.stack(rotation_terms).mean()
+
                     loss = (args.w_code * loss_code + args.w_desc * loss_desc
-                            + args.w_energy * (loss_energy + loss_rank))
+                            + args.w_energy * (loss_energy + loss_rank)
+                            + args.w_margin * loss_margin
+                            + args.w_rot * loss_rotation)
                     optimizer.zero_grad(set_to_none=True)
                     scaler.scale(loss).backward()
                     scaler.unscale_(optimizer)
@@ -217,15 +277,16 @@ def main():
                 step += 1
                 entry = dict(step=step, key=key, loss=float(loss), code=float(loss_code),
                              desc=float(loss_desc), energy=float(loss_energy),
-                             rank=float(loss_rank))
+rank=float(loss_rank), margin=float(loss_margin),
+rotation=float(loss_rotation))
                 history.append(entry)
                 log.write(json.dumps(entry) + "\n")
                 if step % 10 == 0:
                     recent = history[-10:]
-                    print("step %4d loss %.4f code %.4f desc %.4f energy %.3f rank %.4f  %.0fs" % (
+                    print("step %4d loss %.4f code %.4f desc %.4f energy %.3f rank %.4f margin %.3f rot %.3f  %.0fs" % (
                         step, np.mean([r["loss"] for r in recent]), np.mean([r["code"] for r in recent]),
                         np.mean([r["desc"] for r in recent]), np.mean([r["energy"] for r in recent]),
-                        np.mean([r["rank"] for r in recent]), time.time() - started), flush=True)
+                        np.mean([r["rank"] for r in recent]), np.mean([r["margin"] for r in recent]), np.mean([r["rotation"] for r in recent]), time.time() - started), flush=True)
                     torch.save({"encoder": encoder.state_dict(), "step": step, "args": vars(args)},
                                out / "encoder.pt")
                 del frame, teacher_tokens, observed_teacher, observed_student

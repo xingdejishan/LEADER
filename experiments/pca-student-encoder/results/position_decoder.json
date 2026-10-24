@@ -1,0 +1,10 @@
+{
+ "frames": 40,
+ "r2_mean": 0.3489151582946593,
+ "r2_median": 0.34645392900991373,
+ "r2_p10": 0.32774238716118476,
+ "r2_max": 0.3965847089522714,
+ "quantisation_energy_mean": 5.832826166446109e-05,
+ "residual_over_quantisation": 11162.424922771892,
+ "rank_median": 64
+}
