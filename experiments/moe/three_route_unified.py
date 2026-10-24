@@ -189,16 +189,7 @@ def one(i):
         T3 = np.asarray(pose, float)
         ran = True
 
-    rotated = False
-    if _OPT['rot']:
-        q = scan[np.linalg.norm(scan, axis=1) <= 50]
-        cells = np.floor(q / 0.3).astype(np.int64)
-        _, ids = np.unique(cells, axis=0, return_index=True)
-        T_rot = rot_only(tree, mp, q[np.sort(ids)], T3)
-        rotated = bool(np.abs(T_rot[:3, :3] - T3[:3, :3]).max() > 1e-12)
-        T3 = T_rot
-
-    diag = dict(key=rec['key'], gain=float(gain), ran_fine=bool(ran), rotated=rotated)
+    diag = dict(key=rec['key'], gain=float(gain), ran_fine=bool(ran), rotated=False)
 
     if _OPT['mode'] == 'route3':
         diag.update(visual=False, chosen='route3')
@@ -251,7 +242,7 @@ def main():
     ap.add_argument('--gate2', type=float, default=-1.0,
                     help='descent threshold; -1 disables the gate (default, see README)')
     ap.add_argument('--delta', type=float, default=DEFAULT_DELTA)
-    ap.add_argument('--rot', action='store_true', default=True)
+    ap.add_argument('--rot', action='store_true', default=False, help='deprecated: the rotation block was removed (it bought 0.003 deg of MOE)')
     ap.add_argument('--limit', type=int, default=0, help='0 = all frames')
     ap.add_argument('--out', default=None)
     a = ap.parse_args()

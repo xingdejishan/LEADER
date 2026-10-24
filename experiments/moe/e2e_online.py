@@ -255,14 +255,9 @@ def geometric_branch(T0, scan, record, maps, cfg, gate2, F, P, rot_only=None,
     # only when the improvement exceeds eps. Applied only to frames that actually ran
     # the search (that is the configuration measured best on the full set: the search
     # fixes the translation, which is what makes the rotation fit informative).
+    # rotation block removed 2026-10-23: it bought 0.003 deg of MOE on the full set
     rotated = False
     rotated_pose = pose
-    if rot_only is not None and ran_fine:
-        q = scan[np.linalg.norm(scan, axis=1) <= 50]
-        cells = np.floor(q / 0.3).astype(np.int64)
-        _, ids = np.unique(cells, axis=0, return_index=True)
-        rotated_pose = rot_only(coarse['tree'], map_points, q[np.sort(ids)], pose)
-        rotated = bool(np.abs(rotated_pose[:3, :3] - pose[:3, :3]).max() > 1e-12)
 
     # confidence gate: keep the rotation, decide the translation
     confidence = None
@@ -521,8 +516,6 @@ def stage_geom(item, ctx):
     out = geometric_branch(item['T0'], item['scan'],
                            {'key': item['key'], 'scan_path': item['scan_path']},
                            ctx['maps'], ctx['cfg'], ctx['gate2'], ctx['F'], ctx['P'],
-                           rot_only=(lambda t, g, q, T: ctx['rot_only'](t, g, q, T, eps=ctx['rot_eps']))
-                           if ctx.get('use_rot') else None,
                            gate_on=bool(ctx.get('confidence_gate', False)))
     item['geometric'] = time.monotonic() - t0
     item['out'] = out
